@@ -4,6 +4,19 @@ All notable changes to this repository are documented here.
 
 The project uses semantic versioning for published skill revisions. Early versions may change structure while the conceptual model is stabilized.
 
+## [0.1.1] - 2026-08-22
+
+### Added
+
+- Skills CLI quick-start and install-count badge in the README.
+- A short activation example showing the intended evidence-to-strategy-to-copy behavior.
+- Explicit progressive-loading guidance for skills-compatible clients.
+- Resource routing from operating modes to the relevant handbook, framework, and bibliography files.
+
+### Changed
+
+- The operational skill now tells agents to load only the smallest task-relevant set of supporting resources instead of consulting the repository broadly by default.
+
 ## [0.1.0] - 2026-08-21
 
 ### Added
