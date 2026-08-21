@@ -30,14 +30,16 @@ Avoid:
 
 When adding a substantive empirical claim:
 
-1. cite the source in `references/bibliography.md`;
+1. cite the source in `skills/marketing-practitioner/references/bibliography.md`;
 2. state what the source actually identifies: description, association, prediction, experiment, review, or theory;
 3. preserve the population, setting, and material boundary conditions;
 4. avoid converting an average effect into a deterministic rule for every customer or market.
 
 ## Updating the agent skill
 
-`SKILL.md` should remain operational. Extended conceptual discussion belongs in `handbook/`. When a handbook change alters how an agent should act, update `SKILL.md` in the same change.
+`skills/marketing-practitioner/SKILL.md` should remain operational. Extended conceptual discussion belongs in `skills/marketing-practitioner/handbook/`. When a handbook change alters how an agent should act, update `SKILL.md` in the same change.
+
+Keep all runtime resources needed by the skill inside `skills/marketing-practitioner/` so they remain available when the skill is installed as a package.
 
 ## Writing style
 
