@@ -4,6 +4,15 @@ All notable changes to this repository are documented here.
 
 The project uses semantic versioning for published skill revisions. Early versions may change structure while the conceptual model is stabilized.
 
+## [0.1.2] - 2026-08-22
+
+### Changed
+
+- Packaged the installable skill under `skills/marketing-practitioner/`.
+- Moved `SKILL.md`, handbook, frameworks, and bibliography into the same skill directory so supporting resources travel with multi-file installations.
+- Aligned the skill directory name with the frontmatter name `marketing-practitioner`.
+- Updated README, contribution guidance, and attribution links for the packaged layout.
+
 ## [0.1.1] - 2026-08-22
 
 ### Added
