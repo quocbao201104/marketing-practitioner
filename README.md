@@ -132,7 +132,7 @@ The copywriting component adds a reader-first and truth-first writing method, to
 
 ### `SKILL.md`
 
-The operational specification for an AI agent. It defines when the skill should be used, the reasoning order, evidence rules, copywriting constraints, and output standards.
+The operational specification for an AI agent. It defines when the skill should be used, the reasoning order, evidence rules, copywriting constraints, output standards, and which supporting resources to load for a task.
 
 ### `handbook/`
 
@@ -190,7 +190,7 @@ This repository is a single-skill package: `SKILL.md` is at the repository root.
 
 ## Status
 
-**v0.1 — Foundation.** The initial edition establishes the domain model, operational skill, academic reference structure, and core practitioner instruments. It is expected to evolve through evidence review, practitioner feedback, and clearer boundary conditions rather than by accumulating tactics indiscriminately.
+**v0.1.1 — Foundation.** The initial edition establishes the domain model, operational skill, academic reference structure, and core practitioner instruments. The current patch also adds explicit resource routing so agents can load supporting material selectively. The project is expected to evolve through evidence review, practitioner feedback, and clearer boundary conditions rather than by accumulating tactics indiscriminately.
 
 ## Attribution
 
