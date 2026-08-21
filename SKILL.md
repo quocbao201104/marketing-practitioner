@@ -3,7 +3,7 @@ name: marketing-practitioner
 description: "Evidence-informed marketing and copywriting for AI agents. Use for customer-research synthesis, segmentation and ICP selection, positioning, value proposition, message strategy, landing pages, email and campaign copy, copy critique, funnel diagnosis, experiment design, localization, and marketing postmortems. Treat marketing as a market-learning and decision discipline: separate observation from interpretation, scope claims to evidence, establish strategy before prose, prefer proof to hype, distinguish attribution from causality, preserve uncertainty, and write in a clear human voice without inventing facts."
 license: MIT
 metadata:
-  version: "0.1.0"
+  version: "0.1.1"
   language: "en"
   domain: "marketing"
 ---
@@ -236,6 +236,26 @@ Identify global invariants and local variables. Require local evidence before st
 ## Postmortem / learning
 
 Record what was tried, what happened, what the result supports, what it weakens, what it does not prove, where it applies, what contradictions remain, and how the learning should alter future decisions.
+
+---
+
+# Resource routing
+
+Load supporting files only when they materially help the current task. Do not read the entire handbook by default.
+
+- For the shared evidence model, methodological boundaries, and overall operating logic, consult `handbook/00-foundations-and-method.md`.
+- For interviews, reviews, surveys, source quality, synthesis, and evidence handling, consult `handbook/01-customer-research-and-evidence.md`.
+- For segmentation, ICP selection, JTBD, and competitive alternatives, consult `handbook/02-segmentation-icp-and-jtbd.md`.
+- For category framing, positioning, differentiation, value, proof, and trade-offs, consult `handbook/03-positioning-and-value.md`.
+- For message strategy, claims, landing pages, email, campaign copy, and human-writing review, consult `handbook/04-messaging-proof-and-copy.md`.
+- For funnel diagnosis, causal reasoning, measurement, and experiments, consult `handbook/05-diagnosis-causality-and-experimentation.md`.
+- For postmortems, retained uncertainty, and organizational memory, consult `handbook/06-organizational-learning.md`.
+- For localization, market adaptation, cultural inference, and ethical persuasion, consult `handbook/07-international-marketing-and-ethics.md`.
+- For compact working forms used during research, positioning, messaging, experiments, and postmortems, consult `frameworks/practitioner-cards.md`.
+- For structured quality checks before final output, consult `frameworks/quality-rubrics.md`.
+- For source provenance or deeper literature review, consult `references/bibliography.md`.
+
+When more than one operating mode is required, load only the smallest set of supporting files needed for the decision. Prefer the operational rules in this `SKILL.md` when a supporting chapter provides broader conceptual context rather than a task-specific instruction.
 
 ---
 
