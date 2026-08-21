@@ -9,10 +9,54 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Language: English](https://img.shields.io/badge/language-English-4c1.svg)](#)
 [![Format: Agent Skill](https://img.shields.io/badge/format-Agent%20Skill-6f42c1.svg)](SKILL.md)
+[![skills.sh](https://skills.sh/b/quocbao201104/marketing-practitioner-skill)](https://skills.sh/quocbao201104/marketing-practitioner-skill)
 
 </div>
 
 ---
+
+## Quick start
+
+Install with the Skills CLI:
+
+```bash
+npx skills add quocbao201104/marketing-practitioner-skill
+```
+
+Then give your agent the market material and the decision you need to make. For example:
+
+```text
+I am repositioning this product for a new segment.
+Here are the product notes, customer interviews, reviews, and current landing page.
+
+Separate evidence from interpretation, identify contradictions and unknowns,
+recommend the strongest evidence-compatible positioning and message strategy,
+then draft the landing page without inventing claims.
+```
+
+The intended behavior is not to jump directly to polished copy. The skill first establishes what the evidence supports, what remains uncertain, who the message is for, which alternative matters, what positioning is defensible, and which claims can be made. Copy comes after those choices.
+
+## How the skill works
+
+This repository follows the Agent Skills model. `SKILL.md` contains the operational instructions. The handbook, frameworks, and bibliography provide deeper material that an agent can consult when the task requires it.
+
+In a skills-compatible client, the expected loading pattern is progressive:
+
+```text
+DISCOVER
+name + description
+      ↓
+ACTIVATE
+read SKILL.md when the task matches
+      ↓
+EXECUTE
+follow the operating method
+      ↓
+DEEPEN WHEN NEEDED
+consult handbook / frameworks / references
+```
+
+Exact installation, discovery, and activation behavior depends on the agent client. The repository is intentionally usable as a single skill package rather than requiring the entire handbook to be loaded into context for every marketing task.
 
 ## Overview
 
@@ -130,13 +174,19 @@ Human-sounding writing is treated as a **quality floor rather than a strategy**.
 
 ## Installation for agents
 
-This repository is a single-skill package: `SKILL.md` is at the repository root. Clone or copy the repository into the skill directory used by your agent.
+The fastest installation path for compatible clients is the Skills CLI:
+
+```bash
+npx skills add quocbao201104/marketing-practitioner-skill
+```
+
+To install or inspect it manually, clone the repository:
 
 ```bash
 git clone https://github.com/quocbao201104/marketing-practitioner-skill.git
 ```
 
-Agent-specific skill-directory conventions vary. Keep the repository intact so the skill can refer to the handbook, frameworks, and bibliography when deeper context is required.
+This repository is a single-skill package: `SKILL.md` is at the repository root. Agent-specific skill-directory conventions vary. Keep the repository intact so the skill can refer to the handbook, frameworks, and bibliography when deeper context is required.
 
 ## Status
 
