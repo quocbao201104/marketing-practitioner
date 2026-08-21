@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="assets/marketing-practitioner-banner.png" alt="Marketing Practitioner banner" width="100%">
+
 # Marketing Practitioner
 
 **Evidence-informed marketing reasoning for AI agents and practitioners.**
