@@ -19,6 +19,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## Research and practitioner sources
 
-Academic and methodological sources are cited in [`references/bibliography.md`](references/bibliography.md). Citation does not imply endorsement of every proposition in this repository. Where the literature is contested, context-dependent, or non-causal, the handbook attempts to preserve those limitations.
+Academic and methodological sources are cited in [`skills/marketing-practitioner/references/bibliography.md`](skills/marketing-practitioner/references/bibliography.md). Citation does not imply endorsement of every proposition in this repository. Where the literature is contested, context-dependent, or non-causal, the handbook attempts to preserve those limitations.
 
 Any contribution that imports substantial third-party wording, code, prompts, templates, or datasets must identify the license and preserve required notices.
