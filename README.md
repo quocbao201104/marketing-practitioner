@@ -10,7 +10,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Language: English](https://img.shields.io/badge/language-English-4c1.svg)](#)
-[![Format: Agent Skill](https://img.shields.io/badge/format-Agent%20Skill-6f42c1.svg)](SKILL.md)
+[![Format: Agent Skill](https://img.shields.io/badge/format-Agent%20Skill-6f42c1.svg)](skills/marketing-practitioner/SKILL.md)
 [![skills.sh](https://skills.sh/b/quocbao201104/marketing-practitioner-skill)](https://skills.sh/quocbao201104/marketing-practitioner-skill)
 
 </div>
@@ -40,7 +40,7 @@ The intended behavior is not to jump directly to polished copy. The skill first 
 
 ## How the skill works
 
-This repository follows the Agent Skills model. `SKILL.md` contains the operational instructions. The handbook, frameworks, and bibliography provide deeper material that an agent can consult when the task requires it.
+This repository follows the Agent Skills model. The installable skill lives in [`skills/marketing-practitioner/`](skills/marketing-practitioner/). Its `SKILL.md` contains the operational instructions, while the handbook, frameworks, and bibliography sit inside the same skill directory so they travel with the installed package.
 
 In a skills-compatible client, the expected loading pattern is progressive:
 
@@ -58,7 +58,7 @@ DEEPEN WHEN NEEDED
 consult handbook / frameworks / references
 ```
 
-Exact installation, discovery, and activation behavior depends on the agent client. The repository is intentionally usable as a single skill package rather than requiring the entire handbook to be loaded into context for every marketing task.
+Exact installation, discovery, and activation behavior depends on the agent client. The package is structured so an agent can load the operating instructions first and consult only the task-relevant supporting resources when needed.
 
 ## Overview
 
@@ -108,37 +108,39 @@ The copywriting component adds a reader-first and truth-first writing method, to
 ```text
 .
 ├── README.md
-├── SKILL.md
 ├── LICENSE
 ├── CONTRIBUTING.md
 ├── CHANGELOG.md
 ├── THIRD_PARTY_NOTICES.md
+├── assets/
+│   └── marketing-practitioner-banner.webp
 │
-├── handbook/
-│   ├── 00-foundations-and-method.md
-│   ├── 01-customer-research-and-evidence.md
-│   ├── 02-segmentation-icp-and-jtbd.md
-│   ├── 03-positioning-and-value.md
-│   ├── 04-messaging-proof-and-copy.md
-│   ├── 05-diagnosis-causality-and-experimentation.md
-│   ├── 06-organizational-learning.md
-│   └── 07-international-marketing-and-ethics.md
-│
-├── frameworks/
-│   ├── practitioner-cards.md
-│   └── quality-rubrics.md
-│
-└── references/
-    └── bibliography.md
+└── skills/
+    └── marketing-practitioner/
+        ├── SKILL.md
+        ├── handbook/
+        │   ├── 00-foundations-and-method.md
+        │   ├── 01-customer-research-and-evidence.md
+        │   ├── 02-segmentation-icp-and-jtbd.md
+        │   ├── 03-positioning-and-value.md
+        │   ├── 04-messaging-proof-and-copy.md
+        │   ├── 05-diagnosis-causality-and-experimentation.md
+        │   ├── 06-organizational-learning.md
+        │   └── 07-international-marketing-and-ethics.md
+        ├── frameworks/
+        │   ├── practitioner-cards.md
+        │   └── quality-rubrics.md
+        └── references/
+            └── bibliography.md
 ```
 
-### `SKILL.md`
+### `skills/marketing-practitioner/SKILL.md`
 
 The operational specification for an AI agent. It defines when the skill should be used, the reasoning order, evidence rules, copywriting constraints, output standards, and which supporting resources to load for a task.
 
 ### `handbook/`
 
-The conceptual body of knowledge. Chapters are written as a structured reference rather than a sequence of prompt recipes. They distinguish established concepts, practical heuristics, and claims that require further evidence.
+The conceptual body of knowledge packaged with the skill. Chapters are written as a structured reference rather than a sequence of prompt recipes. They distinguish established concepts, practical heuristics, and claims that require further evidence.
 
 ### `frameworks/`
 
@@ -188,15 +190,15 @@ To install or inspect it manually, clone the repository:
 git clone https://github.com/quocbao201104/marketing-practitioner-skill.git
 ```
 
-This repository is a single-skill package: `SKILL.md` is at the repository root. Agent-specific skill-directory conventions vary. Keep the repository intact so the skill can refer to the handbook, frameworks, and bibliography when deeper context is required.
+The installable package is [`skills/marketing-practitioner/`](skills/marketing-practitioner/). The directory name matches the skill name, and the supporting handbook, frameworks, and bibliography are packaged beneath the same directory so relative resource references remain valid after installation.
 
 ## Status
 
-**v0.1.1 — Foundation.** The initial edition establishes the domain model, operational skill, academic reference structure, and core practitioner instruments. The current patch also adds explicit resource routing so agents can load supporting material selectively. The project is expected to evolve through evidence review, practitioner feedback, and clearer boundary conditions rather than by accumulating tactics indiscriminately.
+**v0.1.2 — Packaging.** The foundation release established the domain model, operational skill, academic reference structure, practitioner instruments, and explicit resource routing. v0.1.2 packages the skill and its supporting resources together under `skills/marketing-practitioner/` for stricter Agent Skills compatibility and more reliable multi-file installation.
 
 ## Attribution
 
-The repository synthesizes marketing research, methodological literature, and practical writing methods. Its copywriting and human-writing sections were also informed by MIT-licensed work from the AI Copywriter / humanizer lineage. See [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) and [`references/bibliography.md`](references/bibliography.md).
+The repository synthesizes marketing research, methodological literature, and practical writing methods. Its copywriting and human-writing sections were also informed by MIT-licensed work from the AI Copywriter / humanizer lineage. See [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) and [`skills/marketing-practitioner/references/bibliography.md`](skills/marketing-practitioner/references/bibliography.md).
 
 ## License
 
