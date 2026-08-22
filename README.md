@@ -194,7 +194,7 @@ The installable package is [`skills/marketing-practitioner/`](skills/marketing-p
 
 ## Status
 
-**v0.1.2 — Packaging.** The foundation release established the domain model, operational skill, academic reference structure, practitioner instruments, and explicit resource routing. v0.1.2 packages the skill and its supporting resources together under `skills/marketing-practitioner/` for stricter Agent Skills compatibility and more reliable multi-file installation.
+**v0.1.3 — Audience-aware content selection.** This release improves copywriting selection so internal constraints can govern claims without automatically appearing in audience-facing copy. Relevant details must earn their place against the reader's current decision, necessary proof, truthful interpretation, and intended next action.
 
 ## Attribution
 
