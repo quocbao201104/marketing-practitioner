@@ -184,6 +184,82 @@ Use: conceptual and qualitative basis for newcomer legitimacy, including context
 
 ---
 
+## Recommender systems, visibility governance, and adaptive evidence
+
+### [R31] Gillespie — Visibility Reduction as Content Moderation
+
+Gillespie, T. (2022). **Do Not Recommend? Reduction as a Form of Content Moderation.** *Social Media + Society, 8*(3). DOI: 10.1177/20563051221117552.
+
+Use: reduction of visibility as a platform-governance mechanism distinct from outright removal; supports distinguishing hosting/access, recommendation eligibility, demotion, and ordinary ranking competition. A reach decline alone does not establish that a platform intentionally reduced visibility.
+
+### [R32] Schnabel et al. — Recommendations as Treatments
+
+Schnabel, T., Swaminathan, A., Singh, A., Chandak, N., & Joachims, T. (2016). **Recommendations as Treatments: Debiasing Learning and Evaluation.** *Proceedings of the 33rd International Conference on Machine Learning*, PMLR 48, 1670–1679.
+
+Use: recommendation data is generated under selection mechanisms, including prior recommender actions; supports treating observed performance as conditional on exposure opportunity rather than intrinsic to the artifact.
+
+### [R33] Joachims, Swaminathan & Schnabel — Position Bias in Implicit Feedback
+
+Joachims, T., Swaminathan, A., & Schnabel, T. (2017). **Unbiased Learning-to-Rank with Biased Feedback.** *Proceedings of the 10th ACM International Conference on Web Search and Data Mining (WSDM).* DOI: 10.1145/3018661.3018699.
+
+Use: position bias in implicit feedback such as clicks; supports preserving placement/exposure context before interpreting interaction metrics.
+
+### [R34] Abdollahpouri et al. — Multistakeholder Recommendation
+
+Abdollahpouri, H., Adomavicius, G., Burke, R., Guy, I., Jannach, D., Kamishima, T., Krasnodebski, J., & Pizzato, L. (2020). **Multistakeholder recommendation: Survey and research directions.** *User Modeling and User-Adapted Interaction, 30*(1), 127–158. DOI: 10.1007/s11257-019-09256-1.
+
+Use: recommendation settings in which users are not the only stakeholders and platform/provider objectives also matter; supports multi-stakeholder analysis without implying that every platform optimizes the same objectives.
+
+### [R35] Kellogg, Valentine & Christin — Algorithmic Management
+
+Kellogg, K. C., Valentine, M. A., & Christin, A. (2020). **Algorithms at Work: The New Contested Terrain of Control.** *Academy of Management Annals, 14*(1), 366–410. DOI: 10.5465/annals.2018.0174.
+
+Use: algorithms as mechanisms that can direct, evaluate, and discipline work through restricting, recommending, recording, rating, replacing, and rewarding. Applied here as a conceptual parent for creator-facing platform management, not as proof that all creator platforms use every mechanism.
+
+### [R36] Liang et al. — Content Creation in Algorithmic Environments
+
+Liang, Y., Li, J., Aroles, J., & Granter, E. (2025). **Content Creation within the Algorithmic Environment: A Systematic Review.** *Work, Employment & Society, 39*(4), 787–813. DOI: 10.1177/09500170251325784.
+
+Use: systematic review of creator–algorithm relations, visibility, creator folk theories, and algorithmic control; supports treating platform guidance and creator adaptation as part of the environment rather than independent evidence of causal best practice.
+
+### [R37] Atas et al. — Preference Construction in Recommender Systems
+
+Atas, M., Felfernig, A., Polat-Erdeniz, S., Popescu, A., Tran, T. N. T., & Uta, M. (2021). **Towards psychology-aware preference construction in recommender systems: Overview and research issues.** *Journal of Intelligent Information Systems, 57*, 467–489. DOI: 10.1007/s10844-021-00674-5.
+
+Use: preferences can be constructed or adapted during recommendation rather than merely recovered as fixed pre-existing states; supports preserving the provenance of apparent intent or demand.
+
+### [R38] Hadad et al. — Inference under Adaptive Experiments
+
+Hadad, V., Hirshberg, D. A., Zhan, R., Wager, S., & Athey, S. (2021). **Confidence intervals for policy evaluation in adaptive experiments.** *Proceedings of the National Academy of Sciences, 118*(15), e2014602118. DOI: 10.1073/pnas.2014602118.
+
+Use: adaptive allocation complicates ordinary statistical inference; supports treating platform-native adaptive rollout evidence differently from a static randomized comparison.
+
+### [R39] Aronow & Samii — Causal Effects under Interference
+
+Aronow, P. M., & Samii, C. (2017). **Estimating Average Causal Effects Under General Interference, with Application to a Social Network Experiment.** *The Annals of Applied Statistics, 11*(4), 1912–1947. DOI: 10.1214/16-AOAS1005.
+
+Use: causal inference when one unit's treatment can affect another unit's exposure or outcome; supports caution when shares, reposts, replies, or network diffusion can cross experimental boundaries.
+
+### [R40] Kim et al. — Multi-Behavior Recommendation
+
+Kim, K., Kim, S., Lee, G., Jung, J., & Shin, K. (2026). **A comprehensive survey on multi-behavior recommender systems: extended taxonomy and recent advances.** *International Journal of Data Science and Analytics, 22*(1), Article 40. DOI: 10.1007/s41060-025-01019-z.
+
+Use: heterogeneous user behaviors have distinct semantics and temporal structure; supports avoiding a single undifferentiated “engagement” ladder.
+
+### [R41] Boka, Niu & Neupane — Sequential Recommendation
+
+Boka, T. F., Niu, Z., & Neupane, R. B. (2024). **A survey of sequential recommendation systems: Techniques, evaluation, and future directions.** *Information Systems, 125*, 102427. DOI: 10.1016/j.is.2024.102427.
+
+Use: evolving preferences and ordered interactions in sequential recommender systems; supports a practitioner interaction-state map without implying that a given production platform implements one specific sequential architecture.
+
+### [R42] Xu et al. — Multimodal Recommender Systems
+
+Xu, J., Chen, Z., Yang, S., Li, J., Wang, W., Hu, X., Hoi, S., & Ngai, E. (2025). **A Survey on Multimodal Recommender Systems: Recent Advances and Future Directions.** arXiv:2502.15711.
+
+Use: technical overview of feature extraction, encoding, multimodal fusion, and learning in multimodal recommenders; supports system-specific content representation as a concept while cautioning against equating machine capability with human-like semantic understanding.
+
+---
+
 ## Current platform documentation for content environments
 
 These sources describe current product behavior, platform capabilities, ranking/recommendation disclosures, or governance settings. They are time-sensitive operational sources, not scientific laws. Re-check them when a consequential decision depends on current platform behavior.
