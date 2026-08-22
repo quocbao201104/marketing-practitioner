@@ -10,13 +10,13 @@ It is not a catalog of algorithm tricks, a universal social-media funnel, or a c
 
 The central thesis is:
 
-> Platform mechanics determine not only what gets seen, but also what the marketer is justified in learning from what gets observed.
+> Platform mechanics determine not only what gets seen, but also which responses are possible, which responses become observable, and what the marketer is justified in learning from both action and silence.
 
 A second operational principle follows:
 
 > Resolve only the environmental variables that can materially change the current content decision or the interpretation of its result.
 
-The model combines established work on networked audiences, community norms, recommender systems, visibility moderation, multi-stakeholder recommendation, algorithmic management, preference construction, and causal inference under biased or adaptive exposure [R23–R42]. The complete practitioner model has not itself been validated as one unified scientific theory.
+The model combines established work on networked audiences, community norms, social-media affordances, recommender systems, visibility moderation, multi-stakeholder recommendation, algorithmic management, preference construction, biased or missing implicit feedback, sequential behavior, cross-channel effects, delayed feedback, and causal inference [R23–R26][R31–R47]. The complete practitioner model has not itself been validated as one unified scientific theory.
 
 ---
 
@@ -59,7 +59,7 @@ Instagram ≠ one environment
 TikTok ≠ one environment
 ```
 
-A Facebook Group, personal Profile, and Page differ in governance and audience relationship. LinkedIn Feed, comments, Pages, and newsletters differ in participation and discovery. Instagram Feed, Explore, Search, Stories, Reels, profile, and collaboration surfaces differ in audience state and recommendation behavior. TikTok For You, Search, Following, comments, LIVE, notifications, Shop, and creator tools differ even more.
+A Facebook Group, personal Profile, and Page differ in governance and audience relationship. LinkedIn Feed, comments, Pages, newsletters, Groups, and notifications differ in participation and discovery. Instagram Feed, Explore, Search, Stories, Reels, profile, and collaboration surfaces differ in audience state and recommendation behavior. TikTok For You, Search, Following, comments, LIVE, notifications, Shop, and creator tools differ even more.
 
 Treat platform as one variable inside a larger system.
 
@@ -143,6 +143,8 @@ Examples include:
 - collaborator.
 
 Do not assume a personal account, creator account, or company Page is universally superior. Choose from authority, ownership, accountability, audience relationship, and the platform affordances relevant to the job.
+
+Keep **visible publishing identity** separate from **operational actor** when the distinction is material. An organizational account may be operated by a particular employee, administrator, tool, or workflow; a pseudonymous or anonymous identity may still be known to moderators or the platform. Do not infer hidden authorship or personal experience from the visible identity alone.
 
 ### 4.4 Content object and participation mode
 
@@ -282,7 +284,7 @@ This is a practitioner synthesis, not a validated universal psychological constr
 
 ## 5. Layer 2 — Audience, relationship, and interaction state
 
-This layer asks who can encounter the content, how they relate to the speaker, what their current state is, and what state transition matters.
+This layer asks who can encounter the content, how they relate to the speaker, what their current state is, which actions are actually available, and what state transition matters.
 
 ### 5.1 Audience environment
 
@@ -330,11 +332,13 @@ Ask:
 
 - who is intended to see this?
 - who can realistically encounter it?
-- who may receive it after recommendation, search, repost, direct share, collaboration, or off-context redistribution?
+- who may receive it after recommendation, search, repost, direct share, collaboration, notification, or off-context redistribution?
 
 The broader possible set is the **audience envelope**.
 
-### 5.4 Relationship mechanism and distance
+A configured or declared audience is not necessarily the object's lifetime audience. Sharing, recommendation, secondary use, or later state changes can widen or alter the envelope.
+
+### 5.4 Relationship mechanism, type, and distance
 
 A reader may relate to the speaker through:
 
@@ -342,12 +346,38 @@ A reader may relate to the speaker through:
 - direct connection;
 - following;
 - subscription;
+- notification subscription;
 - repeated exposure;
 - prior customer relationship;
 - collaborator relationship;
 - no prior relationship.
 
-Relationship status does not guarantee exposure. A follower is part of a relationship graph, but a ranked Following/Feed system can still determine whether a particular post is shown.
+Treat relationship state as typed rather than a single strength score. A connection, follow, newsletter subscription, Group membership, and notification subscription can open different future re-entry paths.
+
+Distinguish:
+
+```text
+RELATIONSHIP GRAPH
+who is socially / professionally related to whom?
+
+DELIVERY GRAPH
+through which Feed, notification, recommendation,
+newsletter, community, or other path can content re-enter attention?
+```
+
+Relationship status does not guarantee exposure. A follower may be part of a relationship graph while ranking still determines whether a particular object is shown.
+
+Also preserve:
+
+```text
+RELATIONSHIP
+≠ PARTICIPATION PERMISSION
+
+EXIT FROM ONE DELIVERY / RELATIONSHIP EDGE
+≠ GLOBAL EXIT FROM SOURCE OR CONTENT
+```
+
+A member can sometimes see content without permission to comment or post. A person can unfollow while another social relation remains. Resolve only the relation that materially changes the decision.
 
 ### 5.5 Reader / viewer state
 
@@ -365,6 +395,8 @@ Infer only what the environment reasonably supports. Relevant states can include
 - trying to complete a task.
 
 State should change the content decision. It should not become a fabricated persona.
+
+Current state can be history-conditioned. A reader may arrive with familiarity, trust, fatigue, prior objections, prior saves, previous exposure, or an existing relationship. Do not treat every object as if it encounters a memoryless user.
 
 ### 5.6 Intent provenance
 
@@ -396,7 +428,7 @@ platform search activity
 ≠ automatically independent market demand
 ```
 
-### 5.7 Behavior semantics
+### 5.7 Behavior semantics and interaction acts
 
 Do not reduce all behaviors to one engagement ladder. Multi-behavior recommender research treats interactions as heterogeneous signals with different semantics and temporal structure [R40].
 
@@ -431,23 +463,159 @@ REMIX / USE AUDIO
 viewer-to-creator participation transition
 ```
 
-None of these meanings is guaranteed for every individual action. The point is to avoid treating them as interchangeable magnitudes.
+These are minimum useful descriptions, not guaranteed motives.
 
-### 5.8 Interaction-state map
+When the meaning of an interaction materially changes the decision, inspect the **interaction act** rather than only its metric label:
+
+```text
+action type
+interaction target / addressee
+topology and visibility
+action cost / friction
+intentionality
+scope
+```
+
+A target may be the self, a specific other person, the creator/source, a public audience, a community, or even the platform/recommender. The same visible action can serve several targets or remain ambiguous.
+
+Topology matters. One-to-one private sending and one-to-many public broadcasting can produce different sharing incentives; experimental work by Barasch and Berger found more recipient-focused usefulness under narrowcasting and stronger self-presentation effects under broadcasting in the studied settings [R43]. Use this as evidence that topology can change semantics, not as a universal formula for every platform.
+
+Action cost can include effort, attention, public identity exposure, privacy, reputation, social obligation, or recipient burden. Do not infer that an absent public comment means the audience had no view when the action carries meaningful professional or social cost.
+
+Core invariant:
+
+```text
+OBSERVED ACTION
+≠ DIRECT EVIDENCE OF MOTIVE
+≠ DIRECT EVIDENCE OF SATISFACTION
+≠ DIRECT EVIDENCE OF CONTENT QUALITY
+≠ DIRECT EVIDENCE OF CAUSAL MECHANISM
+```
+
+### 5.8 Interaction provenance, response opportunity, and non-action
+
+Before interpreting an engagement event as human behavior, ask whether its provenance is material.
+
+Possible provenance states include, only when evidence supports the distinction:
+
+```text
+direct individual action
+representative action on behalf of an entity
+automated
+coordinated / pod-like
+incentivized
+platform-generated
+unknown
+```
+
+Current platform policies can distinguish authentic activity from automated or coordinated engagement [R27][R28]. Therefore:
+
+```text
+OBSERVED ENGAGEMENT EVENT
+≠ ESTABLISHED ORGANIC HUMAN RESPONSE
+```
+
+Also distinguish **exposure opportunity** from **response opportunity**.
+
+```text
+EXPOSURE OPPORTUNITY
+was the object placed where the person could encounter it?
+
+RESPONSE OPPORTUNITY
+did the person have a meaningful chance to perform
+or withhold the specific action being interpreted?
+```
+
+A meaningful response opportunity can depend on:
+
+- whether the relevant message or CTA was actually reached;
+- whether the action affordance was available;
+- role / membership / permission state;
+- public versus private identity cost;
+- device / surface constraints;
+- sufficient time and context.
+
+Recommender research on missing-not-at-random implicit feedback shows why lack of a click cannot simply be treated as a clean negative when exposure is incomplete or selectively generated [R44]. The practitioner implication is broader but bounded:
+
+```text
+NO ACTION
+≠ NEGATIVE ACTION
+```
+
+Keep absent interaction unlabeled unless the response opportunity and interpretation are sufficiently constrained.
+
+Explicit negative actions such as Not Interested, Hide, Mute, Unfollow, Leave, Report, or Block are more intentional than pure absence, but their scope still matters. A user may be managing a topic, frequency, relationship, environment, safety boundary, or recommendation system rather than issuing one global judgment of creative quality.
+
+### 5.9 Behavior-to-mechanism bridge
+
+Platform observations should not be translated directly into writing tactics.
+
+Do not use:
+
+```text
+platform values sends
+→ ask people to send
+
+watch time matters
+→ make the video longer
+
+comments matter
+→ add a question bait CTA
+```
+
+Use a bounded bridge instead:
+
+```text
+OBSERVED EVENT / PLATFORM SIGNAL
+↓
+interaction provenance
+↓
+response opportunity
+↓
+action semantics + target + topology + cost
+↓
+plausible motives / competing explanations
+↓
+strategically useful human value, if any
+↓
+content mechanism
+↓
+execution
+↓
+downstream evidence
+```
+
+Possible value hypotheses can include instrumental usefulness, reference value, identity expression, relationship support, coordination, entertainment, emotion, participation, uncertainty reduction, or task completion. These are hypotheses and vocabulary, not a fixed taxonomy that every action must fit.
+
+The central practitioner question is:
+
+> What truthful property of the content would make this action worthwhile for the right person in this context?
+
+Do not optimize an observable action directly when the marketing job depends on the human value that the action only proxies.
+
+### 5.10 Interaction-state map and relevant history
 
 Sequential recommendation research emphasizes ordered interactions and evolving preferences rather than isolated user–item events [R41]. For marketing, use an **interaction-state map** as a practical representation:
 
 ```text
-current state
+STATE(t-1)
++ relevant history H
 ↓
-encounter
+encounter(t)
 ↓
-action
+action(t)
 ↓
-new relationship / intent / participation state
+STATE(t)
 ↓
-possible new candidate universe or surface
+later consequences / re-entry
 ```
+
+An action can:
+
+- create a new state;
+- reinforce an existing state;
+- reveal a state that already existed;
+- trigger the expression of an accumulated state.
 
 Example:
 
@@ -463,9 +631,24 @@ relationship state changes
 future Feed / Following exposure becomes possible
 ```
 
+For consequential outcomes, ask whether prior exposure, relationship, or interaction history could materially explain the current state. Use a **relevant history window** only as a practical question; do not invent a fixed universal lookback duration.
+
+Therefore:
+
+```text
+CURRENT EVENT
+≠ MEMORYLESS RESPONSE
+
+TRIGGER
+≠ ACCUMULATED CAUSE
+
+LAST OBSERVED TOUCH
+≠ SOLE CAUSE
+```
+
 This is a practitioner map. It does not claim that the production platform implements one formal state-transition model.
 
-### 5.9 Community contract
+### 5.11 Community contract
 
 Bounded communities deserve special treatment.
 
@@ -498,7 +681,7 @@ explicit current community rules
 
 ## 6. Layer 3 — Platform governance and visibility state
 
-This layer asks whether an object, account, or recipient is allowed or likely to enter particular visibility opportunities before ordinary ranking competition is interpreted.
+This layer asks whether an object, account, recipient, or participant is allowed or likely to enter particular visibility and participation opportunities before ordinary ranking competition is interpreted.
 
 ### 6.1 Visibility is not binary
 
@@ -521,6 +704,9 @@ allowed on a particular surface
 
 RECIPIENT-ELIGIBLE
 allowed to a particular audience / policy class
+
+PARTICIPATION-ELIGIBLE
+allowed to perform a particular action or publish in a context
 
 DEMOTED / REDUCED
 eligible or hosted but intentionally given less visibility
@@ -546,6 +732,7 @@ Examples:
 - recommendation;
 - Search;
 - teen audience;
+- posting or commenting;
 - LIVE;
 - monetization;
 - creator marketplace;
@@ -554,7 +741,7 @@ Examples:
 - paid promotion;
 - specific campaign.
 
-Eligibility is typed and can be account-, object-, surface-, recipient-, market-, and time-dependent.
+Eligibility is typed and can be account-, object-, participant-, surface-, recipient-, market-, and time-dependent.
 
 ### 6.3 Low reach is not evidence of suppression
 
@@ -601,7 +788,8 @@ Examples:
 - a post gains a product attachment;
 - a Story becomes a Highlight;
 - a creator object is recruited into a brand campaign;
-- collaboration changes visible authorship or distribution topology.
+- collaboration changes visible authorship or distribution topology;
+- an object originating in a bounded/private container receives a later authorized public visibility path.
 
 Distinguish:
 
@@ -610,8 +798,11 @@ CONTENT IDENTITY
 underlying artifact / object
 
 CONTENT STATE
-current attachments, commercial role, eligibility, ownership, distribution mode, and time
+current attachments, commercial role, eligibility,
+ownership, visibility, distribution mode, and time
 ```
+
+Container state and object state need not remain identical through the object's entire lifetime.
 
 ### 6.6 Secondary-use path
 
@@ -688,7 +879,7 @@ X HAS MATERIAL RANKING WEIGHT
 
 Examples:
 
-- OCR or ASR in a policy system does not prove spoken keywords boost a feed ranker;
+- OCR or ASR in a policy or commercial system does not prove spoken keywords boost a feed ranker;
 - semantic matching in one recommendation surface does not prove identical representations across all surfaces;
 - a feature available to the platform does not prove it matters for the current ranking decision.
 
@@ -733,7 +924,7 @@ if retrieved, how competitive is it under current predictions and constraints?
 
 Use these as explanatory aids, not invented formal terms.
 
-### 7.5 Ranking signal is not ranking objective
+### 7.5 Ranking signal is not ranking objective or writing instruction
 
 A platform can use watch time, comments, shares, likes, skips, profile visits, purchases, or other signals without optimizing any one of them in isolation.
 
@@ -743,8 +934,8 @@ Therefore:
 
 ```text
 A RANKING SIGNAL
-≠
-THE RANKING OBJECTIVE
+≠ THE RANKING OBJECTIVE
+≠ A WRITING INSTRUCTION
 ```
 
 Do not conclude:
@@ -752,7 +943,26 @@ Do not conclude:
 ```text
 watch time matters
 → platform only optimizes watch time
+→ make content longer
 ```
+
+or:
+
+```text
+sends matter
+→ ask everyone to send
+```
+
+Translate a relevant signal through the human behavior/value bridge in Layer 2. Create value that can legitimately produce the action rather than gaming the observable proxy.
+
+User actions can also function partly as attempts to manage or retrain a recommender. Therefore:
+
+```text
+USER ACTION
+≠ PURE CONTENT PREFERENCE
+```
+
+when platform-control intent is plausible. Do not infer it without evidence.
 
 ### 7.6 Exploration, exploitation, and cold start
 
@@ -832,7 +1042,7 @@ Call this a **nested recommendation environment** when the distinction matters. 
 
 ## 8. Layer 5 — Multi-stakeholder platform and creator dynamics
 
-This layer asks how platforms mediate not only viewer-content matching but also creator, provider, brand, product, seller, and platform objectives.
+This layer asks how platforms mediate not only viewer-content matching but also creator, provider, brand, product, seller, community, and platform objectives.
 
 ### 8.1 Platform mediation graph
 
@@ -847,10 +1057,35 @@ VIEWER ↔ PRODUCT
 CREATOR ↔ PRODUCT
 SELLER ↔ CREATOR
 BRAND ↔ CREATOR
+MEMBER ↔ COMMUNITY
 ORGANIC OBJECT ↔ PAID SYSTEM
 ```
 
 This is not a new recommender-systems theory. It helps locate where a marketing outcome may be mediated.
+
+When an edge matters, say what is transferred or changed rather than drawing a vague connection. Possible **spillover carriers** include:
+
+```text
+HUMAN STATE
+memory / awareness / trust / intent / preference
+
+RELATIONSHIP STATE
+follow / subscription / connection / membership
+
+SYSTEM STATE
+interaction history / candidate graph / eligibility state
+
+EVIDENCE / MEANING
+comment / review / source cue / proof / objection
+
+CONTENT OBJECT
+share / repost / remix / secondary use
+
+COMMERCIAL STATE
+organic → sponsored / paid / commerce-integrated
+```
+
+Do not assume all carriers are present. The point is to identify the material mechanism.
 
 ### 8.2 Relational fit
 
@@ -964,7 +1199,7 @@ This layer is central to the handbook.
 
 ### 9.1 Performance is conditional, not intrinsic
 
-Observed performance is produced by an interaction between content and an exposure environment.
+Observed performance is produced by an interaction between content, audience state, platform allocation, and available response mechanisms.
 
 Use the practitioner decomposition:
 
@@ -973,61 +1208,72 @@ OBSERVED PERFORMANCE
 is conditional on
 
 artifact / content state
-× audience state
+× audience / pre-outcome state
 × exposure policy
 × surface / position
+× response opportunity / affordances
 × competing inventory
 × platform constraints
 × delivery mode
-× time
+× time / relevant history
 × prior feedback
 ```
 
 This is not a structural causal equation. It is a reminder not to treat performance as an intrinsic property of the artifact.
 
-### 9.2 Exposure, selection, and position bias
+### 9.2 Exposure, selection, position, and missing feedback
 
-Recommendation data is generated under selection mechanisms, including prior recommender decisions [R32]. Position can influence implicit behavior such as clicks [R33].
+Recommendation data is generated under selection mechanisms, including prior recommender decisions [R32]. Position can influence implicit behavior such as clicks [R33]. Missing-not-at-random research further shows that lack of a click can reflect non-exposure or selective exposure rather than a clean negative preference label [R44].
 
 Therefore:
 
 ```text
 low engagement
 ≠ necessarily low audience interest
+
+no observed action
+≠ negative action
 ```
 
 Possible alternatives include:
 
 - low or narrow exposure;
+- no meaningful response opportunity;
 - different audience composition;
 - different position / surface;
+- role or permission constraints;
 - policy or eligibility differences;
 - different delivery mode;
 - ordinary ranking competition;
-- genuinely weaker content-audience fit.
+- genuine weaker content-audience fit.
 
-### 9.3 Metric provenance
+### 9.3 Metric and interaction provenance
 
-Before interpreting a metric, ask how the opportunity to produce that metric was generated.
+Before interpreting a metric, ask how the opportunity to produce that metric was generated and what kind of event was actually counted.
 
 Use **metric provenance** as a practitioner record:
 
 ```text
 Which object and content state?
 Which surface?
-Which audience?
+Which audience / pre-outcome state?
 Which delivery mode?
 Which recommendation regime?
 How much exposure?
 Which position / encounter context?
+Was there a meaningful response opportunity?
+What interaction provenance is known?
 Was allocation adaptive?
 Was paid support present?
 Were metrics mixed across organic and paid delivery?
-Did a platform status affect exposure?
+Did a platform status affect exposure or participation?
 Could sharing / network spillover cross boundaries?
+What event, exposure, and reporting time semantics apply?
+What attribution rule / window applies if any?
+Has the outcome had time to mature?
 ```
 
-Metric provenance is a synthesis of selection, logging-policy, position, adaptive-allocation, and interference concerns [R32][R33][R38][R39].
+Metric provenance is a synthesis of selection, logging-policy, position, missing-feedback, adaptive-allocation, temporal, and interference concerns [R32][R33][R38][R39][R44][R47].
 
 ### 9.4 Delivery-mode mixture
 
@@ -1079,9 +1325,59 @@ In social systems, one person's treatment or exposure can affect another person'
 
 Do not assume a social experiment is causally clean merely because users were split into two groups.
 
-### 9.7 Feedback loops
+### 9.7 Outcome maturity and temporal attribution
 
-At least two broad loops can coexist:
+Outcomes do not all reveal themselves immediately. Delayed-feedback research in online advertising shows that conversions can arrive long after the initiating interaction, leaving recent observations incomplete or temporarily mislabeled [R47].
+
+Use **outcome maturity** as a practitioner question:
+
+> Has enough time passed for this outcome to be interpreted under the current job and measurement regime?
+
+Therefore:
+
+```text
+NO OUTCOME YET
+≠ NO OUTCOME
+```
+
+Also preserve temporal distinctions when material:
+
+```text
+EXPOSURE / TOUCH TIME
+when a relevant encounter occurred
+
+EVENT TIME
+when the outcome occurred
+
+REPORTING TIME
+which time bucket receives the metric
+
+ATTRIBUTION WINDOW / RULE
+which touches are eligible for reporting credit
+```
+
+Customer-journey research models carryover and spillover from earlier touches rather than assuming the last observed touch explains the conversion [R45]. Therefore:
+
+```text
+CURRENT EVENT
+≠ MEMORYLESS RESPONSE
+
+LAST TOUCH
+≠ SOLE CAUSE
+
+TEMPORAL PROXIMITY
+≠ ATTRIBUTION
+
+ATTRIBUTED
+≠ INCREMENTAL
+≠ CAUSAL
+```
+
+An intermediate state such as follow, signup, click, or purchase may also have later consequences such as inactivity, unsubscribe, refund, or retention. Match the maturity horizon to the marketing job rather than declaring every intermediate event terminal success.
+
+### 9.8 Feedback loops
+
+At least three broad practical loops can coexist:
 
 ```text
 RECOMMENDER LOOP
@@ -1090,6 +1386,12 @@ platform exposure
 → system learns
 → future exposure changes
 
+USER ADAPTATION / CONTROL LOOP
+platform exposure
+→ user forms beliefs about the system
+→ user changes feedback / controls
+→ future exposure can change
+
 CREATOR ADAPTATION LOOP
 creator publishes
 → metrics / guidance
@@ -1097,9 +1399,66 @@ creator publishes
 → future content changes
 ```
 
-They can interact. Historical observations are therefore not always generated in a stationary environment.
+These are practitioner reminders, not claims that every platform implements the same formal feedback process. They can interact, so historical observations are not always generated in a stationary environment.
 
-### 9.8 Current comparable local evidence
+### 9.9 Cross-environment spillover and credit location
+
+An encounter in one environment can change human, relationship, system, evidence, content, or commercial state that later becomes observable elsewhere. Marketing research has documented cross-channel carryover and effects in specific multichannel settings [R45][R46].
+
+When a spillover hypothesis matters, identify:
+
+```text
+SOURCE ENVIRONMENT
+↓
+SPILLOVER CARRIER
+what state / signal / object plausibly crossed?
+↓
+DESTINATION ENVIRONMENT
+↓
+DOWNSTREAM OUTCOME
+```
+
+Keep three locations separate:
+
+```text
+EFFECT LOCATION
+where the relevant state may have changed
+
+OBSERVATION LOCATION
+where the downstream behavior became measurable
+
+CREDIT LOCATION
+where a reporting / attribution system assigned the outcome
+```
+
+They can differ.
+
+For example, one social encounter can plausibly alter brand familiarity or intent, a later search environment can observe the query, and a separate analytics system can assign conversion credit. This possibility does not prove causal spillover without an appropriate identification design.
+
+Therefore:
+
+```text
+OBSERVED IN CHANNEL B
+≠ CREATED BY CHANNEL B
+
+CROSS-CHANNEL CO-MOVEMENT
+≠ CAUSAL SPILLOVER
+
+MORE MEASURABLE
+≠ MORE CAUSALLY VALUABLE
+```
+
+Also distinguish:
+
+```text
+OBJECT TRANSFER
+an artifact itself moves or is reused
+
+EFFECT TRANSFER
+state changes through a person / system even if the artifact does not move
+```
+
+### 9.10 Current comparable local evidence
 
 The old rule:
 
@@ -1117,16 +1476,18 @@ Comparability may depend on:
 - object type;
 - account state;
 - audience relationship;
+- response opportunity;
 - recommendation regime;
 - delivery mode;
 - market;
 - period;
 - objective;
-- metric definition.
+- metric definition;
+- relevant history / maturity window.
 
 Older local evidence can be less useful than current platform evidence when the underlying regime changed materially.
 
-### 9.9 Platform evidence hierarchy
+### 9.11 Platform evidence hierarchy
 
 Classify platform-content evidence before using it.
 
@@ -1180,7 +1541,7 @@ folklore
 
 The symbol means “usually more decision-relevant,” not “scientifically stronger in every circumstance.”
 
-### 9.10 Evidence must carry system scope
+### 9.12 Evidence must carry system and temporal scope
 
 A useful platform claim should preserve, when material:
 
@@ -1193,6 +1554,7 @@ object / account type
 delivery mode
 market / policy regime
 objective
+relevant time / history window
 known uncertainty
 ```
 
@@ -1208,11 +1570,30 @@ PLATFORM CAPABILITY
 RANKING INPUT
 ≠ MATERIAL RANKING WEIGHT
 
+RANKING SIGNAL
+≠ WRITING INSTRUCTION
+
+OBSERVED ENGAGEMENT
+≠ ESTABLISHED HUMAN PREFERENCE
+
+NO ACTION
+≠ NEGATIVE ACTION
+
 OBSERVATION
 ≠ CAUSAL EFFECT
 
+LAST TOUCH
+≠ SOLE CAUSE
+
+ATTRIBUTED
+≠ INCREMENTAL
+≠ CAUSAL
+
 PLATFORM SEARCH INTEREST
 ≠ MARKET DEMAND
+
+MORE MEASURABLE
+≠ MORE CAUSALLY VALUABLE
 
 PLATFORM GUIDANCE
 ≠ INDEPENDENT BEST-PRACTICE EVIDENCE
@@ -1234,7 +1615,7 @@ ENCOUNTER SURFACE
 Feed / profile / Search / Explore / Group / repost / DM / ...
 ```
 
-One object can cross surfaces. Reader state, social context, and available actions can change even when the artifact does not.
+One object can cross surfaces. Reader state, social context, response opportunity, and available actions can change even when the artifact does not.
 
 Also distinguish **encounter context** where useful:
 
@@ -1251,7 +1632,7 @@ notification re-entry
 
 ### 10.1 Distribution topology
 
-Ownership, visible authorship, collaboration, or repost mechanisms can alter which audience graphs an object can enter.
+Ownership, visible authorship, collaboration, repost mechanisms, identity visibility, or relationship state can alter which audience and delivery graphs an object can enter.
 
 For a collaboration, distinguish:
 
@@ -1265,9 +1646,14 @@ who controls the object?
 VISIBLE AUTHORS
 who appears publicly attached?
 
+OPERATIONAL ACTOR
+who or what performed the action, if material?
+
 DISTRIBUTION PARTNERS
-whose relationship graph can expose it?
+whose relationship / delivery graph can expose it?
 ```
+
+Identity visibility can be observer-relative: peers, moderators, and the platform may not see the same identity representation. Preserve this only when it changes legitimacy, cost, safety, provenance, or interpretation.
 
 Do not transfer authority between collaborators merely because they share distribution.
 
@@ -1288,7 +1674,7 @@ PARTICIPATORY CONTINUATION
 comment / reply / answer / contribution
 ```
 
-Shareability is not the same as virality. A private share to the right buyer, colleague, or friend can be more strategically valuable than broad low-intent reach.
+Shareability is not the same as virality. A private share to the right buyer, colleague, or friend can be more strategically valuable than broad low-intent reach, and one-to-one sending can have different social semantics from public broadcasting [R43].
 
 Content can also re-enter attention later through:
 
@@ -1303,13 +1689,24 @@ Content can also re-enter attention later through:
 
 Call this **attention re-entry** when the distinction is material.
 
+Travel can alter more than object location. It can change:
+
+- human memory or intent;
+- relationship state;
+- platform interaction history;
+- future candidate / recommendation opportunity;
+- evidence available around an object;
+- commercial state.
+
+Do not assume an object must physically move for its downstream effect to carry into another environment.
+
 Treem and Leonardi's visibility, persistence, editability, and association affordances provide a useful conceptual parent for some of these platform properties [R24].
 
 ---
 
 ## 12. Platform mediation graph
 
-For complex creator, commerce, or multi-surface work, map the relevant mediation edges rather than assuming one linear funnel.
+For complex creator, commerce, community, or multi-surface work, map the relevant mediation edges rather than assuming one linear funnel.
 
 Example:
 
@@ -1320,7 +1717,7 @@ UNKNOWN VIEWER
 ↓ profile visit
 CREATOR / BRAND IDENTITY
 ↓ follow
-RELATIONSHIP CHANNEL
+RELATIONSHIP / DELIVERY PATH
 ↓ later content
 SEARCH / DM / COMMENT / PRODUCT
 ↓
@@ -1350,6 +1747,18 @@ CREATOR ↔ AUDIENCE RELATIONSHIP
 ↓
 CONTENT ↔ VIEWER FIT
 ```
+
+A cross-environment path might be represented as:
+
+```text
+SOCIAL CONTENT
+--[changes memory / intent]-->
+SEARCH
+--[captures expressed intent]-->
+WEBSITE / PRODUCT
+```
+
+The edge label should describe the material thing being transferred or changed. Do not draw a causal arrow merely because two events occurred in sequence.
 
 Use the graph only when it clarifies a consequential decision or diagnosis.
 
@@ -1435,13 +1844,13 @@ CONTENT JOB + SOURCE / AUTHORITY
 ↓
 PUBLISHING ENTITY + DELIVERY MODE
 ↓
-AUDIENCE / RELATIONSHIP / INTENT STATE
+AUDIENCE / TYPED RELATIONSHIP / INTENT STATE
 ↓
 CONTENT OBJECT + HUMAN MEANING
 ↓
 MESSAGE CARRIERS + CONTEXT PORTABILITY
 ↓
-VISIBILITY / POLICY STATE
+VISIBILITY / POLICY / PARTICIPATION STATE
 ↓
 RELEVANT RECOMMENDER / MEDIATION SYSTEMS
 ↓
@@ -1449,12 +1858,12 @@ DESIRED INTERACTION-STATE TRANSITION
 ↓
 MESSAGE + PROOF + ASK
 ↓
-SUCCESS METRIC + METRIC PROVENANCE
+SUCCESS METRIC + RESPONSE OPPORTUNITY + METRIC PROVENANCE
 ↓
 BOUNDED LEARNING
 ```
 
-This is not a mandatory linear workflow.
+This is not a mandatory linear workflow. Interaction provenance, relevant history, outcome maturity, and spillover analysis should be loaded only when they can change the conclusion.
 
 ---
 
@@ -1487,19 +1896,21 @@ DISTRIBUTION PERFORMANCE
 Was the object exposed and consumed?
 
 AUDIENCE / RELATIONSHIP RESPONSE
-Did the right people engage or transition state?
+Did the right people engage or transition state,
+and did they have a meaningful response opportunity?
 
 PERSUASION / TASK PERFORMANCE
 Did the communication do its job?
 
 BUSINESS OUTCOME
-Did it advance the actual commercial or strategic objective?
+Did it advance the actual commercial or strategic objective
+at the relevant maturity horizon?
 
 LEARNING VALUE
 Did it reduce a consequential uncertainty?
 ```
 
-A high-reach object can fail commercially. A low-volume discussion can succeed strategically. A high-search topic can be weak buyer demand. A high-save post can still reach the wrong audience.
+A high-reach object can fail commercially. A low-volume discussion can succeed strategically. A high-search topic can be weak buyer demand. A high-save post can still reach the wrong audience. A missing action may be unlabeled rather than negative. A conversion reported in one channel may have been assisted or state-conditioned elsewhere.
 
 ---
 
@@ -1513,13 +1924,17 @@ CONTENT CONTEXT
 Content job:
 Source / authority:
 Publishing entity:
+Operational actor / interaction provenance if material:
 Delivery mode:
 
 Audience environment:
 Audience definition source:
 Audience envelope:
-Relationship mechanism / distance:
+Relationship mechanism / type / distance:
+Delivery path if material:
+Participation permission if material:
 Reader / viewer state:
+Relevant pre-state / history if material:
 Intent provenance if material:
 Desired interaction-state transition:
 
@@ -1538,10 +1953,14 @@ Visibility / eligibility state:
 Relevant recommendation object / surface:
 System-specific platform facts:
 Machine-representation evidence if material:
-Platform mediation edges if material:
+Platform mediation edges / spillover carrier if material:
 
 Observed local evidence:
+Exposure opportunity:
+Response opportunity if material:
 Metric provenance:
+Outcome maturity / attribution rule if material:
+Effect / observation / credit location if material:
 Comparability / freshness:
 Claim / policy constraints:
 Primary success metric:
@@ -1555,37 +1974,48 @@ Do not fill unknown fields with invented precision. Omit dimensions that cannot 
 
 When a platform metric changes, do not jump directly to creative replacement.
 
-Check:
+Check only the material items:
 
 ```text
-1. METRIC DEFINITION
-What exactly changed?
+1. METRIC DEFINITION / PROVENANCE
+What exactly changed and what events were counted?
 
-2. OBJECT / STATE
-Same content type, attachment, paid status, commercial role?
+2. OBJECT / CONTENT STATE
+Same content type, attachment, paid status, visibility, commercial role?
 
 3. EXPOSURE OPPORTUNITY
 Same reach, position, surface, audience composition?
 
-4. VISIBILITY STATE
-Any recommendation / policy / eligibility change?
+4. RESPONSE OPPORTUNITY
+Could the relevant audience meaningfully perform the interpreted action?
 
-5. DELIVERY MODE
+5. INTERACTION PROVENANCE / SEMANTICS
+Human, representative, automated/coordinated, unknown?
+Action, explicit negative, implicit proxy, or mere absence?
+
+6. VISIBILITY / GOVERNANCE STATE
+Any recommendation, policy, permission, eligibility, moderation change?
+
+7. DELIVERY / RECOMMENDATION REGIME
 Organic, paid, mixed, sponsored, commerce?
-
-6. RECOMMENDATION REGIME
 Same surface / product behavior / account state?
 
-7. AUDIENCE STATE
-Same follower / stranger / search / relationship mix?
+8. AUDIENCE / PRE-OUTCOME STATE
+Same follower/stranger/search mix?
+Could prior exposure or relationship history matter?
 
-8. CONTENT
+9. TEMPORAL / ATTRIBUTION STATE
+Has the outcome matured?
+Same lookback, reporting time, attribution rule/window?
+Could another environment hold the observation or credit?
+
+10. CONTENT
 Did meaning, object, proof, opening, or format change?
 
-9. COMPETING EXPLANATIONS
+11. COMPETING EXPLANATIONS
 What else changed at the same time?
 
-10. DISCRIMINATING CHECK
+12. DISCRIMINATING CHECK
 What evidence would best separate the leading explanations?
 ```
 
@@ -1625,6 +2055,8 @@ UNKNOWN
 what remains partially observable?
 ```
 
+A platform-specific finding should modify the durable core only when the existing model cannot represent the consequential distinction without distortion. Otherwise keep it as a scoped platform instantiation.
+
 ---
 
 ## 20. Final content-environment check
@@ -1632,18 +2064,21 @@ what remains partially observable?
 Before consequential platform content is finalized, ask only the relevant questions:
 
 1. Does the contribution have a clear marketing job?
-2. Is the speaker entitled to make the claims being made?
+2. Is the visible speaker entitled to make the claims, and is operational provenance relevant?
 3. Is the intended audience distinguished from the broader audience envelope where necessary?
-4. Does the content fit the reader's relationship, intent, and current state?
+4. Does the content fit the reader's relationship, intent, current state, and material history?
 5. Does the contribution satisfy the content relevance contract of the environment?
 6. Is meaning allocated to the right modality rather than dumped into caption text?
-7. Is enough context preserved for expected discovery, travel, and secondary use?
-8. Are hosting, visibility moderation, eligibility, ranking, and business outcome kept separate?
+7. Is enough context preserved for expected discovery, travel, re-entry, and secondary use?
+8. Are relationship, delivery, participation permission, hosting, visibility moderation, eligibility, ranking, and business outcome kept separate where material?
 9. Are claims about machine processing scoped to the actual system for which evidence exists?
-10. Are platform guidance, official facts, observations, heuristics, and folklore kept distinct?
-11. Does the success metric match the marketing job rather than generic engagement?
-12. Is metric provenance adequate before interpreting performance?
-13. Are adaptive exposure, paid mixture, network effects, or regime change material to the conclusion?
-14. Is the final decision still truthful, scoped, and proportionate to the evidence?
+10. Is any platform signal being translated through human value rather than directly into a writing hack?
+11. Are platform guidance, official facts, observations, heuristics, and folklore kept distinct?
+12. Does the success metric match the marketing job rather than generic engagement?
+13. Was there a meaningful response opportunity, and is interaction provenance adequate before interpreting behavior or non-action?
+14. Is metric provenance adequate, including delivery mixture and relevant platform state?
+15. Are history, outcome maturity, attribution rules, adaptive exposure, network effects, or regime change material to the conclusion?
+16. If effects may cross environments, are effect location, observation location, and credit location kept separate?
+17. Is the final decision still truthful, scoped, and proportionate to the evidence?
 
-The goal is not to satisfy a giant platform checklist. The goal is to make a context-appropriate marketing decision without pretending that a partially observable platform-mediated system is simpler, more stable, or more causal than the evidence supports.
+The goal is not to satisfy a giant platform checklist. The goal is to make a context-appropriate marketing decision without pretending that a partially observable platform-mediated system is simpler, more stable, more human-authentic, or more causal than the evidence supports.
