@@ -4,6 +4,16 @@ All notable changes to this repository are documented here.
 
 The project uses semantic versioning for published skill revisions. Early versions may change structure while the conceptual model is stabilized.
 
+## [0.1.4] - 2026-08-22
+
+### Changed
+
+- Refactored the executable runtime around decision-first operating-path selection instead of one global default pipeline.
+- Reduced always-on instructions to universal invariants and moved research, positioning, copy, diagnosis, localization, and learning guidance behind decision-point loading.
+- Added explicit state handoffs so downstream stages receive only the conclusions, constraints, proof, and uncertainty needed for the next decision.
+- Preserved the v0.1.3 audience-facing content-selection gate while strengthening source fidelity against unsupported first-person experience or preference.
+- Added frozen runtime-architecture and complexity evals used to compare the v0.1.3 baseline with the lean candidate without claiming a model-level performance improvement.
+
 ## [0.1.3] - 2026-08-22
 
 ### Changed
