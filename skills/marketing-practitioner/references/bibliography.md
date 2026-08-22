@@ -182,9 +182,15 @@ Gallagher, S. E., & Savage, T. (2015). **“What is, Becomes What is Right”: A
 
 Use: conceptual and qualitative basis for newcomer legitimacy, including contextual legitimacy, testimonial legitimacy, and learning community norms through prior observation. Treat the framework as community-specific theory development rather than a deterministic content formula.
 
+### [R43] Barasch & Berger — Broadcasting vs Narrowcasting
+
+Barasch, A., & Berger, J. (2014). **Broadcasting and Narrowcasting: How Audience Size Affects What People Share.** *Journal of Marketing Research, 51*(3), 286–299. DOI: 10.1509/jmr.13.0238.
+
+Use: six-study evidence that one-to-one versus one-to-many communication can change sender focus and the kind of content shared; supports treating private/narrowcast and public/broadcast sharing as different interaction topologies rather than one universal “shareability” signal. Do not generalize the measured motivational effects to every platform or sharing affordance.
+
 ---
 
-## Recommender systems, visibility governance, and adaptive evidence
+## Recommender systems, visibility governance, temporal evidence, and cross-channel effects
 
 ### [R31] Gillespie — Visibility Reduction as Content Moderation
 
@@ -258,23 +264,47 @@ Xu, J., Chen, Z., Yang, S., Li, J., Wang, W., Hu, X., Hoi, S., & Ngai, E. (2025)
 
 Use: technical overview of feature extraction, encoding, multimodal fusion, and learning in multimodal recommenders; supports system-specific content representation as a concept while cautioning against equating machine capability with human-like semantic understanding.
 
+### [R44] Saito et al. — Missing-Not-At-Random Implicit Feedback
+
+Saito, Y., Yaginuma, S., Nishino, Y., Sakata, H., & Nakata, K. (2020). **Unbiased Recommender Learning from Missing-Not-At-Random Implicit Feedback.** *Proceedings of the 13th ACM International Conference on Web Search and Data Mining (WSDM '20)*, 501–509. DOI: 10.1145/3336191.3371783.
+
+Use: lack of a click does not necessarily indicate negative preference because an item may not have received exposure; supports treating absent interaction as positive-unlabeled / missing-not-at-random evidence rather than a clean negative label. The recommender-learning result should not be converted into a claim that every social-media non-action is behaviorally identical.
+
+### [R45] Li & Kannan — Multichannel Conversion Attribution
+
+Li, H. (Alice), & Kannan, P. K. (2014). **Attributing Conversions in a Multichannel Online Marketing Environment: An Empirical Model and a Field Experiment.** *Journal of Marketing Research, 51*(1), 40–56. DOI: 10.1509/jmr.13.0050.
+
+Use: customer-journey sequence, carryover and spillover of prior touches, and multichannel attribution; supports rejecting naive last-touch learning. The paper includes a field validation of its model, but its attribution framework should not be treated as a universal substitute for randomized incrementality measurement.
+
+### [R46] Dinner, van Heerde & Neslin — Cross-Channel Advertising Effects
+
+Dinner, I. M., van Heerde, H. J., & Neslin, S. A. (2014). **Driving Online and Offline Sales: The Cross-Channel Effects of Traditional, Online Display, and Paid Search Advertising.** *Journal of Marketing Research, 51*(5), 527–545. DOI: 10.1509/jmr.11.0466.
+
+Use: empirical evidence that advertising in one channel can have carryover and sales effects observed in another channel in the studied retailer; supports cross-environment spillover as a legitimate hypothesis and warns against evaluating channels only at the location where outcomes are observed. Do not generalize the measured channel elasticities or direction of effects to other markets.
+
+### [R47] Ding et al. — Delayed Feedback Modeling
+
+Ding, C., Wu, J., Yuan, Y., Li, C., Wang, X., Wang, D., Yang, F., & Rabinovich, A. (2026). **Delayed Feedback Modeling with Influence Functions.** *Proceedings of the AAAI Conference on Artificial Intelligence, 40*(17), 14648–14656. DOI: 10.1609/aaai.v40i17.38483.
+
+Use: current peer-reviewed evidence that conversions can arrive long after user interactions, leaving recent observations incomplete and biased; supports the practitioner concept of outcome maturity and the distinction between “no outcome yet” and a sufficiently mature negative observation. The advertising-modeling setting should not be generalized to every outcome window without domain evidence.
+
 ---
 
 ## Current platform documentation for content environments
 
 These sources describe current product behavior, platform capabilities, ranking/recommendation disclosures, or governance settings. They are time-sensitive operational sources, not scientific laws. Re-check them when a consequential decision depends on current platform behavior.
 
-### [R27] Meta / Facebook — Feed, Recommendations, and Group Governance
+### [R27] Meta / Facebook — Feed, Recommendations, Group Governance, and Participation
 
-Meta. **What influences the order of posts in your Facebook Feed; About recommendations on Facebook; Differences between public and private Facebook groups; Set up Admin Assist to automatically manage your Facebook group.** Facebook Help Center. Reviewed 2026-08-23.
+Meta. **What influences the order of posts in your Facebook Feed; About recommendations on Facebook; Differences between public and private Facebook groups; Manage membership for your Facebook group; Set up Admin Assist to automatically manage your Facebook group; Manage anonymous participation in a Facebook group.** Facebook Help Center. Reviewed 2026-08-23.
 
-Use: current Facebook Feed signal categories, recommendation beyond existing follow relationships, Group privacy/audience differences, and configurable Group moderation including approval and link/domain rules.
+Use: current Facebook Feed signal categories, recommendation beyond existing follow relationships, Group privacy/audience differences, role-conditioned participation, limited membership, configurable moderation, Page participation, anonymous/nickname identity visibility, and current scoped secondary-visibility features. Product availability can vary by Group and account.
 
-### [R28] LinkedIn — Feed, Suggested Content, and Page Targeting
+### [R28] LinkedIn — Feed, Authenticity, Relationships, Newsletters, and Page Distribution
 
-LinkedIn. (2026). **Engineering the next generation of LinkedIn’s Feed.** LinkedIn Engineering, March 12, 2026; plus **Suggested posts in feed** and **Create targeted posts on your LinkedIn Page**, LinkedIn Help. Reviewed 2026-08-23.
+LinkedIn. (2026). **Engineering the next generation of LinkedIn’s Feed** (March 12, 2026); **Keeping LinkedIn Feed Authentic and Relevant** / current authenticity guidance; plus current Help on **Suggested posts in feed; Create targeted posts on your LinkedIn Page; Follow or unfollow people; Follow and connect; LinkedIn newsletters FAQ; Notify employees of your LinkedIn Page posts.** Reviewed 2026-08-23.
 
-Use: current Feed retrieval/ranking architecture and signal categories, professionally relevant suggested content beyond immediate networks, context requirements for suggested posts, and organic Page-targeting capabilities. Product details and targeting requirements can change.
+Use: current Feed retrieval/ranking architecture and sequential history, professionally relevant suggested content beyond immediate networks, Page targeting, typed Follow/Connection/Newsletter relationships, employee-notification mediation, and current enforcement against automated comments or coordinated engagement. Some LinkedIn Help pages are not perfectly synchronized; when action semantics conflict, prefer fresher explicit product documentation and preserve uncertainty.
 
 ### [R29] Meta / Instagram — Recommendation Eligibility and Suggested Content
 
