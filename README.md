@@ -122,9 +122,6 @@ The copywriting component adds a reader-first and truth-first writing method, to
 ├── THIRD_PARTY_NOTICES.md
 ├── assets/
 │   └── marketing-practitioner-banner.webp
-├── evals/
-│   ├── runtime-architecture-v0.1.4.md
-│   └── runtime-architecture-v0.1.4-complexity.md
 │
 └── skills/
     └── marketing-practitioner/
@@ -160,10 +157,6 @@ Compact working instruments for research synthesis, positioning, messaging, diag
 ### `references/`
 
 A selected bibliography emphasizing peer-reviewed research, academic monographs, primary methodological sources, and carefully bounded practitioner references.
-
-### `evals/`
-
-Frozen runtime-architecture and complexity cases used during the v0.1.4 refactor to compare the prior always-on structure with the lean decision-first candidate. They document the evaluation setup; they are not a claim of general model-level performance improvement.
 
 ## Intended uses
 
