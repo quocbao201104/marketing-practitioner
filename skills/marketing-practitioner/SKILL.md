@@ -106,7 +106,7 @@ Audit for patterns that often weaken machine-generated prose:
 - unsupported promotional adjectives;
 - vague attribution;
 - filler clauses that simulate depth;
-- unnecessary avoidance of simple verbs such as *is* and *has*;
+- unnecessary avoidance of simple verbs such as _is_ and _has_;
 - forced triads and artificial symmetry;
 - synonym cycling that harms terminological consistency;
 - false ranges and inflated aphorisms;
@@ -204,6 +204,16 @@ Resolve message before drafting prose. State the reader, situation, core message
 
 Use the resolved strategy and source material. Adapt to channel constraints. For landing pages, preserve a coherent hierarchy from category and value through mechanism, proof, objection handling, and action. For email and short-form formats, respect the reader's attention state and the information budget.
 
+Before finalizing audience-facing communication, separate constraints from content. Information may be important because it governs what the message is allowed to claim without itself belonging in the message.
+
+Surface a limitation, uncertainty, or missing proof when it is material to the reader's current decision, necessary for truthful interpretation, or explicitly required by the task. Otherwise let it constrain the message without becoming message content.
+
+Audience-facing communication should do only the job of the current touchpoint. Relevance alone is not sufficient for inclusion: information should earn its place by materially helping the reader understand the message or make the next decision.
+
+Do not make one piece of communication carry information that a linked artifact, later interaction, or another stage of the journey can handle better. Preserve that information in the underlying reasoning without automatically summarizing it for the reader.
+
+For each candidate detail, ask whether omitting it would materially impair the reader's understanding of the core message, cause a misleading interpretation, weaken necessary proof, or prevent the intended next action. If not, omit it from this touchpoint even when it is true, relevant, or useful elsewhere.
+
 When the brief is too generic to support specific copy, ask for the missing material if interaction is possible. Otherwise write the strongest bounded version and identify what information would materially improve it.
 
 ## Copy critique / human-writing audit
@@ -270,8 +280,7 @@ Every material output must satisfy the following standards.
 **Strategic coherence** — prose expresses a resolved message rather than replacing one.  
 **Proof proportionality** — stronger claims require stronger evidence.  
 **Simplicity** — ordinary precise language is preferred to unnecessary jargon.  
-**Uncertainty** — unknown and inconclusive states are represented rather than hidden.  
-**No fake precision** — numeric confidence is not invented.  
+**Uncertainty** — unknown and inconclusive states remain represented in the analysis. Surface them in audience-facing communication when they are material to interpretation or the reader's current decision, or when the task requires disclosure.**No fake precision** — numeric confidence is not invented.  
 **Ethical persuasion** — conversion does not justify deception.  
 **Learning** — consequential work states what changed, what is supported, what is not proved, where it applies, and what should happen next.
 
