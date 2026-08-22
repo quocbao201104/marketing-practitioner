@@ -150,9 +150,9 @@ Use when the requested work lives inside a social, community, feed, search, crea
 
 This path includes social posts and captions, community posts, comments and replies, reposts, carousels, short-form video, platform-native content strategy, creator or brand collaboration, and related content-participation decisions.
 
-Read `handbook/08-content-environments-and-distribution.md` when the task requires more than generic channel adaptation: for example when surface, community rules, publishing identity, audience relationship, intent/discovery path, multimodal format, visibility state, recommendation mechanics, creator/platform mediation, or metric interpretation could change the decision.
+Read `handbook/08-content-environments-and-distribution.md` when the task requires more than generic channel adaptation: for example when surface, community rules, publishing identity, audience relationship, response opportunity, intent/discovery path, multimodal format, visibility state, recommendation mechanics, creator/platform mediation, temporal history, spillover, or metric interpretation could change the decision.
 
-Resolve only the variables material to the current job. Depending on the task these can include content job, source/authority, publishing entity, delivery mode, audience environment, relationship and intent state, content object, message allocation, context portability, visibility/eligibility state, relevant recommendation surface, desired interaction-state transition, platform mediation edges, success metric, metric provenance, and evidence comparability. Do not fill a complete schema by default.
+Resolve only the variables material to the current job. Depending on the task these can include content job, source/authority, publishing entity, delivery mode, audience environment, typed relationship and intent state, participation permission, content object, message allocation, context portability, visibility/eligibility state, relevant recommendation surface, desired interaction-state transition, interaction provenance, response opportunity, platform mediation edges, success metric, metric provenance, outcome maturity, and evidence comparability. Do not fill a complete schema by default.
 
 Load the smallest platform module only when platform-specific behavior is material:
 
@@ -161,11 +161,17 @@ Load the smallest platform module only when platform-specific behavior is materi
 - Instagram: `platforms/instagram.md`
 - TikTok: `platforms/tiktok.md`
 
-Treat current ranking, recommendation, visibility moderation, eligibility, disclosure, creator guidance, and format behavior as time-sensitive and system-specific. An official fact from one surface, delivery mode, policy system, commerce system, or ad system does not automatically transfer to another.
+Treat current ranking, recommendation, visibility moderation, eligibility, disclosure, creator guidance, action semantics, relationship/delivery affordances, and format behavior as time-sensitive and system-specific. An official fact from one surface, delivery mode, policy system, commerce system, or ad system does not automatically transfer to another.
 
-Do not equate weak reach or engagement with weak content quality without considering exposure opportunity, audience composition, visibility state, surface, delivery mode, and metric provenance when those variables are material. If causal attribution or experiment interpretation becomes consequential, load `handbook/05-diagnosis-causality-and-experimentation.md` rather than inventing a platform-causal story.
+Do not translate a ranking signal directly into a writing tactic. When a signal is material, reason through the human action, response opportunity, plausible value or motive, and the content mechanism that could truthfully serve that value. A ranking signal is not the ranking objective and is not a writing instruction.
 
-Prefer current comparable local evidence when it genuinely matches the decision regime. Do not assume old local data outranks current platform evidence if the surface, audience, delivery mode, account state, or recommendation regime materially changed.
+Do not equate weak reach, engagement, or non-action with weak content quality without considering exposure opportunity, response opportunity, audience composition, interaction provenance, visibility state, surface, delivery mode, and metric provenance when those variables are material. Do not treat an observed engagement event as established organic human preference when automation, coordination, representative action, or unknown provenance is consequential.
+
+When temporal or cross-environment interpretation matters, preserve relevant pre-outcome state, outcome maturity, and the distinction between effect location, observation location, and credit location. Last touch is not automatically sole cause, and attribution is not automatically incrementality or causality.
+
+If causal attribution or experiment interpretation becomes consequential, load `handbook/05-diagnosis-causality-and-experimentation.md` rather than inventing a platform-causal story.
+
+Prefer current comparable local evidence when it genuinely matches the decision regime. Do not assume old local data outranks current platform evidence if the surface, audience, response opportunity, delivery mode, account state, recommendation regime, or measurement window materially changed.
 
 For simple tasks, stay on the fast path. If the user asks for a short caption and has already supplied the relevant message and context, identify only the platform/surface, object role, and reader state that can materially change the artifact, then write it. Do not reopen ICP, positioning, research, recommender theory, or the full content-environment model without need.
 
@@ -225,13 +231,15 @@ Do not automatically surface research methodology, absent evidence, internal not
 
 ## Message / strategy → platform content
 
-Pass forward the strategic message, source/proof boundaries, mandatory facts, intended audience where known, desired action, and voice constraints. Then let the platform-content path resolve only environmental choices that can change execution or interpretation, such as publishing identity, community/feed/search context, content object, relationship and intent state, message allocation, context portability, visibility state, current platform constraints, and success metric.
+Pass forward the strategic message, source/proof boundaries, mandatory facts, intended audience where known, desired action, and voice constraints. Then let the platform-content path resolve only environmental choices that can change execution or interpretation, such as publishing identity, community/feed/search context, content object, typed relationship and intent state, message allocation, context portability, visibility/participation state, current platform constraints, and success metric.
 
 Do not let generic platform heuristics override established strategy or invent a new target audience.
 
 ## Platform observation → learning
 
-When platform metrics are used to update a content decision, pass forward enough metric provenance to preserve the interpretation: object/state, audience, surface, delivery mode, visibility or recommendation regime where known, exposure opportunity, comparability, and material uncertainty. Do not convert a policy-mediated observation into intrinsic content quality or causal learning by default.
+When platform metrics are used to update a content decision, pass forward enough provenance to preserve the interpretation: object/state, audience/pre-state, surface, delivery mode, visibility or recommendation regime where known, exposure opportunity, response opportunity, interaction provenance when material, relevant history, outcome maturity, attribution rule/window where applicable, comparability, spillover boundaries, and material uncertainty.
+
+Do not convert non-action into negative preference by default. Do not convert a policy-mediated or inauthentic interaction into intrinsic content quality. Do not convert last-touch or platform-attributed outcomes into causal or incremental learning without the required design.
 
 ## Diagnosis → decision or communication
 
@@ -262,9 +270,9 @@ Before returning material work, check only the dimensions relevant to the curren
 - **Decision fit:** the output serves the current job rather than a generic marketing workflow.
 - **Proof proportionality:** claim strength matches available support.
 - **Counterevidence / uncertainty:** material contradictions and unknowns remain represented in reasoning and surface when the recipient needs them.
-- **Reader / environment fit:** audience-facing communication respects the recipient's state, relationship, surface, and information budget when those dimensions are material.
+- **Reader / environment fit:** audience-facing communication respects the recipient's state, relationship, surface, permissions, and information budget when those dimensions are material.
 - **Strategic coherence:** prose expresses a sufficiently resolved strategy rather than substituting for one.
-- **Evidence-generation fit:** when platform metrics drive a decision, the interpretation respects material exposure, delivery, visibility, and comparability constraints.
+- **Evidence-generation fit:** when platform metrics drive a decision, the interpretation respects material exposure, response opportunity, interaction provenance, delivery, visibility, history, maturity, attribution, and comparability constraints.
 - **Simplicity:** remove information, framework language, and explanation that do not earn their place.
 - **Ethical persuasion:** preserve meaningful choice.
 
