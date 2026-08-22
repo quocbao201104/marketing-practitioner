@@ -24,7 +24,8 @@ Operational implication:
 
 - a post may travel beyond people who already understand the speaker's context;
 - professional relevance matters more than a generic "LinkedIn voice";
-- local network and audience evidence should outrank platform stereotypes.
+- local network and audience evidence should outrank platform stereotypes;
+- current interaction history can matter to future Feed exposure, so do not treat each post as if it encountered a memoryless audience.
 
 ---
 
@@ -72,7 +73,9 @@ Which identity is entitled to the first-person claim?
 Which distribution affordances matter?
 ```
 
-Do not assume that a personal profile or Company Page is universally superior.
+Do not assume that a personal Profile or Company Page is universally superior.
+
+When an organizational identity is visible, keep **publishing identity** separate from **operational actor**. A Page can represent an organization even when a particular employee, administrator, tool, or workflow performed the action. Do not infer personal experience or human authorship merely from the visible entity.
 
 ---
 
@@ -87,7 +90,7 @@ INTENDED READER
 who the post is primarily for
 
 ACTUAL EXPOSURE ENVELOPE
-who may realistically encounter it through feed, suggestion, repost, profile, or search
+who may realistically encounter it through feed, suggestion, repost, profile, search, notification, or network activity
 ```
 
 When broad discovery is part of the job, increase context portability enough for a stranger to understand:
@@ -101,18 +104,45 @@ Do not over-explain when the post is intentionally for an established audience w
 
 ---
 
-## 4. Relationship distance is material
+## 4. Relationship state is typed, not one strength score
 
-Possible relationship states include:
+Useful LinkedIn relationship states include:
 
-- direct connection;
+- first-degree connection;
 - follower who is not a connection;
-- subscriber;
+- connection who has unfollowed;
+- newsletter subscriber;
+- Page follower;
+- employee association to a Page;
+- Group member;
 - colleague or customer with prior context;
 - second/third-degree exposure;
 - unknown professional reached through recommendation;
-- Page follower;
 - no prior relationship.
+
+These states do not open the same future delivery paths. Current LinkedIn Help distinguishes connecting from following, and current newsletter documentation distinguishes following an author from subscribing to a specific newsletter [R28].
+
+Use the distinction:
+
+```text
+RELATIONSHIP GRAPH
+who is socially / professionally related to whom?
+
+DELIVERY GRAPH
+through which Feed, notification, newsletter, recommendation, or other path can content re-enter attention?
+```
+
+A social edge can open a delivery opportunity without guaranteeing delivery. For example, unfollowing a connection can leave the professional connection intact while removing that person's updates from the member's Feed [R28]. A newsletter subscription can create edition-specific notification re-entry that is not equivalent to following all of the author's content [R28].
+
+Therefore:
+
+```text
+RELATIONSHIP
+≠ GUARANTEED DELIVERY
+
+EXIT FROM DELIVERY PATH A
+≠ GLOBAL EXIT FROM SOURCE / CONTENT
+```
 
 A post for close peers can assume more context than a post designed for suggested discovery.
 
@@ -141,6 +171,8 @@ explicit campaign / user target
 
 Do not overwrite an explicit target with an inferred persona.
 
+A configured target is a distribution instruction, not the full lifetime audience envelope. Sharing, reposting, Search, profile discovery, or other network paths can expose an object beyond the configured set.
+
 ---
 
 ## 6. Content participation is broader than standalone posting
@@ -154,6 +186,7 @@ Useful LinkedIn participation units include:
 - repost with commentary;
 - article;
 - newsletter;
+- Group discussion;
 - event-related discussion;
 - other current platform-native units where available.
 
@@ -172,7 +205,40 @@ Potential jobs include:
 - build a professional relationship;
 - make a bounded contribution visible to the surrounding audience.
 
+On LinkedIn, public interaction can also carry professional and reputational cost because the action is attached to a professional identity and may travel through network activity. Therefore:
+
+```text
+NO COMMENT
+≠ automatically no opinion / no value
+```
+
+The person may lack a worthwhile response opportunity, may prefer a private channel, or may judge the public professional cost too high.
+
 Avoid turning comments into unrelated self-promotion.
+
+### Interaction provenance
+
+Before treating a visible like, comment, or share as evidence of human motivation, ask whether its provenance is material.
+
+Current LinkedIn policy explicitly distinguishes authentic participation from automated comments and coordinated engagement pods; detected inauthentic activity can receive reduced visibility or other enforcement [R28]. Therefore:
+
+```text
+OBSERVED ENGAGEMENT EVENT
+≠ ESTABLISHED ORGANIC HUMAN RESPONSE
+```
+
+When consequential, distinguish only as far as evidence allows:
+
+```text
+direct individual action
+representative action on behalf of an entity
+automated
+coordinated / pod-like
+incentivized
+unknown
+```
+
+Do not infer motive, persuasion, or audience preference from an event whose human provenance is uncertain.
 
 ### Repost with commentary
 
@@ -182,9 +248,13 @@ The source object supplies part of the meaning. Preserve enough context so the r
 - what the current speaker adds;
 - where agreement, disagreement, evidence, or interpretation begins.
 
+A public reaction, comment, or repost can also become a distribution event that introduces the source object to another professional network. Treat the interaction both as a response and, when material, as a possible spillover path.
+
 ### Article / newsletter
 
-Use longer or recurring objects when the job benefits from persistent depth or a repeated content promise. A newsletter creates a stronger recurring relationship than a random feed encounter. Do not treat it as merely a longer caption.
+Use longer or recurring objects when the job benefits from persistent depth or a repeated content promise. A newsletter creates a typed recurring relationship rather than merely a longer caption.
+
+Current LinkedIn documentation says newsletter subscribers can receive in-app, push, or email notification paths for new editions. It also distinguishes newsletter Subscribe from general Follow in newer FAQ guidance [R28]. Some older Help pages still describe subscription as automatically following the author; when product documentation conflicts, prefer the fresher explicit definition and preserve uncertainty rather than encoding a timeless action semantic.
 
 ---
 
@@ -264,7 +334,36 @@ A post designed for external traffic may reasonably trade some native engagement
 
 ---
 
-## 11. Publishing as a person vs an organization changes authority, not only voice
+## 11. Distribution requests are not realized exposure
+
+Some LinkedIn affordances create a delivery request rather than guaranteed allocation.
+
+For example, current LinkedIn Page documentation says an admin can use Employee Notifications for eligible posts, but employees can opt out and LinkedIn uses a relevance model to determine a critical group of employees to notify; processing and delivery can also take time [R28]. Targeted Page posts have their own constraints and cannot be combined with every other distribution affordance [R28].
+
+Keep the stages separate:
+
+```text
+DISTRIBUTION INTENT / REQUEST
+what the publisher asks the platform to do
+
+ALLOCATION
+who the platform selects
+
+DELIVERY
+which notification / Feed opportunity is actually sent
+
+EXPOSURE
+who notices the object
+
+RESPONSE OPPORTUNITY
+who meaningfully has a chance to take the interpreted action
+```
+
+Do not interpret weak response as a creative failure before checking whether the relevant delivery path was actually available and comparable.
+
+---
+
+## 12. Publishing as a person vs an organization changes authority, not only voice
 
 A useful source-to-speaker map is:
 
@@ -283,9 +382,21 @@ Do not transfer authority merely for distribution convenience.
 
 If the founder has a personal finding but the Company Page publishes it, attribute the individual where material. If the Company has measured product data, a founder can discuss it but should not present organizational measurement as personal anecdote.
 
+Also distinguish:
+
+```text
+VISIBLE PUBLISHING IDENTITY
+who the audience sees
+
+OPERATIONAL ACTOR
+who or what performed the action
+```
+
+This distinction matters for provenance and accountability, not for inventing hidden actor details.
+
 ---
 
-## 12. Practical LinkedIn decision path
+## 13. Practical LinkedIn decision path
 
 For a simple post:
 
@@ -305,26 +416,31 @@ For a substantial content decision:
 job
 → source / publishing entity
 → intended audience + actual exposure envelope
-→ relationship mechanism
+→ typed relationship / delivery path if material
 → standalone / comment / repost / article / newsletter
-→ discovery path
+→ discovery / re-entry path
 → context portability
 → professional relevance contract
 → message + proof + ask
-→ success metric
+→ success metric + response opportunity
 ```
+
+For diagnosis, preserve interaction provenance before interpreting engagement as a human signal.
 
 ---
 
-## 13. Current evidence boundaries
+## 14. Current evidence boundaries
 
 ### Established from current official LinkedIn documentation
 
-- Feed retrieval/ranking uses professional profile information, interaction history, content semantics, freshness, and personalized engagement patterns [R28].
+- Feed retrieval/ranking uses professional profile information, interaction history, content semantics, freshness, and personalized sequential engagement patterns [R28].
 - LinkedIn can surface professionally relevant content from outside a member's immediate network [R28].
 - Suggested content is expected to provide sufficient context and value beyond the original poster's network [R28].
-- Company Pages can target some organic posts using follower profile attributes, subject to minimum audience and other current requirements [R28].
-- Targeted posts may still be encountered beyond the configured target through sharing/reposting [R28].
+- Company Pages can target some organic posts using follower profile attributes, subject to current requirements; sharing/reposting can extend the audience beyond the configured target [R28].
+- Following and connecting are distinct relationship states, and unfollowing a connection can leave the connection intact while removing their updates from Feed [R28].
+- Newsletter subscription has edition-specific notification paths; current FAQ guidance distinguishes Subscribe from general Follow [R28].
+- Employee Notifications are mediated by eligibility, opt-out, processing, and a relevance model rather than guaranteeing notification to every associated employee [R28].
+- LinkedIn currently acts against automated comments and coordinated engagement pods and may reduce their visibility or otherwise enforce policy [R28].
 
 ### Not established as universal laws
 
@@ -334,6 +450,8 @@ job
 - a fixed number of hashtags is optimal;
 - one posting time works across professional audiences;
 - "professional" means formal, inspirational, or corporate;
-- comments are merely vanity engagement rather than a possible content-participation unit.
+- comments are merely vanity engagement rather than a possible content-participation unit;
+- every observed comment, like, or share is an organic expression of human preference;
+- a Follow, Connection, newsletter Subscribe, Group membership, and notification subscription are interchangeable relationship states.
 
 Use current account evidence when available and keep platform averages scoped.
