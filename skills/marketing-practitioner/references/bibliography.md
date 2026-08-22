@@ -156,6 +156,64 @@ Use: evidence that social proof is not a single universal cue and that different
 
 ---
 
+## Networked content, online communities, and social-media affordances
+
+### [R23] Marwick & boyd — Context Collapse and the Imagined Audience
+
+Marwick, A. E., & boyd, d. (2011). **I tweet honestly, I tweet passionately: Twitter users, context collapse, and the imagined audience.** *New Media & Society, 13*(1), 114–133. DOI: 10.1177/1461444810365313.
+
+Use: networked audiences, audience multiplicity, context collapse, and the practical problem that creators often communicate to an imagined rather than perfectly known audience. The Twitter setting should not be treated as proof that every platform has identical audience dynamics.
+
+### [R24] Treem & Leonardi — Social-Media Affordances
+
+Treem, J. W., & Leonardi, P. M. (2013). **Social Media Use in Organizations: Exploring the Affordances of Visibility, Editability, Persistence, and Association.** *Communication Yearbook, 36*, 143–189. DOI: 10.1080/23808985.2013.11679130.
+
+Use: conceptual basis for visibility, persistence, editability, and association as recurring social-media affordances. The framework is used as a conceptual lens, not as a claim that every current platform exposes the same affordances in the same way.
+
+### [R25] Matias — Visible Community Norms and Newcomer Participation
+
+Matias, J. N. (2019). **Preventing harassment and increasing group participation through social norms in 2,190 online science discussions.** *Proceedings of the National Academy of Sciences, 116*(20), 9785–9789. DOI: 10.1073/pnas.1813486116.
+
+Use: field-experimental evidence that making community rules visible changed newcomer participation and rule compliance in the studied r/science discussions. Do not generalize the measured effect size to unrelated communities.
+
+### [R26] Gallagher & Savage — Newcomer Legitimacy in Online Communities
+
+Gallagher, S. E., & Savage, T. (2015). **“What is, Becomes What is Right”: A Conceptual Framework of Newcomer Legitimacy for Online Discussion Communities.** *Journal of Computer-Mediated Communication, 20*(4), 400–416. DOI: 10.1111/jcc4.12122.
+
+Use: conceptual and qualitative basis for newcomer legitimacy, including contextual legitimacy, testimonial legitimacy, and learning community norms through prior observation. Treat the framework as community-specific theory development rather than a deterministic content formula.
+
+---
+
+## Current platform documentation for content environments
+
+These sources describe current product behavior, platform capabilities, ranking/recommendation disclosures, or governance settings. They are time-sensitive operational sources, not scientific laws. Re-check them when a consequential decision depends on current platform behavior.
+
+### [R27] Meta / Facebook — Feed, Recommendations, and Group Governance
+
+Meta. **What influences the order of posts in your Facebook Feed; About recommendations on Facebook; Differences between public and private Facebook groups; Set up Admin Assist to automatically manage your Facebook group.** Facebook Help Center. Reviewed 2026-08-23.
+
+Use: current Facebook Feed signal categories, recommendation beyond existing follow relationships, Group privacy/audience differences, and configurable Group moderation including approval and link/domain rules.
+
+### [R28] LinkedIn — Feed, Suggested Content, and Page Targeting
+
+LinkedIn. (2026). **Engineering the next generation of LinkedIn’s Feed.** LinkedIn Engineering, March 12, 2026; plus **Suggested posts in feed** and **Create targeted posts on your LinkedIn Page**, LinkedIn Help. Reviewed 2026-08-23.
+
+Use: current Feed retrieval/ranking architecture and signal categories, professionally relevant suggested content beyond immediate networks, context requirements for suggested posts, and organic Page-targeting capabilities. Product details and targeting requirements can change.
+
+### [R29] Meta / Instagram — Recommendation Eligibility and Suggested Content
+
+Meta. **Recommendation eligibility on Instagram; Recommendations on Instagram; How Instagram determines which posts appear as suggested posts.** Instagram Help Center. Reviewed 2026-08-23.
+
+Use: current recommendation eligibility, non-follower discovery surfaces, and signal categories used for suggested content. Eligibility does not imply guaranteed distribution.
+
+### [R30] TikTok — Recommendation Systems and Creator Search Insights
+
+TikTok. **How TikTok recommends content; Creator Search Insights.** TikTok Support. Reviewed 2026-08-23.
+
+Use: current recommender/discovery surfaces, distinctions between For You and Search signal weighting, comment recommendation, and search-topic/content-gap tooling. Search popularity or recommendation signals should not be represented as proof of market demand or causal content performance.
+
+---
+
 ## Practitioner and third-party writing sources
 
 ### [R22] AI Copywriter / humanizer lineage
