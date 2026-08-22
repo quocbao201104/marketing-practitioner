@@ -4,6 +4,15 @@ All notable changes to this repository are documented here.
 
 The project uses semantic versioning for published skill revisions. Early versions may change structure while the conceptual model is stabilized.
 
+## [0.1.3] - 2026-08-22
+
+### Changed
+
+- Improved audience-facing content selection during copywriting.
+- Separated internal claim constraints from information that belongs in the final message.
+- Required relevant details to justify their place against the reader's current decision and attention budget.
+- Added an omission test that preserves material proof, limitations, uncertainty, and next-action information while avoiding unnecessary disclosure.
+
 ## [0.1.2] - 2026-08-22
 
 ### Changed
