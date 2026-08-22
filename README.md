@@ -36,13 +36,13 @@ recommend the strongest evidence-compatible positioning and message strategy,
 then draft the landing page without inventing claims.
 ```
 
-The intended behavior is not to jump directly to polished copy. The skill first establishes what the evidence supports, what remains uncertain, who the message is for, which alternative matters, what positioning is defensible, and which claims can be made. Copy comes after those choices.
+For communication tasks, the skill does not jump directly to polished copy. It establishes only the upstream choices needed for the current artifact, then carries forward the relevant conclusions, constraints, proof, and uncertainty. Diagnosis, localization, research, and postmortem tasks can enter through their own operating paths instead of being forced through a copy pipeline.
 
 ## How the skill works
 
-This repository follows the Agent Skills model. The installable skill lives in [`skills/marketing-practitioner/`](skills/marketing-practitioner/). Its `SKILL.md` contains the operational instructions, while the handbook, frameworks, and bibliography sit inside the same skill directory so they travel with the installed package.
+This repository follows the Agent Skills model. The installable skill lives in [`skills/marketing-practitioner/`](skills/marketing-practitioner/). Its `SKILL.md` contains the runtime controller and universal invariants, while the handbook, frameworks, and bibliography sit inside the same skill directory so they travel with the installed package.
 
-In a skills-compatible client, the expected loading pattern is progressive:
+In a skills-compatible client, the expected loading pattern is progressive and decision-driven:
 
 ```text
 DISCOVER
@@ -51,42 +51,50 @@ name + description
 ACTIVATE
 read SKILL.md when the task matches
       ↓
-EXECUTE
-follow the operating method
+IDENTIFY CURRENT JOB / DECISION
+select only the operating path(s) needed
       ↓
-DEEPEN WHEN NEEDED
-consult handbook / frameworks / references
+LOAD GUIDANCE JUST IN TIME
+consult the smallest task-relevant handbook / framework resource
+      ↓
+PASS FORWARD DECISION-RELEVANT STATE
+conclusions + constraints + proof + material uncertainty
+      ↓
+ACT / COMMUNICATE / VALIDATE
 ```
 
-Exact installation, discovery, and activation behavior depends on the agent client. The package is structured so an agent can load the operating instructions first and consult only the task-relevant supporting resources when needed.
+Exact installation, discovery, and activation behavior depends on the agent client. The package is structured so an agent can keep the always-on runtime compact and consult deeper material only when the current decision point needs it.
 
 ## Overview
 
-Marketing Practitioner is a domain skill and compact handbook for evidence-informed marketing work. It is designed for AI agents, marketers, copywriters, founders, researchers, and growth practitioners who need a disciplined path from market evidence to positioning, messaging, copy, experimentation, and learning.
+Marketing Practitioner is a domain skill and compact handbook for evidence-informed marketing work. It is designed for AI agents, marketers, copywriters, founders, researchers, and growth practitioners who need disciplined market reasoning across research, targeting, positioning, messaging, copy, diagnosis, experimentation, localization, and learning.
 
-The repository is built around a simple premise: **copy is an expression layer of marketing strategy, not a substitute for it**. Strong prose cannot repair unclear positioning, weak evidence, an undefined audience, or unsupported claims. Marketing practice therefore begins with market learning and proceeds through explicit choices before it reaches copy.
+The repository is built around a simple premise: **copy is an expression layer of marketing strategy, not a substitute for it**. Strong prose cannot repair unclear positioning, weak evidence, an undefined audience, or unsupported claims. At the same time, not every marketing job is a copy job, so the runtime begins from the current decision rather than one universal funnel.
 
-The core sequence is:
+The runtime controller is organized around this pattern:
 
 ```text
-MARKET EVIDENCE
-      ↓
-CUSTOMER UNDERSTANDING
-      ↓
-SEGMENT / CONTEXT SELECTION
-      ↓
-POSITIONING
-      ↓
-MESSAGE STRATEGY
-      ↓
-COPY / CAMPAIGN
-      ↓
-MARKET RESPONSE
-      ↓
-SCOPED LEARNING
+CURRENT JOB / DECISION
+        ↓
+RELEVANT EVIDENCE
+        ↓
+SELECT OPERATING PATH
+   ├─ research / synthesis
+   ├─ segment / target
+   ├─ positioning / value
+   ├─ message / copy
+   ├─ diagnosis / experiment
+   ├─ localization
+   └─ postmortem / learning
+        ↓
+LOAD GUIDANCE AT THE DECISION POINT
+        ↓
+PASS ONLY DECISION-RELEVANT STATE FORWARD
+        ↓
+ACT / COMMUNICATE / VALIDATE
 ```
 
-This sequence is not presented as a universal law. It is an operating model that makes assumptions, evidence, choices, and uncertainty easier to inspect.
+A communication task can still move from evidence through positioning and message strategy into copy, but that is now treated as one dependency pattern rather than the mandatory path for every task.
 
 ## What makes this repository different
 
@@ -96,12 +104,12 @@ Its emphasis is on six forms of discipline:
 
 1. **Evidence discipline** — distinguish source material, observation, interpretation, hypothesis, association, and causal claim.
 2. **Scope discipline** — avoid turning findings from one segment, market, channel, or period into universal claims.
-3. **Strategic discipline** — establish audience, alternatives, category frame, positioning, proof, and trade-offs before prose.
-4. **Claim discipline** — prefer proof and mechanisms to promotional adjectives; never fabricate specificity.
+3. **Strategic discipline** — establish audience, alternatives, category frame, positioning, proof, and trade-offs before prose when those choices are material to the task.
+4. **Claim discipline** — prefer proof and mechanisms to promotional adjectives; never fabricate specificity or unsupported personal experience.
 5. **Measurement discipline** — distinguish symptoms from causes, attribution from incrementality, and proxy wins from business outcomes.
 6. **Learning discipline** — retain failed hypotheses, contradictions, boundary conditions, and inconclusive results rather than only winners.
 
-The copywriting component adds a reader-first and truth-first writing method, together with a human-writing audit that removes common machine-like patterns without flattening voice.
+The copywriting component adds a reader-first and truth-first writing method, together with a human-writing audit that can be loaded when voice or naturalness is actually material instead of being front-loaded into unrelated work.
 
 ## Repository structure
 
@@ -114,6 +122,9 @@ The copywriting component adds a reader-first and truth-first writing method, to
 ├── THIRD_PARTY_NOTICES.md
 ├── assets/
 │   └── marketing-practitioner-banner.webp
+├── evals/
+│   ├── runtime-architecture-v0.1.4.md
+│   └── runtime-architecture-v0.1.4-complexity.md
 │
 └── skills/
     └── marketing-practitioner/
@@ -136,7 +147,7 @@ The copywriting component adds a reader-first and truth-first writing method, to
 
 ### `skills/marketing-practitioner/SKILL.md`
 
-The operational specification for an AI agent. It defines when the skill should be used, the reasoning order, evidence rules, copywriting constraints, output standards, and which supporting resources to load for a task.
+The operational specification for an AI agent. It defines the decision-first runtime controller, universal invariants, operating paths, decision-point resource loading, state handoffs, audience-facing content selection, and final validation.
 
 ### `handbook/`
 
@@ -144,11 +155,15 @@ The conceptual body of knowledge packaged with the skill. Chapters are written a
 
 ### `frameworks/`
 
-Compact working instruments for research synthesis, positioning, messaging, diagnosis, experiments, and postmortems.
+Compact working instruments for research synthesis, positioning, messaging, diagnosis, experiments, and postmortems. They are optional working tools rather than mandatory forms for every task.
 
 ### `references/`
 
 A selected bibliography emphasizing peer-reviewed research, academic monographs, primary methodological sources, and carefully bounded practitioner references.
+
+### `evals/`
+
+Frozen runtime-architecture and complexity cases used during the v0.1.4 refactor to compare the prior always-on structure with the lean decision-first candidate. They document the evaluation setup; they are not a claim of general model-level performance improvement.
 
 ## Intended uses
 
@@ -172,9 +187,9 @@ The repository uses a conservative standard for marketing claims:
 
 ## Copywriting policy
 
-The writing method is reader-first and truth-first. Before optimizing style, it establishes the reader's situation, the mental category in which the offer will be evaluated, the relevant alternative, the message to express, and the proof available.
+The writing method is reader-first and truth-first. Before optimizing style, it resolves only the upstream strategy needed for the current touchpoint and separates internal constraints from information that belongs in the final message.
 
-Human-sounding writing is treated as a **quality floor rather than a strategy**. The goal is not merely to remove recognizable AI patterns. The goal is to produce clear, specific, evidence-compatible prose with appropriate voice, rhythm, and channel fit.
+Human-sounding writing is treated as a **quality floor rather than a strategy**. The goal is not merely to remove recognizable AI patterns. The goal is to produce clear, specific, evidence-compatible prose with appropriate voice, rhythm, and channel fit without inventing personal experience or familiarity for the speaker.
 
 ## Installation for agents
 
@@ -194,7 +209,7 @@ The installable package is [`skills/marketing-practitioner/`](skills/marketing-p
 
 ## Status
 
-**v0.1.3 — Audience-aware content selection.** This release improves copywriting selection so internal constraints can govern claims without automatically appearing in audience-facing copy. Relevant details must earn their place against the reader's current decision, necessary proof, truthful interpretation, and intended next action.
+**v0.1.4 — Decision-first runtime architecture.** This release replaces the single default marketing pipeline with explicit operating-path selection, just-in-time supporting guidance, and state handoffs that carry only decision-relevant conclusions, constraints, proof, and material uncertainty into later stages. The v0.1.3 audience-facing content-selection behavior remains preserved.
 
 ## Attribution
 

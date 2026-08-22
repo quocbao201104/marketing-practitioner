@@ -3,7 +3,7 @@ name: marketing-practitioner
 description: "Evidence-informed marketing and copywriting for AI agents. Use for customer-research synthesis, segmentation and ICP selection, positioning, value proposition, message strategy, landing pages, email and campaign copy, copy critique, funnel diagnosis, experiment design, localization, and marketing postmortems. Treat marketing as a market-learning and decision discipline: separate observation from interpretation, scope claims to evidence, establish strategy before prose, prefer proof to hype, distinguish attribution from causality, preserve uncertainty, and write in a clear human voice without inventing facts."
 license: MIT
 metadata:
-  version: "0.1.3"
+  version: "0.1.4"
   language: "en"
   domain: "marketing"
 ---
@@ -12,277 +12,222 @@ metadata:
 
 ## Purpose
 
-Apply a disciplined sequence from market evidence to strategic choice, communication, measurement, and learning. The skill is broader than copywriting because copy quality depends on the quality of the market model, audience selection, positioning, message, and proof that precede it.
+Treat marketing as a decision and learning discipline, not merely a content-production task. Use market evidence to make bounded choices, communicate them appropriately, observe response, and preserve what is learned.
 
-The default operating sequence is:
+Do not force every task through one universal marketing funnel. Start from the user's current job or decision, select the relevant operating path, and load deeper guidance only when that path reaches a decision point that needs it.
+
+## Runtime controller
+
+For each task:
+
+1. **Identify the current job or decision.** Determine what must be decided, understood, written, diagnosed, tested, localized, or learned. If the user already supplied this, do not reopen it unnecessarily.
+2. **Identify the evidence that matters for that job.** Separate supplied facts and observations from interpretations, hypotheses, assumptions, and unknowns.
+3. **Select the operating path or paths.** Use only the modes needed for the task, in the order required by their dependencies.
+4. **Load supporting guidance just in time.** Read the smallest supporting file that materially improves the next decision; do not read the whole handbook by default.
+5. **Pass forward only decision-relevant state.** Later stages should receive the conclusions, constraints, proof, and uncertainty they need, not an automatic dump of all earlier research or process detail.
+6. **Produce the requested output, then validate it against the current job.** Do not add work, caveats, frameworks, or explanation merely because they exist elsewhere in this skill.
+
+A typical communication task may move through:
 
 ```text
 EVIDENCE
 → UNDERSTANDING
-→ SEGMENT / CONTEXT
+→ TARGET / CONTEXT
 → POSITIONING
 → MESSAGE STRATEGY
-→ COPY OR ACTION
-→ RESPONSE
-→ SCOPED LEARNING
+→ COPY
 ```
 
-Treat this as an operating model, not a universal law.
-
-## Governing principles
-
-### 1. Research must serve a decision
-
-Do not conduct research merely to "understand customers better." State the decision that additional knowledge is expected to inform. Select methods according to the question being asked.
-
-Qualitative inquiry is especially useful for context, mechanisms, language, workflows, objections, and meanings. Quantitative data are required for questions of prevalence, frequency, magnitude, and distribution. Causal questions require a design capable of identifying intervention effects.
-
-### 2. Preserve epistemic layers
-
-Do not collapse the following into a single "insight":
+A diagnosis task may instead move through:
 
 ```text
-SOURCE MATERIAL
-→ OBSERVATION
-→ INTERPRETATION
-→ HYPOTHESIS
-→ TEST OR ADDITIONAL EVIDENCE
-→ SCOPED LEARNING
+METRIC / SYMPTOM
+→ DECOMPOSITION
+→ COMPETING EXPLANATIONS
+→ DISCRIMINATING CHECK
+→ DECISION
 ```
 
-An observation is not automatically an explanation. An explanation is not automatically a cause.
+A localization task may begin from an already-resolved global strategy and adapt only the dimensions that local evidence justifies.
 
-### 3. Preserve scope and counterevidence
-
-For consequential findings, identify supporting, contradicting, mixed, and unknown evidence. Never generalize beyond the segment, market, product state, channel, population, or period supported by the material.
-
-Multiple quotes, summaries, or slides derived from one source do not become independent evidence merely because they are separate artifacts.
-
-### 4. Distinguish marketing questions by type
-
-Keep these categories separate:
-
-- **descriptive** — what happened or what is present;
-- **associational** — what varies with what;
-- **predictive** — what is likely to happen next;
-- **causal** — what would change under an intervention.
-
-Attribution is not causality. A credited conversion does not establish that the conversion would disappear without the channel.
-
-### 5. Strategy precedes prose
-
-Before important copy, establish:
-
-- audience and current situation;
-- relevant alternative or status quo;
-- category or mental frame;
-- desired progress or job;
-- primary value and trade-off;
-- reason to believe;
-- core message and primary angle;
-- objections;
-- claims that evidence permits and claims it does not permit;
-- appropriate next action.
-
-Do not use fluent writing to conceal unresolved strategy.
-
-### 6. Proof precedes promotional language
-
-Prefer mechanisms, demonstrations, observed behavior, valid data, credible testimony, or explicit constraints to unsupported adjectives. Specificity is valuable only when it is true. Never invent numbers, quotations, features, outcomes, deadlines, testimonials, customer stories, or scientific claims to improve copy.
-
-### 7. Write for the reader's state
-
-Before drafting, identify the reader's situation at the moment of contact: what they are trying to accomplish, what they have already experienced, what they compare the offer with, what they fear or doubt, and how much attention the format permits.
-
-Then ask: **What is the simplest accurate explanation that respects that state?**
-
-### 8. Human-sounding writing is a quality floor
-
-Natural prose is necessary but insufficient. Do not optimize merely for the absence of AI-writing signals. Preserve useful authorial traits when appropriate: characteristic vocabulary, sentence rhythm, concrete detail, uncertainty, judgment, and intentional irregularity.
-
-Audit for patterns that often weaken machine-generated prose:
-
-- significance inflation;
-- unsupported promotional adjectives;
-- vague attribution;
-- filler clauses that simulate depth;
-- unnecessary avoidance of simple verbs such as _is_ and _has_;
-- forced triads and artificial symmetry;
-- synonym cycling that harms terminological consistency;
-- false ranges and inflated aphorisms;
-- excessive headings, bullets, or emphasis used in place of reasoning;
-- excessive hedging or fake certainty;
-- generic inspirational conclusions;
-- fabricated personal stories, vulnerability, urgency, or familiarity.
-
-A user-provided voice sample outranks generic style preferences unless it creates factual, ethical, or safety problems.
-
-### 9. Diagnose before changing tactics
-
-When a funnel or business metric changes:
-
-1. define the metric precisely;
-2. select the relevant baseline;
-3. decompose the outcome into plausible drivers;
-4. locate where the change is concentrated;
-5. generate competing explanations;
-6. record evidence for and against each explanation;
-7. identify the cheapest high-value check that can distinguish them;
-8. consider the reversibility and cost of being wrong;
-9. retain a no-change option when evidence is weak.
-
-A local metric improvement is not sufficient if qualified conversion, margin, retention, trust, or support burden deteriorates.
-
-### 10. Design experiments to produce knowledge
-
-Begin with the decision and hypothesis, not the treatment. Specify population, control, treatment, primary metric, guardrails, meaningful effect, sample or duration logic, an inconclusive condition, and decision rules before inspecting results where practicable.
-
-Negative and null results must be written narrowly. "This treatment did not produce a detectable effect in this setting" is materially different from "the underlying customer concern does not matter."
-
-### 11. Preserve organizational learning
-
-Retain more than winners. Useful memory includes:
-
-- what was believed;
-- what evidence existed;
-- what alternatives were considered;
-- what was selected and why;
-- what happened;
-- what was weakened, falsified, supported, or left inconclusive;
-- the scope and freshness of the learning;
-- contradictions that remain unresolved.
-
-A repository of files is not organizational memory unless prior learning changes later decisions.
-
-### 12. Localize by dimension, not stereotype
-
-Separate language, locale, market, geography, currency, timezone, and jurisdiction. Translation preserves meaning across language; localization may alter proof, category framing, tone, buying process, payment, support expectations, examples, and calls to action.
-
-Cultural research may inform hypotheses. It must not be used as a deterministic classifier for individuals or as automatic authorization for persuasive tactics.
-
-### 13. Persuasion must preserve meaningful choice
-
-Persuasion may clarify value, evidence, consequences, and trade-offs. Do not rely on fake scarcity, false social proof, hidden material terms, deceptive defaults, shame, obstructed cancellation, or deliberately asymmetric friction.
-
-Optimize decision quality, not click probability alone.
+These are dependency patterns, not mandatory pipelines.
 
 ---
 
-# Operating modes
+# Universal invariants
+
+These rules govern every operating path unless the task explicitly requires a stricter standard.
+
+## 1. Source fidelity
+
+Do not invent facts, features, numbers, quotations, testimonials, customer stories, outcomes, deadlines, guarantees, scientific claims, or other specificity that is not supported by the supplied or legitimately retrieved material.
+
+Do not invent first-person experience, preference, use, familiarity, or personal history for the speaker or author when the source does not support it.
+
+Keep source material distinct from observation, interpretation, hypothesis, and decision. Multiple artifacts derived from one source do not become independent evidence merely because they appear separately.
+
+## 2. Scope and proof must match the claim
+
+Do not generalize beyond the segment, market, product state, channel, population, or period supported by the evidence. Qualitative recurrence does not establish population prevalence. Association or attribution does not by itself establish causation.
+
+Prefer mechanisms, demonstrations, observed behavior, valid data, credible testimony, or explicit constraints to unsupported promotional adjectives. Stronger claims require stronger evidence.
+
+## 3. Preserve material counterevidence and uncertainty in reasoning
+
+Retain contradicting, mixed, and unknown evidence when it could change the current decision or the interpretation of a consequential finding.
+
+Retaining information in the reasoning does not mean it must appear in every final output. Surface contradictions, uncertainty, limitations, or missing proof when they are material to the recipient's current decision, necessary for truthful interpretation, or explicitly required by the task.
+
+## 4. Do not convert uncertainty into false precision
+
+Unknown, inconclusive, and provisional states are legitimate. Do not invent numeric confidence or imply that a hypothesis has been established when the method does not support that conclusion.
+
+## 5. Strategy must constrain communication
+
+When audience-facing communication is consequential, resolve enough of the audience/context, relevant alternative, category or frame, primary value, reason to believe, trade-off, message, claim boundaries, and next action to support the requested artifact.
+
+Do not use fluent prose to conceal unresolved strategy. When the task is narrow and the strategy is already supplied, do not rebuild it from scratch.
+
+## 6. Persuasion must preserve meaningful choice
+
+Do not use fake scarcity, false social proof, hidden material terms, deceptive defaults, shame, obstructed cancellation, fabricated urgency, or deliberately asymmetric friction. Conversion does not justify deception.
+
+---
+
+# Operating paths and decision-point loading
 
 ## Research synthesis
 
-Use when the input contains interviews, reviews, support records, sales notes, survey text, or other customer material.
+Use when interviews, reviews, surveys, support records, sales notes, or other customer material must inform a decision.
 
-Produce a synthesis that separates:
+Before making consequential research interpretations, read `handbook/01-customer-research-and-evidence.md` if the task involves source quality, qualitative synthesis, prevalence claims, conflicting evidence, or methodological boundaries.
 
-1. source-grounded observations;
-2. recurring patterns;
-3. segment or context differences;
-4. contradictions;
-5. unknowns;
-6. provisional hypotheses;
-7. implications for the stated decision.
+Keep source-grounded observations separate from interpretations and hypotheses. Preserve segment/context differences, contradictions, unknowns, and the implications for the stated decision. Do not turn recurrence in qualitative material into prevalence.
 
-Do not infer population prevalence from qualitative recurrence alone.
+If the methodological question spans multiple research types or the evidence model itself is unclear, read `handbook/00-foundations-and-method.md` before choosing the method or inference.
 
 ## Segmentation / ICP / JTBD
 
-Identify differences that would justify different marketing treatment. Evaluate segments using customer problem intensity, product fit, economics, reachability, and strategic fit as a practical checklist rather than a mathematical law.
+Use when the task requires deciding which customers, roles, contexts, or jobs deserve different treatment or priority.
 
-Treat the competitive set broadly: formal competitors, manual workflows, substitutes, internal labor, delay, and doing nothing may all be relevant alternatives.
+Before selecting or revising a segment, ICP, or JTBD frame, read `handbook/02-segmentation-icp-and-jtbd.md` when the choice depends on customer heterogeneity, reachability, economics, switching context, or alternative behavior.
 
-## Positioning
+Treat formal competitors, adjacent tools, manual workflows, internal labor, delay, and doing nothing as possible alternatives. A useful segment should change a material decision; decorative persona detail does not improve targeting by itself.
 
-Clarify the mental category, target context, alternative, primary value, differentiation, distinctiveness, table stakes, reason to believe, and trade-offs. Competitor whitespace is not automatically customer value.
+## Positioning / value
 
-## Message strategy
+Use when the target context, category, relevant alternative, primary value, differentiation, proof, or trade-off must be chosen or revised.
 
-Resolve message before drafting prose. State the reader, situation, core message, primary angle, proof, objections, allowed claims, forbidden claims, CTA logic, and unresolved uncertainty.
+When any of those choices are unresolved and material to the requested decision, read `handbook/03-positioning-and-value.md` before finalizing positioning.
 
-## Copywriting
+Positioning should connect a specific target context and relevant alternative to a prioritized value with a credible reason to believe. Competitor whitespace is not automatically customer value. Distinctiveness and differentiation are related but not interchangeable.
 
-Use the resolved strategy and source material. Adapt to channel constraints. For landing pages, preserve a coherent hierarchy from category and value through mechanism, proof, objection handling, and action. For email and short-form formats, respect the reader's attention state and the information budget.
+## Message strategy / copywriting
 
-Before finalizing audience-facing communication, separate constraints from content. Information may be important because it governs what the message is allowed to claim without itself belonging in the message.
+Use when the requested outcome is audience-facing communication or a message/copy decision.
 
-Surface a limitation, uncertainty, or missing proof when it is material to the reader's current decision, necessary for truthful interpretation, or explicitly required by the task. Otherwise let it constrain the message without becoming message content.
+Once the relevant positioning is sufficiently resolved for the task, read `handbook/04-messaging-proof-and-copy.md` if the work requires message hierarchy, proof architecture, channel adaptation, claim control, landing-page/email/campaign copy, or a human-writing review.
+
+Before drafting, identify the reader's current situation, the one job of this touchpoint, the core message, proof available, material objections, allowed or unsupported claims, and the appropriate next action. A user-provided voice sample outranks generic style preferences unless it conflicts with truth, ethics, or the task.
+
+### Audience-facing content-selection gate
+
+Before finalizing audience-facing communication, separate **constraints** from **content**. Information may be important because it governs what the message is allowed to claim without itself belonging in the message.
+
+Surface a limitation, uncertainty, contradiction, or missing proof when it is material to the reader's current decision, necessary for truthful interpretation, or explicitly required by the task. Otherwise let it constrain the message without automatically becoming message content.
 
 Audience-facing communication should do only the job of the current touchpoint. Relevance alone is not sufficient for inclusion: information should earn its place by materially helping the reader understand the message or make the next decision.
 
-Do not make one piece of communication carry information that a linked artifact, later interaction, or another stage of the journey can handle better. Preserve that information in the underlying reasoning without automatically summarizing it for the reader.
+Do not make one piece of communication carry information that a linked artifact, later interaction, or another stage of the journey can handle better.
 
-For each candidate detail, ask whether omitting it would materially impair the reader's understanding of the core message, cause a misleading interpretation, weaken necessary proof, or prevent the intended next action. If not, omit it from this touchpoint even when it is true, relevant, or useful elsewhere.
+For each candidate detail, ask whether omitting it would materially impair understanding of the core message, cause a misleading interpretation, weaken necessary proof, or prevent the intended next action. If not, omit it from this touchpoint even when it is true, relevant, or useful elsewhere.
 
-When the brief is too generic to support specific copy, ask for the missing material if interaction is possible. Otherwise write the strongest bounded version and identify what information would materially improve it.
+Human-sounding writing is a quality floor, not the strategy. Use the human-writing guidance in `handbook/04-messaging-proof-and-copy.md` or `frameworks/quality-rubrics.md` when voice or naturalness is actually material to the task; do not front-load a pattern checklist into unrelated work.
 
-## Copy critique / human-writing audit
+## Copy critique
 
-Preserve facts and intended voice. Evaluate, in order:
+Use when evaluating existing copy rather than creating new strategy by default.
 
-1. strategic fit;
-2. claim support;
-3. relevance to the reader's situation;
-4. clarity and concreteness;
-5. proof and objection handling;
-6. hierarchy and channel fit;
-7. naturalness of prose;
-8. CTA coherence.
+Preserve supplied facts and intended voice. Review strategic fit, claim support, relevance, clarity, proof, channel fit, naturalness, and CTA coherence. If a critique exposes an upstream strategy problem, identify it rather than trying to solve everything through wording changes.
 
-Do not reduce critique to stylistic preference.
+## Funnel diagnosis / causal reasoning / experiment design
 
-## Funnel diagnosis
+Use when a metric changed, the user asks why something happened, or the task requires choosing a test or intervention.
 
-Apply metric definition, baseline selection, decomposition, segmentation, competing explanations, uncertainty, reversibility, and the no-change option before recommending tactical changes.
+Before attributing cause, recommending a tactical change, or designing an experiment, read `handbook/05-diagnosis-causality-and-experimentation.md` when the task involves metric definition, baseline choice, competing explanations, instrumentation, causal inference, experimental design, or decision rules.
 
-## Experiment design
+Diagnose before changing tactics: define the metric, select the relevant baseline, decompose the outcome, locate where the change is concentrated, retain competing explanations, identify the highest-value discriminating check, and keep a no-change option when evidence is weak.
 
-Tie each experiment to a decision. Distinguish confirmatory from exploratory analysis. Define what positive, null, negative, and inconclusive outcomes would permit the team to conclude.
+Do not write replacement copy merely because copywriting is available if the evidence does not identify messaging as the problem.
 
 ## Localization
 
-Identify global invariants and local variables. Require local evidence before strong claims about market psychology. Preserve original-language customer material when meaning or wording is analytically important.
+Use when an existing offer, positioning, message, or experience must be adapted across language, locale, market, geography, currency, timezone, jurisdiction, or buying context.
 
-## Postmortem / learning
+Before making market-specific psychological or cultural claims, or when deciding what should remain invariant versus adapt, read `handbook/07-international-marketing-and-ethics.md`.
 
-Record what was tried, what happened, what the result supports, what it weakens, what it does not prove, where it applies, what contradictions remain, and how the learning should alter future decisions.
+Preserve global product facts and strategic invariants unless local evidence justifies a change. Adapt only the dimensions supported by product capability and local evidence. Translation is not the same as localization, and exploratory local evidence does not establish market-wide prevalence.
 
----
+## Postmortem / organizational learning
 
-# Resource routing
+Use when the task must preserve a reusable record of what was believed, tried, observed, weakened, supported, falsified, or left unresolved.
 
-Load supporting files only when they materially help the current task. Do not read the entire handbook by default.
+Read `handbook/06-organizational-learning.md` when the result is intended to change future decisions rather than merely summarize an outcome.
 
-- For the shared evidence model, methodological boundaries, and overall operating logic, consult `handbook/00-foundations-and-method.md`.
-- For interviews, reviews, surveys, source quality, synthesis, and evidence handling, consult `handbook/01-customer-research-and-evidence.md`.
-- For segmentation, ICP selection, JTBD, and competitive alternatives, consult `handbook/02-segmentation-icp-and-jtbd.md`.
-- For category framing, positioning, differentiation, value, proof, and trade-offs, consult `handbook/03-positioning-and-value.md`.
-- For message strategy, claims, landing pages, email, campaign copy, and human-writing review, consult `handbook/04-messaging-proof-and-copy.md`.
-- For funnel diagnosis, causal reasoning, measurement, and experiments, consult `handbook/05-diagnosis-causality-and-experimentation.md`.
-- For postmortems, retained uncertainty, and organizational memory, consult `handbook/06-organizational-learning.md`.
-- For localization, market adaptation, cultural inference, and ethical persuasion, consult `handbook/07-international-marketing-and-ethics.md`.
-- For compact working forms used during research, positioning, messaging, experiments, and postmortems, consult `frameworks/practitioner-cards.md`.
-- For structured quality checks before final output, consult `frameworks/quality-rubrics.md`.
-- For source provenance or deeper literature review, consult `references/bibliography.md`.
-
-When more than one operating mode is required, load only the smallest set of supporting files needed for the decision. Prefer the operational rules in this `SKILL.md` when a supporting chapter provides broader conceptual context rather than a task-specific instruction.
+Retain the prior belief, decision context, result, interpretation, scope, contradictions, freshness, and what the result does not prove. A file archive is not organizational learning unless later decisions can change because of it.
 
 ---
 
-# Output standards
+# State handoffs
 
-Every material output must satisfy the following standards.
+Do not automatically carry every detail from one stage into the next.
 
-**Truth** — no invented facts, proof, or specificity.  
-**Scope** — no generalization beyond supporting evidence.  
-**Counterevidence** — material contradictions are retained.  
-**Reader fit** — communication reflects the recipient's situation and channel.  
-**Strategic coherence** — prose expresses a resolved message rather than replacing one.  
-**Proof proportionality** — stronger claims require stronger evidence.  
-**Simplicity** — ordinary precise language is preferred to unnecessary jargon.  
-**Uncertainty** — unknown and inconclusive states remain represented in the analysis. Surface them in audience-facing communication when they are material to interpretation or the reader's current decision, or when the task requires disclosure.  
-**No fake precision** — numeric confidence is not invented.  
-**Ethical persuasion** — conversion does not justify deception.  
-**Learning** — consequential work states what changed, what is supported, what is not proved, where it applies, and what should happen next.
+## Research → strategy
 
-For deeper conceptual treatment, consult the files in `handbook/`. For operational working forms, consult `frameworks/practitioner-cards.md` and `frameworks/quality-rubrics.md`.
+Pass forward the observations, patterns, contradictions, customer language, unknowns, and scope that can change the strategic decision. Leave behind raw process detail that has no downstream decision value.
+
+## Segmentation / positioning → message
+
+Pass forward the target context, relevant alternative, category/frame, primary value, differentiator or distinctive cues where material, reason to believe, trade-off, objections, and claim boundaries.
+
+## Message → copy
+
+Pass forward the reader and moment, one job of the communication, core message, proof, mandatory facts, material objections, allowed/qualified/forbidden claims, voice constraints, channel constraints, and CTA logic.
+
+Do not automatically surface research methodology, absent evidence, internal notes, or every known limitation in the final copy.
+
+## Diagnosis → decision or communication
+
+Pass forward what is established, the leading competing explanations, the uncertainty that changes the decision, the next discriminating check, and whether action or no-change is justified. Do not turn provisional causal stories into messaging changes.
+
+## Global strategy → localization
+
+Pass forward the strategic invariants and identify the dimensions that local evidence can legitimately change. Do not invent a new market narrative merely because local context exists.
+
+---
+
+# Optional working instruments
+
+Use `frameworks/practitioner-cards.md` when an explicit intermediate record would improve a complex task, handoff, or decision. Do not fill a card merely because a card exists.
+
+Use `frameworks/quality-rubrics.md` when the user asks for a structured review, when the output is consequential enough to warrant a formal check, or when a final audit would materially reduce error. The rubrics are review criteria, not validated numerical scoring systems.
+
+Use `references/bibliography.md` only when source provenance, literature support, or deeper conceptual review is required.
+
+---
+
+# Final validation
+
+Before returning material work, check only the dimensions relevant to the current task:
+
+- **Truth:** no invented facts or specificity.
+- **Scope:** claims do not outrun the evidence.
+- **Decision fit:** the output serves the current job rather than a generic marketing workflow.
+- **Proof proportionality:** claim strength matches available support.
+- **Counterevidence / uncertainty:** material contradictions and unknowns remain represented in reasoning and surface when the recipient needs them.
+- **Reader / channel fit:** audience-facing communication respects the recipient's state and information budget.
+- **Strategic coherence:** prose expresses a sufficiently resolved strategy rather than substituting for one.
+- **Simplicity:** remove information, framework language, and explanation that do not earn their place.
+- **Ethical persuasion:** preserve meaningful choice.
+
+Do not expose internal reasoning, checklists, or supporting-file content unless the user asks for them or they are part of the requested deliverable.
