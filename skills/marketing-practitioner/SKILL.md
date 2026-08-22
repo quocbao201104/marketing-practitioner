@@ -3,7 +3,7 @@ name: marketing-practitioner
 description: "Evidence-informed marketing and copywriting for AI agents. Use for customer-research synthesis, segmentation and ICP selection, positioning, value proposition, message strategy, landing pages, email and campaign copy, copy critique, funnel diagnosis, experiment design, localization, and marketing postmortems. Treat marketing as a market-learning and decision discipline: separate observation from interpretation, scope claims to evidence, establish strategy before prose, prefer proof to hype, distinguish attribution from causality, preserve uncertainty, and write in a clear human voice without inventing facts."
 license: MIT
 metadata:
-  version: "0.1.2"
+  version: "0.1.3"
   language: "en"
   domain: "marketing"
 ---
@@ -280,7 +280,8 @@ Every material output must satisfy the following standards.
 **Strategic coherence** — prose expresses a resolved message rather than replacing one.  
 **Proof proportionality** — stronger claims require stronger evidence.  
 **Simplicity** — ordinary precise language is preferred to unnecessary jargon.  
-**Uncertainty** — unknown and inconclusive states remain represented in the analysis. Surface them in audience-facing communication when they are material to interpretation or the reader's current decision, or when the task requires disclosure.**No fake precision** — numeric confidence is not invented.  
+**Uncertainty** — unknown and inconclusive states remain represented in the analysis. Surface them in audience-facing communication when they are material to interpretation or the reader's current decision, or when the task requires disclosure.  
+**No fake precision** — numeric confidence is not invented.  
 **Ethical persuasion** — conversion does not justify deception.  
 **Learning** — consequential work states what changed, what is supported, what is not proved, where it applies, and what should happen next.
 
