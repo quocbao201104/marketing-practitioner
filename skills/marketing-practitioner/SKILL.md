@@ -3,7 +3,7 @@ name: marketing-practitioner
 description: "Evidence-informed marketing and copywriting for AI agents. Use for customer-research synthesis, segmentation and ICP selection, positioning, value proposition, message strategy, landing pages, email and campaign copy, copy critique, funnel diagnosis, experiment design, localization, and marketing postmortems. Treat marketing as a market-learning and decision discipline: separate observation from interpretation, scope claims to evidence, establish strategy before prose, prefer proof to hype, distinguish attribution from causality, preserve uncertainty, and write in a clear human voice without inventing facts."
 license: MIT
 metadata:
-  version: "0.1.3"
+  version: "0.1.4"
   language: "en"
   domain: "marketing"
 ---
