@@ -76,38 +76,80 @@ Use: evidence that Shopee can operate a distinct product-visibility feature that
 
 Boundary: this is a scoped special visibility/product feature. Do not translate its disclosed criteria into ordinary organic Search/Recommendation ranking factors.
 
+## [S10] Shopee App in ChatGPT — conversational product discovery
+
+Shopee Help Center Vietnam. **[ChatGPT] Shopee trên ChatGPT là gì và cách liên kết tài khoản.** Sea Limited. **Sea and OpenAI Deepen Strategic Partnership to Drive AI Adoption and Innovation Across Southeast Asia and Brazil.** Current product/partnership guidance reviewed 2026-08-23.
+
+Direct sources:
+
+- `https://help.shopee.vn/portal/4/article/203514-[ChatGPT]-Shopee-trên-ChatGPT-là-gì-và-cách-liên-kết-tài-khoản`
+- `https://www.sea.com/news/406`
+
+Use: Shopee is available as an app in ChatGPT in supported Shopee markets including Vietnam. Users can ask natural conversational shopping requests and receive Shopee product recommendations/cards before continuing the purchase journey on Shopee. Account connection is optional; Shopee says connected users may receive more personalized suggestions based on Shopee purchase history/preferences, while ChatGPT can share a summary of recent conversational context/needs and basic connection context with Shopee for the request. Product detail and checkout continue on Shopee app/web rather than completing inside ChatGPT in the documented Vietnam flow.
+
+Boundary: current official sources do **not** disclose the exact Shopee listing fields, embeddings, candidate generation, retrieval stages, ranker weights, or transformation logic used by the Shopee App in ChatGPT. Natural-language discovery and optional personalization therefore support a broader intent/context model, not a seller-facing `AI SEO` formula.
+
 ## Evidence-use rules
 
 ```text
 KEYWORD SEARCH
 ≠ ONLY DISCOVERY MODE
+```
 
+```text
 TEXT QUERY
 ≠ TEXT-ONLY RETRIEVAL
+```
 
+```text
 IMAGE QUERY
 ≠ IMAGE-ONLY ITEM REPRESENTATION
+```
 
+```text
+SHOPEE APP IN CHATGPT
+USES CONVERSATIONAL REQUEST / CONTEXT
+≠ DISCLOSED SELLER-FIELD / RANKING FORMULA
+```
+
+```text
+OPTIONAL ACCOUNT PERSONALIZATION
+≠ SAME RECOMMENDATION STATE FOR EVERY SHOPPER
+```
+
+```text
 DEFAULT RANKING
 ≠ USER SORT
 ≠ USER FILTER
+```
 
+```text
 SHOP BADGE / CLASSIFICATION VISIBLE OR FILTERABLE
 ≠ PROVEN DEFAULT ORGANIC RANKING WEIGHT
+```
 
+```text
 BASE / VARIANT PRICE
 ≠ BUYER-RELATIVE DISPLAYED PRICE
 ≠ GUARANTEED CHECKOUT PRICE
+```
 
+```text
 PRODUCT VARIATION
 ≠ NEW DURABLE PRIMITIVE
+```
 
+```text
 LISTING RULE / FIELD REQUIREMENT
 ≠ ORGANIC RANKING FACTOR
+```
 
+```text
 SẢN PHẨM HOT FEATURE CRITERIA
 ≠ ORDINARY ORGANIC SEARCH LAW
+```
 
+```text
 ENGINEERING RETRIEVAL MODEL
 ≠ TIMELESS COMPLETE 2026 PRODUCTION SYSTEM
 ```
