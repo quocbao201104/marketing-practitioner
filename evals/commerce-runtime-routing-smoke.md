@@ -4,6 +4,8 @@ Reviewed: 2026-08-23
 
 Status: **integration smoke, not benchmark/eval score**.
 
+> **Post-review note:** this routing smoke remains valid for its routing cases. A later independent review found an Etsy **source-fidelity** conflict about description/query-matching participation, not a router defect. That correction is recorded in `commerce-etsy-query-matching-source-conflict-correction.md` and does not change the routing verdict below.
+
 Purpose: verify the first commerce integration of `SKILL.md` after the Chapter 09 / six-module knowledge freeze. This smoke tests activation and routing boundaries rather than attempting to measure general model quality.
 
 The smoke specifically attacks:
@@ -219,6 +221,7 @@ This smoke does **not** establish:
 
 - exhaustive runtime reliability across all prompts;
 - benchmark-level generalization;
+- exhaustive source-fidelity adjudication across every official platform document;
 - current correctness of every external platform fact after its review date;
 - causal performance of any marketplace tactic;
 - that every agent/client uses skill metadata activation identically.
