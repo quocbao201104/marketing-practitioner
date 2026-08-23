@@ -4,6 +4,34 @@ All notable changes to this repository are documented here.
 
 The project uses semantic versioning for published skill revisions. Early versions may change structure while the conceptual model is stabilized.
 
+## [0.3.0] - 2026-08-24
+
+### Added
+
+- Added `handbook/09-commerce-environments-and-product-discovery.md` and commerce modules for Google commerce, Amazon, TikTok Shop, Shopee, Etsy, and Lazada.
+- Added conversational and agent-mediated commerce reasoning, including product resolvability, delegated authority, checkout/order-state boundaries, and machine-consumable product representations.
+- Added addressable just-in-time knowledge routing with 13 namespaces and 191 logical routes.
+- Added deterministic semantic-section and evidence-source lookup with routing integrity checks and fail-closed behavior.
+
+### Changed
+
+- Refined the runtime controller around the current job, resolved state, open decision, and dependency-first loading while preserving fast paths for narrow tasks.
+- Added capability-aware routing fallback for hosts without helper execution.
+- Repositioned the repository as a research-first marketing decision system for AI agents.
+- Expanded README onboarding with plain-language guidance and copy-paste examples for non-marketers.
+
+### Fixed
+
+- Prevented fenced Markdown examples from being misread as routing or evidence headings.
+- Added the missing generic commerce recommendation route.
+- Made incompatible routing CLI modes fail closed instead of silently returning the wrong artifact.
+
+### Validation status
+
+- The targeted routing-mechanics suite contains 22 deterministic checks and passes after the adversarial correction pass.
+- Independent adversarial re-review returned `PASS WITH NON-BLOCKING NOTES` for the JIT routing architecture.
+- This release does not claim complete knowledge of private platform ranking systems or universal runtime reliability across every agent host.
+
 ## [0.2.0] - 2026-08-23
 
 ### Added
