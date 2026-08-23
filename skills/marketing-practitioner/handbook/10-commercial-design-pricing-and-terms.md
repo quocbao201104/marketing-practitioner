@@ -184,7 +184,7 @@ FREE TRIAL
 ≠ DISCOUNT
 ```
 
-A free trial is a temporary access and learning arrangement with transition consequences. Field evidence shows that trial duration can change acquisition, retention, usage, and profitability in context-specific ways; it does not support one universal trial length [CD08].
+A free trial is a temporary access and learning arrangement with transition consequences. Field evidence shows that trial duration can change acquisition, retention, and profitability in context-specific ways; it does not support one universal trial length [CD08].
 
 Subscription menus can also require jointly reasoning about overall opt-in and conditional plan choice rather than maximizing one conversion scalar [CD06].
 
