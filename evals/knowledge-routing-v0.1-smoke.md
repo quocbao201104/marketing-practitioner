@@ -242,7 +242,7 @@ PASS    22 routing-mechanics smoke checks
 
 This confirms the current mechanics code on deterministic fixtures. It is still distinct from executing the repository-binding `--validate` command against a normal checked-out branch.
 
-The executed fixtures cover:
+The executed fixtures cover these contract boundaries:
 
 | Check | Expected behavior | Result |
 | --- | --- | --- |
@@ -268,7 +268,7 @@ The executed fixtures cover:
 | C2 | `--list` + `--namespaces` mixed mode fails closed | PASS |
 | C3 | `--namespace` without `--list` fails closed | PASS |
 
-The script prints 22 because several table rows contain more than one assertion over the same contract boundary.
+The printed count refers to assertions/checks in the script; the table groups related assertions by contract boundary.
 
 Repeatable command:
 
