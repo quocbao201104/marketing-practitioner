@@ -19,6 +19,7 @@ The current project covers decision-relevant marketing reasoning across:
 - customer research and evidence synthesis;
 - segmentation, ICP, JTBD, and target selection;
 - positioning, value, alternatives, proof, and trade-offs;
+- commercial design across configuration/entitlement, payment/value-capture architecture, relationship/risk terms, selection/allocation, evidence, governance, and transitions;
 - message strategy, copywriting, and copy critique;
 - diagnosis, causal reasoning, experimentation, and measurement;
 - organizational learning and postmortems;
@@ -37,6 +38,7 @@ The following do **not** belong here unless they are required by a concrete in-s
 - generic prompt collections or prompt-engineering advice;
 - general-purpose agent architecture, memory, orchestration, or vector-database design;
 - CRM, sales-ops, support-ops, accounting, payment, fulfillment, or back-office automation as standalone domains;
+- business-model strategy, product-roadmap ownership, finance, operations, legal/compliance, or sales authority as standalone domains;
 - scraping systems, data pipelines, browser automation, or integration code unrelated to the skill runtime;
 - generic SEO checklists, growth-hack lists, viral formulas, or conversion folklore;
 - reverse-engineering private ranking systems from anecdotal observations;
@@ -87,11 +89,11 @@ Requirements:
 Examples:
 
 - changing `SKILL.md` controller behavior;
-- changing shared Chapter 08 or Chapter 09 semantics;
+- changing shared Chapter 08, Chapter 09, or Chapter 10 semantics;
 - adding/removing a durable invariant or primitive;
 - modifying `routing-index.json` structure or retrieval semantics;
 - changing section-loader behavior;
-- changing how social and commerce knowledge compose;
+- changing how content, commerce, or Commercial Design knowledge compose;
 - making a platform finding apply across multiple environments.
 
 These changes require stronger justification because they can alter many downstream decisions.
@@ -123,6 +125,8 @@ Do not begin with implementation.
 
 First establish that the current grammar or architecture produces a real decision-relevant failure that cannot be represented without material distortion. Prefer established conceptual parents before inventing project-specific terminology.
 
+For a new top-level reasoning capability, keep the research/theory gate separable from runtime promotion when doing so prevents premature architecture. Repository-level `research/` artifacts may preserve gap analysis, rejected hypotheses, prior-art pressure, evidence boundaries, and freeze adjudication. They are provenance, not runtime instructions.
+
 A larger architecture is not a contribution by itself.
 
 ---
@@ -146,15 +150,19 @@ Preserve unless a demonstrated failure requires otherwise:
 - fast paths for narrow resolved tasks;
 - source fidelity and claim boundaries;
 - minimum-sufficient output;
-- social/commerce composition only when both are materially required.
+- cross-domain composition only when multiple paths are materially required.
 
 ### Shared handbook chapters
 
-Chapters 08 and 09 provide shared semantic structure for content/social and commerce environments.
+Chapters 08, 09, and 10 are high-blast-radius shared reasoning surfaces:
+
+- Chapter 08 — content environments and distribution;
+- Chapter 09 — commerce environments and product discovery;
+- Chapter 10 — Commercial Design, pricing, and terms.
 
 A platform-specific fact should normally remain in its platform module. Promote it into shared knowledge only when the distinction survives across environments and changes more than one class of decision.
 
-Do not create a new primitive when the finding can already be represented as:
+For Chapters 08 and 09, do not create a new primitive when the finding can already be represented as:
 
 ```text
 object
@@ -167,6 +175,37 @@ object
 ```
 
 or by another established parent already present in the handbook.
+
+For Chapter 10, do not invent a new Commercial Design dimension merely for conceptual symmetry. First try to represent the decision through:
+
+```text
+configuration / entitlement
++ payment / value-capture architecture
++ relationship / risk terms
++ selection / allocation rule
+
++ modifiers / scope
++ state / history / transition
++ evidence / objective / constraints / guardrails
++ governance when authority is material
+```
+
+Require a concrete decision-relevant counterexample before expanding that grammar.
+
+Keep these boundaries explicit:
+
+```text
+POSITIONING / VALUE
+!= COMMERCIAL DESIGN
+!= MESSAGE / COPY
+
+COMMERCIAL DESIGN
+!= CURRENT COMMERCE STATE / REPRESENTATION
+
+COMMERCIAL DESIGN
+!= COMMERCIAL GOVERNANCE
+!= EXECUTED COMMERCIAL INSTANCE
+```
 
 ### `routing-index.json` and retrieval scripts
 
@@ -200,6 +239,8 @@ agent should always do Y
 
 without the missing inference being justified.
 
+For Commercial Design evidence in particular, preserve the estimand and regime. Do not collapse WTP, price perception, observed choice, causal elasticity, conversion, profit, consumer surplus, fairness, retention, and LTV into one outcome family.
+
 ---
 
 ## Evidence standard
@@ -209,7 +250,7 @@ When adding or changing a substantive empirical claim:
 1. prefer first-party documentation, primary research, systematic reviews, standards, or strong methodological sources where appropriate;
 2. record the source in the relevant bibliography or evidence ledger;
 3. state what the evidence actually establishes: capability, description, association, prediction, experiment, review, theory, or implementation detail;
-4. preserve material scope: product/surface, market, population, time, account state, delivery regime, or experimental setting;
+4. preserve material scope: product/surface, market, population, time, account state, delivery regime, commercial regime, or experimental setting;
 5. separate direct evidence from interpretation and practitioner inference;
 6. keep UNKNOWN when the evidence does not resolve the question.
 
@@ -218,6 +259,9 @@ Do not treat:
 - qualitative recurrence as population prevalence;
 - correlation as causation;
 - attribution as incrementality;
+- stated or hypothetical WTP as a revealed preference or optimal price;
+- historical price/sales association as causal elasticity by default;
+- conversion as profit, retention, or LTV;
 - seller-declared or machine-inferred product information as automatically verified truth;
 - an exposed ranking signal as a universal writing instruction;
 - one recommendation module as the platform's complete ranking system;
@@ -241,6 +285,8 @@ When updating Facebook, Instagram, LinkedIn, TikTok, X, Google commerce, Amazon,
 
 A platform-local finding should stay local unless a concrete cross-platform counterexample shows the shared model is insufficient.
 
+Use [`skills/marketing-practitioner/platforms/README.md`](skills/marketing-practitioner/platforms/README.md) and [`skills/marketing-practitioner/platforms/commerce/README.md`](skills/marketing-practitioner/platforms/commerce/README.md) as human navigation only. Runtime route bindings remain in `routing-index.json`.
+
 ---
 
 ## Updating the agent skill
@@ -249,9 +295,11 @@ A platform-local finding should stay local unless a concrete cross-platform coun
 
 When a knowledge change truly alters how the agent should behave, update `SKILL.md` in the same change. Otherwise leave the controller alone.
 
-Keep runtime resources required by the skill inside `skills/marketing-practitioner/` so they travel with the installed package. Keep evaluation artifacts outside the installable skill under `evals/`.
+Keep runtime resources required by the skill inside `skills/marketing-practitioner/` so they travel with the installed package. Keep evaluation artifacts outside the installable skill under `evals/` and deep pre-implementation research lineage outside runtime under `research/`.
 
 For large indexed knowledge, preserve stable logical route IDs where possible. A heading or physical file may move without requiring the runtime-facing knowledge ID to change.
+
+Human-facing README files may map the repository, explain boundaries, and point to canonical resources. They should not duplicate route-to-heading bindings, evidence ledgers, or substantive chapter prose.
 
 ---
 
@@ -286,7 +334,7 @@ Avoid:
 - unnecessary new terminology;
 - long tactic lists;
 - decorative frameworks;
-- duplicated explanation across `SKILL.md`, handbook, platform modules, and references.
+- duplicated explanation across `SKILL.md`, handbook, platform modules, references, and navigation READMEs.
 
 ---
 
