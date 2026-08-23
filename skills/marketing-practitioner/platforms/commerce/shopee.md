@@ -2,9 +2,9 @@
 
 Last reviewed: 2026-08-23
 
-Use this module when Shopee-specific listing/product information, variation structure, keyword/image search, explicit sort/filter behavior, shop classification, buyer-relative displayed pricing, multimodal retrieval, or Shopee product-performance interpretation can materially change the decision.
+Use this module when Shopee-specific listing/product information, variation structure, keyword/image/conversational discovery, explicit sort/filter behavior, shop classification, buyer-relative displayed pricing, multimodal retrieval, Shopee App in ChatGPT, or Shopee product-performance interpretation can materially change the decision.
 
-This module prioritizes Shopee Vietnam current documentation where user-facing and seller-policy behavior is market-specific, plus scoped Shopee engineering evidence [S01–S09]. Re-check consequential behavior and policy before execution.
+This module prioritizes Shopee Vietnam current documentation where user-facing and seller-policy behavior is market-specific, plus scoped Shopee engineering evidence [S01–S10]. Re-check consequential behavior and policy before execution.
 
 This module instantiates `../../handbook/09-commerce-environments-and-product-discovery.md`. It does not define a Shopee-specific ontology.
 
@@ -34,17 +34,18 @@ SHOPEE PRODUCT / LISTING OBJECT
       keyword search
       image search
       recommendations / suggestions
+      Shopee App in ChatGPT / conversational discovery
       special visibility features
              │
              ▼
-      USER FILTER / SORT
+      USER FILTER / SORT / CONVERSATIONAL CONTEXT
              │
              ▼
       CUSTOMER REPRESENTATION
-      result card / PDP / cart / checkout
+      result card / recommendation card / PDP / cart / checkout
 ```
 
-The same posting can produce different customer-facing commercial representations by buyer, variant, voucher state and time [S02].
+The same posting can produce different customer-facing commercial representations by buyer, variant, voucher state and time [S02]. Conversational recommendations can additionally depend on the shopper's request/context and, when connected, Shopee account history/preferences [S10].
 
 Therefore:
 
@@ -241,19 +242,14 @@ without needing a ranking claim.
 
 ---
 
-## 6. Search has keyword and image entry modes
+## 6. Search has keyword, image, and conversational entry modes
 
-Current Shopee Vietnam buyer help documents two basic search modes [S01]:
-
-```text
-KEYWORD SEARCH
-IMAGE SEARCH
-```
+Current Shopee Vietnam buyer help documents keyword and image search [S01]. Shopee is also available as an app in ChatGPT in supported markets, including Vietnam, where a shopper can use a natural conversational request and receive Shopee product recommendations/cards [S10].
 
 Therefore:
 
 ```text
-TEXT QUERY
+TEXT KEYWORD QUERY
 ≠ ONLY SHOPEE DISCOVERY INPUT
 ```
 
@@ -288,31 +284,72 @@ ONE VISIBLE IMAGE
 ≠ ALL MACHINE EVIDENCE USED FOR RETRIEVAL
 ```
 
----
+### 6.3 Shopee App in ChatGPT is a separate conversational discovery surface
 
-## 7. Retrieval ≠ ranking; exact organic pipeline remains partially unknown
+Shopee's current Vietnam guidance says shoppers can ask ChatGPT for Shopee product recommendations using natural language. Connecting a Shopee account is optional; connected users may receive more personalized suggestions based on Shopee purchase history/preferences, while a summary of recent conversational context/needs can be shared with Shopee for the request [S10]. Product detail and checkout then continue on Shopee app/web in the documented flow.
 
-MRSE is explicit retrieval-system evidence [S07]. It establishes that Shopee has deployed a candidate-retrieval architecture where multimodal representations can affect recall.
+Use:
 
-It does **not** establish every later stage.
+```text
+SHOPPER CONVERSATIONAL REQUEST
++ CONVERSATION CONTEXT
++ OPTIONAL SHOPEE ACCOUNT STATE
+→ SHOPEE RECOMMENDATION CONTEXT
+→ PRODUCT CARD / SUGGESTION
+→ SHOPEE PRODUCT DETAIL / CHECKOUT
+```
 
 Keep:
 
 ```text
-QUERY / USER CONTEXT
+CONVERSATIONAL SHOPPER REQUEST
+≠ ONE MANUAL KEYWORD QUERY
+```
+
+and:
+
+```text
+SHOPEE APP IN CHATGPT EXISTS
+≠ DISCLOSED SELLER-FIELD / RETRIEVAL / RANKING FORMULA
+```
+
+Current official evidence does not expose which listing fields, embeddings, model features, candidate stages, or weights drive this surface. Do not turn the integration into an “AI SEO” checklist.
+
+For seller-side preparation, use the durable Chapter 09 strategy instead: make decision-relevant product facts, variants, visual evidence, and current commercial state truthful and resolvable in the Shopee-supported carriers that actually exist. If a shopper asks for a 30 cm item, a particular material, a compatible model, a certain variant, or a budget constraint, the seller-side goal is to represent the true answer clearly — not to repeat likely prompt phrases or invent unsupported use cases.
+
+Therefore:
+
+```text
+MACHINE / CONVERSATIONAL LEGIBILITY
+≠ KEYWORD DENSITY
+≠ GUARANTEED CHATGPT RECOMMENDATION
+```
+
+---
+
+## 7. Retrieval ≠ ranking; exact organic and conversational pipelines remain partially unknown
+
+MRSE is explicit retrieval-system evidence [S07]. It establishes that Shopee has deployed a candidate-retrieval architecture where multimodal representations can affect recall.
+
+It does **not** establish every later stage, and it does not establish that the same implementation drives the Shopee App in ChatGPT.
+
+Keep:
+
+```text
+QUERY / USER / CONVERSATIONAL CONTEXT
        ↓
-RETRIEVAL / RECALL
+POSSIBLE RETRIEVAL / RECALL
        ↓
 CANDIDATES
        ↓
 POSSIBLE RELEVANCE / RANKING / CONSTRAINTS
        ↓
-FINAL RESULTS
+FINAL RESULTS / RECOMMENDATIONS
 ```
 
-with the later exact 2026 system held UNKNOWN unless current Shopee evidence discloses it.
+with exact 2026 system details held UNKNOWN unless current Shopee evidence discloses them.
 
-Do not translate retrieval-model features into ranking tactics.
+Do not translate retrieval-model features or conversational product behavior into ranking tactics.
 
 ---
 
@@ -349,7 +386,7 @@ Likewise, selecting `Bán chạy` creates an explicit order that should not be r
 Before interpreting a search screenshot or local observation, capture:
 
 ```text
-query
+query / conversational request
 filters
 sort
 surface
@@ -403,9 +440,9 @@ A before/after price comparison without account/voucher/time state can therefore
 
 ---
 
-## 10. Search card / PDP are composite representations
+## 10. Search card / PDP / conversational card are composite representations
 
-A Shopee result card or PDP can combine:
+A Shopee result card, conversational recommendation card, or PDP can combine some subset of:
 
 ```text
 product title / image
@@ -426,7 +463,7 @@ CUSTOMER PRODUCT REPRESENTATION
 ≠ ONE STATIC DATABASE RECORD
 ```
 
-When diagnosing click or conversion performance, inspect the actual representation encountered by the buyer.
+When diagnosing click or conversion performance, inspect the actual representation and surface encountered by the buyer.
 
 ---
 
@@ -475,6 +512,7 @@ A product can receive traffic from:
 keyword search
 image search
 recommendation / Today Suggestions / You May Also Like
+Shopee App in ChatGPT / AI referral
 shop page
 special visibility features
 ads / campaigns
@@ -490,7 +528,8 @@ A useful observation record includes:
 product / variation
 seller / shop state
 surface / source
-query if applicable
+query or conversational request if applicable
+conversation/account context if material
 filter / sort if applicable
 price representation / voucher state
 exposure
@@ -507,7 +546,8 @@ Do not jump from lower orders to keyword editing.
 
 ```text
 1. METRIC / SOURCE
-Search impression/click? image-search? recommendation? PDP? cart? order?
+Search impression/click? image-search? recommendation? ChatGPT referral?
+PDP? cart? order?
 
 2. PRODUCT / VARIATION
 Same posting, category, variation structure, stock?
@@ -522,21 +562,25 @@ Same Shop Thường / Yêu Thích / Yêu Thích+ / Mall state?
 Same seller price, variation price, promotion, voucher eligibility,
 shipping / Freeship, stock?
 
-6. USER SEARCH STATE
-Same query, image input, filters, sort, buyer account/location?
+6. USER DISCOVERY STATE
+Same keyword/image/conversational request, filters, sort,
+buyer account/location, ChatGPT conversation/account connection if relevant?
 
 7. REPRESENTATION
-Same displayed price, badge, title/image, rating/sold-count context?
+Same displayed price, badge, title/image, rating/sold-count context,
+recommendation card / PDP?
 
 8. VISIBILITY MODE
-Ordinary organic vs Sản phẩm Hot / ads / campaign / other special placement?
+Ordinary organic vs ChatGPT app / Sản phẩm Hot / ads / campaign /
+other special placement?
 
 9. TIME / PLATFORM REGIME
 Same policy, voucher, promotion, app/surface behavior?
 
 10. DISCRIMINATING CHECK
 What current search reproduction / buyer-account comparison /
-seller data / traffic-source evidence best separates causes?
+conversation reproduction / seller data / traffic-source evidence
+best separates causes?
 ```
 
 Load Chapter 05 for causal attribution.
@@ -566,13 +610,15 @@ verify category
 → commercial state
 ```
 
+For AI/conversational discoverability, completeness means resolving truthful product facts in the appropriate Shopee-supported carriers; it does **not** mean inventing extra attributes or stuffing hypothetical conversational phrases.
+
 ### Diagnose “rank drop”
 
 Before any copy change:
 
 ```text
-reproduce query + sort + filters
-→ identify organic vs special placement
+reproduce query / conversational context + sort + filters
+→ identify organic vs AI referral vs special placement
 → compare shop/product/commercial state
 → inspect traffic-source change
 → only then test content/data hypothesis
@@ -603,8 +649,19 @@ IMAGE SEARCH
 ```
 
 ```text
+SHOPEE APP IN CHATGPT USES NATURAL-LANGUAGE CONTEXT
+≠ KNOWN SELLER-FIELD / RANKING TACTIC
+```
+
+```text
+RICHER / MORE COMPLETE LISTING DATA
+≠ GUARANTEED CHATGPT RECOMMENDATION
+```
+
+```text
 MRSE / MIEM DEPLOYED SYSTEM
 ≠ COMPLETE CURRENT SHOPEE ALGORITHM
+≠ PROVEN SHOPEE-CHATGPT IMPLEMENTATION
 ```
 
 ```text
@@ -643,13 +700,17 @@ Unless current authoritative Shopee evidence establishes otherwise, preserve as 
 
 - complete 2026 Shopee Vietnam organic keyword-search retrieval/ranking pipeline;
 - exact ranking/relevance feature set and weights;
+- exact Shopee listing fields and data transformations consumed by the Shopee App in ChatGPT;
+- exact candidate-generation, retrieval, ranking, reranking, or recommendation logic for the Shopee App in ChatGPT;
+- exact weighting of connected-account history/preferences versus current conversational context in Shopee App recommendations;
+- whether Shopee's published MRSE/MIEM systems share representations or stages with the ChatGPT integration;
 - current relationship between MRSE research/deployment and all production search traffic;
 - exact Image Search models after the disclosed MIEM deployment period;
 - exact recommendation algorithms for Today Suggestions / You May Also Like and other modules;
 - exact default organic effect of shop classification, rating, sales, price, promotion, shipping, title, attributes, descriptions, or images;
 - exact composition of organic, ads, campaigns and special visibility placements;
 - complete seller-facing object/variation IDs beyond the buyer-facing semantics documented here;
-- causal impact of changing one listing field on organic exposure or sales without a valid experiment.
+- causal impact of changing one listing field on organic/AI exposure or sales without a valid experiment.
 
 ---
 
@@ -661,22 +722,24 @@ Unless current authoritative Shopee evidence establishes otherwise, preserve as 
 4. Are title, description, structured fields and images being allocated by job rather than keyword stuffing?
 5. Is shop-level state kept separate from product state?
 6. Is shop badge visibility/filterability being mistaken for default ranking evidence?
-7. Are keyword and image discovery both considered when material?
+7. Are keyword, image, and conversational discovery considered separately when material?
 8. Is query modality kept separate from machine-representation modality?
 9. Are retrieval and ranking separated?
-10. Are explicit buyer filters/sorts recorded before interpreting results?
-11. Is displayed price scoped to buyer, variation, voucher and time?
-12. Is displayed price kept separate from checkout price?
-13. Are reviews/ratings/sold count treated as observation-derived context?
-14. Are Sản phẩm Hot / ads / campaigns kept separate from ordinary organic discovery?
-15. Are traffic-source and exposure provenance preserved before learning from orders?
-16. Are current VN-specific docs kept in market scope?
-17. Are undisclosed internals left UNKNOWN?
+10. If Shopee App in ChatGPT is in scope, are conversational request/context and optional account state preserved without inventing a seller-field/ranking map?
+11. Can relevant shopper constraints be resolved from truthful product/variant/commercial data without inventing attributes or repeating prompt phrases?
+12. Are explicit buyer filters/sorts recorded before interpreting results?
+13. Is displayed price scoped to buyer, variation, voucher and time?
+14. Is displayed price kept separate from checkout price?
+15. Are reviews/ratings/sold count treated as observation-derived context?
+16. Are Sản phẩm Hot / ads / campaigns kept separate from ordinary organic discovery?
+17. Are traffic-source and exposure provenance preserved before learning from orders?
+18. Are current VN-specific docs kept in market scope?
+19. Are undisclosed internals left UNKNOWN?
 
-Shopee should be reasoned as a buyer-relative, multimodal marketplace environment — not as a title-keyword leaderboard.
+Shopee should be reasoned as a buyer-relative, multimodal and now conversational marketplace environment — not as a title-keyword leaderboard or an imagined ChatGPT ranking formula.
 
 ---
 
 ## Evidence
 
-See `../../references/commerce/shopee-evidence.md` for `[S01–S09]` source definitions and evidence boundaries.
+See `../../references/commerce/shopee-evidence.md` for `[S01–S10]` source definitions and evidence boundaries.
