@@ -57,7 +57,7 @@ A second operational principle follows:
 
 > Allocate each fact, claim, attribute, image, and commercial condition according to the human or machine job it must perform on the specific platform, rather than copying generic “SEO fields” or ranking folklore across systems.
 
-The current cross-platform evidence base includes conceptual parents from GoodRelations and Schema.org, current platform documentation from Google, Amazon, TikTok Shop, Shopee, Etsy, and Lazada, engineering disclosures from Shopee, Etsy, and Lazada, and agentic-commerce protocol/product evidence from UCP, ACP, and Shopify [C01–C13][AC01–AC06]. These sources do not establish one universal marketplace implementation or fixed ranking law.
+The current cross-platform evidence base includes conceptual parents from GoodRelations and Schema.org, current platform documentation from Google, Amazon, TikTok Shop, Shopee, Etsy, and Lazada, engineering disclosures from Shopee, Etsy, and Lazada, conversational-discovery evidence from Google and Shopee, and agentic-commerce / product-discovery evidence from UCP, ACP, OpenAI, and Shopify [C01–C15][AC01–AC07]. These sources do not establish one universal marketplace implementation or fixed ranking law.
 
 ---
 
@@ -571,13 +571,13 @@ SHOPPER ENCOUNTER
 
 The same source information may feed both branches, but the representations are not the same object.
 
-Shopee MRSE constructs multimodal retrieval representations from query/item/user evidence [C06]. Shopee MIEM constructs item embeddings for image search from multiple images plus textual information [C07]. Etsy uses rich listing information to build semantic-relevance models and internal product-understanding representations [C10][C11]. Lazada AutoPKG derives canonical product-attribute graph information from multimodal listing content [C13].
+Shopee MRSE constructs multimodal retrieval representations from query/item/user evidence [C06]. Shopee MIEM constructs item embeddings for image search from multiple images plus textual information [C07]. Etsy uses rich listing information to build semantic-relevance models and internal product-understanding representations [C10][C11]. Lazada AutoPKG derives canonical product-attribute graph information from multimodal listing content [C13]. OpenAI/ACP and Shopify additionally expose structured product/catalog data directly to AI-mediated discovery systems [AC04][AC06][AC07].
 
 Therefore:
 
 ```text
 SELLER FIELD
-≠ MACHINE REPRESENTATION
+≠ MACHINE / AGENT REPRESENTATION
 ≠ HUMAN-FACING REPRESENTATION
 ```
 
@@ -623,7 +623,7 @@ prior behavior / history
 external referral
 ```
 
-Shopee documents both keyword and image search [C08]. TikTok Shop can recommend products to creators based on video-content relevance and other scoped signals, while shoppable content links a content object to a commerce target [C05]. Etsy's search and recommendation systems use rich listing and buyer/context information [C09–C11].
+Shopee documents keyword/image search plus current conversational product discovery through the Shopee App in ChatGPT [C08][C15]. Google documents AI/conversational shopping that can involve longer, more complex multi-constraint requests [C14]. ChatGPT shopping research likewise supports natural-language preferences, budget, constraints, comparison, trade-offs, and visual product discovery [AC07].
 
 Therefore:
 
@@ -632,7 +632,14 @@ TEXT QUERY
 ≠ ONLY DISCOVERY PATH
 ```
 
-A useful generic term is **discovery context** rather than assuming every path begins with an explicit query.
+and:
+
+```text
+SHOPPER LANGUAGE
+≠ ONE EXACT KEYWORD STRING
+```
+
+A useful generic term is **discovery context** rather than assuming every path begins with one explicit keyword query.
 
 ### 7.1 Query modality ≠ retrieval-model modality
 
@@ -640,7 +647,7 @@ A text query does not imply text-only product matching.
 
 Shopee MRSE is explicit evidence that a text-query retrieval system can combine query text with item images and multimodal user preferences/history [C06].
 
-Likewise, an image query does not imply image-only item representation: Shopee MIEM combines textual product information with multiple item images for Image Search [C07].
+Likewise, an image query does not imply image-only item representation: Shopee MIEM combines textual product information with multiple item images for Image Search [C07]. ChatGPT and Google product-discovery experiences also support visual/multimodal shopping contexts [C14][AC07].
 
 Therefore:
 
@@ -765,6 +772,8 @@ VALID / ACCEPTED
 ≠ PURCHASED
 ```
 
+OpenAI's merchant-feed terms are an especially direct stress case: submitting merchant content does not obligate OpenAI to use or surface it [AC07]. Therefore richer or more complete product data can improve representational quality without guaranteeing recommendation or exposure.
+
 ---
 
 ## 9. Recommendation and non-query discovery
@@ -781,6 +790,7 @@ order history
 home / discovery feed
 campaign or collection
 shopper mission
+conversation / assistant request
 ```
 
 The recommended object may itself be:
@@ -797,7 +807,7 @@ creator-product opportunity
 
 Do not assume the same ranking objective applies to each module.
 
-A homepage discovery module, “similar products” carousel, cart suggestion, related-product module, creator-link recommendation, and post-purchase recommendation can optimize different next actions.
+A homepage discovery module, “similar products” carousel, cart suggestion, related-product module, creator-link recommendation, conversational shopping assistant, and post-purchase recommendation can optimize or support different next actions.
 
 Therefore:
 
@@ -975,7 +985,7 @@ Do not report “purchased” merely because an agent submitted a request or ope
 
 #### 10.3.3 Agent-consumable representation ≠ human-facing generated representation
 
-Some commerce systems now expose structured catalog interfaces directly to AI agents. Shopify's Global Catalog and Storefront Catalog implement UCP Catalog interfaces for agent search/lookup/product retrieval and can accept buyer context such as location, language, currency, and intent [AC06].
+Some commerce systems now expose structured catalog interfaces directly to AI agents. Shopify's Global Catalog and Storefront Catalog implement UCP Catalog interfaces for agent search/lookup/product retrieval and can accept buyer context such as location, language, currency, and intent [AC06]. ACP/OpenAI similarly accepts structured merchant product data for product discovery, while ChatGPT can generate its own concise product representations for shoppers [AC04][AC07].
 
 Keep:
 
@@ -1191,13 +1201,14 @@ order
 
 Recent orders are not necessarily mature business outcomes. Preserve event time, reporting time, return/refund horizon, and attribution rules when they can change interpretation [R47].
 
-### 12.4 Organic, paid, affiliate, and creator exposure need provenance
+### 12.4 Organic, paid, affiliate, creator, and AI-mediated exposure need provenance
 
 A product can accumulate sales from:
 
 ```text
 organic search
 organic recommendation
+AI / conversational recommendation
 paid ads
 creator / affiliate content
 shop page
@@ -1210,7 +1221,7 @@ Do not treat aggregate product-level performance as organic demand without expos
 
 ### 12.5 Attributed ≠ incremental ≠ causal
 
-A marketplace can assign credit to a search, ad, affiliate link, creator, or last touch without proving that exposure caused an incremental purchase.
+A marketplace can assign credit to a search, ad, affiliate link, creator, assistant, or last touch without proving that exposure caused an incremental purchase.
 
 Keep the Chapter 08 invariant:
 
@@ -1334,6 +1345,7 @@ A fact can be expressed:
 - visibly for quick human comparison;
 - deeply in a PDP for evaluation;
 - in an image for proof;
+- in an agent-facing catalog/feed for machine consumption;
 - in a transaction representation for final confirmation.
 
 Repetition is not automatically bad if each representation serves a materially different consumer or job. But redundant keyword stuffing is not justified merely because several fields exist.
@@ -1373,11 +1385,195 @@ VISIBLE EARLY
 
 A field can deserve early placement because people scan it, not because front-loading is a ranking boost.
 
+### 13.4 Optimize for resolvability, not imagined model weights
+
+AI-native, semantic, conversational, and agentic product discovery increase the importance of one practitioner question:
+
+> Can the system resolve the shopper's material requirement from truthful product facts, relations, representations, and current commercial state?
+
+Current Google, Shopee, ChatGPT/ACP, and multimodal Shopee evidence supports discovery contexts that can combine natural-language intent, preferences, budget, product features, technical specifications, images, prior/context state, and multiple constraints [C06][C07][C14][C15][AC04][AC07]. This does **not** expose one universal model or seller ranking formula.
+
+Treat a conversational request as a bundle of potentially decision-relevant constraints rather than as a string to stuff into fields. Common dimensions can include:
+
+```text
+use case
+compatibility
+hard constraints / exclusions
+preferences
+physical dimensions / technical specifications
+material / performance property
+budget / current price
+trade-offs / limitations
+variant requirements
+related accessory / substitute / spare-part need
+availability / shipping state
+```
+
+A durable seller-side sequence is:
+
+```text
+SHOPPER REQUIREMENT
+↓
+WHAT TRUE FACT / RELATION / STATE WOULD RESOLVE IT?
+↓
+DO WE HAVE SUPPORT FOR THAT FACT?
+↓
+WHICH PLATFORM-SUPPORTED CARRIER HAS THE RIGHT JOB?
+↓
+REPRESENT IT ACCURATELY AND KEEP IT CURRENT
+```
+
+Examples, platform permitting:
+
+```text
+identity / use-defining product concept
+→ clear title / description
+
+exact size / material / specification / supported compatibility identifier
+→ structured attribute / product detail
+
+finite variant requirement
+→ variant / configuration field
+
+compatibility question / limitation / nuanced use condition
+→ Q&A / document / description where supported
+
+visible physical property
+→ truthful image / multimodal evidence + structured/text fact where appropriate
+
+accessory / replacement / substitute relation
+→ merchant-declared typed relation where supported
+
+budget / availability / delivery constraint
+→ current price / stock / shipping / commercial state
+```
+
+The key distinction is:
+
+```text
+MACHINE LEGIBILITY
+≠ KEYWORD DENSITY
+≠ GUARANTEED RANKING
+```
+
+```text
+SEMANTIC MATCHABILITY
+≠ PROVEN RANKING BOOST
+```
+
+```text
+SHOPPER LANGUAGE
+≠ EXACT KEYWORD MATCH ONLY
+```
+
+```text
+PRODUCT FACT COMPLETENESS
+≠ GUARANTEED RETRIEVAL / RECOMMENDATION / EXPOSURE
+```
+
+```text
+OPTIMIZE FOR RESOLVABILITY
+≠ OPTIMIZE FOR IMAGINED MODEL WEIGHTS
+```
+
+#### 13.4.1 Truth bounds resolvability
+
+Do not invent a fact merely because it would satisfy a common conversational query.
+
+Do **not** turn:
+
+```text
+people ask "works with MacBook Pro"
+```
+
+into:
+
+```text
+mark compatible with MacBook Pro
+```
+
+unless compatibility is actually established for the relevant model/version/use.
+
+Likewise, do not add unsupported phrases such as “ideal for travel,” “safe for children,” “professional grade,” or “fits small spaces” merely to cover more semantic intents. If the product evidence does not resolve the constraint, preserve the gap or obtain stronger evidence.
+
+Therefore:
+
+```text
+INFERABLE / POPULAR USE CASE
+≠ SELLER-AUTHORIZED PRODUCT CLAIM
+```
+
+#### 13.4.2 Structured facts and natural-language explanation are complementary
+
+A precise structured value can help machine systems distinguish/filter/compare, while natural language can explain context and trade-offs. Neither universally replaces the other.
+
+Use:
+
+```text
+STRUCTURED FACT
++ TRUTHFUL NATURAL-LANGUAGE CONTEXT WHEN NEEDED
+```
+
+not:
+
+```text
+REPEAT SAME KEYWORD IN EVERY FIELD
+```
+
+Google's current guidance is unusually explicit here: structured `product_detail` is for technical/verifiable information, while `product_highlight` should not be used as a list of search/SEO keywords [C14].
+
+#### 13.4.3 Multimodal evidence should resolve visible facts, not become decorative optimization folklore
+
+When a property is visually inspectable — shape, color, configuration, included parts, interface layout, material appearance, relative form — accurate images can provide evidence to both humans and some machine systems. Shopee's published retrieval/image-search work demonstrates that item representations can combine text and images [C06][C07], and ChatGPT/Google expose visual shopping paths [C14][AC07].
+
+Do not infer:
+
+```text
+MORE / STYLED IMAGES
+→ GUARANTEED SEMANTIC OR RANKING BOOST
+```
+
+The practitioner job is to reduce ambiguity and mismatch with truthful visual evidence.
+
+#### 13.4.4 Completeness improves representability, not certainty of selection
+
+A merchant can supply excellent structured data and still not be retrieved, recommended, highly ranked, or shown. OpenAI explicitly does not guarantee use/surfacing of submitted merchant content [AC07], and Google field/support documentation likewise does not promise exposure from completeness alone [C14].
+
+Therefore:
+
+```text
+COMPLETE / CURRENT PRODUCT REPRESENTATION
+CAN REDUCE INFORMATION GAPS
+
+≠ GUARANTEED CANDIDACY
+≠ GUARANTEED RECOMMENDATION
+≠ GUARANTEED RANK
+```
+
+### 13.5 A compact resolvability test
+
+For a consequential AI/conversational-discovery task, ask only what is material:
+
+```text
+Can the system determine what the product is?
+Can it distinguish the relevant variant?
+Can it resolve required dimensions/specifications?
+Can it determine compatibility where compatibility is established?
+Can it resolve hard exclusions or limitations?
+Can it distinguish preferences from hard constraints?
+Can it access current price / availability / shipping where relevant?
+Can it explain a material trade-off without inventing one?
+Can it identify a related accessory / substitute relation when supported?
+Can visible claims be checked against images / other evidence?
+```
+
+If the answer is “no,” fix the factual/product-data gap in the appropriate supported carrier when possible. Do not respond by increasing keyword density.
+
 ---
 
 ## 14. Field-level evidence discipline
 
-When a platform says a field “helps search,” “improves discoverability,” “is searchable,” “increases product score,” or “is used by recommendation,” preserve the exact claim.
+When a platform says a field “helps search,” “improves discoverability,” “is searchable,” “increases product score,” “is used by recommendation,” or “helps AI systems understand products,” preserve the exact claim.
 
 Ask:
 
@@ -1397,13 +1593,13 @@ When current official sources describe the **same stage** differently, preserve 
 Do not silently transform:
 
 ```text
-FIELD IS SEARCHABLE
+FIELD IS SEARCHABLE / AGENT-READABLE
 ```
 
 into:
 
 ```text
-FIELD HAS ORGANIC RANKING WEIGHT X
+FIELD HAS ORGANIC / AI RANKING WEIGHT X
 ```
 
 or:
@@ -1499,6 +1695,38 @@ PRESERVE SOURCE + DATE + ABSTRACTION LEVEL + UNKNOWN
 ```text
 QUERY MODALITY
 ≠ RETRIEVAL-MODEL MODALITY
+```
+
+```text
+MACHINE LEGIBILITY
+≠ KEYWORD DENSITY
+≠ GUARANTEED RANKING
+```
+
+```text
+SEMANTIC MATCHABILITY
+≠ PROVEN RANKING BOOST
+```
+
+```text
+SHOPPER LANGUAGE
+≠ EXACT KEYWORD MATCH ONLY
+```
+
+```text
+PRODUCT FACT COMPLETENESS
+≠ GUARANTEED RETRIEVAL / RECOMMENDATION / EXPOSURE
+```
+
+```text
+OPTIMIZE FOR RESOLVABILITY
+≠ OPTIMIZE FOR IMAGINED MODEL WEIGHTS
+```
+
+```text
+MERCHANT-DECLARED PRODUCT RELATION
+≠ PLATFORM-INFERRED RELATION
+≠ OBSERVED BEHAVIORAL RELATION
 ```
 
 ```text
@@ -1607,7 +1835,7 @@ Examples:
 - editing a description for readability does not require shopper-funnel theory when the audience and facts are already resolved;
 - choosing between two primary images can focus on identification/evaluation job unless search/image-retrieval behavior is material and supported.
 
-Do not reopen the full commerce model merely because the object is a product.
+Do not reopen the full commerce model merely because the object is a product or because an AI shopping surface exists.
 
 ---
 
@@ -1618,9 +1846,10 @@ Use deeper reasoning when the task involves decisions such as:
 - marketplace launch / migration;
 - product-family or variant architecture;
 - catalog/listing identity mismatch;
-- search or recommendation discoverability diagnosis;
-- product data allocation across fields;
+- search, semantic, conversational, or recommendation discoverability diagnosis;
+- product-data allocation across human/machine/agent-facing carriers;
 - structured-attribute strategy;
+- product resolvability for complex shopper constraints;
 - seller/offer/price/stock/shipping conflicts;
 - social-commerce linking;
 - delegated / agentic purchase authority or checkout-state drift;
@@ -1684,6 +1913,8 @@ Shipping / fulfillment:
 Buyer-relative eligibility if material:
 
 Product-descriptive facts / source provenance:
+Compatibility / dimensions / specs if material:
+Use-case / constraint / trade-off claims and evidence if material:
 Commercial context:
 Observation / feedback context if material:
 Seller-submitted fields:
@@ -1691,7 +1922,7 @@ Platform-processed or inferred data if material:
 
 Human-facing representation job:
 Machine / agent representation evidence if material:
-Discovery context:
+Discovery context / shopper constraints:
 Relevant retrieval / ranking / filtering / recommendation evidence:
 Known internal UNKNOWNs:
 
@@ -1728,21 +1959,23 @@ or platform record?
 Same price, stock, promotion, shipping, fulfillment,
 seller eligibility, and buyer-relative conditions?
 
-4. REPRESENTATION
+4. PRODUCT RESOLVABILITY / REPRESENTATION
 Same title, primary image, card, variant presentation,
-PDP structure, or machine-processed product data?
+PDP structure, structured facts, compatibility/spec data,
+or machine/agent-processed product data?
+Can the product still resolve the material shopper constraints truthfully?
 
 5. DISCOVERY / MEDIATION
-Same search/recommendation surface, filters, sort,
-organic/paid mix, eligibility, or platform regime?
+Same search/recommendation/conversational surface, filters, sort,
+organic/paid/AI-referral mix, eligibility, or platform regime?
 
 6. SHOPPER / TRAFFIC STATE
-Same query mix, audience mix, mission, market,
-device, or creator/referral source?
+Same query/request mix, audience mix, mission, constraints, market,
+device, account/personalization state, or creator/referral source?
 
 7. RESPONSE OPPORTUNITY
 Was the relevant variant in stock and buyable?
-Could the shopper see and select the required information?
+Could the shopper/system see and resolve the required information?
 
 8. TRANSACTION / AUTHORIZATION STATE IF AGENT-MEDIATED
 Same delegated scope, checkout total/state, merchant acceptance,
@@ -1778,11 +2011,12 @@ A future commerce module should contain only what is material and time-sensitive
 6. commercial state / eligibility
 7. discovery surfaces
 8. disclosed retrieval / relevance / ranking / recommendation facts
-9. paid vs organic boundaries
-10. measurement / attribution
-11. agentic / delegated transaction behavior when material
-12. platform-specific anti-folklore guardrails
-13. explicit UNKNOWNs
+9. conversational / multimodal / agent-facing product behavior when material
+10. paid vs organic boundaries
+11. measurement / attribution
+12. agentic / delegated transaction behavior when material
+13. platform-specific anti-folklore guardrails
+14. explicit UNKNOWNs
 ```
 
 Expected initial modules after this handbook is validated:
@@ -1814,13 +2048,13 @@ TIKTOK SHOPPABLE VIDEO
 → TikTok social module + TikTok Shop commerce module
 ```
 
-The existence of a commerce path must not make an ordinary caption task load commerce theory.
+The existence of a commerce or AI-discovery path must not make an ordinary caption task load commerce theory.
 
 ---
 
 ## 20. Core-change rule for future commerce research
 
-Do not grow the durable model whenever a marketplace exposes a new noun.
+Do not grow the durable model whenever a marketplace exposes a new noun or AI product feature.
 
 Use:
 
@@ -1839,7 +2073,7 @@ NO
 → only then consider a durable correction
 ```
 
-The current cross-platform induction, including agent-mediated checkout and delegated authority stress cases, does **not** justify adding durable primitives for:
+The current cross-platform induction, including conversational/multimodal discovery, agent-facing product data, agent-mediated checkout, and delegated authority stress cases, does **not** justify adding durable primitives for:
 
 ```text
 product
@@ -1856,6 +2090,8 @@ shopping agent
 authorization mandate
 checkout session
 order
+AI product representation
+semantic match
 ```
 
 Any of these may be instantiated as an `ACTOR`, `OBJECT`, `REPRESENTATION`, typed edge, state, attribute, or implementation detail when the decision actually requires it.
@@ -1880,16 +2116,21 @@ Before consequential commerce work is finalized, ask only the relevant questions
 12. Is user-selected filtering/sorting being mistaken for default ranking behavior?
 13. Is a paid/sponsored-system disclosure being transferred to organic discovery without evidence?
 14. Is text search being incorrectly treated as text-only retrieval, or image search as image-only item representation?
-15. Is shopper state specific enough to distinguish discovery, comparison, evaluation, configuration, and transaction needs where material?
-16. Are displayed price and final payable price treated as potentially scoped/time-varying rather than intrinsic product truth?
-17. In agent-mediated commerce, is shopper intent being confused with delegated authority or platform capability?
-18. If authority is delegated, are its operation, amount/state constraints, scope, and expiry still valid for the current checkout state?
-19. Are discovery data, authoritative checkout state, merchant-accepted order state, payment, and fulfillment being collapsed?
-20. Are agent-consumable product representations being confused with the human-facing generated recommendation?
-21. Is the encounter/checkout surface being confused with Merchant of Record, payment-processing, fulfillment, return, or support responsibility?
-22. Are observed purchases, reviews, ratings, or engagement interpreted with exposure, availability, commercial state, provenance, attribution, and maturity context?
-23. Are platform-specific facts current, scoped, and kept out of universal field folklore?
-24. Is the fast path still being respected for a narrow product-communication task?
-25. Is the final decision truthful, decision-relevant, and proportionate to the evidence?
+15. For AI/conversational discovery, can the material shopper requirements — use case, compatibility, constraints, preferences, dimensions/specs, budget, trade-offs, variant requirements — be resolved from truthful product facts/relations/state?
+16. Is missing product evidence being repaired with the correct structured/text/image/relation carrier rather than keyword stuffing or an invented attribute?
+17. Is semantic/conversational matchability being mistaken for a proven ranking boost?
+18. Is product-data completeness being mistaken for guaranteed retrieval, recommendation, or exposure?
+19. Is platform-local AI behavior being generalized into a universal field/ranking law?
+20. Is shopper state specific enough to distinguish discovery, comparison, evaluation, configuration, and transaction needs where material?
+21. Are displayed price and final payable price treated as potentially scoped/time-varying rather than intrinsic product truth?
+22. In agent-mediated commerce, is shopper intent being confused with delegated authority or platform capability?
+23. If authority is delegated, are its operation, amount/state constraints, scope, and expiry still valid for the current checkout state?
+24. Are discovery data, authoritative checkout state, merchant-accepted order state, payment, and fulfillment being collapsed?
+25. Are agent-consumable product representations being confused with the human-facing generated recommendation?
+26. Is the encounter/checkout surface being confused with Merchant of Record, payment-processing, fulfillment, return, or support responsibility?
+27. Are observed purchases, reviews, ratings, or engagement interpreted with exposure, availability, commercial state, provenance, attribution, and maturity context?
+28. Are platform-specific facts current, scoped, and kept out of universal field folklore?
+29. Is the fast path still being respected for a narrow product-communication task?
+30. Is the final decision truthful, decision-relevant, and proportionate to the evidence?
 
-The goal is not to optimize every field simultaneously, reconstruct a marketplace's hidden algorithm, or assume an agent can act merely because it can reason. The goal is to make a defensible product-discovery and commerce decision with the smallest model that preserves the identities, states, representations, mediation mechanisms, authority boundaries, and evidence scopes that can actually change action or inference.
+The goal is not to optimize every field simultaneously, reconstruct a marketplace's hidden algorithm, or assume an agent can act merely because it can reason. The goal is to make a defensible product-discovery and commerce decision with the smallest model that preserves the identities, states, representations, mediation mechanisms, authority boundaries, and evidence scopes that can actually change action or inference — and, for AI-native discovery, to make truthful shopper requirements resolvable without pretending to know hidden model weights.
