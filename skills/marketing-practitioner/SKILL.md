@@ -1,6 +1,6 @@
 ---
 name: marketing-practitioner
-description: "Evidence-informed marketing, commerce, content, and copywriting for AI agents. Use for customer-research synthesis, segmentation and ICP selection, positioning, value proposition, message strategy, social posts and captions, platform content strategy, community content, e-commerce and marketplace product listings, product titles and descriptions, catalog and variant decisions, product discovery/search/recommendation, landing pages, email and campaign copy, copy critique, funnel diagnosis, experiment design, localization, and marketing postmortems. Treat marketing as a market-learning and decision discipline: separate observation from interpretation, scope claims to evidence, establish strategy before prose, adapt content and product representations to the actual audience/environment, prefer proof to hype, distinguish attribution from causality, preserve uncertainty, and write in a clear human voice without inventing facts."
+description: "Evidence-informed marketing, commerce, content, and copywriting for AI agents. Use for customer-research synthesis, segmentation and ICP selection, positioning, value proposition, message strategy, social posts and captions, platform content strategy, community content, e-commerce and marketplace product listings, product titles and descriptions, catalog and variant decisions, product discovery/search/recommendation, agent-mediated commerce and delegated checkout decisions, landing pages, email and campaign copy, copy critique, funnel diagnosis, experiment design, localization, and marketing postmortems. Treat marketing as a market-learning and decision discipline: separate observation from interpretation, scope claims to evidence, establish strategy before prose, adapt content and product representations to the actual audience/environment, prefer proof to hype, distinguish attribution from causality, preserve uncertainty, and write in a clear human voice without inventing facts."
 license: MIT
 metadata:
   version: "0.2.0"
@@ -214,9 +214,9 @@ For cross-platform adaptation, preserve strategic meaning but do not blindly cro
 
 ## Commerce / product discovery
 
-Use when an e-commerce or marketplace environment can materially change product/listing communication, catalog or variant reasoning, commercial-state interpretation, product discoverability, or performance diagnosis.
+Use when an e-commerce, marketplace, or agent-mediated commerce environment can materially change product/listing communication, catalog or variant reasoning, commercial-state interpretation, product discoverability, delegated checkout authority, or performance diagnosis.
 
-This path includes product titles and descriptions, marketplace listing fields, catalog/listing identity, variants/SKUs, product cards/PDPs, structured attributes, backend/search fields, product images, product search/recommendation, price/stock/shipping/promotion state, and commerce measurement.
+This path includes product titles and descriptions, marketplace listing fields, catalog/listing identity, variants/SKUs, product cards/PDPs, structured attributes, backend/search fields, product images, product search/recommendation, price/stock/shipping/promotion state, agent-facing product representations, delegated purchase/checkout state, and commerce measurement.
 
 Do **not** route every product-writing task through the full commerce handbook.
 
@@ -235,9 +235,13 @@ Load `handbook/09-commerce-environments-and-product-discovery.md` only when deep
 - product/model/item/listing/catalog identity;
 - variant/SKU architecture or scoped identifiers;
 - field allocation across title, attributes, search/backend fields, images, PDP/card representations;
-- platform processing or machine-derived product data;
+- platform processing, machine/agent-consumable product data, or machine-derived product data;
 - search, retrieval, relevance, ranking, recommendation, filtering, or sorting distinctions;
 - offer/price/stock/shipping/promotion/buyer-relative commercial state;
+- shopper intent vs delegated purchase authority;
+- agent/platform capability vs authorization;
+- discovery-state vs authoritative checkout/order-state conflicts;
+- merchant-of-record / payment / fulfillment responsibility in mediated checkout;
 - product-discovery diagnosis, measurement, attribution, or learning.
 
 When platform-specific behavior is material, load only the smallest relevant commerce module:
@@ -263,9 +267,9 @@ TikTok shoppable-video / LIVE / creator-commerce task
 → TikTok + TikTok Shop modules only as needed
 ```
 
-Do not transfer evidence from paid ads, seller tools, one recommendation module, or one market into organic product discovery or another market without direct support. Keep eligibility, retrieval/matching, ranking, representation, commercial state, and observed outcome separate when those distinctions can change the conclusion.
+Do not transfer evidence from paid ads, seller tools, one recommendation module, one checkout protocol, or one market into organic product discovery or another market without direct support. Keep eligibility, retrieval/matching, ranking, representation, commercial state, delegated authority, transaction state, and observed outcome separate when those distinctions can change the conclusion.
 
-For commerce performance diagnosis, do not rewrite copy merely because sales or rank changed. First locate the relevant object/variant, platform record, commercial state, surface/source, representation, buyer/context scope, and measurement regime. Load `handbook/05-diagnosis-causality-and-experimentation.md` when causal attribution or experiment design becomes material.
+For commerce performance diagnosis, do not rewrite copy merely because sales or rank changed. First locate the relevant object/variant, platform record, commercial state, surface/source, representation, buyer/context scope, transaction/authorization state where material, and measurement regime. Load `handbook/05-diagnosis-causality-and-experimentation.md` when causal attribution or experiment design becomes material.
 
 ## Copy critique
 
