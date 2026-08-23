@@ -57,7 +57,7 @@ A second operational principle follows:
 
 > Allocate each fact, claim, attribute, image, and commercial condition according to the human or machine job it must perform on the specific platform, rather than copying generic “SEO fields” or ranking folklore across systems.
 
-The current cross-platform evidence base includes conceptual parents from GoodRelations and Schema.org, current platform documentation from Google, Amazon, TikTok Shop, Shopee, Etsy, and Lazada, and engineering disclosures from Shopee, Etsy, and Lazada [C01–C13]. These sources do not establish one universal marketplace implementation or fixed ranking law.
+The current cross-platform evidence base includes conceptual parents from GoodRelations and Schema.org, current platform documentation from Google, Amazon, TikTok Shop, Shopee, Etsy, and Lazada, engineering disclosures from Shopee, Etsy, and Lazada, and agentic-commerce protocol/product evidence from UCP, ACP, and Shopify [C01–C13][AC01–AC06]. These sources do not establish one universal marketplace implementation or fixed ranking law.
 
 ---
 
@@ -864,6 +864,164 @@ GMV
 
 Preserve which event belongs to which surface, edge, exposure regime, and attribution rule before interpreting the aggregate.
 
+### 10.3 Agent-mediated and delegated commerce
+
+Agentic commerce adds a consequential authority/transaction dimension, but it does **not** require a new durable primitive. Use the existing actor, typed-edge, state, provenance, scope, and history model.
+
+A useful map is:
+
+```text
+SHOPPER / USER
+   │
+   │ intent / preference / request
+   ▼
+SHOPPING AGENT / PLATFORM
+   │
+   │ may have capability to search / cart / checkout
+   │
+   ├──[delegated / authorized within scope]──► operation
+   │
+   └──[requests / submits]───────────────────► MERCHANT / BUSINESS
+                                                  │
+                                                  ├ accepts / rejects
+                                                  ├ returns checkout state
+                                                  └ returns order state
+```
+
+Keep these states separate:
+
+```text
+SHOPPER INTENT
+≠ DELEGATED ACTION AUTHORITY
+```
+
+A request such as “find me a laptop under $1,000” can authorize discovery without authorizing a purchase.
+
+```text
+PLATFORM / AGENT CAPABILITY
+≠ USER AUTHORIZATION
+≠ SUCCESSFUL EFFECT
+```
+
+A system can technically support checkout while the current user/session lacks authority to complete it. UCP standard checkout requires user finalization through a trusted UI unless AP2 Mandates is negotiated; AP2 then cryptographically binds user authorization to the specific checkout state and funds transfer [AC01][AC02].
+
+#### 10.3.1 Authorization is scoped to state, constraints, and time
+
+When delegated authority matters, preserve at least:
+
+```text
+who authorized whom?
+which operation?
+which product / quantity / seller?
+what price / total / currency constraints?
+what payment / shipping scope?
+what expiry or session scope?
+what checkout state was authorized?
+```
+
+If the material transaction state changes outside the authorization boundary, do not silently carry authority forward.
+
+Example:
+
+```text
+user authorizes purchase ≤ $1,000
+checkout later becomes $1,028 after shipping
+
+PRIOR AUTHORIZATION
+≠ AUTOMATIC AUTHORIZATION OF NEW TOTAL
+```
+
+The exact re-authorization mechanics are protocol/platform-specific, but the analytical distinction is durable.
+
+#### 10.3.2 Discovery state ≠ authoritative checkout state ≠ authoritative order state
+
+Agentic systems make stage-specific authority explicit.
+
+ACP uses merchant product feeds for ingestion/indexing/discovery, then requires the merchant checkout integration to return a rich authoritative cart state with current items, pricing, taxes/fees, shipping, discounts, totals, and status [AC04][AC05]. UCP Order separately treats an order as the authoritative current-state snapshot after a successful checkout submission [AC03].
+
+Therefore:
+
+```text
+DISCOVERY / INDEX REPRESENTATION @ t0
+≠ AUTHORITATIVE CHECKOUT STATE @ t1
+≠ AUTHORITATIVE ORDER STATE @ t2
+```
+
+A merchant feed can be an authoritative product-data input for discovery while still becoming stale for the later transaction. Preserve **authority by stage + time**, not one timeless “source of truth” label.
+
+Likewise:
+
+```text
+CHECKOUT REQUEST / SESSION
+≠ MERCHANT-ACCEPTED ORDER
+≠ PAYMENT SUCCESS
+≠ FULFILLMENT / DELIVERY COMPLETION
+```
+
+Do not report “purchased” merely because an agent submitted a request or opened a checkout session.
+
+#### 10.3.3 Agent-consumable representation ≠ human-facing generated representation
+
+Some commerce systems now expose structured catalog interfaces directly to AI agents. Shopify's Global Catalog and Storefront Catalog implement UCP Catalog interfaces for agent search/lookup/product retrieval and can accept buyer context such as location, language, currency, and intent [AC06].
+
+Keep:
+
+```text
+MERCHANT / PRODUCT STATE
+↓
+AGENT-CONSUMABLE REPRESENTATION
+↓
+AGENT REASONING / SELECTION
+↓
+HUMAN-FACING GENERATED REPRESENTATION
+↓
+SHOPPER DECISION
+```
+
+The agent-facing product representation can contain structured fields, variants, offers, availability, and machine context that are not identical to the concise recommendation a person sees.
+
+This is still the Chapter 08/09 representation invariant:
+
+```text
+OBJECT
+≠ REPRESENTATION
+≠ ENCOUNTER SURFACE
+```
+
+not a new ontology.
+
+#### 10.3.4 Encounter / checkout surface ≠ commercial responsibility
+
+A shopper can encounter or even complete a mediated checkout inside an AI/search surface while another business remains seller/Merchant of Record and a separate payment provider handles payment rails [AC01][G10].
+
+Preserve actor roles when material:
+
+```text
+DISCOVERY / CONVERSATIONAL SURFACE
+≠ SELLER / MERCHANT OF RECORD
+≠ PAYMENT-PROCESSING ROLE
+≠ FULFILLMENT / RETURNS / SUPPORT ROLE
+```
+
+Do not infer that the interface where the user clicked “Buy” owns every commercial responsibility.
+
+#### 10.3.5 When the agentic layer deserves deeper reasoning
+
+Use this layer only when the decision involves one or more of:
+
+```text
+delegated purchase / autonomous action
+authorization scope or expiry
+agent capability vs user permission
+checkout-state drift after discovery
+merchant acceptance / rejection
+order-state reconciliation
+agent-facing product data
+merchant-of-record / payment / fulfillment responsibility
+```
+
+A simple title, description, or ordinary product-card task does not need agentic-commerce protocol theory.
+
 ---
 
 # Part III — Shopper state, evaluation, and observation
@@ -1354,6 +1512,40 @@ OBSERVED PURCHASE
 ```
 
 ```text
+SHOPPER INTENT
+≠ DELEGATED ACTION AUTHORITY
+```
+
+```text
+PLATFORM / AGENT CAPABILITY
+≠ USER AUTHORIZATION
+≠ SUCCESSFUL EFFECT
+```
+
+```text
+DISCOVERY / INDEX STATE
+≠ AUTHORITATIVE CHECKOUT STATE
+≠ AUTHORITATIVE ORDER STATE
+```
+
+```text
+REQUEST / CHECKOUT SESSION
+≠ MERCHANT-ACCEPTED ORDER
+≠ PAYMENT / FULFILLMENT COMPLETION
+```
+
+```text
+AGENT-CONSUMABLE REPRESENTATION
+≠ HUMAN-FACING GENERATED REPRESENTATION
+```
+
+```text
+ENCOUNTER / CHECKOUT SURFACE
+≠ MERCHANT OF RECORD
+≠ PAYMENT / FULFILLMENT RESPONSIBILITY
+```
+
+```text
 API OBJECT NAME
 ≠ DURABLE ANALYTICAL PRIMITIVE
 ```
@@ -1407,6 +1599,8 @@ Use deeper reasoning when the task involves decisions such as:
 - structured-attribute strategy;
 - seller/offer/price/stock/shipping conflicts;
 - social-commerce linking;
+- delegated / agentic purchase authority or checkout-state drift;
+- merchant-of-record / payment / fulfillment responsibility in mediated checkout;
 - organic/paid/affiliate attribution;
 - large product-page or feed redesign;
 - unexplained changes in impressions, clicks, carts, orders, or GMV.
@@ -1422,9 +1616,11 @@ COMMERCIAL STATE + SCOPE
 ↓
 PRODUCT-DESCRIPTIVE DATA + COMMERCIAL / OBSERVATIONAL CONTEXT
 ↓
-MACHINE / HUMAN REPRESENTATION JOBS
+MACHINE / AGENT / HUMAN REPRESENTATION JOBS
 ↓
 DISCOVERY / MEDIATION SYSTEM IF MATERIAL
+↓
+AUTHORIZATION / TRANSACTION STATE IF MATERIAL
 ↓
 SHOPPER STATE + DESIRED INTERACTION
 ↓
@@ -1448,6 +1644,8 @@ Platform / market / surface:
 Actors / claim sources:
 Seller / shop if material:
 Creator / affiliate if material:
+Shopping agent / platform if material:
+Merchant of Record / payment / fulfillment roles if material:
 
 Object identities:
 Product family / model if material:
@@ -1468,10 +1666,14 @@ Seller-submitted fields:
 Platform-processed or inferred data if material:
 
 Human-facing representation job:
-Machine-representation evidence if material:
+Machine / agent representation evidence if material:
 Discovery context:
 Relevant retrieval / ranking / filtering / recommendation evidence:
 Known internal UNKNOWNs:
+
+Delegated authority / constraints if material:
+Authoritative checkout state if material:
+Merchant acceptance / order state if material:
 
 Shopper state / desired action:
 Observation record if learning from performance:
@@ -1518,14 +1720,18 @@ device, or creator/referral source?
 Was the relevant variant in stock and buyable?
 Could the shopper see and select the required information?
 
-8. TEMPORAL / ATTRIBUTION SCOPE
+8. TRANSACTION / AUTHORIZATION STATE IF AGENT-MEDIATED
+Same delegated scope, checkout total/state, merchant acceptance,
+payment status, and order lifecycle?
+
+9. TEMPORAL / ATTRIBUTION SCOPE
 Same reporting rules, order maturity, return/refund horizon,
 and attribution window?
 
-9. COMPETING EXPLANATIONS
+10. COMPETING EXPLANATIONS
 What else changed simultaneously?
 
-10. DISCRIMINATING CHECK
+11. DISCRIMINATING CHECK
 What evidence would best separate the leading explanations?
 ```
 
@@ -1550,8 +1756,9 @@ A future commerce module should contain only what is material and time-sensitive
 8. disclosed retrieval / relevance / ranking / recommendation facts
 9. paid vs organic boundaries
 10. measurement / attribution
-11. platform-specific anti-folklore guardrails
-12. explicit UNKNOWNs
+11. agentic / delegated transaction behavior when material
+12. platform-specific anti-folklore guardrails
+13. explicit UNKNOWNs
 ```
 
 Expected initial modules after this handbook is validated:
@@ -1608,7 +1815,7 @@ NO
 → only then consider a durable correction
 ```
 
-The current cross-platform induction does **not** justify adding durable primitives for:
+The current cross-platform induction, including agent-mediated checkout and delegated authority stress cases, does **not** justify adding durable primitives for:
 
 ```text
 product
@@ -1621,9 +1828,13 @@ product card
 PDP
 anchor
 voucher
+shopping agent
+authorization mandate
+checkout session
+order
 ```
 
-Any of these may be instantiated as an `OBJECT`, `REPRESENTATION`, edge, state, attribute, or implementation detail when the decision actually requires it.
+Any of these may be instantiated as an `ACTOR`, `OBJECT`, `REPRESENTATION`, typed edge, state, attribute, or implementation detail when the decision actually requires it.
 
 ---
 
@@ -1639,16 +1850,21 @@ Before consequential commerce work is finalized, ask only the relevant questions
 6. Are product-descriptive facts, commercial conditions, and observational/social context distinguished where they can change interpretation?
 7. Are seller input, platform-processed data, and machine-inferred facts kept distinct with provenance?
 8. Are object, representation, and encounter surface distinguished where they can change the decision?
-9. Is the same field being assumed to perform a human, retrieval, ranking, or transaction job without system-specific evidence?
+9. Is the same field being assumed to perform a human, machine/agent, retrieval, ranking, or transaction job without system-specific evidence?
 10. Are eligibility, retrieval, relevance, ranking, filtering, sorting, composition, and exposure kept separate where material?
 11. Is user-selected filtering/sorting being mistaken for default ranking behavior?
 12. Is a paid/sponsored-system disclosure being transferred to organic discovery without evidence?
 13. Is text search being incorrectly treated as text-only retrieval, or image search as image-only item representation?
 14. Is shopper state specific enough to distinguish discovery, comparison, evaluation, configuration, and transaction needs where material?
 15. Are displayed price and final payable price treated as potentially scoped/time-varying rather than intrinsic product truth?
-16. Are observed purchases, reviews, ratings, or engagement interpreted with exposure, availability, commercial state, provenance, attribution, and maturity context?
-17. Are platform-specific facts current, scoped, and kept out of universal field folklore?
-18. Is the fast path still being respected for a narrow product-communication task?
-19. Is the final decision truthful, decision-relevant, and proportionate to the evidence?
+16. In agent-mediated commerce, is shopper intent being confused with delegated authority or platform capability?
+17. If authority is delegated, are its operation, amount/state constraints, scope, and expiry still valid for the current checkout state?
+18. Are discovery data, authoritative checkout state, merchant-accepted order state, payment, and fulfillment being collapsed?
+19. Are agent-consumable product representations being confused with the human-facing generated recommendation?
+20. Is the encounter/checkout surface being confused with Merchant of Record, payment-processing, fulfillment, return, or support responsibility?
+21. Are observed purchases, reviews, ratings, or engagement interpreted with exposure, availability, commercial state, provenance, attribution, and maturity context?
+22. Are platform-specific facts current, scoped, and kept out of universal field folklore?
+23. Is the fast path still being respected for a narrow product-communication task?
+24. Is the final decision truthful, decision-relevant, and proportionate to the evidence?
 
-The goal is not to optimize every field simultaneously or reconstruct a marketplace's hidden algorithm. The goal is to make a defensible product-discovery and commerce decision with the smallest model that preserves the identities, states, representations, mediation mechanisms, and evidence boundaries that can actually change action or inference.
+The goal is not to optimize every field simultaneously, reconstruct a marketplace's hidden algorithm, or assume an agent can act merely because it can reason. The goal is to make a defensible product-discovery and commerce decision with the smallest model that preserves the identities, states, representations, mediation mechanisms, authority boundaries, and evidence scopes that can actually change action or inference.
