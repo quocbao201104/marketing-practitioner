@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "coverage": "phase-1-core-handbooks",
+  "coverage": "phase-2-core-plus-tiktok-shopee",
   "notes": "Logical knowledge IDs are stable addresses. Physical files and selectors may change without changing the ID. Prefer the smallest route that can change the open decision.",
   "routes": {
     "content.core-grammar": {
@@ -87,6 +87,166 @@
       "path": "handbook/09-commerce-environments-and-product-discovery.md",
       "selector": {"type": "heading", "value": "## 18. Diagnosing weak or changing commerce performance"},
       "use_when": ["rank traffic click or order decline", "commerce performance diagnosis", "surface or source mix change", "commercial-state confounding"]
+    },
+    "tiktok.surfaces": {
+      "path": "platforms/tiktok.md",
+      "selector": {"type": "heading", "value": "## 1. TikTok is a family of systems, not one algorithm"},
+      "use_when": ["which TikTok surface or recommender matters", "For You vs Search vs Following vs LIVE", "avoid platform-wide algorithm claims"]
+    },
+    "tiktok.object-representation": {
+      "path": "platforms/tiktok.md",
+      "selector": {"type": "heading", "value": "## 2. Actor, content object, and content representation"},
+      "use_when": ["creator or source identity", "content object vs selection representation", "cover first-frame profile or surface representation"]
+    },
+    "tiktok.audience-edges": {
+      "path": "platforms/tiktok.md",
+      "selector": {"type": "heading", "value": "## 3. Surface-specific audience state and typed edges"},
+      "use_when": ["For You Search Following Friends or comments audience state", "follow vs delivery", "ranked comment context", "notification re-entry"]
+    },
+    "tiktok.intent-history": {
+      "path": "platforms/tiktok.md",
+      "selector": {"type": "heading", "value": "## 4. Intent, history, and state transitions"},
+      "use_when": ["latent vs explicit intent", "search intent provenance", "history-conditioned TikTok behavior", "viewer to follower/search/creator transitions"]
+    },
+    "tiktok.sequential-representation": {
+      "path": "platforms/tiktok.md",
+      "selector": {"type": "heading", "value": "## 5. Sequential meaning and representation"},
+      "use_when": ["video sequence", "early value without hook folklore", "result demonstration mechanism or next-action ordering"]
+    },
+    "tiktok.machine-mediation": {
+      "path": "platforms/tiktok.md",
+      "selector": {"type": "heading", "value": "## 6. Human meaning and machine mediation are different"},
+      "use_when": ["TikTok ranking signal or machine feature claim", "retrieval vs ranking", "OCR ASR or keyword folklore", "cold start or exploration"]
+    },
+    "tiktok.eligibility": {
+      "path": "platforms/tiktok.md",
+      "selector": {"type": "heading", "value": "## 7. Platform / mediation state and typed eligibility"},
+      "use_when": ["recommendation eligibility", "surface or recipient eligibility", "suppression vs ordinary low rank", "creator or program state"]
+    },
+    "tiktok.interaction": {
+      "path": "platforms/tiktok.md",
+      "selector": {"type": "heading", "value": "## 8. Interaction acts, provenance, and response opportunity"},
+      "use_when": ["watch skip like comment share follow or purchase interpretation", "interaction provenance", "no action vs negative action", "signal to tactic translation"]
+    },
+    "tiktok.lineage": {
+      "path": "platforms/tiktok.md",
+      "selector": {"type": "heading", "value": "## 9. Lineage, remix, travel, and future opportunity"},
+      "use_when": ["Duet Stitch remix response or repost", "source lineage", "content travel", "derived participation"]
+    },
+    "tiktok.search": {
+      "path": "platforms/tiktok.md",
+      "selector": {"type": "heading", "value": "## 10. Search as an information environment"},
+      "use_when": ["TikTok Search", "Creator Search Insights", "query intent", "search popularity vs market demand"]
+    },
+    "tiktok.commerce-boundary": {
+      "path": "platforms/tiktok.md",
+      "selector": {"type": "heading", "value": "## 11. Creator, commerce, and multi-stakeholder mediation"},
+      "use_when": ["creator product seller or brand relation", "shoppable content", "social to commerce boundary", "views high but product clicks low"]
+    },
+    "tiktok.live": {
+      "path": "platforms/tiktok.md",
+      "selector": {"type": "heading", "value": "## 12. LIVE is a different interaction state, not a long video template"},
+      "use_when": ["TikTok LIVE", "synchronous interaction", "LIVE-specific recommendation or response opportunity"]
+    },
+    "tiktok.measurement": {
+      "path": "platforms/tiktok.md",
+      "selector": {"type": "heading", "value": "## 13. Observation record before performance conclusions"},
+      "use_when": ["TikTok performance diagnosis", "observation record", "surface and delivery provenance", "business outcome vs platform metric"]
+    },
+    "tiktok.causal-boundaries": {
+      "path": "platforms/tiktok.md",
+      "selector": {"type": "heading", "value": "## 14. Adaptive allocation, interference, and causal boundaries"},
+      "use_when": ["causal interpretation of TikTok performance", "adaptive exposure", "interference", "experiment inference"]
+    },
+    "tiktok.evidence-boundaries": {
+      "path": "platforms/tiktok.md",
+      "selector": {"type": "heading", "value": "## 16. Current evidence boundaries"},
+      "use_when": ["what TikTok evidence actually establishes", "unknown current weights or mechanisms", "scope a platform claim"]
+    },
+    "shopee.identity": {
+      "path": "platforms/commerce/shopee.md",
+      "selector": {"type": "heading", "value": "## 2. Product posting and underlying product identity should not be conflated blindly"},
+      "use_when": ["Shopee posting vs underlying product identity", "cross-shop product identity", "seller-centric listing identity"]
+    },
+    "shopee.variations": {
+      "path": "platforms/commerce/shopee.md",
+      "selector": {"type": "heading", "value": "## 3. Variations / classifications are selectable configurations"},
+      "use_when": ["Shopee variations or classifications", "variation price or stock", "product page vs selected configuration"]
+    },
+    "shopee.product-info": {
+      "path": "platforms/commerce/shopee.md",
+      "selector": {"type": "heading", "value": "## 4. Product-descriptive information must remain truthful and category-correct"},
+      "use_when": ["Shopee product name category attributes description or images", "listing policy", "structured field vs prose", "truthful product information"]
+    },
+    "shopee.shop-state": {
+      "path": "platforms/commerce/shopee.md",
+      "selector": {"type": "heading", "value": "## 5. Shop-level state is distinct from product state"},
+      "use_when": ["Shop Yêu Thích or Mall state", "shop badge", "seller status vs product state", "filterable shop state vs ranking"]
+    },
+    "shopee.discovery": {
+      "path": "platforms/commerce/shopee.md",
+      "selector": {"type": "heading", "value": "## 6. Search has keyword, image, and conversational entry modes"},
+      "use_when": ["Shopee keyword image or conversational discovery", "multimodal retrieval", "Shopee App in ChatGPT", "text query vs text-only retrieval"]
+    },
+    "shopee.conversational-discovery": {
+      "path": "platforms/commerce/shopee.md",
+      "selector": {"type": "heading", "value": "### 6.3 Shopee App in ChatGPT is a separate conversational discovery surface"},
+      "use_when": ["Shopee in ChatGPT", "conversational shopping", "account-connected recommendation context", "AI product discoverability"]
+    },
+    "shopee.retrieval-ranking": {
+      "path": "platforms/commerce/shopee.md",
+      "selector": {"type": "heading", "value": "## 7. Retrieval ≠ ranking; exact organic and conversational pipelines remain partially unknown"},
+      "use_when": ["Shopee retrieval vs ranking", "MRSE scope", "organic or conversational pipeline unknowns", "avoid feature-to-ranking tactic"]
+    },
+    "shopee.sort-filter": {
+      "path": "platforms/commerce/shopee.md",
+      "selector": {"type": "heading", "value": "## 8. Default ranking ≠ explicit buyer sorting ≠ filtering"},
+      "use_when": ["Shopee sort or filter", "best-selling or price sort", "filtered result interpretation", "default rank vs buyer control"]
+    },
+    "shopee.commercial-state": {
+      "path": "platforms/commerce/shopee.md",
+      "selector": {"type": "heading", "value": "## 9. Buyer-relative displayed price is a first-class representation state"},
+      "use_when": ["Shopee displayed price", "voucher-adjusted buyer-relative price", "variation price", "checkout price mismatch"]
+    },
+    "shopee.representation": {
+      "path": "platforms/commerce/shopee.md",
+      "selector": {"type": "heading", "value": "## 10. Search card / PDP / conversational card are composite representations"},
+      "use_when": ["Shopee search card PDP or conversational card", "composite product representation", "seller field vs buyer encounter"]
+    },
+    "shopee.observation-context": {
+      "path": "platforms/commerce/shopee.md",
+      "selector": {"type": "heading", "value": "## 11. Reviews, ratings and sold count are observation-derived context"},
+      "use_when": ["reviews ratings or sold count", "observation-derived context", "human evaluation vs intrinsic product truth", "ranking inference guardrail"]
+    },
+    "shopee.special-visibility": {
+      "path": "platforms/commerce/shopee.md",
+      "selector": {"type": "heading", "value": "## 12. Special visibility features must not leak into ordinary organic theory"},
+      "use_when": ["Sản phẩm Hot", "special placement", "paid campaign or feature criteria", "special visibility vs organic ranking"]
+    },
+    "shopee.measurement": {
+      "path": "platforms/commerce/shopee.md",
+      "selector": {"type": "heading", "value": "## 13. Search / recommendation performance must preserve exposure provenance"},
+      "use_when": ["Shopee traffic source", "search image recommendation ChatGPT or ads provenance", "aggregate click or order interpretation"]
+    },
+    "shopee.diagnosis": {
+      "path": "platforms/commerce/shopee.md",
+      "selector": {"type": "heading", "value": "## 14. Diagnosing weak or changing Shopee performance"},
+      "use_when": ["Shopee impressions clicks carts or orders changed", "listing performance diagnosis", "commercial or shop-state confounding"]
+    },
+    "shopee.fast-paths": {
+      "path": "platforms/commerce/shopee.md",
+      "selector": {"type": "heading", "value": "## 15. Fast paths"},
+      "use_when": ["narrow Shopee title or listing rewrite", "simple field task", "avoid loading full Shopee theory"]
+    },
+    "shopee.guardrails": {
+      "path": "platforms/commerce/shopee.md",
+      "selector": {"type": "heading", "value": "## 16. Shopee-specific anti-folklore guardrails"},
+      "use_when": ["Shopee SEO folklore", "category title description image or badge ranking claims", "sold count rating or price causal ranking claims"]
+    },
+    "shopee.unknowns": {
+      "path": "platforms/commerce/shopee.md",
+      "selector": {"type": "heading", "value": "## 17. Explicit UNKNOWNs"},
+      "use_when": ["exact Shopee ranking weights", "current organic or conversational pipeline details", "unsupported causal mechanism"]
     }
   }
 }
