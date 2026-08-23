@@ -68,6 +68,37 @@ Use: Google states that Shopping results are ranked based on relevance, search t
 
 Boundary: this is a high-level product disclosure, not a complete organic ranking formula. Do not convert listed factors into deterministic seller tactics or assume the same factors/weights on Search, Images, Lens, YouTube, AI Mode, ads, or every recommendation module.
 
+## [G09] Merchant Center — conversational product attributes
+
+Google Merchant Center Help. **How to use conversational attributes; Popularity rank `[popularity_rank]`; Related product `[related_product]`.** Reviewed 2026-08-23.
+
+Direct sources:
+
+- `https://support.google.com/merchants/answer/17085370?hl=en`
+- `https://support.google.com/merchants/answer/17085297?hl=en`
+- `https://support.google.com/merchants/answer/17085213?hl=en`
+
+Use: Google now exposes optional conversational attributes including `question_and_answer`, `document_link`, `related_product`, `item_group_title`, `variant_option`, and `popularity_rank` to help AI systems / conversational agents understand product nuances and support AI-driven shopping experiences. `popularity_rank` is merchant-supplied and ranks a product's selling performance against other products in that merchant's own inventory. `related_product` is a merchant-declared relation such as accessory, spare part, often-bought-with, or substitute.
+
+Boundaries:
+
+- `popularity_rank` is **not** a Google organic Search ranking score;
+- merchant-declared `related_product` is not the same as a platform-inferred substitute/complement relation or an observed co-purchase relation;
+- field availability / conversational use does not disclose exact retrieval, relevance, or ranking weights.
+
+## [G10] Google Merchant Center — UCP-powered checkout
+
+Google Merchant Center Help. **About the Universal Commerce Protocol (UCP) and UCP-powered checkout feature on Google; How to onboard to UCP in Merchant Center.** Reviewed 2026-08-23.
+
+Direct sources:
+
+- `https://support.google.com/merchants/answer/16837055?hl=en`
+- `https://support.google.com/merchants/answer/16992327?hl=en`
+
+Use: participating eligible merchants can support UCP-powered checkout on surfaces such as AI Mode in Search and Gemini. Google states that the merchant remains seller of record; Google Pay can provide the secure payment flow, and Google's agentic checkout acts at the customer's direction while exchanging data with the merchant backend.
+
+Boundary: checkout-surface mediation does not transfer merchant-of-record, payment-processing, fulfillment, returns, or customer-service responsibility by default. Availability is phased and merchant/market eligibility is time-sensitive.
+
 ## Evidence-use rules
 
 ```text
@@ -88,6 +119,17 @@ STRUCTURED-DATA ELIGIBLE
 
 SHOPPING RESULT DISCLOSURE
 ≠ COMPLETE SEARCH / AI MODE / LENS ALGORITHM
+
+MERCHANT-DECLARED POPULARITY_RANK
+≠ GOOGLE ORGANIC SEARCH RANK
+
+MERCHANT-DECLARED RELATED_PRODUCT
+≠ PLATFORM-INFERRED PRODUCT RELATION
+≠ OBSERVED CO-PURCHASE RELATION
+
+AI MODE / GEMINI CHECKOUT SURFACE
+≠ MERCHANT / SELLER OF RECORD
+≠ PAYMENT / FULFILLMENT ROLE
 
 SPONSORED
 ≠ ORGANIC
