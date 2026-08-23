@@ -4,7 +4,7 @@ Last reviewed: 2026-08-23
 
 Use this module when Google-specific product data, Merchant Center / Merchant API processing, free listings, Shopping surfaces, product-rich Search results, Images / Lens, YouTube commerce surfaces, conversational shopping, agentic checkout, or related Google product-discovery behavior can materially change the decision.
 
-Current operational claims should be re-checked when consequential. Google changes Merchant data requirements, product surfaces, AI shopping experiences, structured-data support, checkout eligibility, and eligibility rules over time [G01–G10].
+Current operational claims should be re-checked when consequential. Google changes Merchant data requirements, product surfaces, AI shopping experiences, structured-data support, checkout eligibility, and eligibility rules over time [G01–G11].
 
 This module instantiates the commerce specialization in `../../handbook/09-commerce-environments-and-product-discovery.md`. It does not define a Google-specific ontology.
 
@@ -190,7 +190,7 @@ When Google exposes group/variant fields separately, allocate information accord
 
 ### 4.1 Product-descriptive data
 
-Google-supported product information can include [G02–G04][G09]:
+Google-supported product information can include [G02–G04][G09][G11]:
 
 ```text
 title / structured title
@@ -309,27 +309,31 @@ The exact downstream use and weight vary by system and are not fully disclosed.
 
 ### 5.4 Product detail
 
-Use structured product-detail fields for factual technical or specification information when supported [G03].
+Use structured `product_detail` fields for factual technical or specification information when supported [G03][G11]. Google says these structured details can improve its ability to show individual products for queries, including AI-driven surfaces [G11].
 
 Typical job:
 
 ```text
-STRUCTURED TECHNICAL / FACTUAL DETAIL
+STRUCTURED TECHNICAL / VERIFIABLE DETAIL
 → machine-readable product understanding
 → potentially human comparison / display where surfaced
 ```
 
-Do not duplicate vague marketing adjectives where a precise value is available.
+Examples can include dimensions, materials, capacity, compatibility identifiers, or other supported technical values when they are true and belong in the current category/schema.
+
+Do not duplicate vague marketing adjectives where a precise value is available, and do not fabricate a specification to broaden matching.
 
 ### 5.5 Product highlights
 
-Use product highlights for concise prioritized features or benefits where supported [G03].
+Use product highlights for concise prioritized features or benefits where supported [G03][G11].
 
 Typical job:
 
 ```text
 PRIORITIZED HUMAN-READABLE FEATURE / BENEFIT SUMMARY
 ```
+
+Google explicitly says `product_highlight` should not be used as a list of keywords/search terms or SEO keywords [G11].
 
 Keep claims evidence-compatible. A highlight is not a substitute for a missing structured specification when machine filtering or identity depends on the structured field.
 
@@ -436,6 +440,64 @@ CONVERSATIONAL FIELD EXISTS
 
 without direct Google evidence for that stage and surface.
 
+### 5.9 Resolve conversational requirements through the right factual carrier
+
+Google's current AI performance insights reflect a shopper environment where requests can be longer and more complex than keyword-style searches and can combine product features, technical specifications, reviews, price/comparison intent, and other constraints [G11].
+
+The seller-side goal is not to predict the hidden query decomposition. It is to make the true answer to material shopper constraints available in the appropriate Google-supported product data.
+
+Use a map such as:
+
+```text
+SHOPPER REQUIREMENT
+→ TRUE PRODUCT FACT / RELATION / COMMERCIAL STATE
+→ GOOGLE-SUPPORTED CARRIER
+```
+
+Examples, only when supported and truthful:
+
+```text
+identity / use-defining product wording
+→ title / description
+
+exact measurable specification
+→ product_detail / structured attribute
+
+variant requirement
+→ item-group / variant fields
+
+detailed question / compatibility / limitation
+→ question_and_answer / document / description as appropriate
+
+accessory / spare-part / substitute relation
+→ related_product
+
+visible physical property
+→ accurate image + corresponding structured/text fact when supported
+
+budget / availability constraint
+→ current price / availability / commercial data
+```
+
+Google's AI performance insights can show product terms and popular structured attributes that appear in conversational shopping behavior, but treat them as **evidence of shopper information demand / product-data opportunity**, not a disclosed rank weight [G11].
+
+Therefore:
+
+```text
+MACHINE / AGENT LEGIBILITY
+≠ KEYWORD DENSITY
+≠ GUARANTEED AI VISIBILITY
+```
+
+and:
+
+```text
+SEMANTIC / CONVERSATIONAL MATCHABILITY
+≠ PROVEN RANKING BOOST
+```
+
+Do not create a compatibility, use case, feature, dimension, material, or benefit merely because shoppers ask for it. Missing truthful evidence should remain missing/unknown until verified.
+
 ---
 
 ## 6. Discovery is multimodal and multi-surface
@@ -491,17 +553,32 @@ For a creator/product task, Chapter 08 may additionally matter because a content
 
 ### 6.4 AI Mode / Gemini conversational shopping
 
-Google currently describes Shopping Graph-backed product discovery inside AI Mode and Gemini, including conversational refinement and query fan-out-like behavior in AI shopping experiences [G07].
+Google currently describes Shopping Graph-backed product discovery inside AI Mode and Gemini, including conversational refinement and query fan-out-like behavior in AI shopping experiences [G07]. Merchant Center's AI performance insights additionally describe longer/more complex shopping queries spanning feature, specification, review, pricing/comparison and other intents [G11].
 
 Use:
 
 ```text
 CONVERSATIONAL REQUEST / SHOPPER STATE
-→ possibly multiple derived searches / product-understanding steps
+→ possibly multiple constraints / derived searches / product-understanding steps
 → shopping candidates / representations
 ```
 
 Do not reduce this to one user-entered keyword string.
+
+A shopper may ask for several requirements at once, for example:
+
+```text
+use case
+compatibility
+hard constraint
+preference
+size / material / technical spec
+budget
+trade-off
+specific variant
+```
+
+The durable practitioner response is to ensure the product's **true** answers to those requirements are represented in the appropriate carriers, not to manufacture every likely phrase in the title.
 
 Exact current query decomposition, retrieval sources, ranking weights, product-card composition, and generated-answer behavior remain partially undisclosed and time-sensitive.
 
@@ -596,6 +673,13 @@ VALID STRUCTURED DATA
 ≠ GUARANTEED RICH RESULT
 ≠ GUARANTEED SHOPPING EXPOSURE
 ≠ HIGH RANK
+```
+
+Likewise:
+
+```text
+COMPLETE / RICH MERCHANT PRODUCT DATA
+≠ GUARANTEED AI MODE / GEMINI RETRIEVAL OR RECOMMENDATION
 ```
 
 ### 7.4 Sponsored systems stay separate
@@ -720,23 +804,28 @@ Same price, availability, shipping, promotion, market eligibility?
 Same rendered title, image, card, rich result, product details?
 
 6. DISCOVERY CONTEXT
-Same query mix, visual vs text entry, device, personalization,
-Shopping/AI/Lens regime?
+Same query mix, conversational constraints, visual vs text entry,
+device, personalization, Shopping/AI/Lens regime?
 
-7. AGENTIC / CHECKOUT STATE IF RELEVANT
+7. PRODUCT RESOLVABILITY
+Can current product data truthfully answer the material use-case,
+compatibility, spec, dimension, variant, budget, or trade-off constraint?
+Did a structured/text/image fact change?
+
+8. AGENTIC / CHECKOUT STATE IF RELEVANT
 Same UCP eligibility, merchant participation, user authorization,
 checkout state, seller-of-record/payment/fulfillment roles?
 
-8. ORGANIC / SPONSORED MIX
+9. ORGANIC / SPONSORED MIX
 Same exposure provenance?
 
-9. TIME / DOCUMENTATION / PLATFORM REGIME
+10. TIME / DOCUMENTATION / PLATFORM REGIME
 Any recent product-data, eligibility, surface, or AI-shopping change?
 
-10. COMPETING EXPLANATIONS
+11. COMPETING EXPLANATIONS
 What else changed?
 
-11. DISCRIMINATING CHECK
+12. DISCRIMINATING CHECK
 Which current report / processed record / surface / checkout observation
 best separates the leading explanations?
 ```
@@ -762,7 +851,7 @@ Examples:
 "Turn these specs into product highlights"
 → preserve verified specs
 → prioritize human evaluation value
-→ avoid duplicating unsupported claims
+→ do not turn highlights into keyword/search-term lists
 → write
 
 "Improve primary-image brief"
@@ -801,6 +890,22 @@ CONVERSATIONAL ATTRIBUTE AVAILABLE
 ```
 
 ```text
+MACHINE LEGIBILITY / FACT COMPLETENESS
+≠ KEYWORD DENSITY
+≠ GUARANTEED AI VISIBILITY
+```
+
+```text
+SEMANTIC / CONVERSATIONAL MATCHABILITY
+≠ PROVEN ORGANIC RANKING BOOST
+```
+
+```text
+AI SHOPPING TERM / POPULAR ATTRIBUTE
+≠ INSTRUCTION TO INVENT THE ATTRIBUTE OR REPEAT THE TERM
+```
+
+```text
 MERCHANT-DECLARED POPULARITY_RANK
 ≠ GOOGLE ORGANIC SEARCH RANK
 ```
@@ -834,8 +939,8 @@ SHOPPING HELP LISTS FACTOR CATEGORIES
 ```
 
 ```text
-STRUCTURED-DATA ELIGIBILITY
-≠ GUARANTEED EXPOSURE
+STRUCTURED-DATA ELIGIBILITY / COMPLETE PRODUCT DATA
+≠ GUARANTEED EXPOSURE / RECOMMENDATION
 ```
 
 ```text
@@ -851,10 +956,11 @@ Unless fresher system-specific evidence establishes otherwise, preserve these as
 
 - exact candidate-generation architecture for current Google Shopping / free-listing surfaces;
 - exact organic field weights;
-- exact weighting of title, attributes, GTIN, images, ratings, price, shipping, conversational attributes, or other data by surface;
+- exact weighting of title, description, attributes, GTIN, images, ratings, price, shipping, conversational attributes, or other data by surface;
 - whether one machine/agent representation is shared across Search, Shopping, Images, Lens, YouTube, AI Mode, and Gemini;
-- exact AI Mode / Gemini query fan-out and product-ranking implementation;
+- exact AI Mode / Gemini query decomposition/fan-out, candidate retrieval, semantic matching, ranking, reranking, and product-card composition;
 - exact use of each conversational attribute across traditional Search vs AI surfaces;
+- whether/how an AI performance-insight term maps to a production feature or stage beyond the documented insight itself;
 - exact relation between Merchant processed product state and every rendered representation;
 - complete reranking / diversity / merchant / policy / commercial constraints in each commerce surface;
 - exact UCP rollout/eligibility across merchants, markets, products, and users;
@@ -874,23 +980,25 @@ Before consequential Google product work is finalized, ask only the relevant que
 3. Are merchant record, product group, variant, and standardized identifiers scoped correctly?
 4. Are product-descriptive fields separated from price/availability/shipping commercial state?
 5. Is each field being allocated according to its documented human/machine/agent job rather than generic keyword folklore?
-6. Is `popularity_rank` being mistaken for Google organic Search rank?
-7. Is a merchant-declared `related_product` relation being confused with a platform-inferred or behavioral relation?
-8. Is the primary image being treated as both human representation and possible machine evidence without inventing visual-ranking weights?
-9. Are Search/Shopping, Images/Lens, YouTube, AI Mode/Gemini, ads, and structured-data eligibility kept distinct where material?
-10. If UCP checkout is in scope, are shopper intent, authorization, checkout state, seller of record, payment, and fulfillment roles separated?
-11. Is a high-level Shopping disclosure being over-read as a complete algorithm?
-12. Are required/recommended fields being mistaken for ranking weights?
-13. Are structured-data eligibility and realized exposure separated?
-14. Is sponsored exposure kept separate from free/organic exposure?
-15. Are current product-data rules, conversational attributes, checkout rollout, and surface behavior fresh enough for the decision?
-16. Are undisclosed internals left UNKNOWN?
-17. Is the fast path still being respected when the task is only a narrow product communication artifact?
+6. Can material shopper constraints — use, compatibility, dimensions/specs, preference, variant, budget, trade-off — be resolved from truthful product data in the appropriate carriers?
+7. Is an AI-shopping term/attribute insight being used to identify a factual product-data gap rather than to invent a claim or simulate a hidden weight?
+8. Is `popularity_rank` being mistaken for Google organic Search rank?
+9. Is a merchant-declared `related_product` relation being confused with a platform-inferred or behavioral relation?
+10. Is the primary image being treated as both human representation and possible machine evidence without inventing visual-ranking weights?
+11. Are Search/Shopping, Images/Lens, YouTube, AI Mode/Gemini, ads, and structured-data eligibility kept distinct where material?
+12. If UCP checkout is in scope, are shopper intent, authorization, checkout state, seller of record, payment, and fulfillment roles separated?
+13. Is a high-level Shopping disclosure being over-read as a complete algorithm?
+14. Are required/recommended fields being mistaken for ranking weights?
+15. Are structured-data eligibility / data completeness and realized exposure separated?
+16. Is sponsored exposure kept separate from free/organic exposure?
+17. Are current product-data rules, conversational attributes, AI performance insights, checkout rollout, and surface behavior fresh enough for the decision?
+18. Are undisclosed internals left UNKNOWN?
+19. Is the fast path still being respected when the task is only a narrow product communication artifact?
 
-The goal is not to reverse-engineer Google Shopping or agentic checkout. The goal is to preserve the distinctions that materially change product data, representation, discoverability, commercial authority, transaction interpretation, or learning while staying inside what current evidence supports.
+The goal is not to reverse-engineer Google Shopping or agentic checkout. The goal is to make truthful product constraints resolvable to the relevant human/machine system while preserving the distinctions that materially change product data, representation, discoverability, commercial authority, transaction interpretation, or learning.
 
 ---
 
 ## Evidence
 
-See `../../references/commerce/google-shopping-evidence.md` for `[G01–G10]` source definitions and evidence boundaries.
+See `../../references/commerce/google-shopping-evidence.md` for `[G01–G11]` source definitions and evidence boundaries.
