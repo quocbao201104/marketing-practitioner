@@ -68,8 +68,10 @@ def main() -> int:
 
     with tempfile.TemporaryDirectory() as tmp:
         old_root = module.ROOT
+        old_manifest_path = module.MANIFEST_PATH
         try:
             module.ROOT = Path(tmp)
+            module.MANIFEST_PATH = Path(tmp) / "missing-routing-index.json"
             (Path(tmp) / "fixture.md").write_text(fixture, encoding="utf-8")
 
             _, heading_content = module.get_knowledge("fixture.heading", manifest)
@@ -110,6 +112,12 @@ def main() -> int:
             assert source_content.startswith("## [A03] Source A03")
             assert "## [A04]" not in source_content
 
+            # Evidence lookup must remain independent of the semantic manifest.
+            assert not module.MANIFEST_PATH.exists()
+            _, independent_source = module.get_source("R23")
+            assert independent_source.startswith("### [R23] Source R23")
+
+            assert module.validate_sources() == []
             expect_error(lambda: module.get_source("ZZ99"), "found 0")
 
             (references / "duplicate.md").write_text(
@@ -117,8 +125,12 @@ def main() -> int:
                 encoding="utf-8",
             )
             expect_error(lambda: module.get_source("A03"), "found 2")
+            source_errors = module.validate_sources()
+            assert len(source_errors) == 1
+            assert source_errors[0].startswith("A03: evidence source ID appears 2 times")
         finally:
             module.ROOT = old_root
+            module.MANIFEST_PATH = old_manifest_path
 
     expect_error(
         lambda: json.loads(
@@ -128,7 +140,7 @@ def main() -> int:
         "duplicate JSON key",
     )
 
-    print("PASS\t14 routing-mechanics smoke checks")
+    print("PASS\t16 routing-mechanics smoke checks")
     return 0
 
 
