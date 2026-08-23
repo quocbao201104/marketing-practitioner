@@ -234,11 +234,13 @@ On hosts without helper execution, `routing-index.json` remains the address tabl
 
 ## Mechanical smoke
 
-The current routing/evidence mechanics test was re-executed after the adversarial corrections and returned:
+The current routing/evidence mechanics test was re-executed after the adversarial corrections using the exact updated loader and test source copied from the candidate branch into the available execution sandbox. It returned:
 
 ```text
 PASS    22 routing-mechanics smoke checks
 ```
+
+This confirms the current mechanics code on deterministic fixtures. It is still distinct from executing the repository-binding `--validate` command against a normal checked-out branch.
 
 The executed fixtures cover:
 
