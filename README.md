@@ -8,6 +8,7 @@
 
 *Learn the market before writing the copy.*
 
+[![Version: v0.3.0](https://img.shields.io/badge/version-v0.3.0-0a7.svg)](#status)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Language: English](https://img.shields.io/badge/language-English-4c1.svg)](#)
 [![Format: Agent Skill](https://img.shields.io/badge/format-Agent%20Skill-6f42c1.svg)](skills/marketing-practitioner/SKILL.md)
@@ -491,6 +492,8 @@ and what important information is still missing.
 ```
 
 ## Status
+
+**Current release: v0.3.0 — Commerce & Addressable Knowledge.**
 
 Marketing Practitioner is under active development.
 
