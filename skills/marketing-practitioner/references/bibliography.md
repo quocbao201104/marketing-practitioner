@@ -1,6 +1,6 @@
 # Selected Bibliography
 
-This bibliography prioritizes peer-reviewed research, academic monographs, methodological texts, and authoritative research guidance. It is selective rather than exhaustive. Practitioner sources are identified separately and are not treated as scientific laws.
+This bibliography prioritizes peer-reviewed research, academic monographs, methodological texts, authoritative research guidance, and narrowly scoped technical standards when they provide a useful conceptual parent. Practitioner sources are identified separately and are not treated as scientific laws.
 
 The handbook cites references by identifier, e.g. `[R01]`.
 
@@ -153,6 +153,188 @@ Use: interaction of self-view, regulatory orientation, information processing, a
 Barnes, A. J., & Shavitt, S. (2024). **Top Rated or Best Seller? Cultural Differences in Responses to Attitudinal versus Behavioral Consensus Cues.** *Journal of Consumer Research, 51*(2), 276–297. DOI: 10.1093/jcr/ucad074.
 
 Use: evidence that social proof is not a single universal cue and that different consensus signals can carry different diagnostic value by context.
+
+---
+
+## Networked content, online communities, and social-media affordances
+
+### [R23] Marwick & boyd — Context Collapse and the Imagined Audience
+
+Marwick, A. E., & boyd, d. (2011). **I tweet honestly, I tweet passionately: Twitter users, context collapse, and the imagined audience.** *New Media & Society, 13*(1), 114–133. DOI: 10.1177/1461444810365313.
+
+Use: networked audiences, audience multiplicity, context collapse, and the practical problem that creators often communicate to an imagined rather than perfectly known audience. The Twitter setting should not be treated as proof that every platform has identical audience dynamics.
+
+### [R24] Treem & Leonardi — Social-Media Affordances
+
+Treem, J. W., & Leonardi, P. M. (2013). **Social Media Use in Organizations: Exploring the Affordances of Visibility, Editability, Persistence, and Association.** *Communication Yearbook, 36*, 143–189. DOI: 10.1080/23808985.2013.11679130.
+
+Use: conceptual basis for visibility, persistence, editability, and association as recurring social-media affordances. The framework is used as a conceptual lens, not as a claim that every current platform exposes the same affordances in the same way.
+
+### [R25] Matias — Visible Community Norms and Newcomer Participation
+
+Matias, J. N. (2019). **Preventing harassment and increasing group participation through social norms in 2,190 online science discussions.** *Proceedings of the National Academy of Sciences, 116*(20), 9785–9789. DOI: 10.1073/pnas.1813486116.
+
+Use: field-experimental evidence that making community rules visible changed newcomer participation and rule compliance in the studied r/science discussions. Do not generalize the measured effect size to unrelated communities.
+
+### [R26] Gallagher & Savage — Newcomer Legitimacy in Online Communities
+
+Gallagher, S. E., & Savage, T. (2015). **“What is, Becomes What is Right”: A Conceptual Framework of Newcomer Legitimacy for Online Discussion Communities.** *Journal of Computer-Mediated Communication, 20*(4), 400–416. DOI: 10.1111/jcc4.12122.
+
+Use: conceptual and qualitative basis for newcomer legitimacy, including contextual legitimacy, testimonial legitimacy, and learning community norms through prior observation. Treat the framework as community-specific theory development rather than a deterministic content formula.
+
+### [R43] Barasch & Berger — Broadcasting vs Narrowcasting
+
+Barasch, A., & Berger, J. (2014). **Broadcasting and Narrowcasting: How Audience Size Affects What People Share.** *Journal of Marketing Research, 51*(3), 286–299. DOI: 10.1509/jmr.13.0238.
+
+Use: six-study evidence that one-to-one versus one-to-many communication can change sender focus and the kind of content shared; supports treating private/narrowcast and public/broadcast sharing as different interaction topologies rather than one universal “shareability” signal. Do not generalize the measured motivational effects to every platform or sharing affordance.
+
+---
+
+## Recommender systems, visibility governance, temporal evidence, and cross-channel effects
+
+### [R31] Gillespie — Visibility Reduction as Content Moderation
+
+Gillespie, T. (2022). **Do Not Recommend? Reduction as a Form of Content Moderation.** *Social Media + Society, 8*(3). DOI: 10.1177/20563051221117552.
+
+Use: reduction of visibility as a platform-governance mechanism distinct from outright removal; supports distinguishing hosting/access, recommendation eligibility, demotion, and ordinary ranking competition. A reach decline alone does not establish that a platform intentionally reduced visibility.
+
+### [R32] Schnabel et al. — Recommendations as Treatments
+
+Schnabel, T., Swaminathan, A., Singh, A., Chandak, N., & Joachims, T. (2016). **Recommendations as Treatments: Debiasing Learning and Evaluation.** *Proceedings of the 33rd International Conference on Machine Learning*, PMLR 48, 1670–1679.
+
+Use: recommendation data is generated under selection mechanisms, including prior recommender actions; supports treating observed performance as conditional on exposure opportunity rather than intrinsic to the artifact.
+
+### [R33] Joachims, Swaminathan & Schnabel — Position Bias in Implicit Feedback
+
+Joachims, T., Swaminathan, A., & Schnabel, T. (2017). **Unbiased Learning-to-Rank with Biased Feedback.** *Proceedings of the 10th ACM International Conference on Web Search and Data Mining (WSDM).* DOI: 10.1145/3018661.3018699.
+
+Use: position bias in implicit feedback such as clicks; supports preserving placement/exposure context before interpreting interaction metrics.
+
+### [R34] Abdollahpouri et al. — Multistakeholder Recommendation
+
+Abdollahpouri, H., Adomavicius, G., Burke, R., Guy, I., Jannach, D., Kamishima, T., Krasnodebski, J., & Pizzato, L. (2020). **Multistakeholder recommendation: Survey and research directions.** *User Modeling and User-Adapted Interaction, 30*(1), 127–158. DOI: 10.1007/s11257-019-09256-1.
+
+Use: recommendation settings in which users are not the only stakeholders and platform/provider objectives also matter; supports multi-stakeholder analysis without implying that every platform optimizes the same objectives.
+
+### [R35] Kellogg, Valentine & Christin — Algorithmic Management
+
+Kellogg, K. C., Valentine, M. A., & Christin, A. (2020). **Algorithms at Work: The New Contested Terrain of Control.** *Academy of Management Annals, 14*(1), 366–410. DOI: 10.5465/annals.2018.0174.
+
+Use: algorithms as mechanisms that can direct, evaluate, and discipline work through restricting, recommending, recording, rating, replacing, and rewarding. Applied here as a conceptual parent for creator-facing platform management, not as proof that all creator platforms use every mechanism.
+
+### [R36] Liang et al. — Content Creation in Algorithmic Environments
+
+Liang, Y., Li, J., Aroles, J., & Granter, E. (2025). **Content Creation within the Algorithmic Environment: A Systematic Review.** *Work, Employment & Society, 39*(4), 787–813. DOI: 10.1177/09500170251325784.
+
+Use: systematic review of creator–algorithm relations, visibility, creator folk theories, and algorithmic control; supports treating platform guidance and creator adaptation as part of the environment rather than independent evidence of causal best practice.
+
+### [R37] Atas et al. — Preference Construction in Recommender Systems
+
+Atas, M., Felfernig, A., Polat-Erdeniz, S., Popescu, A., Tran, T. N. T., & Uta, M. (2021). **Towards psychology-aware preference construction in recommender systems: Overview and research issues.** *Journal of Intelligent Information Systems, 57*, 467–489. DOI: 10.1007/s10844-021-00674-5.
+
+Use: preferences can be constructed or adapted during recommendation rather than merely recovered as fixed pre-existing states; supports preserving the provenance of apparent intent or demand.
+
+### [R38] Hadad et al. — Inference under Adaptive Experiments
+
+Hadad, V., Hirshberg, D. A., Zhan, R., Wager, S., & Athey, S. (2021). **Confidence intervals for policy evaluation in adaptive experiments.** *Proceedings of the National Academy of Sciences, 118*(15), e2014602118. DOI: 10.1073/pnas.2014602118.
+
+Use: adaptive allocation complicates ordinary statistical inference; supports treating platform-native adaptive rollout evidence differently from a static randomized comparison.
+
+### [R39] Aronow & Samii — Causal Effects under Interference
+
+Aronow, P. M., & Samii, C. (2017). **Estimating Average Causal Effects Under General Interference, with Application to a Social Network Experiment.** *The Annals of Applied Statistics, 11*(4), 1912–1947. DOI: 10.1214/16-AOAS1005.
+
+Use: causal inference when one unit's treatment can affect another unit's exposure or outcome; supports caution when shares, reposts, replies, or network diffusion can cross experimental boundaries.
+
+### [R40] Kim et al. — Multi-Behavior Recommendation
+
+Kim, K., Kim, S., Lee, G., Jung, J., & Shin, K. (2026). **A comprehensive survey on multi-behavior recommender systems: extended taxonomy and recent advances.** *International Journal of Data Science and Analytics, 22*(1), Article 40. DOI: 10.1007/s41060-025-01019-z.
+
+Use: heterogeneous user behaviors have distinct semantics and temporal structure; supports avoiding a single undifferentiated “engagement” ladder.
+
+### [R41] Boka, Niu & Neupane — Sequential Recommendation
+
+Boka, T. F., Niu, Z., & Neupane, R. B. (2024). **A survey of sequential recommendation systems: Techniques, evaluation, and future directions.** *Information Systems, 125*, 102427. DOI: 10.1016/j.is.2024.102427.
+
+Use: evolving preferences and ordered interactions in sequential recommender systems; supports a practitioner interaction-state map without implying that a given production platform implements one specific sequential architecture.
+
+### [R42] Xu et al. — Multimodal Recommender Systems
+
+Xu, J., Chen, Z., Yang, S., Li, J., Wang, W., Hu, X., Hoi, S., & Ngai, E. (2025). **A Survey on Multimodal Recommender Systems: Recent Advances and Future Directions.** arXiv:2502.15711.
+
+Use: technical overview of feature extraction, encoding, multimodal fusion, and learning in multimodal recommenders; supports system-specific content representation as a concept while cautioning against equating machine capability with human-like semantic understanding.
+
+### [R44] Saito et al. — Missing-Not-At-Random Implicit Feedback
+
+Saito, Y., Yaginuma, S., Nishino, Y., Sakata, H., & Nakata, K. (2020). **Unbiased Recommender Learning from Missing-Not-At-Random Implicit Feedback.** *Proceedings of the 13th ACM International Conference on Web Search and Data Mining (WSDM '20)*, 501–509. DOI: 10.1145/3336191.3371783.
+
+Use: lack of a click does not necessarily indicate negative preference because an item may not have received exposure; supports treating absent interaction as positive-unlabeled / missing-not-at-random evidence rather than a clean negative label. The recommender-learning result should not be converted into a claim that every social-media non-action is behaviorally identical.
+
+### [R45] Li & Kannan — Multichannel Conversion Attribution
+
+Li, H. (Alice), & Kannan, P. K. (2014). **Attributing Conversions in a Multichannel Online Marketing Environment: An Empirical Model and a Field Experiment.** *Journal of Marketing Research, 51*(1), 40–56. DOI: 10.1509/jmr.13.0050.
+
+Use: customer-journey sequence, carryover and spillover of prior touches, and multichannel attribution; supports rejecting naive last-touch learning. The paper includes a field validation of its model, but its attribution framework should not be treated as a universal substitute for randomized incrementality measurement.
+
+### [R46] Dinner, van Heerde & Neslin — Cross-Channel Advertising Effects
+
+Dinner, I. M., van Heerde, H. J., & Neslin, S. A. (2014). **Driving Online and Offline Sales: The Cross-Channel Effects of Traditional, Online Display, and Paid Search Advertising.** *Journal of Marketing Research, 51*(5), 527–545. DOI: 10.1509/jmr.11.0466.
+
+Use: empirical evidence that advertising in one channel can have carryover and sales effects observed in another channel in the studied retailer; supports cross-environment spillover as a legitimate hypothesis and warns against evaluating channels only at the location where outcomes are observed. Do not generalize the measured channel elasticities or direction of effects to other markets.
+
+### [R47] Ding et al. — Delayed Feedback Modeling
+
+Ding, C., Wu, J., Yuan, Y., Li, C., Wang, X., Wang, D., Yang, F., & Rabinovich, A. (2026). **Delayed Feedback Modeling with Influence Functions.** *Proceedings of the AAAI Conference on Artificial Intelligence, 40*(17), 14648–14656. DOI: 10.1609/aaai.v40i17.38483.
+
+Use: current peer-reviewed evidence that conversions can arrive long after user interactions, leaving recent observations incomplete and biased; supports the practitioner concept of outcome maturity and the distinction between “no outcome yet” and a sufficiently mature negative observation. The advertising-modeling setting should not be generalized to every outcome window without domain evidence.
+
+---
+
+## Technical architecture sources for object / representation distinction
+
+These sources provide established architectural vocabulary for distinguishing a persistent resource/object from a representation served to a recipient. They are not marketing-effect evidence.
+
+### [R48] RFC 9110 — HTTP Semantics / Selected Representations
+
+Fielding, R., Nottingham, M., & Reschke, J. (2022). **HTTP Semantics.** RFC 9110, Internet Engineering Task Force / RFC Editor.
+
+Use: technical parent for distinguishing a target resource from one of multiple available or selected representations, including representations that vary by language, format, encoding, user-agent characteristics, or request preferences. Applied in the handbook only as architectural vocabulary; it does not establish platform ranking or marketing effects.
+
+### [R49] W3C — Architecture of the World Wide Web, Volume One
+
+Jacobs, I., & Walsh, N. (Eds.). (2004). **Architecture of the World Wide Web, Volume One.** W3C Recommendation, 15 December 2004.
+
+Use: architectural distinction among identification, resources, representations, and interactions; supports keeping logical content-object identity separate from the representation delivered in a particular context. Its Web-architecture concepts are not treated as a behavioral or causal marketing theory.
+
+---
+
+## Current platform documentation for content environments
+
+These sources describe current product behavior, platform capabilities, ranking/recommendation disclosures, or governance settings. They are time-sensitive operational sources, not scientific laws. Re-check them when a consequential decision depends on current platform behavior.
+
+### [R27] Meta / Facebook — Feed, Recommendations, Group Governance, and Participation
+
+Meta. **What influences the order of posts in your Facebook Feed; About recommendations on Facebook; Differences between public and private Facebook groups; Manage membership for your Facebook group; Set up Admin Assist to automatically manage your Facebook group; Manage anonymous participation in a Facebook group.** Facebook Help Center. Reviewed 2026-08-23.
+
+Use: current Facebook Feed signal categories, recommendation beyond existing follow relationships, Group privacy/audience differences, role-conditioned participation, limited membership, configurable moderation, Page participation, anonymous/nickname identity visibility, and current scoped secondary-visibility features. Product availability can vary by Group and account.
+
+### [R28] LinkedIn — Feed, Authenticity, Relationships, Newsletters, and Page Distribution
+
+LinkedIn. (2026). **Engineering the next generation of LinkedIn’s Feed** (March 12, 2026); **Keeping LinkedIn Feed Authentic and Relevant** / current authenticity guidance; plus current Help on **Suggested posts in feed; Create targeted posts on your LinkedIn Page; Follow or unfollow people; Follow and connect; LinkedIn newsletters FAQ; Notify employees of your LinkedIn Page posts.** Reviewed 2026-08-23.
+
+Use: current Feed retrieval/ranking architecture and sequential history, professionally relevant suggested content beyond immediate networks, Page targeting, typed Follow/Connection/Newsletter relationships, employee-notification mediation, and current enforcement against automated comments or coordinated engagement. Some LinkedIn Help pages are not perfectly synchronized; when action semantics conflict, prefer fresher explicit product documentation and preserve uncertainty.
+
+### [R29] Meta / Instagram — Recommendation Eligibility and Suggested Content
+
+Meta. **Recommendation eligibility on Instagram; Recommendations on Instagram; How Instagram determines which posts appear as suggested posts.** Instagram Help Center. Reviewed 2026-08-23.
+
+Use: current recommendation eligibility, non-follower discovery surfaces, and signal categories used for suggested content. Eligibility does not imply guaranteed distribution.
+
+### [R30] TikTok — Recommendation Systems and Creator Search Insights
+
+TikTok. **How TikTok recommends content; Creator Search Insights.** TikTok Support. Reviewed 2026-08-23.
+
+Use: current recommender/discovery surfaces, distinctions between For You and Search signal weighting, comment recommendation, and search-topic/content-gap tooling. Search popularity or recommendation signals should not be represented as proof of market demand or causal content performance.
 
 ---
 
