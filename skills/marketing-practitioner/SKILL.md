@@ -156,14 +156,16 @@ The handbook uses a compressed runtime model. Resolve only the durable things th
 
 ```text
 actor / source
-content object
-content representation
+object
+representation
 audience state
 typed relationship / delivery / permission edge
 interaction act
 platform / mediation state
 observation record
 ```
+
+For ordinary social/content work, use `content object` and `content representation` as the local specializations of `object` and `representation`. The broader parent labels increase representational capacity; they do not require a broader operating path, commerce modeling, or a full object graph for simple content tasks. Instantiate an independently identified object only when collapsing its identity into another object, edge, state, or representation could change the decision.
 
 Use only three cross-cutting modifiers when material:
 
@@ -188,7 +190,7 @@ Treat current ranking, recommendation, visibility moderation, eligibility, discl
 Keep these distinctions when they prevent a material error:
 
 ```text
-content object ≠ content representation ≠ encounter surface
+object ≠ representation ≠ encounter surface
 relationship ≠ delivery ≠ participation permission
 observed action ≠ motive / satisfaction / content quality
 observed engagement ≠ established organic human preference
