@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "routing-index.json"
 ROUTE_ID_RE = re.compile(r"^[a-z0-9]+(?:[.-][a-z0-9]+)*$")
 HEADING_RE = re.compile(r"^(#{1,6})\s+\S")
+FENCE_OPEN_RE = re.compile(r"^ {0,3}(`{3,}|~{3,})(.*)$")
 SOURCE_ID_RE = re.compile(r"^[A-Z][A-Z0-9-]*\d{2,}$")
 
 
@@ -56,9 +57,48 @@ def resolve_path(relative_path: str) -> Path:
     return candidate
 
 
+def iter_unfenced_lines(lines: list[str]):
+    """Yield (index, line) pairs outside CommonMark-style fenced code blocks."""
+    fence_char: str | None = None
+    fence_len = 0
+
+    for index, line in enumerate(lines):
+        raw = line.rstrip("\r\n")
+
+        if fence_char is not None:
+            closing = re.match(
+                rf"^ {{0,3}}{re.escape(fence_char)}{{{fence_len},}}[ \t]*$",
+                raw,
+            )
+            if closing:
+                fence_char = None
+                fence_len = 0
+            continue
+
+        opening = FENCE_OPEN_RE.match(raw)
+        if opening:
+            token = opening.group(1)
+            info = opening.group(2)
+            # CommonMark does not allow a backtick in the info string of a
+            # backtick fence. Treat such a line as ordinary text instead.
+            if token[0] == "`" and "`" in info:
+                yield index, line
+                continue
+            fence_char = token[0]
+            fence_len = len(token)
+            continue
+
+        yield index, line
+
+
 def extract_heading_section(text: str, heading: str) -> str:
     lines = text.splitlines(keepends=True)
-    matches = [i for i, line in enumerate(lines) if line.rstrip("\r\n") == heading]
+    visible_lines = list(iter_unfenced_lines(lines))
+    matches = [
+        index
+        for index, line in visible_lines
+        if line.rstrip("\r\n") == heading
+    ]
     if len(matches) != 1:
         raise RoutingError(
             f"heading selector must match exactly once; found {len(matches)} for {heading!r}"
@@ -71,10 +111,12 @@ def extract_heading_section(text: str, heading: str) -> str:
     level = len(match.group(1))
 
     end = len(lines)
-    for i in range(start + 1, len(lines)):
-        next_heading = HEADING_RE.match(lines[i])
+    for index, line in visible_lines:
+        if index <= start:
+            continue
+        next_heading = HEADING_RE.match(line)
         if next_heading and len(next_heading.group(1)) <= level:
-            end = i
+            end = index
             break
 
     return "".join(lines[start:end]).strip()
@@ -152,10 +194,13 @@ def scan_sources() -> dict[str, list[tuple[Path, str]]]:
 
     for path in sorted(references_root.rglob("*.md")):
         text = path.read_text(encoding="utf-8")
-        for line in text.splitlines():
-            match = source_heading.match(line)
+        lines = text.splitlines(keepends=True)
+        for _, line in iter_unfenced_lines(lines):
+            match = source_heading.match(line.rstrip("\r\n"))
             if match:
-                sources.setdefault(match.group(2), []).append((path, line))
+                sources.setdefault(match.group(2), []).append(
+                    (path, line.rstrip("\r\n"))
+                )
 
     return sources
 
@@ -237,6 +282,29 @@ def validate_manifest(manifest: dict) -> list[str]:
     return errors
 
 
+def select_mode(args) -> str:
+    if args.namespace and not args.list:
+        raise RoutingError("--namespace is only valid with --list")
+
+    modes: list[str] = []
+    if args.route_ids:
+        modes.append("routes")
+    if args.source:
+        modes.append("source")
+    if args.list:
+        modes.append("list")
+    if args.namespaces:
+        modes.append("namespaces")
+    if args.validate:
+        modes.append("validate")
+
+    if len(modes) != 1:
+        raise RoutingError(
+            "choose exactly one mode: route IDs, --source, --list, --namespaces, or --validate"
+        )
+    return modes[0]
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="Resolve Marketing Practitioner knowledge IDs to exact Markdown sections."
@@ -246,13 +314,18 @@ def main() -> int:
     parser.add_argument("--namespace", help="limit --list to one namespace")
     parser.add_argument("--namespaces", action="store_true", help="list available namespaces")
     parser.add_argument("--validate", action="store_true", help="validate every indexed route")
-    parser.add_argument("--source", nargs="+", metavar="ID", help="resolve evidence source IDs such as R23, C14, or A03")
+    parser.add_argument(
+        "--source",
+        nargs="+",
+        metavar="ID",
+        help="resolve evidence source IDs such as R23, C14, or A03",
+    )
     args = parser.parse_args()
 
     try:
-        if args.source:
-            if args.route_ids or args.list or args.namespaces or args.validate or args.namespace:
-                parser.error("--source cannot be combined with route/list/validation modes")
+        mode = select_mode(args)
+
+        if mode == "source":
             for position, source_id in enumerate(args.source):
                 relative_path, content = get_source(source_id)
                 if position:
@@ -264,7 +337,7 @@ def main() -> int:
 
         manifest = load_manifest()
 
-        if args.validate:
+        if mode == "validate":
             errors = validate_manifest(manifest) + validate_sources()
             if errors:
                 for error in errors:
@@ -275,21 +348,15 @@ def main() -> int:
             print(f"PASS\t{route_count} routes / {source_count} evidence sources")
             return 0
 
-        if args.namespaces:
+        if mode == "namespaces":
             for namespace in sorted(manifest["namespaces"]):
                 print(namespace)
             return 0
 
-        if args.list:
+        if mode == "list":
             for route_id in iter_route_ids(manifest, args.namespace):
                 print(route_id)
             return 0
-
-        if args.namespace:
-            parser.error("--namespace is only valid with --list")
-
-        if not args.route_ids:
-            parser.error("provide route IDs, or use --source / --list / --namespaces / --validate")
 
         for position, route_id in enumerate(args.route_ids):
             relative_path, content = get_knowledge(route_id, manifest)
