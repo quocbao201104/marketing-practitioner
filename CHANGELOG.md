@@ -4,6 +4,28 @@ All notable changes to this repository are documented here.
 
 The project uses semantic versioning for published skill revisions. Early versions may change structure while the conceptual model is stabilized.
 
+## [0.4.0] - 2026-08-24
+
+### Added
+
+- Added a research-backed `TASK-SPECIFICATION-GUIDE.md` to the installable skill so users do not need to learn prompt-engineering vocabulary before using Marketing Practitioner.
+- Added a minimum-sufficient task-specification model built around the current job plus only the qualifiers that can materially change the result.
+- Added guidance for preserving resolved decisions, bounding evidence and claims, handling missing information, controlling output, and avoiding unnecessary context.
+- Added an agent-side prompt-compilation quick start: users can provide a rough request and context, then let the agent compile the smallest sufficient working specification before execution.
+- Added scoped task-specification evidence notes covering prompt underspecification, context quality, clarification, prompt sensitivity, examples, and current provider guidance.
+
+### Changed
+
+- Packaged the canonical Task Specification Guide inside `skills/marketing-practitioner/` so it travels with Skills CLI installations.
+- Kept the repository-root task-specification file as a pointer only, preventing duplicate guide content from drifting.
+- Expanded README onboarding with an optional compile-and-execute path for users who do not want to write a structured prompt themselves.
+
+### Evidence boundary
+
+- This release does not claim that one prompt template is universally optimal.
+- The task-specification model is intentionally conditional: longer prompts, more context, more examples, and more explicit fields are not assumed to improve every task.
+- No shared marketing ontology, routing architecture, or runtime-controller semantics were changed for this release.
+
 ## [0.3.0] - 2026-08-24
 
 ### Added
