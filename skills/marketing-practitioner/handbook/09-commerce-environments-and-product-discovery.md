@@ -700,9 +700,22 @@ FIELD INFLUENCES END-TO-END SEARCH
 ≠ FIELD IS USER-FACING
 ```
 
-Etsy is a strong documented example. Its legal disclosure describes initial query matching across titles, attributes, categories, and tags [C09], while its engineering disclosure shows a post-retrieval semantic-relevance model consuming richer listing information including images, descriptions, attributes, variations, and extracted entities; the model can filter, enrich downstream ranking features, affect loss weighting, and boost final results [C10]. Etsy explicitly identifies retrieval-level semantic improvement as a separate future direction in that disclosure.
+Etsy is a strong documented example **because its current official sources themselves expose different abstraction levels rather than one settled field-to-stage map**. Etsy's October 2025 legal disclosure describes first-phase query matching across titles, attributes, categories, and tags. Current Seller Handbook guidance is broader: `Keywords 101` explicitly says keywords across titles, descriptions, tags, categories, and attributes participate in query matching, the first phase, while `How Etsy Search Works` places a holistic listing — including descriptions, first photo, reviews, and more — under Query matching [C09].
 
-Therefore, a statement such as “field X matters for search” is insufficient to infer the stage, weight, or seller tactic.
+Etsy Engineering then describes a separate January 2026 semantic-relevance model whose first disclosed application is **post-retrieval**; that model consumes richer listing information including images, descriptions, attributes, variations, and extracted entities, and can filter retrieved candidates, enrich downstream ranking features, affect ranking loss, and boost final results [C10]. Its statement that this semantic-relevance model begins post-retrieval does not establish that descriptions or other rich listing data are absent from every separate initial matching/retrieval mechanism.
+
+Therefore:
+
+```text
+OFFICIAL SOURCES CAN DISAGREE / DIFFER IN ABSTRACTION
+ABOUT FIELD PARTICIPATION AT A SEARCH STAGE
+
+→ preserve source + date + abstraction level
+→ do not force false consistency
+→ exact production boundary may remain UNKNOWN
+```
+
+A statement such as “field X matters for search” is insufficient to infer the stage, weight, or seller tactic; equally, one narrower public enumeration is insufficient to negate a broader explicit official claim without stronger implementation evidence.
 
 ### 8.2 User filter and sort are not hidden ranking weights
 
@@ -1379,6 +1392,8 @@ which date?
 what was actually measured or disclosed?
 ```
 
+When current official sources describe the **same stage** differently, preserve the conflict and abstraction level rather than silently picking the source that makes the cleanest architecture diagram.
+
 Do not silently transform:
 
 ```text
@@ -1470,6 +1485,15 @@ SEARCH INFLUENCE
 ≠ RELEVANCE CONTRIBUTION
 ≠ RANKING CONTRIBUTION
 ≠ FINAL REPRESENTATION
+```
+
+```text
+OFFICIAL SOURCE A
+≠ AUTOMATICALLY A COMPLETE IMPLEMENTATION OVERRIDE
+OF OFFICIAL SOURCE B
+
+WHEN THEY CONFLICT:
+PRESERVE SOURCE + DATE + ABSTRACTION LEVEL + UNKNOWN
 ```
 
 ```text
@@ -1852,19 +1876,20 @@ Before consequential commerce work is finalized, ask only the relevant questions
 8. Are object, representation, and encounter surface distinguished where they can change the decision?
 9. Is the same field being assumed to perform a human, machine/agent, retrieval, ranking, or transaction job without system-specific evidence?
 10. Are eligibility, retrieval, relevance, ranking, filtering, sorting, composition, and exposure kept separate where material?
-11. Is user-selected filtering/sorting being mistaken for default ranking behavior?
-12. Is a paid/sponsored-system disclosure being transferred to organic discovery without evidence?
-13. Is text search being incorrectly treated as text-only retrieval, or image search as image-only item representation?
-14. Is shopper state specific enough to distinguish discovery, comparison, evaluation, configuration, and transaction needs where material?
-15. Are displayed price and final payable price treated as potentially scoped/time-varying rather than intrinsic product truth?
-16. In agent-mediated commerce, is shopper intent being confused with delegated authority or platform capability?
-17. If authority is delegated, are its operation, amount/state constraints, scope, and expiry still valid for the current checkout state?
-18. Are discovery data, authoritative checkout state, merchant-accepted order state, payment, and fulfillment being collapsed?
-19. Are agent-consumable product representations being confused with the human-facing generated recommendation?
-20. Is the encounter/checkout surface being confused with Merchant of Record, payment-processing, fulfillment, return, or support responsibility?
-21. Are observed purchases, reviews, ratings, or engagement interpreted with exposure, availability, commercial state, provenance, attribution, and maturity context?
-22. Are platform-specific facts current, scoped, and kept out of universal field folklore?
-23. Is the fast path still being respected for a narrow product-communication task?
-24. Is the final decision truthful, decision-relevant, and proportionate to the evidence?
+11. When current official sources conflict on field/stage behavior, are source, date, abstraction level, and unresolved UNKNOWN preserved rather than forced into one clean story?
+12. Is user-selected filtering/sorting being mistaken for default ranking behavior?
+13. Is a paid/sponsored-system disclosure being transferred to organic discovery without evidence?
+14. Is text search being incorrectly treated as text-only retrieval, or image search as image-only item representation?
+15. Is shopper state specific enough to distinguish discovery, comparison, evaluation, configuration, and transaction needs where material?
+16. Are displayed price and final payable price treated as potentially scoped/time-varying rather than intrinsic product truth?
+17. In agent-mediated commerce, is shopper intent being confused with delegated authority or platform capability?
+18. If authority is delegated, are its operation, amount/state constraints, scope, and expiry still valid for the current checkout state?
+19. Are discovery data, authoritative checkout state, merchant-accepted order state, payment, and fulfillment being collapsed?
+20. Are agent-consumable product representations being confused with the human-facing generated recommendation?
+21. Is the encounter/checkout surface being confused with Merchant of Record, payment-processing, fulfillment, return, or support responsibility?
+22. Are observed purchases, reviews, ratings, or engagement interpreted with exposure, availability, commercial state, provenance, attribution, and maturity context?
+23. Are platform-specific facts current, scoped, and kept out of universal field folklore?
+24. Is the fast path still being respected for a narrow product-communication task?
+25. Is the final decision truthful, decision-relevant, and proportionate to the evidence?
 
 The goal is not to optimize every field simultaneously, reconstruct a marketplace's hidden algorithm, or assume an agent can act merely because it can reason. The goal is to make a defensible product-discovery and commerce decision with the smallest model that preserves the identities, states, representations, mediation mechanisms, authority boundaries, and evidence scopes that can actually change action or inference.
