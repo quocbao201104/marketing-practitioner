@@ -2,58 +2,61 @@
 
 Reviewed: 2026-08-23
 
-Status: **fresh integration smoke, not benchmark/eval score**.
+Status: **targeted integration smoke, not benchmark/eval score**.
 
-Purpose: verify that the targeted agentic-commerce frontier patch did not regress the original commerce router and that new delegated-authority / transaction-state / external-store cases route to the smallest relevant knowledge without turning ordinary product communication into a protocol dissertation.
+> **Post-review note:** an independent review later found an Etsy source-fidelity conflict about description/query-matching participation. That issue is outside the agentic-routing cases in this smoke and did not require a router change. See `commerce-etsy-query-matching-source-conflict-correction.md` for the targeted repair. The existence of that correction is also a reminder that passing smoke cases do not establish exhaustive evidence correctness.
 
-Frozen branch:
+Purpose: verify that the targeted 2026 agentic-commerce frontier extension preserves prior commerce routing while correctly handling delegated authority, transaction-state authority, agent-facing representations, Google conversational-attribute folklore traps, and Amazon Shop Direct / Buy for Me distinctions.
+
+The recorded outputs below are user-facing answer shapes, not hidden reasoning.
+
+---
+
+# A. Static routing regression
+
+The router must still preserve:
 
 ```text
-candidate/commerce-handbook-v0.1
+SIMPLE PRODUCT COMMUNICATION
+→ fast path
+→ no Chapter 09 unless deeper structure matters
+
+PLATFORM FIELD SEMANTICS ONLY
+→ smallest relevant commerce module
+→ no full Chapter 09 graph by default
+
+DEEP COMMERCE / AGENTIC AUTHORITY
+→ Chapter 09
+→ platform module only when platform-specific behavior matters
+
+HYBRID CONTENT × COMMERCE
+→ Chapter 08 + Chapter 09 only when both relations matter
 ```
 
----
+**Static result: PASS**
 
-# A. Static route regression
-
-| Case | Expected route | Result |
-| --- | --- | --- |
-| Generic product description with supplied facts | fast path | PASS |
-| Shopee product-title rewrite | fast path + Shopee only if field semantics matter | PASS |
-| Amazon seller field differs from native PDP | Chapter 09 + Amazon | PASS |
-| Lazada `is_key_prop` organic-rank claim | Chapter 09 + Lazada | PASS |
-| Shopee buyer-relative displayed-price mismatch | Chapter 09 + Shopee | PASS |
-| TikTok shoppable-video creator-commerce relation | 08 + 09 + smallest TikTok/TikTok Shop support | PASS |
-| Ordinary TikTok caption, no commerce | social route only | PASS |
-| Shopper asks agent only to find options under a budget | Chapter 09 only if authority question becomes material; discovery itself remains narrow | PASS |
-| Delegated purchase with budget/checkout-state conflict | Chapter 09 agent-mediated section | PASS |
-| Google `popularity_rank` meaning | Google module; Chapter 09 only if broader field/mediation distinction is needed | PASS |
-| Google UCP checkout role/authority question | Chapter 09 + Google | PASS |
-| Amazon Shop Direct / Buy for Me question | Chapter 09 + Amazon | PASS |
-
-Static verdict: **PASS**.
-
-The router now makes agent-mediated checkout discoverable without changing the rule that ordinary product-writing tasks stay shallow.
+No broad `ANY COMMERCE → Chapter 09` route was introduced.
 
 ---
 
-# B. Legacy four-family regression smoke
+# B. Legacy smoke regression
 
-The four original families from `commerce-runtime-routing-smoke.md` were re-executed against the updated router/knowledge.
+The four original smoke families were re-walked against the new head.
 
-## LR1 — OVER-ROUTING: simple Shopee title
+## L1 — OVER-ROUTING: simple Shopee title
 
 **Prompt**
 
 > Product facts: mini blender, 300 ml, USB-C charging, 6 blades, white. Write a Shopee product title. Do not invent anything.
 
-**Expected / used route**
+**Expected / observed route**
 
 ```text
 commerce activation
-→ narrow product-title job
-→ Shopee module only if naming semantics matter
-→ skip Chapter 09 deep graph / agentic layer
+→ narrow title job
+→ Shopee module only if current field semantics matter
+→ skip Chapter 09 deep graph
+→ skip agentic section
 ```
 
 **User-facing result**
@@ -62,241 +65,164 @@ commerce activation
 
 **Verdict: PASS**
 
-No agentic-commerce material leaked into the artifact.
-
-## LR2 — UNDER-ROUTING: Amazon seller field differs from native PDP
+## L2 — UNDER-ROUTING: Amazon seller field differs from PDP
 
 **Prompt**
 
 > My Amazon seller listing says “12-pack” but the live PDP for the ASIN shows “6-pack”. Is my title update broken?
 
-**Used route**
+**Required distinction**
 
 ```text
-Chapter 09 + Amazon
-native Store regime
-seller contribution ≠ catalog state ≠ PDP representation
+seller listing / contribution
+≠ Amazon catalog state
+≠ displayed PDP
 ```
-
-**User-facing result**
-
-> Not necessarily. On the native Amazon Store, your seller SKU/listing contribution is not the same thing as the shared catalog state or the content Amazon currently selects for the PDP. First verify the intended ASIN/variation and compare your submitted contribution with the live catalog value. A Shop Direct/external-store distinction is not relevant to this case, so it does not need to be opened.
 
 **Verdict: PASS**
 
-The new Amazon external-store regime did not blur the existing native-PDP diagnosis.
-
-## LR3 — FOLKLORE LEAKAGE: Lazada key attribute
+## L3 — FOLKLORE LEAKAGE: Lazada key attribute
 
 **Prompt**
 
 > Lazada marks an attribute as `is_key_prop=1`. If I fill it in, does that mean my product will rank higher organically?
 
-**User-facing result**
+**Required behavior**
 
-> No such organic-ranking conclusion is established. Lazada documents the field as a key attribute that can affect its item/product score, but that does not establish the score as the organic Search ranker or disclose its downstream weight. Fill it accurately for the documented product-data job; leave the organic ranking effect unknown unless Lazada provides direct system-specific evidence.
+```text
+documented product/item score
+≠ established organic ranking score
+```
 
 **Verdict: PASS**
 
-## LR4 — EVIDENCE COLLAPSE: Shopee displayed price
+## L4 — EVIDENCE COLLAPSE: Shopee displayed price
 
 **Prompt**
 
 > Shopee shows me a lower price than the seller's base price. Does that mean the seller secretly reduced the price for everyone?
 
-**User-facing result**
+**Required behavior**
 
-> Not necessarily. The displayed value can be buyer/account/variant/promotion dependent, including voucher-adjusted or lowest-variation representations. One shopper's displayed price is therefore not proof of a universal seller base-price change. Compare the same variation under the same account, promotion and time state, then verify checkout before concluding the seller changed the underlying price.
+```text
+base / variant price
+≠ buyer-relative displayed price
+≠ final checkout price
+```
 
 **Verdict: PASS**
 
-Legacy regression verdict:
-
-```text
-OVER-ROUTING       PASS
-UNDER-ROUTING      PASS
-FOLKLORE LEAKAGE   PASS
-EVIDENCE COLLAPSE  PASS
-```
+Legacy regression: **4 / 4 PASS**
 
 ---
 
-# C. Fresh agentic-frontier smoke
+# C. Frontier smoke
 
-## AR1 — Intent ≠ delegated authority
+## F1 — Intent ≠ purchase authority
 
 **Prompt**
 
-> I told a shopping agent “find me a laptop under $1,000.” The agent supports checkout. Does that instruction by itself mean it can buy one automatically?
+> Find me a laptop under $1,000. Do not buy anything. The shopping agent supports automatic checkout.
 
 **Route used**
 
 ```text
-commerce activation
-→ Chapter 09 agent-mediated/delegated commerce
-→ no platform module required
+job = agent-mediated commerce authority
+load = Chapter 09 agentic section
+platform module = not required
 ```
 
 **User-facing result**
 
-> No. “Find me a laptop under $1,000” establishes a discovery constraint, not automatically a purchase authorization. The agent's technical ability to check out is also separate from the authority you granted it. A purchase needs whatever explicit authorization the applicable platform/protocol requires, with the relevant transaction scope and current checkout state.
-
-**Observed behavior**
-
-- shopper intent kept separate from permission;
-- capability kept separate from authority;
-- no protocol-specific mechanism invented.
+> The agent's ability to check out does not authorize it to buy. Your instruction authorizes product discovery within the $1,000 constraint and explicitly withholds purchase authority. It can search and recommend, but it should stop before any transaction that would commit an order or payment unless you give a separate authorization.
 
 **Verdict: PASS**
 
 ---
 
-## AR2 — Authorization scope breaks when checkout state exceeds it
+## F2 — Authorization-scope drift
 
 **Prompt**
 
-> I authorized an agent to buy a product only if the total is at most $1,000. At checkout the item is $980 plus $48 shipping. Is the old authorization enough?
-
-**Route used**
-
-```text
-Chapter 09 agent-mediated/delegated commerce
-authorization scope + checkout state + history
-```
+> I authorized an agent to buy this item if the total is no more than $100. Checkout is now $109 after shipping. Can it continue under the old authorization?
 
 **User-facing result**
 
-> Not under the authorization as stated. The current total is $1,028, which is outside the ≤$1,000 constraint. The prior authorization applied to a bounded transaction state; it should not be silently carried over to a materially different total. The exact re-authorization step depends on the platform/protocol, but the agent should not treat the old approval as authority for the new amount.
-
-**Observed behavior**
-
-- uses scope/history rather than creating a new mandate primitive;
-- leaves exact UX/protocol mechanics platform-specific.
+> Not under that authorization. The $100 ceiling is part of the delegated scope, and the current $109 checkout state is outside it. The earlier authorization should not silently carry over to the changed transaction; the system needs a new user decision under the current total unless the applicable protocol explicitly defines another valid authorization path.
 
 **Verdict: PASS**
 
 ---
 
-## AR3 — Discovery price ≠ authoritative checkout state
+## F3 — Discovery snapshot ≠ checkout truth
 
 **Prompt**
 
-> An AI shopping result showed a shoe at $89 and size 42 in stock. Seven minutes later checkout says $94, $8 shipping, and size 42 unavailable. Which state should I trust for the purchase?
-
-**Route used**
-
-```text
-Chapter 09
-product/discovery representation @ t0
-→ authoritative checkout state @ t1
-```
+> The AI showed a shoe at $89 and in stock. Seven minutes later checkout says $94, $8 shipping, and size 42 is unavailable. Which state should I treat as current?
 
 **User-facing result**
 
-> For the transaction, use the current authoritative checkout state, not the earlier discovery snapshot. The $89/in-stock result described what the discovery system had at the earlier time; checkout now says the price, shipping and availability have changed. That does not make the discovery feed inherently invalid—it means authority is stage- and time-scoped.
-
-**Observed behavior**
-
-- avoids the overcorrection “feed is never authoritative”;
-- preserves stage + time authority.
+> Treat the merchant's current checkout state as authoritative for this transaction. The $89/in-stock result was a discovery snapshot from an earlier time; it should not override the later checkout price, shipping, or variant availability. If the changed state matters to the decision, present it and re-confirm rather than treating the discovery representation as transaction truth.
 
 **Verdict: PASS**
 
 ---
 
-## AR4 — Google `popularity_rank` folklore trap
+## F4 — Google `popularity_rank` folklore trap
 
 **Prompt**
 
-> Google Merchant Center lets me set `popularity_rank=95.5`. Does that mean Google will rank the product around 95.5 in organic shopping results?
+> I set `popularity_rank=95.5` in Google Merchant Center. Does that mean Google ranks my product at 95.5 organically?
 
 **Route used**
 
 ```text
-commerce activation
-→ Google module
-→ field semantics / evidence-boundary task
+job = field-semantics / ranking-claim check
+load = Google commerce module
+Chapter 09 = only evidence-boundary distinction as needed
 ```
 
 **User-facing result**
 
-> No. Google's `popularity_rank` is merchant-supplied data describing how well that product sells relative to other products in your own inventory. It is intended mainly for conversational shopping experiences; it is not a disclosed Google organic Search/Shopping ranking score. Do not interpret `95.5` as Google's rank for the item.
-
-**Observed behavior**
-
-- field name does not leak into ranking folklore;
-- Chapter 09 full graph not required.
+> No. Google's `popularity_rank` conversational attribute is merchant-supplied context about how well the product sells relative to the merchant's own products. It is not a disclosed Google organic Search or Shopping rank score. Do not interpret `95.5` as Google's ranking position or as proof of a fixed organic boost.
 
 **Verdict: PASS**
 
 ---
 
-## AR5 — Amazon Shop Direct must escape native ASIN/listing assumption
+## F5 — Amazon Shop Direct must not collapse into native Store model
 
 **Prompt**
 
-> A product appears in Amazon search with “Shop Direct,” but I can't find a normal Amazon seller offer/PDP for it. Is the listing broken?
-
-**Route used**
-
-```text
-commerce activation
-→ Chapter 09 + Amazon
-→ identify native Store vs Shop Direct regime
-```
+> I found my product through Amazon Shop Direct but it is sold on my own website. Should I diagnose it as an ASIN/seller-listing/Featured-Offer problem?
 
 **User-facing result**
 
-> Not necessarily. Shop Direct is an external-store discovery regime: Amazon can surface products sold by merchants elsewhere on the web. The customer may be sent to the merchant's site, or an eligible item may offer Buy for Me. So the absence of a normal native Amazon seller-offer/PDP path is not by itself evidence that the product is broken. Verify that the result is actually labeled Shop Direct and inspect the external merchant/feed state rather than forcing it into the native ASIN→seller-listing→offer model.
-
-**Observed behavior**
-
-- recognizes the genuine Amazon module correction;
-- does not claim the product has no Amazon-internal identifier.
+> Not by default. Amazon now has an external-store Shop Direct regime that can surface merchant products and send shoppers to the merchant website or use Buy for Me for eligible purchases. First establish whether this exposure is Shop Direct/external-store rather than a native Amazon Store listing. Only use ASIN/seller-SKU/Featured-Offer diagnostics when the product is actually participating in that native Store regime. Amazon's exact internal normalization for Shop Direct remains undisclosed.
 
 **Verdict: PASS**
 
 ---
 
-## AR6 — Checkout surface ≠ seller of record
+## F6 — Encounter surface ≠ merchant responsibility
 
 **Prompt**
 
-> If I buy an eligible merchant product through Google's AI Mode/Gemini checkout, is Google automatically the seller and the one responsible for fulfillment?
-
-**Route used**
-
-```text
-commerce activation
-→ Chapter 09 + Google
-→ agent-mediated checkout actor roles
-```
+> A shopper checked out inside an AI/search interface. Does that automatically make the interface provider the seller of record and fulfillment provider?
 
 **User-facing result**
 
-> No. Google's current UCP checkout guidance says the participating merchant remains the seller of record. Google/AI Mode/Gemini mediate the experience, and Google Pay can supply the payment flow, but that does not by itself transfer the merchant's seller-of-record or fulfillment responsibilities to Google. The exact supported markets/merchants are still rollout-dependent.
-
-**Observed behavior**
-
-- separates encounter surface, MoR, payment role, fulfillment;
-- preserves rollout scope.
+> No. The checkout surface, seller/Merchant of Record, payment processor, and fulfillment/support roles can be different actors. Identify the documented merchant and payment/fulfillment responsibilities for the specific checkout before attributing commercial responsibility to the interface where the shopper completed the action.
 
 **Verdict: PASS**
 
 ---
 
-## AR7 — Checkout request ≠ completed order
+## F7 — Checkout submitted ≠ completed order
 
 **Prompt**
 
-> My shopping agent says “checkout submitted.” Can I report that the purchase is completed?
-
-**Route used**
-
-```text
-Chapter 09 agent-mediated commerce
-checkout state → merchant/order/payment effect
-```
+> The agent says “checkout submitted.” Can I report that the purchase is complete?
 
 **User-facing result**
 
