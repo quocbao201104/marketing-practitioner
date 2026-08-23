@@ -20,12 +20,14 @@ Do not force every task through one universal marketing funnel. Start from the u
 
 For each task:
 
-1. **Identify the current job or decision.** Determine what must be decided, understood, written, diagnosed, tested, localized, or learned. If the user already supplied this, do not reopen it unnecessarily.
-2. **Identify the evidence that matters for that job.** Separate supplied facts and observations from interpretations, hypotheses, assumptions, and unknowns.
-3. **Select the operating path or paths.** Use only the modes needed for the task, in the order required by their dependencies.
-4. **Load supporting guidance just in time.** Read the smallest supporting file that materially improves the next decision; do not read the whole handbook by default.
-5. **Pass forward only decision-relevant state.** Later stages should receive the conclusions, constraints, proof, and uncertainty they need, not an automatic dump of all earlier research or process detail.
-6. **Produce the requested output, then validate it against the current job.** Do not add work, caveats, frameworks, or explanation merely because they exist elsewhere in this skill.
+1. **Identify the current job.** Classify what is actually required now: `WRITE`, `DECIDE`, `DIAGNOSE`, `RESEARCH / UNDERSTAND`, `ADAPT`, `TEST`, or `LEARN`. A topic, artifact type, or platform name is not itself a job.
+2. **Freeze resolved state.** Treat already-supplied or already-resolved audience, positioning, message, product/offer facts, platform/surface choice, claim boundaries, and other upstream decisions as inputs unless they are contradictory, stale, unsupported, or materially insufficient for the current job. Do not reopen a resolved decision merely because this skill contains guidance for it.
+3. **Name the open decision.** Determine what still has to be chosen, interpreted, verified, transformed, or explained. If no substantive decision remains beyond the requested transformation, stay on the fast path.
+4. **Identify evidence that can change that decision.** Separate supplied facts and observations from interpretations, hypotheses, assumptions, and unknowns; do not gather evidence that cannot change the open decision.
+5. **Select operating paths by dependency, not by nouns.** Use only paths whose knowledge can change the open decision, in the order required by genuine dependencies. Mentioning Shopee, TikTok, Amazon, positioning, research, or another domain does not by itself activate its full path.
+6. **Load guidance just in time.** Read the smallest relevant file or stable semantic section that materially improves the next decision. For large files, start from the heading that matches the open decision and expand only when an unresolved dependency crosses section boundaries; do not use fragile line-number routing.
+7. **Resolve and pass forward only decision-relevant state.** Later stages should receive the conclusions, constraints, proof, and uncertainty they need, not an automatic dump of all earlier research or process detail.
+8. **Produce the minimum sufficient output, then validate it against the current job.** Internal reasoning depth does not determine visible output length. Do not add work, caveats, frameworks, or explanation merely because they exist elsewhere in this skill.
 
 A typical communication task may move through:
 
@@ -88,7 +90,11 @@ When audience-facing communication is consequential, resolve enough of the audie
 
 Do not use fluent prose to conceal unresolved strategy. When the task is narrow and the strategy is already supplied, do not rebuild it from scratch.
 
-## 6. Persuasion must preserve meaningful choice
+## 6. Platform or system evidence is not a tactic
+
+Do not translate a searchable field, model feature, recommendation input, ranking signal, exposed weight, or platform disclosure directly into an action. First determine what decision the fact changes, what human or machine job is involved, what truthful information is available, and which supported representation or carrier can serve that job. If that bridge is not established, preserve the fact or `UNKNOWN` rather than inventing a tactic.
+
+## 7. Persuasion must preserve meaningful choice
 
 Do not use fake scarcity, false social proof, hidden material terms, deceptive defaults, shame, obstructed cancellation, fabricated urgency, or deliberately asymmetric friction. Conversion does not justify deception.
 
@@ -126,7 +132,7 @@ Positioning should connect a specific target context and relevant alternative to
 
 Use when the requested outcome is audience-facing communication or a message/copy decision.
 
-Once the relevant positioning is sufficiently resolved for the task, read `handbook/04-messaging-proof-and-copy.md` if the work requires message hierarchy, proof architecture, channel adaptation, claim control, landing-page/email/campaign copy, or a human-writing review.
+Once the relevant positioning is sufficiently resolved for the task, read `handbook/04-messaging-proof-and-copy.md` only when an unresolved message/copy decision requires message hierarchy, proof architecture, claim control, substantial landing-page/email/campaign structure, or a human-writing review. A narrow transformation or platform-format adaptation with supplied message and proof does not by itself require Chapter 04.
 
 Before drafting, identify the reader's current situation, the one job of this touchpoint, the core message, proof available, material objections, allowed or unsupported claims, and the appropriate next action. A user-provided voice sample outranks generic style preferences unless it conflicts with truth, ethics, or the task.
 
@@ -244,6 +250,30 @@ Load `handbook/09-commerce-environments-and-product-discovery.md` only when deep
 - merchant-of-record / payment / fulfillment responsibility in mediated checkout;
 - product-discovery diagnosis, measurement, attribution, or learning.
 
+When Chapter 09 is required, start from the stable semantic section that matches the open decision instead of reading the full chapter by default:
+
+```text
+identity / catalog / variant
+→ "Product identity and platform-record identity"
+→ "Commercial relations and state" when commercial conditions also matter
+
+search / retrieval / ranking / field-evidence dispute
+→ "Eligibility, retrieval, relevance, ranking, filtering, sorting, and composition"
+→ "Field-level evidence discipline" when translating evidence into action
+
+semantic / conversational / AI product-information strategy
+→ "Allocate information by job, not by field folklore"
+→ "Optimize for resolvability, not imagined model weights"
+
+agent authority / checkout / order-state conflict
+→ "Agent-mediated and delegated commerce"
+
+performance diagnosis
+→ "Diagnosing weak or changing commerce performance"
+```
+
+Expand to other Chapter 09 sections only if the unresolved decision crosses those boundaries.
+
 When platform-specific behavior is material, load only the smallest relevant commerce module:
 
 - Google Shopping / Google commerce: `platforms/commerce/google-shopping.md`
@@ -253,7 +283,7 @@ When platform-specific behavior is material, load only the smallest relevant com
 - Etsy: `platforms/commerce/etsy.md`
 - Lazada: `platforms/commerce/lazada.md`
 
-A simple platform-specific field task can load the relevant commerce module without requiring the full Chapter 09 graph if the module's current field semantics or policy is the only missing decision input.
+A simple platform-specific field task can load the relevant commerce module without requiring the full Chapter 09 graph if the module's current field semantics or policy is the only missing decision input. Within a large module, start from the heading that matches that missing input and expand only if the decision spans multiple module concerns.
 
 Use a hybrid route only when both content/social mediation and commerce relations materially matter. For example:
 
@@ -328,6 +358,10 @@ Do not automatically surface research methodology, absent evidence, internal not
 Pass forward the strategic message, source/proof boundaries, mandatory facts, intended audience where known, desired action, and voice constraints. Then let the platform-content path resolve only environmental choices that can change execution or interpretation, such as actor/source, object, representation, audience state, typed delivery/permission edge, relevant platform state, and success metric.
 
 Do not let generic platform heuristics override established strategy or invent a new target audience.
+
+## Customer evidence / product truth → platform or commerce representation
+
+Pass forward customer needs, language, objections, and constraints only to the extent that they change the current communication or product-information decision. Treat customer language as evidence of a requirement or framing opportunity, not as an automatic keyword list. Resolve what truthful product/offer fact, relation, or commercial state can satisfy that requirement, then let the relevant platform path choose the supported carrier or representation. Do not let platform mechanics invent product truth or let platform-local tactics override established strategy.
 
 ## Platform observation → learning
 
