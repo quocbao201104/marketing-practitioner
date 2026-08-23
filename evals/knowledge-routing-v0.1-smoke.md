@@ -28,7 +28,7 @@ Small handbook chapters 00–07 are intentionally not section-indexed merely for
 
 Evidence files are handled differently. `references/bibliography.md`, `references/commerce-platform-evidence.md`, and platform evidence ledgers already expose stable intrinsic identifiers such as `[R23]`, `[C14]`, and `[A03]`. They are not decision modules and therefore are not duplicated into the semantic manifest. The loader resolves those identifiers directly with `--source`.
 
-No handbook, platform, framework, or reference knowledge file is modified by this routing pass.
+No handbook, platform, framework, or reference knowledge file is modified by this routing pass. `SKILL.md` is changed only to consume the routing interface and remove duplicated physical heading/path bindings from the controller.
 
 ## Contract under test
 
@@ -132,7 +132,13 @@ Namespace-specific listing is important: when the controller already knows the r
 
 ## Mechanical smoke
 
-The helper was exercised against isolated Markdown/reference fixtures using the same extraction logic as `get-knowledge.py` after the schema-v2 refactor.
+The helper was exercised against isolated Markdown/reference fixtures using the same extraction logic as the current `get-knowledge.py` after the schema-v2 and evidence-mode hardening.
+
+The current 16-check test was executed in the available execution sandbox and returned:
+
+```text
+PASS    16 routing-mechanics smoke checks
+```
 
 | Check | Expected behavior | Result |
 | --- | --- | --- |
@@ -144,8 +150,10 @@ The helper was exercised against isolated Markdown/reference fixtures using the 
 | G2 | grouped namespace + marker resolves to expected marker chunk | PASS |
 | G3 | namespace-specific route listing returns only that namespace | PASS |
 | E1 | evidence source ID resolves case-insensitively to one exact source heading | PASS |
-| E2 | unknown evidence source ID fails closed | PASS |
-| E3 | duplicate evidence source ID across ledgers fails closed | PASS |
+| E2 | evidence lookup remains independent when the semantic manifest is absent | PASS |
+| E3 | evidence-source validation passes for unique source IDs | PASS |
+| E4 | unknown evidence source ID fails closed | PASS |
+| E5 | duplicate evidence source ID fails lookup and validation closed | PASS |
 | F1 | unknown namespace fails closed | PASS |
 | F2 | unknown section / duplicated heading fails closed rather than guessing | PASS |
 | F3 | path traversal outside the skill root fails closed | PASS |
@@ -157,12 +165,6 @@ Repeatable smoke command:
 python skills/marketing-practitioner/scripts/test-knowledge-routing.py
 ```
 
-Expected result:
-
-```text
-PASS    14 routing-mechanics smoke checks
-```
-
 ## Manifest integrity command
 
 The loader exposes repository-binding validation:
@@ -171,11 +173,74 @@ The loader exposes repository-binding validation:
 python skills/marketing-practitioner/scripts/get-knowledge.py --validate
 ```
 
-This checks every indexed route against the checked-out skill tree and fails when a path or selector cannot be resolved exactly. JSON parsing additionally rejects duplicate keys so a repeated namespace/section cannot silently overwrite an earlier route.
+This checks every indexed route against the checked-out skill tree and fails when a path or selector cannot be resolved exactly. It also scans all evidence ledgers for duplicate intrinsic source IDs. JSON parsing rejects duplicate keys so a repeated namespace/section cannot silently overwrite an earlier route.
 
-Important evidence boundary: the current chat environment could not obtain a checked-out GitHub branch in its execution filesystem, so the full branch-local `--validate` command has **not** been executed here. Selectors were bound against current branch source through direct repository inspection. Earlier in the pass, that inspection caught several initially misremembered Chapter 09 section numbers before expansion.
+Important evidence boundary: the current execution sandbox cannot resolve GitHub for a normal clone. An ephemeral PR workflow was also attempted, but no workflow run/status was created in the repository's current Actions configuration. The workflow file was removed again and is not part of the candidate diff.
 
-Do not convert source inspection into a claim that repository-local validation executed when it did not.
+Therefore the full checked-out-branch `--validate` command remains **not executed** in this session. Selectors were bound against current branch source through direct repository inspection. Earlier in the pass, that inspection caught several initially misremembered Chapter 09 section numbers before broad expansion.
+
+Do not convert source inspection or fixture execution into a claim that all 190 branch selectors were repository-locally validated.
+
+## Controller wiring
+
+`SKILL.md` now consumes the logical routing contract rather than duplicating its physical implementation.
+
+The controller change is intentionally narrow:
+
+```text
+open decision
+→ identify namespace
+→ inspect only namespace-local logical IDs when needed
+→ resolve smallest logical route
+→ expand only across a real unresolved dependency
+```
+
+The controller keeps stable semantic IDs where useful, for example:
+
+```text
+commerce.identity
+commerce.commercial-state
+commerce.discovery
+commerce.field-evidence
+commerce.information-allocation
+commerce.resolvability
+commerce.agentic
+commerce.diagnosis
+```
+
+It no longer repeats Chapter 09 heading strings or platform file paths as the route contract. Physical paths and selectors live only in `routing-index.json`.
+
+Platform routing now uses namespace names as the stable interface:
+
+```text
+facebook
+instagram
+linkedin
+tiktok
+x
+
+google-commerce
+amazon
+tiktok-shop
+shopee
+etsy
+lazada
+```
+
+Evidence routing is separate: when a known intrinsic source ID is needed, the controller can use `--source <ID>` without loading the semantic manifest or a whole evidence ledger.
+
+### Static controller regression cases
+
+These are controller-contract inspection cases, not model-performance claims.
+
+| Case | Expected routing behavior | Result |
+| --- | --- | --- |
+| C1 supplied-message short social caption | stay fast; no deep namespace required merely because a platform is named | PASS BY CONTROLLER TEXT |
+| C2 consequential social discovery diagnosis | load smallest `content.*` route plus only the relevant social-platform namespace route(s) | PASS BY CONTROLLER TEXT |
+| C3 narrow Shopee field task | use `shopee.*` only if current field semantics are missing; do not require `commerce.*` automatically | PASS BY CONTROLLER TEXT |
+| C4 AI/conversational commerce strategy | use `commerce.information-allocation` / `commerce.resolvability`, plus platform namespace only when platform semantics matter | PASS BY CONTROLLER TEXT |
+| C5 TikTok shoppable hybrid | compose `tiktok` + `tiktok-shop`, and shared `content` / `commerce` only when their dependency is unresolved | PASS BY CONTROLLER TEXT |
+| C6 known evidence source | use `--source ID`; do not load a whole evidence ledger or semantic manifest | PASS BY CONTROLLER TEXT |
 
 ## Selector strategy
 
@@ -206,15 +271,19 @@ NESTED HEADING BOUNDARIES        PASS
 MARKER EXTRACTION                PASS
 MARKER ORDER FAIL-CLOSED         PASS
 NAMESPACE-SCOPED LISTING         PASS
-EVIDENCE-ID LOOKUP               PASS ON FIXTURE
+EVIDENCE-ID LOOKUP               PASS ON EXECUTED FIXTURE
+EVIDENCE/MANIFEST INDEPENDENCE   PASS ON EXECUTED FIXTURE
+SOURCE-ID VALIDATION             PASS ON EXECUTED FIXTURE
 UNKNOWN-EVIDENCE FAIL-CLOSED     PASS
 DUPLICATE-EVIDENCE FAIL-CLOSED   PASS
 UNKNOWN-ROUTE FAIL-CLOSED        PASS
 DUPLICATE-HEADING FAIL-CLOSED    PASS
 DUPLICATE-JSON-KEY FAIL-CLOSED   PASS
 PATH-CONFINEMENT                 PASS
+CONTROLLER LOGICAL-ID WIRING     PASS BY STATIC DIFF INSPECTION
+PHYSICAL ROUTE DUPLICATION       REMOVED FROM CONTROLLER
 KNOWLEDGE SEMANTICS UNCHANGED    PASS BY DIFF DESIGN
-FULL REPOSITORY --validate       NOT EXECUTED IN THIS CHAT ENVIRONMENT
+FULL REPOSITORY --validate       NOT EXECUTED IN THIS SESSION
 ```
 
 ## Architecture rule
@@ -225,6 +294,7 @@ semantic routing metadata != marketing knowledge
 evidence source ID != semantic route ID
 one global manifest != one flat route list in reasoning
 namespace first when already known
+controller interface != physical heading/path binding
 indexing must not rewrite knowledge semantics
 heading selector first
 marker only when necessary
