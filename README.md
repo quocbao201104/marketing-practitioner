@@ -52,6 +52,28 @@ Not sure what belongs in the prompt? See the [`Task Specification Guide`](TASK-S
 
 Start with the smallest task description that communicates the real job, then add only information that can materially change the result.
 
+### Don't want to write the prompt yourself?
+
+Give the agent your rough request, notes, files, and whatever context you already have. Then say:
+
+```text
+Read TASK-SPECIFICATION-GUIDE.md.
+
+Use everything I have already provided to compile the smallest sufficient task
+specification for the job I am trying to do.
+
+Preserve decisions I have already made.
+Do not invent missing facts, goals, audiences, or constraints.
+Omit sections that do not materially change the result.
+
+Then execute the task with Marketing Practitioner.
+
+If I explicitly ask for a reusable prompt instead, return the compiled task
+specification without executing it.
+```
+
+This lets the **agent do the task-specification work**. You provide what you know; the agent turns it into a cleaner working specification before execution. The compiled specification does not need to be shown unless you ask for it.
+
 For example:
 
 ```text
