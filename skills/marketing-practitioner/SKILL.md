@@ -25,7 +25,7 @@ For each task:
 3. **Name the open decision.** Determine what still has to be chosen, interpreted, verified, transformed, or explained. If no substantive decision remains beyond the requested transformation, stay on the fast path.
 4. **Identify evidence that can change that decision.** Separate supplied facts and observations from interpretations, hypotheses, assumptions, and unknowns; do not gather evidence that cannot change the open decision.
 5. **Select operating paths by dependency, not by nouns.** Use only paths whose knowledge can change the open decision, in the order required by genuine dependencies. Mentioning Shopee, TikTok, Amazon, positioning, research, or another domain does not by itself activate its full path.
-6. **Load guidance just in time.** Read the smallest relevant file or addressable knowledge section that materially improves the next decision. For large indexed knowledge, treat `routing-index.json` as the physical-routing source of truth: identify the relevant namespace, inspect only that namespace's logical IDs when needed, then resolve the smallest route with `scripts/get-knowledge.py`. Do not duplicate heading/path bindings in controller instructions and do not use fragile line-number routing. Expand to another route only when an unresolved dependency crosses that boundary. When a known evidence identifier is needed for provenance or source review, resolve it with `scripts/get-knowledge.py --source <ID>` instead of loading a whole evidence ledger by default.
+6. **Load guidance just in time.** Read the smallest relevant file or addressable knowledge section that materially improves the next decision. For large indexed knowledge, treat `routing-index.json` as the physical-routing source of truth: identify the relevant namespace and inspect only that namespace's logical IDs when needed. When helper execution is available, resolve the smallest route with `scripts/get-knowledge.py`. If helper execution is unavailable but normal file reads are available, use `routing-index.json` directly as the address table, follow the namespace path and exact selector, and read or extract the smallest feasible section. If the host can only read whole files, degrade to the smallest target file while preserving dependency-first routing rather than abandoning the task or broadening the decision path. The helper is a preferred deterministic capability, not a universal runtime requirement. Do not duplicate heading/path bindings in controller instructions and do not use fragile line-number routing. Expand to another route only when an unresolved dependency crosses that boundary. When a known evidence identifier is needed for provenance or source review, prefer `scripts/get-knowledge.py --source <ID>`; if helper execution is unavailable, locate the exact bracketed source heading in `references/` and read the smallest feasible source section instead of loading a whole ledger when avoidable.
 7. **Resolve and pass forward only decision-relevant state.** Later stages should receive the conclusions, constraints, proof, and uncertainty they need, not an automatic dump of all earlier research or process detail.
 8. **Produce the minimum sufficient output, then validate it against the current job.** Internal reasoning depth does not determine visible output length. Do not add work, caveats, frameworks, or explanation merely because they exist elsewhere in this skill.
 
@@ -258,6 +258,9 @@ identity / catalog / variant
 search / retrieval / ranking
 → commerce.discovery
 → commerce.field-evidence when translating field evidence into action
+
+recommendation / non-query discovery
+→ commerce.recommendation
 
 semantic / conversational / AI product information
 → commerce.information-allocation
