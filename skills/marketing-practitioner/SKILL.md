@@ -25,7 +25,7 @@ For each task:
 3. **Name the open decision.** Determine what still has to be chosen, interpreted, verified, transformed, or explained. If no substantive decision remains beyond the requested transformation, stay on the fast path.
 4. **Identify evidence that can change that decision.** Separate supplied facts and observations from interpretations, hypotheses, assumptions, and unknowns; do not gather evidence that cannot change the open decision.
 5. **Select operating paths by dependency, not by nouns.** Use only paths whose knowledge can change the open decision, in the order required by genuine dependencies. Mentioning Shopee, TikTok, Amazon, positioning, research, or another domain does not by itself activate its full path.
-6. **Load guidance just in time.** Read the smallest relevant file or stable semantic section that materially improves the next decision. For large files, start from the heading that matches the open decision and expand only when an unresolved dependency crosses section boundaries; do not use fragile line-number routing.
+6. **Load guidance just in time.** Read the smallest relevant file or addressable knowledge section that materially improves the next decision. For large indexed knowledge, treat `routing-index.json` as the physical-routing source of truth: identify the relevant namespace and inspect only that namespace's logical IDs when needed. When helper execution is available, resolve the smallest route with `scripts/get-knowledge.py`. If helper execution is unavailable but normal file reads are available, use `routing-index.json` directly as the address table, follow the namespace path and exact selector, and read or extract the smallest feasible section. If the host can only read whole files, degrade to the smallest target file while preserving dependency-first routing rather than abandoning the task or broadening the decision path. The helper is a preferred deterministic capability, not a universal runtime requirement. Do not duplicate heading/path bindings in controller instructions and do not use fragile line-number routing. Expand to another route only when an unresolved dependency crosses that boundary. When a known evidence identifier is needed for provenance or source review, prefer `scripts/get-knowledge.py --source <ID>`; if helper execution is unavailable, locate the exact bracketed source heading in `references/` and read the smallest feasible source section instead of loading a whole ledger when avoidable.
 7. **Resolve and pass forward only decision-relevant state.** Later stages should receive the conclusions, constraints, proof, and uncertainty they need, not an automatic dump of all earlier research or process detail.
 8. **Produce the minimum sufficient output, then validate it against the current job.** Internal reasoning depth does not determine visible output length. Do not add work, caveats, frameworks, or explanation merely because they exist elsewhere in this skill.
 
@@ -152,9 +152,9 @@ Use when a social, community, feed, search, creator, recommendation, or platform
 
 This path includes social posts and captions, community posts, comments and replies, reposts, carousels, video, platform-native content strategy, creator/brand collaboration, and related content-participation decisions.
 
-Read `handbook/08-content-environments-and-distribution.md` when the task requires more than generic channel adaptation.
+When the task requires more than generic channel adaptation, use the `content` knowledge namespace and load only the smallest `content.*` route that can change the open decision. Do not read Chapter 08 wholesale merely because platform content is in scope.
 
-The handbook uses a compressed runtime model. Resolve only the durable things that can change the decision:
+The content knowledge uses a compressed runtime model. Resolve only the durable things that can change the decision:
 
 ```text
 actor / source
@@ -179,13 +179,15 @@ history / state transition
 
 Do not reconstruct every derived concept by default. Attention re-entry, secondary use, nested recommendation, spillover, community-local constraints, platform status, and feedback loops should be represented from the compact core only when they matter.
 
-Load the smallest platform module only when platform-specific behavior is material. The five current modules use the same compact vocabulary and should be treated as current product instantiations, not independent frameworks:
+Load platform-specific knowledge only when it can change the decision. Use the matching logical namespace rather than a hardcoded file/heading map in this controller:
 
-- Facebook: `platforms/facebook.md`
-- LinkedIn: `platforms/linkedin.md`
-- Instagram: `platforms/instagram.md`
-- TikTok: `platforms/tiktok.md`
-- X: `platforms/x.md`
+- Facebook: `facebook`
+- LinkedIn: `linkedin`
+- Instagram: `instagram`
+- TikTok: `tiktok`
+- X: `x`
+
+Within that namespace, load only the smallest route whose knowledge is material; expand only when the open decision spans another route.
 
 Treat current ranking, recommendation, visibility moderation, eligibility, disclosure, creator guidance, action semantics, relationship/delivery affordances, and format behavior as time-sensitive and system-specific. An official fact from one surface, delivery mode, policy system, commerce system, or ad system does not automatically transfer to another.
 
@@ -232,7 +234,7 @@ CURRENT JOB
 → DRAFT
 ```
 
-Load `handbook/09-commerce-environments-and-product-discovery.md` only when deeper commerce structure can change the decision, especially for:
+Use the `commerce` knowledge namespace only when deeper commerce structure can change the decision, especially for:
 
 - product/model/item/listing/catalog identity;
 - variant/SKU architecture or scoped identifiers;
@@ -246,51 +248,54 @@ Load `handbook/09-commerce-environments-and-product-discovery.md` only when deep
 - merchant-of-record / payment / fulfillment responsibility in mediated checkout;
 - product-discovery diagnosis, measurement, attribution, or learning.
 
-When Chapter 09 is required, start from the stable semantic section that matches the open decision instead of reading the full chapter by default:
+When deeper commerce knowledge is required, select the smallest stable logical route instead of hardcoding Chapter 09 headings here. Common decision dependencies map to the existing interface such as:
 
 ```text
 identity / catalog / variant
-→ "Product identity and platform-record identity"
-→ "Commercial relations and state" when commercial conditions also matter
+→ commerce.identity
+→ commerce.commercial-state when commercial conditions also matter
 
-search / retrieval / ranking / field-evidence dispute
-→ "Eligibility, retrieval, relevance, ranking, filtering, sorting, and composition"
-→ "Field-level evidence discipline" when translating evidence into action
+search / retrieval / ranking
+→ commerce.discovery
+→ commerce.field-evidence when translating field evidence into action
 
-semantic / conversational / AI product-information strategy
-→ "Allocate information by job, not by field folklore"
-→ "Optimize for resolvability, not imagined model weights"
+recommendation / non-query discovery
+→ commerce.recommendation
+
+semantic / conversational / AI product information
+→ commerce.information-allocation
+→ commerce.resolvability
 
 agent authority / checkout / order-state conflict
-→ "Agent-mediated and delegated commerce"
+→ commerce.agentic
 
 performance diagnosis
-→ "Diagnosing weak or changing commerce performance"
+→ commerce.diagnosis
 ```
 
-Expand to other Chapter 09 sections only if the unresolved decision crosses those boundaries.
+These logical IDs are the controller interface; their physical files and heading selectors belong only in `routing-index.json`. Expand to another `commerce.*` route only if the unresolved decision crosses that boundary.
 
-When platform-specific behavior is material, load only the smallest relevant commerce module:
+When platform-specific behavior is material, use only the smallest relevant commerce namespace:
 
-- Google Shopping / Google commerce: `platforms/commerce/google-shopping.md`
-- Amazon: `platforms/commerce/amazon.md`
-- TikTok Shop: `platforms/commerce/tiktok-shop.md`
-- Shopee: `platforms/commerce/shopee.md`
-- Etsy: `platforms/commerce/etsy.md`
-- Lazada: `platforms/commerce/lazada.md`
+- Google Shopping / Google commerce: `google-commerce`
+- Amazon: `amazon`
+- TikTok Shop: `tiktok-shop`
+- Shopee: `shopee`
+- Etsy: `etsy`
+- Lazada: `lazada`
 
-A simple platform-specific field task can load the relevant commerce module without requiring the full Chapter 09 graph if the module's current field semantics or policy is the only missing decision input. Within a large module, start from the heading that matches that missing input and expand only if the decision spans multiple module concerns.
+A simple platform-specific field task can load a route from the relevant commerce namespace without requiring `commerce.*` knowledge if current platform field semantics or policy is the only missing decision input. Within a namespace, expand only if the decision spans multiple concerns.
 
 Use a hybrid route only when both content/social mediation and commerce relations materially matter. For example:
 
 ```text
 TikTok Shop product-title task
 → commerce fast path
-→ TikTok Shop module if current field semantics matter
+→ tiktok-shop namespace if current field semantics matter
 
 TikTok shoppable-video / LIVE / creator-commerce task
-→ Chapter 08 + Chapter 09 only as needed
-→ TikTok + TikTok Shop modules only as needed
+→ content + commerce namespaces only as needed
+→ tiktok + tiktok-shop namespaces only as needed
 ```
 
 Do not transfer evidence from paid ads, seller tools, one recommendation module, one checkout protocol, or one market into organic product discovery or another market without direct support. Keep eligibility, retrieval/matching, ranking, representation, commercial state, delegated authority, transaction state, and observed outcome separate when those distinctions can change the conclusion.
@@ -377,7 +382,7 @@ Use `frameworks/practitioner-cards.md` when an explicit intermediate record woul
 
 Use `frameworks/quality-rubrics.md` when the user asks for a structured review, when the output is consequential enough to warrant a formal check, or when a final audit would materially reduce error. The rubrics are review criteria, not validated numerical scoring systems.
 
-Use `references/bibliography.md` only when source provenance, literature support, or deeper conceptual review is required.
+Use `references/bibliography.md` only when source provenance, literature support, or deeper conceptual review is required. When the needed reference has a known intrinsic identifier such as `R23`, `C14`, or `A03`, prefer `scripts/get-knowledge.py --source <ID>` so the source record can be loaded without the rest of the ledger.
 
 ---
 
