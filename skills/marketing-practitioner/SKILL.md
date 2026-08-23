@@ -1,6 +1,6 @@
 ---
 name: marketing-practitioner
-description: "Evidence-informed marketing, commerce, content, and copywriting for AI agents. Use for customer-research synthesis, segmentation and ICP selection, positioning, value proposition, message strategy, social posts and captions, platform content strategy, community content, e-commerce and marketplace product listings, product titles and descriptions, catalog and variant decisions, product discovery/search/recommendation, agent-mediated commerce and delegated checkout decisions, landing pages, email and campaign copy, copy critique, funnel diagnosis, experiment design, localization, and marketing postmortems. Treat marketing as a market-learning and decision discipline: separate observation from interpretation, scope claims to evidence, establish strategy before prose, adapt content and product representations to the actual audience/environment, prefer proof to hype, distinguish attribution from causality, preserve uncertainty, and write in a clear human voice without inventing facts."
+description: "Evidence-informed marketing, commerce, content, and copywriting for AI agents. Use for customer-research synthesis, segmentation and ICP selection, positioning, value proposition, commercial design, pricing and packaging decisions, message strategy, social posts and captions, platform content strategy, community content, e-commerce and marketplace product listings, product titles and descriptions, catalog and variant decisions, product discovery/search/recommendation, agent-mediated commerce and delegated checkout decisions, landing pages, email and campaign copy, copy critique, funnel diagnosis, experiment design, localization, and marketing postmortems. Treat marketing as a market-learning and decision discipline: separate observation from interpretation, scope claims to evidence, establish strategy before prose, adapt content and product representations to the actual audience/environment, prefer proof to hype, distinguish attribution from causality, preserve uncertainty, and write in a clear human voice without inventing facts."
 license: MIT
 metadata:
   version: "0.4.0"
@@ -123,6 +123,51 @@ Use when the target context, category, relevant alternative, primary value, diff
 When any of those choices are unresolved and material to the requested decision, read `handbook/03-positioning-and-value.md` before finalizing positioning.
 
 Positioning should connect a specific target context and relevant alternative to a prioritized value with a credible reason to believe. Competitor whitespace is not automatically customer value. Distinctiveness and differentiation are related but not interchangeable.
+
+## Commercial design / pricing
+
+Use when a commercial condition itself is still an open decision: what is included or accessible, how payment/value capture should work, what commitment/risk terms should apply, or who should be able to access which conditions.
+
+Typical decisions include package/bundle boundaries, per-seat versus usage versus hybrid pricing, price menus, free trial versus free tier, monthly versus annual commitment, shipping/discount structure, eligibility or new-customer conditions, grandfathering/migration, and negotiated versus standardized commercial regimes.
+
+Do **not** activate this path merely because a product has a price, promotion, plan, or marketplace listing. If the commercial state is already resolved and the task is only to write, localize, represent, interpret, or publish it, freeze that state and use the downstream message/commerce path instead.
+
+When deeper Commercial Design knowledge can change the decision, use the `commercial-design` namespace and load only the smallest relevant route. Common dependencies include:
+
+```text
+package / entitlement / bundle boundary
+→ commercial-design.configuration
+→ commercial-design.allocation when self-selection or eligibility also matters
+
+pricing metric / tariff / price menu / multi-actor payment flow
+→ commercial-design.payment
+
+trial / subscription / commitment / cancellation / refund / guarantee
+→ commercial-design.terms
+→ commercial-design.dynamics when prior state or transition policy matters
+
+eligibility / personalized / new-customer / negotiated conditions
+→ commercial-design.allocation
+→ commercial-design.governance when authority or exception policy matters
+
+WTP / price research / competitor-price interpretation
+→ commercial-design.evidence
+
+choice among commercial alternatives
+→ commercial-design.decision
+
+grandfathering / migration / renewal-state change
+→ commercial-design.dynamics
+
+boundary or downstream handoff uncertainty
+→ commercial-design.handoffs
+```
+
+Do not create a new controller job or generic `OFFER` object for this path. The existing `DECIDE`, evidence, resolved-state, dependency, and JIT-routing rules remain governing.
+
+If target context, relevant alternative, value, proof, or trade-off is materially unresolved, load the necessary positioning knowledge first. If authoritative cost, margin, capacity, product capability, legal/contractual permission, sales/deal authority, or platform constraint can change the decision, treat it as a dependency rather than inventing a marketing fact.
+
+When causal response, incrementality, experiment design, or treatment effects become material, use Chapter 05. Once commercial conditions are resolved, pass only the material configuration, payment structure, terms, allocation rule, modifiers, scope/history, and uncertainty forward to Chapter 04, Chapter 07, Chapter 09, or a platform module as required by the downstream job.
 
 ## Message strategy / copywriting
 
