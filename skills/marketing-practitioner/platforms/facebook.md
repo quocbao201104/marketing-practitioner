@@ -2,11 +2,13 @@
 
 Last reviewed: 2026-08-23
 
-Use this module only when Facebook-specific behavior can materially change the content decision. Treat current platform facts as time-sensitive and verify them when the decision is consequential.
+Use this module only when Facebook-specific behavior can materially change the content decision. Treat current platform facts as time-sensitive and verify them when the decision is consequential [R27].
+
+This module instantiates the compact model in `handbook/08-content-environments-and-distribution.md`; it does not define a separate Facebook ontology.
 
 ---
 
-## 1. Do not collapse Facebook into one surface
+## 1. Facebook is a family of environments, not one surface
 
 At minimum distinguish:
 
@@ -15,272 +17,257 @@ GROUP
 bounded or semi-bounded community
 
 PAGE
-organization / brand publishing surface
+organization / brand publishing identity
 
 PROFILE
-individual social identity and public/private relationship surface
+individual social identity and relationship surface
 
 FEED / RECOMMENDATION
-encounter and distribution environments that can expose content beyond direct followers
+encounter and distribution systems that can expose
+content beyond direct followers
 ```
 
-A post can be created in one surface and encountered through another. Do not infer reader state from the word "Facebook" alone.
+A post can be created in one environment and encountered through another. Do not infer reader state from the word “Facebook” alone.
 
----
-
-## 2. Facebook Feed is personalized, not one deterministic channel
-
-Current official documentation states that Feed ranking uses many signals, including past engagement, the type of post a person tends to interact with, engagement on the post, and recency [R27]. Facebook can also recommend Pages, Groups, and posts to people who do not already follow them [R27].
-
-Operational implication:
-
-- do not promise reach from one creative tactic;
-- do not assume every follower receives the post;
-- preserve enough context when recommendation to non-followers is material;
-- distinguish ranking signals from causal creative rules;
-- remember that prior interaction history can change future exposure opportunities.
-
-Do not encode rules such as "links are always suppressed," "video always wins," or one universal posting time without evidence for the specific surface, account, objective, and period.
-
----
-
-## 3. Facebook Groups are communities with local governance
-
-Facebook Groups can be public or private. Current official documentation states that public-group content can be visible to people on or off Facebook, while private-group content is generally limited to current members, subject to current secondary visibility features such as Group Highlights [R27].
-
-Admins can configure participation approval, membership approval, post approval, spam handling, and Admin Assist criteria. Admin Assist can automatically decline posts or comments that match configured criteria such as specified links [R27].
-
-Therefore a Group content decision should prioritize:
-
-```text
-current group rules
-→ current moderation / approval settings
-→ observed current group norms
-→ generic Facebook guidance
-```
-
-### Group variables that can materially change the artifact
-
-- public vs private;
-- visible vs hidden where relevant;
-- member vs visitor vs limited member / participant;
-- newcomer vs established member;
-- profile vs Page identity;
-- anonymous / nickname participation where available;
-- admin/moderator role where visible and relevant;
-- approval requirements;
-- explicit promotion or link rules;
-- current topic boundary;
-- expected expertise and language;
-- whether the post is asking for feedback, traffic, purchase, participation, or discussion.
-
-Do not infer demographic precision merely from the group topic.
-
-### Relationship does not imply participation permission
-
-Current Facebook limited-membership behavior provides a useful concrete case: in eligible private Groups, a limited member can see Group content and react while being unable to post, comment, or chat until an admin approves participation [R27].
+Current official documentation states that Feed ranking uses many signals, including prior engagement, the type of post a person tends to interact with, engagement on the post, and recency. Facebook can also recommend Pages, Groups, and posts to people who do not already follow them [R27].
 
 Therefore:
 
-```text
-MEMBERSHIP / RELATIONSHIP
-≠ PARTICIPATION PERMISSION
+- do not promise reach from one creative tactic;
+- do not assume every follower receives every post;
+- preserve enough context when recommendation beyond the existing relationship graph is material;
+- distinguish ranking signals from causal writing rules;
+- remember that prior interaction history can change future exposure opportunities.
 
-EXPOSURE
-≠ RESPONSE OPPORTUNITY
-```
-
-A member who cannot comment is not evidence that the content failed to create discussion. Before interpreting absent comments, posts, or chat behavior, confirm that the relevant audience had a meaningful opportunity to perform the action.
-
-### Content relevance contract for Groups
-
-Before writing, ask:
-
-> Why does this contribution belong in this group, from this speaker, now?
-
-For a newcomer or commercial actor, contextual relevance may need to be established before a strong ask. Research on online-community newcomer legitimacy and visible norms supports treating this as a meaningful concern, but not as a deterministic formula for every group [R25][R26].
-
-### Example: research group
-
-A research announcement may need:
-
-- the research question;
-- the bounded contribution or finding;
-- enough method/evidence to justify discussion;
-- explicit scope where overclaim risk is material;
-- a discussion-oriented ask.
-
-It does not automatically need promotional framing, a long personal story, or a click-first CTA.
-
-### Example: commerce / seller group
-
-A commercial group may tolerate or expect offers more than an academic group, but do not assume that from category alone. Inspect current rules and recent accepted posts when available. Promotion tolerance is a local community property, not a universal Facebook Group rule.
+Do not encode “links are always suppressed,” “video always wins,” or one universal posting time without evidence for the specific surface, account, objective, and period.
 
 ---
 
-## 4. Page and Profile have different publishing identities
+## 2. Actor / source, content object, and representation
 
-Treat a Page primarily as an organizational or brand publishing identity and a Profile as an individual identity.
+### Profile vs Page
 
-This changes what first-person language, authority, and relationship cues are legitimate.
+A Profile is an individual publishing identity. Legitimate source material can include direct practitioner/founder experience, personal interpretation, relationship-based updates, peer discussion, and individual accountability when supported.
 
-### Profile
+Do not manufacture a personal journey merely because the contribution is published from a Profile.
 
-Potential strengths when source material supports them:
-
-- direct practitioner or founder experience;
-- personal interpretation;
-- relationship-based updates;
-- peer discussion;
-- individual accountability.
-
-Do not manufacture a personal journey merely because the post is on a Profile.
-
-### Page
-
-Potential strengths:
-
-- product or organizational authority;
-- official release or policy information;
-- consistent institutional voice;
-- brand-level proof and resources.
+A Page is an organizational or brand identity. Legitimate source material can include product/organizational facts, official releases, policies, institutional positions, resources, and brand-level proof.
 
 Do not force institutional copy into artificial personal intimacy.
 
-Choose the publishing entity based on ownership, authority, audience relationship, and objective rather than a generic belief that one identity receives more reach.
+Choose the actor from ownership, authority, audience relationship, and job rather than a generic belief that one identity always gets more reach.
 
-### Visible identity and operational actor
+### Visible identity vs operational actor
 
-A Facebook Page can participate in a Group when Group settings allow it, and multiple people may manage that Page [R27]. Actions can therefore appear under the Page identity even though the operational actor is a particular Page manager or workflow.
+A Facebook Page can participate in a Group when settings allow, and multiple people may manage that Page [R27].
 
-Distinguish:
+Keep:
 
 ```text
 VISIBLE PUBLISHING IDENTITY
 what peers see
 
 OPERATIONAL ACTOR
-who or what performed the action
+who or what performed the action, if material
 ```
 
 Do not infer personal experience or a unique individual actor from a Page-labeled interaction.
 
----
+### Content object and representation
 
-## 5. Identity visibility can be observer-relative
-
-Where Facebook Group anonymous participation is available and enabled, a member may post, comment, or react anonymously or with a nickname. Other participants can see the anonymous or nickname identity, while Group admins/moderators and Facebook systems can still see the underlying profile identity [R27].
-
-Therefore:
-
-```text
-VISIBLE IDENTITY TO PEERS
-≠ VISIBLE IDENTITY TO MODERATORS
-≠ IDENTITY KNOWN TO PLATFORM
-```
-
-This changes both interaction topology and interaction cost. A rise in comments after anonymous participation becomes available does not by itself establish that the content became more discussion-worthy; reduced identity or reputational cost is a competing explanation.
-
-Anonymous participation also does not make every object or action available anonymously. Treat current affordance scope as a platform fact, not a universal privacy assumption [R27].
-
----
-
-## 6. External links: separate moderation, ranking, user behavior, and business outcome
-
-A weak rule is:
-
-```text
-Facebook hates links.
-```
-
-Possible mechanisms behind poor link-post performance include:
-
-- explicit Group moderation or Admin Assist;
-- spam or quality systems;
-- ranking behavior;
-- audience reluctance to leave the current context;
-- low destination quality;
-- a mismatch between the post and reader state;
-- format-level differences in observed datasets.
-
-Current Facebook documentation establishes that Feed ranking considers post type and user interaction history, and that Group admins can explicitly decline specified links [R27]. It does not establish one universal rule that every external URL is algorithmically penalized.
-
-If outbound traffic matters, compare the full objective rather than reach alone:
-
-```text
-qualified reach
-× click behavior
-× landing quality
-× downstream outcome
-```
-
-A native post with more reach but fewer qualified visits may be worse for the actual job.
-
----
-
-## 7. Group audience envelope and content state can change over time
-
-For public Groups, the possible audience can extend beyond active group members [R27].
-
-When that exposure path matters, balance:
-
-```text
-community-native relevance for insiders
-+
-enough context for outsiders
-```
-
-For private Groups, more shared context may be reasonable, but do not assume that every object remains permanently confined to the same audience state. Current Facebook documentation notes that, where Group Highlights are available, members can approve some private-Group posts or comments to be shown publicly on or off Facebook [R27].
-
-Therefore:
-
-```text
-ORIGINAL CONTAINER STATE
-≠ GUARANTEED LIFETIME VISIBILITY STATE
-```
-
-This is a content-state / secondary-use issue, not evidence that all private-Group content is public.
-
----
-
-## 8. Participation mode matters
-
-Facebook content may include:
+Facebook participation units can include:
 
 - standalone post;
+- photo/video/Reel object;
 - comment;
 - reply;
 - share with commentary;
 - Group discussion;
-- photo/video/reel object;
-- event or other platform-native unit where available.
+- event or another platform-native object where available.
 
-A comment or reply inherits context from the host post. Do not write it like an isolated campaign asset unless the task requires that behavior.
+Keep object, representation, and encounter environment separate:
 
-If an existing discussion already contains the relevant audience and context, a substantive comment may fit the job better than creating another standalone post.
+```text
+CONTENT OBJECT
+post / video / comment / Group discussion / ...
 
-A participation event can also become a distribution event. Public Group activity, sharing, or network-mediated exposure can introduce an object to people who were not part of the original audience. When material, treat the interaction both as a response and as a possible spillover path rather than only as an engagement count.
+CONTENT REPRESENTATION
+Feed preview / text opening / media preview /
+share framing / Page/Profile presentation
+
+ENCOUNTER SURFACE
+Group / Feed / recommendation / Page / Profile /
+network activity / shared context
+```
+
+A stable underlying object can be seen through different social and presentation contexts. Do not diagnose underlying content from one weak representation without checking what the relevant audience actually encountered.
 
 ---
 
-## 9. Interaction provenance and negative / absent behavior
+## 3. Groups: local governance, audience state, and typed edges
 
-Before treating an observed reaction, comment, share, or Page action as a clean measure of audience preference, preserve enough interaction provenance to know what kind of event it is.
+Facebook Groups can be public or private. Current official documentation states that public-group content can be visible to people on or off Facebook, while private-group content is generally limited to current members, subject to scoped features such as Group Highlights [R27].
 
-When material, ask:
+Admins can configure membership/participation approval, post approval, spam handling, and Admin Assist criteria. Admin Assist can automatically decline posts or comments matching configured criteria such as specified links [R27].
+
+For Group work, prefer:
 
 ```text
-Was this a direct individual action?
-Was it performed under a Page / representative identity?
-Was the action anonymous to peers but known to moderators/platform?
-Was participation permission available?
-Could governance or moderation have filtered the action?
-Is the actor or provenance unknown?
+current explicit Group rules
+→ current moderation / approval settings
+→ observed current Group norms
+→ generic Facebook guidance
 ```
 
-Also keep the distinction:
+Material Group state can include:
+
+- public vs private;
+- visible vs hidden where relevant;
+- member vs visitor vs limited member / participant;
+- newcomer vs established member;
+- Profile vs Page identity;
+- anonymous / nickname participation where available;
+- admin/moderator role where relevant;
+- approval requirements;
+- explicit promotion/link rules;
+- current topic boundary;
+- expected expertise/language;
+- whether the job is feedback, traffic, purchase, participation, or discussion.
+
+Do not infer demographic precision merely from the Group topic.
+
+### Membership ≠ participation permission
+
+Current limited-membership behavior provides a concrete example: in eligible private Groups, a limited member can see Group content and react while being unable to post, comment, or chat until an admin approves participation [R27].
+
+Represent this with typed edges:
 
 ```text
+COMMUNITY / MEMBERSHIP EDGE
+member / visitor / limited member
+
+VISIBILITY EDGE
+what content can be seen?
+
+PARTICIPATION EDGE
+what actions can be performed?
+```
+
+Therefore:
+
+```text
+MEMBERSHIP
+≠ PARTICIPATION PERMISSION
+
+EXPOSURE
+≠ RESPONSE OPPORTUNITY
+```
+
+A member unable to comment is not evidence that the contribution failed to create discussion.
+
+### Community relevance
+
+Before writing, ask:
+
+> Why does this contribution belong in this Group, from this actor, now?
+
+For a newcomer or commercial actor, contextual legitimacy can matter before a strong ask. Research on visible norms and newcomer legitimacy supports treating this as consequential without turning it into a deterministic formula [R25][R26].
+
+A research Group contribution may need question, bounded finding, method/evidence, scope, and a discussion-oriented ask. A commerce/seller Group may tolerate offers, but promotion tolerance must be established locally rather than inferred from category alone.
+
+---
+
+## 4. Identity and observability can be observer-relative
+
+Where Facebook Group anonymous participation is available and enabled, a member may post, comment, or react anonymously or with a nickname. Other participants can see the anonymous/nickname identity, while Group admins/moderators and Facebook systems can still see the underlying profile identity [R27].
+
+Therefore:
+
+```text
+IDENTITY VISIBLE TO PEERS
+≠ IDENTITY VISIBLE TO MODERATORS
+≠ IDENTITY KNOWN TO PLATFORM
+```
+
+This is an instance of the core `scope / relativity` modifier, not a separate identity framework.
+
+It can change interaction cost. If comments rise after anonymous participation becomes available, reduced reputational/identity cost is a competing explanation; do not assume the content itself became more discussion-worthy.
+
+Anonymous participation also does not make every object/action anonymous. Preserve the actual affordance scope [R27].
+
+More generally, effective state can be observer- and role-relative. Ask who can see which identity, object state, or moderation state only when it changes legitimacy, safety, response opportunity, or interpretation.
+
+---
+
+## 5. Platform / mediation state: Feed, recommendation, moderation, and visibility
+
+Facebook Feed is personalized and recommendation can extend beyond direct relationships [R27]. Keep Feed ranking distinct from Group moderation, Page/Profile identity, recommendation eligibility, and business outcome.
+
+Do not use one global visibility flag.
+
+Relevant effective state can include:
+
+```text
+HOSTED / ACCESSIBLE
+GROUP / CONTAINER VISIBLE
+RECOMMENDATION-ELIGIBLE
+RECIPIENT-ELIGIBLE
+PARTICIPATION-ELIGIBLE
+MODERATED / FILTERED / APPROVAL-REQUIRED
+DEMOTED / REDUCED
+ORDINARY LOW RANK
+```
+
+Governance can shape opportunity before or alongside ranking. A link may be explicitly declined by Group moderation even if no platform-wide link ranking rule exists.
+
+Therefore:
+
+```text
+LOW REACH / LOW ENGAGEMENT
+≠ PROOF OF CREATIVE FAILURE
+≠ PROOF OF PLATFORM SUPPRESSION
+```
+
+Check current Group/Page/account state, audience mix, moderation, permissions, surface, and delivery context before attributing the outcome to copy or format.
+
+---
+
+## 6. Interaction acts, provenance, and state transitions
+
+A comment or reply inherits context from its host object. If an existing discussion already contains the relevant audience and context, a substantive comment can fit the job better than another standalone post.
+
+A participation event can also create a new delivery edge: public Group activity, sharing, or network-mediated exposure can introduce the object to people outside the original audience.
+
+Represent this as:
+
+```text
+INTERACTION ACT
++
+NEW DELIVERY / SOCIAL EDGE
++
+STATE TRANSITION
+```
+
+rather than a separate “spillover” primitive.
+
+Before treating a reaction, comment, share, or Page action as clean evidence of audience preference, preserve interaction provenance when material.
+
+Ask only as far as evidence allows:
+
+- direct individual action?
+- representative action under a Page/entity identity?
+- anonymous to peers but known to moderators/platform?
+- automated/coordinated/incentivized activity possible?
+- participation permission actually available?
+- governance or moderation able to filter the action?
+- provenance unknown?
+
+Keep:
+
+```text
+OBSERVED ENGAGEMENT
+≠ ESTABLISHED ORGANIC HUMAN PREFERENCE
+
 NO ACTION
 ≠ NEGATIVE ACTION
 
@@ -288,45 +275,166 @@ HIDE / UNFOLLOW / LEAVE
 ≠ ONE UNIVERSAL REJECTION SEMANTIC
 ```
 
-A user can alter Feed exposure or leave one delivery/community relationship without proving that one specific post caused the state change.
+A user can alter Feed exposure or leave one community/delivery edge without proving that one specific post caused the state change.
 
 ---
 
-## 10. Practical Facebook decision path
+## 7. External links, audience envelope, and object-state change
 
-For a simple task:
+### External links
+
+A weak rule is:
+
+```text
+FACEBOOK HATES LINKS
+```
+
+Possible mechanisms behind weak link-post performance include:
+
+- explicit Group moderation / Admin Assist;
+- spam/quality systems;
+- Feed ranking behavior;
+- audience reluctance to leave the current context;
+- weak destination quality;
+- mismatch between representation and audience state;
+- scoped format differences in observed data.
+
+Current Facebook documentation establishes that Feed ranking considers post type and interaction history and that Group admins can explicitly decline specified links [R27]. It does not establish one universal platform rule that every external URL is algorithmically penalized.
+
+If outbound traffic matters, evaluate the full job:
+
+```text
+qualified exposure
+× click behavior
+× landing quality
+× downstream outcome
+```
+
+A native post with more reach but fewer qualified visits can be worse for the actual objective.
+
+### Audience envelope and object state
+
+For public Groups, the possible audience can extend beyond active Group members [R27]. Balance community-native relevance with enough context for outsiders when that path is material.
+
+For private Groups, shared context can be reasonable, but do not assume every object remains permanently confined to its original container. Current Facebook documentation notes that where Group Highlights are available, members can approve some private-Group posts/comments for scoped public visibility [R27].
+
+Represent this as:
+
+```text
+ORIGINAL CONTAINER STATE
+↓ authorized state transition
+NEW OBJECT VISIBILITY / DELIVERY EDGE
+```
+
+Therefore:
+
+```text
+PRIVATE ORIGIN
+≠ GUARANTEED LIFETIME VISIBILITY STATE
+```
+
+This is ordinary object/platform state transition, not a separate “secondary use” ontology and not evidence that all private Group content is public.
+
+---
+
+## 8. Observation record before performance conclusions
+
+Before concluding that a format, link strategy, Page/Profile choice, Group post, or discussion approach “worked,” reconstruct one compact observation record.
+
+Preserve only fields that can change the conclusion:
+
+```text
+actor / visible identity
+operational actor if material
+object / current state
+representation if material
+surface / Group / Feed / recommendation context
+audience / membership / relationship state
+visibility / moderation / permission state
+exposure opportunity
+response opportunity
+interaction provenance if material
+delivery / network-spillover context
+period / relevant history
+observation unit / denominator
+outcome maturity / attribution if material
+success metric
+material uncertainty
+```
+
+Do not infer intrinsic creative quality from a metric before checking governance, audience composition, permissions, and exposure.
+
+```text
+OBSERVED ACTION
+≠ MOTIVE / SATISFACTION / CONTENT QUALITY
+
+NO OBSERVED ACTION
+≠ CLEAN NEGATIVE LABEL
+```
+
+Use current comparable local evidence when the Group, audience, moderation, delivery, and measurement regime are actually comparable.
+
+---
+
+## 9. Practical Facebook decision paths
+
+### Simple task
 
 ```text
 job
 → Group / Page / Profile?
-→ posting as whom?
+→ actor/source
+→ object + representation
 → reader / community state
-→ current rule or constraint if material
+→ current rule / constraint if material
 → draft
 ```
 
-For a consequential Group post:
+### Consequential Group contribution
 
 ```text
 job
 → public/private + current rules
-→ speaker / visible identity
-→ membership + participation permission
+→ actor / visible identity
+→ membership + participation edge
 → community purpose / norms
 → audience envelope
-→ relevance contract
+→ object + representation
 → link / promotion constraints
 → message + proof + ask
 → response opportunity + success metric
 ```
 
-For diagnosis, preserve governance state, interaction provenance, and role-conditioned response opportunity before changing the creative.
+### Page/Profile choice
 
-Do not fill every field if it cannot change the decision.
+```text
+who owns the fact / experience?
+→ which identity can legitimately speak?
+→ which audience / relationship edge matters?
+→ which object / representation fits?
+→ success metric
+```
+
+### Performance diagnosis
+
+```text
+metric changed
+→ same actor/object/representation?
+→ same Group/Feed/surface context?
+→ same audience / membership mix?
+→ same moderation / permission / visibility state?
+→ same response opportunity?
+→ interaction provenance comparable?
+→ link/destination or content changed?
+→ competing explanations
+→ discriminating check
+```
+
+Do not fill dimensions that cannot change the decision.
 
 ---
 
-## 11. Current evidence boundaries
+## 10. Current evidence boundaries
 
 ### Established from current official platform documentation
 
