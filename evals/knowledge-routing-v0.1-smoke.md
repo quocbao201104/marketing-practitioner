@@ -111,12 +111,14 @@ The extraction helper was exercised against an isolated Markdown fixture using t
 | H1 | `##` heading route includes nested `###` / `####` content and stops before next `##` | PASS |
 | H2 | `###` heading route includes nested `####` content and stops before next `###` / higher heading | PASS |
 | M1 | marker route returns only content between one matching start/end pair | PASS |
+| M2 | reversed start/end marker order fails closed | PASS |
 | G1 | grouped namespace + section resolves to the expected heading chunk | PASS |
 | G2 | grouped namespace + marker resolves to the expected marker chunk | PASS |
 | G3 | namespace-specific route listing returns only that namespace | PASS |
 | F1 | unknown namespace fails closed | PASS |
 | F2 | unknown section / duplicated heading fails closed rather than guessing | PASS |
 | F3 | path traversal outside the skill root fails closed | PASS |
+| F4 | duplicate JSON keys fail closed instead of silently overwriting a namespace/section | PASS |
 
 Repeatable smoke command:
 
@@ -127,7 +129,7 @@ python skills/marketing-practitioner/scripts/test-knowledge-routing.py
 Expected result:
 
 ```text
-PASS    9 routing-mechanics smoke checks
+PASS    11 routing-mechanics smoke checks
 ```
 
 ## Manifest integrity command
@@ -138,7 +140,7 @@ The loader exposes repository-binding validation:
 python skills/marketing-practitioner/scripts/get-knowledge.py --validate
 ```
 
-This checks every indexed route against the checked-out skill tree and fails when a path or selector cannot be resolved exactly.
+This checks every indexed route against the checked-out skill tree and fails when a path or selector cannot be resolved exactly. JSON parsing additionally rejects duplicate keys so a repeated namespace/section cannot silently overwrite an earlier route.
 
 Important evidence boundary: the current chat environment could not obtain a checked-out GitHub branch in its execution filesystem, so the full branch-local `--validate` command has **not** been executed here. Selectors were bound against current branch source through direct repository inspection. Earlier in the pass, that inspection caught several initially misremembered Chapter 09 section numbers before expansion.
 
@@ -156,6 +158,8 @@ Use explicit markers only when a logical route needs a boundary that headings ca
 <!-- route:end logical.id -->
 ```
 
+Marker extraction requires exactly one correctly ordered pair.
+
 This keeps instrumentation minimal and avoids rewriting large knowledge files merely to create routing metadata.
 
 ## Current verdict
@@ -167,9 +171,11 @@ GLOBAL MANIFEST SIZE             PASS — 16,897 BYTES / 13 NAMESPACES / 190 ROU
 HEADING EXTRACTION               PASS
 NESTED HEADING BOUNDARIES        PASS
 MARKER EXTRACTION                PASS
+MARKER ORDER FAIL-CLOSED         PASS
 NAMESPACE-SCOPED LISTING         PASS
 UNKNOWN-ROUTE FAIL-CLOSED        PASS
 DUPLICATE-HEADING FAIL-CLOSED    PASS
+DUPLICATE-JSON-KEY FAIL-CLOSED   PASS
 PATH-CONFINEMENT                 PASS
 KNOWLEDGE SEMANTICS UNCHANGED    PASS BY DIFF DESIGN
 FULL REPOSITORY --validate       NOT EXECUTED IN THIS CHAT ENVIRONMENT
