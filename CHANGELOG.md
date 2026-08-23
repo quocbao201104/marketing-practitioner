@@ -4,6 +4,29 @@ All notable changes to this repository are documented here.
 
 The project uses semantic versioning for published skill revisions. Early versions may change structure while the conceptual model is stabilized.
 
+## [0.2.0] - 2026-08-23
+
+### Added
+
+- Added `handbook/08-content-environments-and-distribution.md`, a compressed six-layer model for platform-native content, distribution, interaction, recommendation, governance, and evidence interpretation.
+- Added production platform modules for Instagram, TikTok, LinkedIn, Facebook, and X, all using the same compact runtime vocabulary rather than separate platform-specific frameworks.
+- Added implementation-backed X guidance using the public `xai-org/x-algorithm` For You implementation, with explicit boundaries against turning exposed ranking parameters into content hacks.
+- Added research/audit artifacts for compact-core losslessness, runtime-routing adversarial walk-throughs, and a pre-benchmark execution smoke pack.
+
+### Changed
+
+- Extended the decision-first runtime controller with a platform-content/distribution operating path and just-in-time routing to Chapter 08 and the smallest relevant platform module.
+- Compressed platform reasoning to eight durable things — actor/source, content object, content representation, audience state, typed relationship/delivery/permission edge, interaction act, platform/mediation state, and observation record — with provenance, scope/relativity, and history/state transition as cross-cutting modifiers.
+- Added guardrails that keep content object, representation, surface, relationship, delivery, permission, observed action, system feedback, ranking objectives, attribution, and causality distinct when those distinctions can change a decision.
+- Preserved a fast path for simple captions/posts so platform knowledge does not automatically expand a narrow writing task into strategy or recommender-system analysis.
+- Expanded the bibliography and platform evidence base with current product documentation, recommender-system literature, representation architecture references, and scoped implementation evidence.
+
+### Validation status
+
+- A frozen 20-case conceptual losslessness audit produced 19 `LOSSLESS`, 1 `LOSSLESS / INTERNAL UNKNOWN`, 0 `PARTIAL`, and 0 `FAIL`; no retired primitive or new durable primitive was required.
+- A 22-case static runtime-routing walk-through found 0 routing gaps and 0 knowledge gaps; execution reliability remains intentionally pre-benchmark and is expected to improve through real use and fresh smoke runs.
+- This release does not claim universal platform theory, causal effectiveness of platform tactics, or benchmark-grade runtime reliability.
+
 ## [0.1.4] - 2026-08-22
 
 ### Changed
