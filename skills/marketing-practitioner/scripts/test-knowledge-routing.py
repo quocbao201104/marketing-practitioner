@@ -93,6 +93,30 @@ def main() -> int:
                 lambda: module.get_knowledge("fixture.missing", manifest),
                 "unknown knowledge route",
             )
+
+            references = Path(tmp) / "references"
+            (references / "commerce").mkdir(parents=True)
+            (references / "bibliography.md").write_text(
+                "# Bibliography\n\n### [R23] Source R23\nR23 body\n\n### [R24] Source R24\nR24 body\n",
+                encoding="utf-8",
+            )
+            (references / "commerce" / "amazon.md").write_text(
+                "# Amazon evidence\n\n## [A03] Source A03\nA03 body\n\n## [A04] Source A04\nA04 body\n",
+                encoding="utf-8",
+            )
+
+            source_path, source_content = module.get_source("a03")
+            assert source_path == "references/commerce/amazon.md"
+            assert source_content.startswith("## [A03] Source A03")
+            assert "## [A04]" not in source_content
+
+            expect_error(lambda: module.get_source("ZZ99"), "found 0")
+
+            (references / "duplicate.md").write_text(
+                "## [A03] Duplicate\nother body\n",
+                encoding="utf-8",
+            )
+            expect_error(lambda: module.get_source("A03"), "found 2")
         finally:
             module.ROOT = old_root
 
@@ -104,7 +128,7 @@ def main() -> int:
         "duplicate JSON key",
     )
 
-    print("PASS\t11 routing-mechanics smoke checks")
+    print("PASS\t14 routing-mechanics smoke checks")
     return 0
 
 
