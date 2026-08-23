@@ -1,6 +1,6 @@
 # Selected Bibliography
 
-This bibliography prioritizes peer-reviewed research, academic monographs, methodological texts, and authoritative research guidance. It is selective rather than exhaustive. Practitioner sources are identified separately and are not treated as scientific laws.
+This bibliography prioritizes peer-reviewed research, academic monographs, methodological texts, authoritative research guidance, and narrowly scoped technical standards when they provide a useful conceptual parent. Practitioner sources are identified separately and are not treated as scientific laws.
 
 The handbook cites references by identifier, e.g. `[R01]`.
 
@@ -287,6 +287,24 @@ Use: empirical evidence that advertising in one channel can have carryover and s
 Ding, C., Wu, J., Yuan, Y., Li, C., Wang, X., Wang, D., Yang, F., & Rabinovich, A. (2026). **Delayed Feedback Modeling with Influence Functions.** *Proceedings of the AAAI Conference on Artificial Intelligence, 40*(17), 14648–14656. DOI: 10.1609/aaai.v40i17.38483.
 
 Use: current peer-reviewed evidence that conversions can arrive long after user interactions, leaving recent observations incomplete and biased; supports the practitioner concept of outcome maturity and the distinction between “no outcome yet” and a sufficiently mature negative observation. The advertising-modeling setting should not be generalized to every outcome window without domain evidence.
+
+---
+
+## Technical architecture sources for object / representation distinction
+
+These sources provide established architectural vocabulary for distinguishing a persistent resource/object from a representation served to a recipient. They are not marketing-effect evidence.
+
+### [R48] RFC 9110 — HTTP Semantics / Selected Representations
+
+Fielding, R., Nottingham, M., & Reschke, J. (2022). **HTTP Semantics.** RFC 9110, Internet Engineering Task Force / RFC Editor.
+
+Use: technical parent for distinguishing a target resource from one of multiple available or selected representations, including representations that vary by language, format, encoding, user-agent characteristics, or request preferences. Applied in the handbook only as architectural vocabulary; it does not establish platform ranking or marketing effects.
+
+### [R49] W3C — Architecture of the World Wide Web, Volume One
+
+Jacobs, I., & Walsh, N. (Eds.). (2004). **Architecture of the World Wide Web, Volume One.** W3C Recommendation, 15 December 2004.
+
+Use: architectural distinction among identification, resources, representations, and interactions; supports keeping logical content-object identity separate from the representation delivered in a particular context. Its Web-architecture concepts are not treated as a behavioral or causal marketing theory.
 
 ---
 
