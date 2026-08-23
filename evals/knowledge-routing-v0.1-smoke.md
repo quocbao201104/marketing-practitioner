@@ -6,7 +6,7 @@ Status: targeted architecture smoke, not a benchmark.
 
 ## Scope
 
-The routing layer now covers the large independently routable knowledge surfaces in the skill:
+The semantic routing layer covers the large independently routable decision-knowledge surfaces in the skill:
 
 - Chapter 08 — content environments and distribution;
 - Chapter 09 — commerce environments and product discovery;
@@ -24,7 +24,11 @@ The routing layer now covers the large independently routable knowledge surfaces
 
 Small handbook chapters 00–07 are intentionally not section-indexed merely for uniformity. Their current file size/coherence does not justify another routing layer.
 
-No handbook or platform knowledge file is modified by this routing pass.
+`frameworks/` is also intentionally file-level: the current files are approximately 3.2 KB and 6.1 KB.
+
+Evidence files are handled differently. `references/bibliography.md`, `references/commerce-platform-evidence.md`, and platform evidence ledgers already expose stable intrinsic identifiers such as `[R23]`, `[C14]`, and `[A03]`. They are not decision modules and therefore are not duplicated into the semantic manifest. The loader resolves those identifiers directly with `--source`.
+
+No handbook, platform, framework, or reference knowledge file is modified by this routing pass.
 
 ## Contract under test
 
@@ -38,7 +42,17 @@ OPEN DECISION
 → SMALLEST DECISION-RELEVANT KNOWLEDGE CHUNK
 ```
 
-Logical IDs are the stable interface. File paths, headings, and marker selectors are implementation details and may change without changing the logical ID.
+For evidence traceability:
+
+```text
+CLAIM / CITATION NEED
+→ INTRINSIC SOURCE ID
+→ references/**/*.md
+→ EXACT SOURCE HEADING
+→ DETERMINISTIC EXTRACTION
+```
+
+Logical knowledge IDs are the stable semantic interface. File paths, headings, and marker selectors are implementation details and may change without changing the logical ID.
 
 ## Schema correction discovered during the smoke
 
@@ -87,9 +101,11 @@ etsy.search-stages
 lazada.product-score-boundary
 ```
 
-The full manifest now covers 13 namespaces and 190 logical routes while remaining 16,897 bytes in the branch snapshot inspected after expansion.
+The full manifest covers 13 namespaces and 190 logical routes while remaining 16,897 bytes in the inspected branch snapshot.
 
 ## Runtime lookup modes
+
+Semantic knowledge:
 
 ```bash
 python skills/marketing-practitioner/scripts/get-knowledge.py --namespaces
@@ -97,14 +113,26 @@ python skills/marketing-practitioner/scripts/get-knowledge.py --list
 python skills/marketing-practitioner/scripts/get-knowledge.py --list --namespace shopee
 python skills/marketing-practitioner/scripts/get-knowledge.py commerce.resolvability
 python skills/marketing-practitioner/scripts/get-knowledge.py shopee.commercial-state shopee.representation
+```
+
+Evidence records:
+
+```bash
+python skills/marketing-practitioner/scripts/get-knowledge.py --source R23
+python skills/marketing-practitioner/scripts/get-knowledge.py --source C14 A03
+```
+
+Integrity:
+
+```bash
 python skills/marketing-practitioner/scripts/get-knowledge.py --validate
 ```
 
-The namespace-specific listing path is important: when the controller already knows the relevant domain/platform, it does not need to expose all 190 route IDs to the reasoning context.
+Namespace-specific listing is important: when the controller already knows the relevant domain/platform, it does not need to expose all 190 route IDs to the reasoning context.
 
 ## Mechanical smoke
 
-The extraction helper was exercised against an isolated Markdown fixture using the same extraction logic as `get-knowledge.py` after the schema-v2 refactor.
+The helper was exercised against isolated Markdown/reference fixtures using the same extraction logic as `get-knowledge.py` after the schema-v2 refactor.
 
 | Check | Expected behavior | Result |
 | --- | --- | --- |
@@ -112,9 +140,12 @@ The extraction helper was exercised against an isolated Markdown fixture using t
 | H2 | `###` heading route includes nested `####` content and stops before next `###` / higher heading | PASS |
 | M1 | marker route returns only content between one matching start/end pair | PASS |
 | M2 | reversed start/end marker order fails closed | PASS |
-| G1 | grouped namespace + section resolves to the expected heading chunk | PASS |
-| G2 | grouped namespace + marker resolves to the expected marker chunk | PASS |
+| G1 | grouped namespace + section resolves to expected heading chunk | PASS |
+| G2 | grouped namespace + marker resolves to expected marker chunk | PASS |
 | G3 | namespace-specific route listing returns only that namespace | PASS |
+| E1 | evidence source ID resolves case-insensitively to one exact source heading | PASS |
+| E2 | unknown evidence source ID fails closed | PASS |
+| E3 | duplicate evidence source ID across ledgers fails closed | PASS |
 | F1 | unknown namespace fails closed | PASS |
 | F2 | unknown section / duplicated heading fails closed rather than guessing | PASS |
 | F3 | path traversal outside the skill root fails closed | PASS |
@@ -129,7 +160,7 @@ python skills/marketing-practitioner/scripts/test-knowledge-routing.py
 Expected result:
 
 ```text
-PASS    11 routing-mechanics smoke checks
+PASS    14 routing-mechanics smoke checks
 ```
 
 ## Manifest integrity command
@@ -162,6 +193,8 @@ Marker extraction requires exactly one correctly ordered pair.
 
 This keeps instrumentation minimal and avoids rewriting large knowledge files merely to create routing metadata.
 
+Evidence source lookup does not require manifest entries. It scans `references/**/*.md` for a unique heading beginning with the requested bracketed source ID and returns that heading section only.
+
 ## Current verdict
 
 ```text
@@ -173,6 +206,9 @@ NESTED HEADING BOUNDARIES        PASS
 MARKER EXTRACTION                PASS
 MARKER ORDER FAIL-CLOSED         PASS
 NAMESPACE-SCOPED LISTING         PASS
+EVIDENCE-ID LOOKUP               PASS ON FIXTURE
+UNKNOWN-EVIDENCE FAIL-CLOSED     PASS
+DUPLICATE-EVIDENCE FAIL-CLOSED   PASS
 UNKNOWN-ROUTE FAIL-CLOSED        PASS
 DUPLICATE-HEADING FAIL-CLOSED    PASS
 DUPLICATE-JSON-KEY FAIL-CLOSED   PASS
@@ -184,8 +220,9 @@ FULL REPOSITORY --validate       NOT EXECUTED IN THIS CHAT ENVIRONMENT
 ## Architecture rule
 
 ```text
-logical ID != physical location
-routing metadata != marketing knowledge
+logical knowledge ID != physical location
+semantic routing metadata != marketing knowledge
+evidence source ID != semantic route ID
 one global manifest != one flat route list in reasoning
 namespace first when already known
 indexing must not rewrite knowledge semantics
@@ -194,4 +231,4 @@ marker only when necessary
 physical split only after demonstrated context-loading failure
 ```
 
-The manifest is an address table, not another framework. Small coherent files should continue to be read normally until a real context-loading failure justifies finer routing.
+The manifest is an address table, not another framework. Evidence ledgers remain source ledgers. Small coherent files continue to be read normally until a real context-loading failure justifies finer routing.
