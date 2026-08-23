@@ -2,19 +2,19 @@
 
 Last reviewed: 2026-08-23
 
-Use this module when Amazon-specific catalog identity, seller listings, product-detail-page composition, offers / Featured Offer, product-search data, title / Item Highlights / generic search terms, product search, recommendation, or seller performance interpretation can materially change the decision.
+Use this module when Amazon-specific catalog identity, seller listings, product-detail-page composition, offers / Featured Offer, product-search data, title / Item Highlights / generic search terms, Shop Direct / Buy for Me, product search, recommendation, agentic shopping, or seller performance interpretation can materially change the decision.
 
-Current operational claims should be re-checked when consequential. Amazon changes listing requirements, search fields, Product Detail Page behavior, Featured Offer systems, APIs, and seller tools over time [A01–A08].
+Current operational claims should be re-checked when consequential. Amazon changes listing requirements, search fields, Product Detail Page behavior, Featured Offer systems, external-store discovery, agentic shopping features, APIs, and seller tools over time [A01–A10].
 
 This module instantiates the commerce specialization in `../../handbook/09-commerce-environments-and-product-discovery.md`. It does not define an Amazon-specific ontology.
 
 ---
 
-## 1. Amazon commerce is a shared catalog plus seller-specific commercial state
+## 1. Native Amazon Store commerce is a shared catalog plus seller-specific commercial state
 
-Do not reason about Amazon as though every seller owns an isolated product page.
+Do not reason about the native Amazon Store as though every seller owns an isolated product page.
 
-A useful current implementation map is:
+A useful current native-Store implementation map is:
 
 ```text
 AMAZON CATALOG
@@ -42,7 +42,7 @@ ASIN / catalog item
 
 Amazon SP-API explicitly separates catalog querying by ASIN from selling-partner listings by seller SKU and from pricing/offer APIs [A01][A02].
 
-Therefore:
+Therefore, **inside the native Amazon Store regime**:
 
 ```text
 ASIN / CATALOG ITEM
@@ -53,6 +53,67 @@ ASIN / CATALOG ITEM
 when those independently relevant roles exist.
 
 Do not generalize this Amazon architecture to marketplaces where the platform listing itself is the commercially decisive product object.
+
+### 1.1 Amazon discovery now also includes an external-store regime
+
+Amazon Shop Direct creates a second important 2026 discovery regime [A09]. Amazon states that Shop Direct can surface products from stores across the web, including products not currently sold in Amazon's Store. External merchants can sync catalog, price, and inventory through product feeds, and these products can be discovered in Amazon search/Rufus/Alexa for Shopping contexts.
+
+Use:
+
+```text
+AMAZON PRODUCT DISCOVERY
+├── NATIVE STORE REGIME
+│   ├─ Amazon catalog / ASIN
+│   ├─ seller listing / SKU
+│   ├─ seller offers / Featured Offer
+│   └─ Amazon PDP / buying options
+│
+└── EXTERNAL STORE / SHOP DIRECT REGIME
+    ├─ external merchant catalog / feed
+    ├─ Amazon discovery representation
+    ├─ Shop Direct → merchant website
+    └─ Buy for Me → Amazon agentic purchase from merchant website
+```
+
+Therefore:
+
+```text
+AMAZON DISCOVERY OBJECT
+≠ NECESSARILY NATIVE AMAZON STORE
+  CATALOG + SELLER-LISTING + OFFER REGIME
+```
+
+Do **not** overstate this as:
+
+```text
+SHOP DIRECT PRODUCT
+= PROVEN TO HAVE NO AMAZON-INTERNAL IDENTIFIER
+```
+
+The public evidence establishes the external-store commercial/discovery regime, not every internal identifier or normalization step.
+
+### 1.2 Shop Direct representation, merchant store, and Buy for Me transaction are separate roles
+
+For Shop Direct products, customers can either follow a link to the merchant website or, for eligible products, use Buy for Me so Amazon's agentic AI completes the purchase from the merchant website [A09].
+
+Keep:
+
+```text
+AMAZON DISCOVERY REPRESENTATION
+≠ EXTERNAL MERCHANT STOREFRONT
+≠ BUY FOR ME TRANSACTION STATE
+```
+
+Merchant store names remain visible. Amazon states that the external merchant manages delivery, returns, exchanges, and customer service [A09].
+
+Therefore:
+
+```text
+AMAZON ENCOUNTER / AGENTIC PURCHASE SURFACE
+≠ EXTERNAL MERCHANT COMMERCIAL RESPONSIBILITY
+```
+
+when those roles are material.
 
 ---
 
@@ -156,11 +217,13 @@ SELLER SUBMISSION
 
 If a seller's source field and live PDP differ, diagnose contribution/catalog selection state before assuming a copy-save failure or ranking issue.
 
+This section describes native Amazon Store catalog/PDP behavior. Shop Direct external-store products follow a different local record/representation path and should not be forced into the same seller-listing/PDP model [A09].
+
 ---
 
 ## 4. Product Detail Page is a composite representation
 
-A typical Amazon PDP can compose information from several independently meaningful roles:
+A typical native Amazon Store PDP can compose information from several independently meaningful roles:
 
 ```text
 catalog product identity
@@ -187,6 +250,8 @@ PDP
 ```
 
 Treat the PDP as a platform-composed human-facing representation of multiple catalog, commercial, observational, and platform states.
+
+Do not assume every Amazon-discovered product has a native Amazon PDP; Shop Direct can route to an external merchant store instead [A09].
 
 ---
 
@@ -389,6 +454,8 @@ SEARCHABLE
 
 This is why a product-information strategy should allocate facts by job rather than put all vocabulary into the title.
 
+Shop Direct adds another representation boundary: external-merchant feed/catalog data can support an Amazon discovery representation without becoming a native Amazon Store seller listing or PDP [A09].
+
 ---
 
 ## 8. Amazon product search: retrieval ≠ ranking
@@ -409,7 +476,7 @@ RANKING / ORDERING
 FINAL SEARCH REPRESENTATION
 ```
 
-Do not assume this diagram is a complete or current 2026 production pipeline for every Amazon Store search surface.
+Do not assume this diagram is a complete or current 2026 production pipeline for every Amazon Store search surface — and do not assume it describes Shop Direct external-store retrieval/ranking [A09].
 
 ### 8.1 Semantic matching ≠ literal keyword matching
 
@@ -462,7 +529,8 @@ FEATURE USED IN A PUBLISHED MODEL / EXPERIMENT
 
 Unless current Amazon product documentation or implementation evidence establishes otherwise, preserve as unknown:
 
-- exact current retrieval model(s);
+- exact current native Amazon Store retrieval model(s);
+- exact Shop Direct external-store retrieval/ranking architecture;
 - exact query parsing / semantic-expansion behavior;
 - exact product-field features and weights;
 - exact ranker objectives and weightings;
@@ -472,7 +540,7 @@ Unless current Amazon product documentation or implementation evidence establish
 
 ---
 
-## 9. Search representation, PDP representation, and offer representation have different jobs
+## 9. Search representation, PDP representation, external-store representation, and offer representation have different jobs
 
 ### Search-result representation
 
@@ -485,7 +553,7 @@ compare visible alternatives
 select candidate to inspect
 ```
 
-### Product Detail Page
+### Native Product Detail Page
 
 Primary shopper job:
 
@@ -494,6 +562,16 @@ understand product / selected variant
 assess proof and fit
 compare commercial conditions
 choose buying option
+```
+
+### Shop Direct / external-store representation
+
+Primary shopper job:
+
+```text
+understand an externally sold product surfaced by Amazon
+identify the merchant / commercial route
+choose referral vs Buy for Me where eligible
 ```
 
 ### Offer / buying-option representation
@@ -505,7 +583,7 @@ which seller / price / condition / fulfillment option
 will satisfy the transaction?
 ```
 
-Do not evaluate a title, Item Highlight, image, or offer using one universal conversion rule. The representation job changes by surface and shopper state.
+Do not evaluate a title, Item Highlight, image, offer, or external-store representation using one universal conversion rule. The representation job changes by surface, commercial regime, and shopper state.
 
 ---
 
@@ -543,9 +621,11 @@ which time / review-sharing regime?
 which representation shows the aggregate?
 ```
 
+Do not assume native Amazon review aggregation semantics automatically transfer to Shop Direct external-store products.
+
 ---
 
-## 11. Recommendation and related-product discovery
+## 11. Recommendation, agentic shopping, and related-product discovery
 
 Amazon can recommend related, substitute, complementary, personalized, or context-specific products outside explicit text search.
 
@@ -558,6 +638,8 @@ cart
 purchase history
 category
 homepage / recommendation module
+Alexa for Shopping / conversational context
+Shop Direct external-store context
 post-purchase state
 ```
 
@@ -577,6 +659,29 @@ ONE RECOMMENDATION MODULE
 
 Do not apply Amazon Search title/search-term tactics mechanically to recommendation systems.
 
+### 11.1 Agentic capability ≠ unrestricted purchase authority
+
+Amazon's current Alexa for Shopping can support cart building, price-triggered auto-buy, and Buy for Me flows in supported cases [A09][A10].
+
+Keep:
+
+```text
+SHOPPING ASSISTANT CAN PERFORM AN ACTION
+≠ USER AUTHORIZED EVERY POSSIBLE ACTION
+```
+
+A condition such as “buy when price reaches $X” is scoped delegated intent, not universal authority to buy any substitute at any price.
+
+Likewise:
+
+```text
+SHOP DIRECT / BUY FOR ME REQUEST
+≠ MERCHANT ORDER ACCEPTANCE
+≠ DELIVERY / RETURNS / CUSTOMER-SERVICE COMPLETION
+```
+
+The external merchant remains responsible for the post-purchase functions Amazon documents for Shop Direct / Buy for Me [A09].
+
 ---
 
 ## 12. Diagnosing weak or changing Amazon performance
@@ -587,38 +692,48 @@ Check only material dimensions:
 
 ```text
 1. METRIC / SURFACE
-Search impressions? clicks? PDP sessions? add-to-cart? units ordered?
+Native Search impressions? clicks? PDP sessions? add-to-cart? units ordered?
 Featured Offer? ad traffic? recommendation traffic?
+Shop Direct impressions/referrals? Buy for Me activity?
 
-2. CATALOG IDENTITY
-Same ASIN / parent-child relation / product type / browse classification?
+2. COMMERCIAL REGIME
+Native Amazon Store or Shop Direct / external merchant?
 
-3. SELLER LISTING
-Same SKU, contribution state, listing issues, suppressed attributes?
+3. CATALOG / EXTERNAL IDENTITY
+Native: same ASIN / parent-child relation / product type / browse classification?
+External: same merchant feed item / external merchant / product mapping?
 
-4. COMMERCIAL OFFER
+4. SELLER / MERCHANT INPUT
+Native: same seller SKU, contribution state, listing issues, suppressed attributes?
+External: same feed/catalog/price/inventory sync?
+
+5. COMMERCIAL OFFER / TRANSACTION STATE
 Same price, condition, inventory, fulfillment, shipping,
 Featured Offer state, location/customer context?
+For Shop Direct / Buy for Me: same external merchant availability,
+checkout state and merchant order outcome?
 
-5. CUSTOMER REPRESENTATION
+6. CUSTOMER REPRESENTATION
 Same title, Item Highlights, images, selected catalog values,
-review display, variation presentation?
+review display, variation presentation, Shop Direct labeling?
 
-6. SEARCHABLE DATA
-Same generic keywords, structured attributes, product type data?
+7. SEARCHABLE / DISCOVERY DATA
+Same generic keywords, structured attributes, product type data,
+external feed information where relevant?
 
-7. TRAFFIC / DISCOVERY MIX
-Same query, organic/sponsored mix, recommendation/referral source?
+8. TRAFFIC / DISCOVERY MIX
+Same query, native vs Shop Direct, organic/sponsored mix,
+recommendation/referral/Alexa source?
 
-8. TIME / PLATFORM REGIME
+9. TIME / PLATFORM REGIME
 Did title rules, Item Highlights, catalog policy, review aggregation,
-or marketplace behavior change?
+Shop Direct / Buy for Me, or marketplace behavior change?
 
-9. COMPETING EXPLANATIONS
+10. COMPETING EXPLANATIONS
 What else changed at the same time?
 
-10. DISCRIMINATING CHECK
-Which catalog/listing/offer/search report or controlled test
+11. DISCRIMINATING CHECK
+Which catalog/listing/feed/offer/search/referral/order report or controlled test
 best separates the leading explanations?
 ```
 
@@ -628,7 +743,7 @@ Use Chapter 05 when causal attribution or experiment design becomes material.
 
 ## 13. Fast path for Amazon listing communication
 
-### Rewrite a title
+### Rewrite a native Amazon Store title
 
 Given supported facts:
 
@@ -660,7 +775,7 @@ identify relevant alternate vocabulary not already represented adequately
 → do not claim ranking lift
 ```
 
-No search-model reconstruction is needed unless the task actually concerns discoverability mechanisms or diagnosis.
+No search-model or Shop Direct reconstruction is needed unless the task actually concerns discoverability mechanisms, external-store presentation, agentic purchasing, or diagnosis.
 
 ---
 
@@ -670,6 +785,26 @@ No search-model reconstruction is needed unless the task actually concerns disco
 ASIN
 ≠ SELLER SKU
 ≠ OFFER
+```
+
+```text
+NATIVE AMAZON STORE ARCHITECTURE
+≠ ALL AMAZON PRODUCT DISCOVERY
+```
+
+```text
+SHOP DIRECT PRODUCT DISCOVERED ON AMAZON
+≠ NATIVE AMAZON STORE SELLER LISTING / OFFER / PDP REQUIRED
+```
+
+```text
+SHOP DIRECT / BUY FOR ME SURFACE
+≠ EXTERNAL MERCHANT'S DELIVERY / RETURNS / SUPPORT RESPONSIBILITY
+```
+
+```text
+BUY FOR ME / AUTO-BUY CAPABILITY
+≠ UNRESTRICTED USER AUTHORIZATION
 ```
 
 ```text
@@ -705,7 +840,7 @@ STRUCTURED ATTRIBUTE REQUIRED
 
 ```text
 AMAZON SCIENCE PAPER
-≠ CURRENT COMPLETE AMAZON STORE ALGORITHM
+≠ CURRENT COMPLETE AMAZON STORE OR SHOP DIRECT ALGORITHM
 ```
 
 ```text
@@ -729,15 +864,18 @@ PDP CONTENT
 
 Preserve these unless current authoritative evidence establishes them for the exact marketplace/system:
 
-- exact organic Amazon Search retrieval and ranking pipeline in 2026;
+- exact organic native Amazon Store Search retrieval and ranking pipeline in 2026;
+- exact Shop Direct external-store retrieval, normalization, and ranking pipeline;
+- exact mapping between external merchant product records and Amazon-internal identifiers/representations;
 - exact relative search contribution of title, Item Highlights, generic keywords, attributes, images, reviews, price, sales, fulfillment, and other signals;
 - exact weighting or interaction of semantic and lexical matching;
-- exact current recommendation-module objectives;
+- exact current recommendation / Alexa for Shopping objectives;
 - exact catalog-contribution selection process for all attributes;
 - exact Featured Offer selection formula and all customer/location/fulfillment factors;
 - exact review aggregation / variation-sharing behavior outside currently documented cases;
-- exact composition rules for organic and sponsored product results;
-- causal effect of changing any one listing field on organic impressions, ranking, conversion, or sales without a valid experiment.
+- exact composition rules for organic, sponsored, native Store, and Shop Direct product results;
+- exact authorization/re-authorization internals for every auto-buy / Buy for Me flow;
+- causal effect of changing any one listing/feed field on organic impressions, ranking, conversion, or sales without a valid experiment.
 
 Do not fill these gaps with third-party “A9/A10 algorithm” folklore.
 
@@ -745,26 +883,29 @@ Do not fill these gaps with third-party “A9/A10 algorithm” folklore.
 
 ## 16. Final Amazon commerce check
 
-1. Is the ASIN/catalog item being confused with the seller SKU/listing or offer?
-2. Is a variation parent being confused with the purchasable child?
-3. Is seller-submitted data being treated as guaranteed PDP content?
-4. Are product identity and seller-specific price/stock/fulfillment state separated?
-5. Is Featured Offer state being treated as dynamic and customer/location/competition scoped?
-6. Are title, Item Highlights, generic keywords, and structured attributes allocated by current documented jobs rather than one keyword container?
-7. Is the July 27, 2026 title/Item Highlights regime being applied for the relevant category/marketplace?
-8. Is searchability being confused with known ranking priority?
-9. Are retrieval, semantic relevance, and ranking separated conceptually?
-10. Is Amazon Science evidence scoped to the published system/time rather than asserted as the 2026 production contract?
-11. Are search, recommendations, PDP composition, Featured Offer, and ads treated as different systems where material?
-12. Are reviews treated as observations / encounter context rather than intrinsic product truth?
-13. Are organic, sponsored, recommendation, and offer-system metrics kept separate?
-14. Are undisclosed internals left UNKNOWN?
-15. Is the fast path still respected for a narrow listing-copy task?
+1. Is the task in the native Amazon Store regime or Shop Direct / external-store regime?
+2. In the native Store, is the ASIN/catalog item being confused with the seller SKU/listing or offer?
+3. Is a variation parent being confused with the purchasable child?
+4. Is seller-submitted data being treated as guaranteed native PDP content?
+5. Are product identity and seller-specific price/stock/fulfillment state separated?
+6. Is Featured Offer state being treated as dynamic and customer/location/competition scoped?
+7. Are title, Item Highlights, generic keywords, and structured attributes allocated by current documented jobs rather than one keyword container?
+8. Is the July 27, 2026 title/Item Highlights regime being applied for the relevant category/marketplace?
+9. Is searchability being confused with known ranking priority?
+10. Are retrieval, semantic relevance, and ranking separated conceptually?
+11. Is Amazon Science evidence scoped to the published system/time rather than asserted as the 2026 production contract?
+12. Are native Search, recommendations, PDP composition, Featured Offer, ads, Shop Direct, and Buy for Me treated as different systems/roles where material?
+13. Is an Amazon discovery representation being mistaken for a native Amazon seller listing/PDP when the product is externally sold?
+14. In an agentic purchase flow, are shopper intent / delegated conditions, Amazon capability, merchant order state, and post-purchase responsibility separated?
+15. Are reviews treated as observations / encounter context rather than intrinsic product truth?
+16. Are organic, sponsored, recommendation, offer-system, Shop Direct referral, and Buy for Me metrics kept separate?
+17. Are undisclosed internals left UNKNOWN?
+18. Is the fast path still respected for a narrow native listing-copy task?
 
-The goal is not to reverse-engineer Amazon Search or the Featured Offer. The goal is to preserve Amazon's catalog/listing/offer distinctions, allocate product information to the right current fields, and reason about discovery and commercial outcomes without inventing algorithm laws.
+The goal is not to reverse-engineer Amazon Search, Shop Direct, Alexa for Shopping, or the Featured Offer. The goal is to preserve Amazon's native catalog/listing/offer distinctions **and** its newer external-store discovery/agentic transaction regime, allocate product information to the right current fields, and reason about discovery and commercial outcomes without inventing algorithm or authority laws.
 
 ---
 
 ## Evidence
 
-See `../../references/commerce/amazon-evidence.md` for `[A01–A08]` source definitions and evidence boundaries.
+See `../../references/commerce/amazon-evidence.md` for `[A01–A10]` source definitions and evidence boundaries.
