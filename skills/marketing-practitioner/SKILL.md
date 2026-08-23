@@ -146,6 +146,12 @@ trial / subscription / commitment / cancellation / refund / guarantee
 → commercial-design.terms
 → commercial-design.dynamics when prior state or transition policy matters
 
+free trial vs free tier
+→ commercial-design.configuration
++ commercial-design.terms
+→ commercial-design.payment only when zero-price / menu / monetization structure can change the decision
+→ commercial-design.dynamics only when transition or history can change the decision
+
 eligibility / personalized / new-customer / negotiated conditions
 → commercial-design.allocation
 → commercial-design.governance when authority or exception policy matters
