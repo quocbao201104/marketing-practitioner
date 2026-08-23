@@ -19,9 +19,21 @@ class RoutingError(RuntimeError):
     pass
 
 
+def reject_duplicate_keys(pairs):
+    obj = {}
+    for key, value in pairs:
+        if key in obj:
+            raise RoutingError(f"duplicate JSON key in routing manifest: {key}")
+        obj[key] = value
+    return obj
+
+
 def load_manifest() -> dict:
     try:
-        data = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+        data = json.loads(
+            MANIFEST_PATH.read_text(encoding="utf-8"),
+            object_pairs_hook=reject_duplicate_keys,
+        )
     except FileNotFoundError as exc:
         raise RoutingError(f"routing manifest not found: {MANIFEST_PATH}") from exc
     except json.JSONDecodeError as exc:
@@ -76,9 +88,13 @@ def extract_marker_section(text: str, marker_id: str) -> str:
             f"marker selector requires exactly one start/end pair for {marker_id!r}"
         )
 
-    start = text.index(start_marker) + len(start_marker)
-    end = text.index(end_marker, start)
-    return text[start:end].strip()
+    start_pos = text.index(start_marker)
+    end_pos = text.index(end_marker)
+    if end_pos <= start_pos:
+        raise RoutingError(f"end marker precedes start marker for {marker_id!r}")
+
+    start = start_pos + len(start_marker)
+    return text[start:end_pos].strip()
 
 
 def parse_route_id(route_id: str) -> tuple[str, str]:
