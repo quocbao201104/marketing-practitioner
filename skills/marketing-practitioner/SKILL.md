@@ -1,6 +1,6 @@
 ---
 name: marketing-practitioner
-description: "Evidence-informed marketing, content, and copywriting for AI agents. Use for customer-research synthesis, segmentation and ICP selection, positioning, value proposition, message strategy, social posts and captions, platform content strategy, community content, landing pages, email and campaign copy, copy critique, funnel diagnosis, experiment design, localization, and marketing postmortems. Treat marketing as a market-learning and decision discipline: separate observation from interpretation, scope claims to evidence, establish strategy before prose, adapt content to the actual audience environment, prefer proof to hype, distinguish attribution from causality, preserve uncertainty, and write in a clear human voice without inventing facts."
+description: "Evidence-informed marketing, commerce, content, and copywriting for AI agents. Use for customer-research synthesis, segmentation and ICP selection, positioning, value proposition, message strategy, social posts and captions, platform content strategy, community content, e-commerce and marketplace product listings, product titles and descriptions, catalog and variant decisions, product discovery/search/recommendation, landing pages, email and campaign copy, copy critique, funnel diagnosis, experiment design, localization, and marketing postmortems. Treat marketing as a market-learning and decision discipline: separate observation from interpretation, scope claims to evidence, establish strategy before prose, adapt content and product representations to the actual audience/environment, prefer proof to hype, distinguish attribution from causality, preserve uncertainty, and write in a clear human voice without inventing facts."
 license: MIT
 metadata:
   version: "0.2.0"
@@ -211,6 +211,61 @@ Prefer current comparable local evidence when it genuinely matches the decision 
 For simple tasks, stay on the fast path. If the user asks for a short caption and has already supplied the relevant message and context, identify only the platform/surface, object or representation role, and reader state that can materially change the artifact, then write it. Do not reopen ICP, positioning, research, recommender theory, or the full content-environment model without need.
 
 For cross-platform adaptation, preserve strategic meaning but do not blindly cross-post the same object or representation. Adapt actor, context, object, representation, modality, proof placement, ask, and measurement only where the destination environment justifies a change.
+
+## Commerce / product discovery
+
+Use when an e-commerce or marketplace environment can materially change product/listing communication, catalog or variant reasoning, commercial-state interpretation, product discoverability, or performance diagnosis.
+
+This path includes product titles and descriptions, marketplace listing fields, catalog/listing identity, variants/SKUs, product cards/PDPs, structured attributes, backend/search fields, product images, product search/recommendation, price/stock/shipping/promotion state, and commerce measurement.
+
+Do **not** route every product-writing task through the full commerce handbook.
+
+For a narrow product communication task where the user already supplied trustworthy facts and the platform-specific field semantics are not consequential, stay on the fast path:
+
+```text
+CURRENT JOB
+→ PRODUCT / VARIANT SCOPE IF MATERIAL
+→ FACT / CLAIM BOUNDARY
+→ REPRESENTATION JOB
+→ DRAFT
+```
+
+Load `handbook/09-commerce-environments-and-product-discovery.md` only when deeper commerce structure can change the decision, especially for:
+
+- product/model/item/listing/catalog identity;
+- variant/SKU architecture or scoped identifiers;
+- field allocation across title, attributes, search/backend fields, images, PDP/card representations;
+- platform processing or machine-derived product data;
+- search, retrieval, relevance, ranking, recommendation, filtering, or sorting distinctions;
+- offer/price/stock/shipping/promotion/buyer-relative commercial state;
+- product-discovery diagnosis, measurement, attribution, or learning.
+
+When platform-specific behavior is material, load only the smallest relevant commerce module:
+
+- Google Shopping / Google commerce: `platforms/commerce/google-shopping.md`
+- Amazon: `platforms/commerce/amazon.md`
+- TikTok Shop: `platforms/commerce/tiktok-shop.md`
+- Shopee: `platforms/commerce/shopee.md`
+- Etsy: `platforms/commerce/etsy.md`
+- Lazada: `platforms/commerce/lazada.md`
+
+A simple platform-specific field task can load the relevant commerce module without requiring the full Chapter 09 graph if the module's current field semantics or policy is the only missing decision input.
+
+Use a hybrid route only when both content/social mediation and commerce relations materially matter. For example:
+
+```text
+TikTok Shop product-title task
+→ commerce fast path
+→ TikTok Shop module if current field semantics matter
+
+TikTok shoppable-video / LIVE / creator-commerce task
+→ Chapter 08 + Chapter 09 only as needed
+→ TikTok + TikTok Shop modules only as needed
+```
+
+Do not transfer evidence from paid ads, seller tools, one recommendation module, or one market into organic product discovery or another market without direct support. Keep eligibility, retrieval/matching, ranking, representation, commercial state, and observed outcome separate when those distinctions can change the conclusion.
+
+For commerce performance diagnosis, do not rewrite copy merely because sales or rank changed. First locate the relevant object/variant, platform record, commercial state, surface/source, representation, buyer/context scope, and measurement regime. Load `handbook/05-diagnosis-causality-and-experimentation.md` when causal attribution or experiment design becomes material.
 
 ## Copy critique
 
