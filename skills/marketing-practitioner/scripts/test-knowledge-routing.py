@@ -44,26 +44,50 @@ def main() -> int:
         "found 2",
     )
 
+    manifest = {
+        "version": 2,
+        "namespaces": {
+            "fixture": {
+                "path": "fixture.md",
+                "sections": {
+                    "heading": "## A",
+                    "marker": {"marker": "fixture.marker"},
+                },
+            }
+        },
+    }
+
     with tempfile.TemporaryDirectory() as tmp:
         old_root = module.ROOT
         try:
             module.ROOT = Path(tmp)
+            (Path(tmp) / "fixture.md").write_text(fixture, encoding="utf-8")
+
+            _, heading_content = module.get_knowledge("fixture.heading", manifest)
+            assert heading_content == a
+
+            _, marker_content = module.get_knowledge("fixture.marker", manifest)
+            assert marker_content == marker
+
+            assert module.validate_manifest(manifest) == []
+            assert list(module.iter_route_ids(manifest, "fixture")) == [
+                "fixture.heading",
+                "fixture.marker",
+            ]
+
             expect_error(lambda: module.resolve_path("../escape.md"), "escapes skill root")
+            expect_error(
+                lambda: module.get_knowledge("missing.route", manifest),
+                "unknown knowledge namespace",
+            )
+            expect_error(
+                lambda: module.get_knowledge("fixture.missing", manifest),
+                "unknown knowledge route",
+            )
         finally:
             module.ROOT = old_root
 
-    manifest = {
-        "routes": {
-            "fixture.route": {
-                "path": "fixture.md",
-                "selector": {"type": "heading", "value": "## A"},
-                "use_when": ["fixture"],
-            }
-        }
-    }
-    expect_error(lambda: module.get_knowledge("missing.route", manifest), "unknown knowledge route")
-
-    print("PASS\t6 routing-mechanics smoke checks")
+    print("PASS\t9 routing-mechanics smoke checks")
     return 0
 
 
