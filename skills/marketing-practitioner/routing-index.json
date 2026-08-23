@@ -5,231 +5,88 @@
   "routes": {
     "content.core-grammar": {
       "path": "handbook/08-content-environments-and-distribution.md",
-      "selector": {
-        "type": "heading",
-        "value": "## 3. Vocabulary discipline: primitives, modifiers, and derived patterns"
-      },
-      "use_when": [
-        "durable platform-environment roles",
-        "object vs representation vs state",
-        "provenance scope or history",
-        "whether a new platform concept needs a durable primitive"
-      ]
+      "selector": {"type": "heading", "value": "## 3. Vocabulary discipline: primitives, modifiers, and derived patterns"},
+      "use_when": ["durable platform-environment roles", "object vs representation vs state", "provenance scope or history", "whether a new platform concept needs a durable primitive"]
     },
     "content.meaning-representation": {
       "path": "handbook/08-content-environments-and-distribution.md",
-      "selector": {
-        "type": "heading",
-        "value": "## 4. Layer 1 — Human meaning, actor, object, and representation"
-      },
-      "use_when": [
-        "content job",
-        "source or publishing identity",
-        "content object vs representation",
-        "multimodal message allocation",
-        "context portability"
-      ]
+      "selector": {"type": "heading", "value": "## 4. Layer 1 — Human meaning, actor, object, and representation"},
+      "use_when": ["content job", "source or publishing identity", "content object vs representation", "multimodal message allocation", "context portability"]
     },
     "content.audience-interaction": {
       "path": "handbook/08-content-environments-and-distribution.md",
-      "selector": {
-        "type": "heading",
-        "value": "## 5. Layer 2 — Audience state, typed edges, and interaction"
-      },
-      "use_when": [
-        "audience state",
-        "relationship delivery or permission edge",
-        "intent provenance",
-        "interaction semantics",
-        "non-action interpretation"
-      ]
+      "selector": {"type": "heading", "value": "## 5. Layer 2 — Audience state, typed edges, and interaction"},
+      "use_when": ["audience state", "relationship delivery or permission edge", "intent provenance", "interaction semantics", "non-action interpretation"]
     },
     "content.governance-eligibility": {
       "path": "handbook/08-content-environments-and-distribution.md",
-      "selector": {
-        "type": "heading",
-        "value": "## 6. Layer 3 — Governance, eligibility, and effective platform state"
-      },
-      "use_when": [
-        "visibility or participation state",
-        "platform governance",
-        "eligibility",
-        "organic vs paid or boosted delivery",
-        "policy-scoped platform state"
-      ]
+      "selector": {"type": "heading", "value": "## 6. Layer 3 — Governance, eligibility, and effective platform state"},
+      "use_when": ["visibility or participation state", "platform governance", "eligibility", "organic vs paid or boosted delivery", "policy-scoped platform state"]
     },
     "content.machine-mediation": {
       "path": "handbook/08-content-environments-and-distribution.md",
-      "selector": {
-        "type": "heading",
-        "value": "## 7. Layer 4 — Machine mediation and recommendation"
-      },
-      "use_when": [
-        "retrieval ranking or reranking",
-        "machine vs human representation",
-        "ranking signal vs objective",
-        "recommendation scope",
-        "cold start or exploration"
-      ]
+      "selector": {"type": "heading", "value": "## 7. Layer 4 — Machine mediation and recommendation"},
+      "use_when": ["retrieval ranking or reranking", "machine vs human representation", "ranking signal vs objective", "recommendation scope", "cold start or exploration"]
     },
     "content.feedback-dynamics": {
       "path": "handbook/08-content-environments-and-distribution.md",
-      "selector": {
-        "type": "heading",
-        "value": "## 8. Layer 5 — Stakeholders, typed mediation edges, and feedback dynamics"
-      },
-      "use_when": [
-        "multi-stakeholder platform mediation",
-        "cross-environment transfer",
-        "provider-side platform state",
-        "platform guidance",
-        "feedback loops"
-      ]
+      "selector": {"type": "heading", "value": "## 8. Layer 5 — Stakeholders, typed mediation edges, and feedback dynamics"},
+      "use_when": ["multi-stakeholder platform mediation", "cross-environment transfer", "provider-side platform state", "platform guidance", "feedback loops"]
     },
     "content.measurement-evidence": {
       "path": "handbook/08-content-environments-and-distribution.md",
-      "selector": {
-        "type": "heading",
-        "value": "## 9. Layer 6 — Evidence generation, metrics, time, and causal scope"
-      },
-      "use_when": [
-        "metric provenance",
-        "exposure or selection bias",
-        "missing feedback",
-        "outcome maturity",
-        "attribution or causal scope"
-      ]
+      "selector": {"type": "heading", "value": "## 9. Layer 6 — Evidence generation, metrics, time, and causal scope"},
+      "use_when": ["metric provenance", "exposure or selection bias", "missing feedback", "outcome maturity", "attribution or causal scope"]
     },
     "content.invariants": {
       "path": "handbook/08-content-environments-and-distribution.md",
-      "selector": {
-        "type": "heading",
-        "value": "## 10. Minimal invariants worth keeping in runtime reasoning"
-      },
-      "use_when": [
-        "compact platform reasoning guardrails",
-        "check whether two platform concepts are being collapsed",
-        "runtime invariant review"
-      ]
+      "selector": {"type": "heading", "value": "## 10. Minimal invariants worth keeping in runtime reasoning"},
+      "use_when": ["compact platform reasoning guardrails", "check whether two platform concepts are being collapsed", "runtime invariant review"]
     },
     "commerce.identity": {
       "path": "handbook/09-commerce-environments-and-product-discovery.md",
-      "selector": {
-        "type": "heading",
-        "value": "## 3. Product identity and platform-record identity"
-      },
-      "use_when": [
-        "product vs listing or catalog identity",
-        "variant scope",
-        "SKU or identifier scope",
-        "platform record mismatch"
-      ]
+      "selector": {"type": "heading", "value": "## 3. Product identity and platform-record identity"},
+      "use_when": ["product vs listing or catalog identity", "variant scope", "SKU or identifier scope", "platform record mismatch"]
     },
     "commerce.commercial-state": {
       "path": "handbook/09-commerce-environments-and-product-discovery.md",
-      "selector": {
-        "type": "heading",
-        "value": "## 4. Commercial relations and state"
-      },
-      "use_when": [
-        "offer relation",
-        "price stock shipping or promotion",
-        "buyer-relative commercial state",
-        "displayed price vs checkout price"
-      ]
+      "selector": {"type": "heading", "value": "## 4. Commercial relations and state"},
+      "use_when": ["offer relation", "price stock shipping or promotion", "buyer-relative commercial state", "displayed price vs checkout price"]
     },
     "commerce.representation": {
       "path": "handbook/09-commerce-environments-and-product-discovery.md",
-      "selector": {
-        "type": "heading",
-        "value": "## 6. Representation discipline in commerce"
-      },
-      "use_when": [
-        "product object vs product card or PDP",
-        "seller field vs platform representation",
-        "machine representation vs human representation",
-        "commerce encounter surface"
-      ]
+      "selector": {"type": "heading", "value": "## 6. Representation discipline in commerce"},
+      "use_when": ["product object vs product card or PDP", "seller field vs platform representation", "machine representation vs human representation", "commerce encounter surface"]
     },
     "commerce.discovery": {
       "path": "handbook/09-commerce-environments-and-product-discovery.md",
-      "selector": {
-        "type": "heading",
-        "value": "## 7. Eligibility, retrieval, relevance, ranking, filtering, sorting, and composition"
-      },
-      "use_when": [
-        "search or recommendation stages",
-        "retrieval vs ranking",
-        "filter vs sort vs default ranking",
-        "organic product discovery"
-      ]
-    },
-    "commerce.field-evidence": {
-      "path": "handbook/09-commerce-environments-and-product-discovery.md",
-      "selector": {
-        "type": "heading",
-        "value": "## 8. Field-level evidence discipline"
-      },
-      "use_when": [
-        "whether a product field affects search",
-        "field semantics vs ranking weight",
-        "platform evidence to tactic translation",
-        "ranking folklore"
-      ]
+      "selector": {"type": "heading", "value": "## 8. Eligibility, retrieval, relevance, ranking, filtering, sorting, and composition"},
+      "use_when": ["search or recommendation stages", "retrieval vs ranking", "filter vs sort vs default ranking", "organic product discovery"]
     },
     "commerce.information-allocation": {
       "path": "handbook/09-commerce-environments-and-product-discovery.md",
-      "selector": {
-        "type": "heading",
-        "value": "## 12. Allocate information by job, not by field folklore"
-      },
-      "use_when": [
-        "title attributes description or image allocation",
-        "structured fact vs human explanation",
-        "human vs machine information job",
-        "product information architecture"
-      ]
+      "selector": {"type": "heading", "value": "## 13. Allocate information by job, not by field folklore"},
+      "use_when": ["title attributes description or image allocation", "structured fact vs human explanation", "human vs machine information job", "product information architecture"]
     },
     "commerce.resolvability": {
       "path": "handbook/09-commerce-environments-and-product-discovery.md",
-      "selector": {
-        "type": "heading",
-        "value": "## 13. Optimize for resolvability, not imagined model weights"
-      },
-      "use_when": [
-        "AI or conversational product discovery",
-        "compatibility or hard constraints",
-        "semantic matchability",
-        "shopper requirement resolvability",
-        "machine legibility without keyword stuffing"
-      ]
+      "selector": {"type": "heading", "value": "### 13.4 Optimize for resolvability, not imagined model weights"},
+      "use_when": ["AI or conversational product discovery", "compatibility or hard constraints", "semantic matchability", "shopper requirement resolvability", "machine legibility without keyword stuffing"]
+    },
+    "commerce.field-evidence": {
+      "path": "handbook/09-commerce-environments-and-product-discovery.md",
+      "selector": {"type": "heading", "value": "## 14. Field-level evidence discipline"},
+      "use_when": ["whether a product field affects search", "field semantics vs ranking weight", "platform evidence to tactic translation", "ranking folklore"]
     },
     "commerce.agentic": {
       "path": "handbook/09-commerce-environments-and-product-discovery.md",
-      "selector": {
-        "type": "heading",
-        "value": "## 16. Agent-mediated and delegated commerce"
-      },
-      "use_when": [
-        "shopper intent vs purchase authority",
-        "delegated checkout",
-        "checkout vs order state",
-        "merchant of record",
-        "agent capability vs authorization"
-      ]
+      "selector": {"type": "heading", "value": "### 10.3 Agent-mediated and delegated commerce"},
+      "use_when": ["shopper intent vs purchase authority", "delegated checkout", "checkout vs order state", "merchant of record", "agent capability vs authorization"]
     },
     "commerce.diagnosis": {
       "path": "handbook/09-commerce-environments-and-product-discovery.md",
-      "selector": {
-        "type": "heading",
-        "value": "## 18. Diagnosing weak or changing commerce performance"
-      },
-      "use_when": [
-        "rank traffic click or order decline",
-        "commerce performance diagnosis",
-        "surface or source mix change",
-        "commercial-state confounding"
-      ]
+      "selector": {"type": "heading", "value": "## 18. Diagnosing weak or changing commerce performance"},
+      "use_when": ["rank traffic click or order decline", "commerce performance diagnosis", "surface or source mix change", "commercial-state confounding"]
     }
   }
 }
