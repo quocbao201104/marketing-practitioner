@@ -48,6 +48,10 @@ Start with three things:
 2. **What do you already know or have?**
 3. **Where will the decision be used, if that matters?**
 
+Not sure what belongs in the prompt? See the [`Task Specification Guide`](TASK-SPECIFICATION-GUIDE.md). It gives a reusable starter, missing-information policy, and progressively richer examples without requiring a rigid form or prompt-engineering vocabulary.
+
+Start with the smallest task description that communicates the real job, then add only information that can materially change the result.
+
 For example:
 
 ```text
