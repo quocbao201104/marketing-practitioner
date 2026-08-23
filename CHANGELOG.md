@@ -4,6 +4,38 @@ All notable changes to this repository are documented here.
 
 The project uses semantic versioning for published skill revisions. Early versions may change structure while the conceptual model is stabilized.
 
+## [0.5.0] - 2026-08-24
+
+### Added
+
+- Added `handbook/10-commercial-design-pricing-and-terms.md`, a bounded Commercial Design layer for unresolved configuration/entitlement, payment/value-capture architecture, relationship/risk terms, and selection/allocation decisions.
+- Added `commercial-design.*` just-in-time routes for scope, core dimensions, evidence, decision logic, dynamics, governance, handoffs, decision records, and invariants.
+- Added `references/commercial-design-evidence.md` with scoped `CD01`–`CD16` source records and explicit non-transfer boundaries.
+- Added the repository-level `research/commercial-design/` theory lineage, preserving gap analysis, rejected hypotheses, prior-art pressure, evidence boundaries, and freeze adjudication outside runtime knowledge.
+- Added a targeted Commercial Design runtime routing smoke covering activation, Chapter 05/09 handoffs, Finance/Operations/Sales/Business-Model boundaries, dynamics, and evidence interpretation.
+- Added human navigation READMEs for the handbook, platform modules, and commerce platform modules without changing runtime routing semantics.
+
+### Changed
+
+- Extended `SKILL.md` with a Commercial Design / pricing operating path while preserving the existing `DECIDE` job, resolved-state freezing, dependency-first routing, fast paths, and minimum-sufficient-output behavior.
+- Updated public documentation and architecture maps to distinguish Commercial Design from positioning/value, message/copy, current commerce-state representation, governance, and executed transaction state.
+- Updated the handbook navigation to cover Chapters 08–10 and the large-chapter semantic-routing model.
+- Updated release metadata and README status to `v0.5.0`.
+
+### Fixed
+
+- Corrected `free trial vs free tier` routing so the decision spans `commercial-design.configuration` + `commercial-design.terms`, with payment and dynamics loaded only when materially required.
+- Normalized the CD08 trial evidence boundary to acquisition, retention, and profitability in the studied SaaS setting; removed unsupported runtime promotion of a `usage` outcome.
+- Tightened the CD12 boundary so personalized-pricing evidence supports divergence among firm profit, aggregate consumer surplus, and distributional outcomes without being promoted into evidence of perceived fairness or trust.
+
+### Validation status
+
+- Independent adversarial theory review found a genuine Commercial Design gap and allowed theory freeze after one targeted CD12 evidence correction.
+- Independent adversarial implementation review found no architecture blocker after one targeted JIT routing correction and CD08 normalization.
+- The targeted Commercial Design runtime routing smoke records 10/10 bounded walkthroughs as PASS.
+- No new controller job, generic `OFFER` primitive, Chapter 09 semantic rewrite, platform expansion, pricing optimizer, or broad benchmark claim was introduced.
+- Full checked-out-branch `python skills/marketing-practitioner/scripts/get-knowledge.py --validate` was not executed during this release pass; route/helper compatibility was inspected statically and the helper itself was unchanged.
+
 ## [0.4.0] - 2026-08-24
 
 ### Added
