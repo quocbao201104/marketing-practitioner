@@ -1,55 +1,308 @@
 # Contributing
 
-Contributions are welcome when they improve the conceptual accuracy, practical usefulness, evidence quality, or clarity of Marketing Practitioner.
+Contributions are welcome when they improve the conceptual accuracy, practical usefulness, evidence quality, runtime reliability, or clarity of Marketing Practitioner **without expanding the project by accident**.
 
-## Editorial standard
+This repository is a research-first marketing decision system for AI agents. It is not intended to become a general marketing wiki, a collection of platform hacks, or a generic agent-framework project.
 
-This repository is not intended to become a collection of isolated marketing tips. Contributions should fit the operating model of market learning, strategic choice, communication, measurement, and learning.
+The main contribution rule is:
 
-Prefer:
+> Change the smallest surface that can correct a demonstrated problem.
 
-- definitions with explicit boundaries;
-- methods tied to a decision or research question;
-- primary research, systematic reviews, academic monographs, standards, or authoritative methodological sources;
-- clear separation of established findings, practical heuristics, and open hypotheses;
-- explicit scope and boundary conditions;
-- concise operational guidance that an agent can execute without inventing facts.
+Do not broaden shared architecture, introduce a new primitive, or add another platform merely because the addition looks useful in isolation.
 
-Avoid:
+---
 
-- universal conversion claims without evidence;
-- tactic lists detached from a decision model;
-- fabricated statistics or testimonials;
-- single-study findings presented as general laws;
-- cultural stereotypes presented as individual psychology;
-- causal language supported only by observational association;
-- stylistic rules treated as timeless truths;
-- prompt-engineering or software-architecture material that does not belong to the marketing domain.
+## Project scope
 
-## Adding evidence
+The current project covers decision-relevant marketing reasoning across:
 
-When adding a substantive empirical claim:
+- customer research and evidence synthesis;
+- segmentation, ICP, JTBD, and target selection;
+- positioning, value, alternatives, proof, and trade-offs;
+- message strategy, copywriting, and copy critique;
+- diagnosis, causal reasoning, experimentation, and measurement;
+- organizational learning and postmortems;
+- international marketing, localization, and ethical persuasion;
+- social/content environments, distribution, recommendation, interaction, and observation;
+- commerce environments, product discovery, product information, commercial state, and marketplace representation;
+- conversational and agent-mediated commerce where it changes a marketing or product-discovery decision;
+- runtime routing and retrieval mechanisms required to make the skill use its own knowledge reliably and economically.
 
-1. cite the source in `skills/marketing-practitioner/references/bibliography.md`;
-2. state what the source actually identifies: description, association, prediction, experiment, review, or theory;
-3. preserve the population, setting, and material boundary conditions;
-4. avoid converting an average effect into a deterministic rule for every customer or market.
+A contribution should improve one of those capabilities or correct a concrete failure within them.
+
+### Out of scope by default
+
+The following do **not** belong here unless they are required by a concrete in-scope marketing decision:
+
+- generic prompt collections or prompt-engineering advice;
+- general-purpose agent architecture, memory, orchestration, or vector-database design;
+- CRM, sales-ops, support-ops, accounting, payment, fulfillment, or back-office automation as standalone domains;
+- scraping systems, data pipelines, browser automation, or integration code unrelated to the skill runtime;
+- generic SEO checklists, growth-hack lists, viral formulas, or conversion folklore;
+- reverse-engineering private ranking systems from anecdotal observations;
+- legal, tax, medical, or regulatory advice beyond identifying that a marketing decision depends on such expertise;
+- adding marketplaces, social networks, or channels merely for coverage completeness.
+
+If a proposed addition expands the project boundary, explain the decision-relevant failure that the current scope cannot represent or solve cleanly before proposing implementation.
+
+---
+
+## Change-risk levels
+
+Not every change deserves the same process.
+
+### Level 0 — editorial / mechanical
+
+Examples:
+
+- typo or grammar fixes;
+- broken links;
+- formatting;
+- README wording that does not change project claims;
+- release/version metadata;
+- correcting an obvious file reference.
+
+These changes should remain small. Maintainers may commit them directly. Do not create architecture work, new abstractions, or broad review machinery for a trivial correction.
+
+### Level 1 — bounded knowledge or evidence update
+
+Examples:
+
+- adding a stronger source for an existing claim;
+- correcting a time-sensitive platform capability;
+- clarifying one platform-specific field or behavior;
+- adding an evidence-ledger entry;
+- tightening an existing explanation without changing shared semantics.
+
+Requirements:
+
+- identify the exact decision or claim affected;
+- cite the strongest available evidence;
+- preserve platform, surface, market, population, and time scope;
+- update only the smallest relevant handbook/platform/reference section;
+- do not silently generalize a platform-local fact into shared theory.
+
+### Level 2 — runtime or shared semantic change
+
+Examples:
+
+- changing `SKILL.md` controller behavior;
+- changing shared Chapter 08 or Chapter 09 semantics;
+- adding/removing a durable invariant or primitive;
+- modifying `routing-index.json` structure or retrieval semantics;
+- changing section-loader behavior;
+- changing how social and commerce knowledge compose;
+- making a platform finding apply across multiple environments.
+
+These changes require stronger justification because they can alter many downstream decisions.
+
+Before implementation, provide a concrete failure in this form:
+
+```text
+INPUT / TASK
+→ CURRENT REPRESENTATION OR ROUTE
+→ FAILURE
+→ WHY THE FAILURE CHANGES THE DECISION
+→ SMALLEST CORRECTION
+```
+
+If that chain cannot be constructed, prefer a local clarification or no change.
+
+### Level 3 — project-boundary or architecture expansion
+
+Examples:
+
+- a new durable primitive;
+- a new top-level reasoning layer;
+- physical restructuring of large knowledge modules;
+- a new platform family with shared architectural consequences;
+- a new runtime subsystem;
+- a change that materially redefines what Marketing Practitioner is.
+
+Do not begin with implementation.
+
+First establish that the current grammar or architecture produces a real decision-relevant failure that cannot be represented without material distortion. Prefer established conceptual parents before inventing project-specific terminology.
+
+A larger architecture is not a contribution by itself.
+
+---
+
+## Protected surfaces
+
+Some files have a much larger blast radius than others.
+
+### `skills/marketing-practitioner/SKILL.md`
+
+This is the runtime controller and universal behavioral contract.
+
+Do not edit it merely because a handbook section changed or a new platform fact was discovered. Change `SKILL.md` only when agent behavior itself must change across tasks or routing boundaries.
+
+Preserve unless a demonstrated failure requires otherwise:
+
+- current-job identification;
+- resolved-state freezing;
+- open-decision identification;
+- dependency-first routing;
+- fast paths for narrow resolved tasks;
+- source fidelity and claim boundaries;
+- minimum-sufficient output;
+- social/commerce composition only when both are materially required.
+
+### Shared handbook chapters
+
+Chapters 08 and 09 provide shared semantic structure for content/social and commerce environments.
+
+A platform-specific fact should normally remain in its platform module. Promote it into shared knowledge only when the distinction survives across environments and changes more than one class of decision.
+
+Do not create a new primitive when the finding can already be represented as:
+
+```text
+object
++ representation
++ typed relation / edge
++ state
++ provenance
++ scope
++ history / transition
+```
+
+or by another established parent already present in the handbook.
+
+### `routing-index.json` and retrieval scripts
+
+The routing layer is infrastructure, not marketing theory.
+
+Keep:
+
+```text
+logical knowledge ID != physical file location
+semantic knowledge route != evidence source ID
+routing metadata != duplicated handbook prose
+```
+
+Do not turn the manifest into a second handbook, scoring engine, taxonomy project, or registry of every small paragraph.
+
+### Evidence ledgers and bibliography
+
+Reference files establish provenance; they do not become runtime rules merely because a source exists.
+
+Do not convert:
+
+```text
+source says X
+```
+
+into:
+
+```text
+agent should always do Y
+```
+
+without the missing inference being justified.
+
+---
+
+## Evidence standard
+
+When adding or changing a substantive empirical claim:
+
+1. prefer first-party documentation, primary research, systematic reviews, standards, or strong methodological sources where appropriate;
+2. record the source in the relevant bibliography or evidence ledger;
+3. state what the evidence actually establishes: capability, description, association, prediction, experiment, review, theory, or implementation detail;
+4. preserve material scope: product/surface, market, population, time, account state, delivery regime, or experimental setting;
+5. separate direct evidence from interpretation and practitioner inference;
+6. keep UNKNOWN when the evidence does not resolve the question.
+
+Do not treat:
+
+- qualitative recurrence as population prevalence;
+- correlation as causation;
+- attribution as incrementality;
+- seller-declared or machine-inferred product information as automatically verified truth;
+- an exposed ranking signal as a universal writing instruction;
+- one recommendation module as the platform's complete ranking system;
+- platform guidance as independent proof of effectiveness.
+
+---
+
+## Platform contributions
+
+Platform knowledge is time-sensitive and system-specific.
+
+When updating Facebook, Instagram, LinkedIn, TikTok, X, Google commerce, Amazon, TikTok Shop, Shopee, Etsy, Lazada, or a future justified module:
+
+- identify the exact product/surface/system being discussed;
+- prefer current first-party evidence when documenting current capabilities or policies;
+- distinguish organic, paid, seller-tool, creator-tool, search, recommendation, moderation, and transaction systems where material;
+- preserve country/market and time scope;
+- distinguish eligibility, retrieval, relevance, ranking, filtering, sorting, recommendation, presentation, and observed outcome;
+- do not infer hidden weights or universal algorithms from public documentation;
+- add a new platform only when it adds decision-relevant capability, not merely catalog coverage.
+
+A platform-local finding should stay local unless a concrete cross-platform counterexample shows the shared model is insufficient.
+
+---
 
 ## Updating the agent skill
 
-`skills/marketing-practitioner/SKILL.md` should remain operational. Extended conceptual discussion belongs in `skills/marketing-practitioner/handbook/`. When a handbook change alters how an agent should act, update `SKILL.md` in the same change.
+`skills/marketing-practitioner/SKILL.md` should remain operational and comparatively compact. Extended conceptual discussion belongs in the handbook or platform modules.
 
-Keep all runtime resources needed by the skill inside `skills/marketing-practitioner/` so they remain available when the skill is installed as a package.
+When a knowledge change truly alters how the agent should behave, update `SKILL.md` in the same change. Otherwise leave the controller alone.
+
+Keep runtime resources required by the skill inside `skills/marketing-practitioner/` so they travel with the installed package. Keep evaluation artifacts outside the installable skill under `evals/`.
+
+For large indexed knowledge, preserve stable logical route IDs where possible. A heading or physical file may move without requiring the runtime-facing knowledge ID to change.
+
+---
+
+## Validation expectations
+
+Validation should match the risk of the change.
+
+- **Level 0:** inspect the rendered/output text and affected links/metadata.
+- **Level 1:** verify source scope, affected knowledge section, and any existing evidence/route binding.
+- **Level 2:** add or update a targeted regression, smoke case, or adversarial counterexample that reproduces the failure being corrected.
+- **Level 3:** require explicit architecture review before broad implementation and validate the claimed cross-cutting failure independently.
+
+Do not create benchmark claims from a static audit or a handful of smoke cases. Report exactly what was executed and what remains unvalidated.
+
+---
 
 ## Writing style
 
-Use formal, plain English. Prefer dense conceptual organization over a repeating pattern of explanation followed by examples. Examples are appropriate when they resolve an ambiguity that definitions and criteria cannot resolve economically.
+Use formal, plain English in repository content.
+
+Prefer:
+
+- explicit distinctions;
+- compact invariants where they reduce ambiguity;
+- decision-linked guidance;
+- clear scope and uncertainty;
+- examples only when they resolve a real ambiguity.
+
+Avoid:
+
+- marketing hype about the project itself;
+- unnecessary new terminology;
+- long tactic lists;
+- decorative frameworks;
+- duplicated explanation across `SKILL.md`, handbook, platform modules, and references.
+
+---
 
 ## Pull requests
 
-A useful pull request should explain:
+For non-trivial contributions, a useful pull request should explain:
 
-- the problem being corrected;
-- the conceptual or empirical basis for the change;
-- affected handbook and skill sections;
-- whether the change modifies a rule, a heuristic, or only exposition.
+- the concrete problem or failure being corrected;
+- why the current behavior/knowledge is insufficient;
+- the evidence or counterexample supporting the change;
+- the smallest affected files/sections;
+- whether the change is Level 1, 2, or 3;
+- whether it changes a rule, heuristic, platform-local fact, routing behavior, or only exposition;
+- what validation was actually run;
+- what remains unknown.
+
+Keep PRs narrow. Do not bundle unrelated platform research, theory changes, controller changes, and documentation cleanup into one contribution.
+
+A contribution is stronger when it removes ambiguity or fixes a real decision failure with less architecture, not more.
