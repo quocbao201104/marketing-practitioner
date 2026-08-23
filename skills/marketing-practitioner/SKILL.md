@@ -175,12 +175,13 @@ history / state transition
 
 Do not reconstruct every derived concept by default. Attention re-entry, secondary use, nested recommendation, spillover, community-local constraints, platform status, and feedback loops should be represented from the compact core only when they matter.
 
-Load the smallest platform module only when platform-specific behavior is material. The four current modules use the same compact vocabulary and should be treated as current product instantiations, not independent frameworks:
+Load the smallest platform module only when platform-specific behavior is material. The five current modules use the same compact vocabulary and should be treated as current product instantiations, not independent frameworks:
 
 - Facebook: `platforms/facebook.md`
 - LinkedIn: `platforms/linkedin.md`
 - Instagram: `platforms/instagram.md`
 - TikTok: `platforms/tiktok.md`
+- X: `platforms/x.md`
 
 Treat current ranking, recommendation, visibility moderation, eligibility, disclosure, creator guidance, action semantics, relationship/delivery affordances, and format behavior as time-sensitive and system-specific. An official fact from one surface, delivery mode, policy system, commerce system, or ad system does not automatically transfer to another.
 
