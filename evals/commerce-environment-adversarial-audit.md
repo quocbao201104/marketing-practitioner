@@ -4,6 +4,8 @@ Reviewed: 2026-08-23
 
 Status: **research audit, not benchmark/eval score**.
 
+> **Post-review addendum:** an independent review of frozen head `1bcc0f653d0f14031e8209c77de51e518d66302a` later found one Etsy source-fidelity defect that this architecture audit did not expose: current official Etsy sources conflict on description/broader listing-data participation in query matching. The 8+3 architecture verdict below still survives, but this audit's `0 PARTIAL / 0 FAIL` must not be read as exhaustive evidence-fidelity proof. See `commerce-etsy-query-matching-source-conflict-correction.md` for the targeted repair.
+
 Purpose: test whether Chapter 09 and the six commerce platform modules preserve the decision-relevant distinctions discovered during cross-platform induction **without creating a second commerce ontology, leaking platform-specific ranking claims into durable theory, or making ordinary product-copy tasks traverse the full model**.
 
 This audit is stacked on the C3 candidate correction (`OBJECT` / `REPRESENTATION` as durable parent roles). It does not adjudicate PR #5 independently and does not claim runtime execution reliability.
@@ -394,28 +396,32 @@ MAY OR MAY NOT REQUIRE A SEPARATE DOMAIN-PRODUCT IDENTITY
 
 **Verdict: LOSSLESS**
 
-## E2 — Initial query matching and post-retrieval semantic relevance differ
+## E2 — Search-stage distinctions remain representable, but current official field boundaries can conflict
 
 **Stress case**
 
-The legal disclosure names titles/attributes/categories/tags for query matching; engineering evidence places a richer multimodal semantic relevance model after retrieval and before/within downstream ranking integration.
+Etsy official sources describe query matching at different abstraction levels: the legal disclosure names titles/attributes/categories/tags for the first phase, while current Seller Handbook guidance explicitly includes descriptions and broader listing information under query matching. Engineering evidence places a particular multimodal semantic-relevance model after retrieval and before/within downstream ranking integration.
 
 **Encoding**
 
 ```text
-platform state = matching/retrieval → semantic relevance → ranking integration
-field role      = stage-specific
-provenance      = legal product disclosure vs engineering implementation
-unknown         = undisclosed interactions / exact weights
+platform state = query matching / retrieval → semantic relevance → ranking integration
+field role      = stage-specific where established
+provenance      = legal disclosure vs Seller Handbook vs engineering implementation
+scope/date      = retained
+unknown         = exact current field-to-stage production boundary / weights
 ```
 
 **Preserved distinction**
 
 ```text
 FIELD INFLUENCES SEARCH
-≠ INITIAL MATCHING
+≠ ONE SETTLED FIELD-TO-STAGE MAP
 ≠ SEMANTIC RELEVANCE
 ≠ DIRECT RANKING WEIGHT
+
+OFFICIAL SOURCE CONFLICT
+→ PRESERVE SOURCE + DATE + ABSTRACTION + UNKNOWN
 ```
 
 **Verdict: LOSSLESS / INTERNAL UNKNOWN**
@@ -587,13 +593,15 @@ and tracks role transitions such as review observation → displayed trust conte
 
 Chapter 09 has an explicit fast path for narrow title/highlight/description/image work, and every platform module includes a platform-local fast path. The deep graph is representational capacity, not mandatory workload.
 
-The runtime controller has **not yet been changed**, so this audit only establishes that a safe route can be written; actual routing behavior remains untested.
+The runtime controller had **not yet been changed when this historical audit was first frozen**, so this case originally recorded runtime-untested. Later routing smoke closed that gate separately.
 
-**Verdict: ARCHITECTURALLY SUPPORTED / RUNTIME UNTESTED**
+**Verdict: ARCHITECTURALLY SUPPORTED / HISTORICALLY RUNTIME UNTESTED**
 
 ---
 
 # 8. Scorecard
+
+The original frozen scorecard was:
 
 | Source | Cases | LOSSLESS | LOSSLESS / INTERNAL UNKNOWN | Runtime untested | PARTIAL | FAIL |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -606,7 +614,12 @@ The runtime controller has **not yet been changed**, so this audit only establis
 | Cross-module | 5 | 4 | 0 | 1 | 0 | 0 |
 | **Total** | **23** | **15** | **7** | **1** | **0** | **0** |
 
-All 22 representational/evidence-boundary cases are lossless or lossless with platform internals explicitly unknown. The remaining cross-module case is intentionally marked runtime-untested because no router change has been made yet.
+Post-review interpretation:
+
+- the **architecture/cardinality** conclusions remain intact;
+- Etsy E2 must be read as `LOSSLESS / INTERNAL UNKNOWN` with explicit official-source conflict, not as proof of one settled initial-matching field map;
+- later routing smoke separately closes the historical runtime-untested gate;
+- the existence of a later source-fidelity correction demonstrates that zero PARTIAL/FAIL in this audit is not exhaustive proof of evidence correctness.
 
 No case required:
 
@@ -618,15 +631,14 @@ No case required:
 
 ---
 
-# 9. Review findings and corrections already incorporated
+# 9. Review findings and corrections incorporated across the research sequence
 
-The adversarial pass found and corrected three material draft problems before this audit was frozen:
+The adversarial process found and corrected material problems rather than treating the first draft as authoritative:
 
 1. **Over-strong product/listing separation.** The draft initially risked treating `domain product ≠ platform record` as universal. Etsy falsified that formulation. Chapter 09 now asks whether two independently relevant identities actually exist.
 2. **Actor/object disjointness.** A shop/account can be an actor and a recommendation target. Chapter 09 now treats these as analytical roles rather than mutually exclusive entity classes.
 3. **Over-broad “product information.”** Reviews, ratings, seller/shipping state and product-descriptive facts were separated into descriptive, commercial, and observational/social context.
-
-A minor prose typo remains to fix in the TikTok Shop module before a review PR is opened; it is not a conceptual result.
+4. **Etsy query-matching source conflict.** Later independent review found that the frozen evidence layer had treated the legal four-field query-matching enumeration too aggressively. The correction now preserves the legal disclosure, Seller Handbook description/broader-listing query-matching claims, and the scoped post-retrieval semantic-model evidence without forcing false consistency.
 
 ---
 
@@ -641,13 +653,14 @@ FIT THE SAME 8 + 3 PARENT GRAMMAR
 
 0 NEW DURABLE PRIMITIVES
 0 SECOND COMMERCE ONTOLOGIES
-0 PARTIAL
-0 FAIL
+
+ETSY SOURCE-FIDELITY DEFECT
+TARGETED CORRECTION APPLIED
 
 RUNTIME ROUTING
-NOT YET TESTED
+VALIDATED SEPARATELY BY ROUTING SMOKE
 ```
 
-**Research verdict: PROCEED TO MINIMAL ROUTER INTEGRATION, THEN RUN STATIC/RUNTIME SMOKE BEFORE MERGE.**
+**Current gate recommendation: RETURN THE CORRECTED PR #7 HEAD TO INDEPENDENT ADVERSARIAL REVIEW.**
 
-This audit does not claim platform tactics are causally effective, that public documentation fully exposes production systems, or that the skill is benchmark-ready.
+This audit does not claim platform tactics are causally effective, that public documentation fully exposes production systems, that all official sources are internally consistent, or that the skill is benchmark-ready.
