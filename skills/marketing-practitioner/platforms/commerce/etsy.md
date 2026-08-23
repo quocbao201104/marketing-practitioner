@@ -217,14 +217,23 @@ not keyword inventory.
 
 Descriptions provide richer product understanding and can include relevant natural-language phrases [E02][E08].
 
-But do not flatten official guidance into one stage claim. Etsy's legal disclosure names initial query matching across title, attributes, categories and tags [E01], while broader seller guidance describes descriptions and other listing data as considered by search. Engineering evidence shows rich information such as descriptions can enter post-retrieval semantic relevance [E04].
+Current official Etsy sources do **not** resolve the exact query-matching boundary consistently. The October 2025 legal disclosure describes first-phase query matching across titles, attributes, categories, and tags [E01]. In contrast, the August 2025 `Keywords 101` Seller Handbook explicitly says keywords across **titles, descriptions, tags, categories, and attributes** are essential to query matching, calls query matching the **first phase**, and says description keywords participate in it [E02]. `How Etsy Search Works` likewise places a holistic listing — including title, tags, attributes, descriptions, first photo, reviews, and more — under its Query matching section [E08].
+
+Etsy Engineering adds a different, implementation-specific fact: its January 2026 **semantic-relevance model** first applies after retrieval and consumes rich listing information including descriptions [E04]. That does not prove descriptions are absent from every other initial matching/retrieval mechanism.
 
 Therefore:
 
 ```text
-DESCRIPTION CAN MATTER TO END-TO-END SEARCH
-≠ DESCRIPTION IS PROVEN INITIAL-RETRIEVAL FIELD
+ETSY OFFICIAL SOURCES
+DISAGREE / USE DIFFERENT ABSTRACTION LEVELS
+ABOUT DESCRIPTION / BROADER LISTING DATA
+IN QUERY MATCHING
+
+→ preserve source + date + abstraction level
+→ exact current production boundary remains UNKNOWN
 ```
+
+Do not answer categorically that description is “post-retrieval only,” and do not infer a fixed matching or ranking weight from the Seller Handbook wording.
 
 ### 4.6 First photo / other photos
 
@@ -252,20 +261,52 @@ VISIBLE PHOTO JOB
 
 ## 5. “Etsy considers this in Search” must be stage-scoped
 
-This platform is a direct example of why Chapter 09 separates search stages.
+This platform is a direct example of why Chapter 09 separates search stages **and** preserves conflicting official abstractions instead of forcing false consistency.
 
-### 5.1 Official query matching
+### 5.1 Official query matching has an unresolved field boundary
 
-Etsy's legal disclosure says initial organic Search query matching scans [E01]:
+Current official sources give different descriptions of the first/query-matching phase:
 
 ```text
+E01 — LEGAL DISCLOSURE
+query matching scans:
 titles
 attributes
 categories
 tags
+
+E02 — KEYWORDS 101
+explicitly says query matching, the first phase, uses keywords across:
+titles
+descriptions
+tags
+categories
+attributes
+
+E08 — HOW ETSY SEARCH WORKS
+places a holistic listing under Query matching, including:
+title
+tags
+attributes
+descriptions
+first photo
+reviews
+and more
 ```
 
-and returns an initial set related to the query.
+These sources differ in purpose and abstraction level. Do **not** silently choose the narrower enumeration as a complete production field map, and do not assume the broader Seller Handbook wording discloses exact implementation mechanics or weights.
+
+Use:
+
+```text
+CURRENT OFFICIAL ETSY SOURCES
+CONFLICT ON THE EXACT QUERY-MATCHING FIELD BOUNDARY
+
+→ source/date/abstraction level are material
+→ exact production mechanics remain UNKNOWN
+```
+
+For a concrete question such as “a phrase exists only in description; can it participate in initial query matching?”, the defensible answer is that current Seller Handbook guidance says **yes**, while the legal disclosure's first-phase enumeration omits description; the exact implementation boundary is therefore unresolved publicly rather than categorically negative.
 
 ### 5.2 Ranking
 
@@ -285,7 +326,7 @@ Treat these as current disclosed factor categories, not precise weights.
 
 ### 5.3 Post-retrieval semantic relevance
 
-Etsy Engineering's January 2026 system adds a more precise implementation view [E04]. The real-time semantic model consumes richer listing information including:
+Etsy Engineering's January 2026 system adds a more precise implementation view **for the disclosed semantic-relevance model** [E04]. The real-time semantic model consumes richer listing information including:
 
 ```text
 title
@@ -305,18 +346,30 @@ RANKING-LOSS WEIGHTING
 RELEVANCE BOOSTING NEAR FINAL RESULTS
 ```
 
-Etsy explicitly says improving relevance farther upstream in **retrieval** is a future direction [E04].
+Etsy explicitly says improving this semantic relevance farther upstream in **retrieval** is a future direction [E04].
+
+Keep the model scope precise:
+
+```text
+THIS SEMANTIC-RELEVANCE MODEL
+FIRST APPLIES POST-RETRIEVAL
+
+≠
+
+DESCRIPTION / RICH LISTING DATA
+IS ABSENT FROM EVERY EARLIER QUERY-MATCHING SYSTEM
+```
 
 Therefore:
 
 ```text
 FIELD INFLUENCES SEARCH
-≠ FIELD PARTICIPATES IN INITIAL MATCHING
-≠ FIELD ENTERS SEMANTIC RELEVANCE
+≠ ONE SETTLED FIELD-TO-STAGE MAP
+≠ FIELD ENTERS THIS SEMANTIC MODEL
 ≠ FIELD HAS DIRECT RANKING WEIGHT
 ```
 
-This distinction should survive any future seller guidance update.
+The current official-source conflict itself is evidence that source, date, and abstraction level must remain part of the reasoning.
 
 ---
 
@@ -588,7 +641,9 @@ TAGS
 additional relevant query vocabulary / phrases
 
 DESCRIPTION
-rich human explanation + natural relevant language
+rich human explanation + natural relevant language;
+current Seller Handbook explicitly claims query-matching participation,
+while exact implementation boundary remains unresolved across official sources
 
 FIRST PHOTO
 selection / identity representation
@@ -639,12 +694,15 @@ Search impressions? visits? recommendation? favorites? carts? purchases?
 Existing unique item, repeatable item, variation family,
 personalized made-to-order, private custom listing?
 
-3. QUERY MATCHING DATA
-Same title, category, attributes, tags?
+3. QUERY-MATCHING / LISTING DATA
+Same title, category, attributes, tags, description?
+If the diagnosis depends on exact field-to-stage participation,
+preserve the current E01 vs E02/E08 source conflict rather than assuming one settled map.
 
-4. POST-RETRIEVAL RELEVANCE REPRESENTATION
+4. POST-RETRIEVAL SEMANTIC-RELEVANCE REPRESENTATION
 Same description, photos, variations, product facts / inferred attributes?
 Any platform/search-system change?
+Remember: use of description in E04's semantic model does not make that its only possible Search role.
 
 5. SHOP / QUALITY STATE
 Same reviews, service quality, shop completeness, cases/policy state?
@@ -729,8 +787,25 @@ TITLE KEYWORD POSITION
 ```
 
 ```text
-TITLE / TAG / ATTRIBUTE / DESCRIPTION / PHOTO ALL MATTER SOMEWHERE
-≠ ALL PARTICIPATE IN INITIAL QUERY MATCHING THE SAME WAY
+GENERIC "FIELD MATTERS IN SEARCH"
+≠ ENOUGH TO INFER ITS EXACT STAGE OR WEIGHT
+```
+
+```text
+BUT:
+CURRENT ETSY OFFICIAL SOURCES
+CONFLICT ON DESCRIPTION / BROADER LISTING DATA
+IN QUERY MATCHING
+
+→ DO NOT ANSWER "DESCRIPTION IS POST-RETRIEVAL ONLY"
+→ PRESERVE SOURCE + DATE + ABSTRACTION LEVEL
+→ EXACT PRODUCTION BOUNDARY = UNKNOWN
+```
+
+```text
+E04 SEMANTIC-RELEVANCE MODEL
+STARTS POST-RETRIEVAL
+≠ DESCRIPTION IS ABSENT FROM EVERY EARLIER MATCHING MECHANISM
 ```
 
 ```text
@@ -780,14 +855,15 @@ ONE RECOMMENDATION MODULE
 
 Unless fresher Etsy evidence establishes otherwise, preserve:
 
-- complete initial retrieval implementation beyond public query-matching abstraction;
+- exact current initial query-matching/retrieval field participation where E01 conflicts with E02/E08, including description and broader listing information;
+- complete initial retrieval implementation beyond public query-matching abstractions;
 - exact weights of disclosed Search ranking factors;
-- exact interaction among legal-disclosure matching/ranking and current engineering semantic-relevance layers;
+- exact interaction among legal-disclosure matching/ranking, Seller Handbook query-matching descriptions, and current engineering semantic-relevance layers;
 - which rich listing fields participate in which upstream/downstream stages beyond disclosed integration points;
 - current deployment status and coverage of the May 2026 RL-generated product summaries;
 - exact recommendation model/features/weights for each of hundreds of modules;
 - exact relation of first photo/reviews to particular Search stages beyond broader guidance and engineering uses;
-- exact causal effect of changing title/tags/attributes/photos on traffic/sales without a valid experiment;
+- exact causal effect of changing title/tags/attributes/descriptions/photos on traffic/sales without a valid experiment;
 - whether all markets/languages receive identical search/recommendation behavior.
 
 ---
@@ -798,20 +874,21 @@ Unless fresher Etsy evidence establishes otherwise, preserve:
 2. Are variations, personalization, and private custom listings separated correctly?
 3. Are category, attributes, tags, title, description and photos allocated by their current jobs rather than treated as one keyword bag?
 4. Is title-front-loading explained as human readability rather than ranking priority?
-5. Is official query matching kept separate from post-retrieval semantic relevance and downstream ranking?
-6. Are engagement and semantic relevance kept distinct?
-7. Are shop/service/shipping ranking states kept separate from product copy?
-8. Are reviews/ratings treated as observations and shop/listing context rather than intrinsic product facts?
-9. Are platform-inferred attributes carrying inference provenance?
-10. Are internal machine summaries kept separate from customer-facing copy?
-11. Is planned experimentation distinguished from deployed production behavior?
-12. Are Search and recommendation modules kept separate?
-13. Is AI title assistance kept separate from diagnosis / ranking truth?
-14. Are current Seller Handbook vs legal vs engineering sources reconciled by scope rather than forced into one simplistic story?
-15. Are undisclosed internals left UNKNOWN?
-16. Is the fast path respected for a narrow listing-copy task?
+5. If exact query-matching field participation matters, are the narrower E01 legal disclosure and broader E02/E08 Seller Handbook claims both preserved instead of silently choosing one?
+6. Is E04's post-retrieval semantic-relevance model kept separate from the unresolved broader query-matching boundary?
+7. Are engagement and semantic relevance kept distinct?
+8. Are shop/service/shipping ranking states kept separate from product copy?
+9. Are reviews/ratings treated as observations and shop/listing context rather than intrinsic product facts?
+10. Are platform-inferred attributes carrying inference provenance?
+11. Are internal machine summaries kept separate from customer-facing copy?
+12. Is planned experimentation distinguished from deployed production behavior?
+13. Are Search and recommendation modules kept separate?
+14. Is AI title assistance kept separate from diagnosis / ranking truth?
+15. Are current Seller Handbook vs legal vs engineering sources reconciled by scope, date, and abstraction level rather than forced into one simplistic story?
+16. Are undisclosed internals left UNKNOWN?
+17. Is the fast path respected for a narrow listing-copy task?
 
-Etsy should be reasoned as a marketplace of heterogeneous listing/item specifications with layered matching, relevance, ranking and machine product understanding — not as a mass-catalog keyword system.
+Etsy should be reasoned as a marketplace of heterogeneous listing/item specifications with layered matching, relevance, ranking and machine product understanding — and with explicit preservation of unresolved official-source conflicts where current public descriptions do not provide one settled field-to-stage map.
 
 ---
 
