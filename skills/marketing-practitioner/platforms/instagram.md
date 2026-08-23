@@ -6,6 +6,8 @@ Use this module when Instagram-specific object, surface, modality, visibility, r
 
 Current operational claims should be re-checked when consequential. Instagram changes product surfaces, recommendation systems, eligibility rules, creator tools, and policy controls over time [R29].
 
+This module instantiates the compact model in `handbook/08-content-environments-and-distribution.md`; it does not define a separate Instagram ontology.
+
 ---
 
 ## 1. Instagram is a family of environments, not one algorithm
@@ -33,24 +35,94 @@ Treat at least these environments separately when material:
 
 The same account, object, and audience can encounter different recommendation logic and different interaction options across these surfaces [R29].
 
-Use the general distinction from the handbook:
+Keep separate:
 
 ```text
 PRODUCT / SURFACE ROLE
-≠
-RECOMMENDER OBJECTIVE
-≠
-MARKETING JOB
+≠ RECOMMENDER OBJECTIVE
+≠ MARKETING JOB
 ```
+
+An official fact from one Instagram system does not become a platform-wide writing rule.
 
 ---
 
-## 2. Instagram is not caption-first
+## 2. Actor, content object, representation, and message allocation
 
-The main marketing meaning may be carried by:
+### Actor / source
+
+Choose the publishing actor from authority, accountability, audience relationship, and job rather than a generic reach belief.
+
+For collaboration or creator-brand work, distinguish:
+
+```text
+SOURCE / AUTHORITY
+who supports each claim?
+
+CONTENT OWNER
+who controls the object?
+
+VISIBLE AUTHORS
+who appears publicly attached?
+
+OPERATIONAL ACTOR
+who or what performed the action if material?
+```
+
+Distribution convenience does not transfer source authority. Preserve required sponsorship or branded-content disclosure.
+
+### Content object
+
+Relevant objects and participation units can include:
 
 - image;
-- carousel sequence;
+- carousel;
+- Reel;
+- Story;
+- Highlight / persistent collection;
+- comment / reply;
+- repost or derivative participation where available;
+- collaborative post;
+- profile/account as an identity recommendation object.
+
+Choose the object from the information and participation job, not a generic format leaderboard.
+
+### Content representation
+
+Keep the persistent object separate from the representation through which it is first evaluated or encountered.
+
+```text
+CONTENT OBJECT
+Reel / carousel / image / Story / comment / ...
+
+SELECTION REPRESENTATION
+cover / first frame
+preview / profile presentation
+caption or metadata context where material
+notification / repost framing
+
+ENCOUNTER SURFACE
+Feed / Explore / Reels / Search / profile / repost / DM / ...
+```
+
+Therefore:
+
+```text
+CONTENT OBJECT
+≠ CONTENT REPRESENTATION
+≠ ENCOUNTER SURFACE
+```
+
+A Reel can remain the same object while a cover/profile presentation, first autoplay frames, audience relationship, or encounter surface changes selection and interpretation.
+
+Do not diagnose underlying content from a weak representation without checking which representation people actually encountered.
+
+### Message allocation
+
+Instagram is not caption-first. Meaning may be carried by:
+
+- visual composition;
+- image sequence;
 - motion;
 - spoken audio;
 - music / sound;
@@ -66,111 +138,88 @@ Ask:
 ```text
 What must the audience understand?
 ↓
-Which carrier should communicate each part?
+Which carrier should communicate each part efficiently and truthfully?
 ```
 
-Use the caption for missing context, proof, qualification, continuity, accessibility, voice, or action rather than assuming the caption must contain the entire message.
+Use the caption for missing context, proof, qualification, continuity, accessibility, voice, or action rather than repeating the entire visual object.
+
+### Object-job examples
+
+**Image** — useful when one visual efficiently carries identity, proof, result, emotional cue, or subject.
+
+**Carousel** — useful when the information benefits from sequence, decomposition, comparison, multi-example proof, reference, or save value.
+
+```text
+slide 1      → subject / relevance
+slides 2–6   → explanation / evidence / comparison
+last slide   → synthesis / appropriate next action
+caption      → context / source / qualification / optional CTA
+```
+
+**Reel** — useful when motion, demonstration, voice, timing, presence, transformation, or audiovisual explanation materially improves the message.
+
+```text
+cover / first frame → selection / subject signal
+video / voice       → explanation / demonstration
+on-screen text      → reinforcement / comprehension
+caption             → context / proof / source / action
+```
+
+**Story** — useful when immediacy, relationship, interaction, or time-sensitive context dominates.
+
+**Highlight** — if ephemeral material becomes persistent, add enough context for later viewers who do not share the original moment.
+
+Do not convert these object-job fits into deterministic performance rules.
 
 ---
 
-## 3. Content object is not encounter surface
-
-Keep these separate:
-
-```text
-CONTENT OBJECT
-Reel / carousel / image / Story / comment / ...
-
-ENCOUNTER SURFACE
-Feed / Explore / Reels / Search / profile / repost / DM / ...
-```
-
-A Reel can be encountered by a follower, a stranger in recommendation, a person arriving through profile, or someone who received it from a friend. The object is the same; reader state and social context are not.
-
-Also preserve **encounter context** when it matters:
-
-```text
-pure algorithmic discovery
-relationship-mediated exposure
-search-intent exposure
-direct share
-repost-mediated exposure
-profile browsing
-notification re-entry
-```
-
-Do not infer audience state from format alone.
-
----
-
-## 4. Surface map
+## 3. Surface map and audience state
 
 ### Relationship / connected Feed
 
-Typical practitioner context:
+Typical context:
 
-- existing follow relationship;
-- mixed content inventory;
+- an existing follow relationship may exist;
+- inventory remains mixed and ranked;
 - repeated exposure and identity recognition can matter;
-- the user may still be in a ranked feed rather than receiving every post from every followed account.
+- followers are not guaranteed every post.
 
-Do not interpret follower count as guaranteed exposure.
+Ask whether the job is primarily relationship maintenance or stranger discovery, and whether shared context is actually established.
 
-Useful questions:
+### Suggested Feed / unconnected recommendation
 
-- is this primarily maintaining a relationship or reaching strangers?
-- does the audience already know the account / series?
-- is the post self-contained enough if suggested beyond followers?
-
-### Feed recommendations / suggested content
-
-This is unconnected discovery mixed into a feed context. Current Instagram documentation distinguishes recommendation eligibility from actual recommendation [R29].
-
-Implication:
+Current Instagram documentation distinguishes recommendation eligibility from actual recommendation [R29].
 
 ```text
-eligible
-≠ retrieved
-≠ highly ranked
-≠ high reach
-≠ business success
+ELIGIBLE
+≠ RETRIEVED
+≠ HIGHLY RANKED
+≠ HIGH REACH
+≠ BUSINESS SUCCESS
 ```
 
-A stranger needs enough subject and context to understand why the object is relevant without relying on the follower relationship.
+A relevant stranger may need more context than an existing follower.
 
 ### Stories
 
-Stories are relationship-heavy and time-sensitive compared with persistent discovery objects.
+Stories are relatively relationship-heavy and time-sensitive. Possible jobs include updates, recurring relationship maintenance, questions, behind-the-scenes context, direct response, and short-lived announcements.
 
-Possible jobs:
-
-- current update;
-- recurring relationship maintenance;
-- interaction / question;
-- behind-the-scenes context;
-- direct response;
-- short-lived announcement.
-
-Do not assume a viewer saw previous Stories. If a sequence matters, make the dependency legible.
-
-If Story content will later become a Highlight or persistent reference, increase context portability.
+Do not assume a viewer saw earlier Stories. If sequence matters, make the dependency legible.
 
 ### Explore
 
-Treat Explore as a discovery environment rather than a relationship channel.
+Treat Explore as discovery rather than a relationship channel. A user can have topic interest without knowing the account.
 
-A relevant stranger may have topic interest without knowing the account. Subject clarity, object meaning, proof, and enough identity/context to support further evaluation are often more useful than follower-only shorthand.
-
-Do not encode one format as the universal Explore winner.
+Prefer enough subject clarity, proof, identity context, and portability for a relevant stranger. Do not encode one universal Explore-winning format.
 
 ### Reels
 
-Reels are sequential audiovisual objects that can participate in both discovery and relationship environments.
+Reels can participate in both relationship and discovery environments.
 
-Allocate the message across time:
+For sequential meaning:
 
 ```text
-EARLY VALUE SIGNAL
+EARLY VALUE / SUBJECT SIGNAL
 what is this and why continue?
 
 DEVELOPMENT
@@ -180,396 +229,76 @@ RESOLUTION
 deliver the promised value
 
 NEXT ACTION
-only if the job requires one
+only when the job requires one
 ```
 
-The early value signal is not a mandatory shock hook. It can be the answer, result, demonstration, subject, problem, or visual transformation.
+The early signal is not a mandatory shock hook. It can be the answer, result, demonstration, subject, problem, or visual transformation.
 
 ### Search
 
-Treat Search as an intent-oriented environment.
+Treat Search as intent-oriented.
 
 Ask:
 
-- what query or topic is likely material?
-- what does the searcher actually need?
-- is the object an answer, tutorial, comparison, reference, identity result, place, audio, or another object type?
+- what query/topic is material?
+- what does the searcher need?
+- is the result an answer, tutorial, comparison, reference, identity result, place, audio, or another object?
 - what human-readable subject and metadata make the result interpretable?
 
-Do not convert keyword presence into an unsupported ranking guarantee.
+Do not convert keyword presence into a ranking guarantee.
 
 ### Profile / identity discovery
 
-Profile is not merely the destination after a post. Accounts themselves can be recommendation objects [R29].
+Profile is not merely a destination. Accounts themselves can be recommendation objects [R29].
 
-A user arriving on profile may evaluate:
+A profile visitor may evaluate:
 
-- what this account is about;
-- whether the source is credible;
-- whether recent content is coherent;
+- what the account is about;
+- source credibility;
+- coherence of recent objects;
 - whether following is worthwhile;
-- whether the account is relevant to a commercial or collaborative need.
+- commercial or collaboration fit.
 
-Content strategy therefore has both object-level and identity-level effects.
+Content can therefore affect both object-level and identity-level opportunity.
 
-### Notifications and attention re-entry
+### Notifications / DMs / direct sharing
 
-A relationship can create future re-entry paths. Notifications can return a person to an account, object, LIVE, or other context after the initial encounter has ended.
+A typed delivery edge can create later re-entry after the initial encounter. A DM recipient can also encounter an object under a stronger social context than someone who encountered it through recommendation.
 
-Do not treat the first feed impression as the entire content lifecycle.
-
----
-
-## 5. Visibility state is not one binary gate
-
-Keep separate:
-
-```text
-HOSTED / ACCESSIBLE
-RECOMMENDATION-ELIGIBLE
-SURFACE-ELIGIBLE
-RECIPIENT-ELIGIBLE
-DEMOTED / REDUCED
-ORDINARY LOW RANK
-```
-
-Current Instagram guidance includes recommendation-eligibility controls and makes clear that eligibility does not guarantee recommendation [R29]. Visibility reduction is conceptually distinct from ordinary low ranking [R31].
-
-Therefore:
-
-```text
-low reach
-≠ evidence of suppression
-```
-
-Before diagnosing “shadowban” or algorithm punishment, check available Account Status / policy evidence, surface, audience mix, delivery mode, and competing explanations.
+Treat these as ordinary relationship/delivery edges from the compact model, not separate primitives.
 
 ---
 
-## 6. Account state can constrain object opportunity
+## 4. Audience state, typed edges, and transitions
 
-Recommendation opportunity can depend on account-level as well as object-level state.
+Useful audience states can include:
 
-Practitioner implication:
-
-```text
-strong object
-+
-constrained account state
-→ weak unconnected opportunity may still occur
-```
-
-Do not diagnose the creative in isolation when current platform status indicates an account-level constraint.
-
-Eligibility is typed. Ask:
-
-> Eligible for which audience, surface, recommendation path, collaboration, monetization, or commercial use?
-
----
-
-## 7. Human meaning and system-specific representation are different
-
-Keep:
-
-```text
-CONTENT MEANING
-what a human should understand
-
-SYSTEM-SPECIFIC CONTENT REPRESENTATION
-how a particular machine system may encode / match the object
-```
-
-Instagram can use multimodal and behavioral information in recommendation systems, but evidence from one system does not establish the exact representation or ranking weight used in another [R29][R42].
-
-Invariant:
-
-```text
-platform can process X
-≠ every Instagram system uses X
-≠ X materially boosts ranking
-```
-
-Do not turn visual recognition, caption text, audio processing, hashtags, or semantic matching into unsupported SEO-style rules.
-
-### Machine legibility
-
-Where Search or unconnected recommendation makes subject identity material, prefer a coherent object whose topic, entity, demonstration, and explanation make sense to a person. This may also support useful machine representation, but do not write for an imagined bot.
-
----
-
-## 8. Message allocation by object
-
-### Image
-
-Useful when one visual can efficiently carry identity, proof, result, emotional cue, or subject.
-
-### Carousel
-
-Useful when information benefits from sequence or decomposition:
-
-- educational breakdown;
-- steps;
-- comparison;
-- multi-example proof;
-- visual report;
-- reference / save job.
-
-Possible allocation:
-
-```text
-slide 1      → subject / relevance
-slides 2–6   → argument / evidence / explanation
-last slide   → synthesis / appropriate next action
-caption      → context / source / qualification / optional CTA
-```
-
-### Reel
-
-Useful when motion, demonstration, voice, timing, presence, transformation, or audiovisual explanation materially improves the message.
-
-Possible allocation:
-
-```text
-cover / first frame → subject or value
-video / voice       → main explanation / demonstration
-on-screen text      → reinforcement / comprehension
-caption             → context / proof / source / qualification / action
-```
-
-### Story
-
-Useful when immediacy, relationship, interaction, or time-sensitive context dominates.
-
-### Highlight / persistent collection
-
-If ephemeral material becomes a persistent reference, rewrite or structure it so later viewers can understand it without the original moment.
-
-Do not turn these object-job fits into deterministic performance rules.
-
----
-
-## 9. Discovery audience and relationship audience are different
-
-Possible audience states include:
-
-- current followers;
+- current follower;
 - Close Friends / relationship-defined audience;
-- non-followers reached through recommendation;
-- Search / Explore users;
-- direct-share recipients;
-- collaborator audiences;
-- people evaluating the profile itself.
+- non-follower reached through recommendation;
+- Search / Explore user;
+- direct-share recipient;
+- collaborator audience;
+- profile evaluator;
+- returning viewer after notification;
+- unknown relevant stranger.
 
-If discovery is primary, include enough context for a relevant stranger.
+Do not make one artifact satisfy every state equally when the marketing job is narrow.
 
-If relationship depth is primary, more shared context can be acceptable when actually established.
-
-Do not make one artifact satisfy all audience states equally when the job is narrow.
-
----
-
-## 10. Context portability and public travel
-
-Content can move through:
+Keep relationship and delivery distinct:
 
 ```text
-PRIVATE TRAVEL
-DM / direct sharing
+FOLLOW RELATIONSHIP
+≠ GUARANTEED FEED EXPOSURE
 
-PUBLIC TRAVEL
-repost / recommendation / profile discovery
+DIRECT SHARE EDGE
+≠ ALGORITHMIC DISCOVERY EDGE
 
-REFERENCE TRAVEL
-save / later revisit
-
-TRANSFORMATIVE / COLLABORATIVE TRAVEL
-collaboration / response / derivative use
+COLLABORATION EDGE
+≠ TRANSFER OF CLAIM AUTHORITY
 ```
 
-Ask how much context survives each path.
-
-A highly relationship-dependent Story can be low portability. A reference carousel intended for Search, saves, profile browsing, or repost should usually be more self-contained.
-
-Shareability is not virality. One qualified private send can be strategically more valuable than broad low-intent reach.
-
----
-
-## 11. Collaboration changes distribution topology
-
-For Collab or creator-brand work, distinguish:
-
-```text
-SOURCE / AUTHORITY
-who actually supports each claim?
-
-CONTENT OWNER
-who controls the object?
-
-VISIBLE AUTHORS
-who appears publicly attached?
-
-DISTRIBUTION PARTNERS
-whose audience graph can expose it?
-```
-
-Collaboration can change distribution topology without transferring source authority.
-
-A creator can make first-person claims only when actual experience is supported. A brand can make product-capability claims only where product evidence supports them.
-
-If sponsorship or branded-content disclosure is required, preserve it. Do not hide a material commercial relationship to chase speculative algorithm advantage.
-
----
-
-## 12. Multi-stakeholder creator and commercial systems
-
-Instagram also contains identity and commercial mediation beyond viewer-to-post recommendation.
-
-Relevant edges can include:
-
-```text
-VIEWER ↔ CONTENT
-VIEWER ↔ CREATOR
-BRAND ↔ CREATOR
-ORGANIC OBJECT ↔ PAID SYSTEM
-```
-
-Use the general platform mediation graph when creator partnerships, commercial discovery, or paid amplification matter [R34].
-
-### Relational fit
-
-Do not reduce creator selection to follower count or generic creator quality.
-
-Ask:
-
-```text
-creator
-× brand / product
-× audience
-× campaign job
-× evidence / execution context
-```
-
-### Secondary use
-
-Organic creator content can later be recruited into a commercial or paid distribution path. When this happens, distinguish the original content identity from its new delivery state.
-
-Do not interpret the final object-level metrics as delivery-mode-pure without checking the actual history.
-
----
-
-## 13. Platform guidance is evidence with an objective
-
-Instagram may provide creator-facing Best Practices, diagnostics, recommendations, examples, or performance guidance.
-
-Creator-facing guidance is useful, but ask:
-
-- what objective is the platform guidance optimizing?
-- is it descriptive, diagnostic, or prescriptive?
-- is it account-specific or generic?
-- is it about reach, followers, creation, monetization, policy compliance, or another platform objective?
-- does that objective match the user's marketing objective?
-
-Creator literature shows that creators adapt to algorithmic environments and often build folk theories from metrics and platform cues [R36].
-
-Therefore:
-
-```text
-platform-selected best practice
-≠ independent causal evidence
-```
-
-Use platform guidance as one input, not automatic strategy.
-
----
-
-## 14. Trial / staged distribution is exploratory evidence, not automatically causal
-
-Where Instagram offers platform-native trial or staged-distribution tools, treat them as useful probes into non-follower response, not controlled causal experiments unless the actual design supports that interpretation.
-
-If exposure expands based on early outcomes, the final data is adaptively collected. Adaptive allocation requires different causal/statistical treatment from a fixed random comparison [R38].
-
-Use:
-
-```text
-PLATFORM-NATIVE PROBE
-useful exploratory signal
-
-ADAPTIVE ROLLOUT
-exposure changes with observed response
-
-CONTROLLED EXPERIMENT
-requires explicit comparable treatment assignment
-```
-
-Do not call all three A/B testing.
-
----
-
-## 15. Format benchmarks are observations, not universal winners
-
-Third-party datasets can legitimately show average performance differences among:
-
-- carousels;
-- Reels;
-- images;
-- Stories;
-- other formats.
-
-But preserve:
-
-- sample;
-- account type;
-- denominator;
-- period;
-- market;
-- metric;
-- delivery mode;
-- content mix.
-
-Conflicting benchmark winners can both be valid under different samples and metrics.
-
-Choose object from information job first, then refine with current comparable local evidence.
-
----
-
-## 16. Metric provenance before creative conclusions
-
-Before concluding that a Reel, carousel, caption style, or topic “worked,” record material provenance:
-
-```text
-object / current state
-surface
-follower vs non-follower mix
-delivery mode
-recommendation / visibility state if known
-exposure amount
-paid amplification if any
-collaboration / repost context
-period
-success metric
-```
-
-Recommendation observations are affected by exposure and selection processes [R32][R33].
-
-Therefore:
-
-```text
-high engagement
-≠ intrinsic creative quality
-
-low engagement
-≠ intrinsic creative weakness
-```
-
-Interpret the content-audience-distribution interaction.
-
----
-
-## 17. Interaction-state transitions on Instagram
-
-For strategy, map the desired transition rather than assuming a linear funnel.
-
-Examples:
+History can change future opportunity. Example:
 
 ```text
 STRANGER
@@ -580,9 +309,7 @@ PROFILE VISIT
 ↓
 FOLLOW
 ↓
-relationship distribution becomes possible
-↓
-STORY / FEED / DM interaction
+new relationship / delivery opportunity becomes possible
 ```
 
 or:
@@ -590,7 +317,7 @@ or:
 ```text
 FOLLOWER
 ↓ Story
-reply
+REPLY
 ↓
 conversation
 ↓
@@ -604,20 +331,322 @@ DISCOVERY VIEWER
 ↓ useful carousel
 SAVE / SEND
 ↓
-later attention re-entry or social travel
+later revisit or delivery to another person
 ```
 
-The same content job can require different objects depending on the current state and desired transition.
+Represent these as state transitions over audience, edge, object, and platform state rather than an Instagram-specific funnel.
 
 ---
 
-## 18. Practical Instagram decision paths
+## 5. Context portability, lineage, and travel
+
+Ask how much meaning survives when an object or representation leaves its initial social context.
+
+A relationship-dependent Story can legitimately have low portability. A reference carousel intended for Search, saves, profile browsing, recommendation, or repost should usually be more self-contained.
+
+Travel can occur through:
+
+```text
+DIRECT / PRIVATE
+DM / direct sharing
+
+PUBLIC / DISCOVERY
+repost / recommendation / profile discovery
+
+REFERENCE
+save / later revisit
+
+TRANSFORMATIVE / COLLABORATIVE
+collaboration / response / derivative use
+```
+
+Shareability is not virality. One qualified private send can be more strategically valuable than broad low-intent reach.
+
+Do not create separate primitives for each travel path. Preserve the source object, recipient/actor edge, derived object if one exists, state transition, and relevant scope.
+
+---
+
+## 6. Platform / mediation state and typed eligibility
+
+Do not use one global visibility flag.
+
+Keep the relevant state typed:
+
+```text
+HOSTED / ACCESSIBLE
+RECOMMENDATION-ELIGIBLE
+SURFACE-ELIGIBLE
+RECIPIENT-ELIGIBLE
+COLLABORATION / COMMERCIAL ELIGIBLE
+DEMOTED / REDUCED
+ORDINARY LOW RANK
+```
+
+Current Instagram guidance includes recommendation-eligibility controls and makes clear that eligibility does not guarantee recommendation [R29]. Visibility reduction is conceptually distinct from ordinary low ranking [R31].
+
+Therefore:
+
+```text
+LOW REACH
+≠ EVIDENCE OF SUPPRESSION
+```
+
+Before diagnosing “shadowban” or algorithm punishment, check available Account Status / policy evidence, surface, audience mix, delivery mode, account state, and competing explanations.
+
+Account-level state can constrain object opportunity:
+
+```text
+STRONG OBJECT
++
+CONSTRAINED ACCOUNT STATE
+→ WEAK UNCONNECTED OPPORTUNITY MAY STILL OCCUR
+```
+
+Ask:
+
+> Eligible for which audience, surface, recommendation path, collaboration, monetization, or commercial use?
+
+Treat account status as ordinary actor/platform state, not as intrinsic creator quality.
+
+---
+
+## 7. Human meaning and machine mediation are different
+
+Keep three concepts distinct:
+
+```text
+HUMAN CONTENT MEANING
+what a person should understand
+
+CONTENT REPRESENTATION
+what version / package the person encounters
+
+SYSTEM-SPECIFIC MACHINE REPRESENTATION
+how a particular Instagram system may encode or match the object
+```
+
+Instagram can use multimodal and behavioral information in recommendation systems, but evidence from one system does not establish the exact representation or ranking weight used in another [R29][R42].
+
+```text
+PLATFORM CAN PROCESS X
+≠ EVERY INSTAGRAM SYSTEM USES X
+≠ X MATERIALLY BOOSTS RANKING
+```
+
+Do not turn visual recognition, caption text, audio processing, hashtags, or semantic matching into unsupported SEO-style rules.
+
+Where Search or unconnected recommendation makes subject identity material, prefer coherent human-readable content whose topic, entity, demonstration, and explanation make sense to a person. This may support machine legibility where relevant, but do not write for an imagined bot.
+
+---
+
+## 8. Interaction acts and response opportunity
+
+Potential interactions include:
+
+- continue / watch;
+- skip;
+- like;
+- comment / reply;
+- save;
+- send / share;
+- profile visit;
+- follow;
+- Story reply / sticker response;
+- DM;
+- collaboration or derivative participation where available.
+
+Do not infer one universal motive from a metric label.
+
+Before translating an observed action into a content tactic, use the shared bridge:
+
+```text
+OBSERVED EVENT
+↓
+provenance
+↓
+response opportunity
+↓
+action semantics / target / topology / cost
+↓
+plausible value + competing explanations
+↓
+truthful content / representation mechanism
+```
+
+Therefore:
+
+```text
+SAVE RATE HIGH
+≠ EVERY POST SHOULD BE A CAROUSEL
+
+SHARES HIGH
+≠ ASK EVERYONE TO SEND IT
+
+LOW COMMENTS
+≠ AUDIENCE HAD NOTHING TO SAY
+```
+
+A person may not have reached the relevant CTA, may prefer private response, or may not have received meaningful exposure.
+
+```text
+NO ACTION
+≠ NEGATIVE ACTION
+```
+
+When interaction provenance is consequential, preserve only what evidence supports: direct human action, representative/entity action, automated/coordinated/incentivized activity, platform-generated activity, or unknown.
+
+---
+
+## 9. Collaboration, creator, and commercial mediation
+
+Instagram contains typed edges beyond viewer-to-post recommendation:
+
+```text
+VIEWER ↔ CONTENT
+VIEWER ↔ CREATOR
+BRAND ↔ CREATOR
+ORGANIC OBJECT ↔ PAID SYSTEM
+```
+
+Use these as ordinary mediation edges from the shared core [R34].
+
+### Collaboration
+
+Collaboration can alter visible authorship and distribution opportunity without transferring authority.
+
+Ask:
+
+```text
+source / authority
+content owner
+visible authors
+operational actor if material
+distribution partners
+disclosure / commercial state
+```
+
+### Relational fit
+
+Do not reduce creator selection to follower count or generic quality.
+
+```text
+creator
+× brand / product
+× audience
+× campaign job
+× execution / evidence context
+```
+
+### Object state and commercial reuse
+
+Organic creator content can later acquire paid support, sponsored state, authorization, product/commercial attachment, or another delivery role.
+
+Represent this as:
+
+```text
+SAME OR RELATED OBJECT
++
+STATE TRANSITION
++
+NEW DELIVERY / COMMERCIAL EDGE
+```
+
+Do not treat “secondary use” as an independent primitive. Do not treat final visible metrics as delivery-mode-pure without checking the object's history.
+
+---
+
+## 10. Platform guidance, staged distribution, and benchmark boundaries
+
+Instagram can provide creator-facing Best Practices, diagnostics, recommendations, examples, or performance guidance.
+
+Classify the guidance before using it:
+
+- descriptive;
+- diagnostic;
+- prescriptive;
+- account-specific or generic;
+- reach/follower/creation/monetization/policy objective;
+- actual alignment with the user's marketing objective.
+
+Creator literature shows creators adapt to algorithmic environments and build folk theories from metrics and platform cues [R36].
+
+```text
+PLATFORM-SELECTED BEST PRACTICE
+≠ INDEPENDENT CAUSAL EVIDENCE
+```
+
+Where Instagram offers platform-native trial or staged-distribution tools, treat them as exploratory probes unless the actual design supports causal interpretation. If exposure expands using earlier outcomes, the data is adaptively collected [R38].
+
+Keep:
+
+```text
+PLATFORM-NATIVE PROBE
+exploratory signal
+
+ADAPTIVE ROLLOUT
+exposure changes with observed response
+
+CONTROLLED EXPERIMENT
+requires explicit comparable treatment assignment
+```
+
+Do not call all three A/B testing.
+
+Third-party format benchmarks can be useful observations, but preserve sample, account type, denominator, period, market, metric, delivery mode, and content mix. Conflicting benchmark winners can both be valid under different regimes.
+
+Choose object from the information job first, then refine with current comparable local evidence.
+
+---
+
+## 11. Observation record before creative conclusions
+
+Before concluding that a Reel, carousel, caption style, topic, creator, or collaboration “worked,” reconstruct one compact observation record.
+
+Preserve only fields that can change the conclusion:
+
+```text
+object / current state
+representation if material
+surface / recommendation context
+audience / relationship state
+delivery mode
+visibility / eligibility state if known
+exposure opportunity
+response opportunity
+interaction provenance if material
+paid / collaboration / repost mixture
+period / relevant history
+observation unit / denominator
+outcome maturity
+success metric
+material uncertainty
+```
+
+Recommendation observations are conditioned by exposure and selection [R32][R33].
+
+Therefore:
+
+```text
+HIGH ENGAGEMENT
+≠ INTRINSIC CREATIVE QUALITY
+
+LOW ENGAGEMENT
+≠ INTRINSIC CREATIVE WEAKNESS
+```
+
+Interpret the object × representation × audience × platform-state interaction.
+
+A metric history can also mix organic and paid/collaborative delivery after an object changes state. Do not compare visible object metrics as delivery-mode-pure without knowing enough of the delivery history.
+
+---
+
+## 12. Practical Instagram decision paths
 
 ### Simple caption
 
 ```text
 job
-→ what does the object already communicate?
+→ what does the object / representation already communicate?
 → what context / proof is missing?
 → audience relationship if material
 → claim boundary
@@ -629,11 +658,12 @@ job
 ```text
 job
 → relevant stranger state
-→ early value signal
+→ object + first encounter representation
+→ early value / subject signal
 → audiovisual sequence
 → proof / qualification
-→ profile / follow / other next transition only if needed
-→ metric matched to job
+→ next transition only if needed
+→ job-aligned metric
 ```
 
 ### Search-oriented content
@@ -641,10 +671,11 @@ job
 ```text
 query / intent
 → direct answer or useful object
-→ human subject clarity
+→ search representation / subject clarity
+→ multimodal delivery
 → relevant metadata / caption where useful
-→ sufficient context portability
-→ search outcome + downstream quality
+→ sufficient portability
+→ Search + downstream-quality metric
 ```
 
 ### Creator collaboration
@@ -653,9 +684,9 @@ query / intent
 job
 → source / authority
 → owner + visible authors
-→ audience graphs
+→ audience / delivery edges
 → disclosure / commercial state
-→ message allocation
+→ object + representation + message allocation
 → relational fit
 → success metric
 ```
@@ -664,18 +695,22 @@ job
 
 ```text
 metric changed
-→ object / state comparable?
-→ surface / audience comparable?
-→ visibility / eligibility evidence?
-→ organic / paid / collaboration mixture?
-→ content changed?
+→ same object and representation?
+→ same surface / audience / relationship mix?
+→ same visibility / eligibility / delivery state?
+→ organic / paid / collaboration mixture comparable?
+→ response opportunity comparable?
+→ interaction provenance / denominator comparable?
+→ content meaning or execution changed?
 → competing explanations
 → discriminating check
 ```
 
+Do not fill dimensions that cannot change the decision.
+
 ---
 
-## 19. Current evidence boundaries
+## 13. Current evidence boundaries
 
 ### Established or directly supported by current Instagram / Meta documentation used by this project
 
@@ -690,7 +725,7 @@ metric changed
 - observed metrics are conditioned by selection and exposure [R32][R33];
 - adaptive rollout complicates ordinary inference [R38];
 - creator-platform relations can involve algorithmic management and creator adaptation [R35][R36];
-- multimodal representation does not justify assuming one human-like machine understanding [R42].
+- multimodal machine representation does not justify assuming one human-like understanding [R42].
 
 ### Not established as universal Instagram laws
 
@@ -706,4 +741,4 @@ metric changed
 - a current creator tip establishes causal business impact;
 - human-visible keywords have one fixed ranking weight across Instagram systems.
 
-Use the platform-specific facts only within their current scope, then prefer current comparable local evidence for the local decision.
+Use platform-specific facts only within their current scope, then prefer current comparable local evidence for the local decision.
