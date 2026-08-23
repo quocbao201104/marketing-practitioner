@@ -77,9 +77,14 @@ Boundary: corporate description establishes system families, not production arch
 
 Lazada Sponsored Solutions. **What determines my promoted products' ranking?; Where will Sponsored Discovery promoted products appear?; Sponsored Discovery Is Being Phased Out – August 2026; Sponsored Max FAQs.** Reviewed 2026-08-23.
 
-Use: Sponsored Discovery product ranking disclosures name bid competitiveness, keyword selection, and promoted-product quality examples such as historical sales, ratings, positive reviews and creatives. Sponsored placements include Search Results and recommendation surfaces such as Homepage For You and PDP Recommendations. Lazada announced on August 20, 2026 that starting September 19, 2026 it will phase out Sponsored Discovery Automated and Promoted Specific Products, upgrading eligible campaigns to Sponsored Max Store/Product between September 19–30; Manual remains unchanged in the announced plan. Sponsored Max currently promotes through Search and Recommendations.
+Direct migration announcements:
 
-Boundary: this is **paid advertising system evidence**. Never transfer sponsored ranking factors, placements, or optimization advice to organic Search/Recommendation. The announced migration also demonstrates that even official product documentation is time-sensitive.
+- Global announcement, published 2026-08-20: `https://www.lazadasolutions.com/news-updates/sponsored-discovery-auto-upgrade/`
+- Vietnam-local announcement, published 2026-08-18: `https://www.lazadasolutions.com/vn/vn-news-updates/vn-sponsored-discovery-auto-upgrade/`
+
+Use: Sponsored Discovery product ranking disclosures name bid competitiveness, keyword selection, and promoted-product quality examples such as historical sales, ratings, positive reviews and creatives. Sponsored placements include Search Results and recommendation surfaces such as Homepage For You and PDP Recommendations. Lazada announced that starting September 19, 2026 it will phase out selected Sponsored Discovery automated/product campaign types, upgrading eligible campaigns to Sponsored Max Store/Product between September 19–30; Manual remains unchanged in the announced global plan. Sponsored Max currently promotes through Search and Recommendations.
+
+Boundary: this is **paid advertising system evidence**. Never transfer sponsored ranking factors, placements, or optimization advice to organic Search/Recommendation. The announced migration also demonstrates that even official product documentation is time-sensitive. Local naming/rollout wording can differ by market, so use the market-specific announcement when executing locally.
 
 ## Evidence-use rules
 
