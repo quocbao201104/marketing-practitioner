@@ -146,31 +146,42 @@ Boundary: filter availability or displayed buyer state does not establish hidden
 
 ## Etsy inventory, search, and machine product understanding
 
-### [C09] Etsy — Search, Advertisement & Recommendation Ranking Disclosures
+### [C09] Etsy official search disclosures — query-matching abstraction conflict
 
-Etsy. **Search, Advertisement & Recommendation Ranking Disclosures.** Current legal / policy disclosure, reviewed 2026-08-23.
+Etsy. **Search, Advertisement & Recommendation Ranking Disclosures.** Last updated October 16, 2025. Etsy Staff. **Keywords 101: Everything You Need to Know.** August 26, 2025. Etsy Staff. **How Etsy Search Works.** Current Seller Handbook. Reviewed 2026-08-23.
 
-Use: current evidence that Etsy describes organic search in at least two broad phases: query matching across listing fields such as titles, attributes, categories, and tags, followed by ranking using listing/shop and buyer-context information.
+Use: current official Etsy sources agree that organic Search separates query matching from later ranking, but they do **not** expose one consistent field-level description of query matching. The legal disclosure describes first-phase matching across titles, attributes, categories, and tags. `Keywords 101` explicitly says keywords across titles, descriptions, tags, categories, and attributes are essential to query matching and calls query matching the first phase. `How Etsy Search Works` places a holistic listing — including title, tags, attributes, descriptions, first photo, reviews, and more — under its Query matching section.
 
-Boundary: the disclosure is a public product/legal abstraction and should not be treated as a complete implementation diagram or fixed feature-weight specification.
+Supports:
+
+```text
+CURRENT OFFICIAL ETSY SOURCES
+DISAGREE / USE DIFFERENT ABSTRACTION LEVELS
+ABOUT QUERY-MATCHING FIELD PARTICIPATION
+
+→ preserve source + date + abstraction level
+→ exact production field-to-stage boundary remains UNKNOWN
+```
+
+Boundary: none of these public sources is a complete implementation trace or fixed feature-weight formula. Do not silently prefer the narrower legal enumeration as a complete field map, and do not turn the broader Seller Handbook wording into precise implementation or ranking weights.
 
 ### [C10] Etsy Engineering — semantic relevance in the production search stack
 
 Zhang, Y., Su, C., & Liu, S. (2026-01-16). **How Etsy Uses LLMs to Improve Search Relevance.** Etsy Engineering / Code as Craft.
 
-Use: engineering evidence that Etsy distinguishes retrieved candidates from post-retrieval semantic relevance filtering, feature enrichment, downstream ranking, and relevance boosting; semantic models consume rich listing information including title, images, description, attributes, variations, and extracted entities. Also documents that engagement proxies such as clicks/add-to-carts/purchases can be biased and can diverge from semantic relevance.
+Use: engineering evidence that Etsy distinguishes retrieved candidates from **this disclosed post-retrieval semantic-relevance layer**, feature enrichment, downstream ranking, and relevance boosting; semantic models consume rich listing information including title, images, description, attributes, variations, and extracted entities. Also documents that engagement proxies such as clicks/add-to-carts/purchases can be biased and can diverge from semantic relevance.
 
 Supports:
 
 ```text
 SEARCH INFLUENCE
-≠ INITIAL RETRIEVAL PARTICIPATION
+≠ ONE SETTLED FIELD-TO-STAGE MAP
 ≠ SEMANTIC RELEVANCE CONTRIBUTION
 ≠ RANKING CONTRIBUTION
 ≠ FINAL RESULT COMPOSITION
 ```
 
-Boundary: this is strong evidence for the disclosed Etsy search stack at the publication period, not a timeless production contract or universal marketplace architecture.
+Boundary: this is strong evidence for the disclosed semantic-relevance system at the publication period, not a timeless complete Etsy Search contract. Its statement that the semantic-relevance model first applies after retrieval does **not** establish that description or other rich listing data are absent from every separate initial query-matching/retrieval mechanism.
 
 ### [C11] Etsy Engineering — machine-derived product understanding
 
@@ -251,6 +262,10 @@ API OBJECT NAME
 SEARCH FIELD
 ≠ GUARANTEED RETRIEVAL FEATURE
 ≠ RANKING WEIGHT
+
+OFFICIAL SOURCES WITH DIFFERENT FIELD/STAGE ABSTRACTIONS
+→ PRESERVE CONFLICT / SCOPE
+→ DO NOT FORCE FALSE CONSISTENCY
 
 PAID / SPONSORED RANKING FACTOR
 ≠ ORGANIC RANKING FACTOR
