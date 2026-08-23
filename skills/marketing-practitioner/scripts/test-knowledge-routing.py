@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import importlib.util
+import json
 import tempfile
 from pathlib import Path
 
@@ -38,6 +39,14 @@ def main() -> int:
     assert marker.startswith("MARKER BODY")
     assert "nested marker heading" in marker
     assert "route:end" not in marker
+
+    expect_error(
+        lambda: module.extract_marker_section(
+            "<!-- route:end reversed -->\nbody\n<!-- route:start reversed -->",
+            "reversed",
+        ),
+        "precedes start marker",
+    )
 
     expect_error(
         lambda: module.extract_heading_section("## X\none\n## X\ntwo\n", "## X"),
@@ -87,7 +96,15 @@ def main() -> int:
         finally:
             module.ROOT = old_root
 
-    print("PASS\t9 routing-mechanics smoke checks")
+    expect_error(
+        lambda: json.loads(
+            '{"namespaces": {}, "namespaces": {}}',
+            object_pairs_hook=module.reject_duplicate_keys,
+        ),
+        "duplicate JSON key",
+    )
+
+    print("PASS\t11 routing-mechanics smoke checks")
     return 0
 
 
