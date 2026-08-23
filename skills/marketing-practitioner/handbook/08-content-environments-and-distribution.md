@@ -76,17 +76,19 @@ Use a small durable vocabulary.
 
 ### 3.1 Durable things
 
-At runtime, most consequential platform-content questions can be represented with these durable things:
+At runtime, most consequential platform-environment questions can be represented with these durable things:
 
 ```text
 ACTOR / SOURCE
 who speaks, acts, or supports a claim?
 
-CONTENT OBJECT
-what persistent or addressable artifact / participation unit exists?
+OBJECT
+what persistent or addressable thing has decision-relevant identity
+independent of its current representation, relations, or state?
 
-CONTENT REPRESENTATION
-what version, package, preview, or rendition is actually presented?
+REPRESENTATION
+what human- or machine-consumable form, package, preview,
+rendition, encoding, or presentation is being used?
 
 AUDIENCE STATE
 what does the relevant person know, intend, expect, remember, or need?
@@ -105,6 +107,16 @@ what event or metric was logged, under which exposure, unit, time, and attributi
 ```
 
 Not every task needs all eight.
+
+Use the narrowest local specialization that preserves clarity. In ordinary social/content work, `OBJECT` is usually a **content object** and `REPRESENTATION` is usually a **content representation**. In another platform-mediated task, the independently identified object might instead be a product, item, listing, account, community, shop, or another domain object. Do not turn every platform/API noun into a durable object merely because the implementation exposes it.
+
+Promote something to `OBJECT` only when its identity can matter independently. Useful tests are:
+
+- its identity can persist while its representation, state, or relations change;
+- it can participate in a consequential relation independently of another object;
+- collapsing it into another object, edge, state, attribute, or representation could change the decision or interpretation.
+
+If none of those conditions matter, keep the concept local as an edge, state, attribute, representation, or implementation detail rather than expanding the object graph.
 
 ### 3.2 Cross-cutting modifiers
 
@@ -212,7 +224,11 @@ The visible speaker must not inherit authority they do not possess. An organizat
 
 Visible identity and operational actor can diverge. An organizational account may be operated by an employee, administrator, tool, or workflow. A pseudonymous identity can still be known to moderators or the platform. Preserve the distinction only when it changes authority, accountability, authenticity, safety, or interpretation.
 
+When an observer-facing identity differs from the underlying actor — for example an anonymous label, nickname, avatar, or scoped profile presentation — treat that visible identity as a representation of the actor rather than forcing it into a content-representation slot.
+
 ### 4.3 Content object, state, and lineage
+
+For ordinary content work, instantiate the durable `OBJECT` role as a **content object**. Keep this local term because it is more operationally useful than a generic ontology label when the task is actually about posts, videos, comments, or other participation units.
 
 Separate the underlying object from its current state.
 
@@ -251,9 +267,11 @@ Do not invent a separate primitive for every secondary-use path. Represent the s
 
 ### 4.4 Content representation
 
+For ordinary content work, instantiate the durable `REPRESENTATION` role as a **content representation**.
+
 Keep **content object identity** separate from the **representation actually presented to a recipient**.
 
-Web architecture provides a useful technical parent for this distinction: a resource can have multiple representations, and a selected representation can vary by language, format, capabilities, preferences, or time [R48][R49]. This is architectural vocabulary, not a claim that HTTP semantics is a marketing theory.
+Web architecture provides a useful technical parent for this distinction: a resource can have multiple representations, and a selected representation can vary by language, format, capabilities, preferences, or time [R48][R49]. `Resource` here is cited as architectural vocabulary; the runtime parent role remains the narrower operational term `OBJECT` rather than treating every conceivable resource as a runtime object.
 
 For platform content, a representation can play different roles.
 
@@ -281,7 +299,15 @@ audio description
 recipient-specific media rendition
 ```
 
-Therefore:
+Therefore, at the durable level:
+
+```text
+OBJECT
+≠ REPRESENTATION
+≠ ENCOUNTER SURFACE
+```
+
+and for the ordinary social/content specialization:
 
 ```text
 CONTENT OBJECT
@@ -299,6 +325,8 @@ REPRESENTATION PERFORMANCE
 A representation can create an expectation before the underlying object is consumed. A strong selection representation paired with a weak or mismatched object can increase entry while harming downstream experience. Conversely, useful content can be under-selected because its representation is weak or mismatched to the surface.
 
 Do not assume every object has materially different representations. Use the distinction only when it changes execution, diagnosis, localization, accessibility, or measurement.
+
+A representation need not represent content. When material, the same durable role can describe an actor-facing identity, a product card, a preview of another domain object, or the visible presentation of a consequential edge or state. Keep the local label specific to what is represented rather than adding peer-level representation primitives.
 
 ### 4.5 Human content meaning and message allocation
 
@@ -776,12 +804,15 @@ Keep three concepts separate:
 HUMAN CONTENT MEANING
 what the artifact means to people / strategy
 
-CONTENT REPRESENTATION
-what package or rendition is actually presented
+HUMAN-FACING REPRESENTATION
+what package, rendition, identity presentation, card, preview,
+or other representation is actually presented to a person
 
 SYSTEM-SPECIFIC MACHINE REPRESENTATION
-how a particular machine system may encode or match the object
+how a particular machine system may encode or match the relevant object
 ```
+
+For ordinary content work, the human-facing representation is usually a content representation. The broader durable role also covers representations of actors, products, other objects, or consequential edge/state information when those distinctions matter.
 
 Multimodal recommender systems can use text, image, audio, video, metadata, interaction, and fused features [R42]. But capability in one system does not establish usage or weight in another.
 
@@ -1055,8 +1086,8 @@ Before interpreting a metric, reconstruct only the provenance fields that can ch
 A useful observation record can include:
 
 ```text
-OBJECT / CONTENT STATE
-what artifact and state generated the event?
+OBJECT / CURRENT STATE
+what object and state generated the event?
 
 REPRESENTATION
 which package or rendition was encountered?
@@ -1318,6 +1349,14 @@ The compression pass keeps a small set of high-value distinctions.
 
 ```text
 OBJECT IDENTITY
+≠ REPRESENTATION
+≠ ENCOUNTER SURFACE
+```
+
+For ordinary social/content work, this specializes to:
+
+```text
+CONTENT OBJECT
 ≠ CONTENT REPRESENTATION
 ≠ ENCOUNTER SURFACE
 ```
@@ -1624,6 +1663,7 @@ Current modules:
 - `platforms/linkedin.md`
 - `platforms/instagram.md`
 - `platforms/tiktok.md`
+- `platforms/x.md`
 
 Platform modules should use the shared vocabulary rather than create a separate framework for each product.
 
