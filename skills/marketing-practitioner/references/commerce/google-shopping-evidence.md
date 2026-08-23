@@ -99,38 +99,87 @@ Use: participating eligible merchants can support UCP-powered checkout on surfac
 
 Boundary: checkout-surface mediation does not transfer merchant-of-record, payment-processing, fulfillment, returns, or customer-service responsibility by default. Availability is phased and merchant/market eligibility is time-sensitive.
 
+## [G11] Merchant Center — AI performance insights, product details, and anti-keyword guidance
+
+Google Merchant Center Help. **About AI performance insights; Product detail `[product_detail]`; Product highlight `[product_highlight]`; Product data specification.** Reviewed 2026-08-23.
+
+Direct sources:
+
+- `https://support.google.com/merchants/answer/17200695?hl=en`
+- `https://support.google.com/merchants/answer/9218260?hl=en`
+- `https://support.google.com/merchants/answer/9216100?hl=en`
+- `https://support.google.com/merchants/answer/7052112?hl=en`
+
+Use: Google says conversational shopping queries can be longer and more complex than keyword-style searches. Its current AI performance insights classify query types such as product-feature search, specification research, reviews, and mixed pricing/comparison intents; surface frequently used functional-benefit/product-feature terms; and identify popular structured specifications such as size, color, and material that may be missing from product data. Google recommends evaluating relevant terms for truthful inclusion in product titles/descriptions and filling relevant missing structured attributes. `product_detail` provides structured technical details and can help Google show individual products based on queries, including AI-driven surfaces. `product_highlight` is intended for concise relevant product benefits/features and explicitly says not to list keywords/search terms or use SEO keywords.
+
+Boundaries:
+
+- AI performance insights are currently a limited pilot / phased rollout and are not a universal Merchant Center report;
+- a product term, structured attribute, or field recommendation does not reveal an exact retrieval stage, model weight, or guaranteed ranking lift;
+- `attribute completeness` or richer product data does not guarantee retrieval, recommendation, or exposure;
+- integrating a shopper concept into title/description means expressing a **truthful relevant product concept**, not repeating query strings or manufacturing unsupported use-case claims.
+
 ## Evidence-use rules
 
 ```text
 MERCHANT FIELD SEMANTICS
 ≠ ORGANIC RANKING WEIGHT
+```
 
+```text
 PRODUCTINPUT
 ≠ PROCESSED PRODUCT
+```
 
+```text
 PRODUCT GROUP
 ≠ VARIANT
+```
 
+```text
 PRODUCT / VARIANT
 ≠ OFFER
+```
 
+```text
 STRUCTURED-DATA ELIGIBLE
 ≠ GUARANTEED RICH RESULT / LISTING EXPOSURE
+```
 
+```text
 SHOPPING RESULT DISCLOSURE
 ≠ COMPLETE SEARCH / AI MODE / LENS ALGORITHM
+```
 
+```text
+MACHINE LEGIBILITY / PRODUCT-DATA COMPLETENESS
+≠ KEYWORD DENSITY
+≠ GUARANTEED AI VISIBILITY
+```
+
+```text
+SEMANTIC / CONVERSATIONAL MATCHABILITY
+≠ PROVEN ORGANIC RANKING BOOST
+```
+
+```text
 MERCHANT-DECLARED POPULARITY_RANK
 ≠ GOOGLE ORGANIC SEARCH RANK
+```
 
+```text
 MERCHANT-DECLARED RELATED_PRODUCT
 ≠ PLATFORM-INFERRED PRODUCT RELATION
 ≠ OBSERVED CO-PURCHASE RELATION
+```
 
+```text
 AI MODE / GEMINI CHECKOUT SURFACE
 ≠ MERCHANT / SELLER OF RECORD
 ≠ PAYMENT / FULFILLMENT ROLE
+```
 
+```text
 SPONSORED
 ≠ ORGANIC
 ```
