@@ -126,6 +126,10 @@ The platform-content component uses one compact shared reasoning grammar across 
 ├── THIRD_PARTY_NOTICES.md
 ├── assets/
 │   └── marketing-practitioner-banner.webp
+├── evals/
+│   ├── content-environment-losslessness-audit.md
+│   ├── runtime-adversarial-walkthrough.md
+│   └── prebenchmark-runtime-smoke.md
 │
 └── skills/
     └── marketing-practitioner/
@@ -151,10 +155,7 @@ The platform-content component uses one compact shared reasoning grammar across 
         │   └── quality-rubrics.md
         └── references/
             ├── bibliography.md
-            ├── x-platform-evidence.md
-            ├── content-environment-losslessness-audit.md
-            ├── runtime-adversarial-walkthrough.md
-            └── prebenchmark-runtime-smoke.md
+            └── x-platform-evidence.md
 ```
 
 ### `skills/marketing-practitioner/SKILL.md`
@@ -175,7 +176,11 @@ Compact working instruments for research synthesis, positioning, messaging, diag
 
 ### `references/`
 
-The selected bibliography plus scoped implementation evidence and pre-benchmark research/audit artifacts. These materials document source boundaries and validation work; they are not intended to be loaded into every runtime task.
+Runtime-supporting source material: the selected bibliography plus scoped implementation evidence. These resources are available when provenance or deeper evidence is needed, but are not intended to be loaded into every task.
+
+### `evals/`
+
+Validation artifacts for the skill itself rather than runtime knowledge: the compact-core losslessness audit, static adversarial routing walk-through, and pre-benchmark execution smoke pack. Keeping these outside the installable skill package prevents evaluation material from being mistaken for normal agent guidance.
 
 ## Intended uses
 
