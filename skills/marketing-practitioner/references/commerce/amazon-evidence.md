@@ -66,6 +66,26 @@ Use: scientific/engineering evidence that query-product relevance can distinguis
 
 Boundary: benchmark labels are not a complete production-ranking objective or 2026 algorithm description.
 
+## [A09] Amazon Shop Direct and Buy for Me — external-store discovery regime
+
+Amazon. **Amazon is making it easier for merchants to sell from external stores.** Published 2026; reviewed 2026-08-23.
+
+Direct source: `https://www.aboutamazon.com/news/retail/amazon-shop-direct-external-stores`
+
+Use: Shop Direct lets Amazon customers discover products from stores across the web, including products not currently sold in Amazon's Store. Amazon says Shop Direct includes more than 100 million products from more than 400,000 merchants. External merchants can sync catalog, pricing, and inventory through feeds. Customers can either follow Shop Direct to the merchant website or, for eligible items, use Buy for Me so Amazon's agentic AI completes the purchase from the merchant website on the customer's behalf. Merchant store names remain visible; merchants manage delivery, returns, exchanges, and customer service.
+
+Boundary: this establishes an external-store discovery / transaction regime alongside native Amazon Store commerce. It does **not** prove that every externally discovered product lacks every Amazon-internal identifier or disclose Shop Direct's full retrieval/ranking architecture.
+
+## [A10] Amazon Alexa for Shopping — agentic shopping capabilities
+
+Amazon. **Alexa for Shopping / agentic AI shopping assistant.** Current 2026 product documentation reviewed 2026-08-23.
+
+Direct source: `https://www.aboutamazon.com/news/retail/alexa-for-shopping-ai-assistant`
+
+Use: Amazon's current shopping assistant can discover products from Amazon and external stores, build carts, track prices, and in supported cases perform price-triggered auto-buy or Buy for Me actions. This is evidence that discovery, shopper intent, delegated/automated action state, and completed purchase can be distinct.
+
+Boundary: a product feature allowing auto-buy under configured conditions does not imply unrestricted authority for arbitrary purchases, nor does it disclose the exact authorization implementation or product-ranking system.
+
 ## Evidence-use rules
 
 ```text
@@ -95,4 +115,13 @@ RETRIEVAL
 
 RESEARCH FEATURE
 ≠ UNIVERSAL SELLER TACTIC
+
+AMAZON PRODUCT DISCOVERY
+≠ NECESSARILY NATIVE AMAZON STORE CATALOG / SELLER-LISTING / OFFER REGIME
+
+SHOP DIRECT DISCOVERY REPRESENTATION
+≠ EXTERNAL MERCHANT CHECKOUT / ORDER STATE
+
+BUY FOR ME / AUTO-BUY CAPABILITY
+≠ UNRESTRICTED USER AUTHORIZATION
 ```
