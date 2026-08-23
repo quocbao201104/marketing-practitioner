@@ -140,25 +140,49 @@ def get_knowledge(route_id: str, manifest: dict | None = None) -> tuple[str, str
     return relative_path, content
 
 
+def scan_sources() -> dict[str, list[tuple[Path, str]]]:
+    references_root = ROOT / "references"
+    if not references_root.is_dir():
+        raise RoutingError(f"references directory not found: {references_root}")
+
+    source_heading = re.compile(
+        r"^(#{2,6})\s+\[([A-Z][A-Z0-9-]*\d{2,})\](?:\s+|$)"
+    )
+    sources: dict[str, list[tuple[Path, str]]] = {}
+
+    for path in sorted(references_root.rglob("*.md")):
+        text = path.read_text(encoding="utf-8")
+        for line in text.splitlines():
+            match = source_heading.match(line)
+            if match:
+                sources.setdefault(match.group(2), []).append((path, line))
+
+    return sources
+
+
+def validate_sources() -> list[str]:
+    errors: list[str] = []
+    try:
+        sources = scan_sources()
+    except (RoutingError, OSError, UnicodeError) as exc:
+        return [str(exc)]
+
+    for source_id, matches in sources.items():
+        if len(matches) != 1:
+            locations = ", ".join(str(path.relative_to(ROOT)) for path, _ in matches)
+            errors.append(
+                f"{source_id}: evidence source ID appears {len(matches)} times: {locations}"
+            )
+    return errors
+
+
 def get_source(source_id: str) -> tuple[str, str]:
     source_id = source_id.upper()
     if not SOURCE_ID_RE.fullmatch(source_id):
         raise RoutingError(f"invalid evidence source ID: {source_id}")
 
-    references_root = ROOT / "references"
-    if not references_root.is_dir():
-        raise RoutingError(f"references directory not found: {references_root}")
-
-    heading_pattern = re.compile(
-        rf"^(#{{2,6}})\s+\[{re.escape(source_id)}\](?:\s+|$)"
-    )
-    matches: list[tuple[Path, str]] = []
-
-    for path in sorted(references_root.rglob("*.md")):
-        text = path.read_text(encoding="utf-8")
-        for line in text.splitlines():
-            if heading_pattern.match(line):
-                matches.append((path, line))
+    sources = scan_sources()
+    matches = sources.get(source_id, [])
 
     if len(matches) != 1:
         raise RoutingError(
@@ -226,8 +250,6 @@ def main() -> int:
     args = parser.parse_args()
 
     try:
-        manifest = load_manifest()
-
         if args.source:
             if args.route_ids or args.list or args.namespaces or args.validate or args.namespace:
                 parser.error("--source cannot be combined with route/list/validation modes")
@@ -240,14 +262,17 @@ def main() -> int:
                 print(content)
             return 0
 
+        manifest = load_manifest()
+
         if args.validate:
-            errors = validate_manifest(manifest)
+            errors = validate_manifest(manifest) + validate_sources()
             if errors:
                 for error in errors:
                     print(f"FAIL\t{error}", file=sys.stderr)
                 return 1
-            count = sum(1 for _ in iter_route_ids(manifest))
-            print(f"PASS\t{count} routes")
+            route_count = sum(1 for _ in iter_route_ids(manifest))
+            source_count = len(scan_sources())
+            print(f"PASS\t{route_count} routes / {source_count} evidence sources")
             return 0
 
         if args.namespaces:
