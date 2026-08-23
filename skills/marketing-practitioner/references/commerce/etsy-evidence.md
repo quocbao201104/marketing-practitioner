@@ -10,15 +10,15 @@ Etsy. **Search, Advertisement & Recommendation Ranking Disclosures.** Last updat
 
 Use: current official disclosure that organic Search first performs query matching across listing titles, attributes, categories and tags, then ranks matched listings using listing/shop/buyer/context factors. It names relevance, engagement, recency, listing/shop quality, customer service, shipping, language/location, frequency capping and context-specific ranking among factors. It separately describes hundreds of recommendation modules with selection/retrieval followed by ranking, whose feature importance varies with shopper mission.
 
-Boundary: this is a high-level legal/product disclosure, not a complete implementation diagram or fixed feature-weight formula.
+Boundary: this is a high-level legal/product disclosure, not a complete implementation diagram or fixed feature-weight formula. Its four-field query-matching enumeration is narrower than current Seller Handbook descriptions in E02/E08; preserve that official-source conflict rather than treating the legal enumeration as a complete field-to-stage implementation contract.
 
 ## [E02] Etsy Seller Handbook — Keywords 101
 
 Etsy Staff. **Keywords 101: Everything You Need to Know.** August 26, 2025; reviewed 2026-08-23.
 
-Use: current seller guidance on title, description, tags, categories and attributes; specific categories/attributes can act like tags for matching; title position does not affect listing ranking; titles should be short, clear and buyer-readable; tags provide additional matching phrases; descriptions can contain relevant natural phrases. Etsy describes Search as considering listing information holistically.
+Use: current seller guidance on title, description, tags, categories and attributes; specific categories/attributes can act like tags for matching; title position does not affect listing ranking; titles should be short, clear and buyer-readable; tags provide additional matching phrases. Critically, the current article explicitly says keywords across **titles, descriptions, tags, categories, and attributes** are essential to query matching, calls query matching the **first phase** of Etsy Search, and says description keywords participate in that query-matching phase.
 
-Boundary: seller guidance about “search considers” fields does not by itself identify which stage every field enters; use E01/E04 for stage-specific evidence.
+Boundary: this is official seller-facing product guidance, not an implementation trace or field-weight specification. Its explicit description/query-matching claim conflicts with the narrower first-phase field enumeration in E01. Do not erase either source; preserve source, date, and abstraction level, and keep exact current production mechanics/weights UNKNOWN.
 
 ## [E03] Etsy Seller Handbook — 2026 title guidance / AI title tools
 
@@ -34,7 +34,7 @@ Zhang, Y., Su, C., & Liu, S. (2026-01-16). **How Etsy Uses LLMs to Improve Searc
 
 Use: production engineering evidence for a human-grounded LLM relevance framework and real-time student model. Current disclosed integration points are post-retrieval filtering, relevance-score feature enrichment for downstream ranking, ranking-loss weighting, and relevance boosting near final results. The model consumes rich listing information including titles, images, descriptions, attributes, variations and extracted entities. Etsy explicitly says upstream retrieval relevance is a future direction. Engagement proxies (click/add-to-cart/purchase) can be biased and can move differently from semantic relevance.
 
-Boundary: strong for the disclosed 2026 system; not a complete timeless Search stack or seller-controlled field formula.
+Boundary: strong for the disclosed **semantic-relevance model**, but not a complete timeless Search stack or seller-controlled field formula. The fact that this particular semantic-relevance model first applies after retrieval does **not** establish that descriptions or other rich listing data are absent from every separate initial query-matching/retrieval mechanism.
 
 ## [E05] Etsy Engineering — vast inventory / LLM-derived attributes
 
@@ -64,9 +64,9 @@ Boundary: feature availability/UI can change; object-role conclusion remains sco
 
 Etsy Staff. **How Etsy Search Works; Ultimate Guide to Etsy Search; Add Attributes to Help Increase Your Shop's Visibility.** Current 2025–2026 handbook reviewed 2026-08-23.
 
-Use: seller-facing descriptions of query matching/ranking, attributes/categories/tags and current shop/listing quality guidance.
+Use: seller-facing descriptions of query matching/ranking, attributes/categories/tags and current shop/listing quality guidance. `How Etsy Search Works` places a holistic listing — including title, tags, attributes, descriptions, first photo, reviews, and more — inside its **Query matching** section before describing ranking.
 
-Boundary: handbook advice is official practical guidance but less implementation-specific than E01/E04. When wording conflicts, prefer the more precisely scoped legal/engineering source and retain the distinction rather than forcing false consistency.
+Boundary: handbook advice is official practical guidance but less implementation-specific than E04. It is also broader than E01's legal four-field first-phase enumeration. When official wording conflicts, do **not** resolve the conflict by silently preferring one source as complete truth; preserve source/date/abstraction level and leave the exact current implementation boundary UNKNOWN.
 
 ## Evidence-use rules
 
@@ -81,12 +81,32 @@ PERSONALIZATION
 TITLE POSITION
 ≠ RANKING BOOST
 
-FIELD HELPS / IS CONSIDERED IN SEARCH
-≠ FIELD PARTICIPATES IN INITIAL RETRIEVAL
+GENERIC "FIELD HELPS / IS CONSIDERED IN SEARCH"
+≠ INITIAL-MATCHING EVIDENCE
+
+BUT
+
+ETSY CURRENT OFFICIAL SOURCES
+CONFLICT ON DESCRIPTION / BROADER LISTING DATA
+IN QUERY MATCHING
+
+E01 LEGAL DISCLOSURE
+→ titles + attributes + categories + tags
+
+E02 / E08 SELLER HANDBOOK
+→ explicitly includes descriptions / broader listing information
+  in query matching
+
+THEREFORE
+→ preserve source + date + abstraction level
+→ exact production mechanics / weights remain UNKNOWN
 
 QUERY MATCHING
-≠ POST-RETRIEVAL SEMANTIC RELEVANCE
+≠ THE DISCLOSED POST-RETRIEVAL SEMANTIC-RELEVANCE MODEL
 ≠ DOWNSTREAM RANKING
+
+POST-RETRIEVAL SEMANTIC MODEL USES DESCRIPTION
+≠ DESCRIPTION IS ABSENT FROM EVERY EARLIER MATCHING SYSTEM
 
 ENGAGEMENT
 ≠ SEMANTIC RELEVANCE
