@@ -235,6 +235,51 @@ Boundary: the experiment supports the tested AutoPKG-derived attribute system, n
 
 ---
 
+## AI-native / conversational product discovery
+
+### [C14] Google Merchant Center — conversational product data and AI shopping queries
+
+Google Merchant Center Help. **How to use conversational attributes; About AI performance insights; Product detail `[product_detail]`; Product highlight `[product_highlight]`.** Reviewed 2026-08-23.
+
+Use: current official evidence that AI/conversational shopping can involve longer, more complex requests and product-feature, specification, review, pricing/comparison, and other mixed intents. Google exposes conversational attributes and structured technical/detail fields for AI-driven product understanding, and its AI performance insights can surface frequently used product concepts and missing popular structured attributes. Google explicitly tells merchants not to use `product_highlight` as a keyword/search-term/SEO-keyword list.
+
+Supports:
+
+```text
+MACHINE / AGENT LEGIBILITY
+≠ KEYWORD DENSITY
+
+SHOPPER LANGUAGE
+≠ ONE EXACT KEYWORD STRING
+
+STRUCTURED FACT COMPLETENESS
+CAN IMPROVE PRODUCT UNDERSTANDING / MATCHABILITY
+≠ GUARANTEED RETRIEVAL OR RANKING
+```
+
+Boundary: AI performance insights are a limited/phased product feature, and Google does not disclose exact field-to-stage mappings, retrieval/ranking weights, or a deterministic seller formula for AI Mode/Gemini.
+
+### [C15] Shopee / Sea — Shopee App in ChatGPT
+
+Shopee Vietnam Help. **[ChatGPT] Shopee trên ChatGPT là gì và cách liên kết tài khoản.** Sea Limited. **Sea and OpenAI Deepen Strategic Partnership to Drive AI Adoption and Innovation Across Southeast Asia and Brazil.** Reviewed 2026-08-23.
+
+Use: current official evidence that shoppers in supported markets can use natural conversational requests in ChatGPT to receive Shopee product recommendations/cards. Shopee account connection is optional; connected users may receive more personalized suggestions based on Shopee history/preferences, while recent conversational context/needs can be shared to support the request. Product detail and checkout continue on Shopee app/web in the documented flow.
+
+Supports:
+
+```text
+CONVERSATIONAL REQUEST / CONTEXT
+≠ ONE MANUAL KEYWORD QUERY
+
+SAME PRODUCT DATA
++ DIFFERENT SHOPPER / ACCOUNT / CONVERSATION STATE
+→ POSSIBLY DIFFERENT RECOMMENDATION CONTEXT
+```
+
+Boundary: current official sources do not disclose the exact Shopee listing fields, candidate-generation/retrieval pipeline, transformation logic, ranker features/weights, or a seller-facing optimization formula for the Shopee App in ChatGPT.
+
+---
+
 ## Evidence-use rules
 
 Use these sources according to their strongest legitimate role:
@@ -262,6 +307,19 @@ API OBJECT NAME
 SEARCH FIELD
 ≠ GUARANTEED RETRIEVAL FEATURE
 ≠ RANKING WEIGHT
+
+MACHINE LEGIBILITY / PRODUCT-DATA COMPLETENESS
+≠ KEYWORD DENSITY
+≠ GUARANTEED RANKING / RECOMMENDATION
+
+SEMANTIC MATCHABILITY
+≠ PROVEN RANKING BOOST
+
+CONVERSATIONAL SHOPPER REQUEST
+≠ ONE EXACT KEYWORD STRING
+
+OPTIMIZE FOR RESOLVABILITY
+≠ OPTIMIZE FOR IMAGINED MODEL WEIGHTS
 
 OFFICIAL SOURCES WITH DIFFERENT FIELD/STAGE ABSTRACTIONS
 → PRESERVE CONFLICT / SCOPE
