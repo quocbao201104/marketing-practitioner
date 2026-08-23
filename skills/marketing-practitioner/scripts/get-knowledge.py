@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "routing-index.json"
 ROUTE_ID_RE = re.compile(r"^[a-z0-9]+(?:[.-][a-z0-9]+)*$")
 HEADING_RE = re.compile(r"^(#{1,6})\s+\S")
+SOURCE_ID_RE = re.compile(r"^[A-Z][A-Z0-9-]*\d{2,}$")
 
 
 class RoutingError(RuntimeError):
@@ -139,6 +140,36 @@ def get_knowledge(route_id: str, manifest: dict | None = None) -> tuple[str, str
     return relative_path, content
 
 
+def get_source(source_id: str) -> tuple[str, str]:
+    source_id = source_id.upper()
+    if not SOURCE_ID_RE.fullmatch(source_id):
+        raise RoutingError(f"invalid evidence source ID: {source_id}")
+
+    references_root = ROOT / "references"
+    if not references_root.is_dir():
+        raise RoutingError(f"references directory not found: {references_root}")
+
+    heading_pattern = re.compile(
+        rf"^(#{{2,6}})\s+\[{re.escape(source_id)}\](?:\s+|$)"
+    )
+    matches: list[tuple[Path, str]] = []
+
+    for path in sorted(references_root.rglob("*.md")):
+        text = path.read_text(encoding="utf-8")
+        for line in text.splitlines():
+            if heading_pattern.match(line):
+                matches.append((path, line))
+
+    if len(matches) != 1:
+        raise RoutingError(
+            f"evidence source ID must match exactly once; found {len(matches)} for {source_id}"
+        )
+
+    path, heading = matches[0]
+    content = extract_heading_section(path.read_text(encoding="utf-8"), heading)
+    return str(path.relative_to(ROOT)), content
+
+
 def iter_route_ids(manifest: dict, namespace: str | None = None):
     namespaces = manifest["namespaces"]
     selected = [namespace] if namespace else sorted(namespaces)
@@ -191,10 +222,23 @@ def main() -> int:
     parser.add_argument("--namespace", help="limit --list to one namespace")
     parser.add_argument("--namespaces", action="store_true", help="list available namespaces")
     parser.add_argument("--validate", action="store_true", help="validate every indexed route")
+    parser.add_argument("--source", nargs="+", metavar="ID", help="resolve evidence source IDs such as R23, C14, or A03")
     args = parser.parse_args()
 
     try:
         manifest = load_manifest()
+
+        if args.source:
+            if args.route_ids or args.list or args.namespaces or args.validate or args.namespace:
+                parser.error("--source cannot be combined with route/list/validation modes")
+            for position, source_id in enumerate(args.source):
+                relative_path, content = get_source(source_id)
+                if position:
+                    print()
+                if len(args.source) > 1:
+                    print(f"--- source:{source_id.upper()} ({relative_path}) ---")
+                print(content)
+            return 0
 
         if args.validate:
             errors = validate_manifest(manifest)
@@ -220,7 +264,7 @@ def main() -> int:
             parser.error("--namespace is only valid with --list")
 
         if not args.route_ids:
-            parser.error("provide route IDs, or use --list / --namespaces / --validate")
+            parser.error("provide route IDs, or use --source / --list / --namespaces / --validate")
 
         for position, route_id in enumerate(args.route_ids):
             relative_path, content = get_knowledge(route_id, manifest)
