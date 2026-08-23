@@ -214,7 +214,7 @@ This distinction has strong prior art. Moorthy's product-line model explicitly c
 
 A promotion modifier and an allocation rule should not be collapsed. In `50% off for new customers`, the 50% reduction is a conditional modification; `new customers only` is the allocation rule.
 
-Personalized-pricing evidence also demonstrates that profit, consumer surplus, distributional outcomes, and fairness/trust can diverge [CD12]. Therefore allocation is not merely a targeting implementation detail when it changes customer treatment or strategic response.
+Personalized-pricing evidence demonstrates that firm profit, aggregate consumer surplus, and the distribution of consumer gains/losses can diverge [CD12]. Perceived fairness and trust are separate possible outcomes not measured by that study. Therefore allocation is not merely a targeting implementation detail when it changes customer treatment or strategic response.
 
 ---
 
@@ -594,10 +594,11 @@ This demonstrates:
 ```text
 FIRM PROFIT
 ≠ CUSTOMER SURPLUS
-≠ PERCEIVED FAIRNESS / TRUST
 ```
 
-Fairness should not become a fifth design dimension. It is an outcome, constraint, or guardrail depending on the current decision and normative/legal context.
+The distribution of consumer gains and losses can also differ from the aggregate consumer-surplus result. Perceived fairness and trust are separate conceptual and empirical outcomes not measured by CD12.
+
+Fairness may still be an outcome, constraint, or guardrail depending on the current decision and normative/legal context; it should not become a fifth design dimension merely by assumption.
 
 Nor should fairness be reduced to equal prices for everyone. Different configurations, quantities, costs, commitments, markets, or negotiated conditions can justify different prices. The reasoning burden is to preserve the basis and consequences of differential treatment rather than assume either equality or differentiation is automatically correct.
 
