@@ -8,7 +8,7 @@
 
 *Learn the market before writing the copy.*
 
-[![Version: v0.3.0](https://img.shields.io/badge/version-v0.3.0-0a7.svg)](#status)
+[![Version: v0.4.0](https://img.shields.io/badge/version-v0.4.0-0a7.svg)](#status)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Language: English](https://img.shields.io/badge/language-English-4c1.svg)](#)
 [![Format: Agent Skill](https://img.shields.io/badge/format-Agent%20Skill-6f42c1.svg)](skills/marketing-practitioner/SKILL.md)
@@ -375,6 +375,7 @@ The installable skill is under [`skills/marketing-practitioner/`](skills/marketi
 └── skills/
     └── marketing-practitioner/
         ├── SKILL.md                # runtime controller + invariants
+        ├── TASK-SPECIFICATION-GUIDE.md # user-facing task specification
         ├── routing-index.json      # logical knowledge addresses
         ├── scripts/
         │   ├── get-knowledge.py
@@ -519,7 +520,7 @@ and what important information is still missing.
 
 ## Status
 
-**Current release: v0.3.0 — Commerce & Addressable Knowledge.**
+**Current release: v0.4.0 — Task Specification & Prompt Compilation.**
 
 Marketing Practitioner is under active development.
 
@@ -531,6 +532,7 @@ The current main branch includes:
 - a shared commerce/product-discovery model plus six commerce platform modules;
 - conversational and agent-mediated commerce boundaries;
 - addressable just-in-time knowledge routing for large knowledge surfaces;
+- research-backed task specification and agent-side prompt compilation;
 - targeted audits and smoke tests.
 
 The project does **not** claim complete knowledge of private platform ranking systems or universal runtime reliability. Platform behavior is time-sensitive, evidence is scoped, and the architecture is expected to improve through real use and concrete failures rather than by adding abstractions for their own sake.
