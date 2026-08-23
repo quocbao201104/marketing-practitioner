@@ -175,7 +175,7 @@ history / state transition
 
 Do not reconstruct every derived concept by default. Attention re-entry, secondary use, nested recommendation, spillover, community-local constraints, platform status, and feedback loops should be represented from the compact core only when they matter.
 
-Load the smallest platform module only when platform-specific behavior is material:
+Load the smallest platform module only when platform-specific behavior is material. The four current modules use the same compact vocabulary and should be treated as current product instantiations, not independent frameworks:
 
 - Facebook: `platforms/facebook.md`
 - LinkedIn: `platforms/linkedin.md`
@@ -263,15 +263,15 @@ Do not automatically surface research methodology, absent evidence, internal not
 
 ## Message / strategy → platform content
 
-Pass forward the strategic message, source/proof boundaries, mandatory facts, intended audience where known, desired action, and voice constraints. Let the platform-content path resolve only environmental choices that can change execution: actor, object, representation, audience state, typed relationship/delivery/permission edges, governance/mediation state, and success metric.
+Pass forward the strategic message, source/proof boundaries, mandatory facts, intended audience where known, desired action, and voice constraints. Then let the platform-content path resolve only environmental choices that can change execution or interpretation, such as actor/source, object, representation, audience state, typed delivery/permission edge, relevant platform state, and success metric.
 
 Do not let generic platform heuristics override established strategy or invent a new target audience.
 
 ## Platform observation → learning
 
-Pass forward one compact observation record with only the provenance needed for interpretation: object/state, representation if material, surface/delivery context, audience/pre-state, exposure and response opportunity, interaction provenance, allocation regime, observation unit, relevant time/maturity, attribution rule, comparability, and uncertainty.
+When platform metrics are used to update a content decision, pass forward one compact observation record with the material object/state, representation, audience/pre-state, surface/delivery context, exposure and response opportunity, interaction provenance, allocation/visibility regime, observation unit, relevant history, outcome maturity, attribution rule/window where applicable, comparability, and uncertainty.
 
-Do not convert non-action into negative preference by default. Do not convert coordinated/automated/representative activity into organic human preference. Do not convert a policy-mediated observation into intrinsic content quality. Do not convert last-touch or platform attribution into causal or incremental learning without the required design.
+Do not convert non-action into negative preference by default. Do not convert a policy-mediated or inauthentic interaction into intrinsic content quality. Do not convert last-touch or platform-attributed outcomes into causal or incremental learning without the required design.
 
 ## Diagnosis → decision or communication
 
@@ -302,9 +302,9 @@ Before returning material work, check only the dimensions relevant to the curren
 - **Decision fit:** the output serves the current job rather than a generic marketing workflow.
 - **Proof proportionality:** claim strength matches available support.
 - **Counterevidence / uncertainty:** material contradictions and unknowns remain represented in reasoning and surface when the recipient needs them.
-- **Reader / environment fit:** audience-facing communication respects material audience state, object/representation, relationship/permission, surface, and information budget.
+- **Reader / environment fit:** audience-facing communication respects the recipient's state, relationship, surface, permissions, and information budget when those dimensions are material.
 - **Strategic coherence:** prose expresses a sufficiently resolved strategy rather than substituting for one.
-- **Evidence-generation fit:** when platform observations drive a decision, the observation record preserves the material exposure, response opportunity, provenance, unit, delivery, history, maturity, attribution, and comparability constraints.
+- **Evidence-generation fit:** when platform metrics drive a decision, the interpretation respects material exposure, response opportunity, interaction provenance, delivery, visibility, history, maturity, attribution, and comparability constraints.
 - **Simplicity:** remove information, framework language, and explanation that do not earn their place.
 - **Ethical persuasion:** preserve meaningful choice.
 
