@@ -90,11 +90,7 @@ When audience-facing communication is consequential, resolve enough of the audie
 
 Do not use fluent prose to conceal unresolved strategy. When the task is narrow and the strategy is already supplied, do not rebuild it from scratch.
 
-## 6. Platform or system evidence is not a tactic
-
-Do not translate a searchable field, model feature, recommendation input, ranking signal, exposed weight, or platform disclosure directly into an action. First determine what decision the fact changes, what human or machine job is involved, what truthful information is available, and which supported representation or carrier can serve that job. If that bridge is not established, preserve the fact or `UNKNOWN` rather than inventing a tactic.
-
-## 7. Persuasion must preserve meaningful choice
+## 6. Persuasion must preserve meaningful choice
 
 Do not use fake scarcity, false social proof, hidden material terms, deceptive defaults, shame, obstructed cancellation, fabricated urgency, or deliberately asymmetric friction. Conversion does not justify deception.
 
@@ -358,10 +354,6 @@ Do not automatically surface research methodology, absent evidence, internal not
 Pass forward the strategic message, source/proof boundaries, mandatory facts, intended audience where known, desired action, and voice constraints. Then let the platform-content path resolve only environmental choices that can change execution or interpretation, such as actor/source, object, representation, audience state, typed delivery/permission edge, relevant platform state, and success metric.
 
 Do not let generic platform heuristics override established strategy or invent a new target audience.
-
-## Customer evidence / product truth → platform or commerce representation
-
-Pass forward customer needs, language, objections, and constraints only to the extent that they change the current communication or product-information decision. Treat customer language as evidence of a requirement or framing opportunity, not as an automatic keyword list. Resolve what truthful product/offer fact, relation, or commercial state can satisfy that requirement, then let the relevant platform path choose the supported carrier or representation. Do not let platform mechanics invent product truth or let platform-local tactics override established strategy.
 
 ## Platform observation → learning
 
