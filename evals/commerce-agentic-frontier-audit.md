@@ -4,429 +4,394 @@ Reviewed: 2026-08-23
 
 Status: **targeted research/adversarial audit, not benchmark/eval score**.
 
-Purpose: test the targeted agentic-commerce extension added after the classic marketplace knowledge layer had already passed the 23-case architecture audit. This pass asks whether delegated authority, agent-facing product data, checkout/order authority, external-store discovery, and 2026 conversational commerce require a new durable primitive or expose a material gap in Chapter 09 / Google / Amazon.
+> **Post-review addendum:** an independent review of later frozen head `1bcc0f653d0f14031e8209c77de51e518d66302a` found one Etsy source-fidelity defect not exposed by this audit: current official Etsy sources conflict on whether description/broader listing data participate in query matching. That defect did not change the 8+3 architecture verdict, but it did require a targeted evidence correction. See `commerce-etsy-query-matching-source-conflict-correction.md`. The original frontier scorecard below should therefore be read as an architecture/representation result, **not proof that every platform evidence boundary had been exhaustively adjudicated**.
 
-## Frozen dependency
+Purpose: attack the frozen commerce specialization with 2026 agent-mediated / delegated-commerce cases after classic marketplace integration, while checking that the existing 8 + 3 parent grammar still represents the new authority, checkout, order, and agent-facing representation distinctions without a new durable primitive.
 
-The earlier artifact remains unchanged:
+This audit also regression-walks the prior 23 commerce cases conceptually. It does not rewrite the historical pre-router audit.
 
-```text
-evals/commerce-environment-adversarial-audit.md
-```
-
-Its frozen score was:
-
-```text
-23 total
-15 LOSSLESS
-7 LOSSLESS / INTERNAL UNKNOWN
-1 RUNTIME UNTESTED
-0 PARTIAL
-0 FAIL
-```
-
-The later routing smoke already closed the historical runtime-untested gate without rewriting that artifact.
-
-## Regression pass over the 23 legacy cases
-
-All 23 frozen cases were re-walked against the extended Chapter 09 and updated Google/Amazon modules.
-
-The frontier patch is additive and preserves the prior encodings:
-
-- product / platform-record distinctions remain conditional rather than universal;
-- actor/object analytical roles remain non-disjoint;
-- descriptive / commercial / observational context remains separated;
-- `OBJECT / REPRESENTATION / TYPED EDGE / STATE + provenance/scope/history` remains the parent grammar;
-- fast-path product communication remains explicit;
-- no prior platform-specific ranking UNKNOWN was converted into a known law.
-
-**Regression verdict: 23 / 23 legacy cases preserve their prior result; 0 regressions.**
-
----
-
-# 1. Delegated authority and effect
-
-## F1 — Shopper intent is not purchase authority
-
-**Stress case**
-
-A shopper tells an agent:
-
-> Find me a laptop under $1,000.
-
-The agent has technical checkout capability.
-
-**Required distinction**
-
-The discovery request does not itself authorize a purchase.
-
-**Encoding**
-
-```text
-actor A       = shopper
-actor B       = shopping agent / platform
-interaction   = discovery request
-permission edge = absent for purchase unless separately granted
-platform state  = checkout capability exists
-scope           = search / recommendation only
-```
-
-**Preserved distinction**
+## Frontier under test
 
 ```text
 SHOPPER INTENT
 ≠ DELEGATED ACTION AUTHORITY
+
+PLATFORM / AGENT CAPABILITY
+≠ USER AUTHORIZATION
+≠ SUCCESSFUL EFFECT
+
+DISCOVERY / INDEX STATE
+≠ AUTHORITATIVE CHECKOUT STATE
+≠ AUTHORITATIVE ORDER STATE
+
+CHECKOUT REQUEST / SESSION
+≠ MERCHANT-ACCEPTED ORDER
+≠ PAYMENT / FULFILLMENT COMPLETION
+
+AGENT-CONSUMABLE REPRESENTATION
+≠ HUMAN-FACING GENERATED REPRESENTATION
+
+ENCOUNTER / CHECKOUT SURFACE
+≠ MERCHANT OF RECORD
+≠ PAYMENT / FULFILLMENT RESPONSIBILITY
 ```
 
-**Verdict: LOSSLESS**
+Evidence:
 
-## F2 — Capability is not authorization
+```text
+references/commerce/agentic-commerce-evidence.md
+references/commerce/google-shopping-evidence.md
+references/commerce/amazon-evidence.md
+```
+
+---
+
+# 1. Delegated authority attacks
+
+## D1 — Search intent must not authorize purchase
 
 **Stress case**
 
-A platform supports a checkout API, but the current checkout is standard UCP without AP2 Mandates and still requires user finalization through trusted UI.
+The user says:
+
+> Find me a laptop under $1,000. Do not buy anything.
+
+The agent/system is technically capable of checkout.
 
 **Encoding**
 
 ```text
-platform state = checkout capability available
-authorization state = user finalization still required
-permission edge = not autonomous
+actor A        = user
+actor B        = shopping agent / platform
+interaction    = discovery request
+permission edge = no purchase authority
+capability state = checkout technically supported
+scope          = search / recommend only
 ```
 
 **Preserved distinction**
 
 ```text
-PLATFORM CAPABILITY
-≠ USER AUTHORIZATION
+DISCOVERY INTENT
+≠ PURCHASE AUTHORITY
+
+TECHNICAL CAPABILITY
+≠ AUTHORIZED OPERATION
 ```
 
 **Verdict: LOSSLESS**
 
-## F3 — Authority is scoped to transaction state
+## D2 — Authorization scope must fail when checkout state exceeds it
 
 **Stress case**
 
-User authorizes purchase only if total is at most $1,000. Checkout later becomes $1,028 after shipping.
+The user authorizes purchase up to `$1,000`. At checkout, shipping makes the total `$1,028`.
 
 **Encoding**
 
 ```text
-permission edge:
-user --[authorizes purchase]--> agent
-scope.total_max = 1000
-currency = USD
-
-checkout state at t1 = 1028
-history = authorized state → changed state
+permission edge = purchase authorization
+scope           = total <= $1,000
+checkout state  = $1,028
+history         = authorized state → changed state
 ```
-
-Current state violates the prior authorization scope.
 
 **Preserved distinction**
 
 ```text
 AUTHORIZATION OF STATE S0
-≠ AUTHORIZATION OF MATERIALLY CHANGED STATE S1
+≠ AUTHORIZATION OF MATERIAL STATE S1
 ```
 
-The exact re-authorization UX/protocol remains platform-specific.
+**Verdict: LOSSLESS**
+
+## D3 — Product substitution can invalidate product-bound authority
+
+**Stress case**
+
+The user authorizes product A. The merchant or agent proposes product B because A is unavailable.
+
+**Encoding**
+
+```text
+permission scope = product A
+checkout state   = product B substituted
+history          = original → substituted state
+```
+
+**Preserved distinction**
+
+```text
+AUTHORIZED PRODUCT
+≠ SUBSTITUTE PRODUCT
+```
+
+No new `MANDATE` primitive is required; the scope belongs to the permission edge / state.
 
 **Verdict: LOSSLESS**
 
 ---
 
-# 2. Discovery, checkout, order, and effect
+# 2. Checkout and order-state attacks
 
-## F4 — Discovery state can become stale before checkout
+## T1 — Discovery price is stale by checkout
 
 **Stress case**
 
-At discovery time a feed representation says:
-
-```text
-price = $89
-size 42 = in stock
-```
-
-At checkout the merchant returns:
-
-```text
-price = $94
-shipping = $8
-size 42 = out of stock
-```
+The agent discovers product at `$89`. Seven minutes later the merchant checkout returns `$94`, `$8` shipping, and size 42 unavailable.
 
 **Encoding**
 
 ```text
-representation A = discovery / indexed product state @ t0
-representation B = authoritative checkout state @ t1
-provenance A = merchant feed / indexed state
-provenance B = merchant checkout response
-history = t0 → t1
+discovery representation @ t0 = $89 / size 42 available
+checkout state @ t1           = $94 + $8 / size 42 unavailable
+provenance                     = discovery feed vs merchant checkout
 ```
 
 **Preserved distinction**
 
 ```text
-DISCOVERY / INDEX STATE
-≠ AUTHORITATIVE CHECKOUT STATE
+DISCOVERY SNAPSHOT
+≠ CURRENT TRANSACTION TRUTH
 ```
-
-A merchant feed can still be authoritative product-data input for discovery; the error would be treating that earlier snapshot as timeless transaction truth.
 
 **Verdict: LOSSLESS**
 
-## F5 — Checkout session is not accepted/completed order
+## T2 — Checkout submitted is not accepted/completed order
 
 **Stress case**
 
-An agent creates a checkout session and submits completion, but merchant acceptance/payment/order creation has not yet been confirmed.
+An agent submits checkout, then the merchant rejects the order.
 
 **Encoding**
 
 ```text
-checkout object/state = created / submitted
-merchant effect state = not yet confirmed
-order object/state = absent / pending confirmation
-payment state = independent
+checkout object/state = submitted
+merchant interaction  = rejected
+order state            = no accepted order
+history                = submitted → rejected
 ```
 
 **Preserved distinction**
 
 ```text
-CHECKOUT REQUEST / SESSION
+REQUEST SUBMITTED
 ≠ MERCHANT-ACCEPTED ORDER
+```
+
+**Verdict: LOSSLESS**
+
+## T3 — Payment / fulfillment can fail after merchant acceptance
+
+**Stress case**
+
+Merchant accepts order, payment later fails; or payment succeeds and fulfillment later fails/cancels.
+
+**Encoding**
+
+```text
+order state       = accepted
+payment state     = success / failure
+fulfillment state = pending / failed / cancelled / completed
+history           = independent transitions
+```
+
+**Preserved distinction**
+
+```text
+ORDER ACCEPTED
 ≠ PAYMENT SUCCESS
 ≠ FULFILLMENT COMPLETION
 ```
 
 **Verdict: LOSSLESS**
 
-## F6 — Order remains a changing post-checkout state
-
-**Stress case**
-
-An accepted order later receives fulfillment events, an item adjustment, and a partial refund.
-
-**Encoding**
-
-```text
-object = order
-state = authoritative current snapshot
-events = fulfillment / adjustment history
-scope = post-purchase
-```
-
-No new lifecycle primitive is needed.
-
-**Verdict: LOSSLESS**
-
 ---
 
-# 3. Representation and actor-role frontier
+# 3. Representation and actor-role attacks
 
-## F7 — Agent-facing representation is not the human answer
+## R1 — Agent-facing representation conflicts with human-facing summary
 
 **Stress case**
 
-An agent queries a structured catalog containing IDs, variants, offers, availability, currency, and buyer context, then presents a short recommendation to the user.
+Agent catalog data says `battery = 10 hours`. The generated human recommendation says `all-day battery life` without evidence for that stronger claim.
 
 **Encoding**
 
 ```text
-object = product / variant
-representation A = agent-consumable catalog response
-representation B = human-facing generated recommendation
-surface = conversational UI
+representation A = agent-consumable structured fact
+representation B = human-facing generated summary
+provenance        = merchant/catalog vs agent generation
+claim boundary    = 10 hours only
 ```
 
 **Preserved distinction**
 
 ```text
-AGENT-CONSUMABLE REPRESENTATION
-≠ HUMAN-FACING GENERATED REPRESENTATION
+AGENT INPUT REPRESENTATION
+≠ HUMAN OUTPUT REPRESENTATION
+
+SOURCE FACT
+≠ STRONGER GENERATED CLAIM
 ```
 
 **Verdict: LOSSLESS**
 
-## F8 — Checkout surface is not Merchant of Record / payment / fulfillment
+## R2 — Checkout surface is not Merchant of Record
 
 **Stress case**
 
-A shopper completes a mediated checkout inside an AI/search surface while the merchant remains seller/Merchant of Record and another payment system handles payment credentials/processing.
+Buyer completes checkout inside an AI/search interface while the merchant remains seller of record and another provider handles payment rails.
 
 **Encoding**
 
 ```text
-actor A = platform / checkout mediator
-actor B = merchant / seller of record
-actor C = payment provider / handler
-actor D = fulfillment / support provider where distinct
-surface = AI / conversational checkout
-relations = typed commercial / payment / fulfillment roles
+actor/platform = encounter + checkout mediator
+actor/merchant = seller / Merchant of Record
+actor/payment  = payment-processing role
+actor/logistics = fulfillment role where separate
 ```
 
 **Preserved distinction**
 
 ```text
-ENCOUNTER / CHECKOUT SURFACE
-≠ MERCHANT OF RECORD
+ENCOUNTER SURFACE
+≠ SELLER OF RECORD
 ≠ PAYMENT ROLE
-≠ FULFILLMENT / SUPPORT ROLE
+≠ FULFILLMENT ROLE
 ```
 
 **Verdict: LOSSLESS**
 
 ---
 
-# 4. Platform corrections
+# 4. Platform-correction attacks
 
-## F9 — Amazon discovery can escape the native Store catalog/listing/offer regime
-
-**Stress case**
-
-A customer sees a Shop Direct product in Amazon discovery even though the item is sold by an external merchant; the user can be referred to the merchant site or use Buy for Me where eligible.
-
-**Encoding**
-
-```text
-object = external merchant product / feed role
-representation = Amazon Shop Direct discovery representation
-commercial actor = external merchant
-edge / route A = referral to merchant site
-edge / route B = Buy for Me agentic purchase
-```
-
-The case does not require a native seller listing / offer / PDP identity.
-
-**Preserved distinction**
-
-```text
-AMAZON PRODUCT DISCOVERY
-≠ NECESSARILY NATIVE AMAZON STORE REGIME
-```
-
-Unknown remains: exact internal Amazon normalization/identifier and retrieval/ranking architecture for Shop Direct.
-
-**Verdict: LOSSLESS / INTERNAL UNKNOWN**
-
-## F10 — Google `popularity_rank` cannot become Google organic rank
+## P1 — Google `popularity_rank` must not become Google organic rank
 
 **Stress case**
 
-Merchant submits:
+A merchant sets:
 
 ```text
 popularity_rank = 95.5
 ```
 
-A practitioner interprets it as “Google ranks this product at 95.5.”
+and asks whether Google now ranks the product at 95.5.
 
 **Encoding**
 
 ```text
-seller field = merchant-declared relative sales performance
-scope = merchant inventory
-platform organic rank = separate / undisclosed
+source representation = merchant conversational attribute
+field semantic         = merchant-relative selling-performance context
+unknown                = organic rank relationship
 ```
 
 **Preserved distinction**
 
 ```text
-MERCHANT-DECLARED POPULARITY_RANK
-≠ GOOGLE ORGANIC SEARCH RANK
+MERCHANT-DECLARED POPULARITY RANK
+≠ GOOGLE ORGANIC SEARCH / SHOPPING RANK
 ```
 
 **Verdict: LOSSLESS**
 
-## F11 — Google declared product relation is not inferred relation
+## P2 — Merchant-declared related product is not inferred relation
 
 **Stress case**
 
-Merchant declares product B as a substitute/accessory for product A using `related_product`.
+Merchant marks B as substitute for A. Platform behavior also shows A and C are often co-purchased.
 
 **Encoding**
 
 ```text
-object A / B = products
-edge = merchant-declared related-product relation
-provenance = merchant declaration
-platform-inferred relation = separate / unknown
-behavioral co-purchase relation = separate observation-derived edge
+edge A→B = merchant-declared substitute
+provenance = merchant
+
+edge A→C = observed / platform-derived co-purchase relation
+provenance = behavior / platform
 ```
 
 **Preserved distinction**
 
 ```text
-MERCHANT-DECLARED PRODUCT RELATION
-≠ PLATFORM-INFERRED RELATION
-≠ OBSERVED CO-PURCHASE RELATION
+DECLARED PRODUCT RELATION
+≠ INFERRED / OBSERVED PRODUCT RELATION
 ```
 
 **Verdict: LOSSLESS**
 
-## F12 — Google AI checkout does not transfer seller-of-record role
+## P3 — Amazon Shop Direct product must not be forced through native Store listing model
 
 **Stress case**
 
-An eligible buyer checks out from AI Mode / Gemini using UCP-powered checkout.
+An external merchant product appears in Amazon Shop Direct, can link to the merchant website, and may be eligible for Buy for Me.
 
 **Encoding**
 
 ```text
-surface / mediator = Google AI Mode / Gemini
-seller / MoR = participating merchant
-payment role = Google Pay / handler where applicable
-merchant backend = checkout/order authority
+object/state = external merchant product / feed representation
+platform representation = Amazon Shop Direct result
+edge          = referral to external merchant OR Buy for Me mediation
+merchant role = external commercial responsibility
+unknown       = exact Amazon internal normalization / identifier
 ```
 
 **Preserved distinction**
 
 ```text
-GOOGLE CHECKOUT SURFACE
-≠ GOOGLE IS SELLER OF RECORD
+AMAZON DISCOVERY
+≠ NECESSARILY NATIVE STORE ASIN + SELLER LISTING + OFFER REGIME
 ```
 
-Exact rollout/eligibility and some transaction mechanics remain time-sensitive.
+**Verdict: LOSSLESS / INTERNAL UNKNOWN**
+
+## P4 — Shop Direct cannot justify hidden-ASIN claims
+
+**Stress case**
+
+User asks:
+
+> Does every Shop Direct item definitely have no ASIN anywhere inside Amazon?
+
+**Encoding**
+
+```text
+public evidence = external-store discovery / feeds / referral / Buy for Me
+internal ID state = unknown
+```
+
+**Required behavior**
+
+```text
+DO NOT INFER
+PUBLIC EXTERNAL-STORE REGIME
+→ NO INTERNAL AMAZON IDENTIFIER EXISTS
+```
 
 **Verdict: LOSSLESS / INTERNAL UNKNOWN**
 
 ---
 
-# 5. Core attack
+# 5. Core-cardinality attack
 
-## X1 — Does agentic commerce require a new durable primitive?
+## C1 — Does agentic commerce require a ninth durable thing?
 
 Tested candidates:
 
 ```text
 shopping agent
-delegated authority / mandate
+mandate
+authorization grant
 checkout session
 order
-payment handler
-merchant of record
-agent-facing product representation
+payment
+fulfillment
 ```
 
-All tested cases remain representable as:
+All tested cases remain representable through the existing grammar:
 
-```text
-ACTOR / SOURCE
-OBJECT
-REPRESENTATION
-TYPED EDGE / PERMISSION EDGE
-INTERACTION ACT
-PLATFORM / MEDIATION STATE
-OBSERVATION RECORD
-+ provenance / scope / history
-```
-
-Examples:
-
-- shopping agent → actor role;
+- shopping agent → `ACTOR`;
 - delegated authority → typed permission edge + scope/state;
 - checkout/order → object/state roles when independently addressable;
 - payment/MoR/fulfillment → actor + typed commercial roles;
@@ -456,7 +421,7 @@ Legacy regression:
 
 Combined research surface now stress-tests 36 cases without a PARTIAL or FAIL, while retaining explicit UNKNOWNs for undisclosed/current platform internals.
 
-This count is **not** a benchmark score or statistical reliability claim.
+This count is **not** a benchmark score or statistical reliability claim, and the post-review Etsy addendum above demonstrates why `0 PARTIAL / 0 FAIL` must not be read as proof that source-fidelity conflicts cannot still be found.
 
 ---
 
@@ -483,8 +448,11 @@ SURVIVES
 
 LEGACY COMMERCE ARCHITECTURE REGRESSION
 NONE FOUND
+
+POST-REVIEW ETSY SOURCE-FIDELITY DEFECT
+SEE TARGETED CORRECTION ARTIFACT
 ```
 
-**Gate recommendation: RUN FRESH ROUTING / USER-FACING SMOKE FOR THE FRONTIER CASES, THEN RETURN PR #7 TO INDEPENDENT REVIEW.**
+**Gate recommendation after the Etsy correction: RETURN THE NEW PR #7 HEAD TO INDEPENDENT ADVERSARIAL REVIEW.**
 
 Do not reopen broad commerce ontology research unless a concrete counterexample survives this parent grammar with a material decision-relevant collapse.
