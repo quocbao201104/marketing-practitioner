@@ -8,7 +8,7 @@
 
 *Learn the market before writing the copy.*
 
-[![Version: v0.4.0](https://img.shields.io/badge/version-v0.4.0-0a7.svg)](#status)
+[![Version: v0.5.0](https://img.shields.io/badge/version-v0.5.0-0a7.svg)](#status)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Language: English](https://img.shields.io/badge/language-English-4c1.svg)](#)
 [![Format: Agent Skill](https://img.shields.io/badge/format-Agent%20Skill-6f42c1.svg)](skills/marketing-practitioner/SKILL.md)
@@ -18,9 +18,9 @@
 
 ---
 
-Marketing Practitioner gives an AI agent a disciplined way to turn messy market evidence into bounded marketing decisions — across customer research, positioning, messaging, copy, platform content, commerce, product discovery, diagnosis, experimentation, localization, and learning.
+Marketing Practitioner gives an AI agent a disciplined way to turn messy market evidence into bounded marketing decisions — across customer research, segmentation, positioning, **commercial design and pricing**, messaging, copy, platform content, commerce, product discovery, diagnosis, experimentation, localization, and learning.
 
-It is not a bag of growth hacks or prompt templates. The agent starts from the job you actually need done, keeps supplied facts and uncertainty intact, loads deeper knowledge only when it can change the decision, and produces the minimum useful output for that job.
+It is not a bag of growth hacks or prompt templates. The runtime starts from the job you actually need done, freezes decisions that are already resolved, loads deeper knowledge only when it can change the open decision, and returns the minimum useful output for that job.
 
 ```text
 EVIDENCE
@@ -40,7 +40,7 @@ Install with the Skills CLI:
 npx skills add quocbao201104/marketing-practitioner-skill
 ```
 
-Then talk to your agent normally. You do **not** need to know marketing vocabulary such as ICP, JTBD, positioning, attribution, retrieval, or conversion architecture before using the skill.
+Then talk to your agent normally. You do **not** need to know marketing vocabulary such as ICP, JTBD, positioning, willingness to pay, attribution, retrieval, or conversion architecture before using the skill.
 
 Start with three things:
 
@@ -50,11 +50,9 @@ Start with three things:
 
 Not sure what belongs in the prompt? See the [`Task Specification Guide`](TASK-SPECIFICATION-GUIDE.md). It gives a reusable starter, missing-information policy, and progressively richer examples without requiring a rigid form or prompt-engineering vocabulary.
 
-Start with the smallest task description that communicates the real job, then add only information that can materially change the result.
+### Let the agent compile the task specification
 
-### Don't want to write the prompt yourself?
-
-Give the agent your rough request, notes, files, and whatever context you already have. Then say:
+You can give the agent your rough request, notes, files, and whatever context you already have, then say:
 
 ```text
 Read TASK-SPECIFICATION-GUIDE.md.
@@ -72,97 +70,6 @@ If I explicitly ask for a reusable prompt instead, return the compiled task
 specification without executing it.
 ```
 
-This lets the **agent do the task-specification work**. You provide what you know; the agent turns it into a cleaner working specification before execution. The compiled specification does not need to be shown unless you ask for it.
-
-For example:
-
-```text
-I sell this product on Shopee.
-Here are the verified product facts and my current listing.
-
-Help me improve the title and product information.
-Do not invent benefits or claims. If important information is missing, tell me.
-```
-
-Or:
-
-```text
-Here are 12 customer reviews and 4 support conversations.
-I do not know marketing terminology.
-
-Help me understand why people buy this product, what problems keep repeating,
-what we still do not know, and what message is actually supported by the evidence.
-```
-
-Or:
-
-```text
-TikTok video views stayed high but product-link clicks dropped sharply.
-Help me diagnose where the problem might be before changing the creative.
-```
-
-The skill decides which deeper marketing knowledge is actually needed instead of forcing every request through the same funnel.
-
-## If you are not a marketer
-
-You can use Marketing Practitioner as a guided reasoning layer rather than a marketing textbook.
-
-### Tell it the job in plain language
-
-You can say things like:
-
-- “I need more people to understand what this product is.”
-- “I do not know which customer group to focus on.”
-- “These reviews are messy. Tell me what actually repeats.”
-- “Sales fell. Help me figure out why before changing anything.”
-- “Turn these product facts into one Shopee title.”
-- “Adapt this message for Facebook without changing the claim.”
-- “I want this product to be easier to resolve in conversational shopping.”
-- “We ran this test. What did it actually prove?”
-
-The agent can translate that into the internal marketing decision it needs to solve.
-
-### Give it the strongest material you have
-
-You do not need all of these. More reliable context simply gives the agent more to work with.
-
-| If you have... | It can help with... |
-| --- | --- |
-| product facts, specs, screenshots | product communication, claims, listings, positioning |
-| customer interviews, reviews, support logs | customer understanding, segmentation, message evidence |
-| current landing page, email, ad, caption | critique, rewrite, message diagnosis, adaptation |
-| competitor pages or alternative workflows | positioning and relevant-alternative analysis |
-| platform listing fields or screenshots | platform-specific representation decisions |
-| traffic, click, conversion, order, or funnel metrics | diagnosis and experiment planning |
-| experiment results | interpretation, causal boundaries, next decision |
-| very little information | a bounded answer plus explicit missing information |
-
-A useful instruction when your evidence is incomplete is simply:
-
-```text
-Use only what I gave you.
-Separate facts from assumptions.
-Tell me what is missing instead of making it up.
-```
-
-### You can ask for a small output
-
-Deep reasoning does not require a long answer.
-
-```text
-Give me one title only.
-```
-
-```text
-Rewrite this caption in under 80 words. Keep the same claim.
-```
-
-```text
-Give me the top 3 plausible explanations and the next check for each.
-```
-
-The runtime is explicitly designed to stay on a fast path when the upstream decisions are already resolved.
-
 ## What it can help with
 
 ### Customer and market understanding
@@ -170,7 +77,7 @@ The runtime is explicitly designed to stay on a fast path when the upstream deci
 - synthesize interviews, reviews, survey responses, support records, and sales notes;
 - separate observation from interpretation and hypothesis;
 - preserve contradictions, segment differences, unknowns, and evidence scope;
-- identify customer language, recurring problems, alternatives, and decision-relevant patterns.
+- identify recurring problems, alternatives, customer language, and decision-relevant patterns.
 
 ### Segmentation, positioning, and value
 
@@ -178,6 +85,60 @@ The runtime is explicitly designed to stay on a fast path when the upstream deci
 - reason about relevant alternatives, including manual work, delay, internal labor, and doing nothing;
 - connect a target context to a prioritized value, credible proof, trade-offs, and claim boundaries;
 - avoid treating competitor whitespace as automatic customer value.
+
+### Commercial design, pricing, and terms
+
+Version 0.5.0 adds a bounded Commercial Design reasoning layer for unresolved exchange decisions.
+
+It can help decide:
+
+```text
+1. CONFIGURATION / ENTITLEMENT
+   What is included, accessible, bundled, metered, or limited?
+
+2. PAYMENT / VALUE-CAPTURE ARCHITECTURE
+   Who pays whom, for what unit/event/outcome, using what metric/tariff/menu?
+
+3. RELATIONSHIP / RISK TERMS
+   What commitment, renewal, cancellation, refund, guarantee, timing, or risk terms apply?
+
+4. SELECTION / ALLOCATION RULE
+   Who can access which conditions, and through universal, self-selected,
+   eligibility-based, personalized, or negotiated rules?
+```
+
+Typical questions include:
+
+- per-seat vs usage vs hybrid pricing;
+- package or bundle boundaries;
+- free trial vs free tier;
+- monthly vs annual commitment;
+- new-customer-only conditions;
+- grandfathering vs migration;
+- standardized vs negotiated commercial regimes;
+- what WTP, conjoint, competitor, cost, historical, or experimental evidence actually supports.
+
+The skill deliberately keeps these distinctions:
+
+```text
+VALUE PROPOSITION
+!= COMMERCIAL DESIGN
+
+COMMERCIAL DESIGN
+!= CURRENT COMMERCIAL STATE / REPRESENTATION
+
+COMMERCIAL DESIGN
+!= COMMERCIAL GOVERNANCE
+!= EXECUTED COMMERCIAL INSTANCE
+
+MARKET-DESIRABLE
+!= ECONOMICALLY ATTRACTIVE
+!= OPERATIONALLY FEASIBLE
+!= PERMISSIBLE
+!= AUTHORIZED
+```
+
+Commercial Design can consume authoritative Product, Finance, Operations, Sales-governance, Legal/Compliance, and platform constraints. It must not invent or override them.
 
 ### Messaging, copy, and critique
 
@@ -199,6 +160,8 @@ The shared content-environment model supports current modules for:
 
 The skill does not reduce platform work to “write in the right tone.” It can reason about content objects, representations, audience state, delivery and permission edges, interaction provenance, platform mediation, measurement, and recommendation boundaries when those distinctions matter.
 
+See [`skills/marketing-practitioner/platforms/README.md`](skills/marketing-practitioner/platforms/README.md) for the platform map.
+
 ### Commerce and product discovery
 
 The commerce layer covers generic product-discovery reasoning plus current modules for:
@@ -212,16 +175,14 @@ The commerce layer covers generic product-discovery reasoning plus current modul
 
 It can reason about product/listing/catalog identity, variants, structured product information, product cards and PDPs, price/stock/promotion state, retrieval versus ranking, search versus recommendation, conversational product discovery, agent-mediated commerce, checkout authority, and commerce-performance diagnosis.
 
-It deliberately keeps distinctions such as:
-
 ```text
-PRODUCT / OBJECT ≠ REPRESENTATION ≠ ENCOUNTER SURFACE
-RETRIEVAL ≠ RANKING ≠ FILTERING ≠ RECOMMENDATION
-PRODUCT FACT ≠ COMMERCIAL STATE ≠ OBSERVED FEEDBACK
-SHOPPER INTENT ≠ DELEGATED AUTHORITY ≠ EXECUTED EFFECT
+PRODUCT / OBJECT != REPRESENTATION != ENCOUNTER SURFACE
+RETRIEVAL != RANKING != FILTERING != RECOMMENDATION
+PRODUCT FACT != COMMERCIAL STATE != OBSERVED FEEDBACK
+SHOPPER INTENT != DELEGATED AUTHORITY != EXECUTED EFFECT
 ```
 
-These are used to prevent false tactical conclusions, not to make simple listing tasks complicated.
+See [`skills/marketing-practitioner/platforms/commerce/README.md`](skills/marketing-practitioner/platforms/commerce/README.md) for the commerce-platform map.
 
 ### Diagnosis and experimentation
 
@@ -238,21 +199,6 @@ These are used to prevent false tactical conclusions, not to make simple listing
 - avoid turning cultural models into stereotypes about individuals;
 - record what was believed, tried, observed, supported, weakened, falsified, or left unresolved;
 - preserve negative and inconclusive results for future decisions.
-
-## What this repository is not
-
-Marketing Practitioner is not:
-
-- a prompt collection;
-- a copy-template pack;
-- an SEO checklist;
-- a library of platform “algorithm hacks”;
-- a universal marketing funnel;
-- a guarantee that more engagement means more customer value;
-- a claim that public ranking signals reveal a platform's complete production system;
-- a substitute for missing product truth or missing evidence.
-
-Its job is to help an agent make better-scoped marketing decisions and communicate them truthfully.
 
 ## How the reasoning works
 
@@ -277,69 +223,68 @@ RESOLVE THE DECISION
 MINIMUM SUFFICIENT OUTPUT
 ```
 
-This matters because a request mentioning “TikTok,” “Shopee,” “positioning,” or “research” does not automatically justify loading an entire platform theory or reopening upstream strategy.
-
-For example:
+A noun does not activate a full reasoning path by itself.
 
 ```text
-"Shorten this supplied Facebook caption"
-→ message already resolved
-→ fast transformation
-→ no need to rebuild positioning
-```
+"Price is fixed at $29. Write the landing page."
+→ price is resolved
+→ message/copy path
+→ do not reopen Commercial Design
 
-while:
+"Should this be $29 or $39?"
+→ commercial condition is unresolved
+→ Commercial Design
 
-```text
-"Why did TikTok reach fall?"
-→ diagnosis is unresolved
-→ platform state / delivery / measurement may matter
-→ load only the relevant content + TikTok knowledge
+"Shopee shows a lower voucher-adjusted price for this buyer. What does that mean?"
+→ current commerce-state interpretation
+→ Chapter 09 / Shopee knowledge
+
+"Conversion fell after the price change. Why?"
+→ causal diagnosis
+→ Chapter 05 first
 ```
 
 ## Addressable just-in-time knowledge
 
-Large knowledge files are addressable through a lightweight routing layer.
+Large knowledge surfaces are addressable through a lightweight semantic routing layer.
 
 ```text
 OPEN DECISION
 → KNOWLEDGE NAMESPACE
 → LOGICAL KNOWLEDGE ID
 → routing-index.json
-→ exact Markdown section when supported
+→ EXACT SECTION WHEN SUPPORTED
 ```
 
-Examples of logical knowledge addresses include:
+Examples:
 
 ```text
+commercial-design.payment
+commercial-design.dynamics
 commerce.identity
-commerce.discovery
-commerce.recommendation
 commerce.resolvability
-commerce.agentic
 shopee.conversational-discovery
-amazon.shop-direct
 tiktok.machine-mediation
 x.interaction-provenance
 ```
 
-The physical file and heading can change without changing the logical meaning of the address.
-
-When helper execution is available, the bundled deterministic loader can retrieve only the requested section:
+When helper execution is available:
 
 ```bash
+python skills/marketing-practitioner/scripts/get-knowledge.py commercial-design.payment
 python skills/marketing-practitioner/scripts/get-knowledge.py commerce.resolvability
 python skills/marketing-practitioner/scripts/get-knowledge.py --list --namespace shopee
 ```
 
-Evidence records use their own source IDs rather than being duplicated into the semantic routing table:
+Evidence records use intrinsic source IDs rather than being duplicated into the semantic routing table:
 
 ```bash
+python skills/marketing-practitioner/scripts/get-knowledge.py --source CD08
 python skills/marketing-practitioner/scripts/get-knowledge.py --source R23
 python skills/marketing-practitioner/scripts/get-knowledge.py --source A03
 ```
 
-The helper is an optimization, not a requirement for the skill to function. If a host cannot execute it, the agent can use `routing-index.json` as an address table and read the smallest feasible section. On hosts that only support whole-file reads, the runtime degrades to the smallest target file while preserving dependency-first routing.
+The helper is an optimization, not a requirement. If a host cannot execute it, the agent can use `routing-index.json` as an address table and read the smallest feasible section or file while preserving dependency-first routing.
 
 ## Evidence discipline
 
@@ -348,15 +293,16 @@ The repository uses a conservative standard for claims and learning:
 - qualitative recurrence does not establish population prevalence;
 - descriptive data do not by themselves establish causality;
 - attribution does not equal incrementality;
-- multiple derivatives from one source do not become independent evidence;
+- stated/hypothetical WTP does not equal revealed choice or an optimal price;
+- historical price/sales association does not automatically establish causal elasticity;
+- competitor price does not determine our optimal price;
+- conversion does not equal revenue, margin, retention, or LTV;
 - platform eligibility does not guarantee exposure;
 - observed engagement does not automatically establish organic human preference;
 - a ranking signal or exposed implementation parameter is not automatically a writing instruction;
 - machine- or platform-inferred product information is not automatically verified product truth;
 - uncertainty, contradiction, and inconclusive results are valid states;
-- stronger claims require stronger evidence;
-- learning remains scoped to the population, market, surface, product state, platform regime, and period that support it;
-- persuasive communication must preserve meaningful choice and must not rely on fabricated scarcity, hidden costs, false social proof, or invented personal experience.
+- stronger claims require stronger evidence.
 
 ## Repository architecture
 
@@ -370,17 +316,19 @@ The installable skill is under [`skills/marketing-practitioner/`](skills/marketi
 ├── CHANGELOG.md
 ├── THIRD_PARTY_NOTICES.md
 ├── assets/
-├── evals/                         # tests and audits OF the skill
+├── evals/                         # audits and smoke tests OF the skill
+├── research/                      # research lineage; not runtime skill knowledge
 │
 └── skills/
     └── marketing-practitioner/
-        ├── SKILL.md                # runtime controller + invariants
-        ├── TASK-SPECIFICATION-GUIDE.md # user-facing task specification
+        ├── SKILL.md                # governing runtime controller
+        ├── TASK-SPECIFICATION-GUIDE.md
         ├── routing-index.json      # logical knowledge addresses
         ├── scripts/
         │   ├── get-knowledge.py
         │   └── test-knowledge-routing.py
         ├── handbook/
+        │   ├── README.md
         │   ├── 00-foundations-and-method.md
         │   ├── 01-customer-research-and-evidence.md
         │   ├── 02-segmentation-icp-and-jtbd.md
@@ -390,14 +338,17 @@ The installable skill is under [`skills/marketing-practitioner/`](skills/marketi
         │   ├── 06-organizational-learning.md
         │   ├── 07-international-marketing-and-ethics.md
         │   ├── 08-content-environments-and-distribution.md
-        │   └── 09-commerce-environments-and-product-discovery.md
+        │   ├── 09-commerce-environments-and-product-discovery.md
+        │   └── 10-commercial-design-pricing-and-terms.md
         ├── platforms/
+        │   ├── README.md
         │   ├── facebook.md
         │   ├── instagram.md
         │   ├── linkedin.md
         │   ├── tiktok.md
         │   ├── x.md
         │   └── commerce/
+        │       ├── README.md
         │       ├── google-shopping.md
         │       ├── amazon.md
         │       ├── tiktok-shop.md
@@ -410,51 +361,21 @@ The installable skill is under [`skills/marketing-practitioner/`](skills/marketi
         └── references/             # bibliography + scoped evidence ledgers
 ```
 
-### `SKILL.md`
+The [`handbook/README.md`](skills/marketing-practitioner/handbook/README.md) gives the chapter map. Platform READMEs are navigation aids for humans; they do not replace `SKILL.md` or `routing-index.json` as the runtime contract.
 
-The runtime controller. It defines job-first routing, resolved-state freezing, universal invariants, operating paths, state handoffs, evidence boundaries, fast paths, and final validation.
+### Research vs runtime knowledge
 
-### `handbook/`
-
-Shared marketing knowledge. Chapters 00–07 cover research, segmentation, positioning, messaging/copy, diagnosis/experimentation, organizational learning, and international/ethical reasoning. Chapter 08 models content environments and distribution. Chapter 09 models commerce environments and product discovery.
-
-### `platforms/`
-
-Current platform-specific knowledge. These modules specialize the shared reasoning model instead of creating independent theories for every platform.
-
-### `routing-index.json` + `scripts/get-knowledge.py`
-
-The address layer for large knowledge surfaces. Logical IDs point to exact semantic sections where supported, allowing just-in-time retrieval without making physical file locations part of the controller interface.
-
-### `references/`
-
-Selected bibliography and scoped evidence ledgers. These support provenance and deeper review when needed, but are not intended to be loaded into every task.
-
-### `evals/`
-
-Audits and smoke tests of the skill itself. They live outside the installable skill so evaluation material is not mistaken for runtime marketing guidance.
-
-## Installation and manual use
-
-For compatible clients:
-
-```bash
-npx skills add quocbao201104/marketing-practitioner-skill
-```
-
-To inspect or use the repository manually:
-
-```bash
-git clone https://github.com/quocbao201104/marketing-practitioner-skill.git
-```
-
-The governing skill instructions are:
+The repository can preserve deep research without forcing it into every skill installation path.
 
 ```text
-skills/marketing-practitioner/SKILL.md
+research/
+= exploration, rejected hypotheses, prior-art attack, theory freeze lineage
+
+skills/marketing-practitioner/
+= compressed governed runtime knowledge
 ```
 
-If your agent supports project/local skills, point it at the installable `skills/marketing-practitioner/` directory. Exact discovery and activation behavior depends on the client.
+For example, the Commercial Design research track records why the layer exists, why several candidate primitives/dimensions were rejected, and what evidence boundaries survived review. The runtime chapter contains only the compact practitioner interface needed by the agent.
 
 ## A few copy-paste recipes
 
@@ -468,6 +389,20 @@ Find recurring problems, alternatives, desired outcomes, contradictions,
 and customer language that could change our marketing decision.
 Do not claim prevalence unless the evidence supports it.
 Then tell me what message is justified and what remains unknown.
+```
+
+### Decide a pricing architecture
+
+```text
+Audience and positioning are already resolved.
+
+We are deciding whether to charge per seat, per usage, or with a base + usage model.
+Here are the verified product capabilities, cost constraints, current alternatives,
+and the customer evidence we have.
+
+Do not invent finance, legal, product, or sales-authority facts.
+Separate what the evidence supports from what remains uncertain.
+Recommend the smallest defensible decision or next evidence step.
 ```
 
 ### Improve a product listing
@@ -500,42 +435,64 @@ and tell me the highest-value check to run next.
 ### Adapt content without reopening strategy
 
 ```text
-The audience, message, proof, and CTA below are already approved.
+The audience, message, proof, commercial conditions, and CTA below are already approved.
 Adapt this for LinkedIn.
-Do not change the positioning unless something is incompatible with the platform.
+Do not reopen upstream strategy unless something is materially incompatible.
 Keep the output under 120 words.
 ```
 
-### Prepare for conversational product discovery
+## What this repository is not
 
-```text
-Here are the verified product facts, compatibility constraints, variants,
-and current product information.
+Marketing Practitioner is not:
 
-Help make the product easier to resolve for conversational shopping.
-Do not guess model ranking weights or add keyword stuffing.
-Identify which shopper requirements need structured facts versus explanation,
-and what important information is still missing.
-```
+- a prompt collection;
+- a copy-template pack;
+- an SEO checklist;
+- a library of platform “algorithm hacks”;
+- a universal marketing funnel;
+- a pricing optimizer;
+- a substitute for authoritative finance, product, operations, legal, or sales decisions;
+- a guarantee that more engagement means more customer value;
+- a claim that public ranking signals reveal a platform's complete production system;
+- a substitute for missing product truth or missing evidence.
 
 ## Status
 
-**Current release: v0.4.0 — Task Specification & Prompt Compilation.**
-
-Marketing Practitioner is under active development.
+**Current release: v0.5.0 — Commercial Design, Pricing & Terms.**
 
 The current main branch includes:
 
 - the decision-first runtime controller;
 - research, segmentation, positioning, messaging/copy, diagnosis, learning, and international/ethics handbook layers;
+- a bounded Commercial Design layer for configuration/entitlement, payment architecture, relationship/risk terms, selection/allocation, evidence, governance, and transitions;
 - a shared social/content-environment model plus five social platform modules;
 - a shared commerce/product-discovery model plus six commerce platform modules;
 - conversational and agent-mediated commerce boundaries;
 - addressable just-in-time knowledge routing for large knowledge surfaces;
 - research-backed task specification and agent-side prompt compilation;
-- targeted audits and smoke tests.
+- scoped research lineage plus targeted adversarial reviews and runtime smoke tests.
 
-The project does **not** claim complete knowledge of private platform ranking systems or universal runtime reliability. Platform behavior is time-sensitive, evidence is scoped, and the architecture is expected to improve through real use and concrete failures rather than by adding abstractions for their own sake.
+The project does **not** claim complete knowledge of private platform ranking systems, a universally optimal pricing method, or universal runtime reliability. The architecture is expected to improve through real use and concrete failures rather than by adding abstractions for their own sake.
+
+## Installation and manual use
+
+For compatible clients:
+
+```bash
+npx skills add quocbao201104/marketing-practitioner-skill
+```
+
+To inspect or use the repository manually:
+
+```bash
+git clone https://github.com/quocbao201104/marketing-practitioner-skill.git
+```
+
+The governing skill instructions are:
+
+```text
+skills/marketing-practitioner/SKILL.md
+```
 
 ## Contributing
 
@@ -543,9 +500,11 @@ Contributions are welcome when they preserve the evidence and scope discipline o
 
 For platform changes, prefer current first-party or otherwise strong evidence and keep eligibility, retrieval, ranking, recommendation, representation, commercial state, and observed outcomes separate when the distinction matters.
 
+For new top-level reasoning capabilities, establish the decision-relevant gap and theory boundary before implementation.
+
 ## Attribution
 
-The repository synthesizes marketing research, methodological literature, recommender-system and platform research, current product documentation, and practical writing methods. Its copywriting and human-writing sections were also informed by MIT-licensed work from the AI Copywriter / humanizer lineage.
+The repository synthesizes marketing research, methodological literature, recommender-system and platform research, current product documentation, pricing and commercial-design research, and practical writing methods. Its copywriting and human-writing sections were also informed by MIT-licensed work from the AI Copywriter / humanizer lineage.
 
 See [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md), [`skills/marketing-practitioner/references/bibliography.md`](skills/marketing-practitioner/references/bibliography.md), and the scoped evidence notes under [`skills/marketing-practitioner/references/`](skills/marketing-practitioner/references/).
 
