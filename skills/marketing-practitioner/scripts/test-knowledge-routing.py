@@ -7,6 +7,7 @@ import importlib.util
 import json
 import tempfile
 from pathlib import Path
+from types import SimpleNamespace
 
 SCRIPT_PATH = Path(__file__).with_name("get-knowledge.py")
 spec = importlib.util.spec_from_file_location("get_knowledge", SCRIPT_PATH)
@@ -24,6 +25,19 @@ def expect_error(fn, contains: str) -> None:
         raise AssertionError(f"expected RoutingError containing {contains!r}")
 
 
+def cli_args(**overrides):
+    values = {
+        "route_ids": [],
+        "source": None,
+        "list": False,
+        "namespace": None,
+        "namespaces": False,
+        "validate": False,
+    }
+    values.update(overrides)
+    return SimpleNamespace(**values)
+
+
 def main() -> int:
     fixture = """# Fixture\n\n## A\nA intro\n\n### A.1\nA1 body\n\n#### A.1.1\nA11 body\n\n### A.2\nA2 body\n\n## B\nB body\n\n<!-- route:start fixture.marker -->\nMARKER BODY\n\n### nested marker heading\nstill marker\n<!-- route:end fixture.marker -->\n\n## C\nC body\n"""
 
@@ -34,6 +48,13 @@ def main() -> int:
     a1 = module.extract_heading_section(fixture, "### A.1")
     assert "#### A.1.1" in a1
     assert "### A.2" not in a1
+
+    fenced = """## Routed section\nIntro.\n\n```text\n## Example heading\nexample body\n```\n\n~~~markdown\n## Another example heading\nother example\n~~~\n\nCritical guardrail after examples.\n\n## Next section\nnext body\n"""
+    fenced_section = module.extract_heading_section(fenced, "## Routed section")
+    assert "## Example heading" in fenced_section
+    assert "## Another example heading" in fenced_section
+    assert "Critical guardrail after examples." in fenced_section
+    assert "## Next section" not in fenced_section
 
     marker = module.extract_marker_section(fixture, "fixture.marker")
     assert marker.startswith("MARKER BODY")
@@ -103,7 +124,7 @@ def main() -> int:
                 encoding="utf-8",
             )
             (references / "commerce" / "amazon.md").write_text(
-                "# Amazon evidence\n\n## [A03] Source A03\nA03 body\n\n## [A04] Source A04\nA04 body\n",
+                "# Amazon evidence\n\n## [A03] Source A03\nA03 body\n\n```text\n## [A03] Example source heading only\nnot evidence\n```\n\n~~~text\n## [A99] Another example only\nnot evidence either\n~~~\n\n## [A04] Source A04\nA04 body\n",
                 encoding="utf-8",
             )
 
@@ -118,6 +139,9 @@ def main() -> int:
             assert independent_source.startswith("### [R23] Source R23")
 
             assert module.validate_sources() == []
+            scanned = module.scan_sources()
+            assert len(scanned["A03"]) == 1
+            assert "A99" not in scanned
             expect_error(lambda: module.get_source("ZZ99"), "found 0")
 
             (references / "duplicate.md").write_text(
@@ -140,7 +164,22 @@ def main() -> int:
         "duplicate JSON key",
     )
 
-    print("PASS\t16 routing-mechanics smoke checks")
+    expect_error(
+        lambda: module.select_mode(
+            cli_args(route_ids=["commerce.resolvability"], validate=True)
+        ),
+        "choose exactly one mode",
+    )
+    expect_error(
+        lambda: module.select_mode(cli_args(list=True, namespaces=True)),
+        "choose exactly one mode",
+    )
+    expect_error(
+        lambda: module.select_mode(cli_args(namespace="shopee")),
+        "--namespace is only valid with --list",
+    )
+
+    print("PASS\t22 routing-mechanics smoke checks")
     return 0
 
 
