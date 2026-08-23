@@ -106,7 +106,7 @@ DOI: https://doi.org/10.1287/mnsc.2022.4507
 
 Evidence type: large-scale field experiment plus model-based evaluation.
 
-Use: supports treating trials as access/learning commercial interventions and shows trial duration can affect acquisition, retention, usage, and profitability in the studied SaaS setting.
+Use: supports treating trials as access/learning commercial interventions and shows trial duration can affect acquisition, retention, and profitability in the studied SaaS setting.
 
 Boundary: does not establish that shorter trials are always better or one universal trial duration.
 
