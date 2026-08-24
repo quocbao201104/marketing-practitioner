@@ -22,6 +22,7 @@ For large indexed chapters, `../routing-index.json` is the stable semantic addre
 | [`09-commerce-environments-and-product-discovery.md`](09-commerce-environments-and-product-discovery.md) | commerce environments | catalog/listing identity, commercial state, discovery, recommendation, agent-mediated commerce, or marketplace interpretation is unresolved |
 | [`10-commercial-design-pricing-and-terms.md`](10-commercial-design-pricing-and-terms.md) | commercial design | package/entitlement, payment architecture, relationship/risk terms, allocation, pricing evidence, or commercial transition is still an open decision |
 | [`11-landing-page-architecture.md`](11-landing-page-architecture.md) | landing-page architecture | reader/message/proof/commercial state is sufficiently resolved and the remaining decision is page sequence, allocation, proof/risk/visual placement, CTA/forms, comparison representation, or responsive meaningful order |
+| [`12-email-communication-architecture.md`](12-email-communication-architecture.md) | email communication architecture | message/claim/proof is sufficiently resolved and the remaining decision is whether/when to communicate, scoped send state, sequence/wait/exit logic, inbox→message allocation, continuity, or email observation semantics |
 
 ## Important boundaries
 
@@ -35,6 +36,8 @@ COMMERCIAL DESIGN
 MESSAGE / COPY
 !=
 LANDING-PAGE ARCHITECTURE
+!=
+EMAIL COMMUNICATION ARCHITECTURE
 ```
 
 and:
@@ -49,6 +52,8 @@ CURRENT COMMERCE STATE / REPRESENTATION
 MESSAGE / CLAIM / PROOF RESOLUTION
 !=
 PAGE ALLOCATION / REPRESENTATION
+!=
+EMAIL SEND / SEQUENCE / ENCOUNTER ALLOCATION
 ```
 
 Examples:
@@ -63,6 +68,12 @@ Examples:
 "The message, proof, price, and CTA are approved. Decide the page sequence and visual/proof placement."
 → Chapter 11 through the smallest landing-page.* route
 
+"The email message is approved. Should we send now, wait, suppress, or branch based on prior state?"
+→ Chapter 12 through the smallest email.* route
+
+"The subject, body promise, and landing-page promise are resolved. Check the cross-surface handoff."
+→ Chapter 12 email.continuity; Chapter 11 only if page architecture itself is open
+
 "Why does Shopee show this buyer a lower displayed price?"
 → Chapter 09 + the Shopee module as needed
 
@@ -72,7 +83,7 @@ Examples:
 
 ## Large-chapter routing
 
-Chapters 08–11 expose stable logical routes through `../routing-index.json`.
+Chapters 08–12 expose stable logical routes through `../routing-index.json`.
 
 Examples:
 
@@ -86,6 +97,10 @@ landing-page.sequence
 landing-page.visual
 landing-page.action-form
 landing-page.responsive
+email.send-decision
+email.sequence
+email.continuity
+email.observation
 ```
 
 When helper execution is available:
@@ -93,6 +108,8 @@ When helper execution is available:
 ```bash
 python ../scripts/get-knowledge.py commercial-design.payment
 python ../scripts/get-knowledge.py landing-page.sequence
+python ../scripts/get-knowledge.py email.send-decision
+python ../scripts/get-knowledge.py email.continuity
 python ../scripts/get-knowledge.py commerce.resolvability
 ```
 
