@@ -258,7 +258,7 @@ Load platform-specific knowledge only when it can change the decision. Use the m
 - TikTok: `tiktok`
 - X: `x`
 
-Within that namespace, load only the smallest route whose knowledge is material; expand only if the open decision spans another route.
+Within that namespace, load only the smallest route whose knowledge is material; expand only when the open decision spans another route.
 
 Treat current ranking, recommendation, visibility moderation, eligibility, disclosure, creator guidance, action semantics, relationship/delivery affordances, and format behavior as time-sensitive and system-specific. An official fact from one surface, delivery mode, policy system, commerce system, or ad system does not automatically transfer to another.
 
