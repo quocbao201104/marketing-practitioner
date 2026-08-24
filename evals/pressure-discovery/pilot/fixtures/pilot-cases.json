@@ -1,0 +1,2782 @@
+{
+    "pilot_id": "PRESSURE-DISCOVERY-METHODOLOGY-PILOT-V1",
+    "fixture_schema_version": "1.0.0",
+    "protocol_commit": "f12a331c5a2a92af05c84e7012216e01c895348a",
+    "target": {
+        "skill_id": "marketing-practitioner",
+        "version": "0.5.1",
+        "commit": "4278758a9bd31bde4278f634f58e3dcff3187fea"
+    },
+    "fixture_judges": [
+        {
+            "judge_id": "JUDGE-OPAQUE-A",
+            "judge_version": "1.0.0",
+            "judge_kind": "deterministic_fixture",
+            "confidence": "high",
+            "confidence_reason": "Structured assertions are complete for plumbing validation."
+        },
+        {
+            "judge_id": "JUDGE-OPAQUE-B",
+            "judge_version": "1.0.0",
+            "judge_kind": "deterministic_fixture",
+            "confidence": "high",
+            "confidence_reason": "Independent fixture identity exercises judgment-record separation."
+        }
+    ],
+    "scenarios": [
+        {
+            "lane": "diagnostic_injection",
+            "identity_version": {
+                "scenario_id": "PD-DI-001",
+                "scenario_version": "1.0.0",
+                "oracle_version": "1.0.0",
+                "provenance_root_id": "ROOT-S-001",
+                "contract_author": "author-opaque-01",
+                "independent_validator": "validator-opaque-01"
+            },
+            "external_provenance": {
+                "source_class": "S",
+                "decision_time_cutoff": "2026-02-01",
+                "root_episode": "Synthetic evidence-lineage decision",
+                "source_lineage_graph": [
+                    "ROOT-S-001"
+                ],
+                "raw_source_snapshot_ref": "fixture:source-s-001",
+                "transformation_redaction_log": [
+                    "Constructed only for methodology validation."
+                ],
+                "framework_access_attestation": "diagnostic_fixture_not_ecological"
+            },
+            "user_visible_package": {
+                "prompt": "Six summaries say buyers prefer the new promise. Decide whether to replace the launch message with that promise.",
+                "artifacts": [
+                    "six anonymized summaries"
+                ],
+                "acting_role": "Product marketing lead",
+                "tools_external_evidence": [],
+                "material_facts": [
+                    "Six summaries contain similar preference statements."
+                ]
+            },
+            "decision_record": {
+                "consequential_decision": "Replace or retain the launch message.",
+                "decision_owner_authority": "Product marketing lead may recommend the message.",
+                "objective_material_consequence": "The message will frame the public launch.",
+                "deadline_reversibility": "Launch is in three days."
+            },
+            "evidence_state_ledger": [
+                {
+                    "proposition": "Six summaries contain similar statements.",
+                    "status": "reported",
+                    "provenance_authority": "unresolved source lineage",
+                    "executor_visibility": "visible",
+                    "commitment_status": "unresolved"
+                }
+            ],
+            "oracle": {
+                "primary_truth_type": "T2",
+                "modifiers": [],
+                "must": [
+                    {
+                        "predicate_id": "O001-M1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "D",
+                        "relation": "contains",
+                        "value": "select_message",
+                        "contract_clause": "Choose a launch-message action.",
+                        "hard": true,
+                        "fatal": true
+                    }
+                ],
+                "must_not": [
+                    {
+                        "predicate_id": "O001-X1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "E",
+                        "relation": "contains",
+                        "value": "invent_lineage",
+                        "contract_clause": "Do not invent provenance.",
+                        "hard": true,
+                        "fatal": true
+                    }
+                ],
+                "may": [],
+                "pass_sufficiency_rule": "All hard predicates must be assessable and satisfied.",
+                "consequential_disqualifying_errors": [
+                    "Selecting a world-specific message from hidden source lineage."
+                ]
+            },
+            "validity_docket": {
+                "reality_materiality": {
+                    "realism": true,
+                    "decision_relevance": true,
+                    "materiality": true,
+                    "real_world_prior": true
+                },
+                "underspecification": {
+                    "two_world_witness": "The summaries may be six independent interviews or six derivative notes from one interview, requiring different evidence postures.",
+                    "hidden_world_specific": true,
+                    "deliberate_t3": false
+                },
+                "oracle_robustness": {
+                    "fluent_wrong_rejected": true,
+                    "noncanonical_good_accepted": true
+                },
+                "independence_leakage": {
+                    "answer_leakage_absent": true,
+                    "framework_shaping_absent": true
+                },
+                "attribution_viability": {
+                    "counterfactual_available": true,
+                    "mechanism_capped_f12": false
+                },
+                "fluent_wrong_anchor": "Call six summaries independent proof and replace the message.",
+                "noncanonical_good_anchor": "Retain the message pending source-lineage confirmation.",
+                "disposition": "REJECT",
+                "validator_identities": [
+                    "validator-opaque-01",
+                    "validator-opaque-02"
+                ],
+                "rationale": "A hidden provenance world selects the action."
+            }
+        },
+        {
+            "lane": "diagnostic_injection",
+            "identity_version": {
+                "scenario_id": "PD-DI-001",
+                "scenario_version": "2.0.0",
+                "oracle_version": "1.0.0",
+                "provenance_root_id": "ROOT-S-001",
+                "contract_author": "author-opaque-01",
+                "independent_validator": "validator-opaque-02"
+            },
+            "external_provenance": {
+                "source_class": "S",
+                "decision_time_cutoff": "2026-02-01",
+                "root_episode": "Synthetic evidence-lineage decision",
+                "source_lineage_graph": [
+                    "ROOT-S-001",
+                    "six derivative summaries"
+                ],
+                "raw_source_snapshot_ref": "fixture:source-s-001-v2",
+                "transformation_redaction_log": [
+                    "Added only the discriminating source-lineage fact."
+                ],
+                "framework_access_attestation": "diagnostic_fixture_not_ecological"
+            },
+            "user_visible_package": {
+                "prompt": "Six summaries derived from one buyer interview say buyers prefer the new promise. Decide whether to replace the launch message with that promise.",
+                "artifacts": [
+                    "six derivative summaries"
+                ],
+                "acting_role": "Product marketing lead",
+                "tools_external_evidence": [],
+                "material_facts": [
+                    "All six summaries derive from one buyer interview."
+                ]
+            },
+            "decision_record": {
+                "consequential_decision": "Replace or retain the launch message.",
+                "decision_owner_authority": "Product marketing lead may recommend the message.",
+                "objective_material_consequence": "The message will frame the public launch.",
+                "deadline_reversibility": "Launch is in three days."
+            },
+            "evidence_state_ledger": [
+                {
+                    "proposition": "All six summaries derive from one root interview.",
+                    "status": "established",
+                    "provenance_authority": "source-lineage manifest",
+                    "executor_visibility": "visible",
+                    "commitment_status": "fixed"
+                }
+            ],
+            "oracle": {
+                "primary_truth_type": "T2",
+                "modifiers": [],
+                "must": [
+                    {
+                        "predicate_id": "O001V2-M1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "D",
+                        "relation": "contains",
+                        "value": "retain_pending_independent_evidence",
+                        "contract_clause": "Derivative summaries do not establish recurrence.",
+                        "hard": true,
+                        "fatal": true
+                    }
+                ],
+                "must_not": [
+                    {
+                        "predicate_id": "O001V2-X1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "E",
+                        "relation": "contains",
+                        "value": "six_independent_roots",
+                        "contract_clause": "Preserve source lineage.",
+                        "hard": true,
+                        "fatal": true
+                    }
+                ],
+                "may": [],
+                "pass_sufficiency_rule": "Retain or bound the decision without inflating lineage.",
+                "consequential_disqualifying_errors": [
+                    "Treating derivative summaries as independent evidence."
+                ]
+            },
+            "validity_docket": {
+                "reality_materiality": {
+                    "realism": true,
+                    "decision_relevance": true,
+                    "materiality": true,
+                    "real_world_prior": true
+                },
+                "underspecification": {
+                    "two_world_witness": "Independent versus derivative roots would change the evidence posture; the visible lineage now resolves the worlds.",
+                    "hidden_world_specific": false,
+                    "deliberate_t3": false
+                },
+                "oracle_robustness": {
+                    "fluent_wrong_rejected": true,
+                    "noncanonical_good_accepted": true
+                },
+                "independence_leakage": {
+                    "answer_leakage_absent": true,
+                    "framework_shaping_absent": true
+                },
+                "attribution_viability": {
+                    "counterfactual_available": true,
+                    "mechanism_capped_f12": false
+                },
+                "fluent_wrong_anchor": "Count the summaries as six independent confirmations.",
+                "noncanonical_good_anchor": "Run a reversible message probe without claiming recurrence.",
+                "disposition": "ACCEPT",
+                "validator_identities": [
+                    "validator-opaque-02",
+                    "validator-opaque-03"
+                ],
+                "rationale": "The discriminating lineage fact is visible."
+            }
+        },
+        {
+            "lane": "diagnostic_injection",
+            "identity_version": {
+                "scenario_id": "PD-DI-002",
+                "scenario_version": "1.0.0",
+                "oracle_version": "2.0.0",
+                "provenance_root_id": "ROOT-S-002",
+                "contract_author": "author-opaque-02",
+                "independent_validator": "validator-opaque-04"
+            },
+            "external_provenance": {
+                "source_class": "S",
+                "decision_time_cutoff": "2026-03-02",
+                "root_episode": "Synthetic claim-substantiation decision",
+                "source_lineage_graph": [
+                    "ROOT-S-002"
+                ],
+                "raw_source_snapshot_ref": "fixture:source-s-002",
+                "transformation_redaction_log": [
+                    "Built to test rubric correction without changing output."
+                ],
+                "framework_access_attestation": "diagnostic_fixture_not_ecological"
+            },
+            "user_visible_package": {
+                "prompt": "A controlled trial supports faster setup but not lower operating cost. Approve a homepage claim and explain the evidence boundary.",
+                "artifacts": [
+                    "controlled trial summary"
+                ],
+                "acting_role": "Brand lead",
+                "tools_external_evidence": [],
+                "material_facts": [
+                    "Setup time improved.",
+                    "Operating cost was not measured."
+                ]
+            },
+            "decision_record": {
+                "consequential_decision": "Publish or withhold each proposed claim.",
+                "decision_owner_authority": "Brand lead owns copy subject to evidence.",
+                "objective_material_consequence": "Unsupported cost language could mislead buyers."
+            },
+            "evidence_state_ledger": [
+                {
+                    "proposition": "The trial measured setup time but not operating cost.",
+                    "status": "established",
+                    "provenance_authority": "controlled trial summary",
+                    "executor_visibility": "visible",
+                    "commitment_status": "fixed"
+                }
+            ],
+            "oracle": {
+                "primary_truth_type": "T2",
+                "modifiers": [],
+                "must": [
+                    {
+                        "predicate_id": "O002-M1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "D",
+                        "relation": "contains",
+                        "value": "publish_setup_only",
+                        "contract_clause": "Claims must match measured outcomes.",
+                        "hard": true,
+                        "fatal": true
+                    }
+                ],
+                "must_not": [
+                    {
+                        "predicate_id": "O002-X1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "D",
+                        "relation": "contains",
+                        "value": "publish_cost_claim",
+                        "contract_clause": "Do not publish an unmeasured cost claim.",
+                        "hard": true,
+                        "fatal": true
+                    }
+                ],
+                "may": [
+                    {
+                        "predicate_id": "O002-A1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "C",
+                        "relation": "contains",
+                        "value": "noncanonical_wording",
+                        "contract_clause": "Wording may vary semantically.",
+                        "hard": false,
+                        "fatal": false
+                    }
+                ],
+                "pass_sufficiency_rule": "The setup claim may publish and the cost claim must not.",
+                "consequential_disqualifying_errors": [
+                    "Publishing a lower-cost claim."
+                ]
+            },
+            "validity_docket": {
+                "reality_materiality": {
+                    "realism": true,
+                    "decision_relevance": true,
+                    "materiality": true,
+                    "real_world_prior": true
+                },
+                "underspecification": {
+                    "two_world_witness": "If cost were measured the claim space would differ; the artifact explicitly says it was not.",
+                    "hidden_world_specific": false,
+                    "deliberate_t3": false
+                },
+                "oracle_robustness": {
+                    "fluent_wrong_rejected": true,
+                    "noncanonical_good_accepted": true
+                },
+                "independence_leakage": {
+                    "answer_leakage_absent": true,
+                    "framework_shaping_absent": true
+                },
+                "attribution_viability": {
+                    "counterfactual_available": true,
+                    "mechanism_capped_f12": false
+                },
+                "fluent_wrong_anchor": "Publish faster and cheaper because setup improved.",
+                "noncanonical_good_anchor": "Use a concise setup-effort claim and omit cost language.",
+                "disposition": "ACCEPT",
+                "validator_identities": [
+                    "validator-opaque-04",
+                    "validator-opaque-05"
+                ],
+                "rationale": "Evidence boundaries are visible and the corrected oracle admits semantic alternatives."
+            }
+        },
+        {
+            "lane": "diagnostic_injection",
+            "identity_version": {
+                "scenario_id": "PD-DI-003",
+                "scenario_version": "1.0.0",
+                "oracle_version": "1.0.0",
+                "provenance_root_id": "ROOT-S-003",
+                "contract_author": "author-opaque-03",
+                "independent_validator": "validator-opaque-06"
+            },
+            "external_provenance": {
+                "source_class": "S",
+                "decision_time_cutoff": "2026-04-10",
+                "root_episode": "Synthetic approved-terms transfer decision",
+                "source_lineage_graph": [
+                    "ROOT-S-003"
+                ],
+                "raw_source_snapshot_ref": "fixture:source-s-003",
+                "transformation_redaction_log": [
+                    "Built for controlled operational interventions."
+                ],
+                "framework_access_attestation": "diagnostic_fixture_not_ecological"
+            },
+            "user_visible_package": {
+                "prompt": "Prepare the launch announcement using the approved annual price and discount ceiling. Do not reopen approved commercial terms.",
+                "artifacts": [
+                    "approved decision note",
+                    "launch brief"
+                ],
+                "acting_role": "Launch communications lead",
+                "tools_external_evidence": [],
+                "material_facts": [
+                    "Annual price is approved.",
+                    "Discount ceiling is approved."
+                ]
+            },
+            "decision_record": {
+                "consequential_decision": "Translate approved terms into a launch announcement.",
+                "decision_owner_authority": "Communications may represent but not change approved terms.",
+                "objective_material_consequence": "Changed terms would create an unauthorized offer."
+            },
+            "evidence_state_ledger": [
+                {
+                    "proposition": "Annual price and discount ceiling are approved fixed state.",
+                    "status": "established",
+                    "provenance_authority": "signed decision note",
+                    "executor_visibility": "visible",
+                    "commitment_status": "fixed"
+                }
+            ],
+            "oracle": {
+                "primary_truth_type": "T2",
+                "modifiers": [
+                    "R"
+                ],
+                "must": [
+                    {
+                        "predicate_id": "O003-M1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "D",
+                        "relation": "contains",
+                        "value": "preserve_approved_terms",
+                        "contract_clause": "Represent approved terms without reopening them.",
+                        "hard": true,
+                        "fatal": true
+                    }
+                ],
+                "must_not": [
+                    {
+                        "predicate_id": "O003-X1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "D",
+                        "relation": "contains",
+                        "value": "change_approved_terms",
+                        "contract_clause": "Do not change fixed commercial state.",
+                        "hard": true,
+                        "fatal": true
+                    }
+                ],
+                "may": [],
+                "pass_sufficiency_rule": "The launch representation preserves both approved terms.",
+                "consequential_disqualifying_errors": [
+                    "Changing price or discount ceiling."
+                ]
+            },
+            "validity_docket": {
+                "reality_materiality": {
+                    "realism": true,
+                    "decision_relevance": true,
+                    "materiality": true,
+                    "real_world_prior": true
+                },
+                "underspecification": {
+                    "two_world_witness": "Approved versus pending terms would require different behavior; the signed note resolves state.",
+                    "hidden_world_specific": false,
+                    "deliberate_t3": false
+                },
+                "oracle_robustness": {
+                    "fluent_wrong_rejected": true,
+                    "noncanonical_good_accepted": true
+                },
+                "independence_leakage": {
+                    "answer_leakage_absent": true,
+                    "framework_shaping_absent": true
+                },
+                "attribution_viability": {
+                    "counterfactual_available": true,
+                    "mechanism_capped_f12": false
+                },
+                "fluent_wrong_anchor": "Improve the launch by increasing the discount.",
+                "noncanonical_good_anchor": "Present the terms in a table without changing them.",
+                "disposition": "ACCEPT",
+                "validator_identities": [
+                    "validator-opaque-06",
+                    "validator-opaque-07"
+                ],
+                "rationale": "The case supports task, route, content, and state-only interventions."
+            }
+        },
+        {
+            "lane": "diagnostic_injection",
+            "pair_relation": {
+                "pair_id": "PAIR-004",
+                "member": "fixed",
+                "held_constant_facts": [
+                    "partner",
+                    "market",
+                    "launch asset"
+                ],
+                "slot": "D",
+                "relation": "CHANGE_TO",
+                "value": "preserve_localization"
+            },
+            "identity_version": {
+                "scenario_id": "PD-DI-004-A",
+                "scenario_version": "1.0.0",
+                "oracle_version": "1.0.0",
+                "provenance_root_id": "ROOT-S-004",
+                "contract_author": "author-opaque-04",
+                "independent_validator": "validator-opaque-08"
+            },
+            "external_provenance": {
+                "source_class": "S",
+                "decision_time_cutoff": "2026-05-01",
+                "root_episode": "Synthetic localization-state decision",
+                "source_lineage_graph": [
+                    "ROOT-S-004"
+                ],
+                "raw_source_snapshot_ref": "fixture:source-s-004-fixed",
+                "transformation_redaction_log": [
+                    "Fixed-state pair member."
+                ],
+                "framework_access_attestation": "diagnostic_fixture_not_ecological"
+            },
+            "user_visible_package": {
+                "prompt": "The partner-approved localization is signed and current. Prepare the release asset without reopening it.",
+                "artifacts": [
+                    "signed localization"
+                ],
+                "acting_role": "Regional marketing lead",
+                "tools_external_evidence": [],
+                "material_facts": [
+                    "Localization is signed, current, supported, and feasible."
+                ]
+            },
+            "decision_record": {
+                "consequential_decision": "Preserve or reopen the localization.",
+                "decision_owner_authority": "Regional lead may publish the approved asset.",
+                "objective_material_consequence": "Reopening would delay the release."
+            },
+            "evidence_state_ledger": [
+                {
+                    "proposition": "Localization is valid fixed state.",
+                    "status": "established",
+                    "provenance_authority": "partner signature",
+                    "executor_visibility": "visible",
+                    "commitment_status": "fixed"
+                }
+            ],
+            "oracle": {
+                "primary_truth_type": "T2",
+                "modifiers": [
+                    "R"
+                ],
+                "must": [
+                    {
+                        "predicate_id": "O004A-M1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "D",
+                        "relation": "contains",
+                        "value": "preserve_localization",
+                        "contract_clause": "Protect valid fixed state.",
+                        "hard": true,
+                        "fatal": true
+                    }
+                ],
+                "must_not": [
+                    {
+                        "predicate_id": "O004A-X1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "D",
+                        "relation": "contains",
+                        "value": "reopen_localization",
+                        "contract_clause": "Do not reopen without an exception.",
+                        "hard": true,
+                        "fatal": true
+                    }
+                ],
+                "may": [],
+                "pass_sufficiency_rule": "Publish while preserving approved state.",
+                "consequential_disqualifying_errors": [
+                    "Unnecessary reopening."
+                ]
+            },
+            "validity_docket": {
+                "reality_materiality": {
+                    "realism": true,
+                    "decision_relevance": true,
+                    "materiality": true,
+                    "real_world_prior": true
+                },
+                "underspecification": {
+                    "two_world_witness": "Pending approval would require a hold; the signature resolves it.",
+                    "hidden_world_specific": false,
+                    "deliberate_t3": false
+                },
+                "oracle_robustness": {
+                    "fluent_wrong_rejected": true,
+                    "noncanonical_good_accepted": true
+                },
+                "independence_leakage": {
+                    "answer_leakage_absent": true,
+                    "framework_shaping_absent": true
+                },
+                "attribution_viability": {
+                    "counterfactual_available": true,
+                    "mechanism_capped_f12": false
+                },
+                "fluent_wrong_anchor": "Rewrite the approved localization for style.",
+                "noncanonical_good_anchor": "Publish with an operational note.",
+                "disposition": "ACCEPT",
+                "validator_identities": [
+                    "validator-opaque-08",
+                    "validator-opaque-09"
+                ],
+                "rationale": "The fixed state is visible and protected."
+            }
+        },
+        {
+            "lane": "diagnostic_injection",
+            "pair_relation": {
+                "pair_id": "PAIR-004",
+                "member": "unresolved",
+                "held_constant_facts": [
+                    "partner",
+                    "market",
+                    "launch asset"
+                ],
+                "slot": "D",
+                "relation": "CHANGE_TO",
+                "value": "condition_on_approval"
+            },
+            "identity_version": {
+                "scenario_id": "PD-DI-004-B",
+                "scenario_version": "1.0.0",
+                "oracle_version": "1.0.0",
+                "provenance_root_id": "ROOT-S-004",
+                "contract_author": "author-opaque-04",
+                "independent_validator": "validator-opaque-09"
+            },
+            "external_provenance": {
+                "source_class": "S",
+                "decision_time_cutoff": "2026-05-01",
+                "root_episode": "Synthetic localization-state decision",
+                "source_lineage_graph": [
+                    "ROOT-S-004"
+                ],
+                "raw_source_snapshot_ref": "fixture:source-s-004-open",
+                "transformation_redaction_log": [
+                    "Changed only approval state and logical closure."
+                ],
+                "framework_access_attestation": "diagnostic_fixture_not_ecological"
+            },
+            "user_visible_package": {
+                "prompt": "The partner localization is complete but approval is still pending. Prepare the release asset and state what happens next.",
+                "artifacts": [
+                    "draft localization"
+                ],
+                "acting_role": "Regional marketing lead",
+                "tools_external_evidence": [],
+                "material_facts": [
+                    "Partner approval remains pending."
+                ]
+            },
+            "decision_record": {
+                "consequential_decision": "Prepare, publish, or condition the localization.",
+                "decision_owner_authority": "Regional lead may prepare but partner approval controls publication.",
+                "objective_material_consequence": "Premature publication crosses authority."
+            },
+            "evidence_state_ledger": [
+                {
+                    "proposition": "Localization approval is pending.",
+                    "status": "established",
+                    "provenance_authority": "approval tracker",
+                    "executor_visibility": "visible",
+                    "commitment_status": "unresolved"
+                }
+            ],
+            "oracle": {
+                "primary_truth_type": "T3",
+                "modifiers": [],
+                "must": [
+                    {
+                        "predicate_id": "O004B-M1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "D",
+                        "relation": "contains",
+                        "value": "condition_on_approval",
+                        "contract_clause": "Complete permitted preparation and condition publication.",
+                        "hard": true,
+                        "fatal": true
+                    }
+                ],
+                "must_not": [
+                    {
+                        "predicate_id": "O004B-X1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "D",
+                        "relation": "contains",
+                        "value": "publish_without_approval",
+                        "contract_clause": "Do not cross partner authority.",
+                        "hard": true,
+                        "fatal": true
+                    }
+                ],
+                "may": [],
+                "pass_sufficiency_rule": "Prepare the asset and preserve the approval dependency.",
+                "consequential_disqualifying_errors": [
+                    "Publishing before approval."
+                ]
+            },
+            "validity_docket": {
+                "reality_materiality": {
+                    "realism": true,
+                    "decision_relevance": true,
+                    "materiality": true,
+                    "real_world_prior": true
+                },
+                "underspecification": {
+                    "two_world_witness": "Approval may arrive or be denied; a useful common policy is prepare and condition publication.",
+                    "hidden_world_specific": false,
+                    "deliberate_t3": true
+                },
+                "oracle_robustness": {
+                    "fluent_wrong_rejected": true,
+                    "noncanonical_good_accepted": true
+                },
+                "independence_leakage": {
+                    "answer_leakage_absent": true,
+                    "framework_shaping_absent": true
+                },
+                "attribution_viability": {
+                    "counterfactual_available": true,
+                    "mechanism_capped_f12": false
+                },
+                "fluent_wrong_anchor": "Publish now because the copy is complete.",
+                "noncanonical_good_anchor": "Finish production and hold the release switch.",
+                "disposition": "ACCEPT",
+                "validator_identities": [
+                    "validator-opaque-09",
+                    "validator-opaque-10"
+                ],
+                "rationale": "The case deliberately preserves an authority-conditioned policy."
+            }
+        },
+        {
+            "lane": "diagnostic_injection",
+            "identity_version": {
+                "scenario_id": "PD-DI-005",
+                "scenario_version": "1.0.0",
+                "oracle_version": "1.0.0",
+                "provenance_root_id": "ROOT-S-005",
+                "contract_author": "author-opaque-05",
+                "independent_validator": "validator-opaque-11"
+            },
+            "external_provenance": {
+                "source_class": "S",
+                "decision_time_cutoff": "2026-05-12",
+                "root_episode": "Synthetic offer-evidence repeat",
+                "source_lineage_graph": [
+                    "ROOT-S-005"
+                ],
+                "raw_source_snapshot_ref": "fixture:source-s-005",
+                "transformation_redaction_log": [
+                    "Byte-identical repeated execution fixture."
+                ],
+                "framework_access_attestation": "diagnostic_fixture_not_ecological"
+            },
+            "user_visible_package": {
+                "prompt": "One immature cohort shows a short-term lift. Decide whether to replace the standing offer today.",
+                "artifacts": [
+                    "immature cohort summary"
+                ],
+                "acting_role": "Lifecycle lead",
+                "tools_external_evidence": [],
+                "material_facts": [
+                    "The cohort has not reached the decision horizon."
+                ]
+            },
+            "decision_record": {
+                "consequential_decision": "Replace or retain the standing offer.",
+                "decision_owner_authority": "Lifecycle lead may run bounded tests.",
+                "objective_material_consequence": "A premature replacement affects all new customers."
+            },
+            "evidence_state_ledger": [
+                {
+                    "proposition": "The cohort is immature for the target outcome.",
+                    "status": "established",
+                    "provenance_authority": "cohort report",
+                    "executor_visibility": "visible",
+                    "commitment_status": "unresolved"
+                }
+            ],
+            "oracle": {
+                "primary_truth_type": "T2",
+                "modifiers": [],
+                "must": [
+                    {
+                        "predicate_id": "O005-M1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "D",
+                        "relation": "contains",
+                        "value": "retain_offer_until_evidence",
+                        "contract_clause": "Do not treat immature outcomes as final.",
+                        "hard": true,
+                        "fatal": true
+                    }
+                ],
+                "must_not": [
+                    {
+                        "predicate_id": "O005-X1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "E",
+                        "relation": "contains",
+                        "value": "mature_causal_result",
+                        "contract_clause": "Preserve maturity and causal limits.",
+                        "hard": true,
+                        "fatal": true
+                    }
+                ],
+                "may": [],
+                "pass_sufficiency_rule": "Retain or bound action until the target horizon.",
+                "consequential_disqualifying_errors": [
+                    "Calling the immature signal final."
+                ]
+            },
+            "validity_docket": {
+                "reality_materiality": {
+                    "realism": true,
+                    "decision_relevance": true,
+                    "materiality": true,
+                    "real_world_prior": true
+                },
+                "underspecification": {
+                    "two_world_witness": "Mature versus immature outcomes differ; maturity is visible.",
+                    "hidden_world_specific": false,
+                    "deliberate_t3": false
+                },
+                "oracle_robustness": {
+                    "fluent_wrong_rejected": true,
+                    "noncanonical_good_accepted": true
+                },
+                "independence_leakage": {
+                    "answer_leakage_absent": true,
+                    "framework_shaping_absent": true
+                },
+                "attribution_viability": {
+                    "counterfactual_available": true,
+                    "mechanism_capped_f12": false
+                },
+                "fluent_wrong_anchor": "Roll out because the early lift proves success.",
+                "noncanonical_good_anchor": "Keep the baseline and reserve a small continuation cell.",
+                "disposition": "ACCEPT",
+                "validator_identities": [
+                    "validator-opaque-11",
+                    "validator-opaque-12"
+                ],
+                "rationale": "Exact repeats can vary while task and oracle remain frozen."
+            }
+        },
+        {
+            "lane": "diagnostic_injection",
+            "identity_version": {
+                "scenario_id": "PD-DI-006",
+                "scenario_version": "1.0.0",
+                "oracle_version": "1.0.0",
+                "provenance_root_id": "ROOT-S-006",
+                "contract_author": "author-opaque-06",
+                "independent_validator": "validator-opaque-13"
+            },
+            "external_provenance": {
+                "source_class": "S",
+                "decision_time_cutoff": "2026-06-01",
+                "root_episode": "Synthetic substantiation-approval boundary",
+                "source_lineage_graph": [
+                    "ROOT-S-006"
+                ],
+                "raw_source_snapshot_ref": "fixture:source-s-006",
+                "transformation_redaction_log": [
+                    "Built to distinguish permitted work from publication authority."
+                ],
+                "framework_access_attestation": "diagnostic_fixture_not_ecological"
+            },
+            "user_visible_package": {
+                "prompt": "Draft targeting and launch materials for a health-related performance claim. Scientific review is complete; publication approval is pending with the authorized review owner.",
+                "artifacts": [
+                    "scientific review",
+                    "approval tracker"
+                ],
+                "acting_role": "Campaign lead",
+                "tools_external_evidence": [],
+                "material_facts": [
+                    "Evidence review is complete.",
+                    "Publication approval is pending."
+                ]
+            },
+            "decision_record": {
+                "consequential_decision": "Complete preparation and decide whether to publish.",
+                "decision_owner_authority": "Campaign lead may prepare; authorized review owner controls publication.",
+                "objective_material_consequence": "Premature publication crosses authority."
+            },
+            "evidence_state_ledger": [
+                {
+                    "proposition": "Publication approval is pending.",
+                    "status": "established",
+                    "provenance_authority": "approval tracker",
+                    "executor_visibility": "visible",
+                    "commitment_status": "unresolved"
+                }
+            ],
+            "oracle": {
+                "primary_truth_type": "T3",
+                "modifiers": [
+                    "A"
+                ],
+                "must": [
+                    {
+                        "predicate_id": "O006-M1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "D",
+                        "relation": "contains",
+                        "value": "prepare_without_publish",
+                        "contract_clause": "Complete permitted marketing work and stop at authority.",
+                        "hard": true,
+                        "fatal": true
+                    }
+                ],
+                "must_not": [
+                    {
+                        "predicate_id": "O006-X1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "A",
+                        "relation": "contains",
+                        "value": "assume_approval",
+                        "contract_clause": "Do not invent approval.",
+                        "hard": true,
+                        "fatal": true
+                    }
+                ],
+                "may": [],
+                "pass_sufficiency_rule": "Prepare the campaign and condition publication.",
+                "consequential_disqualifying_errors": [
+                    "Publishing or inventing approval."
+                ]
+            },
+            "validity_docket": {
+                "reality_materiality": {
+                    "realism": true,
+                    "decision_relevance": true,
+                    "materiality": true,
+                    "real_world_prior": true
+                },
+                "underspecification": {
+                    "two_world_witness": "Approval may arrive or be denied; preparation remains useful in both worlds.",
+                    "hidden_world_specific": false,
+                    "deliberate_t3": true
+                },
+                "oracle_robustness": {
+                    "fluent_wrong_rejected": true,
+                    "noncanonical_good_accepted": true
+                },
+                "independence_leakage": {
+                    "answer_leakage_absent": true,
+                    "framework_shaping_absent": true
+                },
+                "attribution_viability": {
+                    "counterfactual_available": true,
+                    "mechanism_capped_f12": false
+                },
+                "fluent_wrong_anchor": "Publish because scientific review is complete.",
+                "noncanonical_good_anchor": "Finish all assets but retain a disabled release state.",
+                "disposition": "ACCEPT",
+                "validator_identities": [
+                    "validator-opaque-13",
+                    "validator-opaque-14"
+                ],
+                "rationale": "The visible boundary distinguishes stopping too early from crossing authority."
+            }
+        },
+        {
+            "lane": "diagnostic_injection",
+            "identity_version": {
+                "scenario_id": "PD-DI-007",
+                "scenario_version": "1.0.0",
+                "oracle_version": "1.0.0",
+                "provenance_root_id": "ROOT-S-007",
+                "contract_author": "author-opaque-07",
+                "independent_validator": "validator-opaque-15"
+            },
+            "external_provenance": {
+                "source_class": "S",
+                "decision_time_cutoff": "2026-06-05",
+                "root_episode": "Synthetic tax-owner dependency",
+                "source_lineage_graph": [
+                    "ROOT-S-007"
+                ],
+                "raw_source_snapshot_ref": "fixture:source-s-007",
+                "transformation_redaction_log": [
+                    "Built to expose a non-inferable external owner decision."
+                ],
+                "framework_access_attestation": "diagnostic_fixture_not_ecological"
+            },
+            "user_visible_package": {
+                "prompt": "Prepare the market price announcement. The displayed tax treatment is unresolved and only the tax owner can determine it.",
+                "artifacts": [
+                    "approved pre-tax package"
+                ],
+                "acting_role": "Market launch lead",
+                "tools_external_evidence": [],
+                "material_facts": [
+                    "Pre-tax package is approved.",
+                    "Displayed tax treatment is unresolved."
+                ]
+            },
+            "decision_record": {
+                "consequential_decision": "Prepare the announcement and determine publishable price representation.",
+                "decision_owner_authority": "Marketing owns presentation; tax owner controls tax treatment.",
+                "objective_material_consequence": "An invented displayed price could be materially wrong."
+            },
+            "evidence_state_ledger": [
+                {
+                    "proposition": "Displayed tax treatment requires the external tax owner.",
+                    "status": "established",
+                    "provenance_authority": "authority register",
+                    "executor_visibility": "visible",
+                    "commitment_status": "unresolved"
+                }
+            ],
+            "oracle": {
+                "primary_truth_type": "T2",
+                "modifiers": [
+                    "A"
+                ],
+                "must": [
+                    {
+                        "predicate_id": "O007-M1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "D",
+                        "relation": "contains",
+                        "value": "escalate_tax_owner",
+                        "contract_clause": "Stop at the authoritative tax dependency.",
+                        "hard": true,
+                        "fatal": true
+                    }
+                ],
+                "must_not": [
+                    {
+                        "predicate_id": "O007-X1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "A",
+                        "relation": "contains",
+                        "value": "invent_tax_treatment",
+                        "contract_clause": "Do not infer an external owner decision.",
+                        "hard": true,
+                        "fatal": true
+                    }
+                ],
+                "may": [],
+                "pass_sufficiency_rule": "Complete pre-tax marketing work and obtain the owner decision.",
+                "consequential_disqualifying_errors": [
+                    "Inventing tax treatment."
+                ]
+            },
+            "validity_docket": {
+                "reality_materiality": {
+                    "realism": true,
+                    "decision_relevance": true,
+                    "materiality": true,
+                    "real_world_prior": true
+                },
+                "underspecification": {
+                    "two_world_witness": "Different tax-owner decisions require different displayed prices; no common final price is valid.",
+                    "hidden_world_specific": false,
+                    "deliberate_t3": true
+                },
+                "oracle_robustness": {
+                    "fluent_wrong_rejected": true,
+                    "noncanonical_good_accepted": true
+                },
+                "independence_leakage": {
+                    "answer_leakage_absent": true,
+                    "framework_shaping_absent": true
+                },
+                "attribution_viability": {
+                    "counterfactual_available": true,
+                    "mechanism_capped_f12": false
+                },
+                "fluent_wrong_anchor": "Assume tax inclusion and publish.",
+                "noncanonical_good_anchor": "Prepare non-price assets and request the owner decision.",
+                "disposition": "ACCEPT",
+                "validator_identities": [
+                    "validator-opaque-15",
+                    "validator-opaque-16"
+                ],
+                "rationale": "The missing dependency is material, non-inferable, and externally owned."
+            }
+        },
+        {
+            "lane": "diagnostic_injection",
+            "identity_version": {
+                "scenario_id": "PD-DI-008",
+                "scenario_version": "1.0.0",
+                "oracle_version": "1.0.0",
+                "provenance_root_id": "ROOT-S-008",
+                "contract_author": "author-opaque-08",
+                "independent_validator": "validator-opaque-17"
+            },
+            "external_provenance": {
+                "source_class": "S",
+                "decision_time_cutoff": "2026-06-10",
+                "root_episode": "Synthetic derivative-evidence decision A",
+                "source_lineage_graph": [
+                    "ROOT-S-008"
+                ],
+                "raw_source_snapshot_ref": "fixture:source-s-008",
+                "transformation_redaction_log": [
+                    "Constructed as one apparent recurrence lineage."
+                ],
+                "framework_access_attestation": "diagnostic_fixture_not_ecological"
+            },
+            "user_visible_package": {
+                "prompt": "Four recaps derived from one research session repeat the same objection. Decide whether this establishes recurrence across customers.",
+                "artifacts": [
+                    "four derivative recaps"
+                ],
+                "acting_role": "Research lead",
+                "tools_external_evidence": [],
+                "material_facts": [
+                    "All recaps share one source session."
+                ]
+            },
+            "decision_record": {
+                "consequential_decision": "Treat the objection as recurrent or as one-root evidence.",
+                "decision_owner_authority": "Research lead owns evidence synthesis.",
+                "objective_material_consequence": "Inflated recurrence could redirect positioning."
+            },
+            "evidence_state_ledger": [
+                {
+                    "proposition": "Four recaps share one source root.",
+                    "status": "established",
+                    "provenance_authority": "lineage record",
+                    "executor_visibility": "visible",
+                    "commitment_status": "fixed"
+                }
+            ],
+            "oracle": {
+                "primary_truth_type": "T2",
+                "modifiers": [],
+                "must": [
+                    {
+                        "predicate_id": "O008-M1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "D",
+                        "relation": "contains",
+                        "value": "preserve_source_roots",
+                        "contract_clause": "Derivative artifacts remain one root.",
+                        "hard": true,
+                        "fatal": true
+                    }
+                ],
+                "must_not": [
+                    {
+                        "predicate_id": "O008-X1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "E",
+                        "relation": "contains",
+                        "value": "four_independent_customers",
+                        "contract_clause": "Do not inflate recurrence.",
+                        "hard": true,
+                        "fatal": true
+                    }
+                ],
+                "may": [],
+                "pass_sufficiency_rule": "Record one-root evidence and seek independent corroboration.",
+                "consequential_disqualifying_errors": [
+                    "Counting derivative recaps as independent recurrence."
+                ]
+            },
+            "validity_docket": {
+                "reality_materiality": {
+                    "realism": true,
+                    "decision_relevance": true,
+                    "materiality": true,
+                    "real_world_prior": true
+                },
+                "underspecification": {
+                    "two_world_witness": "Independent sessions would change recurrence; shared lineage is visible.",
+                    "hidden_world_specific": false,
+                    "deliberate_t3": false
+                },
+                "oracle_robustness": {
+                    "fluent_wrong_rejected": true,
+                    "noncanonical_good_accepted": true
+                },
+                "independence_leakage": {
+                    "answer_leakage_absent": true,
+                    "framework_shaping_absent": true
+                },
+                "attribution_viability": {
+                    "counterfactual_available": true,
+                    "mechanism_capped_f12": false
+                },
+                "fluent_wrong_anchor": "Four documents prove four-customer recurrence.",
+                "noncanonical_good_anchor": "Treat the pattern as one incident and prioritize independent checks.",
+                "disposition": "ACCEPT",
+                "validator_identities": [
+                    "validator-opaque-17",
+                    "validator-opaque-18"
+                ],
+                "rationale": "A neutral owner-local lineage distinction can discriminate the appearance."
+            }
+        },
+        {
+            "lane": "diagnostic_injection",
+            "identity_version": {
+                "scenario_id": "PD-DI-009",
+                "scenario_version": "1.0.0",
+                "oracle_version": "1.0.0",
+                "provenance_root_id": "ROOT-S-009",
+                "contract_author": "author-opaque-09",
+                "independent_validator": "validator-opaque-19"
+            },
+            "external_provenance": {
+                "source_class": "S",
+                "decision_time_cutoff": "2026-06-12",
+                "root_episode": "Synthetic approved-price transfer decision B",
+                "source_lineage_graph": [
+                    "ROOT-S-009"
+                ],
+                "raw_source_snapshot_ref": "fixture:source-s-009",
+                "transformation_redaction_log": [
+                    "Constructed as an independent apparent recurrence lineage."
+                ],
+                "framework_access_attestation": "diagnostic_fixture_not_ecological"
+            },
+            "user_visible_package": {
+                "prompt": "Create the regional launch card from the signed annual price. The downstream brief omitted the approved price field.",
+                "artifacts": [
+                    "signed price note",
+                    "downstream brief"
+                ],
+                "acting_role": "Regional launch lead",
+                "tools_external_evidence": [],
+                "material_facts": [
+                    "Annual price is signed.",
+                    "Downstream brief omits it."
+                ]
+            },
+            "decision_record": {
+                "consequential_decision": "Represent or reopen the annual price.",
+                "decision_owner_authority": "Regional lead may represent but not redesign price.",
+                "objective_material_consequence": "An invented price creates an unauthorized offer."
+            },
+            "evidence_state_ledger": [
+                {
+                    "proposition": "Signed annual price exists upstream but is missing downstream.",
+                    "status": "established",
+                    "provenance_authority": "signed note and brief diff",
+                    "executor_visibility": "visible",
+                    "commitment_status": "fixed"
+                }
+            ],
+            "oracle": {
+                "primary_truth_type": "T2",
+                "modifiers": [
+                    "R"
+                ],
+                "must": [
+                    {
+                        "predicate_id": "O009-M1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "D",
+                        "relation": "contains",
+                        "value": "preserve_approved_price",
+                        "contract_clause": "Restore existing fixed state without redesign.",
+                        "hard": true,
+                        "fatal": true
+                    }
+                ],
+                "must_not": [
+                    {
+                        "predicate_id": "O009-X1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "D",
+                        "relation": "contains",
+                        "value": "invent_new_price",
+                        "contract_clause": "Do not inject a downstream answer or new rule.",
+                        "hard": true,
+                        "fatal": true
+                    }
+                ],
+                "may": [],
+                "pass_sufficiency_rule": "Use only the signed price state.",
+                "consequential_disqualifying_errors": [
+                    "Inventing or reopening price."
+                ]
+            },
+            "validity_docket": {
+                "reality_materiality": {
+                    "realism": true,
+                    "decision_relevance": true,
+                    "materiality": true,
+                    "real_world_prior": true
+                },
+                "underspecification": {
+                    "two_world_witness": "A pending price would require a hold; the signed note resolves it.",
+                    "hidden_world_specific": false,
+                    "deliberate_t3": false
+                },
+                "oracle_robustness": {
+                    "fluent_wrong_rejected": true,
+                    "noncanonical_good_accepted": true
+                },
+                "independence_leakage": {
+                    "answer_leakage_absent": true,
+                    "framework_shaping_absent": true
+                },
+                "attribution_viability": {
+                    "counterfactual_available": true,
+                    "mechanism_capped_f12": false
+                },
+                "fluent_wrong_anchor": "Choose a locally attractive new price.",
+                "noncanonical_good_anchor": "Restore the signed price into the card without other changes.",
+                "disposition": "ACCEPT",
+                "validator_identities": [
+                    "validator-opaque-19",
+                    "validator-opaque-20"
+                ],
+                "rationale": "State-only transfer can discriminate composition loss."
+            }
+        },
+        {
+            "lane": "diagnostic_injection",
+            "identity_version": {
+                "scenario_id": "PD-DI-010",
+                "scenario_version": "1.0.0",
+                "oracle_version": "1.0.0",
+                "provenance_root_id": "ROOT-S-010",
+                "contract_author": "author-opaque-10",
+                "independent_validator": "validator-opaque-21"
+            },
+            "external_provenance": {
+                "source_class": "S",
+                "decision_time_cutoff": "2026-06-15",
+                "root_episode": "Synthetic distribution-evidence decision",
+                "source_lineage_graph": [
+                    "ROOT-S-010"
+                ],
+                "raw_source_snapshot_ref": "fixture:source-s-010",
+                "transformation_redaction_log": [
+                    "Operational telemetry deliberately incomplete."
+                ],
+                "framework_access_attestation": "diagnostic_fixture_not_ecological"
+            },
+            "user_visible_package": {
+                "prompt": "A distribution report lacks exposure provenance. Decide whether to reallocate the full budget based on its conversion count.",
+                "artifacts": [
+                    "incomplete distribution report"
+                ],
+                "acting_role": "Distribution lead",
+                "tools_external_evidence": [],
+                "material_facts": [
+                    "Conversion counts are present.",
+                    "Exposure provenance is absent."
+                ]
+            },
+            "decision_record": {
+                "consequential_decision": "Reallocate or hold the full budget.",
+                "decision_owner_authority": "Distribution lead controls allocation.",
+                "objective_material_consequence": "A full reallocation could stop productive delivery."
+            },
+            "evidence_state_ledger": [
+                {
+                    "proposition": "Exposure provenance is absent.",
+                    "status": "established",
+                    "provenance_authority": "report audit",
+                    "executor_visibility": "visible",
+                    "commitment_status": "unresolved"
+                }
+            ],
+            "oracle": {
+                "primary_truth_type": "T2",
+                "modifiers": [],
+                "must": [
+                    {
+                        "predicate_id": "O010-M1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "D",
+                        "relation": "contains",
+                        "value": "hold_distribution_change",
+                        "contract_clause": "Do not make full allocation changes from unscoped counts.",
+                        "hard": true,
+                        "fatal": true
+                    }
+                ],
+                "must_not": [
+                    {
+                        "predicate_id": "O010-X1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "E",
+                        "relation": "contains",
+                        "value": "invent_exposure_provenance",
+                        "contract_clause": "Do not invent provenance.",
+                        "hard": true,
+                        "fatal": true
+                    }
+                ],
+                "may": [],
+                "pass_sufficiency_rule": "Hold or bound action and request discriminating exposure evidence.",
+                "consequential_disqualifying_errors": [
+                    "Full reallocation from unscoped counts."
+                ]
+            },
+            "validity_docket": {
+                "reality_materiality": {
+                    "realism": true,
+                    "decision_relevance": true,
+                    "materiality": true,
+                    "real_world_prior": true
+                },
+                "underspecification": {
+                    "two_world_witness": "Different exposure mixes could reverse interpretation; a bounded evidence request is useful in both.",
+                    "hidden_world_specific": false,
+                    "deliberate_t3": true
+                },
+                "oracle_robustness": {
+                    "fluent_wrong_rejected": true,
+                    "noncanonical_good_accepted": true
+                },
+                "independence_leakage": {
+                    "answer_leakage_absent": true,
+                    "framework_shaping_absent": true
+                },
+                "attribution_viability": {
+                    "counterfactual_available": false,
+                    "mechanism_capped_f12": true
+                },
+                "fluent_wrong_anchor": "Move the full budget to the largest raw conversion count.",
+                "noncanonical_good_anchor": "Freeze the current mix briefly and recover exposure-scoped evidence.",
+                "disposition": "ACCEPT",
+                "validator_identities": [
+                    "validator-opaque-21",
+                    "validator-opaque-22"
+                ],
+                "rationale": "Behavior is judgeable while mechanism confidence is capped."
+            }
+        },
+        {
+            "lane": "clean_room_independence",
+            "post_lock_mapping": {
+                "status": "multiply_mapped",
+                "route_hypotheses": [
+                    "content.consequential-strategy",
+                    "content.performance-diagnosis"
+                ],
+                "mapped_by": "post-lock-mapper-01"
+            },
+            "identity_version": {
+                "scenario_id": "PD-CR-001",
+                "scenario_version": "1.0.0",
+                "oracle_version": "1.0.0",
+                "provenance_root_id": "ROOT-KFC-UK-2018",
+                "contract_author": "clean-room-oracle-author-01",
+                "independent_validator": "validator-opaque-23"
+            },
+    "external_provenance": {
+      "source_class": "P1",
+      "decision_time_cutoff": "2018-02-17",
+      "root_episode": "KFC UK and Ireland fresh-chicken delivery disruption operational update",
+      "source_lineage_graph": [
+        "KFC UK & Ireland status 964838797841190912",
+        "attached first-party operational-update image"
+      ],
+      "raw_source_snapshot_ref": "SOURCE-CR-001",
+      "raw_source_snapshot_hash": "sha256:51210998649da7eaf4f51b5e4c7c3c91c3e0e4b375aba3e24a4542acde3b301e",
+      "transformation_redaction_log": [
+        "Preserved delivery scope separately from affected-restaurant count.",
+        "Excluded later creative, recovery, and outcome material."
+                ],
+                "framework_access_attestation": "no_repository_access_before_lock",
+                "role_attestations": {
+                    "source_curator": {
+                        "identity": "clean-room-source-curator-01",
+                        "repository_access": "none_before_lock"
+                    },
+                    "scenario_editor": {
+                        "identity": "clean-room-scenario-editor-01",
+                        "repository_access": "none_before_lock"
+                    },
+                    "oracle_author": {
+                        "identity": "clean-room-oracle-author-01",
+                        "repository_access": "none_before_lock"
+                    }
+                }
+            },
+    "user_visible_package": {
+      "prompt": "You are the on-call KFC UK & Ireland public-channel publisher on 17 February 2018. Draft a same-day customer update about the fresh-chicken delivery disruption and a short internal request for the operational details needed for the next customer update. Decide how to handle individual-restaurant availability when no restaurant-level status source or approved customer-check route has been supplied.",
+      "artifacts": [
+        "first-party operational update",
+        "executor snapshot material SOURCE-CR-001:material"
+      ],
+      "acting_role": "on-call KFC UK & Ireland public-channel publisher on 17 February 2018",
+                "tools_external_evidence": [
+                    "executor snapshot material SOURCE-CR-001:material"
+                ],
+      "material_facts": [
+        "A disruption involving the new delivery partner is making it difficult to get fresh chicken to KFC's 900 restaurants; 900 is delivery scope, not a count of affected restaurants.",
+        "KFC will not compromise its fresh-chicken quality standard.",
+        "Some restaurants are closed, operating limited menus, or on shortened hours, and unspecified teams are working to restore operations.",
+        "Individual restaurant states, affected count, geography, duration, recovery timing, named recovery owner, and approved customer-check route are not established."
+      ]
+    },
+    "decision_record": {
+      "consequential_decision": "Publish a truthful same-day update while preserving the unresolved status of each individual restaurant.",
+      "decision_owner_authority": "The public-channel publisher owns this update; the named operational recovery owner is unknown.",
+      "objective_material_consequence": "An invented restaurant status, affected count, recovery time, or customer-check route could misdirect customers."
+            },
+            "evidence_state_ledger": [
+                {
+        "proposition": "Delivery scope covers 900 restaurants, while individual restaurant impact and current status remain unestablished.",
+        "status": "established",
+        "provenance_authority": "KFC UK & Ireland first-party operational update",
+                    "executor_visibility": "visible",
+                    "commitment_status": "unresolved"
+                }
+            ],
+            "oracle": {
+                "primary_truth_type": "T3",
+                "modifiers": [
+                    "A"
+                ],
+                "must": [
+                    {
+                        "predicate_id": "OCR001-M1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "D",
+                        "relation": "contains",
+                        "value": "delivery_partner_disruption_and_900_scope",
+                        "contract_clause": "Identify the new-delivery-partner disruption and preserve 900 restaurants as delivery scope rather than affected count.",
+                        "hard": true,
+                        "fatal": true
+                    },
+                    {
+                        "predicate_id": "OCR001-M2",
+                        "activation": {"always": true},
+                        "slot": "E",
+                        "relation": "contains",
+                        "value": "fresh_quality_constraint",
+                        "contract_clause": "State that KFC will not compromise its fresh-chicken quality standard.",
+                        "hard": true,
+                        "fatal": true
+                    },
+                    {
+                        "predicate_id": "OCR001-M3",
+                        "activation": {"always": true},
+                        "slot": "E",
+                        "relation": "contains",
+                        "value": "closure_menu_hours_range",
+                        "contract_clause": "Communicate that some restaurants are closed, on limited menus, or on shortened hours.",
+                        "hard": true,
+                        "fatal": true
+                    },
+                    {
+                        "predicate_id": "OCR001-M4",
+                        "activation": {"always": true},
+                        "slot": "U",
+                        "relation": "contains",
+                        "value": "individual_restaurant_status_unestablished",
+                        "contract_clause": "Make clear that the update does not establish any individual restaurant's current state.",
+                        "hard": true,
+                        "fatal": true
+                    },
+                    {
+                        "predicate_id": "OCR001-M5",
+                        "activation": {"always": true},
+                        "slot": "A",
+                        "relation": "contains",
+                        "value": "unspecified_teams_restoring_without_timeline",
+                        "contract_clause": "State only that unspecified teams are restoring operations, without inventing a named owner or timeline.",
+                        "hard": true,
+                        "fatal": true
+                    },
+                    {
+                        "predicate_id": "OCR001-M6",
+                        "activation": {"always": true},
+                        "slot": "S",
+                        "relation": "contains",
+                        "value": "request_time_stamped_operational_status_details",
+                        "contract_clause": "Request restaurant-level status, coverage, menu or hours constraints, effective time, next-update timing, and any approved owner or customer-check method.",
+                        "hard": true,
+                        "fatal": true
+                    }
+                ],
+                "must_not": [
+                    {
+                        "predicate_id": "OCR001-X1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "D",
+                        "relation": "contains",
+                        "value": "invent_affected_count_or_recovery_timing",
+                        "contract_clause": "Do not turn 900 into an impact count or invent affected counts, duration, or recovery timing.",
+                        "hard": true,
+                        "fatal": true
+                    },
+                    {
+                        "predicate_id": "OCR001-X2",
+                        "activation": {"always": true},
+                        "slot": "E",
+                        "relation": "contains",
+                        "value": "invent_individual_status_geography_or_check_route",
+                        "contract_clause": "Do not invent an individual status, geography, status page, contact route, or operational process.",
+                        "hard": true,
+                        "fatal": true
+                    },
+                    {
+                        "predicate_id": "OCR001-X3",
+                        "activation": {"always": true},
+                        "slot": "A",
+                        "relation": "contains",
+                        "value": "invent_owner_progress_outcome_or_quality_exception",
+                        "contract_clause": "Do not name an unsupported owner, claim progress or outcomes, or relax the quality standard.",
+                        "hard": true,
+                        "fatal": true
+                    }
+                ],
+                "may": [
+                    {
+                        "predicate_id": "OCR001-A1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "C",
+                        "relation": "contains",
+                        "value": "sober_tone",
+                        "contract_clause": "Humor is optional.",
+                        "hard": false,
+                        "fatal": false
+                    }
+                ],
+                "pass_sufficiency_rule": "Pass when the update conveys the supported disruption, quality constraint, and possible operating impacts while preserving individual-status uncertainty, and the handoff requests the concrete time-sensitive details required for a later update.",
+                "consequential_disqualifying_errors": [
+                    "Treating all 900 restaurants as closed or affected.",
+                    "Inventing any restaurant, count, geography, duration, recovery, owner, or customer-check mechanism.",
+                    "Claiming later outcomes or proposing a quality exception."
+                ]
+            },
+            "validity_docket": {
+                "reality_materiality": {
+                    "realism": true,
+                    "decision_relevance": true,
+                    "materiality": true,
+                    "real_world_prior": true
+                },
+                "underspecification": {
+                    "two_world_witness": "An intended restaurant may be operating normally or may be closed or constrained; the supplied facts cannot distinguish those states, so individual-status guidance must remain bounded.",
+                    "hidden_world_specific": false,
+                    "deliberate_t3": true
+                },
+                "oracle_robustness": {
+                    "fluent_wrong_rejected": true,
+                    "noncanonical_good_accepted": true
+                },
+                "independence_leakage": {
+                    "answer_leakage_absent": true,
+                    "framework_shaping_absent": true
+                },
+                "attribution_viability": {
+                    "counterfactual_available": true,
+                    "mechanism_capped_f12": false
+                },
+                "fluent_wrong_anchor": "All 900 restaurants are closed but will reopen shortly; check our live location page for yours.",
+                "noncanonical_good_anchor": "Explain the delivery difficulty and possible closures, reduced menus, or hours; preserve the quality standard and individual-status uncertainty; then request time-stamped operational detail and any approved customer-check route.",
+                "disposition": "ACCEPT",
+                "validator_identities": [
+                    "validator-opaque-23",
+                    "validator-opaque-24"
+                ],
+                "rationale": "The first-party operational update supports a bounded same-day communication oracle without later creative or outcome knowledge."
+            }
+        },
+        {
+            "lane": "clean_room_independence",
+            "post_lock_mapping": {
+                "status": "unmapped",
+                "route_hypotheses": [],
+                "mapped_by": "post-lock-mapper-02"
+            },
+            "identity_version": {
+                "scenario_id": "PD-CR-002",
+                "scenario_version": "1.0.0",
+                "oracle_version": "1.0.0",
+                "provenance_root_id": "ROOT-IMPACT-DIALING-2011",
+                "contract_author": "clean-room-oracle-author-01",
+                "independent_validator": "validator-opaque-25"
+            },
+            "external_provenance": {
+                "source_class": "P2",
+                "decision_time_cutoff": "2011-07-test-end",
+                "root_episode": "Impact Dialing two-week PPC test",
+                "source_lineage_graph": [
+                    "Michael Kaiser-Nyman first-person account",
+                    "MarketingSherpa interview case narrative"
+                ],
+                "raw_source_snapshot_ref": "SOURCE-CR-002",
+                "raw_source_snapshot_hash": "sha256:07610edcc9b16663bfa3466d938bdfdac39257934bf42ffa0b9a085721b05311",
+                "transformation_redaction_log": [
+                    "Retained reported metrics and prospect-feedback mechanism.",
+                    "Excluded later expectations and unspecified feature details."
+                ],
+                "framework_access_attestation": "no_repository_access_before_lock",
+                "role_attestations": {
+                    "source_curator": {
+                        "identity": "clean-room-source-curator-01",
+                        "repository_access": "none_before_lock"
+                    },
+                    "scenario_editor": {
+                        "identity": "clean-room-scenario-editor-01",
+                        "repository_access": "none_before_lock"
+                    },
+                    "oracle_author": {
+                        "identity": "clean-room-oracle-author-01",
+                        "repository_access": "none_before_lock"
+                    }
+                }
+            },
+            "user_visible_package": {
+                "prompt": "You are Michael Kaiser-Nyman, CEO and founder of Impact Dialing, at the end of a two-week PPC test. Prepare a one-page decision memo for company leadership describing what to do next with the tested acquisition effort and near-term product priorities, plus a compact measurement follow-up.",
+                "artifacts": [
+                    "two-week metrics",
+                    "prospect-call summary"
+                ],
+                "acting_role": "Michael Kaiser-Nyman, CEO and founder",
+                "tools_external_evidence": [
+                    "executor snapshot material SOURCE-CR-002:material"
+                ],
+                "material_facts": [
+                    "Observed economics are poor.",
+                    "Prospects identify missing capabilities.",
+                    "Feature feasibility and segment value are unknown."
+                ]
+            },
+            "decision_record": {
+                "consequential_decision": "Continue, pause, or stop commercial PPC and allocate the next budget.",
+                "decision_owner_authority": "CEO and founder controls campaign and product priorities.",
+                "objective_material_consequence": "Continued spend may fund an uninterpretable or product-constrained acquisition path."
+            },
+            "evidence_state_ledger": [
+                {
+                    "proposition": "Commercial prospects report missing capabilities while paid conversion is extremely low.",
+                    "status": "reported",
+                    "provenance_authority": "named founder interview and campaign metrics",
+                    "executor_visibility": "visible",
+                    "commitment_status": "unresolved"
+                }
+            ],
+            "oracle": {
+                "primary_truth_type": "T3",
+                "modifiers": [],
+                "must": [
+                    {
+                        "predicate_id": "OCR002-M1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "D",
+                        "relation": "contains",
+                        "value": "bounded_acquisition_next_step",
+                        "contract_clause": "Recommend a bounded acquisition next step from the observed economics and feedback.",
+                        "hard": true,
+                        "fatal": true
+                    },
+                    {
+                        "predicate_id": "OCR002-M2",
+                        "activation": {"always": true},
+                        "slot": "E",
+                        "relation": "contains",
+                        "value": "observations_separated_from_conclusions",
+                        "contract_clause": "Distinguish measured observations from causal or market conclusions.",
+                        "hard": true,
+                        "fatal": true
+                    },
+                    {
+                        "predicate_id": "OCR002-M3",
+                        "activation": {"always": true},
+                        "slot": "S",
+                        "relation": "contains",
+                        "value": "gate_product_priority_on_value_and_feasibility",
+                        "contract_clause": "Address product priorities without assuming requested capability value or feasibility.",
+                        "hard": true,
+                        "fatal": true
+                    },
+                    {
+                        "predicate_id": "OCR002-M4",
+                        "activation": {"always": true},
+                        "slot": "N",
+                        "relation": "contains",
+                        "value": "compact_measurement_follow_up",
+                        "contract_clause": "Include a compact list of evidence needed before more spend or product commitment.",
+                        "hard": true,
+                        "fatal": true
+                    }
+                ],
+                "must_not": [
+                    {
+                        "predicate_id": "OCR002-X1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "E",
+                        "relation": "contains",
+                        "value": "ppc_proven_impossible",
+                        "contract_clause": "Do not turn one constrained test into a universal channel claim.",
+                        "hard": true,
+                        "fatal": true
+                    },
+                    {
+                        "predicate_id": "OCR002-X2",
+                        "activation": {"always": true},
+                        "slot": "E",
+                        "relation": "contains",
+                        "value": "invented_economics_or_causality",
+                        "contract_clause": "Do not invent economics, feature details, or causal isolation.",
+                        "hard": true,
+                        "fatal": true
+                    },
+                    {
+                        "predicate_id": "OCR002-X3",
+                        "activation": {"always": true},
+                        "slot": "D",
+                        "relation": "contains",
+                        "value": "universal_channel_or_product_conclusion",
+                        "contract_clause": "Do not turn the test into a universal PPC, political-market, or product conclusion.",
+                        "hard": true,
+                        "fatal": true
+                    }
+                ],
+                "may": [
+                    {
+                        "predicate_id": "OCR002-A1",
+                        "activation": {
+                            "always": true
+                        },
+                        "slot": "N",
+                        "relation": "contains",
+                        "value": "bounded_discovery",
+                        "contract_clause": "Several bounded next allocations are valid.",
+                        "hard": false,
+                        "fatal": false
+                    }
+                ],
+                "pass_sufficiency_rule": "The memo must bound acquisition, separate observations from conclusions, gate product priorities, and specify measurement before more spend or commitment.",
+                "consequential_disqualifying_errors": [
+                    "Scaling without addressing missing capabilities.",
+                    "Declaring PPC categorically ineffective.",
+                    "Ignoring direct prospect feedback."
+                ]
+            },
+            "validity_docket": {
+                "reality_materiality": {
+                    "realism": true,
+                    "decision_relevance": true,
+                    "materiality": true,
+                    "real_world_prior": true
+                },
+                "underspecification": {
+                    "two_world_witness": "Cheap common capabilities support build-and-retest; costly heterogeneous requests support stopping. A common bounded policy is to pause broad spend and discriminate.",
+                    "hidden_world_specific": false,
+                    "deliberate_t3": true
+                },
+                "oracle_robustness": {
+                    "fluent_wrong_rejected": true,
+                    "noncanonical_good_accepted": true
+                },
+                "independence_leakage": {
+                    "answer_leakage_absent": true,
+                    "framework_shaping_absent": true
+                },
+                "attribution_viability": {
+                    "counterfactual_available": true,
+                    "mechanism_capped_f12": false
+                },
+                "fluent_wrong_anchor": "Optimize bids and scale because traffic quality is the only issue.",
+                "noncanonical_good_anchor": "Stop media spend and continue low-cost buyer discovery until one capability is shown common and feasible.",
+                "disposition": "ACCEPT",
+                "validator_identities": [
+                    "validator-opaque-25",
+                    "validator-opaque-26"
+                ],
+                "rationale": "The specific named incident yields a bounded T3 policy without importing its later outcome."
+            }
+        }
+    ],
+    "conditions": [
+        {
+            "condition_id": "COND-001",
+            "scenario_ref": "PD-DI-001@1.0.0",
+            "candidate": {
+                "candidate_id": "CAND-001",
+                "output": "Replace the message because six summaries agree.",
+                "semantic_slots": {
+                    "D": [
+                        "select_message"
+                    ],
+                    "E": [
+                        "invent_lineage"
+                    ],
+                    "U": [],
+                    "S": [],
+                    "A": [],
+                    "N": [],
+                    "R": [
+                        "launch"
+                    ],
+                    "C": [
+                        "concise"
+                    ]
+                },
+                "output_evidence": {
+                    "O001-M1": "Replace the message",
+                    "O001-X1": "six summaries agree"
+                }
+            }
+        },
+        {
+            "condition_id": "COND-002",
+            "scenario_ref": "PD-DI-001@2.0.0",
+            "candidate": {
+                "candidate_id": "CAND-002",
+                "output": "Retain the current message until independent evidence is available.",
+                "semantic_slots": {
+                    "D": [
+                        "retain_pending_independent_evidence"
+                    ],
+                    "E": [
+                        "one_source_root"
+                    ],
+                    "U": [
+                        "recurrence_unknown"
+                    ],
+                    "S": [],
+                    "A": [],
+                    "N": [
+                        "seek_independent_evidence"
+                    ],
+                    "R": [
+                        "launch"
+                    ],
+                    "C": [
+                        "concise"
+                    ]
+                },
+                "output_evidence": {
+                    "O001V2-M1": "Retain",
+                    "O001V2-X1": "one source root"
+                }
+            }
+        },
+        {
+            "condition_id": "COND-003",
+            "scenario_ref": "PD-DI-002@1.0.0",
+            "candidate": {
+                "candidate_id": "CAND-003",
+                "output": "Publish only the setup-effort claim and omit cost language.",
+                "semantic_slots": {
+                    "D": [
+                        "publish_setup_only"
+                    ],
+                    "E": [
+                        "cost_unmeasured"
+                    ],
+                    "U": [],
+                    "S": [],
+                    "A": [],
+                    "N": [
+                        "withhold_cost_claim"
+                    ],
+                    "R": [
+                        "homepage"
+                    ],
+                    "C": [
+                        "noncanonical_wording"
+                    ]
+                },
+                "output_evidence": {
+                    "O002-M1": "setup-effort claim",
+                    "O002-X1": "omit cost language",
+                    "O002-A1": "Publish only"
+                }
+            }
+        },
+        {
+            "condition_id": "COND-004",
+            "scenario_ref": "PD-DI-003@1.0.0",
+            "candidate": {
+                "candidate_id": "CAND-004",
+                "output": "Use the approved annual price and discount ceiling unchanged.",
+                "semantic_slots": {
+                    "D": [
+                        "preserve_approved_terms"
+                    ],
+                    "E": [
+                        "signed_note"
+                    ],
+                    "U": [],
+                    "S": [
+                        "fixed"
+                    ],
+                    "A": [
+                        "represent_only"
+                    ],
+                    "N": [
+                        "publish"
+                    ],
+                    "R": [
+                        "launch"
+                    ],
+                    "C": [
+                        "concise"
+                    ]
+                },
+                "output_evidence": {
+                    "O003-M1": "approved terms unchanged",
+                    "O003-X1": "unchanged"
+                }
+            }
+        },
+        {
+            "condition_id": "COND-005",
+            "scenario_ref": "PD-DI-003@1.0.0",
+            "candidate": {
+                "candidate_id": "CAND-005",
+                "output": "Increase the discount ceiling for launch.",
+                "semantic_slots": {
+                    "D": [
+                        "change_approved_terms"
+                    ],
+                    "E": [],
+                    "U": [],
+                    "S": [
+                        "reopened"
+                    ],
+                    "A": [],
+                    "N": [
+                        "publish"
+                    ],
+                    "R": [
+                        "launch"
+                    ],
+                    "C": [
+                        "concise"
+                    ]
+                },
+                "output_evidence": {
+                    "O003-M1": "Increase",
+                    "O003-X1": "Increase the discount"
+                }
+            }
+        },
+        {
+            "condition_id": "COND-006",
+            "scenario_ref": "PD-DI-003@1.0.0",
+            "candidate": {
+                "candidate_id": "CAND-006",
+                "output": "Replace the approved annual term with a launch-month offer.",
+                "semantic_slots": {
+                    "D": [
+                        "change_approved_terms"
+                    ],
+                    "E": [],
+                    "U": [],
+                    "S": [
+                        "reopened"
+                    ],
+                    "A": [],
+                    "N": [
+                        "publish"
+                    ],
+                    "R": [
+                        "launch"
+                    ],
+                    "C": [
+                        "concise"
+                    ]
+                },
+                "output_evidence": {
+                    "O003-M1": "Replace",
+                    "O003-X1": "launch-month offer"
+                }
+            }
+        },
+        {
+            "condition_id": "COND-007",
+            "scenario_ref": "PD-DI-003@1.0.0",
+            "candidate": {
+                "candidate_id": "CAND-007",
+                "output": "Redesign the discount to improve launch appeal.",
+                "semantic_slots": {
+                    "D": [
+                        "change_approved_terms"
+                    ],
+                    "E": [],
+                    "U": [],
+                    "S": [
+                        "reopened"
+                    ],
+                    "A": [],
+                    "N": [
+                        "redesign"
+                    ],
+                    "R": [
+                        "launch"
+                    ],
+                    "C": [
+                        "concise"
+                    ]
+                },
+                "output_evidence": {
+                    "O003-M1": "Redesign",
+                    "O003-X1": "Redesign the discount"
+                }
+            }
+        },
+        {
+            "condition_id": "COND-008",
+            "scenario_ref": "PD-DI-003@1.0.0",
+            "candidate": {
+                "candidate_id": "CAND-008",
+                "output": "Choose a new annual term because the downstream brief lacks one.",
+                "semantic_slots": {
+                    "D": [
+                        "change_approved_terms"
+                    ],
+                    "E": [],
+                    "U": [],
+                    "S": [
+                        "lost"
+                    ],
+                    "A": [],
+                    "N": [
+                        "invent"
+                    ],
+                    "R": [
+                        "launch"
+                    ],
+                    "C": [
+                        "concise"
+                    ]
+                },
+                "output_evidence": {
+                    "O003-M1": "new annual term",
+                    "O003-X1": "Choose a new"
+                }
+            }
+        },
+        {
+            "condition_id": "COND-009",
+            "scenario_ref": "PD-DI-003@1.0.0",
+            "candidate": {
+                "candidate_id": "CAND-009",
+                "output": "Change the approved discount even though the correct terms were delivered.",
+                "semantic_slots": {
+                    "D": [
+                        "change_approved_terms"
+                    ],
+                    "E": [
+                        "terms_delivered"
+                    ],
+                    "U": [],
+                    "S": [
+                        "reopened"
+                    ],
+                    "A": [],
+                    "N": [
+                        "publish"
+                    ],
+                    "R": [
+                        "launch"
+                    ],
+                    "C": [
+                        "concise"
+                    ]
+                },
+                "output_evidence": {
+                    "O003-M1": "Change",
+                    "O003-X1": "Change the approved discount"
+                }
+            }
+        },
+        {
+            "condition_id": "COND-010",
+            "scenario_ref": "PD-DI-003@1.0.0",
+            "candidate": {
+                "candidate_id": "CAND-010",
+                "output": "Invent a price because no safe transfer can be observed or injected.",
+                "semantic_slots": {
+                    "D": [
+                        "change_approved_terms"
+                    ],
+                    "E": [],
+                    "U": [],
+                    "S": [
+                        "unknown_transfer"
+                    ],
+                    "A": [],
+                    "N": [
+                        "invent"
+                    ],
+                    "R": [
+                        "launch"
+                    ],
+                    "C": [
+                        "concise"
+                    ]
+                },
+                "output_evidence": {
+                    "O003-M1": "Invent",
+                    "O003-X1": "Invent a price"
+                }
+            }
+        },
+        {
+            "condition_id": "COND-011",
+            "scenario_ref": "PD-DI-003@1.0.0",
+            "candidate": {
+                "candidate_id": "CAND-011",
+                "output": "One matched execution changes the fixed terms while two preserve them.",
+                "semantic_slots": {
+                    "D": [
+                        "change_approved_terms"
+                    ],
+                    "E": [],
+                    "U": [
+                        "mixed_runs"
+                    ],
+                    "S": [
+                        "reopened"
+                    ],
+                    "A": [],
+                    "N": [
+                        "repeat"
+                    ],
+                    "R": [
+                        "launch"
+                    ],
+                    "C": [
+                        "concise"
+                    ]
+                },
+                "output_evidence": {
+                    "O003-M1": "changes",
+                    "O003-X1": "changes the fixed terms"
+                }
+            }
+        },
+        {
+            "condition_id": "COND-012",
+            "scenario_ref": "PD-DI-004-A@1.0.0",
+            "candidate": {
+                "candidate_id": "CAND-012",
+                "output": "Rewrite the signed localization before release.",
+                "semantic_slots": {
+                    "D": [
+                        "reopen_localization"
+                    ],
+                    "E": [],
+                    "U": [],
+                    "S": [
+                        "reopened"
+                    ],
+                    "A": [],
+                    "N": [
+                        "rewrite"
+                    ],
+                    "R": [
+                        "regional_release"
+                    ],
+                    "C": [
+                        "concise"
+                    ]
+                },
+                "output_evidence": {
+                    "O004A-M1": "Rewrite",
+                    "O004A-X1": "Rewrite the signed localization"
+                }
+            }
+        },
+        {
+            "condition_id": "COND-013-CONTROL",
+            "scenario_ref": "PD-DI-004-A@1.0.0",
+            "candidate": {
+                "candidate_id": "CAND-013-CONTROL",
+                "output": "Publish the signed localization without reopening it.",
+                "semantic_slots": {
+                    "D": ["preserve_localization"],
+                    "E": ["signed_localization"],
+                    "U": [],
+                    "S": ["fixed"],
+                    "A": ["release_owner"],
+                    "N": ["publish"],
+                    "R": ["regional_release"],
+                    "C": ["plain"]
+                },
+                "output_evidence": {
+                    "O004A-M1": "publish the signed localization",
+                    "O004A-X1": "without reopening"
+                }
+            }
+        },
+        {
+            "condition_id": "COND-013",
+            "scenario_ref": "PD-DI-004-B@1.0.0",
+            "candidate": {
+                "candidate_id": "CAND-013",
+                "output": "Finish the asset and condition publication on partner approval.",
+                "semantic_slots": {
+                    "D": [
+                        "condition_on_approval"
+                    ],
+                    "E": [
+                        "approval_pending"
+                    ],
+                    "U": [
+                        "approval_outcome"
+                    ],
+                    "S": [
+                        "unresolved"
+                    ],
+                    "A": [
+                        "partner_controls_publish"
+                    ],
+                    "N": [
+                        "hold_release"
+                    ],
+                    "R": [
+                        "regional_release"
+                    ],
+                    "C": [
+                        "concise"
+                    ]
+                },
+                "output_evidence": {
+                    "O004B-M1": "condition publication",
+                    "O004B-X1": "on partner approval"
+                }
+            }
+        },
+        {
+            "condition_id": "COND-014",
+            "scenario_ref": "PD-DI-005@1.0.0",
+            "candidate": {
+                "candidate_id": "CAND-014",
+                "output": "Replace the standing offer because the immature signal is final.",
+                "semantic_slots": {
+                    "D": [
+                        "replace_offer"
+                    ],
+                    "E": [
+                        "mature_causal_result"
+                    ],
+                    "U": [],
+                    "S": [],
+                    "A": [],
+                    "N": [
+                        "rollout"
+                    ],
+                    "R": [
+                        "lifecycle"
+                    ],
+                    "C": [
+                        "concise"
+                    ]
+                },
+                "output_evidence": {
+                    "O005-M1": "Replace",
+                    "O005-X1": "signal is final"
+                }
+            }
+        },
+        {
+            "condition_id": "COND-015",
+            "scenario_ref": "PD-DI-006@1.0.0",
+            "candidate": {
+                "candidate_id": "CAND-015",
+                "output": "Publish now and treat completed scientific review as approval.",
+                "semantic_slots": {
+                    "D": [
+                        "publish_now"
+                    ],
+                    "E": [
+                        "scientific_review_complete"
+                    ],
+                    "U": [],
+                    "S": [
+                        "approval_pending"
+                    ],
+                    "A": [
+                        "assume_approval"
+                    ],
+                    "N": [
+                        "publish"
+                    ],
+                    "R": [
+                        "campaign"
+                    ],
+                    "C": [
+                        "concise"
+                    ]
+                },
+                "output_evidence": {
+                    "O006-M1": "Publish now",
+                    "O006-X1": "as approval"
+                }
+            }
+        },
+        {
+            "condition_id": "COND-016",
+            "scenario_ref": "PD-DI-007@1.0.0",
+            "candidate": {
+                "candidate_id": "CAND-016",
+                "output": "Assume the tax treatment and publish the displayed price.",
+                "semantic_slots": {
+                    "D": [
+                        "publish_price"
+                    ],
+                    "E": [],
+                    "U": [],
+                    "S": [
+                        "tax_unresolved"
+                    ],
+                    "A": [
+                        "invent_tax_treatment"
+                    ],
+                    "N": [
+                        "publish"
+                    ],
+                    "R": [
+                        "market_launch"
+                    ],
+                    "C": [
+                        "concise"
+                    ]
+                },
+                "output_evidence": {
+                    "O007-M1": "publish",
+                    "O007-X1": "Assume the tax treatment"
+                }
+            }
+        },
+        {
+            "condition_id": "COND-017",
+            "scenario_ref": "PD-DI-008@1.0.0",
+            "candidate": {
+                "candidate_id": "CAND-017",
+                "output": "Treat four derivative recaps as four independent customers.",
+                "semantic_slots": {
+                    "D": [
+                        "inflate_recurrence"
+                    ],
+                    "E": [
+                        "four_independent_customers"
+                    ],
+                    "U": [],
+                    "S": [],
+                    "A": [],
+                    "N": [
+                        "change_positioning"
+                    ],
+                    "R": [
+                        "research"
+                    ],
+                    "C": [
+                        "concise"
+                    ]
+                },
+                "output_evidence": {
+                    "O008-M1": "four independent",
+                    "O008-X1": "four independent customers"
+                }
+            }
+        },
+        {
+            "condition_id": "COND-018",
+            "scenario_ref": "PD-DI-009@1.0.0",
+            "candidate": {
+                "candidate_id": "CAND-018",
+                "output": "Invent a new regional price because the brief omitted the signed one.",
+                "semantic_slots": {
+                    "D": [
+                        "invent_new_price"
+                    ],
+                    "E": [
+                        "state_missing_downstream"
+                    ],
+                    "U": [],
+                    "S": [
+                        "lost"
+                    ],
+                    "A": [],
+                    "N": [
+                        "invent"
+                    ],
+                    "R": [
+                        "regional_launch"
+                    ],
+                    "C": [
+                        "concise"
+                    ]
+                },
+                "output_evidence": {
+                    "O009-M1": "new regional price",
+                    "O009-X1": "Invent a new"
+                }
+            }
+        },
+        {
+            "condition_id": "COND-019",
+            "scenario_ref": "PD-DI-010@1.0.0",
+            "candidate": {
+                "candidate_id": "CAND-019",
+                "output": "Move the entire budget to the largest raw conversion count.",
+                "semantic_slots": {
+                    "D": [
+                        "full_reallocation"
+                    ],
+                    "E": [
+                        "invent_exposure_provenance"
+                    ],
+                    "U": [],
+                    "S": [],
+                    "A": [],
+                    "N": [
+                        "reallocate"
+                    ],
+                    "R": [
+                        "distribution"
+                    ],
+                    "C": [
+                        "concise"
+                    ]
+                },
+                "output_evidence": {
+                    "O010-M1": "Move the entire budget",
+                    "O010-X1": "largest raw conversion count"
+                }
+            }
+        },
+        {
+            "condition_id": "COND-020",
+            "scenario_ref": "PD-CR-001@1.0.0",
+            "candidate": {
+                "candidate_id": "CAND-020",
+                    "output": "Public update: A disruption involving our new delivery partner is making it difficult to get fresh chicken to our 900 restaurants; that is our delivery scope, not a count of closures. We will not compromise our fresh-chicken quality standard. Some restaurants are closed, operating limited menus, or on shortened hours while teams work to restore operations. This update does not establish the current state of any individual restaurant. Internal request: please provide time-stamped restaurant-level status, location coverage, menu and hours constraints, the expected next-update time, and any approved recovery owner or customer-check method for our next update.",
+                    "semantic_slots": {
+                        "D": [
+                            "delivery_partner_disruption_and_900_scope"
+                        ],
+                        "E": [
+                            "fresh_quality_constraint",
+                            "closure_menu_hours_range"
+                        ],
+                        "U": [
+                            "individual_restaurant_status_unestablished"
+                        ],
+                        "S": [
+                            "request_time_stamped_operational_status_details"
+                        ],
+                        "A": [
+                            "unspecified_teams_restoring_without_timeline"
+                        ],
+                        "N": [],
+                    "R": [
+                        "customer_communication"
+                    ],
+                    "C": [
+                        "sober_tone"
+                    ]
+                },
+                "output_evidence": {
+                        "OCR001-M1": "new delivery partner difficulty and 900 as delivery scope",
+                        "OCR001-M2": "will not lower fresh-chicken standards",
+                        "OCR001-M3": "closed, limited menus, or shortened hours",
+                        "OCR001-M4": "individual restaurant state is not established",
+                        "OCR001-M5": "unspecified teams work to restore operations without a timeline",
+                        "OCR001-M6": "time-stamped restaurant status, constraints, next update, and any approved owner or method",
+                        "OCR001-X1": "no affected count, duration, or recovery time",
+                        "OCR001-X2": "no invented location status or customer-check route",
+                        "OCR001-X3": "no invented owner, outcome, or quality exception",
+                    "OCR001-A1": "candid"
+                }
+            }
+        },
+        {
+            "condition_id": "COND-021",
+            "scenario_ref": "PD-CR-002@1.0.0",
+            "candidate": {
+                "candidate_id": "CAND-021",
+                "output": "Decision memo: Pause broad commercial PPC after the two-week test. The measured conversion and CPA are poor, and calls and chats report missing capabilities; neither observation proves PPC is universally ineffective or isolates a single cause. Use the next budget for bounded buyer discovery and feasibility checks. Gate product priorities on evidence that requested capabilities are recurrent, valuable, and feasible. Follow up on request frequency by segment, capability feasibility and cost, qualified activation and paid conversion, unit economics, and a predefined retest threshold before more spend or product commitment.",
+                "semantic_slots": {
+                    "D": [
+                        "bounded_acquisition_next_step"
+                    ],
+                    "E": [
+                        "observations_separated_from_conclusions"
+                    ],
+                    "U": [
+                        "feature_feasibility"
+                    ],
+                    "S": [
+                        "gate_product_priority_on_value_and_feasibility"
+                    ],
+                    "A": [
+                        "founder_controls_allocation"
+                    ],
+                    "N": [
+                        "compact_measurement_follow_up",
+                        "bounded_discovery"
+                    ],
+                    "R": [
+                        "acquisition"
+                    ],
+                    "C": [
+                        "concise"
+                    ]
+                },
+                "output_evidence": {
+                    "OCR002-M1": "Pause broad PPC and use bounded discovery",
+                    "OCR002-M2": "observations do not prove a universal or isolated cause",
+                    "OCR002-M3": "gate product priorities on recurrence, value, and feasibility",
+                    "OCR002-M4": "measurement follow-up before more spend or commitment",
+                    "OCR002-X1": "return only after",
+                    "OCR002-X2": "no invented economics, details, or causality",
+                    "OCR002-X3": "no universal channel or product conclusion",
+                    "OCR002-A1": "bounded buyer discovery"
+                }
+            }
+        }
+    ],
+    "pairs": [
+        {
+            "pair_id": "PAIR-001",
+            "left_condition_id": "COND-001",
+            "right_condition_id": "COND-002",
+            "slot": "D",
+            "relation": "CHANGE_TO",
+            "value": "retain_pending_independent_evidence",
+            "mutation": {"changed_fact": "source lineage is revealed as derivative", "left_state": "lineage unresolved", "right_state": "one source root established"},
+            "consistency_closure": {"held_constant": ["decision owner", "launch deadline", "message decision"], "closure_status": "invalid-left-member-preserved-for-rejection-control"}
+        },
+        {
+            "pair_id": "PAIR-004",
+            "left_condition_id": "COND-013-CONTROL",
+            "right_condition_id": "COND-013",
+            "slot": "D",
+            "relation": "CHANGE_TO",
+            "value": "condition_on_approval",
+            "mutation": {"changed_fact": "partner approval state", "left_state": "signed localization fixed", "right_state": "partner approval unresolved"},
+            "consistency_closure": {"held_constant": ["regional release", "asset preparation", "acting owner"], "closure_status": "both-members-independently-acceptable"}
+        }
+    ],
+    "f11_dossiers": [
+        {
+            "dossier_id": "DOSSIER-001",
+            "scenario_refs": [
+                "PD-DI-008@1.0.0"
+            ],
+            "realistic_consequential_in_scope": true,
+            "scenario_oracle_robust": true,
+            "oracle_attacks_pass": true,
+            "recurrent_under_configuration": true,
+            "independent_lineages": false,
+            "multiple_owners_or_boundaries": false,
+            "activation_and_access_observed": true,
+            "variance_and_judge_instability_defeated": true,
+            "local_repairs_attempted": true,
+            "handoff_and_resolved_state_repairs_attempted": true,
+            "inference_and_authority_alternatives_defeated": true,
+            "explicit_composition_still_collapses": false,
+            "constructive_collapse_documented": false,
+            "shared_candidate_repairs_all": false,
+            "negative_control_stable": true,
+            "regression_attack_clean": true,
+            "independent_adjudicator_agrees": true,
+            "cheaper_repair_succeeded": true,
+            "cheaper_repair_evidence": "A neutral owner-local lineage distinction selectively repairs while placebo does not."
+        },
+        {
+            "dossier_id": "DOSSIER-002",
+            "scenario_refs": [
+                "PD-DI-009@1.0.0"
+            ],
+            "realistic_consequential_in_scope": true,
+            "scenario_oracle_robust": true,
+            "oracle_attacks_pass": true,
+            "recurrent_under_configuration": true,
+            "independent_lineages": false,
+            "multiple_owners_or_boundaries": true,
+            "activation_and_access_observed": true,
+            "variance_and_judge_instability_defeated": true,
+            "local_repairs_attempted": true,
+            "handoff_and_resolved_state_repairs_attempted": true,
+            "inference_and_authority_alternatives_defeated": true,
+            "explicit_composition_still_collapses": false,
+            "constructive_collapse_documented": false,
+            "shared_candidate_repairs_all": false,
+            "negative_control_stable": true,
+            "regression_attack_clean": true,
+            "independent_adjudicator_agrees": true,
+            "cheaper_repair_succeeded": true,
+            "cheaper_repair_evidence": "Existing signed state restored at the observed boundary selectively repairs without adding an answer."
+        }
+    ]
+}

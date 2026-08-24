@@ -1,0 +1,86 @@
+{
+  "snapshot_schema_version": "1.0.0",
+  "snapshots": [
+    {
+      "snapshot_id": "SOURCE-CR-001",
+      "provenance_root_id": "ROOT-KFC-UK-2018",
+      "source_class": "P1",
+      "framework_access_attestation": "no_repository_access_before_lock",
+      "executor_visible_material_ref": "SOURCE-CR-001:material",
+      "source_references": [
+        {
+          "title": "KFC UK & Ireland operational update: The Colonel is working on it",
+          "url": "https://twitter.com/KFC_UKI/status/964838797841190912/photo/1",
+          "date": "2018-02-17",
+          "executor_visibility": "sealed_evaluator_only"
+        }
+      ],
+      "snapshot_material": {
+        "root_episode": "KFC UK and Ireland fresh-chicken delivery disruption operational update",
+        "decision_time_cutoff": "2018-02-17",
+        "source_lineage_graph": [
+          "KFC UK & Ireland status 964838797841190912",
+          "attached first-party operational-update image"
+        ],
+        "facts": [
+          "A disruption involving the new delivery partner made it difficult to get fresh chicken to KFC's 900 restaurants; 900 is delivery scope, not an affected-restaurant count.",
+          "KFC stated that it would not compromise its fresh-chicken quality standard.",
+          "Some restaurants were closed, operating limited menus, or on shortened hours.",
+          "Unspecified teams were working to restore operations."
+        ],
+        "owner_authority": "The public-channel publisher owns the same-day update; the named operational recovery owner is not established.",
+        "unknowns": [
+          "Individual restaurant states, affected count, geography, duration, and recovery timing are not established.",
+          "No named recovery owner, approved public status route, or later outcome is established."
+        ],
+        "transformation_redaction_log": [
+          "Preserved the distinction between 900-restaurant delivery scope and affected-restaurant count.",
+          "Excluded later apology creative, recovery, and retrospective outcome material.",
+          "Kept individual status and recovery details explicitly unknown."
+        ],
+        "curator_attestation": "No repository, framework, skill, evaluation, routing, or failure-taxonomy context was available."
+      },
+      "snapshot_hash": "sha256:51210998649da7eaf4f51b5e4c7c3c91c3e0e4b375aba3e24a4542acde3b301e"
+    },
+    {
+      "snapshot_id": "SOURCE-CR-002",
+      "provenance_root_id": "ROOT-IMPACT-DIALING-2011",
+      "source_class": "P2",
+      "framework_access_attestation": "no_repository_access_before_lock",
+      "executor_visible_material_ref": "SOURCE-CR-002:material",
+      "source_references": [
+        {
+          "title": "Impact Dialing founder interview case narrative (title sealed from executor)",
+          "url": "https://marketingsherpa.com/article/case-study/how-failed-ppc-campaign-led",
+          "date": "2011-11-16",
+          "executor_visibility": "sealed_evaluator_only"
+        }
+      ],
+      "snapshot_material": {
+        "root_episode": "Impact Dialing's two-week PPC test for commercial customers",
+        "decision_time_cutoff": "2011-07-test-end",
+        "source_lineage_graph": [
+          "Michael Kaiser-Nyman first-person account",
+          "MarketingSherpa interview case narrative"
+        ],
+        "facts": [
+          "The test generated 263 clicks, 48.86 percent bounce, 6.08 percent account creation, 0.0076 percent paid conversion, and an 862 dollar CPA.",
+          "Calls and site chat indicated that commercial prospects wanted capabilities the product did not provide.",
+          "The immediate evidence did not isolate ad setup, landing-page copy, or the PPC channel as the sole cause."
+        ],
+        "owner_authority": "CEO and founder Michael Kaiser-Nyman controlled the campaign decision and influenced product priorities.",
+        "unknowns": [
+          "The specific missing capabilities, their feasibility, segment economics, and keyword-level results were not disclosed.",
+          "The trade-publication account was not an independently audited causal analysis."
+        ],
+        "transformation_redaction_log": [
+          "Retained reported metrics and feedback mechanism while withholding the historical decision from the executor-visible snapshot.",
+          "Compressed ad variants and omitted prospect identities and unspecified feature requests.",
+          "Excluded later expectations as post-decision evidence."
+        ],
+        "curator_attestation": "No repository, framework, skill, evaluation, routing, or failure-taxonomy context was available."
+      },
+      "snapshot_hash": "sha256:07610edcc9b16663bfa3466d938bdfdac39257934bf42ffa0b9a085721b05311"
+    }
+  ]
+}
