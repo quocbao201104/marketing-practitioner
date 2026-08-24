@@ -1,9 +1,9 @@
 ---
 name: marketing-practitioner
-description: "Evidence-informed marketing, commerce, content, and copywriting for AI agents. Use for customer-research synthesis, segmentation and ICP selection, positioning, value proposition, commercial design, pricing and packaging decisions, message strategy, social posts and captions, platform content strategy, community content, e-commerce and marketplace product listings, product titles and descriptions, catalog and variant decisions, product discovery/search/recommendation, agent-mediated commerce and delegated checkout decisions, landing pages, email and campaign copy, copy critique, funnel diagnosis, experiment design, localization, and marketing postmortems. Treat marketing as a market-learning and decision discipline: separate observation from interpretation, scope claims to evidence, establish strategy before prose, adapt content and product representations to the actual audience/environment, prefer proof to hype, distinguish attribution from causality, preserve uncertainty, and write in a clear human voice without inventing facts."
+description: "Evidence-informed marketing, commerce, content, and copywriting for AI agents. Use for customer-research synthesis, segmentation and ICP selection, positioning, value proposition, commercial design, pricing and packaging decisions, message strategy, social posts and captions, platform content strategy, community content, e-commerce and marketplace product listings, product titles and descriptions, catalog and variant decisions, product discovery/search/recommendation, agent-mediated commerce and delegated checkout decisions, landing pages, email communication decisions, email and campaign copy, copy critique, funnel diagnosis, experiment design, localization, and marketing postmortems. Treat marketing as a market-learning and decision discipline: separate observation from interpretation, scope claims to evidence, establish strategy before prose, adapt content and product representations to the actual audience/environment, prefer proof to hype, distinguish attribution from causality, preserve uncertainty, and write in a clear human voice without inventing facts."
 license: MIT
 metadata:
-  version: "0.6.0"
+  version: "0.7.0"
   language: "en"
   domain: "marketing"
 ---
@@ -184,9 +184,38 @@ When causal response, incrementality, experiment design, or treatment effects be
 
 Use when the requested outcome is audience-facing communication or a message/copy decision.
 
-Once the relevant positioning is sufficiently resolved for the task, read `handbook/04-messaging-proof-and-copy.md` only when an unresolved message/copy decision requires message hierarchy, proof architecture, claim control, substantial email/campaign structure, landing-page message/copy resolution, or a human-writing review. A narrow transformation or platform-format adaptation with supplied message and proof does not by itself require Chapter 04.
+Once the relevant positioning is sufficiently resolved for the task, read `handbook/04-messaging-proof-and-copy.md` only when an unresolved message/copy decision requires message hierarchy, proof architecture, claim control, substantial copy structure, landing-page message/copy resolution, or a human-writing review. A narrow transformation or platform-format adaptation with supplied message and proof does not by itself require Chapter 04.
 
 When the open decision is **landing-page architecture rather than message/copy itself**, use the `landing-page` knowledge namespace directly and load only the smallest `landing-page.*` route that can change the decision. Do not load Chapter 04 merely as a routing hop when the reader/message, proof/claim boundaries, and commercial state are already sufficiently resolved. If any of those upstream states remains materially unresolved, resolve it with its existing owner first — Chapter 04 for message/claim/proof, Chapter 10 for Commercial Design, and Chapter 05 for causal diagnosis or experimentation — then return to `landing-page.*` only if page allocation remains open.
+
+When the open decision is **email communication architecture rather than message/copy itself**, use the `email` knowledge namespace directly and load only the smallest `email.*` route that can change the decision. Do not load Chapter 04 merely as a routing hop when the message, proof/claim boundaries, and applicable commercial state are already sufficiently resolved. If upstream message/claim/proof is still open, resolve it with Chapter 04 first; if commercial transition policy is unresolved and can change the email decision, use the smallest `commercial-design.*` dependency; if causal response or experiment interpretation is open, use Chapter 05.
+
+Common email dependencies include:
+
+```text
+send / wait / exit / suppress / other-channel decision
+→ email.send-decision
+
+permission / authority / endpoint / suppression / technical feasibility
+→ email.send-state
+
+sequence / branch / delay / exit under history and state
+→ email.sequence
+
+subject / preview / body / optional action allocation
+→ email.allocation
+
+email → reply / page / app / human handoff continuity
+→ email.continuity
+
+sent / accepted / open / click / unsubscribe / attribution interpretation
+→ email.observation
+
+consequential retained email decision
+→ email.decision-record
+```
+
+These routes specialize existing state, relationship, representation, history, and observation grammar. They do not create a lifecycle, CRM, journey, campaign, funnel, or global send-eligibility object.
 
 Before drafting, identify the reader's current situation, the one job of this touchpoint, the core message, proof available, material objections, allowed or unsupported claims, and the appropriate next action. A user-provided voice sample outranks generic style preferences unless it conflicts with truth, ethics, or the task.
 
@@ -289,7 +318,9 @@ For simple tasks, stay on the fast path. If the user asks for a short caption an
 
 For cross-platform adaptation, preserve strategic meaning but do not blindly cross-post the same object or representation. Adapt actor, context, object, representation, modality, proof placement, ask, and measurement only where the destination environment justifies a change.
 
-For an owned-channel next-message decision whose answer depends on customer state or contact history, compose the existing message/reader-state path with `content.audience-interaction`; add `commercial-design.dynamics` only when the applicable commercial transition rule remains unresolved and can change eligibility or meaning, otherwise freeze the established commercial state. Add Chapter 05 only when diagnosis or treatment response is open. Preserve prior contact, suppression or holdout, blocker, authority or permission, and eligibility only when dropping them would make a send, suppression, or different-message decision incorrectly equivalent. Do not create a lifecycle, CRM, or journey namespace for this composition.
+For an owned-channel **email** decision whose answer depends on customer state or contact history, use the smallest `email.*` route rather than composing through `content.audience-interaction` merely because email has history. Chapter 12 specializes the existing Chapter 08 state/relationship/history grammar for email. Add `commercial-design.dynamics` only when the applicable commercial transition rule remains unresolved and can change eligibility or meaning; add Chapter 05 only when diagnosis, incrementality, or treatment response is open. Do not create a lifecycle, CRM, or journey namespace for this composition.
+
+For other owned-channel next-message decisions whose answer depends on customer state or contact history, keep the generic composition: use the existing message/reader-state path with `content.audience-interaction`; add `commercial-design.dynamics` only when the applicable commercial transition rule remains unresolved and can change eligibility or meaning, otherwise freeze the established commercial state. Add Chapter 05 only when diagnosis or treatment response is open. Preserve prior contact, suppression or holdout, blocker, authority or permission, and eligibility only when dropping them would make a send, suppression, or different-message decision incorrectly equivalent. Do not create a lifecycle, CRM, or journey namespace for this composition.
 
 ## Commerce / product discovery
 
@@ -476,7 +507,15 @@ Reuse the existing commercial decision record. Preserve objective and horizon, e
 
 ## Customer state → next owned-channel message
 
-Pass prior contact, suppression or holdout, blocker, authority or permission, eligibility, and material commercial transition state only when they distinguish send, suppress, or different-message decisions for otherwise similar recipients. Then let Chapter 04 resolve the message; do not create a lifecycle or CRM record by default.
+For email, use the email-specific handoff below. For other owned channels, pass prior contact, suppression or holdout, blocker, authority or permission, eligibility, and material commercial transition state only when they distinguish send, suppress, or different-message decisions for otherwise similar recipients. Then let Chapter 04 resolve the message; do not create a lifecycle or CRM record by default.
+
+## Customer / relationship state → email communication decision
+
+Pass prior contact, relevant relation/endpoint scope, suppression or holdout, blocker, authority/permission state, technical feasibility when material, and commercial transition state only when they distinguish send, wait, suppress, exit, other-channel, or different-message decisions for otherwise similar recipients. Let Chapter 12 resolve the email decision; use Chapter 04 only when message/claim/proof remains open. Do not create a lifecycle or CRM record by default.
+
+## Email observation → learning or next communication decision
+
+Pass only the observation level actually supported — attempt, receiver acceptance, known placement/availability state, exposure opportunity, interaction, unsubscribe/complaint/suppression, target action, attribution — together with provenance, scope, time/maturity, and material uncertainty when omission would change the next decision. Do not convert tracked open into verified human open/attention, click into intent, or attributed outcome into causal effect. Use Chapter 05 when incrementality or causal interpretation is open.
 
 ## Diagnosis → decision or communication
 

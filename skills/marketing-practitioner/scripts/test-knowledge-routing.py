@@ -48,10 +48,23 @@ def main() -> int:
         "commerce.content-commerce-measurement": "### 10.2 Content metrics and commerce metrics can share an object history without sharing causal meaning",
         "commerce.shopper-representation-jobs": "### 11.1 Selection and evaluation representations have different jobs",
         "commerce.observation-interpretation": "## 12. Observation records for commerce",
+        "email.core": "## 1. Scope: decide whether, when, and how email should carry resolved strategy",
+        "email.send-decision": "## 2. Communication-relevant state and the send decision",
+        "email.send-state": "## 3. Authority, reachability, suppression, and scoped send state",
+        "email.sequence": "## 4. Time, history, sequence, branching, waiting, and exit",
+        "email.allocation": "## 5. Inbox, message, and optional action allocation",
+        "email.continuity": "## 6. Continuity and representation robustness",
+        "email.observation": "## 7. Observation semantics and causal boundary",
+        "email.decision-record": "## 8. Compact email decision record",
+        "email.invariants": "## 9. Anti-folklore invariants",
     }
     for route_id, expected_heading in expected_routes.items():
         _, content = module.get_knowledge(route_id)
         assert content.startswith(expected_heading)
+
+    email_source_path, email_source_content = module.get_source("EM03")
+    assert email_source_path == "references/email-communication-evidence.md"
+    assert email_source_content.startswith("## [EM03] Apple — Mail Privacy Protection")
 
     fixture = """# Fixture\n\n## A\nA intro\n\n### A.1\nA1 body\n\n#### A.1.1\nA11 body\n\n### A.2\nA2 body\n\n## B\nB body\n\n<!-- route:start fixture.marker -->\nMARKER BODY\n\n### nested marker heading\nstill marker\n<!-- route:end fixture.marker -->\n\n## C\nC body\n"""
 
@@ -194,7 +207,7 @@ def main() -> int:
         "--namespace is only valid with --list",
     )
 
-    print("PASS\t30 routing-mechanics smoke checks")
+    print("PASS\t40 routing-mechanics smoke checks")
     return 0
 
 
