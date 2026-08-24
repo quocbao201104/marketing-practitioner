@@ -1,0 +1,748 @@
+{
+    "evidence_schema_version": "1.0.0",
+    "trace_profiles": {
+    "direct_complete": {
+      "activation": "activated",
+      "access": "direct",
+      "telemetry": "complete"
+    },
+    "baseline_direct": {
+      "activation": "not-intended",
+      "access": "direct",
+      "telemetry": "complete"
+    },
+        "activation_failed": {
+            "activation": "not-activated",
+            "access": "none",
+            "telemetry": "complete"
+        },
+        "route_missing": {
+            "activation": "activated",
+            "access": "requested_unresolved",
+            "telemetry": "complete"
+        },
+        "route_delivered": {
+            "activation": "activated",
+            "access": "requested_delivered",
+            "telemetry": "complete"
+        },
+        "telemetry_incomplete": {
+            "activation": "activated",
+            "access": "requested_unresolved",
+            "telemetry": "incomplete"
+        }
+    },
+    "candidate_catalog": {
+        "GOOD-003": {
+            "candidate_id": "EVIDENCE-GOOD-003",
+            "output": "Use the signed annual price and discount ceiling without reopening either term.",
+            "semantic_slots": {
+                "D": [
+                    "preserve_approved_terms"
+                ],
+                "E": [
+                    "signed_note"
+                ],
+                "U": [],
+                "S": [
+                    "fixed"
+                ],
+                "A": [
+                    "represent_only"
+                ],
+                "N": [
+                    "publish"
+                ],
+                "R": [
+                    "launch"
+                ],
+                "C": [
+                    "plain"
+                ]
+            },
+            "output_evidence": {
+                "O003-M1": "signed terms retained",
+                "O003-X1": "without reopening"
+            }
+        },
+        "GOOD-005": {
+            "candidate_id": "EVIDENCE-GOOD-005",
+            "output": "Retain the offer until the target horizon and do not describe the immature signal as causal.",
+            "semantic_slots": {
+                "D": [
+                    "retain_offer_until_evidence"
+                ],
+                "E": [
+                    "immature_noncausal_signal"
+                ],
+                "U": [
+                    "target_horizon"
+                ],
+                "S": [],
+                "A": [],
+                "N": [
+                    "wait"
+                ],
+                "R": [
+                    "lifecycle"
+                ],
+                "C": [
+                    "plain"
+                ]
+            },
+            "output_evidence": {
+                "O005-M1": "retain until target horizon",
+                "O005-X1": "immature noncausal"
+            }
+        },
+        "GOOD-008": {
+            "candidate_id": "EVIDENCE-GOOD-008",
+            "output": "Record one source root and seek independent corroboration.",
+            "semantic_slots": {
+                "D": [
+                    "preserve_source_roots"
+                ],
+                "E": [
+                    "one_source_root"
+                ],
+                "U": [
+                    "recurrence"
+                ],
+                "S": [],
+                "A": [],
+                "N": [
+                    "seek_corroboration"
+                ],
+                "R": [
+                    "research"
+                ],
+                "C": [
+                    "plain"
+                ]
+            },
+            "output_evidence": {
+                "O008-M1": "one source root",
+                "O008-X1": "not four independent customers"
+            }
+        },
+        "GOOD-009": {
+            "candidate_id": "EVIDENCE-GOOD-009",
+            "output": "Use the signed approved price; do not invent or reopen pricing.",
+            "semantic_slots": {
+                "D": [
+                    "preserve_approved_price"
+                ],
+                "E": [
+                    "signed_price"
+                ],
+                "U": [],
+                "S": [
+                    "fixed"
+                ],
+                "A": [],
+                "N": [
+                    "publish"
+                ],
+                "R": [
+                    "pricing"
+                ],
+                "C": [
+                    "plain"
+                ]
+            },
+            "output_evidence": {
+                "O009-M1": "approved price",
+                "O009-X1": "do not invent"
+            }
+        }
+    },
+    "packets": [
+        {
+            "condition_id": "COND-001",
+            "ordinary_trace_profile": "direct_complete"
+        },
+        {
+            "condition_id": "COND-002",
+            "ordinary_trace_profile": "direct_complete"
+        },
+        {
+            "condition_id": "COND-003",
+            "ordinary_trace_profile": "direct_complete",
+            "rubric_challenge": {
+                "oracles": [
+                    {
+                        "version": "1.0.0-defective",
+                        "must": [
+                            {
+                                "slot": "C",
+                                "relation": "contains",
+                                "value": "canonical_wording"
+                            }
+                        ]
+                    },
+                    {
+                        "version": "2.0.0-corrected",
+                        "scenario_oracle_ref": "PD-DI-002@1.0.0"
+                    }
+                ],
+                "anchors": [
+                    {
+                        "candidate_ref": "condition:COND-003",
+                        "expected_by_oracle": {
+                            "1.0.0-defective": "unacceptable",
+                            "2.0.0-corrected": "acceptable"
+                        }
+                    },
+                    {
+                        "candidate": {
+                            "candidate_id": "RUBRIC-FLUENT-WRONG",
+                            "output": "Publish both faster setup and lower cost.",
+                            "semantic_slots": {
+                                "D": [
+                                    "publish_setup_only",
+                                    "publish_cost_claim"
+                                ],
+                                "E": [
+                                    "cost_measured"
+                                ],
+                                "U": [],
+                                "S": [],
+                                "A": [],
+                                "N": [
+                                    "publish"
+                                ],
+                                "R": [
+                                    "homepage"
+                                ],
+                                "C": [
+                                    "canonical_wording"
+                                ]
+                            },
+                            "output_evidence": {
+                                "O002-M1": "setup",
+                                "O002-X1": "lower cost"
+                            }
+                        },
+                        "expected_by_oracle": {
+                            "1.0.0-defective": "acceptable",
+                            "2.0.0-corrected": "unacceptable"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "condition_id": "COND-004",
+            "ordinary_trace_profile": "direct_complete"
+        },
+        {
+            "condition_id": "COND-005",
+            "ordinary_trace_profile": "activation_failed",
+            "activation_receipt": {
+                "requested_skill_id": "marketing-practitioner",
+                "active_skill_id": null,
+                "outcome": "not-activated",
+                "error_ref": "ACTIVATION-COND-005",
+                "fallback_authorization": "not_applicable"
+            }
+        },
+        {
+            "condition_id": "COND-006",
+            "ordinary_trace_profile": "route_missing",
+            "stability_repeat_count": 2,
+            "route_requirement": {
+      "oracle_predicate_ids": [
+        "O003-M1",
+        "O003-X1"
+      ],
+      "requested_route": "content.consequential-strategy",
+      "requirement_rationale": "These hard decision predicates require the consequential-strategy route.",
+      "requirement_hash": "sha256:f836034101ad1958208b69209c86cadbf8026d6c54e1367aee22faa072eaf588"
+            },
+            "intervention_runs": [
+                {
+                    "arm": "target",
+                    "intervention_type": "restore_required_route",
+                    "trace_profile": "route_delivered",
+                    "route_override": "content.consequential-strategy",
+                    "candidate_ref": "catalog:GOOD-003",
+                    "delta_manifest": [
+                        "route content.consequential-strategy delivered"
+                    ],
+                    "held_constant_manifest": [
+                        "scenario",
+                        "oracle",
+                        "model",
+                        "tools"
+                    ]
+                },
+                {
+                    "arm": "negative_control",
+                    "intervention_type": "deliver_irrelevant_route",
+                    "trace_profile": "route_delivered",
+                    "route_override": "content.copy-editing",
+                    "candidate_ref": "condition:COND-006",
+                    "delta_manifest": [
+                        "route content.copy-editing delivered"
+                    ],
+                    "held_constant_manifest": [
+                        "scenario",
+                        "oracle",
+                        "model",
+                        "tools"
+                    ]
+                }
+            ]
+        },
+        {
+            "condition_id": "COND-007",
+            "ordinary_trace_profile": "route_delivered",
+            "stability_repeat_count": 2,
+    "local_content_audit": {
+      "audited_resource_ref": "trace:ordinary:resource_hash",
+      "audited_resource_hash": "sha256:b14b8f6585f6095b3f513cb66bae335ebe8731b66849abaa9954b07b917ad801",
+      "missing_distinction": "signed fixed state must be preserved",
+      "missing_distinction_tokens": ["fixed_state", "unresolved_state"],
+      "auditor": "fixture-auditor-07",
+      "scenario_ref": "PD-DI-003@1.0.0",
+      "owner_scope": "content.consequential-strategy",
+      "oracle_predicate_ids": ["O003-M1", "O003-X1"],
+      "audit_seal": "sha256:a9281d74fd97397938666c4cdf23bcf939398b127bc208d684744cbd64560378"
+            },
+            "neutral_artifact": {
+                "artifact_id": "KNOWLEDGE-007",
+                "owner_scope": "content.consequential-strategy",
+                "propositions": [
+                    {
+                        "kind": "neutral_distinction",
+                        "text": "Separate fixed approved state from unresolved state.",
+                        "semantic_tokens": ["fixed_state", "unresolved_state"],
+                        "contains_entity": false,
+                        "contains_action": false,
+                        "contains_hidden_fact": false
+                    }
+                ]
+            },
+            "purity_review": {
+                "reviewer_id": "artifact-reviewer-007",
+                "reviewed_artifact_hash": "sha256:97b745d534ceffe658bcbd3f4571df4b5a1843d8b4c616ad67e61dd119d8804b",
+                "semantic_tokens": ["fixed_state", "unresolved_state"],
+                "disposition": "neutral_owner_local"
+            },
+            "intervention_runs": [
+                {
+                    "arm": "target",
+                    "intervention_type": "deliver_neutral_owner_local_distinction",
+                    "trace_profile": "route_delivered",
+                    "candidate_ref": "catalog:GOOD-003",
+                    "delta_manifest": [
+                        "KNOWLEDGE-007"
+                    ],
+                    "held_constant_manifest": [
+                        "scenario",
+                        "oracle",
+                        "route",
+                        "model",
+                        "tools"
+                    ]
+                },
+                {
+                    "arm": "negative_control",
+                    "intervention_type": "deliver_placebo_formatting_note",
+                    "trace_profile": "route_delivered",
+                    "candidate_ref": "condition:COND-007",
+                    "delta_manifest": [
+                        "PLACEBO-007"
+                    ],
+                    "held_constant_manifest": [
+                        "scenario",
+                        "oracle",
+                        "route",
+                        "model",
+                        "tools"
+                    ]
+                }
+            ]
+        },
+        {
+            "condition_id": "COND-008",
+            "ordinary_trace_profile": "route_delivered",
+            "stability_repeat_count": 2,
+            "boundary_audit": {
+                "boundary_id": "BOUNDARY-008",
+                "source_owner": "fixture-upstream-owner-008",
+                "destination_owner": "fixture-downstream-owner-008",
+                "required_assertion_ids": [
+                    "SIGNED-TERMS-STATE"
+                ],
+      "upstream_artifact_hash": "sha256:2139e1c0180b3fff031f721b15c3c98a2a34403e68e32ad2f95a1b502132edbf",
+      "downstream_artifact_hash": "sha256:81368a29ad632ac69db62d54ce28abb3fab84470390b8f67a0d374124af65324",
+      "upstream_artifact": {
+        "artifact_id": "UPSTREAM-008",
+        "assertion_ids": ["SIGNED-TERMS-STATE"],
+        "state": "present"
+      },
+      "downstream_artifact": {
+        "artifact_id": "DOWNSTREAM-008",
+        "assertion_ids": [],
+        "state": "missing"
+      },
+                "transfer_status": "lost"
+            },
+            "owner_tests": [
+                {
+                    "owner": "upstream",
+                    "owner_task_id": "OWNER-TASK-008-UPSTREAM",
+                    "visible_state_refs": ["SIGNED-TERMS-STATE"],
+                    "predicate_ids": ["O003-M1", "O003-X1"],
+                    "candidate_ref": "catalog:GOOD-003"
+                },
+                {
+                    "owner": "downstream_with_state",
+                    "owner_task_id": "OWNER-TASK-008-DOWNSTREAM",
+                    "visible_state_refs": ["SIGNED-TERMS-STATE", "STATE-CAPSULE-008"],
+                    "predicate_ids": ["O003-M1", "O003-X1"],
+                    "candidate_ref": "catalog:GOOD-003"
+                }
+            ],
+            "boundary_contract": {
+                "contract_id": "BOUNDARY-CONTRACT-008",
+                "state_field_names": ["approved_annual_term", "discount_ceiling", "authority_ref"],
+                "allowed_capsule_object_keys": ["schema", "values", "allowed_keys_only", "contains_recommendation", "contains_new_fact"],
+                "allowed_value_vocabulary": ["present", "absent", "unknown"]
+            },
+            "state_capsule": {
+                "schema": [
+                    "approved_annual_term",
+                    "discount_ceiling",
+                    "authority_ref"
+                ],
+                "values": [
+                    "present",
+                    "present",
+                    "present"
+                ],
+                "allowed_keys_only": true,
+                "contains_recommendation": false,
+                "contains_new_fact": false
+            },
+            "intervention_runs": [
+                {
+                    "arm": "target",
+                    "intervention_type": "restore_answer_free_state_capsule",
+                    "trace_profile": "route_delivered",
+                    "candidate_ref": "catalog:GOOD-003",
+                    "delta_manifest": [
+                        "STATE-CAPSULE-008"
+                    ],
+                    "held_constant_manifest": [
+                        "scenario",
+                        "oracle",
+                        "route",
+                        "model",
+                        "tools"
+                    ]
+                },
+                {
+                    "arm": "negative_control",
+                    "intervention_type": "restore_irrelevant_state",
+                    "trace_profile": "route_delivered",
+                    "candidate_ref": "condition:COND-008",
+                    "delta_manifest": [
+                        "IRRELEVANT-STATE-008"
+                    ],
+                    "held_constant_manifest": [
+                        "scenario",
+                        "oracle",
+                        "route",
+                        "model",
+                        "tools"
+                    ]
+                }
+            ]
+        },
+        {
+            "condition_id": "COND-009",
+            "ordinary_trace_profile": "route_delivered"
+        },
+        {
+            "condition_id": "COND-010",
+            "ordinary_trace_profile": "route_delivered",
+            "boundary_audit": {
+                "boundary_id": "BOUNDARY-010",
+                "transfer_status": "unobservable",
+                "state_injection_safe": false
+            }
+        },
+        {
+            "condition_id": "COND-011",
+            "ordinary_trace_profile": "route_missing",
+      "repeat_arms": [
+        {
+          "arm": "A",
+          "condition": "without_skill",
+          "runs": [
+            {"run_id": "REPEAT-011-A1", "candidate_ref": "catalog:GOOD-003", "trace_profile": "baseline_direct"},
+            {"run_id": "REPEAT-011-A2", "candidate_ref": "condition:COND-011", "trace_profile": "baseline_direct"},
+            {"run_id": "REPEAT-011-A3", "candidate_ref": "catalog:GOOD-003", "trace_profile": "baseline_direct"}
+          ]
+        },
+        {
+          "arm": "B",
+          "condition": "with_skill",
+          "runs": [
+            {"run_id": "REPEAT-011-B1", "candidate_ref": "catalog:GOOD-003", "trace_profile": "route_missing"},
+            {"run_id": "REPEAT-011-B2", "candidate_ref": "condition:COND-011", "trace_profile": "route_missing"},
+            {"run_id": "REPEAT-011-B3", "candidate_ref": "catalog:GOOD-003", "trace_profile": "route_missing"}
+          ]
+        }
+      ]
+        },
+        {
+            "condition_id": "COND-012",
+            "ordinary_trace_profile": "direct_complete"
+        },
+        {
+            "condition_id": "COND-013-CONTROL",
+            "ordinary_trace_profile": "direct_complete"
+        },
+        {
+            "condition_id": "COND-013",
+            "ordinary_trace_profile": "direct_complete"
+        },
+        {
+            "condition_id": "COND-014",
+            "ordinary_trace_profile": "direct_complete",
+      "repeat_arms": [
+        {
+          "arm": "A",
+          "condition": "without_skill",
+          "runs": [
+            {"run_id": "REPEAT-014-A1", "candidate_ref": "condition:COND-014", "trace_profile": "baseline_direct"},
+            {"run_id": "REPEAT-014-A2", "candidate_ref": "catalog:GOOD-005", "trace_profile": "baseline_direct"},
+            {"run_id": "REPEAT-014-A3", "candidate_ref": "condition:COND-014", "trace_profile": "baseline_direct"}
+          ]
+        },
+        {
+          "arm": "B",
+          "condition": "with_skill",
+          "runs": [
+            {"run_id": "REPEAT-014-B1", "candidate_ref": "condition:COND-014", "trace_profile": "direct_complete"},
+            {"run_id": "REPEAT-014-B2", "candidate_ref": "catalog:GOOD-005", "trace_profile": "direct_complete"},
+            {"run_id": "REPEAT-014-B3", "candidate_ref": "condition:COND-014", "trace_profile": "direct_complete"}
+          ]
+        }
+      ]
+        },
+        {
+            "condition_id": "COND-015",
+            "ordinary_trace_profile": "direct_complete"
+        },
+        {
+            "condition_id": "COND-016",
+            "ordinary_trace_profile": "direct_complete",
+            "external_dependency": {
+                "dependency_id": "DEPENDENCY-016",
+                "authority": "signed legal approval",
+                "availability": "outside_executor_scope",
+                "material_predicate_ids": [
+                    "O007-M1",
+                    "O007-X1"
+                ],
+                "evidence_ref": "DEPENDENCY-RECORD-016"
+            },
+            "dependency_records": [
+                {
+                    "record_id": "DEPENDENCY-RECORD-016",
+                    "proposition": "Displayed tax treatment requires the external tax owner.",
+                    "authority": "signed legal approval",
+                    "scope_status": "outside_executor_scope"
+                }
+            ]
+        },
+        {
+            "condition_id": "COND-017",
+            "ordinary_trace_profile": "route_delivered",
+            "stability_repeat_count": 2,
+    "local_content_audit": {
+      "audited_resource_ref": "trace:ordinary:resource_hash",
+      "audited_resource_hash": "sha256:8046e3066915df974a0398be4fa51ee64323b708a8fcbd6cdfdb37a1f4add3f1",
+      "missing_distinction": "derivative artifacts retain one source root",
+      "missing_distinction_tokens": ["derivative_lineage", "independent_root_distinction"],
+      "auditor": "fixture-auditor-17",
+      "scenario_ref": "PD-DI-008@1.0.0",
+      "owner_scope": "content.evidence-lineage",
+      "oracle_predicate_ids": ["O008-M1", "O008-X1"],
+      "audit_seal": "sha256:14f1db7a363f7d37ed5acf9f1304adfe06f823946c96dc9c0ac4deb91f8d00f6"
+            },
+            "neutral_artifact": {
+                "artifact_id": "KNOWLEDGE-017",
+                "owner_scope": "content.evidence-lineage",
+                "propositions": [
+                    {
+                        "kind": "neutral_distinction",
+                        "text": "Derivative artifacts do not create independent source roots.",
+                        "semantic_tokens": ["derivative_lineage", "independent_root_distinction"],
+                        "contains_entity": false,
+                        "contains_action": false,
+                        "contains_hidden_fact": false
+                    }
+                ]
+            },
+            "purity_review": {
+                "reviewer_id": "artifact-reviewer-017",
+                "reviewed_artifact_hash": "sha256:c9f4e1ece84c17d826393e5ef2c0f190cb4cd46a37ea270dc6ca96261d59a502",
+                "semantic_tokens": ["derivative_lineage", "independent_root_distinction"],
+                "disposition": "neutral_owner_local"
+            },
+            "intervention_runs": [
+                {
+                    "arm": "target",
+                    "intervention_type": "deliver_neutral_owner_local_distinction",
+                    "trace_profile": "route_delivered",
+                    "candidate_ref": "catalog:GOOD-008",
+                    "delta_manifest": [
+                        "KNOWLEDGE-017"
+                    ],
+                    "held_constant_manifest": [
+                        "scenario",
+                        "oracle",
+                        "route",
+                        "model",
+                        "tools"
+                    ]
+                },
+                {
+                    "arm": "negative_control",
+                    "intervention_type": "deliver_placebo_formatting_note",
+                    "trace_profile": "route_delivered",
+                    "candidate_ref": "condition:COND-017",
+                    "delta_manifest": [
+                        "PLACEBO-017"
+                    ],
+                    "held_constant_manifest": [
+                        "scenario",
+                        "oracle",
+                        "route",
+                        "model",
+                        "tools"
+                    ]
+                }
+            ]
+        },
+        {
+            "condition_id": "COND-018",
+            "ordinary_trace_profile": "route_delivered",
+            "stability_repeat_count": 2,
+            "boundary_audit": {
+                "boundary_id": "BOUNDARY-018",
+                "source_owner": "fixture-upstream-owner-018",
+                "destination_owner": "fixture-downstream-owner-018",
+                "required_assertion_ids": [
+                    "SIGNED-PRICE"
+                ],
+      "upstream_artifact_hash": "sha256:3157a3e63d0588fe8ea56ed3dee98ebb832aef6e2b2bfd00c82d4d0c5c4ea61e",
+      "downstream_artifact_hash": "sha256:52fb3ca5ff7d2a84fd6616cbd133efea67f3ef3ab4ba55ed93f9f89970bf5955",
+      "upstream_artifact": {
+        "artifact_id": "UPSTREAM-018",
+        "assertion_ids": ["SIGNED-PRICE"],
+        "state": "present"
+      },
+      "downstream_artifact": {
+        "artifact_id": "DOWNSTREAM-018",
+        "assertion_ids": [],
+        "state": "missing"
+      },
+                "transfer_status": "lost"
+            },
+            "owner_tests": [
+                {
+                    "owner": "upstream",
+                    "owner_task_id": "OWNER-TASK-018-UPSTREAM",
+                    "visible_state_refs": ["SIGNED-PRICE"],
+                    "predicate_ids": ["O009-M1", "O009-X1"],
+                    "candidate_ref": "catalog:GOOD-009"
+                },
+                {
+                    "owner": "downstream_with_state",
+                    "owner_task_id": "OWNER-TASK-018-DOWNSTREAM",
+                    "visible_state_refs": ["SIGNED-PRICE", "STATE-CAPSULE-018"],
+                    "predicate_ids": ["O009-M1", "O009-X1"],
+                    "candidate_ref": "catalog:GOOD-009"
+                }
+            ],
+            "boundary_contract": {
+                "contract_id": "BOUNDARY-CONTRACT-018",
+                "state_field_names": ["approved_price", "authority_ref"],
+                "allowed_capsule_object_keys": ["schema", "values", "allowed_keys_only", "contains_recommendation", "contains_new_fact"],
+                "allowed_value_vocabulary": ["present", "absent", "unknown"]
+            },
+            "state_capsule": {
+                "schema": [
+                    "approved_price",
+                    "authority_ref"
+                ],
+                "values": [
+                    "present",
+                    "present"
+                ],
+                "allowed_keys_only": true,
+                "contains_recommendation": false,
+                "contains_new_fact": false
+            },
+            "intervention_runs": [
+                {
+                    "arm": "target",
+                    "intervention_type": "restore_answer_free_state_capsule",
+                    "trace_profile": "route_delivered",
+                    "candidate_ref": "catalog:GOOD-009",
+                    "delta_manifest": [
+                        "STATE-CAPSULE-018"
+                    ],
+                    "held_constant_manifest": [
+                        "scenario",
+                        "oracle",
+                        "route",
+                        "model",
+                        "tools"
+                    ]
+                },
+                {
+                    "arm": "negative_control",
+                    "intervention_type": "restore_irrelevant_state",
+                    "trace_profile": "route_delivered",
+                    "candidate_ref": "condition:COND-018",
+                    "delta_manifest": [
+                        "IRRELEVANT-STATE-018"
+                    ],
+                    "held_constant_manifest": [
+                        "scenario",
+                        "oracle",
+                        "route",
+                        "model",
+                        "tools"
+                    ]
+                }
+            ]
+        },
+        {
+            "condition_id": "COND-019",
+            "ordinary_trace_profile": "telemetry_incomplete",
+            "route_requirement": {
+                "oracle_predicate_ids": [
+                    "O010-M1",
+                    "O010-X1"
+                ],
+                "requested_route": "content.evidence-lineage"
+            }
+        },
+        {
+            "condition_id": "COND-020",
+            "ordinary_trace_profile": "direct_complete"
+        },
+        {
+            "condition_id": "COND-021",
+            "ordinary_trace_profile": "direct_complete"
+        }
+    ]
+}

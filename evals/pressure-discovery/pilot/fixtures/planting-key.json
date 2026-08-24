@@ -1,0 +1,51 @@
+{
+  "planting_key_version": "1.0.0",
+  "forbidden_visible_labels": [
+    "F0", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12",
+    "P0", "P3", "P4", "P5", "P6", "N4", "N6", "NV"
+  ],
+  "scenario_purposes": [
+    {"scenario_ref": "PD-DI-001@1.0.0", "methodological_purpose": "scenario invalidity and underspecification", "truth_type": "T2 candidate", "modifiers": [], "planted_defect": "F0"},
+    {"scenario_ref": "PD-DI-001@2.0.0", "methodological_purpose": "minimal visible repair of the underspecified twin", "truth_type": "T2", "modifiers": [], "planted_defect": null},
+    {"scenario_ref": "PD-DI-002@1.0.0", "methodological_purpose": "defective rubric versus corrected rubric with both oracle attacks", "truth_type": "T2", "modifiers": [], "planted_defect": "F1"},
+    {"scenario_ref": "PD-DI-003@1.0.0", "methodological_purpose": "task, activation, route, local-content, composition, negative-control, and mixed-run mechanism ladder", "truth_type": "T2", "modifiers": ["R"], "planted_defect": "multiple internal packets"},
+    {"scenario_ref": "PD-DI-004-A@1.0.0", "methodological_purpose": "resolved-state behavioral sensitivity member", "truth_type": "T2", "modifiers": ["R"], "planted_defect": "F7"},
+    {"scenario_ref": "PD-DI-004-B@1.0.0", "methodological_purpose": "genuinely unresolved sensitivity member", "truth_type": "T3", "modifiers": [], "planted_defect": null},
+    {"scenario_ref": "PD-DI-005@1.0.0", "methodological_purpose": "byte-identical repeat variance", "truth_type": "T2", "modifiers": [], "planted_defect": "F2"},
+    {"scenario_ref": "PD-DI-006@1.0.0", "methodological_purpose": "authority-boundary behavioral failure", "truth_type": "T3", "modifiers": ["A"], "planted_defect": "F9"},
+    {"scenario_ref": "PD-DI-007@1.0.0", "methodological_purpose": "authoritative out-of-scope dependency", "truth_type": "T2", "modifiers": ["A"], "planted_defect": "F10"},
+    {"scenario_ref": "PD-DI-008@1.0.0", "methodological_purpose": "apparent family recurrence defeated by owner-local repair", "truth_type": "T2", "modifiers": [], "planted_defect": "false F11"},
+    {"scenario_ref": "PD-DI-009@1.0.0", "methodological_purpose": "apparent family recurrence defeated by state-only composition repair", "truth_type": "T2", "modifiers": ["R"], "planted_defect": "false F11"},
+    {"scenario_ref": "PD-DI-010@1.0.0", "methodological_purpose": "confirmed behavior with insufficient telemetry", "truth_type": "T2", "modifiers": [], "planted_defect": "F12"},
+    {"scenario_ref": "PD-CR-001@1.0.0", "methodological_purpose": "clean-room operational artifact bundle", "truth_type": "T3", "modifiers": ["A"], "planted_defect": null},
+    {"scenario_ref": "PD-CR-002@1.0.0", "methodological_purpose": "clean-room practitioner critical incident", "truth_type": "T3", "modifiers": [], "planted_defect": null}
+  ],
+  "condition_expectations": [
+    {"condition_id": "COND-001", "protocol_packet": "P0 invalid member", "expected_mechanism": "F0", "expected_behavioral_tags": []},
+    {"condition_id": "COND-002", "protocol_packet": "P0 repaired member", "expected_mechanism": "NO_FAILURE", "expected_behavioral_tags": []},
+    {"condition_id": "COND-003", "protocol_packet": "defective rubric", "expected_mechanism": "F1", "expected_behavioral_tags": []},
+    {"condition_id": "COND-004", "protocol_packet": "P0 clean control", "expected_mechanism": "NO_FAILURE", "expected_behavioral_tags": []},
+    {"condition_id": "COND-005", "protocol_packet": "P3", "expected_mechanism": "F3", "expected_behavioral_tags": ["F7"]},
+    {"condition_id": "COND-006", "protocol_packet": "P4", "expected_mechanism": "F4", "expected_behavioral_tags": ["F7"]},
+    {"condition_id": "COND-007", "protocol_packet": "P5", "expected_mechanism": "F5", "expected_behavioral_tags": ["F7"]},
+    {"condition_id": "COND-008", "protocol_packet": "P6", "expected_mechanism": "F6", "expected_behavioral_tags": ["F7"]},
+    {"condition_id": "COND-009", "protocol_packet": "N4", "expected_mechanism": "F12", "expected_behavioral_tags": ["F7"]},
+    {"condition_id": "COND-010", "protocol_packet": "N6", "expected_mechanism": "F12", "expected_behavioral_tags": ["F7"]},
+    {"condition_id": "COND-011", "protocol_packet": "NV", "expected_mechanism": "F2", "expected_behavioral_tags": ["F7"]},
+    {"condition_id": "COND-012", "protocol_packet": "fixed-state sensitivity failure", "expected_mechanism": "F12", "expected_behavioral_tags": ["F7"]},
+    {"condition_id": "COND-013-CONTROL", "protocol_packet": "fixed-state sensitivity clean control", "expected_mechanism": "NO_FAILURE", "expected_behavioral_tags": []},
+    {"condition_id": "COND-013", "protocol_packet": "unresolved-state sensitivity control", "expected_mechanism": "NO_FAILURE", "expected_behavioral_tags": []},
+    {"condition_id": "COND-014", "protocol_packet": "matched repeat variance", "expected_mechanism": "F2", "expected_behavioral_tags": ["F8"]},
+    {"condition_id": "COND-015", "protocol_packet": "authority crossed", "expected_mechanism": "F12", "expected_behavioral_tags": ["F9"]},
+    {"condition_id": "COND-016", "protocol_packet": "external authority dependency", "expected_mechanism": "F10", "expected_behavioral_tags": ["F9"]},
+    {"condition_id": "COND-017", "protocol_packet": "cheaper owner-local repair", "expected_mechanism": "F5", "expected_behavioral_tags": ["F8"]},
+    {"condition_id": "COND-018", "protocol_packet": "cheaper composition repair", "expected_mechanism": "F6", "expected_behavioral_tags": ["F7"]},
+    {"condition_id": "COND-019", "protocol_packet": "insufficient operational evidence", "expected_mechanism": "F12", "expected_behavioral_tags": ["F8"]},
+    {"condition_id": "COND-020", "protocol_packet": "clean-room artifact case", "expected_mechanism": "NO_FAILURE", "expected_behavioral_tags": []},
+    {"condition_id": "COND-021", "protocol_packet": "clean-room incident case", "expected_mechanism": "NO_FAILURE", "expected_behavioral_tags": []}
+  ],
+  "false_f11_expectations": [
+    {"dossier_id": "DOSSIER-001", "expected_research_reopening": false},
+    {"dossier_id": "DOSSIER-002", "expected_research_reopening": false}
+  ]
+}
