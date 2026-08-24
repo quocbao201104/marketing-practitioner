@@ -44,7 +44,7 @@ def main() -> int:
         "content.job-measurement": "## 13. Measurement follows the marketing job",
         "content.performance-diagnosis": "## 15. Diagnostic record for weak or changing performance",
         "commerce.fact-provenance": "### 5.5 Preserve fact provenance",
-        "commerce.discovery-modality": "### 7.1 Query modality ≠ retrieval-model modality",
+        "commerce.discovery-modality": "### 7.1 Query modality \u2260 retrieval-model modality",
         "commerce.content-commerce-measurement": "### 10.2 Content metrics and commerce metrics can share an object history without sharing causal meaning",
         "commerce.shopper-representation-jobs": "### 11.1 Selection and evaluation representations have different jobs",
         "commerce.observation-interpretation": "## 12. Observation records for commerce",
