@@ -178,6 +178,119 @@ Expected:
 Failure:
 - one treatment lift is promoted to universal law.
 
+## L13 — Page request with unresolved claim/proof ownership
+
+Input state:
+- user asks for a full enterprise landing-page architecture;
+- positioning is supplied;
+- proposed headline claim says the product "eliminates hallucinations";
+- supplied evidence shows only that reviewers can inspect source lineage and changed evidence;
+- no evidence establishes elimination of hallucinations.
+
+Expected:
+- do not let the landing-page path normalize or silently weaken/strengthen the unsupported claim;
+- route the unresolved claim/proof decision to Chapter 04 first;
+- once the allowed claim and proof are resolved, Chapter 11 may allocate them on the page.
+
+Failure:
+- mention of a landing page causes Chapter 11 to take ownership of an unresolved message/proof decision.
+
+## L14 — Page request with unresolved commercial ownership
+
+Input state:
+- user asks for the pricing and sign-up sections of a landing page;
+- monthly price is fixed;
+- team has not decided whether cancellation is monthly or annual-commitment only;
+- refund eligibility is also unresolved.
+
+Expected:
+- preserve the fixed monthly price;
+- route the unresolved commitment/refund conditions to Chapter 10 before representing them as facts;
+- return to Chapter 11 only after the material commercial state is resolved or explicitly left unknown.
+
+Failure:
+- Chapter 11 invents, selects, or implies cancellation/refund terms in order to finish the page.
+
+## L15 — Shared credibility evidence can support multiple claims
+
+Input state:
+- an independently audited security report supports several page claims about encryption, access controls, and audit logging;
+- the report is authoritative for all three claims within its stated scope;
+- duplicating the full report treatment beside every sentence would damage readability without adding evidence.
+
+Expected:
+- preserve the report's authority, scope, and provenance from Chapter 04;
+- allow one shared credibility/evidence treatment when the relationship to the supported claims remains clear;
+- use local references, labels, anchors, or concise cues only where needed to preserve that relationship;
+- do not turn proof proximity into literal duplication.
+
+Failure:
+- the page either separates proof so far that support becomes unclear or mechanically duplicates the same artifact adjacent to every claim.
+
+## L16 — Necessary sensitive field requires point-of-collection clarity
+
+Input state:
+- enterprise demo form must collect a work email because access to the evaluation environment is provisioned to an organizational domain;
+- personal email is not sufficient for delivery;
+- users may reasonably wonder why work email is required;
+- the field is therefore necessary but privacy-/trust-sensitive.
+
+Expected:
+- keep the field because its need is material to delivery;
+- explain the reason at or near collection when that explanation changes trust/comprehension;
+- do not expand Chapter 11 into qualification-policy ownership beyond the supplied requirement;
+- do not remove the field merely to reduce friction.
+
+Failure:
+- necessary data is removed by field-count folklore, or kept without resolving a material collection concern that the page can truthfully explain.
+
+## L17 — Lower submission volume can still be the better form outcome
+
+Input state:
+- two form treatments were tested with valid downstream tracking;
+- Treatment A produces more raw submissions but substantially more out-of-scope leads;
+- Treatment B asks one justified qualification question, produces fewer submissions, and produces more qualified sales opportunities;
+- the business objective is qualified opportunity creation, not raw lead count.
+
+Expected:
+- do not declare Treatment A superior from form CVR alone;
+- preserve the supplied objective and downstream outcome distinction;
+- Chapter 11 may represent the justified qualification requirement, while causal interpretation of the experiment remains with Chapter 05.
+
+Failure:
+- raw form conversion is treated as the page's universal optimization target or the page path independently overclaims causality.
+
+## L18 — Already-ready returning visitor breaks the illustrative sequence
+
+Input state:
+- returning customer follows a signed-in renewal link;
+- product fit, mechanism, security, and proof were resolved in the prior relationship;
+- renewal terms and price are fixed and already known;
+- current job is to confirm the renewal state and complete payment.
+
+Expected:
+- permit a short sequence centered on state confirmation, material terms, immediate consequence, and action;
+- do not force category education, mechanism, testimonial, FAQ, or a cold-visitor persuasion ladder;
+- preserve only information required for this current decision.
+
+Failure:
+- the illustrative Chapter 11 question sequence is treated as a canonical buyer journey.
+
+## L19 — Exploratory SEO page requires legitimate navigation
+
+Input state:
+- an SEO solution page receives mixed visitors comparing use cases, integrations, security, documentation, and pricing;
+- the page has a conversion CTA, but exploration is a legitimate part of the user's decision process;
+- blog/news/social links do not materially support that process.
+
+Expected:
+- preserve navigation to decision-relevant exploration such as integrations, security, documentation, and pricing;
+- allow suppression or de-emphasis of irrelevant exits;
+- do not apply campaign-page attention-ratio logic as a universal navigation rule.
+
+Failure:
+- all navigation is removed because the page has a CTA, or all links are preserved without regard to the page job.
+
 ---
 
 # Routing checks
@@ -186,6 +299,7 @@ The following route families should be addressable without loading the entire ch
 
 ```text
 landing-page.core
+landing-page.entry-action
 landing-page.sequence
 landing-page.proof-risk
 landing-page.visual
@@ -193,6 +307,7 @@ landing-page.action-form
 landing-page.responsive
 landing-page.commercial-comparison
 landing-page.diagnosis
+landing-page.decision-record
 landing-page.invariants
 ```
 
@@ -211,6 +326,16 @@ causal explanation / experiment
 resolved state needing page allocation
 → Chapter 11
 ```
+
+Hard discriminator requirements:
+
+- The noun `landing page` must not override an unresolved owner dependency.
+- Chapter 11 may consume an upstream conclusion, constraint, proof boundary, or commercial state; it must not silently manufacture one.
+- Shared proof is permitted when support remains legible; proximity is not a literal-adjacency rule.
+- Necessary form friction may remain when it serves delivery, qualification, routing, or another authoritative requirement.
+- Raw form conversion is not a universal business objective.
+- A valid page may use a materially different sequence from the chapter's illustrations when entry/action state differs.
+- Navigation may support a legitimate decision path instead of competing with it.
 
 # Minimality checks
 
