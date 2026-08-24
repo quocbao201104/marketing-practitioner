@@ -110,6 +110,10 @@ They compete for attention before substantive evaluation. Relevance and clarity 
 
 They can carry category framing, value, mechanism, proof, objection handling, and action. Each section should have a defined information function rather than exist because a template expects it.
 
+When the open decision is the **page architecture itself** — what must appear, what must precede what, where proof/risk/commercial facts belong, which visual representation should carry a job, how CTA/forms should work, or how the information should linearize responsively — use the `landing-page` knowledge namespace and load only the smallest route that can change that decision.
+
+Do not load deeper landing-page knowledge for a narrow copy transformation when the page structure is already supplied and sufficient. Chapter 11 consumes resolved message/proof/commercial state; it does not reopen those upstream decisions.
+
 ### Email
 
 Email combines relationship, timing, and inbox competition. Message design should account for whether the email is expected, transactional, educational, promotional, or recovery-oriented.
