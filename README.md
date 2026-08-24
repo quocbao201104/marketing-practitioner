@@ -8,7 +8,7 @@
 
 *Learn the market before writing the copy.*
 
-[![Version: v0.6.0](https://img.shields.io/badge/version-v0.6.0-0a7.svg)](#status)
+[![Version: v0.7.0](https://img.shields.io/badge/version-v0.7.0-0a7.svg)](#status)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Language: English](https://img.shields.io/badge/language-English-4c1.svg)](#)
 [![Format: Agent Skill](https://img.shields.io/badge/format-Agent%20Skill-6f42c1.svg)](skills/marketing-practitioner/SKILL.md)
@@ -18,7 +18,7 @@
 
 ---
 
-Marketing Practitioner gives an AI agent a disciplined way to turn messy market evidence into bounded marketing decisions — across customer research, segmentation, positioning, **commercial design and pricing**, messaging, **landing-page architecture**, copy, platform content, commerce, product discovery, diagnosis, experimentation, localization, and learning.
+Marketing Practitioner gives an AI agent a disciplined way to turn messy market evidence into bounded marketing decisions — across customer research, segmentation, positioning, **commercial design and pricing**, messaging, **landing-page architecture**, **email communication architecture**, copy, platform content, commerce, product discovery, diagnosis, experimentation, localization, and learning.
 
 It is not a bag of growth hacks or prompt templates. The runtime starts from the job you actually need done, freezes decisions that are already resolved, loads deeper knowledge only when it can change the open decision, and returns the minimum useful output for that job.
 
@@ -180,6 +180,35 @@ BEHAVIORAL OBSERVATION != CAUSAL EXPLANATION
 
 Chapter 04 still owns unresolved message, claim, and proof decisions; Chapter 10 owns unresolved Commercial Design; Chapter 05 owns causal diagnosis and experimentation. Chapter 11 allocates already-resolved state across the page.
 
+### Email communication architecture
+
+Version 0.7.0 adds a bounded specialist path for deciding whether, when, and how email should carry already-resolved strategy.
+
+It can help decide:
+
+- whether the current state justifies `SEND`, `WAIT`, `EXIT`, `SUPPRESS`, `DO NOTHING`, or another channel/human handoff;
+- how communication need differs from communication authority and operational feasibility;
+- how recipient, relation, endpoint, prior-contact, suppression, and channel state should remain scoped instead of collapsing into one global send-eligibility flag;
+- how sequence, branching, waiting, and exit should follow state/history rather than a fixed cadence recipe;
+- how sender, subject, preview, message body, and optional action/handoff should carry one coherent communication job;
+- how email-to-reply, landing-page, app, checkout, docs, or human handoffs should preserve decision-relevant meaning;
+- how send attempts, receiver acceptance, tracked opens, clicks, attributed outcomes, and causal effects must remain distinct.
+
+The path deliberately keeps these boundaries:
+
+```text
+EMAIL != SEQUENCE
+SEQUENCE != FIXED ORDERED MESSAGE LIST
+COMMUNICATION NEED != COMMUNICATION AUTHORITY != OPERATIONAL FEASIBILITY
+PERMISSION / SUPPRESSION != GLOBAL RECIPIENT BOOLEAN
+TRACKED OPEN != VERIFIED HUMAN OPEN != ATTENTION
+CLICK != INTENT
+ATTRIBUTED ACTION != CAUSED ACTION
+ACTION / DESTINATION IS OPTIONAL
+```
+
+Chapter 04 still owns unresolved message, claim, and proof decisions; Chapter 05 owns causality and experimentation; Chapter 08 owns generic relationship/state/representation grammar; Chapter 10 owns unresolved commercial transitions; Chapter 11 owns downstream landing-page architecture. Current legal, regulatory, provider, authentication, and transport constraints remain just-in-time authoritative dependencies rather than a built-in compliance engine.
+
 ### Social content and distribution environments
 
 The shared content-environment model supports current modules for:
@@ -268,6 +297,16 @@ A noun does not activate a full reasoning path by itself.
 → landing-page.*
 → do not load Chapter 04 merely as a routing hop
 
+"This email is approved. Make it 20% shorter."
+→ no substantive email-architecture decision remains
+→ narrow copy fast path
+→ do not load email.* merely because the artifact is email
+
+"Email #3 got no response yesterday. Should we send #4 now?"
+→ no action is not negative intent
+→ email.send-decision / email.sequence
+→ SEND / WAIT / EXIT depends on current state and history, not a fixed cadence
+
 "Should this be $29 or $39?"
 → commercial condition is unresolved
 → Commercial Design
@@ -301,6 +340,8 @@ commercial-design.dynamics
 landing-page.sequence
 landing-page.action-form
 landing-page.responsive
+email.send-decision
+email.observation
 commerce.identity
 commerce.resolvability
 shopee.conversational-discovery
@@ -313,6 +354,7 @@ When helper execution is available:
 ```bash
 python skills/marketing-practitioner/scripts/get-knowledge.py commercial-design.payment
 python skills/marketing-practitioner/scripts/get-knowledge.py landing-page.sequence
+python skills/marketing-practitioner/scripts/get-knowledge.py email.send-decision
 python skills/marketing-practitioner/scripts/get-knowledge.py commerce.resolvability
 python skills/marketing-practitioner/scripts/get-knowledge.py --list --namespace shopee
 ```
@@ -321,6 +363,7 @@ Evidence records use intrinsic source IDs rather than being duplicated into the 
 
 ```bash
 python skills/marketing-practitioner/scripts/get-knowledge.py --source CD08
+python skills/marketing-practitioner/scripts/get-knowledge.py --source EM03
 python skills/marketing-practitioner/scripts/get-knowledge.py --source R23
 python skills/marketing-practitioner/scripts/get-knowledge.py --source A03
 ```
@@ -334,6 +377,7 @@ The repository uses a conservative standard for claims and learning:
 - qualitative recurrence does not establish population prevalence;
 - descriptive data do not by themselves establish causality;
 - attribution does not equal incrementality;
+- tracked-open telemetry does not establish verified human attention;
 - stated/hypothetical WTP does not equal revealed choice or an optimal price;
 - historical price/sales association does not automatically establish causal elasticity;
 - competitor price does not determine our optimal price;
@@ -381,7 +425,8 @@ The installable skill is under [`skills/marketing-practitioner/`](skills/marketi
         │   ├── 08-content-environments-and-distribution.md
         │   ├── 09-commerce-environments-and-product-discovery.md
         │   ├── 10-commercial-design-pricing-and-terms.md
-        │   └── 11-landing-page-architecture.md
+        │   ├── 11-landing-page-architecture.md
+        │   └── 12-email-communication-architecture.md
         ├── platforms/
         │   ├── README.md
         │   ├── facebook.md
@@ -417,7 +462,7 @@ skills/marketing-practitioner/
 = compressed governed runtime knowledge
 ```
 
-For example, the Commercial Design and Landing-Page Architecture research tracks record why their bounded specialist knowledge exists, what candidate abstractions were rejected, and which evidence boundaries survived adversarial review. Runtime chapters contain only the compact practitioner interfaces needed by the agent.
+For example, the Commercial Design, Landing-Page Architecture, and Email Communication Architecture research tracks record why their bounded specialist knowledge exists, what candidate abstractions were rejected, and which evidence boundaries survived adversarial review. Runtime chapters contain only the compact practitioner interfaces needed by the agent.
 
 ## A few copy-paste recipes
 
@@ -455,6 +500,20 @@ The reader, positioning, message, proof, commercial conditions, and CTA below ar
 Decide the landing-page information sequence, proof/risk placement, visual jobs,
 form/CTA structure, and responsive reading order.
 Do not invent a fixed section template or reopen upstream strategy unless a material dependency is actually unresolved.
+```
+
+### Decide whether the next email should exist
+
+```text
+The audience, message, proof, and commercial state are already resolved.
+Here is the relevant email relation, prior-contact history, suppression/permission state,
+and the observations we actually have.
+
+Decide whether the next communication should be SEND, WAIT, EXIT, SUPPRESS,
+DO NOTHING, or another channel/human handoff.
+Do not infer negative intent from no response, human attention from a tracked open,
+or a universal cadence from generic email best practices.
+If current legal/provider authority can change the answer, treat it as a just-in-time dependency.
 ```
 
 ### Improve a product listing
@@ -501,6 +560,8 @@ Marketing Practitioner is not:
 - a copy-template pack;
 - an SEO checklist;
 - a landing-page template system;
+- a CRM, lifecycle, journey, or campaign-automation system;
+- an email deliverability or legal-compliance engine;
 - a library of platform “algorithm hacks”;
 - a universal marketing funnel;
 - a pricing optimizer;
@@ -511,7 +572,7 @@ Marketing Practitioner is not:
 
 ## Status
 
-**Current release: v0.6.0 — Landing-Page Architecture.**
+**Current release: v0.7.0 — Email Communication Architecture.**
 
 The current main branch includes:
 
@@ -520,6 +581,9 @@ The current main branch includes:
 - a bounded Commercial Design layer for configuration/entitlement, payment architecture, relationship/risk terms, selection/allocation, evidence, governance, and transitions;
 - a bounded Landing-Page Architecture specialist layer for page job/entry state, action readiness, information dependency, proof/risk/visual allocation, CTA/forms, comparison representation, and responsive meaningful sequence;
 - direct JIT `landing-page.*` routing when upstream message/proof/commercial state is already resolved;
+- a bounded Email Communication Architecture specialist layer for send/wait/exit/suppress decisions, scoped relation/endpoint state, state-conditioned sequence reasoning, inbox/body/action allocation, continuity, and observation semantics;
+- direct JIT `email.*` routing for email-specific decisions while ordinary email rewrites remain on the narrow copy fast path;
+- the generic Chapter 08 owned-channel composition path for non-email channels such as SMS and push;
 - a shared social/content-environment model plus five social platform modules;
 - a shared commerce/product-discovery model plus six commerce platform modules;
 - conversational and agent-mediated commerce boundaries;
@@ -528,7 +592,7 @@ The current main branch includes:
 - research-backed task specification and agent-side prompt compilation;
 - scoped research lineage plus targeted adversarial reviews and runtime smoke tests.
 
-The project does **not** claim complete knowledge of private platform ranking systems, a universally optimal pricing method, a universal landing-page template, or universal runtime reliability. The architecture is expected to improve through real use and concrete failures rather than by adding abstractions for their own sake.
+The project does **not** claim complete knowledge of private platform ranking systems, a universally optimal pricing method, a universal landing-page template, universal email cadence/send-time/personalization rules, legal/provider compliance for every context, or universal runtime reliability. The architecture is expected to improve through real use and concrete failures rather than by adding abstractions for their own sake.
 
 ## Installation and manual use
 
@@ -560,7 +624,7 @@ For new top-level reasoning capabilities, establish the decision-relevant gap an
 
 ## Attribution
 
-The repository synthesizes marketing research, methodological literature, recommender-system and platform research, current product documentation, pricing and commercial-design research, landing-page/CRO usability research, and practical writing methods. Its copywriting and human-writing sections were also informed by MIT-licensed work from the AI Copywriter / humanizer lineage.
+The repository synthesizes marketing research, methodological literature, recommender-system and platform research, current product documentation, pricing and commercial-design research, landing-page/CRO usability research, email/provider/transport/privacy/regulatory research, and practical writing methods. Its copywriting and human-writing sections were also informed by MIT-licensed work from the AI Copywriter / humanizer lineage.
 
 See [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md), [`skills/marketing-practitioner/references/bibliography.md`](skills/marketing-practitioner/references/bibliography.md), and the scoped evidence notes under [`skills/marketing-practitioner/references/`](skills/marketing-practitioner/references/).
 
