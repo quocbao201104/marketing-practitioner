@@ -3,7 +3,7 @@ name: marketing-practitioner
 description: "Evidence-informed marketing, commerce, content, and copywriting for AI agents. Use for customer-research synthesis, segmentation and ICP selection, positioning, value proposition, commercial design, pricing and packaging decisions, message strategy, social posts and captions, platform content strategy, community content, e-commerce and marketplace product listings, product titles and descriptions, catalog and variant decisions, product discovery/search/recommendation, agent-mediated commerce and delegated checkout decisions, landing pages, email and campaign copy, copy critique, funnel diagnosis, experiment design, localization, and marketing postmortems. Treat marketing as a market-learning and decision discipline: separate observation from interpretation, scope claims to evidence, establish strategy before prose, adapt content and product representations to the actual audience/environment, prefer proof to hype, distinguish attribution from causality, preserve uncertainty, and write in a clear human voice without inventing facts."
 license: MIT
 metadata:
-  version: "0.5.0"
+  version: "0.5.1"
   language: "en"
   domain: "marketing"
 ---
@@ -258,7 +258,7 @@ Load platform-specific knowledge only when it can change the decision. Use the m
 - TikTok: `tiktok`
 - X: `x`
 
-Within that namespace, load only the smallest route whose knowledge is material; expand only when the open decision spans another route.
+Within that namespace, load only the smallest route whose knowledge is material; expand only if the open decision spans another route.
 
 Treat current ranking, recommendation, visibility moderation, eligibility, disclosure, creator guidance, action semantics, relationship/delivery affordances, and format behavior as time-sensitive and system-specific. An official fact from one surface, delivery mode, policy system, commerce system, or ad system does not automatically transfer to another.
 
