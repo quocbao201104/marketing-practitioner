@@ -155,7 +155,7 @@ free trial vs free tier
 discount / promotion / voucher / temporary credit / shipping modifier
 → commercial-design.modifiers-representation
 → commercial-design.allocation only when access to the condition is restricted
-→ commercial-design.governance only when exception or approval authority matters
+→ commercial-design.governance only when exception or approval authority changes the decision
 
 eligibility / personalized / new-customer / negotiated conditions
 → commercial-design.allocation
