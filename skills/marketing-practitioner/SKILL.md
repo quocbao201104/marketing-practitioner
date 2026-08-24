@@ -155,7 +155,7 @@ free trial vs free tier
 discount / promotion / voucher / temporary credit / shipping modifier
 → commercial-design.modifiers-representation
 → commercial-design.allocation only when access to the condition is restricted
-→ commercial-design.governance only when exception or approval authority changes the decision
+→ commercial-design.governance only when exception or approval authority matters
 
 eligibility / personalized / new-customer / negotiated conditions
 → commercial-design.allocation
@@ -319,6 +319,8 @@ For simple tasks, stay on the fast path. If the user asks for a short caption an
 For cross-platform adaptation, preserve strategic meaning but do not blindly cross-post the same object or representation. Adapt actor, context, object, representation, modality, proof placement, ask, and measurement only where the destination environment justifies a change.
 
 For an owned-channel **email** decision whose answer depends on customer state or contact history, use the smallest `email.*` route rather than composing through `content.audience-interaction` merely because email has history. Chapter 12 specializes the existing Chapter 08 state/relationship/history grammar for email. Add `commercial-design.dynamics` only when the applicable commercial transition rule remains unresolved and can change eligibility or meaning; add Chapter 05 only when diagnosis, incrementality, or treatment response is open. Do not create a lifecycle, CRM, or journey namespace for this composition.
+
+For other owned-channel next-message decisions whose answer depends on customer state or contact history, keep the generic composition: use the existing message/reader-state path with `content.audience-interaction`; add `commercial-design.dynamics` only when the applicable commercial transition rule remains unresolved and can change eligibility or meaning, otherwise freeze the established commercial state. Add Chapter 05 only when diagnosis or treatment response is open. Preserve prior contact, suppression or holdout, blocker, authority or permission, and eligibility only when dropping them would make a send, suppression, or different-message decision incorrectly equivalent. Do not create a lifecycle, CRM, or journey namespace for this composition.
 
 ## Commerce / product discovery
 
@@ -502,6 +504,10 @@ Pass forward the event or stage, material commercial state, outcome/refund matur
 ## Commercial Design → diagnosis or learning
 
 Reuse the existing commercial decision record. Preserve objective and horizon, expected mechanism, guardrails, revisit condition, and actual changed dimensions or version only when their absence would prevent reconstruction or alter interpretation. For a compound change, keep each material configuration, payment, terms, allocation, and modifier change distinct rather than relabeling the intervention as a scalar price change.
+
+## Customer state → next owned-channel message
+
+For email, use the email-specific handoff below. For other owned channels, pass prior contact, suppression or holdout, blocker, authority or permission, eligibility, and material commercial transition state only when they distinguish send, suppress, or different-message decisions for otherwise similar recipients. Then let Chapter 04 resolve the message; do not create a lifecycle or CRM record by default.
 
 ## Customer / relationship state → email communication decision
 
