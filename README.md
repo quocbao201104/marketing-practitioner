@@ -8,7 +8,7 @@
 
 *Learn the market before writing the copy.*
 
-[![Version: v0.5.1](https://img.shields.io/badge/version-v0.5.1-0a7.svg)](#status)
+[![Version: v0.6.0](https://img.shields.io/badge/version-v0.6.0-0a7.svg)](#status)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Language: English](https://img.shields.io/badge/language-English-4c1.svg)](#)
 [![Format: Agent Skill](https://img.shields.io/badge/format-Agent%20Skill-6f42c1.svg)](skills/marketing-practitioner/SKILL.md)
@@ -18,7 +18,7 @@
 
 ---
 
-Marketing Practitioner gives an AI agent a disciplined way to turn messy market evidence into bounded marketing decisions — across customer research, segmentation, positioning, **commercial design and pricing**, messaging, copy, platform content, commerce, product discovery, diagnosis, experimentation, localization, and learning.
+Marketing Practitioner gives an AI agent a disciplined way to turn messy market evidence into bounded marketing decisions — across customer research, segmentation, positioning, **commercial design and pricing**, messaging, **landing-page architecture**, copy, platform content, commerce, product discovery, diagnosis, experimentation, localization, and learning.
 
 It is not a bag of growth hacks or prompt templates. The runtime starts from the job you actually need done, freezes decisions that are already resolved, loads deeper knowledge only when it can change the open decision, and returns the minimum useful output for that job.
 
@@ -148,6 +148,38 @@ Commercial Design can consume authoritative Product, Finance, Operations, Sales-
 - distinguish internal constraints from information that actually belongs in the message;
 - review claims, relevance, clarity, proof, channel fit, CTA coherence, and naturalness.
 
+### Landing-page architecture
+
+Version 0.6.0 adds a bounded specialist path for turning already-resolved reader, message, proof, commercial, and action state into page information/action architecture.
+
+It can help decide:
+
+- what information must appear before a target action becomes reasonable;
+- what must precede what without assuming a fixed section template;
+- where claim-supporting proof, material objections, risk reducers, and commercial facts belong;
+- whether text, screenshot, annotation, diagram, artifact, motion, or another carrier best performs an information job;
+- how CTA availability differs from visitor action readiness;
+- which form fields are justified now, including qualification and sensitive-data explanation;
+- how navigation can distinguish legitimate blocker resolution from decision-irrelevant exits;
+- how comparison/pricing state should be represented without reopening Commercial Design;
+- how desktop structure should linearize responsively while preserving meaningful sequence and discoverability.
+
+The path deliberately keeps these boundaries:
+
+```text
+LANDING PAGE != SECTION TEMPLATE
+CTA AVAILABILITY != CTA READINESS
+PROOF != TESTIMONIAL
+OBJECTION != FAQ
+SCREENSHOT != PROOF BY DEFAULT
+FRICTION != BAD BY DEFAULT
+MOBILE != STACKED DESKTOP
+COMMERCIAL REPRESENTATION != COMMERCIAL DESIGN
+BEHAVIORAL OBSERVATION != CAUSAL EXPLANATION
+```
+
+Chapter 04 still owns unresolved message, claim, and proof decisions; Chapter 10 owns unresolved Commercial Design; Chapter 05 owns causal diagnosis and experimentation. Chapter 11 allocates already-resolved state across the page.
+
 ### Social content and distribution environments
 
 The shared content-environment model supports current modules for:
@@ -226,10 +258,15 @@ MINIMUM SUFFICIENT OUTPUT
 A noun does not activate a full reasoning path by itself.
 
 ```text
-"Price is fixed at $29. Write the landing page."
+"Price is fixed at $29. Write the landing-page copy."
 → price is resolved
 → message/copy path
 → do not reopen Commercial Design
+
+"Message, proof, price, and CTA are approved. Decide the page sequence and where the product visual belongs."
+→ upstream state is resolved
+→ landing-page.*
+→ do not load Chapter 04 merely as a routing hop
 
 "Should this be $29 or $39?"
 → commercial condition is unresolved
@@ -261,6 +298,9 @@ Examples:
 ```text
 commercial-design.payment
 commercial-design.dynamics
+landing-page.sequence
+landing-page.action-form
+landing-page.responsive
 commerce.identity
 commerce.resolvability
 shopee.conversational-discovery
@@ -272,6 +312,7 @@ When helper execution is available:
 
 ```bash
 python skills/marketing-practitioner/scripts/get-knowledge.py commercial-design.payment
+python skills/marketing-practitioner/scripts/get-knowledge.py landing-page.sequence
 python skills/marketing-practitioner/scripts/get-knowledge.py commerce.resolvability
 python skills/marketing-practitioner/scripts/get-knowledge.py --list --namespace shopee
 ```
@@ -339,7 +380,8 @@ The installable skill is under [`skills/marketing-practitioner/`](skills/marketi
         │   ├── 07-international-marketing-and-ethics.md
         │   ├── 08-content-environments-and-distribution.md
         │   ├── 09-commerce-environments-and-product-discovery.md
-        │   └── 10-commercial-design-pricing-and-terms.md
+        │   ├── 10-commercial-design-pricing-and-terms.md
+        │   └── 11-landing-page-architecture.md
         ├── platforms/
         │   ├── README.md
         │   ├── facebook.md
@@ -375,7 +417,7 @@ skills/marketing-practitioner/
 = compressed governed runtime knowledge
 ```
 
-For example, the Commercial Design research track records why the layer exists, why several candidate primitives/dimensions were rejected, and what evidence boundaries survived review. The runtime chapter contains only the compact practitioner interface needed by the agent.
+For example, the Commercial Design and Landing-Page Architecture research tracks record why their bounded specialist knowledge exists, what candidate abstractions were rejected, and which evidence boundaries survived adversarial review. Runtime chapters contain only the compact practitioner interfaces needed by the agent.
 
 ## A few copy-paste recipes
 
@@ -403,6 +445,16 @@ and the customer evidence we have.
 Do not invent finance, legal, product, or sales-authority facts.
 Separate what the evidence supports from what remains uncertain.
 Recommend the smallest defensible decision or next evidence step.
+```
+
+### Design a landing-page architecture without reopening strategy
+
+```text
+The reader, positioning, message, proof, commercial conditions, and CTA below are already approved.
+
+Decide the landing-page information sequence, proof/risk placement, visual jobs,
+form/CTA structure, and responsive reading order.
+Do not invent a fixed section template or reopen upstream strategy unless a material dependency is actually unresolved.
 ```
 
 ### Improve a product listing
@@ -448,6 +500,7 @@ Marketing Practitioner is not:
 - a prompt collection;
 - a copy-template pack;
 - an SEO checklist;
+- a landing-page template system;
 - a library of platform “algorithm hacks”;
 - a universal marketing funnel;
 - a pricing optimizer;
@@ -458,13 +511,15 @@ Marketing Practitioner is not:
 
 ## Status
 
-**Current release: v0.5.1 — Targeted Whole-System Hardening.**
+**Current release: v0.6.0 — Landing-Page Architecture.**
 
 The current main branch includes:
 
 - the decision-first runtime controller;
 - research, segmentation, positioning, messaging/copy, diagnosis, learning, and international/ethics handbook layers;
 - a bounded Commercial Design layer for configuration/entitlement, payment architecture, relationship/risk terms, selection/allocation, evidence, governance, and transitions;
+- a bounded Landing-Page Architecture specialist layer for page job/entry state, action readiness, information dependency, proof/risk/visual allocation, CTA/forms, comparison representation, and responsive meaningful sequence;
+- direct JIT `landing-page.*` routing when upstream message/proof/commercial state is already resolved;
 - a shared social/content-environment model plus five social platform modules;
 - a shared commerce/product-discovery model plus six commerce platform modules;
 - conversational and agent-mediated commerce boundaries;
@@ -473,7 +528,7 @@ The current main branch includes:
 - research-backed task specification and agent-side prompt compilation;
 - scoped research lineage plus targeted adversarial reviews and runtime smoke tests.
 
-The project does **not** claim complete knowledge of private platform ranking systems, a universally optimal pricing method, or universal runtime reliability. The architecture is expected to improve through real use and concrete failures rather than by adding abstractions for their own sake.
+The project does **not** claim complete knowledge of private platform ranking systems, a universally optimal pricing method, a universal landing-page template, or universal runtime reliability. The architecture is expected to improve through real use and concrete failures rather than by adding abstractions for their own sake.
 
 ## Installation and manual use
 
@@ -505,7 +560,7 @@ For new top-level reasoning capabilities, establish the decision-relevant gap an
 
 ## Attribution
 
-The repository synthesizes marketing research, methodological literature, recommender-system and platform research, current product documentation, pricing and commercial-design research, and practical writing methods. Its copywriting and human-writing sections were also informed by MIT-licensed work from the AI Copywriter / humanizer lineage.
+The repository synthesizes marketing research, methodological literature, recommender-system and platform research, current product documentation, pricing and commercial-design research, landing-page/CRO usability research, and practical writing methods. Its copywriting and human-writing sections were also informed by MIT-licensed work from the AI Copywriter / humanizer lineage.
 
 See [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md), [`skills/marketing-practitioner/references/bibliography.md`](skills/marketing-practitioner/references/bibliography.md), and the scoped evidence notes under [`skills/marketing-practitioner/references/`](skills/marketing-practitioner/references/).
 
