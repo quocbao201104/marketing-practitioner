@@ -23,6 +23,7 @@ For large indexed chapters, `../routing-index.json` is the stable semantic addre
 | [`10-commercial-design-pricing-and-terms.md`](10-commercial-design-pricing-and-terms.md) | commercial design | package/entitlement, payment architecture, relationship/risk terms, allocation, pricing evidence, or commercial transition is still an open decision |
 | [`11-landing-page-architecture.md`](11-landing-page-architecture.md) | landing-page architecture | reader/message/proof/commercial state is sufficiently resolved and the remaining decision is page sequence, allocation, proof/risk/visual placement, CTA/forms, comparison representation, or responsive meaningful order |
 | [`12-email-communication-architecture.md`](12-email-communication-architecture.md) | email communication architecture | message/claim/proof is sufficiently resolved and the remaining decision is whether/when to communicate, scoped send state, sequence/wait/exit logic, inbox→message allocation, continuity, or email observation semantics |
+| [`13-search-and-discovery-architecture.md`](13-search-and-discovery-architecture.md) | search & discovery architecture | generic non-commerce information/entity availability, retrieval/selection, human-selection vs system-answer commitment, grounding/citation boundaries, or discovery observation semantics can change the decision |
 
 ## Important boundaries
 
@@ -38,6 +39,8 @@ MESSAGE / COPY
 LANDING-PAGE ARCHITECTURE
 !=
 EMAIL COMMUNICATION ARCHITECTURE
+!=
+SEARCH & DISCOVERY ARCHITECTURE
 ```
 
 and:
@@ -54,6 +57,8 @@ MESSAGE / CLAIM / PROOF RESOLUTION
 PAGE ALLOCATION / REPRESENTATION
 !=
 EMAIL SEND / SEQUENCE / ENCOUNTER ALLOCATION
+!=
+DISCOVERY AVAILABILITY / RETRIEVAL / SELECTION / COMMITMENT
 ```
 
 Examples:
@@ -74,6 +79,12 @@ Examples:
 "The subject, body promise, and landing-page promise are resolved. Check the cross-surface handoff."
 → Chapter 12 email.continuity; Chapter 11 only if page architecture itself is open
 
+"This documentation page is indexed in Google but rarely appears in AI answers. Should we rewrite it?"
+→ Chapter 13 first for availability / selection / commitment; rewrite only if the problem localizes to content/message
+
+"Bing cited us 500 times. Can we claim industry authority?"
+→ Chapter 13 for citation semantics, then Chapter 04 for the proposed authority claim
+
 "Why does Shopee show this buyer a lower displayed price?"
 → Chapter 09 + the Shopee module as needed
 
@@ -83,7 +94,7 @@ Examples:
 
 ## Large-chapter routing
 
-Chapters 08–12 expose stable logical routes through `../routing-index.json`.
+Chapters 08–13 expose stable logical routes through `../routing-index.json`.
 
 Examples:
 
@@ -101,6 +112,11 @@ email.send-decision
 email.sequence
 email.continuity
 email.observation
+discovery.need
+discovery.availability
+discovery.selection
+discovery.commitment
+discovery.observation
 ```
 
 When helper execution is available:
@@ -110,6 +126,8 @@ python ../scripts/get-knowledge.py commercial-design.payment
 python ../scripts/get-knowledge.py landing-page.sequence
 python ../scripts/get-knowledge.py email.send-decision
 python ../scripts/get-knowledge.py email.continuity
+python ../scripts/get-knowledge.py discovery.availability
+python ../scripts/get-knowledge.py discovery.commitment
 python ../scripts/get-knowledge.py commerce.resolvability
 ```
 
