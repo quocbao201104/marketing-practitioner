@@ -21,6 +21,7 @@ For large indexed chapters, `../routing-index.json` is the stable semantic addre
 | [`08-content-environments-and-distribution.md`](08-content-environments-and-distribution.md) | content environments | platform-native content, distribution, audience state, participation, recommendation, or measurement structure can change the decision |
 | [`09-commerce-environments-and-product-discovery.md`](09-commerce-environments-and-product-discovery.md) | commerce environments | catalog/listing identity, commercial state, discovery, recommendation, agent-mediated commerce, or marketplace interpretation is unresolved |
 | [`10-commercial-design-pricing-and-terms.md`](10-commercial-design-pricing-and-terms.md) | commercial design | package/entitlement, payment architecture, relationship/risk terms, allocation, pricing evidence, or commercial transition is still an open decision |
+| [`11-landing-page-architecture.md`](11-landing-page-architecture.md) | landing-page architecture | reader/message/proof/commercial state is sufficiently resolved and the remaining decision is page sequence, allocation, proof/risk/visual placement, CTA/forms, comparison representation, or responsive meaningful order |
 
 ## Important boundaries
 
@@ -32,6 +33,8 @@ POSITIONING / VALUE
 COMMERCIAL DESIGN
 !=
 MESSAGE / COPY
+!=
+LANDING-PAGE ARCHITECTURE
 ```
 
 and:
@@ -42,14 +45,23 @@ COMMERCIAL DESIGN
 CURRENT COMMERCE STATE / REPRESENTATION
 ```
 
+```text
+MESSAGE / CLAIM / PROOF RESOLUTION
+!=
+PAGE ALLOCATION / REPRESENTATION
+```
+
 Examples:
 
 ```text
 "Should this SaaS charge per seat or per usage?"
 → Chapter 10
 
-"The price is already $29. Write the landing page."
+"The price is already $29. Write the landing-page copy."
 → Chapter 04 as needed; do not reopen Chapter 10
+
+"The message, proof, price, and CTA are approved. Decide the page sequence and visual/proof placement."
+→ Chapter 11 through the smallest landing-page.* route
 
 "Why does Shopee show this buyer a lower displayed price?"
 → Chapter 09 + the Shopee module as needed
@@ -60,7 +72,7 @@ Examples:
 
 ## Large-chapter routing
 
-Chapters 08–10 expose stable logical routes through `../routing-index.json`.
+Chapters 08–11 expose stable logical routes through `../routing-index.json`.
 
 Examples:
 
@@ -70,12 +82,17 @@ commerce.commercial-state
 commerce.resolvability
 commercial-design.payment
 commercial-design.dynamics
+landing-page.sequence
+landing-page.visual
+landing-page.action-form
+landing-page.responsive
 ```
 
 When helper execution is available:
 
 ```bash
 python ../scripts/get-knowledge.py commercial-design.payment
+python ../scripts/get-knowledge.py landing-page.sequence
 python ../scripts/get-knowledge.py commerce.resolvability
 ```
 
