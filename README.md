@@ -8,7 +8,7 @@
 
 *Learn the market before writing the copy.*
 
-[![Version: v0.5.0](https://img.shields.io/badge/version-v0.5.0-0a7.svg)](#status)
+[![Version: v0.5.1](https://img.shields.io/badge/version-v0.5.1-0a7.svg)](#status)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Language: English](https://img.shields.io/badge/language-English-4c1.svg)](#)
 [![Format: Agent Skill](https://img.shields.io/badge/format-Agent%20Skill-6f42c1.svg)](skills/marketing-practitioner/SKILL.md)
@@ -88,7 +88,7 @@ specification without executing it.
 
 ### Commercial design, pricing, and terms
 
-Version 0.5.0 adds a bounded Commercial Design reasoning layer for unresolved exchange decisions.
+Version 0.5.0 introduced a bounded Commercial Design reasoning layer for unresolved exchange decisions.
 
 It can help decide:
 
@@ -458,7 +458,7 @@ Marketing Practitioner is not:
 
 ## Status
 
-**Current release: v0.5.0 — Commercial Design, Pricing & Terms.**
+**Current release: v0.5.1 — Targeted Whole-System Hardening.**
 
 The current main branch includes:
 
@@ -469,6 +469,7 @@ The current main branch includes:
 - a shared commerce/product-discovery model plus six commerce platform modules;
 - conversational and agent-mediated commerce boundaries;
 - addressable just-in-time knowledge routing for large knowledge surfaces;
+- conditional cross-domain handoffs hardened against decision-relevant state loss;
 - research-backed task specification and agent-side prompt compilation;
 - scoped research lineage plus targeted adversarial reviews and runtime smoke tests.
 
