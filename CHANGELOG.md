@@ -4,6 +4,29 @@ All notable changes to this repository are documented here.
 
 The project uses semantic versioning for published skill revisions. Early versions may change structure while the conceptual model is stabilized.
 
+## [0.6.0] - 2026-08-24
+
+### Added
+
+- Added `handbook/11-landing-page-architecture.md`, a bounded specialist layer for compiling already-resolved reader, message, proof, commercial, and action state into landing-page information/action architecture.
+- Added the `landing-page.*` just-in-time namespace for page job/entry state, information sequence, proof/risk placement, visual allocation, CTA/form architecture, responsive allocation, commercial comparison, diagnosis boundaries, decision records, and invariants.
+- Added `references/landing-page-evidence.md` plus the repository-level `research/landing-page-architecture/` research brief, evidence ledger, theory freeze, and freeze adjudication.
+- Added targeted landing-page adversarial cases covering fixed commercial state, hero/template folklore, action readiness, form qualification, visual proof, navigation, comparison, FAQ, responsive order, observation-vs-cause, practitioner-lift laundering, mixed-owner handoffs, shared proof, sensitive fields, qualified outcomes, returning visitors, and exploratory navigation.
+
+### Changed
+
+- Updated `SKILL.md` so a page-architecture decision with sufficiently resolved reader/message, proof/claim, and commercial state can route directly to the smallest `landing-page.*` section instead of loading Chapter 04 merely as a routing hop.
+- Preserved Chapter 04 ownership of unresolved message/claim/proof, Chapter 10 ownership of unresolved Commercial Design, and Chapter 05 ownership of causal diagnosis/experimentation.
+- Updated public README and handbook navigation to expose Chapter 11 and the new specialist path without introducing a `LANDING_PAGE` primitive, new controller job, CRO subsystem, fixed page-type ontology, or template library.
+
+### Validation status
+
+- Independent adversarial theory synthesis retained seven bounded distinctions and rejected fixed hero recipes, section taxonomies, awareness-state machinery, CRO ownership, universal form/navigation rules, and case-study lifts as universal design laws.
+- Independent implementation review passed architecture creep, template creep, folklore laundering, owner boundaries, resolved-state preservation, routing integrity, evidence discipline, minimality, and unrelated-regression checks.
+- The review requested one targeted correction to strengthen the adversarial suite; the eval-only correction expanded route coverage to all 11 `landing-page.*` routes and added mixed-owner/harder discrimination cases.
+- Aggregate routing integration adds one `landing-page` namespace while preserving prior route bindings.
+- No new top-level marketing layer, shared primitive, controller job, Commercial Design dimension, or broad CRO/landing-page performance claim was introduced.
+
 ## [0.5.1] - 2026-08-24
 
 ### Changed
