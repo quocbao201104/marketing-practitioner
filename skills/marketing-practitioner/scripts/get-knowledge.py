@@ -236,7 +236,7 @@ def get_source(source_id: str) -> tuple[str, str]:
 
     path, heading = matches[0]
     content = extract_heading_section(path.read_text(encoding="utf-8"), heading)
-    return str(path.relative_to(ROOT)), content
+    return path.relative_to(ROOT).as_posix(), content
 
 
 def iter_route_ids(manifest: dict, namespace: str | None = None):

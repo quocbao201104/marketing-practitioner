@@ -25,6 +25,8 @@ A useful decision record contains:
 
 This distinction prevents retrospective storytelling. Without the original decision context, later observers can easily project current knowledge backward and misrepresent why a decision was reasonable or unreasonable at the time.
 
+When a commercial decision result is reused as learning, preserve its objective and horizon, expected mechanism, guardrails, and revisit condition from the existing decision record only when dropping them would change later interpretation. Do not create another record for that reuse.
+
 ## 3. Failed hypotheses are assets
 
 Organizations commonly preserve success stories and discard negative learning. This creates repeated search costs and survivorship bias. A failed or weakened hypothesis can be valuable if it records:
@@ -81,6 +83,8 @@ NEXT REUSE
 ```
 
 The "does not prove" field is especially important because teams often generalize from a narrow result once the original context fades.
+
+For a causal result, compose with Chapter 05 rather than recreating its method: preserve the existing result's estimand, analysis population, treatment or version, material validity condition or defect, and scope when omitting any of them would make a valid result indistinguishable from a contaminated or older-version result.
 
 ## 7. Decision quality improves through retrieval, not storage alone
 

@@ -48,6 +48,8 @@ Causal inference literature draws a fundamental distinction between describing t
 
 A variable can be an excellent predictor but a poor lever. A channel can receive attribution without producing equivalent incremental value. A customer trait can correlate with churn without being a manipulable cause.
 
+For retention, preserve cohort and start state, opportunity or exposure, maturation or censoring, competing events, and relevant commercial or product state when they affect the retention decision or its interpretation. A prediction of churn risk is not evidence that a treatment will change churn.
+
 ## 5. Counterfactual thinking
 
 The causal question is fundamentally counterfactual: what would the outcome have been for the same relevant population had the intervention not occurred, or had an alternative intervention occurred?
@@ -61,6 +63,8 @@ Observational causal designs can also be useful when randomization is infeasible
 Attribution allocates credit according to a rule. Incrementality estimates what additional outcome occurred because of an intervention. The two concepts answer different questions.
 
 A last-click model may correctly report which channel received the last recorded interaction and still provide no valid estimate of what would have happened without that channel. Budget decisions that require causal leverage should therefore not rely on attribution alone.
+
+Similarly, an outcome after simultaneous changes to price, annual commitment, eligibility, modifier, or configuration is a compound intervention, not a scalar price treatment. Retain the decision-relevant dimensions so the result is not relabeled as a claim the comparison did not establish.
 
 ## 7. Experimentation as knowledge production
 
@@ -81,6 +85,8 @@ A pre-analysis brief should state:
 - decision rules for positive, null, and negative outcomes.
 
 This structure reduces hindsight reinterpretation.
+
+When results are retained as learning for a decision, preserve the estimand, analysis population, comparison or control, treatment or version, outcome and horizon, material validity condition or defect, and what the result cannot establish. These fields keep a causal result from becoming an unsupported general lesson.
 
 ## 8. Primary metrics and guardrails
 
@@ -108,6 +114,8 @@ Therefore result language should distinguish:
 A result in one context does not automatically generalize to another. Generalization depends on similarity of population, environment, product, implementation, and mechanism. Replication and local evidence increase confidence that an effect transfers.
 
 This point connects experimentation to localization and organizational learning: every retained learning should carry enough scope to prevent accidental universalization.
+
+For a proposed spend change, distinguish average attributed return, average incremental return, and marginal incremental return at that change. Consider saturation, carryover, substitution, interference, and uncertainty where material, while treating authoritative budget, margin, and capacity constraints as inputs. This bounds resource-allocation reasoning without constructing a media plan or optimizer.
 
 ## 11. Reversibility and the evidence threshold
 

@@ -50,6 +50,8 @@ SWITCHING COST
 
 The purpose is to reconstruct the context in which choice occurs.
 
+In B2B work, one individual appearing in multiple reader states is not itself evidence of multiple decision actors. Treat a decision unit as multi-actor only when distinct people have distinct authority, approval or veto power, proof needs, or buying roles; this is a local composition note, not a persona expansion, and the distinctions must change treatment or the decision at hand.
+
 ## 5. Jobs-to-be-Done as a progress lens
 
 Jobs-to-be-Done is a practitioner and innovation lens focused on the progress a customer seeks in a particular situation [R04]. It is valuable because it shifts attention from static customer attributes toward the circumstances that make a solution relevant.
@@ -112,6 +114,8 @@ A robust segment or ICP description should make the following explicit:
 - buying criteria;
 - economic and operational fit;
 - reachability;
+- buying process, relevant actors and authority, and required sales motion where they change commercial or distribution treatment;
+- support and implementation burden where it changes the ability to serve the target;
 - reasons for exclusion;
 - unresolved assumptions requiring further evidence.
 

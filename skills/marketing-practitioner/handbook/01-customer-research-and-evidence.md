@@ -16,6 +16,8 @@ Its recurring limitation is inferential scope. Repetition within an interview sa
 
 Quantitative evidence is better suited to questions of distribution, magnitude, prevalence, frequency, and comparison when measurement and sampling are adequate. Neither qualitative nor ordinary observational quantitative data automatically answer a causal question.
 
+A reported percentage is only as interpretable as the conditions that produced it. When the distinction affects the decision, preserve known sampling frame and coverage, nonresponse, question wording and order, mode, and measurement conditions; the same percentage without those conditions may not support the same inference. This is a quality qualifier, not a survey-methods playbook.
+
 The correct synthesis therefore preserves the difference between:
 
 ```text
@@ -89,6 +91,8 @@ Contradictions can arise because the original proposition is weak, because the m
 
 Evidence counts should follow root sources rather than derivative artifacts. One interview may produce several quotations, a summary, a slide, and a strategic memo. These objects do not become independent confirmations simply because they have separate filenames.
 
+For qualitative material, retain root-source identity and the interviewer or prompt context when either changes a decision-relevant interpretation or source independence. Twelve notes derived from two interviews remain two independent sources, even when the notes describe different moments or themes.
+
 This principle reduces a subtle form of false confidence: repeated processing of the same evidence can create the appearance of convergence without adding information.
 
 ## 8. Evidence should carry scope
@@ -105,6 +109,8 @@ A finding should be interpretable in relation to at least the dimensions that ma
 
 Scope prevents local learning from becoming a universal rule. It also allows apparently contradictory findings to coexist. A switching barrier may be severe for a self-serve small business and negligible for an enterprise whose migration is managed by a dedicated implementation team.
 
+When observed non-action bears on a decision, zero recorded use or response is not rejection unless access, eligibility, opportunity to respond, and instrumentation make non-action interpretable; otherwise it may describe exposure or measurement rather than preference.
+
 ## 9. Research synthesis as a bounded output
 
 A high-quality synthesis contains more than themes. It should identify:
@@ -119,6 +125,8 @@ A high-quality synthesis contains more than themes. It should identify:
 8. implications for the decision that motivated the research.
 
 It should also state what the research **does not establish**. This final constraint is essential because useful research often reduces uncertainty without eliminating it.
+
+Where it changes the decision, the output should also retain evidence class, root-source independence, and scope alongside the finding. Those qualifiers allow a downstream user to distinguish an exploratory account from a measured pattern without turning every synthesis into a research archive.
 
 ## 10. Methodological posture
 
