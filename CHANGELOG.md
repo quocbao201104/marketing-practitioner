@@ -4,6 +4,30 @@ All notable changes to this repository are documented here.
 
 The project uses semantic versioning for published skill revisions. Early versions may change structure while the conceptual model is stabilized.
 
+## [0.5.1] - 2026-08-24
+
+### Changed
+
+- Exposed eight precise just-in-time routes to existing Chapter 08/09 knowledge for consequential content strategy, job-aligned measurement, content diagnosis, product-fact provenance, discovery modality, content-commerce measurement, shopper representation jobs, and commerce observation interpretation.
+- Tightened conditional handoffs across research, segmentation, positioning, Commercial Design, messaging, localization, commerce observation, diagnosis, and organizational learning so decision-relevant provenance, authority, state, objective, mechanism, and validity context are less likely to be lost between paths.
+- Added bounded local decision guidance for survey interpretation, root-source independence, behavioral non-action, B2B decision actors, association/offer transitions, cross-touch proof, compound interventions, marginal allocation, retention measurement, commerce bundle quantity, and complex commercial-condition composition.
+- Clarified market-selection-before-localization, platform-constraint-to-Commercial-Design dependency, owned-channel next-message composition, and temporary commercial modifiers without introducing new controller jobs or shared layers.
+
+### Fixed
+
+- Normalized logical evidence-source paths to POSIX-style output across operating systems, fixing the Windows path-separator portability failure without changing retrieval or fail-closed behavior.
+- Prevented compound commercial changes from being reduced to a scalar price intervention when other material dimensions such as commitment, eligibility, configuration, or modifiers also changed.
+- Preserved root-source independence so multiple derivative notes from the same underlying interviews do not become independent evidence downstream.
+
+### Validation status
+
+- Whole-system adversarial gap audit found `0` true shared representational gaps and recommended local hardening rather than architecture expansion.
+- `python skills/marketing-practitioner/scripts/get-knowledge.py --validate` passed with `213 routes / 159 evidence sources`.
+- The routing-mechanics suite passed `30` checks after the cross-platform path correction and route additions.
+- Targeted regressions `R1–R15` all passed, covering routing, resolved-state freezing, market selection/localization, platform constraints, owned-channel composition, compound interventions, causal-learning handoffs, root-source independence, marginal allocation, and behavioral non-action.
+- Independent minimality review found no architecture expansion, route inflation, over-routing, handoff inflation, theory drift, unsupported evidence, broken fast paths, or Level 3 changes.
+- No new controller job, primitive, shared handbook layer, platform family, Commercial Design dimension, or broad benchmark claim was introduced.
+
 ## [0.5.0] - 2026-08-24
 
 ### Added
