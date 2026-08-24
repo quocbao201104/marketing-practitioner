@@ -101,6 +101,8 @@ Positioning is a current strategic model, not an eternal brand essence. It shoul
 
 The review should not be triggered by novelty alone. Consistency has value. Change is warranted when the existing model no longer explains how priority customers evaluate the offer or when a better-supported model materially improves decision quality.
 
+When a changing association affects the positioning decision, record the current or legacy association, its evidence and scope, and the transition intent: preserve, weaken, or recode. This distinguishes, for example, an association of trusted expertise that should persist from an association of slowness that should be weakened, without creating a brand-strategy program.
+
 ## 10. Positioning output
 
 A compact positioning record should state:
@@ -119,5 +121,7 @@ TRADE-OFF
 CLAIMS NOT SUPPORTED
 MATERIAL UNCERTAINTIES
 ```
+
+Where an offering's relationship to another offer affects the current decision, add `OFFER RELATION / EXPECTED CUSTOMER TRANSITION`: complement, substitute, migration, coexistence, endorsement, or overlap, with direction and scope. Product and roadmap authority, and cannibalization economics, remain dependencies rather than conclusions of positioning.
 
 This record is the strategic input to message design. Copy begins only after these choices are sufficiently resolved for the task.

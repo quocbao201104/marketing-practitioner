@@ -240,6 +240,8 @@ Google / Schema.org use `hasVariant` / `isVariantOf` around ProductGroup/Product
 
 Do not create a durable `VARIANT` primitive merely because a platform API has a variation object.
 
+Bundle composition or configuration is not order quantity: one unit containing a two-item bundle is not two units of a one-item product. For a fixed catalog, interpret that distinction as established commerce state here; if the configuration itself remains unresolved, route the open Commercial Design decision to Chapter 10 rather than reopening it in commerce representation.
+
 ### 3.5 Listing is an overloaded platform word
 
 `Listing` can mean different things across environments:
@@ -1218,6 +1220,8 @@ unknown / mixed
 ```
 
 Do not treat aggregate product-level performance as organic demand without exposure provenance.
+
+When a commerce observation is retained as learning, hand forward its event or stage, material commercial state, outcome or refund maturity, and exposure provenance only when those facts change interpretation; use Chapter 06 for the retained learning.
 
 ### 12.5 Attributed ≠ incremental ≠ causal
 

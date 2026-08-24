@@ -236,6 +236,8 @@ Personalized-pricing evidence also shows that firm profit, aggregate consumer su
 
 A promotion is usually a temporary or conditional modification of a baseline design, not a fifth peer-level dimension.
 
+Complex conditions remain compositions across configuration, payment, relationship/risk terms, and allocation; retain modifiers, representation, and rule precedence or stacking only when they change the applied state or decision.
+
 Examples:
 
 ```text
@@ -488,6 +490,10 @@ Partitioning an existing feasible capability into commercial entitlements can re
 
 Treat cost-to-serve, margin constraints, cash/runway constraints, capacity, inventory, fulfillment, and support burden as authoritative inputs when material. Do not invent missing values.
 
+### Platform-constraint boundary
+
+A current platform rule, capability, fee, or eligibility constraint may be an authoritative input to an unresolved Commercial Design decision when it changes a feasible option. It does not make the platform the design owner. Once the design is fixed, freeze that decision and route its downstream commerce state to Chapter 09.
+
 ### Business-model dependency
 
 Commercial Design can reason about payment structure among sufficiently established actors. If the decision changes the firm's fundamental actor roles, sides, value-delivery system, or basic revenue architecture, identify the Business Model dependency [CD14][CD15].
@@ -528,6 +534,7 @@ OPEN DECISION
 BASELINE
 CANDIDATES
 PRIMARY OBJECTIVE + HORIZON
+EXPECTED MECHANISM
 AUTHORITATIVE CONSTRAINTS
 GUARDRAILS
 EVIDENCE
@@ -539,6 +546,8 @@ REVISIT CONDITION
 ```
 
 This is an internal reasoning aid, not a user form and not a requirement for simple tasks.
+
+When an executed or observed commercial decision is handed to diagnosis or learning, reuse this record and preserve the objective and horizon, expected mechanism, guardrails, and revisit condition only when their absence would alter interpretation. For a compound change, preserve each material changed dimension and its version only when omission changes causal or diagnostic interpretation. These are conditional handoff details, not mandatory fields for every record.
 
 ---
 

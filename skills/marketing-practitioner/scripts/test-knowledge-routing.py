@@ -39,6 +39,20 @@ def cli_args(**overrides):
 
 
 def main() -> int:
+    expected_routes = {
+        "content.consequential-strategy": "## 12. Deeper path for consequential content strategy",
+        "content.job-measurement": "## 13. Measurement follows the marketing job",
+        "content.performance-diagnosis": "## 15. Diagnostic record for weak or changing performance",
+        "commerce.fact-provenance": "### 5.5 Preserve fact provenance",
+        "commerce.discovery-modality": "### 7.1 Query modality \u2260 retrieval-model modality",
+        "commerce.content-commerce-measurement": "### 10.2 Content metrics and commerce metrics can share an object history without sharing causal meaning",
+        "commerce.shopper-representation-jobs": "### 11.1 Selection and evaluation representations have different jobs",
+        "commerce.observation-interpretation": "## 12. Observation records for commerce",
+    }
+    for route_id, expected_heading in expected_routes.items():
+        _, content = module.get_knowledge(route_id)
+        assert content.startswith(expected_heading)
+
     fixture = """# Fixture\n\n## A\nA intro\n\n### A.1\nA1 body\n\n#### A.1.1\nA11 body\n\n### A.2\nA2 body\n\n## B\nB body\n\n<!-- route:start fixture.marker -->\nMARKER BODY\n\n### nested marker heading\nstill marker\n<!-- route:end fixture.marker -->\n\n## C\nC body\n"""
 
     a = module.extract_heading_section(fixture, "## A")
@@ -129,6 +143,7 @@ def main() -> int:
             )
 
             source_path, source_content = module.get_source("a03")
+            # Logical source paths must remain POSIX-style on every host OS.
             assert source_path == "references/commerce/amazon.md"
             assert source_content.startswith("## [A03] Source A03")
             assert "## [A04]" not in source_content
@@ -179,7 +194,7 @@ def main() -> int:
         "--namespace is only valid with --list",
     )
 
-    print("PASS\t22 routing-mechanics smoke checks")
+    print("PASS\t30 routing-mechanics smoke checks")
     return 0
 
 

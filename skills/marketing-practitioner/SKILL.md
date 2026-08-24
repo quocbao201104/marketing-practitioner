@@ -152,6 +152,11 @@ free trial vs free tier
 → commercial-design.payment only when zero-price / menu / monetization structure can change the decision
 → commercial-design.dynamics only when transition or history can change the decision
 
+discount / promotion / voucher / temporary credit / shipping modifier
+→ commercial-design.modifiers-representation
+→ commercial-design.allocation only when access to the condition is restricted
+→ commercial-design.governance only when exception or approval authority changes the decision
+
 eligibility / personalized / new-customer / negotiated conditions
 → commercial-design.allocation
 → commercial-design.governance when authority or exception policy matters
@@ -171,7 +176,7 @@ boundary or downstream handoff uncertainty
 
 Do not create a new controller job or generic `OFFER` object for this path. The existing `DECIDE`, evidence, resolved-state, dependency, and JIT-routing rules remain governing.
 
-If target context, relevant alternative, value, proof, or trade-off is materially unresolved, load the necessary positioning knowledge first. If authoritative cost, margin, capacity, product capability, legal/contractual permission, sales/deal authority, or platform constraint can change the decision, treat it as a dependency rather than inventing a marketing fact.
+If target context, relevant alternative, value, proof, or trade-off is materially unresolved, load the necessary positioning knowledge first. If authoritative cost, margin, capacity, product capability, legal/contractual permission, sales/deal authority, or platform constraint can change the decision, treat it as a dependency rather than inventing a marketing fact. A current platform rule, capability, fee, or eligibility limit may constrain an unresolved Commercial Design choice; it does not make the platform the design owner. If the commercial design is already fixed, freeze it and route only the established state to the downstream representation, commerce, localization, or diagnosis path.
 
 When causal response, incrementality, experiment design, or treatment effects become material, use Chapter 05. Once commercial conditions are resolved, pass only the material configuration, payment structure, terms, allocation rule, modifiers, scope/history, and uncertainty forward to Chapter 04, Chapter 07, Chapter 09, or a platform module as required by the downstream job.
 
@@ -204,6 +209,21 @@ Use when a social, community, feed, search, creator, recommendation, or platform
 This path includes social posts and captions, community posts, comments and replies, reposts, carousels, video, platform-native content strategy, creator/brand collaboration, and related content-participation decisions.
 
 When the task requires more than generic channel adaptation, use the `content` knowledge namespace and load only the smallest `content.*` route that can change the open decision. Do not read Chapter 08 wholesale merely because platform content is in scope.
+
+Common decision-specific addresses include:
+
+```text
+choose material system dependencies for a consequential content system / multi-touch launch plan
+→ content.consequential-strategy
+
+choose measurement by the marketing job
+→ content.job-measurement
+
+weak or changing content performance
+→ content.performance-diagnosis before rewriting
+```
+
+These routes compose existing audience state, touchpoint job, object/representation, sequence/history, message, and environment. They do not create a campaign, journey, channel-portfolio, or GTM abstraction.
 
 The content knowledge uses a compressed runtime model. Resolve only the durable things that can change the decision:
 
@@ -267,6 +287,8 @@ For simple tasks, stay on the fast path. If the user asks for a short caption an
 
 For cross-platform adaptation, preserve strategic meaning but do not blindly cross-post the same object or representation. Adapt actor, context, object, representation, modality, proof placement, ask, and measurement only where the destination environment justifies a change.
 
+For an owned-channel next-message decision whose answer depends on customer state or contact history, compose the existing message/reader-state path with `content.audience-interaction`; add `commercial-design.dynamics` only when the applicable commercial transition rule remains unresolved and can change eligibility or meaning, otherwise freeze the established commercial state. Add Chapter 05 only when diagnosis or treatment response is open. Preserve prior contact, suppression or holdout, blocker, authority or permission, and eligibility only when dropping them would make a send, suppression, or different-message decision incorrectly equivalent. Do not create a lifecycle, CRM, or journey namespace for this composition.
+
 ## Commerce / product discovery
 
 Use when an e-commerce, marketplace, or agent-mediated commerce environment can materially change product/listing communication, catalog or variant reasoning, commercial-state interpretation, product discoverability, delegated checkout authority, or performance diagnosis.
@@ -310,6 +332,12 @@ search / retrieval / ranking
 → commerce.discovery
 → commerce.field-evidence when translating field evidence into action
 
+fact authority / seller input / platform inference
+→ commerce.fact-provenance
+
+query or input modality vs machine evidence used for matching
+→ commerce.discovery-modality
+
 recommendation / non-query discovery
 → commerce.recommendation
 
@@ -319,6 +347,15 @@ semantic / conversational / AI product information
 
 agent authority / checkout / order-state conflict
 → commerce.agentic
+
+selection card vs PDP evaluation vs checkout confirmation
+→ commerce.shopper-representation-jobs
+
+hybrid content-commerce metric interpretation
+→ commerce.content-commerce-measurement
+
+commerce observation / maturity / exposure interpretation
+→ commerce.observation-interpretation
 
 performance diagnosis
 → commerce.diagnosis
@@ -373,6 +410,8 @@ Do not write replacement copy merely because copywriting is available if the evi
 
 Use when an existing offer, positioning, message, or experience must be adapted across language, locale, market, geography, currency, timezone, jurisdiction, or buying context.
 
+If the open decision is which country or market to prioritize, start with Chapter 02 target/segment selection and treat economics, capability, operations, law, and commercial feasibility as authoritative dependencies where material. Use Chapter 07 after a target market is selected and the open decision is what must remain invariant or adapt. A country name alone does not activate localization or market-entry machinery.
+
 Before making market-specific psychological or cultural claims, or when deciding what should remain invariant versus adapt, read `handbook/07-international-marketing-and-ethics.md`.
 
 Preserve global product facts and strategic invariants unless local evidence justifies a change. Adapt only the dimensions supported by product capability and local evidence. Translation is not the same as localization, and exploratory local evidence does not establish market-wide prevalence.
@@ -393,11 +432,15 @@ Do not automatically carry every detail from one stage into the next.
 
 ## Research → strategy
 
-Pass forward the observations, patterns, contradictions, customer language, unknowns, and scope that can change the strategic decision. Leave behind raw process detail that has no downstream decision value.
+Pass forward the observations, patterns, contradictions, customer language, unknowns, and scope that can change the strategic decision. When they would change the inference, also preserve evidence class, root-source independence, and what the evidence cannot establish. Leave behind raw process detail that has no downstream decision value.
+
+## Segmentation → commercial design or distribution
+
+Pass forward the buying process, relevant actors and authority, reachability, required sales motion, and support or implementation burden only when dropping them would make two materially different target treatments look equivalent. Do not make these fields mandatory for simple segment-to-message work.
 
 ## Segmentation / positioning → message
 
-Pass forward the target context, relevant alternative, category/frame, primary value, differentiator or distinctive cues where material, reason to believe, trade-off, objections, and claim boundaries.
+Pass forward the target context, relevant alternative, category/frame, primary value, differentiator or distinctive cues where material, reason to believe, trade-off, objections, claim boundaries, and any decision-relevant offer relation or expected customer transition.
 
 ## Message → copy
 
@@ -411,19 +454,43 @@ Pass forward the strategic message, source/proof boundaries, mandatory facts, in
 
 Do not let generic platform heuristics override established strategy or invent a new target audience.
 
+## Distribution encounter → message / copy
+
+When a message depends on an incoming encounter, pass forward the promise or intent and its provenance, prior proof or exposure, and the actor's authority to substantiate or approve the claim only when those facts change the touchpoint job or allowed message. Do not reconstruct the full encounter history for ordinary copy.
+
 ## Platform observation → learning
 
 When platform metrics are used to update a content decision, pass forward one compact observation record with the material object/state, representation, audience/pre-state, surface/delivery context, exposure and response opportunity, interaction provenance, allocation/visibility regime, observation unit, relevant history, outcome maturity, attribution rule/window where applicable, comparability, and uncertainty.
 
 Do not convert non-action into negative preference by default. Do not convert a policy-mediated or inauthentic interaction into intrinsic content quality. Do not convert last-touch or platform-attributed outcomes into causal or incremental learning without the required design.
 
+## Commerce observation → learning
+
+Pass forward the event or stage, material commercial state, outcome/refund maturity, and exposure provenance only when omission would change the learned conclusion. Preserve attribution separately from incrementality and causality.
+
+## Commercial Design → diagnosis or learning
+
+Reuse the existing commercial decision record. Preserve objective and horizon, expected mechanism, guardrails, revisit condition, and actual changed dimensions or version only when their absence would prevent reconstruction or alter interpretation. For a compound change, keep each material configuration, payment, terms, allocation, and modifier change distinct rather than relabeling the intervention as a scalar price change.
+
+## Customer state → next owned-channel message
+
+Pass prior contact, suppression or holdout, blocker, authority or permission, eligibility, and material commercial transition state only when they distinguish send, suppress, or different-message decisions for otherwise similar recipients. Then let Chapter 04 resolve the message; do not create a lifecycle or CRM record by default.
+
 ## Diagnosis → decision or communication
 
 Pass forward what is established, the leading competing explanations, the uncertainty that changes the decision, the next discriminating check, and whether action or no-change is justified. Do not turn provisional causal stories into messaging changes.
 
+## Causal result → learning
+
+When a result is retained for a later decision, preserve the estimand, analysis population, comparison/control, treatment and version, outcome horizon, material validity condition or defect, and what the result cannot establish only where dropping them would change reuse. Chapter 05 owns the causal method; Chapter 06 owns the retained learning.
+
 ## Global strategy → localization
 
 Pass forward the strategic invariants and identify the dimensions that local evidence can legitimately change. Do not invent a new market narrative merely because local context exists.
+
+## Localization → downstream use
+
+Pass forward local-evidence status and scope, approval state, permission state, and authoritative owner only when they change what may be written, represented, offered, or published. Evidence support, permission, and approval are not interchangeable.
 
 ---
 

@@ -21,6 +21,8 @@ A message strategy should specify:
 
 The function of this document is prioritization. A long list of equally weighted benefits is not a message hierarchy.
 
+For a multi-actor B2B communication, retain the audience actor, relevant authority, objection or proof need, approval dependency, and proof provenance and authority to substantiate or approve the claim only when they change this message. This composes one message for the current touchpoint; it does not create journey or campaign machinery.
+
 ## 2. Hierarchy before prose
 
 A robust message usually resolves the following conceptual order:
@@ -37,6 +39,10 @@ CORE PROMISE
 The sequence may be rearranged by channel and reader state, but the dependencies remain. A skeptical audience may require proof earlier. A technically sophisticated audience may require mechanism before benefit. A reader already convinced of value may require only risk reduction or implementation detail.
 
 Message design therefore combines strategic content with the **state of the reader at the moment of exposure**.
+
+When the current touchpoint depends on what came before, retain the incoming promise or intent and its provenance, plus prior proof or exposure, only if they change what this touchpoint must explain. Allocate proof to the touchpoint's job rather than repeating every proof element in every format.
+
+For owned-channel next-message decisions, preserve prior contact, suppression or holdout status, blocker, authority or permission, and eligibility when those facts make otherwise identical recipients require a send, suppression, or different message. This is a decision-local record, not a lifecycle or CRM schema.
 
 ## 3. Reader-state analysis
 

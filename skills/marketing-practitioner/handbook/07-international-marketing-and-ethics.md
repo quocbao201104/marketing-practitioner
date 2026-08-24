@@ -22,6 +22,8 @@ Research on international marketing strategy shows that standardization versus a
 
 The practical question is therefore not whether to localize everything, but **which layers should remain invariant and which require market-specific evidence**.
 
+When a localization decision changes downstream use or publication, preserve its local-evidence status and scope, approval state, permission state, and authoritative owner or owners only when those facts change what may be used or published. Evidence can support a local adaptation while legal permission remains pending or product and market approval differ, even where the wording is identical.
+
 ## 3. Global invariants and local variables
 
 Possible global invariants include:
