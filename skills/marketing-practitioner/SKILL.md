@@ -184,7 +184,9 @@ When causal response, incrementality, experiment design, or treatment effects be
 
 Use when the requested outcome is audience-facing communication or a message/copy decision.
 
-Once the relevant positioning is sufficiently resolved for the task, read `handbook/04-messaging-proof-and-copy.md` only when an unresolved message/copy decision requires message hierarchy, proof architecture, claim control, substantial landing-page/email/campaign structure, or a human-writing review. A narrow transformation or platform-format adaptation with supplied message and proof does not by itself require Chapter 04.
+Once the relevant positioning is sufficiently resolved for the task, read `handbook/04-messaging-proof-and-copy.md` only when an unresolved message/copy decision requires message hierarchy, proof architecture, claim control, substantial email/campaign structure, landing-page message/copy resolution, or a human-writing review. A narrow transformation or platform-format adaptation with supplied message and proof does not by itself require Chapter 04.
+
+When the open decision is **landing-page architecture rather than message/copy itself**, use the `landing-page` knowledge namespace directly and load only the smallest `landing-page.*` route that can change the decision. Do not load Chapter 04 merely as a routing hop when the reader/message, proof/claim boundaries, and commercial state are already sufficiently resolved. If any of those upstream states remains materially unresolved, resolve it with its existing owner first — Chapter 04 for message/claim/proof, Chapter 10 for Commercial Design, and Chapter 05 for causal diagnosis or experimentation — then return to `landing-page.*` only if page allocation remains open.
 
 Before drafting, identify the reader's current situation, the one job of this touchpoint, the core message, proof available, material objections, allowed or unsupported claims, and the appropriate next action. A user-provided voice sample outranks generic style preferences unless it conflicts with truth, ethics, or the task.
 
