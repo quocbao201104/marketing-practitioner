@@ -235,9 +235,11 @@ Human-sounding writing is a quality floor, not the strategy. Use the human-writi
 
 ## Platform content / distribution
 
-Use when a social, community, feed, search, creator, recommendation, or platform-native environment can materially change what should be published, how it should be represented, who can encounter/respond to it, or how later performance can be interpreted.
+Use when a social, community, feed, creator, recommendation, or platform-native content environment can materially change what should be published, how it should be represented, who can encounter/respond to it, or how later performance can be interpreted.
 
-This path includes social posts and captions, community posts, comments and replies, reposts, carousels, video, platform-native content strategy, creator/brand collaboration, and related content-participation decisions.
+This path includes social posts and captions, community posts, comments and replies, reposts, carousels, video, platform-native content strategy, creator/brand collaboration, search-oriented content participation, and related content-participation decisions.
+
+When the open decision is generic information/entity discoverability — whether a non-commerce object is known, accessible, retrievable, selected, surfaced, groundable/cited, or what discovery telemetry means — use the `discovery` path below instead of stretching Chapter 08 into a generic search handbook. Search-oriented content creation remains here when the open decision is still content participation, multimodal allocation, audience/environment fit, or platform-native representation rather than discovery mechanics themselves.
 
 When the task requires more than generic channel adaptation, use the `content` knowledge namespace and load only the smallest `content.*` route that can change the open decision. Do not read Chapter 08 wholesale merely because platform content is in scope.
 
@@ -321,6 +323,70 @@ For cross-platform adaptation, preserve strategic meaning but do not blindly cro
 For an owned-channel **email** decision whose answer depends on customer state or contact history, use the smallest `email.*` route rather than composing through `content.audience-interaction` merely because email has history. Chapter 12 specializes the existing Chapter 08 state/relationship/history grammar for email. Add `commercial-design.dynamics` only when the applicable commercial transition rule remains unresolved and can change eligibility or meaning; add Chapter 05 only when diagnosis, incrementality, or treatment response is open. Do not create a lifecycle, CRM, or journey namespace for this composition.
 
 For other owned-channel next-message decisions whose answer depends on customer state or contact history, keep the generic composition: use the existing message/reader-state path with `content.audience-interaction`; add `commercial-design.dynamics` only when the applicable commercial transition rule remains unresolved and can change eligibility or meaning, otherwise freeze the established commercial state. Add Chapter 05 only when diagnosis or treatment response is open. Preserve prior contact, suppression or holdout, blocker, authority or permission, and eligibility only when dropping them would make a send, suppression, or different-message decision incorrectly equivalent. Do not create a lifecycle, CRM, or journey namespace for this composition.
+
+## Search / discovery
+
+Use when a generic, non-commerce discovery environment can materially change whether an information object, entity, source, page, document, or other subject is known, accessible, retrievable, selected, surfaced, used as answer support, cited, or how discovery telemetry should be interpreted.
+
+This path is broader than SEO and narrower than general platform/content strategy. Search is one discovery mode; an explicit query is not required.
+
+Do **not** activate this path merely because the task mentions `SEO`, `Google`, `search`, `ranking`, `AI`, `ChatGPT`, `citation`, or a meta tag. If the user has already supplied the relevant state and only requests a bounded transformation whose discovery mechanics cannot change the answer, stay on the fast path.
+
+When discovery-specific knowledge can change the open decision, use the `discovery` namespace and load only the smallest relevant route:
+
+```text
+information need / query / expression / interpretation
+→ discovery.need
+
+known / access / processing / index / identity / canonical / freshness
+→ discovery.availability
+
+retrieval / query reformulation / fan-out / relevance / ranking /
+recommendation / selection / surfacing
+→ discovery.selection
+
+human-selection representation vs AI/system answer commitment /
+groundability / evidence fitness / source use / citation boundary
+→ discovery.commitment
+
+impression / position / click / no-click / citation /
+grounding-query telemetry / search-interest interpretation
+→ discovery.observation
+
+consequential retained discovery decision
+→ discovery.decision-record
+
+core boundary or anti-folklore check
+→ discovery.core or discovery.invariants
+```
+
+These routes specialize the existing Chapter 08 object/representation/audience/mediation/observation grammar. They do not create a new search object, query object, world model, user model, universal relevance score, or global `DISCOVERABLE` boolean.
+
+Keep the following owner boundaries:
+
+```text
+customer / segment / market-demand inference
+→ Chapter 01 / 02
+
+marketing message / claim / proof
+→ Chapter 04
+
+causality / incrementality / experiment
+→ Chapter 05
+
+platform-native content participation
+→ Chapter 08 / content.*
+
+product / variant / listing / commerce discovery
+→ Chapter 09 / commerce.*
+
+landing-page architecture after entry
+→ Chapter 11 / landing-page.*
+```
+
+Current crawler controls, indexing directives, structured-data behavior, provider eligibility rules, ranking/recommendation disclosures, AI-search controls, and telemetry definitions are time-sensitive authoritative dependencies. Retrieve them JIT when they can change the decision; do not turn one provider's current behavior into a timeless discovery law.
+
+Diagnose the earliest unresolved boundary before rewriting. In particular, do not infer a content defect from a downstream visibility/citation/referral symptom until availability, retrieval/selection, representation/commitment, and observation semantics have been separated as needed.
 
 ## Commerce / product discovery
 
@@ -496,6 +562,12 @@ When a message depends on an incoming encounter, pass forward the promise or int
 When platform metrics are used to update a content decision, pass forward one compact observation record with the material object/state, representation, audience/pre-state, surface/delivery context, exposure and response opportunity, interaction provenance, allocation/visibility regime, observation unit, relevant history, outcome maturity, attribution rule/window where applicable, comparability, and uncertainty.
 
 Do not convert non-action into negative preference by default. Do not convert a policy-mediated or inauthentic interaction into intrinsic content quality. Do not convert last-touch or platform-attributed outcomes into causal or incremental learning without the required design.
+
+## Discovery observation → learning or diagnosis
+
+Pass forward only the discovery event level actually supported — availability/index state where observed, retrieval/selection evidence, surfaced representation, impression/position/click/referral, citation or grounding-query telemetry — together with the system/surface, event definition, unit, aggregation or view rule, time/scope, telemetry coverage, attribution rule, and material uncertainty when omission would change the conclusion.
+
+Do not convert impression into verified attention, click into relevance, no-click into failure, citation into authority or causal influence, or search interest into market demand. Use Chapter 05 when incrementality or causal interpretation is open; use Chapter 01/02 when customer/market-demand inference is open.
 
 ## Commerce observation → learning
 
