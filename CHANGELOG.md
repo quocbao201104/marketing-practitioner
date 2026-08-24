@@ -4,6 +4,31 @@ All notable changes to this repository are documented here.
 
 The project uses semantic versioning for published skill revisions. Early versions may change structure while the conceptual model is stabilized.
 
+## [0.7.0] - 2026-08-25
+
+### Added
+
+- Added `handbook/12-email-communication-architecture.md`, a bounded specialist layer for deciding whether, when, and how email should carry already-resolved strategy under communication-relevant state, history, authority, feasibility, and observation constraints.
+- Added the `email.*` just-in-time namespace for send/wait/exit/suppress decisions, scoped send state, state-conditioned sequence reasoning, inbox/body/action allocation, cross-surface continuity, observation semantics, decision records, and invariants.
+- Added `references/email-communication-evidence.md` with scoped provider, protocol, regulatory, privacy, and field-experiment evidence plus explicit non-transfer boundaries.
+- Added `research/email-communication-architecture/` theory freeze, targeted evaluation adjudication, and frozen independent-review contract.
+- Added 20 targeted adversarial cases and 12 fresh task-level runtime walkthroughs covering fast-path preservation, no-action follow-up pressure, need/authority/feasibility separation, scoped unsubscribe state, state-conditioned branching, optional action/handoff, telemetry semantics, causal boundaries, owner handoffs, and non-email owned-channel regression.
+
+### Changed
+
+- Updated `SKILL.md` so email-specific state/history/send/allocation/observation decisions can route directly to the smallest `email.*` section while narrow email copy transformations remain on the existing fast path.
+- Preserved Chapter 04 ownership of unresolved message/claim/proof, Chapter 05 ownership of causality and experimentation, Chapter 08 ownership of generic relationship/state/representation grammar, Chapter 10 ownership of unresolved commercial transitions, and Chapter 11 ownership of downstream landing-page architecture.
+- Preserved the generic Chapter 08 composition path for SMS, push, and other non-email owned-channel decisions instead of letting the email specialization capture them.
+- Updated release metadata and public documentation to `v0.7.0` without adding a CRM, lifecycle, journey, campaign, funnel, deliverability, legal-compliance, or global send-eligibility subsystem.
+
+### Validation status
+
+- Targeted internal evaluation found no routing, specialist-knowledge, owner-handoff, or shared-grammar gap and retained one explicit execution watch: ordinary email rewrites must not over-route merely because the new namespace exists.
+- Independent adversarial runtime review at frozen implementation/evaluation head `ca44ca096e3d38156611f9fef7b3ea17139e2772` returned **PROCEED TO RELEASE PREPARATION** after 22 fresh attacks: 22 PASS, 0 PARTIAL, 0 FAIL.
+- The independent reviewer found no surviving targeted correction, no irreducible representation collision, and no justification for a new primitive or broader CRM/lifecycle architecture.
+- The deterministic routing-test definition now covers all nine `email.*` routes plus `EM03` evidence lookup; full checked-out-branch execution was not performed during this release-preparation pass.
+- This release does not claim universal cadence, send-time, personalization, subject-line, CTA, frequency, deliverability, legal-permission, or causal-effect rules, nor benchmark-grade reliability across every agent host.
+
 ## [0.6.0] - 2026-08-24
 
 ### Added
