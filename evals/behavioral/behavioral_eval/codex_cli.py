@@ -8,7 +8,7 @@ import signal
 import subprocess
 import time
 from pathlib import Path
-from typing import Any, Sequence
+from typing import Any, NamedTuple, Sequence
 
 from .adapters import ExecutorRequest, ExecutorResult
 
@@ -89,63 +89,205 @@ def _normalize_path_text(value: str) -> str:
     return re.sub(r"/+", "/", value.lower().replace("\\", "/"))
 
 
-def _operand_references_expected(
-    value: str,
+class _PowerShellToken(NamedTuple):
+    kind: str
+    value: str
+    interpolated: bool = False
+
+
+def _extract_powershell_script(command: str) -> str:
+    normalized = _normalize_path_text(command).replace("'\"'", "'")
+    command_match = re.search(r"(?:^|\s)-command\b", normalized)
+    if command_match is not None and re.search(
+        r"\b(?:pwsh|powershell)(?:\.exe)?\b", normalized[: command_match.start()]
+    ):
+        normalized = normalized[command_match.end() :].strip()
+        if (
+            len(normalized) >= 2
+            and normalized[0] in {"'", '"'}
+            and normalized[-1] == normalized[0]
+        ):
+            normalized = normalized[1:-1]
+        normalized = re.sub(
+            r"[\"']+(\$[a-z_][a-z0-9_]*)", r"\1", normalized
+        )
+    return normalized.strip()
+
+
+def _tokenize_powershell(script: str) -> tuple[_PowerShellToken, ...]:
+    tokens: list[_PowerShellToken] = []
+    index = 0
+    punctuation = {
+        ";": "statement",
+        "\r": "statement",
+        "\n": "statement",
+        "|": "pipe",
+        "(": "left_paren",
+        ")": "right_paren",
+        "=": "equals",
+        ",": "comma",
+    }
+
+    while index < len(script):
+        character = script[index]
+        if character in {" ", "\t"}:
+            index += 1
+            continue
+        if character == "#":
+            while index < len(script) and script[index] not in {"\r", "\n"}:
+                index += 1
+            continue
+        if character in punctuation:
+            tokens.append(_PowerShellToken(punctuation[character], character))
+            index += 1
+            if character == "\r" and index < len(script) and script[index] == "\n":
+                index += 1
+            continue
+        if character in {"'", '"'}:
+            quote = character
+            index += 1
+            value: list[str] = []
+            interpolated = False
+            while index < len(script):
+                character = script[index]
+                if character == quote:
+                    if quote == "'" and index + 1 < len(script) and script[index + 1] == "'":
+                        value.append("'")
+                        index += 2
+                        continue
+                    index += 1
+                    break
+                if quote == '"' and character in {"$", "`"}:
+                    interpolated = True
+                value.append(character)
+                index += 1
+            tokens.append(
+                _PowerShellToken("string", "".join(value), interpolated=interpolated)
+            )
+            continue
+
+        start = index
+        while (
+            index < len(script)
+            and script[index] not in {" ", "\t", "#", "'", '"'}
+            and script[index] not in punctuation
+        ):
+            index += 1
+        if start == index:
+            index += 1
+            continue
+        tokens.append(_PowerShellToken("word", script[start:index]))
+
+    return tuple(tokens)
+
+
+def _powershell_statements(
+    tokens: tuple[_PowerShellToken, ...],
+) -> tuple[tuple[_PowerShellToken, ...], ...]:
+    statements: list[tuple[_PowerShellToken, ...]] = []
+    current: list[_PowerShellToken] = []
+    for token in tokens:
+        if token.kind == "statement":
+            if current:
+                statements.append(tuple(current))
+                current = []
+            continue
+        current.append(token)
+    if current:
+        statements.append(tuple(current))
+    return tuple(statements)
+
+
+def _safe_path_literal(
+    token: _PowerShellToken, expected_paths: set[str]
+) -> bool:
+    return (
+        token.kind == "string"
+        and not token.interpolated
+        and token.value in expected_paths
+    )
+
+
+def _safe_reader_operand(
+    token: _PowerShellToken,
     expected_paths: set[str],
     bound_variables: set[str],
 ) -> bool:
-    candidate = value.lstrip(" \t'\"`")
-    for expected_path in expected_paths:
-        if candidate.startswith(expected_path):
-            suffix = candidate[len(expected_path) : len(expected_path) + 1]
-            if not suffix or re.match(r"[\w./:-]", suffix) is None:
-                return True
-    for variable in bound_variables:
-        if candidate.startswith(variable):
-            suffix = candidate[len(variable) : len(variable) + 1]
-            if not suffix or re.match(r"[\w]", suffix) is None:
-                return True
-    return False
+    if _safe_path_literal(token, expected_paths):
+        return True
+    return token.kind == "word" and token.value in bound_variables
+
+
+def _first_command_index(statement: tuple[_PowerShellToken, ...]) -> int | None:
+    index = 0
+    while index < len(statement) and statement[index].kind == "left_paren":
+        index += 1
+    if (
+        index + 2 < len(statement)
+        and statement[index].kind == "word"
+        and statement[index].value.startswith("$")
+        and statement[index + 1].kind == "equals"
+    ):
+        index += 2
+        while index < len(statement) and statement[index].kind == "left_paren":
+            index += 1
+    if index >= len(statement) or statement[index].kind != "word":
+        return None
+    return index
 
 
 def _command_reads_expected_path(command: str, expected_paths: set[str]) -> bool:
-    normalized = _normalize_path_text(command).replace("'\"'", "'")
+    script = _extract_powershell_script(command)
+    statements = _powershell_statements(_tokenize_powershell(script))
     bound_variables: set[str] = set()
-    assignment_pattern = re.compile(
-        r"(?P<variable>\$[a-z_][a-z0-9_]*)\s*=\s*"
-        r"(?P<quote>['\"])(?P<value>.*?)(?P=quote)"
-    )
-    variable_assignment_pattern = re.compile(
-        r"(?P<variable>\$[a-z_][a-z0-9_]*)\s*="
-    )
-    get_content_pattern = re.compile(r"\bget-content\b(?P<arguments>[^|]*)")
-    path_option_pattern = re.compile(r"-(?:literalpath|path)\b")
-    dotnet_reader_pattern = re.compile(
-        r"\[system\.io\.file\]::"
-        r"(?:readalllines|readalltext|readallbytes|readlines)\s*"
-        r"\((?P<arguments>[^)]*)\)"
-    )
 
-    for statement in re.split(r"[;\r\n]+", normalized):
-        for assignment in variable_assignment_pattern.finditer(statement):
-            bound_variables.discard(assignment.group("variable"))
-        for assignment in assignment_pattern.finditer(statement):
-            variable = assignment.group("variable")
-            value = assignment.group("value")
-            if value in expected_paths:
-                bound_variables.add(variable)
-        for reader in get_content_pattern.finditer(statement):
-            arguments = reader.group("arguments")
-            for option in path_option_pattern.finditer(arguments):
-                if _operand_references_expected(
-                    arguments[option.end() :], expected_paths, bound_variables
+    for statement in statements:
+        for index in range(len(statement) - 1):
+            variable = statement[index]
+            if (
+                variable.kind == "word"
+                and variable.value.startswith("$")
+                and statement[index + 1].kind == "equals"
+            ):
+                bound_variables.discard(variable.value)
+                assignment = statement[index + 2 :]
+                if len(assignment) == 1 and _safe_path_literal(
+                    assignment[0], expected_paths
+                ):
+                    bound_variables.add(variable.value)
+
+        command_index = _first_command_index(statement)
+        if command_index is None:
+            continue
+        command_token = statement[command_index].value
+        if command_token == "get-content":
+            for index in range(command_index + 1, len(statement) - 1):
+                if (
+                    statement[index].kind == "word"
+                    and statement[index].value == "-literalpath"
+                    and _safe_reader_operand(
+                        statement[index + 1], expected_paths, bound_variables
+                    )
                 ):
                     return True
-        for reader in dotnet_reader_pattern.finditer(statement):
-            if _operand_references_expected(
-                reader.group("arguments"), expected_paths, bound_variables
-            ):
-                return True
+            continue
+        if command_token not in {
+            "[system.io.file]::readalllines",
+            "[system.io.file]::readalltext",
+            "[system.io.file]::readallbytes",
+            "[system.io.file]::readlines",
+        }:
+            continue
+        operand_index = command_index + 2
+        if (
+            command_index + 1 < len(statement)
+            and statement[command_index + 1].kind == "left_paren"
+            and operand_index < len(statement)
+            and _safe_reader_operand(
+                statement[operand_index], expected_paths, bound_variables
+            )
+        ):
+            return True
     return False
 
 

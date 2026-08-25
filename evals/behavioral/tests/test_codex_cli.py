@@ -129,6 +129,123 @@ class CodexCliTests(unittest.TestCase):
 
         self.assertIsNone(activation_verified(events, self.request))
 
+    def test_activation_rejects_reader_text_inside_output_string(self) -> None:
+        skill_file = self.binding.skill_path / "SKILL.md"
+        events = (
+            {
+                "type": "item.completed",
+                "item": {
+                    "type": "command_execution",
+                    "command": (
+                        f'Write-Output "Get-Content -LiteralPath \'{skill_file}\'"'
+                    ),
+                    "exit_code": 0,
+                },
+            },
+        )
+
+        self.assertIsNone(activation_verified(events, self.request))
+
+    def test_activation_rejects_reader_text_inside_comment(self) -> None:
+        skill_file = self.binding.skill_path / "SKILL.md"
+        events = (
+            {
+                "type": "item.completed",
+                "item": {
+                    "type": "command_execution",
+                    "command": f"# Get-Content -LiteralPath '{skill_file}'",
+                    "exit_code": 0,
+                },
+            },
+        )
+
+        self.assertIsNone(activation_verified(events, self.request))
+
+    def test_activation_rejects_dotnet_reader_text_inside_output_string(self) -> None:
+        skill_file = self.binding.skill_path / "SKILL.md"
+        events = (
+            {
+                "type": "item.completed",
+                "item": {
+                    "type": "command_execution",
+                    "command": (
+                        "Write-Output "
+                        f"'[System.IO.File]::ReadAllText(\"{skill_file}\")'"
+                    ),
+                    "exit_code": 0,
+                },
+            },
+        )
+
+        self.assertIsNone(activation_verified(events, self.request))
+
+    def test_activation_rejects_transformed_reader_variable(self) -> None:
+        skill_file = self.binding.skill_path / "SKILL.md"
+        events = (
+            {
+                "type": "item.completed",
+                "item": {
+                    "type": "command_execution",
+                    "command": (
+                        f"$skillPath = '{skill_file}'; "
+                        "Get-Content -LiteralPath "
+                        "$skillPath.Replace('marketing-practitioner', 'other')"
+                    ),
+                    "exit_code": 0,
+                },
+            },
+        )
+
+        self.assertIsNone(activation_verified(events, self.request))
+
+    def test_activation_rejects_interpolated_path_suffix(self) -> None:
+        skill_file = self.binding.skill_path / "SKILL.md"
+        events = (
+            {
+                "type": "item.completed",
+                "item": {
+                    "type": "command_execution",
+                    "command": (
+                        f'Get-Content -LiteralPath "{skill_file}'
+                        '$(Write-Output \'.backup\')"'
+                    ),
+                    "exit_code": 0,
+                },
+            },
+        )
+
+        self.assertIsNone(activation_verified(events, self.request))
+
+    def test_activation_accepts_quoted_semicolon_in_skill_path(self) -> None:
+        binding = WorkspaceBinding(
+            root=self.root,
+            profile_id="current-skill",
+            skill_mode="workspace-copy",
+            skill_path=(
+                self.root / "semi;colon" / ".agents" / "skills" / "marketing-practitioner"
+            ),
+            expected_skill_sha256="e" * 64,
+        )
+        request = ExecutorRequest(
+            run_id="RUN-CLI-SEMICOLON",
+            case=self.case,
+            profile=self.profile,
+            workspace=binding,
+        )
+        skill_file = binding.skill_path / "SKILL.md"
+        events = (
+            {
+                "type": "item.completed",
+                "item": {
+                    "type": "command_execution",
+                    "command": f"Get-Content -LiteralPath '{skill_file}' -Raw",
+                    "exit_code": 0,
+                },
+            },
+        )
+
+        self.assertTrue(activation_verified(events, request))
+
     def test_activation_accepts_expected_path_through_reader_variable(self) -> None:
         skill_file = self.binding.skill_path / "SKILL.md"
         events = (
@@ -139,6 +256,25 @@ class CodexCliTests(unittest.TestCase):
                     "command": (
                         f"$skillPath = '{skill_file}'; "
                         "Get-Content -LiteralPath $skillPath -Raw"
+                    ),
+                    "exit_code": 0,
+                },
+            },
+        )
+
+        self.assertTrue(activation_verified(events, self.request))
+
+    def test_activation_accepts_reader_result_assignment(self) -> None:
+        skill_file = self.binding.skill_path / "SKILL.md"
+        events = (
+            {
+                "type": "item.completed",
+                "item": {
+                    "type": "command_execution",
+                    "command": (
+                        f"$skillPath = '{skill_file}'; "
+                        "$lines = Get-Content -LiteralPath $skillPath; "
+                        "$lines | Select-Object -First 10"
                     ),
                     "exit_code": 0,
                 },
