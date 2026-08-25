@@ -1,6 +1,6 @@
 ---
 name: marketing-practitioner
-description: "Evidence-informed marketing, commerce, content, and copywriting for AI agents. Use for customer-research synthesis, segmentation and ICP selection, positioning, value proposition, commercial design, pricing and packaging decisions, message strategy, social posts and captions, platform content strategy, community content, e-commerce and marketplace product listings, product titles and descriptions, catalog and variant decisions, product discovery/search/recommendation, agent-mediated commerce and delegated checkout decisions, landing pages, email communication decisions, email and campaign copy, copy critique, funnel diagnosis, experiment design, localization, and marketing postmortems. Treat marketing as a market-learning and decision discipline: separate observation from interpretation, scope claims to evidence, establish strategy before prose, adapt content and product representations to the actual audience/environment, prefer proof to hype, distinguish attribution from causality, preserve uncertainty, and write in a clear human voice without inventing facts."
+description: "Evidence-informed marketing, commerce, content, and copywriting for AI agents. Use for customer-research synthesis, segmentation and ICP selection, positioning, value proposition, commercial design, pricing and packaging decisions, message strategy, social posts and captions, platform content strategy, community content, e-commerce and marketplace product listings, product titles and descriptions, catalog and variant decisions, product discovery/search/recommendation, agent-mediated commerce and delegated checkout decisions, landing pages, email communication decisions, paid-media decisions and paid-delivery interpretation, email and campaign copy, copy critique, funnel diagnosis, experiment design, localization, and marketing postmortems. Treat marketing as a market-learning and decision discipline: separate observation from interpretation, scope claims to evidence, establish strategy before prose, adapt content and product representations to the actual audience/environment, prefer proof to hype, distinguish attribution from causality, preserve uncertainty, and write in a clear human voice without inventing facts."
 license: MIT
 metadata:
   version: "0.8.0"
@@ -24,7 +24,7 @@ For each task:
 2. **Freeze resolved state.** Treat already-supplied or already-resolved audience, positioning, message, product/offer facts, platform/surface choice, claim boundaries, and other upstream decisions as inputs unless they are contradictory, materially stale for the current job, or materially insufficient to complete it. If a resolved input would require an unsupported factual or causal claim, constrain or flag that claim rather than reopening unrelated upstream strategy. Reopen an upstream decision only when doing so is necessary to complete the current job truthfully. Do not reopen a resolved decision merely because this skill contains guidance for it.
 3. **Name the open decision.** Determine what still has to be chosen, interpreted, verified, transformed, or explained. If no substantive decision remains beyond the requested transformation, stay on the fast path.
 4. **Identify evidence that can change that decision.** Separate supplied facts and observations from interpretations, hypotheses, assumptions, and unknowns; do not gather evidence that cannot change the open decision.
-5. **Select operating paths by dependency, not by nouns.** Use only paths whose knowledge can change the open decision, in the order required by genuine dependencies. Mentioning Shopee, TikTok, Amazon, positioning, research, or another domain does not by itself activate its full path.
+5. **Select operating paths by dependency, not by nouns.** Use only paths whose knowledge can change the open decision, in the order required by genuine dependencies. Mentioning Shopee, TikTok, Amazon, positioning, research, advertising, or another domain does not by itself activate its full path.
 6. **Load guidance just in time.** Read the smallest relevant file or addressable knowledge section that materially improves the next decision. For large indexed knowledge, treat `routing-index.json` as the physical-routing source of truth: identify the relevant namespace and inspect only that namespace's logical IDs when needed. When helper execution is available, resolve the smallest route with `scripts/get-knowledge.py`. If helper execution is unavailable but normal file reads are available, use `routing-index.json` directly as the address table, follow the namespace path and exact selector, and read or extract the smallest feasible section. If the host can only read whole files, degrade to the smallest target file while preserving dependency-first routing rather than abandoning the task or broadening the decision path. The helper is a preferred deterministic capability, not a universal runtime requirement. Do not duplicate heading/path bindings in controller instructions and do not use fragile line-number routing. Expand to another route only when an unresolved dependency crosses that boundary. When a known evidence identifier is needed for provenance or source review, prefer `scripts/get-knowledge.py --source <ID>`; if helper execution is unavailable, locate the exact bracketed source heading in `references/` and read the smallest feasible source section instead of loading a whole ledger when avoidable.
 7. **Resolve and pass forward only decision-relevant state.** Later stages should receive the conclusions, constraints, proof, and uncertainty they need, not an automatic dump of all earlier research or process detail.
 8. **Produce the minimum sufficient output, then validate it against the current job.** Internal reasoning depth does not determine visible output length. Do not add work, caveats, frameworks, or explanation merely because they exist elsewhere in this skill.
@@ -388,6 +388,101 @@ Current crawler controls, indexing directives, structured-data behavior, provide
 
 Diagnose the earliest unresolved boundary before rewriting. In particular, do not infer a content defect from a downstream visibility/citation/referral symptom until availability, retrieval/selection, representation/commitment, and observation semantics have been separated as needed.
 
+## Paid media / paid distribution
+
+Use when economic resource is being used to **secure, reserve, compete for, allocate, or amplify mediated audience exposure**, and paid-delivery semantics can materially change the current decision.
+
+Do **not** activate this path merely because the task mentions `Facebook Ads`, `Google Ads`, `TikTok Ads`, `LinkedIn Ads`, `campaign`, `CPC`, `CPA`, `ROAS`, sponsored content, or paid work. A narrow supplied transformation whose paid-delivery mechanics cannot change the answer stays on the fast path.
+
+Keep the activation boundary:
+
+```text
+PAID RELATIONSHIP
+≠ PAID MEDIA DELIVERY
+
+SPONSORED CONTENT
+≠ PAID AMPLIFICATION
+```
+
+When Paid Media knowledge can change the open decision, use the `paid-media` namespace and load only the smallest relevant route:
+
+```text
+business/media value vs platform objective / optimization signal
+→ paid-media.objective
+
+budget/resource, constraints, audience signals, authorizations,
+obligations, bid/cost/return controls, measurement/feedback rules,
+scope / authority / precedence
+→ paid-media.control
+
+paid opportunity / inventory, buying mechanism, actual allocation boundary,
+pacing / bid / learning / mediation state, executed placement / creative /
+destination, delivery / rendering / exposure semantics
+→ paid-media.allocation
+
+delivery / spend / billing / attributed outcome / optimization-eligible signal /
+optimization feedback / time-maturity / modeled reach-frequency semantics
+→ paid-media.observation
+
+consequential retained paid-media decision
+→ paid-media.decision-record
+
+activation / owner boundary or anti-folklore check
+→ paid-media.core or paid-media.invariants
+```
+
+These routes specialize the existing Chapter 08 actor/object/representation/audience/edge/mediation/observation grammar. They do not create campaign, auction, bid, targeting, learning, feedback, exposure, or global paid-audience primitives.
+
+Keep these owner boundaries:
+
+```text
+customer / segment / market-demand inference
+→ Chapter 01 / 02
+
+ad message / claim / proof
+→ Chapter 04
+
+causal diagnosis / incrementality / experiment / causal spend leverage
+→ Chapter 05
+
+shared platform/content grammar
+→ Chapter 08 / content.*
+
+product / variant / listing / commerce identity
+→ Chapter 09 / commerce.*
+
+customer-facing commercial design
+→ Chapter 10 / commercial-design.*
+
+landing-page architecture after entry
+→ Chapter 11 / landing-page.*
+
+generic non-paid discovery semantics
+→ Chapter 13 / discovery.*
+```
+
+When a paid performance symptom is causally unresolved, begin with Chapter 05 rather than assuming a paid-media lever is the cause. Load Paid Media only when the discriminating question reaches objective/control/allocation/delivery/billing/attribution/feedback semantics. Route to Chapter 04 only if message/creative is actually implicated.
+
+Current provider objectives, bid strategies, auction/deal mechanics, audience-control meanings, placement systems, learning-state definitions, pricing/billing rules, attribution windows, policy constraints, and automated-creative behavior are time-sensitive authoritative dependencies. Retrieve them JIT when they can change the decision; do not transfer one provider's current rule into a universal paid-media law.
+
+Keep when material:
+
+```text
+BUSINESS VALUE ≠ PLATFORM OPTIMIZATION TARGET
+TARGET CUSTOMER ≠ TARGETING SPECIFICATION ≠ REACHED AUDIENCE
+HARD CONSTRAINT ≠ SOFT SIGNAL
+CONTROL TYPE ≠ CONTROL PRECEDENCE
+CAMPAIGN ≠ RESOURCE / OPTIMIZATION BOUNDARY
+ADVERTISER SPECIFICATION ≠ PLATFORM EXECUTION
+BUDGET ≠ ALLOCATION ≠ PACING ≠ BID ≠ SPEND
+PAID MEDIA ≠ AUCTION ONLY
+DELIVERED ≠ SEEN ≠ ATTENDED TO
+REPORTED ≠ OPTIMIZATION-ELIGIBLE
+BILLING EVENT ≠ OPTIMIZATION EVENT
+ATTRIBUTED OUTCOME ≠ CAUSAL EFFECT
+OBSERVATION ≠ AUTOMATIC OPTIMIZATION FEEDBACK
+```
+
 ## Commerce / product discovery
 
 Use when an e-commerce, marketplace, or agent-mediated commerce environment can materially change product/listing communication, catalog or variant reasoning, commercial-state interpretation, product discoverability, delegated checkout authority, or performance diagnosis.
@@ -569,6 +664,12 @@ Pass forward only the discovery event level actually supported — availability/
 
 Do not convert impression into verified attention, click into relevance, no-click into failure, citation into authority or causal influence, or search interest into market demand. Use Chapter 05 when incrementality or causal interpretation is open; use Chapter 01/02 when customer/market-demand inference is open.
 
+## Paid-media observation → learning or diagnosis
+
+Pass forward only the paid-delivery state actually supported — material objective/optimization signal where known, control/allocation boundary, delivered/rendered representation or exposure opportunity, spend/billing event, attributed outcome, optimization-eligible signal, known feedback role, current mediation/history state, event definition, unit, time/maturity, modeling/coverage, provenance, and uncertainty — when omission would change the next decision.
+
+Do not convert a campaign container into the resource/optimization boundary, a targeting input into the reached audience, delivery/rendering into verified attention, attributed outcome into causal effect, or reported data into optimization feedback without evidence. Use Chapter 05 when the next decision depends on causal leverage or incrementality; use Chapter 04 only when message/creative is actually implicated.
+
 ## Commerce observation → learning
 
 Pass forward the event or stage, material commercial state, outcome/refund maturity, and exposure provenance only when omission would change the learned conclusion. Preserve attribution separately from incrementality and causality.
@@ -628,7 +729,7 @@ Before returning material work, check only the dimensions relevant to the curren
 - **Counterevidence / uncertainty:** material contradictions and unknowns remain represented in reasoning and surface when the recipient needs them.
 - **Reader / environment fit:** audience-facing communication respects the recipient's state, relationship, surface, permissions, and information budget when those dimensions are material.
 - **Strategic coherence:** prose expresses a sufficiently resolved strategy rather than substituting for one.
-- **Evidence-generation fit:** when platform metrics drive a decision, the interpretation respects material exposure, response opportunity, interaction provenance, delivery, visibility, history, maturity, attribution, and comparability constraints.
+- **Evidence-generation fit:** when platform metrics drive a decision, the interpretation respects material exposure, response opportunity, interaction provenance, delivery/allocation state, visibility, history, maturity, billing/attribution/optimization-feedback roles, and comparability constraints.
 - **Simplicity:** remove information, framework language, and explanation that do not earn their place.
 - **Ethical persuasion:** preserve meaningful choice.
 
