@@ -231,5 +231,11 @@ class RunRecord:
     finished_at: str
     event_sha256: str | None = None
     output_sha256: str | None = None
+    event_count: int = 0
+    raw_events: tuple[dict[str, Any], ...] = field(default_factory=tuple)
+    final_output: str | None = None
+    stderr: str = ""
+    exit_code: int | None = None
+    executor_version: str | None = None
     answer_disposition: str | None = None
     limitations: tuple[str, ...] = field(default_factory=tuple)
