@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import shutil
 import signal
 import subprocess
@@ -99,10 +100,18 @@ def activation_verified(
             continue
         if item.get("exit_code") != 0 or request.workspace.skill_path is None:
             continue
-        command = str(item.get("command", "")).lower().replace("\\", "/")
-        expected = str(
-            (request.workspace.skill_path / "SKILL.md").resolve()
-        ).lower().replace("\\", "/")
+        command = re.sub(
+            r"/+",
+            "/",
+            str(item.get("command", "")).lower().replace("\\", "/"),
+        )
+        expected = re.sub(
+            r"/+",
+            "/",
+            str(
+                (request.workspace.skill_path / "SKILL.md").resolve()
+            ).lower().replace("\\", "/"),
+        )
         if expected in command:
             return True
     return None

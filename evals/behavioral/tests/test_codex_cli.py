@@ -21,12 +21,13 @@ from evals.behavioral.behavioral_eval.workspace import WorkspaceBinding
 class CodexCliTests(unittest.TestCase):
     def test_successful_exact_skill_read_is_activation_evidence(self) -> None:
         skill_file = self.binding.skill_path / "SKILL.md"
+        escaped_skill_file = str(skill_file).replace("\\", "\\\\")
         events = (
             {
                 "type": "item.completed",
                 "item": {
                     "type": "command_execution",
-                    "command": f"Get-Content -LiteralPath '{skill_file}' -Raw",
+                    "command": f"Get-Content -LiteralPath '{escaped_skill_file}' -Raw",
                     "exit_code": 0,
                 },
             },
