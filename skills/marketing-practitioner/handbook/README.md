@@ -24,6 +24,7 @@ For large indexed chapters, `../routing-index.json` is the stable semantic addre
 | [`11-landing-page-architecture.md`](11-landing-page-architecture.md) | landing-page architecture | reader/message/proof/commercial state is sufficiently resolved and the remaining decision is page sequence, allocation, proof/risk/visual placement, CTA/forms, comparison representation, or responsive meaningful order |
 | [`12-email-communication-architecture.md`](12-email-communication-architecture.md) | email communication architecture | message/claim/proof is sufficiently resolved and the remaining decision is whether/when to communicate, scoped send state, sequence/wait/exit logic, inbox→message allocation, continuity, or email observation semantics |
 | [`13-search-and-discovery-architecture.md`](13-search-and-discovery-architecture.md) | search & discovery architecture | generic non-commerce information/entity availability, retrieval/selection, human-selection vs system-answer commitment, grounding/citation boundaries, or discovery observation semantics can change the decision |
+| [`14-paid-media-architecture.md`](14-paid-media-architecture.md) | paid media architecture | economic resource, paid-control semantics, buying/allocation boundary, delivery/realization state, billing/attribution, or optimization feedback can change a paid-exposure decision |
 
 ## Important boundaries
 
@@ -41,6 +42,8 @@ LANDING-PAGE ARCHITECTURE
 EMAIL COMMUNICATION ARCHITECTURE
 !=
 SEARCH & DISCOVERY ARCHITECTURE
+!=
+PAID MEDIA ARCHITECTURE
 ```
 
 and:
@@ -59,6 +62,8 @@ PAGE ALLOCATION / REPRESENTATION
 EMAIL SEND / SEQUENCE / ENCOUNTER ALLOCATION
 !=
 DISCOVERY AVAILABILITY / RETRIEVAL / SELECTION / COMMITMENT
+!=
+PAID CONTROL / RESOURCE ALLOCATION / DELIVERY / FEEDBACK
 ```
 
 Examples:
@@ -85,6 +90,12 @@ Examples:
 "Bing cited us 500 times. Can we claim industry authority?"
 → Chapter 13 for citation semantics, then Chapter 04 for the proposed authority claim
 
+"CPA rose after the optimization event and budget changed. Should we rewrite the ad?"
+→ Chapter 05 while cause is unresolved; Chapter 14 if paid control/allocation/feedback semantics can change the decision; Chapter 04 only if creative/message is actually implicated
+
+"We paid a creator to publish one post but are not boosting it. Is that automatically Paid Media?"
+→ no; paid relationship != paid-media delivery; use creator/content/message/current-disclosure owners as needed
+
 "Why does Shopee show this buyer a lower displayed price?"
 → Chapter 09 + the Shopee module as needed
 
@@ -94,7 +105,7 @@ Examples:
 
 ## Large-chapter routing
 
-Chapters 08–13 expose stable logical routes through `../routing-index.json`.
+Chapters 08–14 expose stable logical routes through `../routing-index.json`.
 
 Examples:
 
@@ -117,6 +128,10 @@ discovery.availability
 discovery.selection
 discovery.commitment
 discovery.observation
+paid-media.objective
+paid-media.control
+paid-media.allocation
+paid-media.observation
 ```
 
 When helper execution is available:
@@ -128,6 +143,8 @@ python ../scripts/get-knowledge.py email.send-decision
 python ../scripts/get-knowledge.py email.continuity
 python ../scripts/get-knowledge.py discovery.availability
 python ../scripts/get-knowledge.py discovery.commitment
+python ../scripts/get-knowledge.py paid-media.control
+python ../scripts/get-knowledge.py paid-media.observation
 python ../scripts/get-knowledge.py commerce.resolvability
 ```
 

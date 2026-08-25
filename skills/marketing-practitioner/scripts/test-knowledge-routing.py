@@ -65,6 +65,14 @@ def main() -> int:
         "discovery.observation": "## 6. Discovery observation and causal boundary",
         "discovery.decision-record": "## 8. Compact discovery decision record",
         "discovery.invariants": "## 9. Anti-folklore invariants",
+        "paid-media.core": "## 1. Scope: decide how economic resource becomes mediated paid exposure",
+        "paid-media.objective": "## 2. Objective and decision value",
+        "paid-media.control": "## 3. Control and authority envelope",
+        "paid-media.allocation": "## 4. Paid opportunity, allocation, realization, and exposure state",
+        "paid-media.observation": "## 5. Observation, billing, attribution, feedback, and causal boundary",
+        "paid-media.handoffs": "## 6. Owner boundaries and decision handoffs",
+        "paid-media.decision-record": "## 7. Compact paid-media decision record",
+        "paid-media.invariants": "## 8. Anti-folklore invariants",
     }
     for route_id, expected_heading in expected_routes.items():
         _, content = module.get_knowledge(route_id)
@@ -78,6 +86,12 @@ def main() -> int:
     assert discovery_source_path == "references/search-discovery-evidence.md"
     assert discovery_source_content.startswith(
         "## [SD09] Bing — Evolving role of the index: from ranking pages to supporting answers"
+    )
+
+    paid_source_path, paid_source_content = module.get_source("PM03")
+    assert paid_source_path == "references/paid-media-evidence.md"
+    assert paid_source_content.startswith(
+        "## [PM03] Display & Video 360 — Frequency caps across auction and Programmatic Guaranteed inventory"
     )
 
     fixture = """# Fixture\n\n## A\nA intro\n\n### A.1\nA1 body\n\n#### A.1.1\nA11 body\n\n### A.2\nA2 body\n\n## B\nB body\n\n<!-- route:start fixture.marker -->\nMARKER BODY\n\n### nested marker heading\nstill marker\n<!-- route:end fixture.marker -->\n\n## C\nC body\n"""
@@ -221,7 +235,7 @@ def main() -> int:
         "--namespace is only valid with --list",
     )
 
-    print("PASS\t49 routing-mechanics smoke checks")
+    print("PASS\t58 routing-mechanics smoke checks")
     return 0
 
 
