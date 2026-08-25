@@ -56,6 +56,135 @@ class CodexCliTests(unittest.TestCase):
         with mock.patch.object(Path, "resolve", return_value=canonical_spelling):
             self.assertTrue(activation_verified(events, self.request))
 
+    def test_activation_rejects_expected_path_mentioned_after_other_read(self) -> None:
+        skill_file = self.binding.skill_path / "SKILL.md"
+        other_file = self.root / "other" / "SKILL.md"
+        events = (
+            {
+                "type": "item.completed",
+                "item": {
+                    "type": "command_execution",
+                    "command": (
+                        f"Get-Content -LiteralPath '{other_file}'; "
+                        f"Write-Output '{skill_file}'"
+                    ),
+                    "exit_code": 0,
+                },
+            },
+        )
+
+        self.assertIsNone(activation_verified(events, self.request))
+
+    def test_activation_rejects_skill_file_suffix(self) -> None:
+        skill_file = self.binding.skill_path / "SKILL.md"
+        events = (
+            {
+                "type": "item.completed",
+                "item": {
+                    "type": "command_execution",
+                    "command": f"Get-Content -LiteralPath '{skill_file}.backup' -Raw",
+                    "exit_code": 0,
+                },
+            },
+        )
+
+        self.assertIsNone(activation_verified(events, self.request))
+
+    def test_activation_rejects_expected_path_in_reader_comment(self) -> None:
+        skill_file = self.binding.skill_path / "SKILL.md"
+        other_file = self.root / "other" / "SKILL.md"
+        events = (
+            {
+                "type": "item.completed",
+                "item": {
+                    "type": "command_execution",
+                    "command": (
+                        f"Get-Content -LiteralPath '{other_file}' -Raw "
+                        f"# expected: {skill_file}"
+                    ),
+                    "exit_code": 0,
+                },
+            },
+        )
+
+        self.assertIsNone(activation_verified(events, self.request))
+
+    def test_activation_rejects_reader_variable_rebound_before_read(self) -> None:
+        skill_file = self.binding.skill_path / "SKILL.md"
+        other_file = self.root / "other" / "SKILL.md"
+        events = (
+            {
+                "type": "item.completed",
+                "item": {
+                    "type": "command_execution",
+                    "command": (
+                        f"$skillPath = '{skill_file}'; "
+                        f"$skillPath = '{other_file}'; "
+                        "Get-Content -LiteralPath $skillPath -Raw"
+                    ),
+                    "exit_code": 0,
+                },
+            },
+        )
+
+        self.assertIsNone(activation_verified(events, self.request))
+
+    def test_activation_accepts_expected_path_through_reader_variable(self) -> None:
+        skill_file = self.binding.skill_path / "SKILL.md"
+        events = (
+            {
+                "type": "item.completed",
+                "item": {
+                    "type": "command_execution",
+                    "command": (
+                        f"$skillPath = '{skill_file}'; "
+                        "Get-Content -LiteralPath $skillPath -Raw"
+                    ),
+                    "exit_code": 0,
+                },
+            },
+        )
+
+        self.assertTrue(activation_verified(events, self.request))
+
+    def test_activation_accepts_shell_escaped_reader_variable(self) -> None:
+        skill_file = self.binding.skill_path / "SKILL.md"
+        command = (
+            '"pwsh.exe" -Command \'$skillPath = '
+            "'\"'"
+            f"{skill_file}'; Get-Content -LiteralPath \"'$skillPath"
+        )
+        events = (
+            {
+                "type": "item.completed",
+                "item": {
+                    "type": "command_execution",
+                    "command": command,
+                    "exit_code": 0,
+                },
+            },
+        )
+
+        self.assertTrue(activation_verified(events, self.request))
+
+    def test_activation_accepts_resolved_spelling_when_lexical_differs(self) -> None:
+        canonical_spelling = (
+            self.root / "canonical" / "marketing-practitioner" / "SKILL.md"
+        )
+        events = (
+            {
+                "type": "item.completed",
+                "item": {
+                    "type": "command_execution",
+                    "command": f"Get-Content -LiteralPath '{canonical_spelling}' -Raw",
+                    "exit_code": 0,
+                },
+            },
+        )
+
+        with mock.patch.object(Path, "resolve", return_value=canonical_spelling):
+            self.assertTrue(activation_verified(events, self.request))
+
     def test_default_executable_resolves_windows_command_shim(self) -> None:
         with mock.patch(
             "evals.behavioral.behavioral_eval.codex_cli.shutil.which",

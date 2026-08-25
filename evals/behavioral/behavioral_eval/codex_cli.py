@@ -89,6 +89,66 @@ def _normalize_path_text(value: str) -> str:
     return re.sub(r"/+", "/", value.lower().replace("\\", "/"))
 
 
+def _operand_references_expected(
+    value: str,
+    expected_paths: set[str],
+    bound_variables: set[str],
+) -> bool:
+    candidate = value.lstrip(" \t'\"`")
+    for expected_path in expected_paths:
+        if candidate.startswith(expected_path):
+            suffix = candidate[len(expected_path) : len(expected_path) + 1]
+            if not suffix or re.match(r"[\w./:-]", suffix) is None:
+                return True
+    for variable in bound_variables:
+        if candidate.startswith(variable):
+            suffix = candidate[len(variable) : len(variable) + 1]
+            if not suffix or re.match(r"[\w]", suffix) is None:
+                return True
+    return False
+
+
+def _command_reads_expected_path(command: str, expected_paths: set[str]) -> bool:
+    normalized = _normalize_path_text(command).replace("'\"'", "'")
+    bound_variables: set[str] = set()
+    assignment_pattern = re.compile(
+        r"(?P<variable>\$[a-z_][a-z0-9_]*)\s*=\s*"
+        r"(?P<quote>['\"])(?P<value>.*?)(?P=quote)"
+    )
+    variable_assignment_pattern = re.compile(
+        r"(?P<variable>\$[a-z_][a-z0-9_]*)\s*="
+    )
+    get_content_pattern = re.compile(r"\bget-content\b(?P<arguments>[^|]*)")
+    path_option_pattern = re.compile(r"-(?:literalpath|path)\b")
+    dotnet_reader_pattern = re.compile(
+        r"\[system\.io\.file\]::"
+        r"(?:readalllines|readalltext|readallbytes|readlines)\s*"
+        r"\((?P<arguments>[^)]*)\)"
+    )
+
+    for statement in re.split(r"[;\r\n]+", normalized):
+        for assignment in variable_assignment_pattern.finditer(statement):
+            bound_variables.discard(assignment.group("variable"))
+        for assignment in assignment_pattern.finditer(statement):
+            variable = assignment.group("variable")
+            value = assignment.group("value")
+            if value in expected_paths:
+                bound_variables.add(variable)
+        for reader in get_content_pattern.finditer(statement):
+            arguments = reader.group("arguments")
+            for option in path_option_pattern.finditer(arguments):
+                if _operand_references_expected(
+                    arguments[option.end() :], expected_paths, bound_variables
+                ):
+                    return True
+        for reader in dotnet_reader_pattern.finditer(statement):
+            if _operand_references_expected(
+                reader.group("arguments"), expected_paths, bound_variables
+            ):
+                return True
+    return False
+
+
 def activation_verified(
     events: tuple[dict[str, Any], ...], request: ExecutorRequest
 ) -> bool | None:
@@ -104,13 +164,14 @@ def activation_verified(
             continue
         if item.get("exit_code") != 0 or request.workspace.skill_path is None:
             continue
-        command = _normalize_path_text(str(item.get("command", "")))
         skill_file = request.workspace.skill_path / "SKILL.md"
         expected_paths = {
             _normalize_path_text(str(skill_file)),
             _normalize_path_text(str(skill_file.resolve())),
         }
-        if any(expected in command for expected in expected_paths):
+        if _command_reads_expected_path(
+            str(item.get("command", "")), expected_paths
+        ):
             return True
     return None
 
