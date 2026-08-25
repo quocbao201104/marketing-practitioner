@@ -8,7 +8,7 @@
 
 *Learn the market before writing the copy.*
 
-[![Version: v0.8.0](https://img.shields.io/badge/version-v0.8.0-0a7.svg)](#status)
+[![Version: v0.9.0](https://img.shields.io/badge/version-v0.9.0-0a7.svg)](#status)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Language: English](https://img.shields.io/badge/language-English-4c1.svg)](#)
 [![Format: Agent Skill](https://img.shields.io/badge/format-Agent%20Skill-6f42c1.svg)](skills/marketing-practitioner/SKILL.md)
@@ -18,7 +18,7 @@
 
 ---
 
-Marketing Practitioner gives an AI agent a disciplined way to turn messy market evidence into bounded marketing decisions — across customer research, segmentation, positioning, **commercial design and pricing**, messaging, **landing-page architecture**, **email communication architecture**, **search & discovery architecture**, copy, platform content, commerce, product discovery, diagnosis, experimentation, localization, and learning.
+Marketing Practitioner gives an AI agent a disciplined way to turn messy market evidence into bounded marketing decisions — across customer research, segmentation, positioning, **commercial design and pricing**, messaging, **landing-page architecture**, **email communication architecture**, **search & discovery architecture**, **paid media architecture**, copy, platform content, commerce, product discovery, diagnosis, experimentation, localization, and learning.
 
 It is not a bag of growth hacks or prompt templates. The runtime starts from the job you actually need done, freezes decisions that are already resolved, loads deeper knowledge only when it can change the open decision, and returns the minimum useful output for that job.
 
@@ -240,6 +240,46 @@ SEARCH INTEREST != MARKET DEMAND
 
 Chapter 01/02 still own customer/segment/market-demand inference; Chapter 04 owns marketing claim/proof; Chapter 05 owns causality and incrementality; Chapter 08 remains the shared platform/content grammar; Chapter 09 owns product/listing/commerce discovery; Chapter 11 owns landing-page architecture after entry. Current crawler controls, indexing directives, provider eligibility rules, ranking/recommendation disclosures, AI-search controls, and telemetry definitions remain just-in-time authoritative dependencies rather than timeless SEO/GEO/AEO rules.
 
+### Paid media architecture
+
+Version 0.9.0 adds a bounded specialist path for decisions where economic resource is used to secure, reserve, compete for, allocate, or amplify mediated audience exposure.
+
+It can help distinguish:
+
+- business/media decision value from the platform objective or optimization signal;
+- target customer from targeting specification and actually reached audience;
+- hard constraints from soft signals, and control type from control precedence;
+- campaign containers from the actual resource or optimization boundary;
+- budget from allocation, pacing, bid, and spend;
+- auction-mediated delivery from reserved, guaranteed, fixed-price, or other buying mechanisms;
+- advertiser specification from platform execution;
+- delivered/rendered exposure from verified seeing or attention;
+- reported events from optimization-eligible signals;
+- billing events from optimization events;
+- attributed outcomes from causal or incremental effects;
+- paid relationships or sponsored content from actual paid-media delivery/amplification.
+
+The path deliberately keeps these boundaries:
+
+```text
+PAID RELATIONSHIP != PAID MEDIA DELIVERY
+SPONSORED CONTENT != PAID AMPLIFICATION
+PAID MEDIA != AUCTION ONLY
+BUSINESS VALUE != PLATFORM OPTIMIZATION TARGET
+HARD CONSTRAINT != SOFT SIGNAL
+CONTROL TYPE != CONTROL PRECEDENCE
+CAMPAIGN != RESOURCE / OPTIMIZATION BOUNDARY
+BUDGET != ALLOCATION != PACING != BID != SPEND
+ADVERTISER SPECIFICATION != PLATFORM EXECUTION
+DELIVERED != SEEN != ATTENDED TO
+REPORTED != OPTIMIZATION-ELIGIBLE
+BILLING EVENT != OPTIMIZATION EVENT
+ATTRIBUTED OUTCOME != CAUSAL EFFECT
+OBSERVATION != AUTOMATIC OPTIMIZATION FEEDBACK
+```
+
+Chapter 04 still owns ad message/claim/proof; Chapter 05 owns causal diagnosis, incrementality, experiments, and causal spend leverage; Chapter 08 remains the shared platform/content grammar; Chapter 09 owns product/listing/commerce identity; Chapter 10 owns customer-facing Commercial Design; Chapter 11 owns landing-page architecture after entry; Chapter 13 owns generic non-paid discovery. Current provider objectives, audience-control meanings, bidding products, auction/deal mechanics, placement systems, billing rules, attribution windows, learning-state definitions, policy constraints, and automated-creative behavior remain just-in-time authoritative dependencies rather than universal paid-media laws.
+
 ### Social content and distribution environments
 
 The shared content-environment model supports current modules for:
@@ -343,6 +383,12 @@ A noun does not activate a full reasoning path by itself.
 → discovery.availability / selection / commitment only as needed
 → rewrite only if evidence localizes the defect to content/message/representation
 
+"CPA rose after we changed the optimization event and doubled budget. Should we rewrite the ads?"
+→ paid-performance symptom does not establish a creative cause
+→ Chapter 05 first while cause is unresolved
+→ paid-media.objective / control / allocation / observation only when those semantics can discriminate the state
+→ Chapter 04 only if message/creative is actually implicated
+
 "Should this be $29 or $39?"
 → commercial condition is unresolved
 → Commercial Design
@@ -381,6 +427,11 @@ email.observation
 discovery.availability
 discovery.commitment
 discovery.observation
+paid-media.objective
+paid-media.control
+paid-media.allocation
+paid-media.handoffs
+paid-media.observation
 commerce.identity
 commerce.resolvability
 shopee.conversational-discovery
@@ -396,6 +447,8 @@ python skills/marketing-practitioner/scripts/get-knowledge.py landing-page.seque
 python skills/marketing-practitioner/scripts/get-knowledge.py email.send-decision
 python skills/marketing-practitioner/scripts/get-knowledge.py discovery.availability
 python skills/marketing-practitioner/scripts/get-knowledge.py discovery.commitment
+python skills/marketing-practitioner/scripts/get-knowledge.py paid-media.control
+python skills/marketing-practitioner/scripts/get-knowledge.py paid-media.handoffs
 python skills/marketing-practitioner/scripts/get-knowledge.py commerce.resolvability
 python skills/marketing-practitioner/scripts/get-knowledge.py --list --namespace shopee
 ```
@@ -406,6 +459,7 @@ Evidence records use intrinsic source IDs rather than being duplicated into the 
 python skills/marketing-practitioner/scripts/get-knowledge.py --source CD08
 python skills/marketing-practitioner/scripts/get-knowledge.py --source EM03
 python skills/marketing-practitioner/scripts/get-knowledge.py --source SD09
+python skills/marketing-practitioner/scripts/get-knowledge.py --source PM03
 python skills/marketing-practitioner/scripts/get-knowledge.py --source R23
 python skills/marketing-practitioner/scripts/get-knowledge.py --source A03
 ```
@@ -428,6 +482,9 @@ The repository uses a conservative standard for claims and learning:
 - published or indexed state does not establish universal cross-system discoverability;
 - citation does not establish authority, endorsement, faithful source use, or causal influence;
 - search interest does not directly establish customer count, purchase intent, or market demand;
+- a paid relationship or sponsored-content fee does not by itself establish paid-media delivery;
+- a reported paid-media event does not automatically establish optimization eligibility or feedback use;
+- a paid-media billing or attributed event does not establish causal or incremental business effect;
 - observed engagement does not automatically establish organic human preference;
 - a ranking signal or exposed implementation parameter is not automatically a writing instruction;
 - machine- or platform-inferred product information is not automatically verified product truth;
@@ -472,7 +529,8 @@ The installable skill is under [`skills/marketing-practitioner/`](skills/marketi
         │   ├── 10-commercial-design-pricing-and-terms.md
         │   ├── 11-landing-page-architecture.md
         │   ├── 12-email-communication-architecture.md
-        │   └── 13-search-and-discovery-architecture.md
+        │   ├── 13-search-and-discovery-architecture.md
+        │   └── 14-paid-media-architecture.md
         ├── platforms/
         │   ├── README.md
         │   ├── facebook.md
@@ -508,7 +566,7 @@ skills/marketing-practitioner/
 = compressed governed runtime knowledge
 ```
 
-For example, the Commercial Design, Landing-Page Architecture, Email Communication Architecture, and Search & Discovery Architecture research tracks record why their bounded specialist knowledge exists, what candidate abstractions were rejected, and which evidence boundaries survived adversarial review. Runtime chapters contain only the compact practitioner interfaces needed by the agent.
+For example, the Commercial Design, Landing-Page Architecture, Email Communication Architecture, Search & Discovery Architecture, and Paid Media Architecture research tracks record why their bounded specialist knowledge exists, what candidate abstractions were rejected, and which evidence boundaries survived adversarial review. Runtime chapters contain only the compact practitioner interfaces needed by the agent.
 
 ## A few copy-paste recipes
 
@@ -575,6 +633,21 @@ Treat current provider rules as just-in-time evidence.
 Rewrite only if the evidence actually localizes the defect to content/message/representation.
 ```
 
+### Diagnose paid media before rewriting creative
+
+```text
+CPA changed after paid-media settings or delivery state changed.
+Here are the business goal, platform objective, budget/resource scope, targeting inputs,
+bid/allocation state, recent edits, delivery observations, billing/attribution settings,
+and the creative state we actually know.
+
+Do not assume weak paid performance is a creative problem.
+Start with causal diagnosis when cause is unresolved, then separate objective, control,
+allocation/realization, and observation/feedback semantics only where they can change the decision.
+Do not treat a reported or attributed outcome as incremental effect.
+Rewrite creative only if the evidence actually implicates message/creative.
+```
+
 ### Improve a product listing
 
 ```text
@@ -625,15 +698,16 @@ Marketing Practitioner is not:
 - a library of platform “algorithm hacks”;
 - a universal marketing funnel;
 - a pricing optimizer;
+- a universal media planner, auction model, attribution model, or paid-media optimizer;
 - a substitute for authoritative finance, product, operations, legal, or sales decisions;
 - a guarantee that more engagement means more customer value;
 - a claim that public ranking signals reveal a platform's complete production system;
-- a guarantee of ranking, recommendation, retrieval, citation, or answer inclusion;
+- a guarantee of ranking, recommendation, retrieval, citation, answer inclusion, or paid delivery;
 - a substitute for missing product truth or missing evidence.
 
 ## Status
 
-**Current release: v0.8.0 — Search & Discovery Architecture.**
+**Current release: v0.9.0 — Paid Media Architecture.**
 
 The current main branch includes:
 
@@ -646,6 +720,8 @@ The current main branch includes:
 - direct JIT `email.*` routing for email-specific decisions while ordinary email rewrites remain on the narrow copy fast path;
 - a bounded Search & Discovery Architecture specialist layer for discovery need/expression, scoped availability, retrieval/selection, human-selection vs system-commitment/grounding, and discovery observation semantics;
 - direct JIT `discovery.*` routing for generic non-commerce discovery decisions while narrow search-related transformations remain on the fast path;
+- a bounded Paid Media Architecture specialist layer for decision value, control/authority, paid opportunity/allocation/realization, delivery/exposure interpretation, billing/attribution/optimization-feedback semantics, and cross-owner handoffs;
+- direct JIT `paid-media.*` routing with eight addressable sections while ordinary ad-copy transformations remain on the narrow copy fast path and unresolved causal symptoms remain Chapter 05-first;
 - the generic Chapter 08 owned-channel composition path for non-email channels such as SMS and push;
 - a shared social/content-environment model plus five social platform modules;
 - a shared commerce/product-discovery model plus six commerce platform modules;
@@ -655,7 +731,7 @@ The current main branch includes:
 - research-backed task specification and agent-side prompt compilation;
 - scoped research lineage plus targeted adversarial reviews and runtime smoke tests.
 
-The project does **not** claim complete knowledge of private platform ranking/retrieval systems, universal discovery or citation rules, a universally optimal pricing method, a universal landing-page template, universal email cadence/send-time/personalization rules, legal/provider compliance for every context, or universal runtime reliability. The architecture is expected to improve through real use and concrete failures rather than by adding abstractions for their own sake.
+The project does **not** claim complete knowledge of private platform ranking/retrieval/ad-delivery systems, universal discovery or citation rules, universal auction/bidding/targeting/attribution behavior, a universally optimal pricing method, a universal landing-page template, universal email cadence/send-time/personalization rules, legal/provider compliance for every context, or universal runtime reliability. The architecture is expected to improve through real use and concrete failures rather than by adding abstractions for their own sake.
 
 ## Installation and manual use
 
@@ -681,13 +757,13 @@ skills/marketing-practitioner/SKILL.md
 
 Contributions are welcome when they preserve the evidence and scope discipline of the project. See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
-For platform changes, prefer current first-party or otherwise strong evidence and keep eligibility, retrieval, ranking, recommendation, representation, commercial state, and observed outcomes separate when the distinction matters.
+For platform changes, prefer current first-party or otherwise strong evidence and keep eligibility, retrieval, ranking, recommendation, representation, commercial state, paid allocation/delivery state, and observed outcomes separate when the distinction matters.
 
 For new top-level reasoning capabilities, establish the decision-relevant gap and theory boundary before implementation.
 
 ## Attribution
 
-The repository synthesizes marketing research, methodological literature, recommender-system and platform research, current product documentation, pricing and commercial-design research, landing-page/CRO usability research, email/provider/transport/privacy/regulatory research, information-retrieval and discovery research, and practical writing methods. Its copywriting and human-writing sections were also informed by MIT-licensed work from the AI Copywriter / humanizer lineage.
+The repository synthesizes marketing research, methodological literature, recommender-system and platform research, current product documentation, pricing and commercial-design research, landing-page/CRO usability research, email/provider/transport/privacy/regulatory research, information-retrieval and discovery research, paid-media buying/allocation/measurement research, and practical writing methods. Its copywriting and human-writing sections were also informed by MIT-licensed work from the AI Copywriter / humanizer lineage.
 
 See [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md), [`skills/marketing-practitioner/references/bibliography.md`](skills/marketing-practitioner/references/bibliography.md), and the scoped evidence notes under [`skills/marketing-practitioner/references/`](skills/marketing-practitioner/references/).
 
