@@ -105,14 +105,15 @@ Implicit invocation remains at its default. No MCP dependency is declared becaus
 
 `scripts/verify.ps1` is the sole maintained verification entrypoint. It runs, in fail-fast order:
 
-1. the current Codex skill validator;
-2. knowledge-route mechanics tests;
-3. full route/source validation;
-4. Pressure Discovery pilot tests;
-5. behavioral harness unit tests;
-6. UTF-8 and generated-artifact hygiene checks.
+1. the repository-owned package/frontmatter validator;
+2. the current Codex skill validator when its installed path is discoverable;
+3. knowledge-route mechanics tests;
+4. full route/source validation;
+5. Pressure Discovery pilot tests;
+6. behavioral harness unit tests;
+7. UTF-8 and generated-artifact hygiene checks.
 
-The GitHub Actions workflow invokes this same script. CI contains no independent test logic, so local and hosted verification cannot silently drift.
+The repository-owned validator preserves a stable CI floor. A local release gate must additionally pass the installed current Codex validator; absence of that external validator is reported explicitly and cannot be represented as an executed pass. The GitHub Actions workflow invokes the same verification script. CI contains no independent test logic, so local and hosted verification cannot silently drift.
 
 ## Behavioral case contract
 
