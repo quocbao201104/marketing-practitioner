@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "executed_on": "2026-08-25",
+  "candidate": "compact-controller-0.9.0-compact.1",
+  "challenger_skill_sha256": "395a20c1a88fd3a9c397988bfcfd772ded524c1448b0b5d09415a5661e52b10b",
+  "controller_metrics": {
+    "current_words": 6768,
+    "challenger_words": 1692,
+    "word_reduction_fraction": 0.75,
+    "current_bytes": 52003,
+    "challenger_bytes": 13229
+  },
+  "executor": {
+    "model": "gpt-5.6-terra",
+    "reasoning_effort": "medium",
+    "repetitions_per_case": 2
+  },
+  "runs": {
+    "total": 24,
+    "completed": 17,
+    "activation_unverified": 7
+  },
+  "current_skill_reference": {
+    "total": 24,
+    "completed": 21,
+    "activation_unverified": 3
+  },
+  "promotion_gate": {
+    "outcome": "rejected",
+    "reason": "activation failures increased from 3/24 to 7/24",
+    "semantic_review_performed": false,
+    "installed_skill_modified": false
+  }
+}
