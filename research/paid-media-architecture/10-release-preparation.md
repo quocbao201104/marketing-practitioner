@@ -147,7 +147,7 @@ Release preparation is allowed to change only:
 - `CHANGELOG.md` — `0.9.0` release entry;
 - this release-preparation record.
 
-No handbook semantics, controller semantics, routing bindings, evidence ledger, adversarial contract, correction target, or provider knowledge may change during release preparation.
+Final comparison from `d49d717ac4b8245fd31bd748be9867cacba1ecf2` through release-preparation head confirmed exactly those four files changed. `SKILL.md` changed by one metadata version line only; no handbook semantics, controller semantics, routing bindings, evidence ledger, adversarial contract, correction target, or provider knowledge changed during release preparation.
 
 ## Release-preparation checklist
 
@@ -157,6 +157,6 @@ No handbook semantics, controller semantics, routing bindings, evidence ledger, 
 - [x] update public README capability/status/routing/evidence examples and Chapter 14 architecture map;
 - [x] keep original and corrected frozen review targets distinct from release-prep commits;
 - [x] preserve no-new-primitive / no-new-controller-job / no-provider-module constraints;
-- [ ] inspect final release-preparation diff for release-only drift;
-- [ ] mark PR ready after the release-preparation diff is clean;
+- [x] inspect final release-preparation diff for release-only drift;
+- [x] mark PR ready after the release-preparation diff is clean;
 - [ ] merge/release only in a later explicit gate.
