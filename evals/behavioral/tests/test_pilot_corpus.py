@@ -53,7 +53,9 @@ class PilotCorpusTests(unittest.TestCase):
             profiles.extend(load_profiles(path, live=True))
         by_id = {profile.profile_id: profile for profile in profiles}
 
-        self.assertEqual({"baseline", "current-skill"}, set(by_id))
+        self.assertEqual(
+            {"baseline", "current-skill", "compact-challenger"}, set(by_id)
+        )
         self.assertEqual("none", by_id["baseline"].skill_mode)
         self.assertIsNone(by_id["baseline"].skill_source)
         self.assertEqual("workspace-copy", by_id["current-skill"].skill_mode)
@@ -64,6 +66,11 @@ class PilotCorpusTests(unittest.TestCase):
             "computed-at-run-bind", by_id["current-skill"].expected_skill_sha256
         )
         self.assertEqual(2, by_id["current-skill"].repetitions)
+        self.assertEqual("workspace-copy", by_id["compact-challenger"].skill_mode)
+        self.assertIn(
+            "challengers/compact-controller",
+            by_id["compact-challenger"].skill_source,
+        )
 
 
 if __name__ == "__main__":

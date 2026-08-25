@@ -23,7 +23,7 @@ For a bounded preflight, add one or more `--case-id BEH-...` selectors and `--re
 ## Run the live paired pilot
 
 ```powershell
-python -B -m evals.behavioral.behavioral_eval.cli run --adapter codex-cli --results evals\behavioral\results\pilot-v1
+python -B -m evals.behavioral.behavioral_eval.cli run --adapter codex-cli --profile-id baseline --profile-id current-skill --results evals\behavioral\results\pilot-v1
 ```
 
 Every case/profile/repetition runs in a fresh temporary Git workspace. The baseline workspace contains no `marketing-practitioner` skill. The skill arm copies the repository skill to `.agents/skills/marketing-practitioner` and binds its tree hash before execution. Existing result directories are never overwritten.

@@ -145,6 +145,17 @@ def _run(args: argparse.Namespace) -> int:
             raise ValidationError(f"unknown selected case_id: {unknown[0]}")
         cases = [case for case in cases if case.case_id in requested]
     profiles = _load_profile_paths(args.profiles, live=args.adapter == "codex-cli")
+    if args.profile_id:
+        requested_profiles = set(args.profile_id)
+        available_profiles = {profile.profile_id for profile in profiles}
+        unknown_profiles = sorted(requested_profiles - available_profiles)
+        if unknown_profiles:
+            raise ValidationError(
+                f"unknown selected profile_id: {unknown_profiles[0]}"
+            )
+        profiles = [
+            profile for profile in profiles if profile.profile_id in requested_profiles
+        ]
     if args.repeat_limit is not None and args.repeat_limit <= 0:
         raise ValidationError("repeat-limit must be a positive integer")
     fixture_results = {
@@ -299,6 +310,7 @@ def _parser() -> argparse.ArgumentParser:
     run.add_argument("--results", type=Path, required=True)
     run.add_argument("--repo-root", type=Path, default=Path.cwd())
     run.add_argument("--case-id", action="append")
+    run.add_argument("--profile-id", action="append")
     run.add_argument("--repeat-limit", type=int)
     run.set_defaults(handler=_run)
 

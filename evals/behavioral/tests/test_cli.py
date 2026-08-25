@@ -92,6 +92,8 @@ class CliTests(unittest.TestCase):
                 "BEH-FAST-001",
                 "--repeat-limit",
                 "1",
+                "--profile-id",
+                "baseline",
             ]
         )
 
@@ -101,8 +103,8 @@ class CliTests(unittest.TestCase):
         blind_index = json.loads((results / "blind-index.json").read_text(encoding="utf-8"))
         packets = json.loads((results / "blind-packets.json").read_text(encoding="utf-8"))
         self.assertTrue(manifest["sealed"])
-        self.assertEqual(2, len(records["runs"]))
-        self.assertEqual(2, len(blind_index["bindings"]))
+        self.assertEqual(1, len(records["runs"]))
+        self.assertEqual(1, len(blind_index["bindings"]))
         self.assertEqual(
             {item["blind_id"] for item in packets["packets"]},
             {item["blind_id"] for item in blind_index["bindings"]},
