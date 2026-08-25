@@ -424,11 +424,19 @@ delivery / spend / billing / attributed outcome / optimization-eligible signal /
 optimization feedback / time-maturity / modeled reach-frequency semantics
 → paid-media.observation
 
+cross-owner boundary / handoff uncertainty across message, causality,
+shared platform grammar, commerce identity, customer-facing commercial design,
+landing-page architecture, or generic discovery
+→ paid-media.handoffs
+
 consequential retained paid-media decision
 → paid-media.decision-record
 
-activation / owner boundary or anti-folklore check
-→ paid-media.core or paid-media.invariants
+activation / scope boundary
+→ paid-media.core
+
+anti-folklore check
+→ paid-media.invariants
 ```
 
 These routes specialize the existing Chapter 08 actor/object/representation/audience/edge/mediation/observation grammar. They do not create campaign, auction, bid, targeting, learning, feedback, exposure, or global paid-audience primitives.
