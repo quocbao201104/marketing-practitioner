@@ -4,6 +4,31 @@ All notable changes to this repository are documented here.
 
 The project uses semantic versioning for published skill revisions. Early versions may change structure while the conceptual model is stabilized.
 
+## [0.8.0] - 2026-08-25
+
+### Added
+
+- Added `handbook/13-search-and-discovery-architecture.md`, a bounded specialist layer for generic non-commerce discovery decisions spanning information need/expression, scoped availability, retrieval/selection, human-selection versus system-commitment/grounding, and discovery observation semantics.
+- Added the `discovery.*` just-in-time namespace for core scope, need/query distinctions, availability/identity/freshness, retrieval/selection, grounding/commitment, observation semantics, retained decision records, and anti-folklore invariants.
+- Added `references/search-discovery-evidence.md` with scoped current-provider and information-retrieval evidence plus explicit non-transfer boundaries.
+- Added `research/search-discovery-architecture/` theory freeze, implementation self-review, mechanical-verification record, targeted-evaluation adjudication, frozen independent-review contract, and release-preparation gate record.
+- Added a 20-case adversarial Search & Discovery suite covering fast-path preservation, published/indexed/discoverable collapse, query/intent/retrieval-formulation collapse, retrieval versus evidentiary fitness, citation/telemetry overclaim, queryless discovery, missing telemetry, and Chapter 01/02/04/05/08/09/11 owner controls.
+
+### Changed
+
+- Updated `SKILL.md` so generic discovery-specific decisions can route directly to the smallest `discovery.*` section while narrow search-related transformations remain on the existing fast path.
+- Kept platform-native search-oriented content participation with Chapter 08 and product/listing/catalog discovery with Chapter 09 instead of letting the generic discovery specialist absorb those owners.
+- Preserved Chapter 01/02 ownership of customer/segment/market-demand inference, Chapter 04 ownership of marketing message/claim/proof, Chapter 05 ownership of causality/incrementality, and Chapter 11 ownership of landing-page architecture after entry.
+- Updated release metadata, handbook navigation, public README capability/status text, routing examples, and evidence examples to `v0.8.0`.
+
+### Validation status
+
+- The frozen theory and current-system gap analysis confirmed a local specialist-knowledge gap without finding an irreducible shared-grammar failure; no shared primitive or new controller job was added.
+- Targeted runtime walkthrough recorded **20 PASS, 0 PARTIAL, 0 FAIL** across the frozen adversarial suite.
+- Independent adversarial runtime review of frozen implementation/evaluation target `ccac14d214ad8a77fcec8199dedb7fc78a840cc7` returned **PROCEED TO RELEASE PREPARATION**. Later release-preparation commits are not retroactive implementation evidence for that review target.
+- Mechanical verification remains intentionally scoped: 28 helper/source/path assertions were executed locally and the eight `discovery.*` bindings plus `SD09` evidence lookup were verified directly against the candidate branch; the full checked-out 49-check routing script was not executed in the available environment and is not claimed as passed.
+- This release does not claim universal SEO/GEO/AEO/LLMO rules, complete knowledge of private ranking/retrieval systems, a global discoverability state, universal relevance/grounding/freshness/authority scores, guaranteed ranking/citation/answer inclusion, or causal/market-demand conclusions from discovery telemetry.
+
 ## [0.7.0] - 2026-08-25
 
 ### Added
