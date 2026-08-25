@@ -4,6 +4,37 @@ All notable changes to this repository are documented here.
 
 The project uses semantic versioning for published skill revisions. Early versions may change structure while the conceptual model is stabilized.
 
+## [0.9.0] - 2026-08-25
+
+### Added
+
+- Added `handbook/14-paid-media-architecture.md`, a bounded specialist layer for decisions where economic resource is used to secure, reserve, compete for, allocate, or amplify mediated audience exposure.
+- Added the `paid-media.*` just-in-time namespace for scope/activation, objective/decision value, control/authority, paid opportunity/allocation/realization, observation/billing/attribution/optimization feedback, cross-owner handoffs, retained decision records, and anti-folklore invariants.
+- Added `references/paid-media-evidence.md` with scoped current-provider, programmatic-buying, creator-amplification, and DOOH measurement evidence plus explicit `Supports` / `Does not support` boundaries.
+- Added `research/paid-media-architecture/` theory freeze, bounded implementation design, self-review, mechanical-verification record, targeted adjudication, frozen independent-review contract, local correction record, and correction-verification gate.
+- Added a 20-case adversarial Paid Media suite plus a focused mixed-publisher review regression covering fast-path preservation, paid relationship vs paid delivery, sponsored content vs amplification, objective/optimization mismatch, hard vs soft controls, control precedence, portfolio/shared allocation, non-auction inventory, adaptive state/history, exposure uncertainty, billing/optimization roles, attribution/causality, retail-media identity composition, and generic-discovery boundaries.
+
+### Changed
+
+- Updated `SKILL.md` so paid-delivery decisions can route directly to the smallest `paid-media.*` section while narrow ad-copy transformations remain on the existing fast path and unresolved performance symptoms remain Chapter 05-first.
+- Preserved Chapter 04 ownership of ad message/claim/proof, Chapter 05 ownership of causality/incrementality/experiments, Chapter 08 ownership of shared platform/content grammar, Chapter 09 ownership of product/listing/commerce identity, Chapter 10 ownership of customer-facing Commercial Design, Chapter 11 ownership of landing-page architecture, and Chapter 13 ownership of generic non-paid discovery.
+- Kept current provider objectives, bidding products, auction/deal mechanics, audience-control meanings, placement systems, billing rules, attribution windows, learning-state definitions, policy constraints, and automated-creative behavior as time-sensitive JIT dependencies rather than permanent provider modules or universal paid-media laws.
+- Updated installable skill metadata and public README capability/status/routing examples to `v0.9.0`.
+
+### Fixed
+
+- Added the missing `paid-media.handoffs` logical route for Chapter 14 Section 6 (`Owner boundaries and decision handoffs`) after independent review found that the detailed cross-owner guidance was otherwise dead knowledge under helper-driven smallest-route execution.
+- Separated controller routing so cross-owner handoff uncertainty maps to `paid-media.handoffs`, activation/scope checks map to `paid-media.core`, and anti-folklore checks map to `paid-media.invariants`.
+
+### Validation status
+
+- Frozen theory and current-system gap analysis confirmed a bounded Paid Media specialist-knowledge gap without finding an irreducible shared-grammar failure; no shared primitive or new controller job was added.
+- Targeted runtime walkthrough recorded **20 PASS, 0 PARTIAL, 0 FAIL** across the frozen adversarial suite.
+- Independent adversarial runtime review of original frozen implementation/evaluation target `bf81ec779dc43a94a72f9752209c6b82ef47e437` returned **PROCEED AFTER LOCAL CORRECTIONS**, identifying one local JIT owner-boundary routing defect and no shared-architecture failure.
+- The focused post-review regression recorded **1 PASS, 0 PARTIAL, 0 FAIL** after the local correction. The corrected implementation/evaluation target was frozen at `fc8576ea4149b344d3964458f00109a6e9cc5507`, and independent correction verification returned **CORRECTION VERIFIED — PROCEED TO RELEASE PREPARATION**.
+- Corrected routing source now covers eight `paid-media.*` routes and declares 58 routing-mechanics smoke checks. The exact corrected 58-check assertion set executed successfully in a local mirror, while full checked-out repository execution remained unavailable because the sandbox could not resolve `github.com`; no GitHub Actions/CI run is claimed.
+- This release does not add campaign, auction, targeting, learning, feedback, or paid-audience primitives; permanent Meta/Google/TikTok/LinkedIn Ads modules; a universal media funnel, auction formula, media optimizer, or attribution model; or causal business claims from platform-attributed outcomes.
+
 ## [0.8.0] - 2026-08-25
 
 ### Added
