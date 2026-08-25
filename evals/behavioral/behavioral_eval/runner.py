@@ -87,7 +87,7 @@ def run_condition(
     output_bytes = (
         result.final_output.encode("utf-8") if result.final_output is not None else None
     )
-    event_bytes = _events_bytes(result.raw_events)
+    event_bytes = result.raw_event_bytes or _events_bytes(result.raw_events)
     return RunRecord(
         run_id=run_id,
         case_identity=case.identity,

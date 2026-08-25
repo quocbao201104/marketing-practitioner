@@ -21,6 +21,7 @@ class ExecutorResult:
     timed_out: bool = False
     interrupted: bool = False
     raw_events: tuple[dict[str, Any], ...] = field(default_factory=tuple)
+    raw_event_bytes: bytes = b""
     final_output: str | None = None
     stderr: str = ""
     activation_verified: bool | None = None
