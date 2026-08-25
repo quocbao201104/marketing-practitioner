@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "case_id": "BEH-FAST-001",
+      "version": "1.0.0",
+      "family": "fast-path-proportionality",
+      "prompt": "Product: Patchboard\nFacts:\n- Open-source visual debugger for local AI-agent workflows.\n- Shows run steps, tool calls, timestamps, and completion status.\n- Python only.\n- Runs locally.\n- MIT licensed.\n\nAudience: Python developers building local AI-agent workflows.\nMessage: Debug the workflow visually without sending workflow data to a hosted debugging service.\nProof allowed: local operation, visible run steps/tool calls/timestamps/status, MIT license.\n\nWrite one short Instagram caption.\nDo not explain strategy. Do not add hashtags unless they materially help the copy.",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}, {"type": "max_characters", "value": 400}],
+      "review_criteria": [
+        "Returns the caption directly with at most minimal framing.",
+        "Preserves supplied facts without inventing outcomes, testimonials, or guarantees.",
+        "Does not reopen positioning or explain recommender theory."
+      ],
+      "forbidden_disclosures": ["OVER-ROUTING", "content.core", "expected route"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "evals/prebenchmark-runtime-smoke.md#S1", "frozen_at_commit": "bb53cadce87546ae8c7cd9eab1aa1985a32cd9df"}
+    },
+    {
+      "case_id": "BEH-FAST-002",
+      "version": "1.0.0",
+      "family": "fast-path-proportionality",
+      "prompt": "Shorten this approved meta description to 150 characters. Keep the meaning unchanged.\n\nApproved description: Patchboard is an open-source visual debugger for local Python AI-agent workflows that shows run steps, tool calls, timestamps, and completion status without sending workflow data to a hosted debugging service.",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}, {"type": "max_characters", "value": 150}],
+      "review_criteria": [
+        "Performs only the requested narrow transformation.",
+        "Preserves the approved meaning without adding SEO or ranking claims.",
+        "Does not expose discovery architecture."
+      ],
+      "forbidden_disclosures": ["FAST PATH", "discovery.core", "D01"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "evals/search-discovery-architecture-adversarial-cases.md#case-d01", "frozen_at_commit": "bb53cadce87546ae8c7cd9eab1aa1985a32cd9df"}
+    },
+    {
+      "case_id": "BEH-STATE-001",
+      "version": "1.0.0",
+      "family": "resolved-state-preservation",
+      "prompt": "Our SaaS price is already approved at $29/month. Positioning and the core message are supplied and final. Create a landing-page structure that represents this offer and helps the visitor decide. Do not redesign the price or positioning.",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}],
+      "review_criteria": [
+        "Preserves $29/month as resolved commercial state.",
+        "Does not reopen willingness-to-pay, pricing metric, package, or price optimization.",
+        "Allocates price and terms only where they help the visitor decision."
+      ],
+      "forbidden_disclosures": ["landing-page.core", "Chapter 10", "L1"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "evals/landing-page-architecture-adversarial-cases.md#l1", "frozen_at_commit": "bb53cadce87546ae8c7cd9eab1aa1985a32cd9df"}
+    },
+    {
+      "case_id": "BEH-EVID-001",
+      "version": "1.0.0",
+      "family": "evidence-control",
+      "prompt": "We interviewed 10 current customers, and 8 mentioned migration difficulty. The sample was recruited from customers who recently contacted support; it was not designed to represent the whole market. Can we publish the claim ‘80% of the market struggles with migration’? What can we responsibly conclude, and what evidence would we need for a prevalence claim?",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}],
+      "review_criteria": [
+        "Rejects the market-wide 80% prevalence claim from this sample.",
+        "Preserves the sample observation as useful qualitative evidence.",
+        "Distinguishes evidence about patterns or mechanisms from evidence about population prevalence."
+      ],
+      "forbidden_disclosures": ["evidence-control", "Chapter 01", "prevalence boundary"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "skills/marketing-practitioner/handbook/01-customer-research-and-evidence.md#2", "frozen_at_commit": "bb53cadce87546ae8c7cd9eab1aa1985a32cd9df"}
+    },
+    {
+      "case_id": "BEH-CAUSE-001",
+      "version": "1.0.0",
+      "family": "causal-diagnosis",
+      "prompt": "A TikTok video had 18,000 views and 42 qualified leads in week 1.\nIn week 2 the same visible video had 54,000 cumulative views and 45 cumulative qualified leads.\nPaid amplification started halfway through week 2 on the same visible object.\nThe landing page, offer, and lead definition were unchanged.\n\nThe team says: ‘The hook attracted the wrong people. Rewrite the first 3 seconds.’\n\nWhat should we do next?",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}],
+      "review_criteria": [
+        "Does not immediately rewrite the hook or attribute the change to it.",
+        "Notices the visible metrics mix organic and paid delivery and cumulative exposure regimes.",
+        "Separates attention volume from qualified-lead outcome and proposes a discriminating check."
+      ],
+      "forbidden_disclosures": ["UNDER-ROUTING", "Chapter 05", "S3"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "evals/prebenchmark-runtime-smoke.md#S3", "frozen_at_commit": "bb53cadce87546ae8c7cd9eab1aa1985a32cd9df"}
+    },
+    {
+      "case_id": "BEH-DISC-001",
+      "version": "1.0.0",
+      "family": "commerce-discovery-routing",
+      "prompt": "Search Console says the URL is indexed. That means ChatGPT and Perplexity can discover it too, right?",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}],
+      "review_criteria": [
+        "Explains that discovery availability is scoped to a system, purpose, and surface.",
+        "Does not transfer Google index state to OpenAI or Perplexity.",
+        "Uses current provider controls as dependencies if provider-specific certainty is requested."
+      ],
+      "forbidden_disclosures": ["discovery.availability", "AVAILABILITY / INDEX COLLAPSE", "D03"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "evals/search-discovery-architecture-adversarial-cases.md#case-d03", "frozen_at_commit": "bb53cadce87546ae8c7cd9eab1aa1985a32cd9df"}
+    },
+    {
+      "case_id": "BEH-COM-001",
+      "version": "1.0.0",
+      "family": "commerce-discovery-routing",
+      "prompt": "Shopee shows me a lower price than the seller's base price. Does that mean the seller secretly reduced the price for everyone?",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}],
+      "review_criteria": [
+        "Does not treat one displayed price as proof of a universal seller price change.",
+        "Preserves buyer, account, variation, voucher or promotion, time, and checkout scope where material.",
+        "Distinguishes displayed price from final checkout price."
+      ],
+      "forbidden_disclosures": ["commerce.commercial-state", "EVIDENCE COLLAPSE", "R4"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "evals/commerce-runtime-routing-smoke.md#r4", "frozen_at_commit": "bb53cadce87546ae8c7cd9eab1aa1985a32cd9df"}
+    },
+    {
+      "case_id": "BEH-EMAIL-001",
+      "version": "1.0.0",
+      "family": "evidence-control",
+      "prompt": "An email link click is observed. Bot and security-scanner filtering is imperfect, and no downstream target action occurred. The team wants to label every clicker as having purchase intent and put them into a high-intent sales sequence. Is that conclusion supported, and what decision does the evidence justify?",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}],
+      "review_criteria": [
+        "Preserves the click as an observed interaction with measurement uncertainty.",
+        "Does not infer purchase intent or satisfaction from the click alone.",
+        "Requires stronger downstream evidence if the decision needs a stronger customer state."
+      ],
+      "forbidden_disclosures": ["email.observation", "click does not establish intent", "E12"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "evals/email-communication-architecture-adversarial-cases.md#e12", "frozen_at_commit": "bb53cadce87546ae8c7cd9eab1aa1985a32cd9df"}
+    },
+    {
+      "case_id": "BEH-PAID-001",
+      "version": "1.0.0",
+      "family": "paid-media-boundaries",
+      "prompt": "Two conversion actions appear in paid-media reporting. One is used for bidding under the current goal configuration; the other is observation-only. Can we combine both counts and describe them as the events the bidding system is optimizing?",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}],
+      "review_criteria": [
+        "Answers no unless configuration evidence establishes both are optimization-eligible.",
+        "Keeps reported conversions distinct from optimization-eligible signals."
+      ],
+      "forbidden_disclosures": ["paid-media.observation", "REPORTED ≠ OPTIMIZATION-ELIGIBLE", "P05"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "evals/paid-media-architecture-adversarial-cases.md#p05", "frozen_at_commit": "bb53cadce87546ae8c7cd9eab1aa1985a32cd9df"}
+    },
+    {
+      "case_id": "BEH-PAID-002",
+      "version": "1.0.0",
+      "family": "paid-media-boundaries",
+      "prompt": "Campaign A displays a $100/day budget in one view. It participates in a shared or portfolio allocation system with other campaigns, and unused resource can move across members. Is Campaign A's displayed budget sufficient to infer its independent resource boundary?",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}],
+      "review_criteria": [
+        "Answers no and does not treat the campaign container as the resource boundary.",
+        "Locates the actual shared allocation scope before drawing a resource conclusion."
+      ],
+      "forbidden_disclosures": ["paid-media.allocation", "CAMPAIGN ≠ RESOURCE", "P08"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "evals/paid-media-architecture-adversarial-cases.md#p08", "frozen_at_commit": "bb53cadce87546ae8c7cd9eab1aa1985a32cd9df"}
+    },
+    {
+      "case_id": "BEH-PAID-003",
+      "version": "1.0.0",
+      "family": "paid-media-boundaries",
+      "prompt": "A platform reports 1,000 attributed purchases. No holdout, lift test, randomized experiment, or valid causal design exists. How many of the 1,000 purchases did advertising cause?",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}],
+      "review_criteria": [
+        "Does not invent a causal or incremental number.",
+        "Keeps attributed outcome distinct from causal effect.",
+        "Requires an appropriate causal design for causal estimation."
+      ],
+      "forbidden_disclosures": ["paid-media.observation", "ATTRIBUTED OUTCOME ≠ CAUSAL EFFECT", "P17"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "evals/paid-media-architecture-adversarial-cases.md#p17", "frozen_at_commit": "bb53cadce87546ae8c7cd9eab1aa1985a32cd9df"}
+    },
+    {
+      "case_id": "BEH-PAID-004",
+      "version": "1.0.0",
+      "family": "paid-media-boundaries",
+      "prompt": "A digital out-of-home ad was rendered successfully. Measurement reports Opportunity to See, but there is no deterministic observation that every passerby looked at the screen. Can we report ‘everyone counted saw the ad’?",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}],
+      "review_criteria": [
+        "Rejects the claim that everyone counted saw the ad.",
+        "Keeps delivered or rendered, Opportunity to See, likely seen, and verified attention distinct.",
+        "Preserves observation method, unit, and modeling uncertainty where material."
+      ],
+      "forbidden_disclosures": ["paid-media.observation", "DELIVERED/RENDERED ≠ OTS", "P14"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "evals/paid-media-architecture-adversarial-cases.md#p14", "frozen_at_commit": "bb53cadce87546ae8c7cd9eab1aa1985a32cd9df"}
+    }
+  ]
+}
