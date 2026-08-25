@@ -52,7 +52,7 @@ The implementation surface is intentionally smaller than the research field map.
 
 ```text
 paid-media.core
-→ scope, activation boundary, shared-parent grammar, owner boundaries
+→ scope, activation boundary, shared-parent grammar
 
 paid-media.objective
 → business/media decision value vs platform objective / optimization signal
@@ -68,6 +68,9 @@ paid-media.allocation
 paid-media.observation
 → delivery/billing/attribution/optimization-feedback semantics,
   event definition, unit, maturity, modeling, provenance, causal handoff
+
+paid-media.handoffs
+→ owner boundaries and decision handoffs across Chapters 01/02/04/05/08/09/10/11/13
 
 paid-media.decision-record
 → compact retained paid-media decision state
@@ -106,7 +109,8 @@ Add one operating-path rule to `SKILL.md` after platform/discovery context is es
 - use Chapter 04 only if message/claim/proof remains open;
 - use Chapter 09 when product/listing identity or commerce state is material;
 - use Chapter 11 only if landing-page architecture itself is open;
-- use Chapter 13 only for generic discovery mechanics, not paid economic allocation.
+- use Chapter 13 only for generic discovery mechanics, not paid economic allocation;
+- expose Chapter 14 owner-boundary detail through `paid-media.handoffs` rather than implying that `paid-media.core` spans noncontiguous sections.
 
 Do not create a new controller job. Existing `WRITE`, `DECIDE`, `DIAGNOSE`, `RESEARCH / UNDERSTAND`, `ADAPT`, `TEST`, and `LEARN` remain sufficient.
 
@@ -213,7 +217,7 @@ scripts/test-knowledge-routing.py
 SKILL.md
 ```
 
-The routing smoke test should verify every new logical route and at least one `PMxx` evidence lookup. Do not claim the full mechanical suite passed unless it was actually executed against the checked-out candidate.
+The routing smoke test should verify every new logical route, including `paid-media.handoffs`, and at least one `PMxx` evidence lookup. Do not claim the full mechanical suite passed unless it was actually executed against the checked-out candidate.
 
 ## 10. Explicit implementation non-goals
 
