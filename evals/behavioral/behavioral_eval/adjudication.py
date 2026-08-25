@@ -87,3 +87,12 @@ def build_blind_packet(case: CaseContract, run: RunRecord) -> dict:
         "hard_predicates": [asdict(item) for item in predicate_results],
         "review_criteria": list(case.review_criteria),
     }
+
+
+def order_blind_packets(packets: list[dict]) -> list[dict]:
+    blind_ids = [packet.get("blind_id") for packet in packets]
+    if any(not isinstance(blind_id, str) or not blind_id for blind_id in blind_ids):
+        raise ValidationError("blind packet requires a non-empty blind_id")
+    if len(set(blind_ids)) != len(blind_ids):
+        raise ValidationError("blind packet IDs must be unique")
+    return sorted(packets, key=lambda packet: packet["blind_id"])

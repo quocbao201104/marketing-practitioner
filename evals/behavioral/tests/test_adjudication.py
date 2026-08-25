@@ -6,6 +6,7 @@ import unittest
 from evals.behavioral.behavioral_eval.adjudication import (
     build_blind_packet,
     evaluate_hard_predicates,
+    order_blind_packets,
 )
 from evals.behavioral.behavioral_eval.models import (
     CaseContract,
@@ -48,6 +49,16 @@ def make_run(output: str = "Reported is observed; optimized is configured.") -> 
 
 
 class AdjudicationTests(unittest.TestCase):
+    def test_blind_packets_are_ordered_only_by_opaque_id(self) -> None:
+        packets = [
+            {"blind_id": "f" * 20, "candidate_answer": "first arm"},
+            {"blind_id": "1" * 20, "candidate_answer": "second arm"},
+        ]
+
+        ordered = order_blind_packets(packets)
+
+        self.assertEqual(["1" * 20, "f" * 20], [item["blind_id"] for item in ordered])
+
     def test_blind_packet_omits_arm_route_and_failure_identity(self) -> None:
         packet = build_blind_packet(make_case(), make_run())
         serialized = json.dumps(packet)

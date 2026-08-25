@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 from .adapters import ExecutorResult
-from .adjudication import build_blind_packet
+from .adjudication import build_blind_packet, order_blind_packets
 from .codex_cli import CodexCliAdapter
 from .evidence import redact_text
 from .fixture import FixtureAdapter
@@ -201,7 +201,7 @@ def _run(args: argparse.Namespace) -> int:
                 item for item in cases if item.identity == record.case_identity
             )
             packet_bindings.append((build_blind_packet(case, record), record.run_id))
-        packets = [packet for packet, _ in packet_bindings]
+        packets = order_blind_packets([packet for packet, _ in packet_bindings])
         blind_index = {
             "schema_version": 1,
             "bindings": [
