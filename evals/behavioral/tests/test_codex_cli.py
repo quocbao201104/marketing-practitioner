@@ -10,6 +10,7 @@ from unittest import mock
 from evals.behavioral.behavioral_eval.adapters import ExecutorRequest
 from evals.behavioral.behavioral_eval.codex_cli import (
     CodexCliAdapter,
+    activation_verified,
     build_codex_command,
     resolve_codex_executable,
 )
@@ -18,6 +19,21 @@ from evals.behavioral.behavioral_eval.workspace import WorkspaceBinding
 
 
 class CodexCliTests(unittest.TestCase):
+    def test_successful_exact_skill_read_is_activation_evidence(self) -> None:
+        skill_file = self.binding.skill_path / "SKILL.md"
+        events = (
+            {
+                "type": "item.completed",
+                "item": {
+                    "type": "command_execution",
+                    "command": f"Get-Content -LiteralPath '{skill_file}' -Raw",
+                    "exit_code": 0,
+                },
+            },
+        )
+
+        self.assertTrue(activation_verified(events, self.request))
+
     def test_default_executable_resolves_windows_command_shim(self) -> None:
         with mock.patch(
             "evals.behavioral.behavioral_eval.codex_cli.shutil.which",

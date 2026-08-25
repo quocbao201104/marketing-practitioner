@@ -84,13 +84,26 @@ def _walk_strings(value: Any):
             yield from _walk_strings(item)
 
 
-def _activation_verified(events: tuple[dict[str, Any], ...]) -> bool | None:
+def activation_verified(
+    events: tuple[dict[str, Any], ...], request: ExecutorRequest
+) -> bool | None:
     for event in events:
         event_type = str(event.get("type", "")).lower()
-        if "skill" not in event_type or "activat" not in event_type:
-            continue
         values = " ".join(_walk_strings(event)).lower()
-        if "marketing-practitioner" in values:
+        if "skill" in event_type and "activat" in event_type and "marketing-practitioner" in values:
+            return True
+        item = event.get("item")
+        if not isinstance(item, dict):
+            continue
+        if event_type != "item.completed" or item.get("type") != "command_execution":
+            continue
+        if item.get("exit_code") != 0 or request.workspace.skill_path is None:
+            continue
+        command = str(item.get("command", "")).lower().replace("\\", "/")
+        expected = str(
+            (request.workspace.skill_path / "SKILL.md").resolve()
+        ).lower().replace("\\", "/")
+        if expected in command:
             return True
     return None
 
@@ -196,6 +209,6 @@ class CodexCliAdapter:
             raw_event_bytes=stdout,
             final_output=final_output,
             stderr=_decode(stderr),
-            activation_verified=_activation_verified(events),
+            activation_verified=activation_verified(events, request),
             executable_version=self._version(),
         )
