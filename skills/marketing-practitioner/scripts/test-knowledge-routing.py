@@ -70,6 +70,7 @@ def main() -> int:
         "paid-media.control": "## 3. Control and authority envelope",
         "paid-media.allocation": "## 4. Paid opportunity, allocation, realization, and exposure state",
         "paid-media.observation": "## 5. Observation, billing, attribution, feedback, and causal boundary",
+        "paid-media.handoffs": "## 6. Owner boundaries and decision handoffs",
         "paid-media.decision-record": "## 7. Compact paid-media decision record",
         "paid-media.invariants": "## 8. Anti-folklore invariants",
     }
@@ -234,7 +235,7 @@ def main() -> int:
         "--namespace is only valid with --list",
     )
 
-    print("PASS\t57 routing-mechanics smoke checks")
+    print("PASS\t58 routing-mechanics smoke checks")
     return 0
 
 
