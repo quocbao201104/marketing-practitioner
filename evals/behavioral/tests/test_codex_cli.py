@@ -146,6 +146,45 @@ class CodexCliTests(unittest.TestCase):
 
         self.assertIsNone(activation_verified(events, self.request))
 
+    def test_activation_rejects_pwsh_wrapper_text_inside_output_string(self) -> None:
+        skill_file = self.binding.skill_path / "SKILL.md"
+        events = (
+            {
+                "type": "item.completed",
+                "item": {
+                    "type": "command_execution",
+                    "command": (
+                        "Write-Output "
+                        f'"pwsh -Command Get-Content -LiteralPath \'{skill_file}\'"'
+                    ),
+                    "exit_code": 0,
+                },
+            },
+        )
+
+        self.assertIsNone(activation_verified(events, self.request))
+
+    def test_activation_rejects_powershell_wrapper_text_inside_output_string(
+        self,
+    ) -> None:
+        skill_file = self.binding.skill_path / "SKILL.md"
+        events = (
+            {
+                "type": "item.completed",
+                "item": {
+                    "type": "command_execution",
+                    "command": (
+                        "Write-Output "
+                        "'powershell.exe -Command "
+                        f'[System.IO.File]::ReadAllText("{skill_file}")\''
+                    ),
+                    "exit_code": 0,
+                },
+            },
+        )
+
+        self.assertIsNone(activation_verified(events, self.request))
+
     def test_activation_rejects_reader_text_inside_comment(self) -> None:
         skill_file = self.binding.skill_path / "SKILL.md"
         events = (
@@ -190,6 +229,42 @@ class CodexCliTests(unittest.TestCase):
                         f"$skillPath = '{skill_file}'; "
                         "Get-Content -LiteralPath "
                         "$skillPath.Replace('marketing-practitioner', 'other')"
+                    ),
+                    "exit_code": 0,
+                },
+            },
+        )
+
+        self.assertIsNone(activation_verified(events, self.request))
+
+    def test_activation_rejects_transformed_get_content_literal(self) -> None:
+        skill_file = self.binding.skill_path / "SKILL.md"
+        events = (
+            {
+                "type": "item.completed",
+                "item": {
+                    "type": "command_execution",
+                    "command": (
+                        f"Get-Content -LiteralPath '{skill_file}'.Replace("
+                        "'marketing-practitioner', 'other')"
+                    ),
+                    "exit_code": 0,
+                },
+            },
+        )
+
+        self.assertIsNone(activation_verified(events, self.request))
+
+    def test_activation_rejects_transformed_dotnet_literal(self) -> None:
+        skill_file = self.binding.skill_path / "SKILL.md"
+        events = (
+            {
+                "type": "item.completed",
+                "item": {
+                    "type": "command_execution",
+                    "command": (
+                        f"[System.IO.File]::ReadAllText('{skill_file}'.Replace("
+                        "'marketing-practitioner', 'other'))"
                     ),
                     "exit_code": 0,
                 },

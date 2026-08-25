@@ -97,11 +97,17 @@ class _PowerShellToken(NamedTuple):
 
 def _extract_powershell_script(command: str) -> str:
     normalized = _normalize_path_text(command).replace("'\"'", "'")
-    command_match = re.search(r"(?:^|\s)-command\b", normalized)
-    if command_match is not None and re.search(
-        r"\b(?:pwsh|powershell)(?:\.exe)?\b", normalized[: command_match.start()]
-    ):
-        normalized = normalized[command_match.end() :].strip()
+    wrapper = re.match(
+        r"^\s*(?P<executable>\"[^\"]+\"|'[^']+'|\S+)\s+-command\b",
+        normalized,
+    )
+    if wrapper is not None:
+        executable = wrapper.group("executable").strip("'\"")
+        executable_name = executable.rsplit("/", 1)[-1]
+    else:
+        executable_name = ""
+    if executable_name in {"pwsh", "pwsh.exe", "powershell", "powershell.exe"}:
+        normalized = normalized[wrapper.end() :].strip()
         if (
             len(normalized) >= 2
             and normalized[0] in {"'", '"'}
@@ -236,6 +242,28 @@ def _first_command_index(statement: tuple[_PowerShellToken, ...]) -> int | None:
     return index
 
 
+def _get_content_operand_terminates(
+    statement: tuple[_PowerShellToken, ...], operand_index: int
+) -> bool:
+    following_index = operand_index + 1
+    if following_index >= len(statement):
+        return True
+    following = statement[following_index]
+    return following.kind in {"pipe", "right_paren"} or (
+        following.kind == "word" and following.value.startswith("-")
+    )
+
+
+def _dotnet_operand_terminates(
+    statement: tuple[_PowerShellToken, ...], operand_index: int
+) -> bool:
+    following_index = operand_index + 1
+    return following_index < len(statement) and statement[following_index].kind in {
+        "comma",
+        "right_paren",
+    }
+
+
 def _command_reads_expected_path(command: str, expected_paths: set[str]) -> bool:
     script = _extract_powershell_script(command)
     statements = _powershell_statements(_tokenize_powershell(script))
@@ -268,6 +296,7 @@ def _command_reads_expected_path(command: str, expected_paths: set[str]) -> bool
                     and _safe_reader_operand(
                         statement[index + 1], expected_paths, bound_variables
                     )
+                    and _get_content_operand_terminates(statement, index + 1)
                 ):
                     return True
             continue
@@ -286,6 +315,7 @@ def _command_reads_expected_path(command: str, expected_paths: set[str]) -> bool
             and _safe_reader_operand(
                 statement[operand_index], expected_paths, bound_variables
             )
+            and _dotnet_operand_terminates(statement, operand_index)
         ):
             return True
     return False
