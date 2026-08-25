@@ -105,7 +105,9 @@ def _atomic_bundle(target: Path, files: dict[str, Any]) -> None:
         raise
 
 
-def _profile_binding(profile: ArmProfile, repo_root: Path) -> dict:
+def _profile_binding(
+    profile: ArmProfile, repo_root: Path, repetitions: int | None = None
+) -> dict:
     skill_hash = None
     if profile.skill_mode == "workspace-copy" and profile.skill_source:
         skill_hash = hash_tree(repo_root / profile.skill_source)
@@ -116,7 +118,7 @@ def _profile_binding(profile: ArmProfile, repo_root: Path) -> dict:
         "reasoning_effort": profile.reasoning_effort,
         "skill_mode": profile.skill_mode,
         "skill_sha256": skill_hash,
-        "repetitions": profile.repetitions,
+        "repetitions": repetitions or profile.repetitions,
     }
 
 
@@ -135,7 +137,16 @@ def _run(args: argparse.Namespace) -> int:
         )
     repo_root = Path(args.repo_root).resolve()
     cases = load_cases(args.cases)
+    if args.case_id:
+        requested = set(args.case_id)
+        available = {case.case_id for case in cases}
+        unknown = sorted(requested - available)
+        if unknown:
+            raise ValidationError(f"unknown selected case_id: {unknown[0]}")
+        cases = [case for case in cases if case.case_id in requested]
     profiles = _load_profile_paths(args.profiles, live=args.adapter == "codex-cli")
+    if args.repeat_limit is not None and args.repeat_limit <= 0:
+        raise ValidationError("repeat-limit must be a positive integer")
     fixture_results = {
         (case.identity, profile.profile_id): ExecutorResult(
             exit_code=0,
@@ -158,7 +169,11 @@ def _run(args: argparse.Namespace) -> int:
         workspaces = Path(temp)
         for case in cases:
             for profile in profiles:
-                for repetition in range(1, profile.repetitions + 1):
+                repetitions = min(
+                    profile.repetitions,
+                    args.repeat_limit or profile.repetitions,
+                )
+                for repetition in range(1, repetitions + 1):
                     destination = (
                         workspaces
                         / case.case_id
@@ -199,7 +214,17 @@ def _run(args: argparse.Namespace) -> int:
             "sealed": True,
             "adapter": args.adapter,
             "case_identities": [case.identity for case in cases],
-            "profiles": [_profile_binding(profile, repo_root) for profile in profiles],
+            "profiles": [
+                _profile_binding(
+                    profile,
+                    repo_root,
+                    min(
+                        profile.repetitions,
+                        args.repeat_limit or profile.repetitions,
+                    ),
+                )
+                for profile in profiles
+            ],
             "run_count": len(records),
         }
         _atomic_bundle(
@@ -273,6 +298,8 @@ def _parser() -> argparse.ArgumentParser:
     run.add_argument("--adapter", choices=("fixture", "codex-cli"), required=True)
     run.add_argument("--results", type=Path, required=True)
     run.add_argument("--repo-root", type=Path, default=Path.cwd())
+    run.add_argument("--case-id", action="append")
+    run.add_argument("--repeat-limit", type=int)
     run.set_defaults(handler=_run)
 
     report = subparsers.add_parser("report", help="create a paired report")

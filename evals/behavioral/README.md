@@ -18,6 +18,8 @@ python -B -m evals.behavioral.behavioral_eval.cli run --adapter fixture --result
 
 Fixture answers test orchestration, isolation, sealing, and report plumbing only. They are not behavioral evidence.
 
+For a bounded preflight, add one or more `--case-id BEH-...` selectors and `--repeat-limit 1`. These selectors do not modify the frozen case or profile contracts; the effective subset is recorded in the manifest.
+
 ## Run the live paired pilot
 
 ```powershell
