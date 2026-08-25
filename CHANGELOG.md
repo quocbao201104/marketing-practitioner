@@ -4,6 +4,27 @@ All notable changes to this repository are documented here.
 
 The project uses semantic versioning for published skill revisions. Early versions may change structure while the conceptual model is stabilized.
 
+## [Unreleased] - 2026-08-25
+
+### Package and verification
+
+- Added current Codex UI metadata under `agents/openai.yaml` and shortened package activation metadata to pass the current 1,024-character description limit.
+- Added `scripts/validate_skill.py` as the stable repository-owned package validation floor.
+- Added `scripts/verify.ps1` as the sole local/CI verification entrypoint plus a thin Windows GitHub Actions workflow. The local gate executes the installed current Codex validator when discoverable and reports an explicit skip otherwise.
+- Verified 58 routing-mechanics checks, 249 logical routes, 203 evidence sources, Pressure Discovery tests, behavioral harness tests, and UTF-8/generated-artifact hygiene locally.
+
+### Behavioral evaluation
+
+- Added a structured behavioral harness with versioned case/profile/run contracts, isolated temporary Git workspaces, exact skill-tree hashing, executor and timeout separation, sealed evidence, condition-blind packets, objective predicates, paired dispositions, and explicit operational-invalid denominators.
+- Froze 12 cases across six decision families and executed a 48-run baseline/current-skill pilot with two repetitions per condition using `gpt-5.6-terra` at `medium` reasoning.
+- Recorded eight `both_pass` pairs, three operationally invalid pairs, one unresolved pair, and no baseline-only or skill-only pass. The condition-blind semantic review was performed by the implementation-session Codex assistant, not an independent human, so no benchmark-grade or universal quality claim is made.
+- Retained a 75%-smaller compact-controller challenger as an experiment but rejected promotion because activation-unverified runs increased from 3/24 to 7/24. The v0.9.0 installed controller remains authoritative.
+
+### Documentation
+
+- Reduced README duplication and linked deep capability details to the handbook/platform navigation.
+- Added current executed local evidence above the historical release notes while preserving their original environment-specific limitations.
+
 ## [0.9.0] - 2026-08-25
 
 ### Added
