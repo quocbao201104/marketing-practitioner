@@ -8,7 +8,7 @@
 
 *Learn the market before writing the copy.*
 
-[![Version: v0.7.0](https://img.shields.io/badge/version-v0.7.0-0a7.svg)](#status)
+[![Version: v0.8.0](https://img.shields.io/badge/version-v0.8.0-0a7.svg)](#status)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Language: English](https://img.shields.io/badge/language-English-4c1.svg)](#)
 [![Format: Agent Skill](https://img.shields.io/badge/format-Agent%20Skill-6f42c1.svg)](skills/marketing-practitioner/SKILL.md)
@@ -18,7 +18,7 @@
 
 ---
 
-Marketing Practitioner gives an AI agent a disciplined way to turn messy market evidence into bounded marketing decisions — across customer research, segmentation, positioning, **commercial design and pricing**, messaging, **landing-page architecture**, **email communication architecture**, copy, platform content, commerce, product discovery, diagnosis, experimentation, localization, and learning.
+Marketing Practitioner gives an AI agent a disciplined way to turn messy market evidence into bounded marketing decisions — across customer research, segmentation, positioning, **commercial design and pricing**, messaging, **landing-page architecture**, **email communication architecture**, **search & discovery architecture**, copy, platform content, commerce, product discovery, diagnosis, experimentation, localization, and learning.
 
 It is not a bag of growth hacks or prompt templates. The runtime starts from the job you actually need done, freezes decisions that are already resolved, loads deeper knowledge only when it can change the open decision, and returns the minimum useful output for that job.
 
@@ -209,6 +209,37 @@ ACTION / DESTINATION IS OPTIONAL
 
 Chapter 04 still owns unresolved message, claim, and proof decisions; Chapter 05 owns causality and experimentation; Chapter 08 owns generic relationship/state/representation grammar; Chapter 10 owns unresolved commercial transitions; Chapter 11 owns downstream landing-page architecture. Current legal, regulatory, provider, authentication, and transport constraints remain just-in-time authoritative dependencies rather than a built-in compliance engine.
 
+### Search & discovery architecture
+
+Version 0.8.0 adds a bounded specialist path for generic, non-commerce discovery decisions: how information objects, entities, sources, pages, and documents become available to, retrieved by, selected by, represented through, or observed within discovery systems.
+
+It can help distinguish:
+
+- information need from query, query from unique intent, and user expression from system retrieval formulation;
+- published from system-known, accessible, processed, indexed/available, and retrievable state;
+- publisher-preferred identity from system-selected representative identity;
+- retrieval from selection and surfacing;
+- human-selection discovery from system-commitment/grounding in AI answer systems;
+- citation from authority, endorsement, faithful source use, or causal influence;
+- impression from verified attention, click from relevance, and no-click from failure;
+- search interest from customer count, purchase intent, or market demand.
+
+The path deliberately keeps these boundaries:
+
+```text
+SEARCH IS ONE MODE OF DISCOVERY
+DISCOVERY DOES NOT REQUIRE AN EXPLICIT QUERY
+QUERY != INFORMATION NEED != RETRIEVAL FORMULATION
+PUBLISHED != SYSTEM-KNOWN != RETRIEVABLE
+DISCOVERABILITY IS SCOPED
+RETRIEVED != SELECTED != EVIDENTIARY FIT
+SURFACING AN OPTION != COMMITTING INFORMATION INTO AN ANSWER
+CITATION != AUTHORITY != CAUSAL INFLUENCE
+SEARCH INTEREST != MARKET DEMAND
+```
+
+Chapter 01/02 still own customer/segment/market-demand inference; Chapter 04 owns marketing claim/proof; Chapter 05 owns causality and incrementality; Chapter 08 remains the shared platform/content grammar; Chapter 09 owns product/listing/commerce discovery; Chapter 11 owns landing-page architecture after entry. Current crawler controls, indexing directives, provider eligibility rules, ranking/recommendation disclosures, AI-search controls, and telemetry definitions remain just-in-time authoritative dependencies rather than timeless SEO/GEO/AEO rules.
+
 ### Social content and distribution environments
 
 The shared content-environment model supports current modules for:
@@ -307,6 +338,11 @@ A noun does not activate a full reasoning path by itself.
 → email.send-decision / email.sequence
 → SEND / WAIT / EXIT depends on current state and history, not a fixed cadence
 
+"Our page ranks in Google but is rarely cited in AI answers. Rewrite it for AI."
+→ web ranking does not establish AI availability/selection/grounding state
+→ discovery.availability / selection / commitment only as needed
+→ rewrite only if evidence localizes the defect to content/message/representation
+
 "Should this be $29 or $39?"
 → commercial condition is unresolved
 → Commercial Design
@@ -342,6 +378,9 @@ landing-page.action-form
 landing-page.responsive
 email.send-decision
 email.observation
+discovery.availability
+discovery.commitment
+discovery.observation
 commerce.identity
 commerce.resolvability
 shopee.conversational-discovery
@@ -355,6 +394,8 @@ When helper execution is available:
 python skills/marketing-practitioner/scripts/get-knowledge.py commercial-design.payment
 python skills/marketing-practitioner/scripts/get-knowledge.py landing-page.sequence
 python skills/marketing-practitioner/scripts/get-knowledge.py email.send-decision
+python skills/marketing-practitioner/scripts/get-knowledge.py discovery.availability
+python skills/marketing-practitioner/scripts/get-knowledge.py discovery.commitment
 python skills/marketing-practitioner/scripts/get-knowledge.py commerce.resolvability
 python skills/marketing-practitioner/scripts/get-knowledge.py --list --namespace shopee
 ```
@@ -364,6 +405,7 @@ Evidence records use intrinsic source IDs rather than being duplicated into the 
 ```bash
 python skills/marketing-practitioner/scripts/get-knowledge.py --source CD08
 python skills/marketing-practitioner/scripts/get-knowledge.py --source EM03
+python skills/marketing-practitioner/scripts/get-knowledge.py --source SD09
 python skills/marketing-practitioner/scripts/get-knowledge.py --source R23
 python skills/marketing-practitioner/scripts/get-knowledge.py --source A03
 ```
@@ -383,6 +425,9 @@ The repository uses a conservative standard for claims and learning:
 - competitor price does not determine our optimal price;
 - conversion does not equal revenue, margin, retention, or LTV;
 - platform eligibility does not guarantee exposure;
+- published or indexed state does not establish universal cross-system discoverability;
+- citation does not establish authority, endorsement, faithful source use, or causal influence;
+- search interest does not directly establish customer count, purchase intent, or market demand;
 - observed engagement does not automatically establish organic human preference;
 - a ranking signal or exposed implementation parameter is not automatically a writing instruction;
 - machine- or platform-inferred product information is not automatically verified product truth;
@@ -426,7 +471,8 @@ The installable skill is under [`skills/marketing-practitioner/`](skills/marketi
         │   ├── 09-commerce-environments-and-product-discovery.md
         │   ├── 10-commercial-design-pricing-and-terms.md
         │   ├── 11-landing-page-architecture.md
-        │   └── 12-email-communication-architecture.md
+        │   ├── 12-email-communication-architecture.md
+        │   └── 13-search-and-discovery-architecture.md
         ├── platforms/
         │   ├── README.md
         │   ├── facebook.md
@@ -462,7 +508,7 @@ skills/marketing-practitioner/
 = compressed governed runtime knowledge
 ```
 
-For example, the Commercial Design, Landing-Page Architecture, and Email Communication Architecture research tracks record why their bounded specialist knowledge exists, what candidate abstractions were rejected, and which evidence boundaries survived adversarial review. Runtime chapters contain only the compact practitioner interfaces needed by the agent.
+For example, the Commercial Design, Landing-Page Architecture, Email Communication Architecture, and Search & Discovery Architecture research tracks record why their bounded specialist knowledge exists, what candidate abstractions were rejected, and which evidence boundaries survived adversarial review. Runtime chapters contain only the compact practitioner interfaces needed by the agent.
 
 ## A few copy-paste recipes
 
@@ -516,6 +562,19 @@ or a universal cadence from generic email best practices.
 If current legal/provider authority can change the answer, treat it as a just-in-time dependency.
 ```
 
+### Diagnose discovery before rewriting
+
+```text
+This page is published and ranks in one search surface, but visibility, referrals,
+or AI citations are weaker than expected.
+
+Do not assume the content is the problem.
+Separate system-scoped availability, retrieval/selection, surfaced representation or
+system-commitment/grounding, and the exact telemetry definition first.
+Treat current provider rules as just-in-time evidence.
+Rewrite only if the evidence actually localizes the defect to content/message/representation.
+```
+
 ### Improve a product listing
 
 ```text
@@ -559,6 +618,7 @@ Marketing Practitioner is not:
 - a prompt collection;
 - a copy-template pack;
 - an SEO checklist;
+- a GEO/AEO/LLMO hack library;
 - a landing-page template system;
 - a CRM, lifecycle, journey, or campaign-automation system;
 - an email deliverability or legal-compliance engine;
@@ -568,11 +628,12 @@ Marketing Practitioner is not:
 - a substitute for authoritative finance, product, operations, legal, or sales decisions;
 - a guarantee that more engagement means more customer value;
 - a claim that public ranking signals reveal a platform's complete production system;
+- a guarantee of ranking, recommendation, retrieval, citation, or answer inclusion;
 - a substitute for missing product truth or missing evidence.
 
 ## Status
 
-**Current release: v0.7.0 — Email Communication Architecture.**
+**Current release: v0.8.0 — Search & Discovery Architecture.**
 
 The current main branch includes:
 
@@ -583,6 +644,8 @@ The current main branch includes:
 - direct JIT `landing-page.*` routing when upstream message/proof/commercial state is already resolved;
 - a bounded Email Communication Architecture specialist layer for send/wait/exit/suppress decisions, scoped relation/endpoint state, state-conditioned sequence reasoning, inbox/body/action allocation, continuity, and observation semantics;
 - direct JIT `email.*` routing for email-specific decisions while ordinary email rewrites remain on the narrow copy fast path;
+- a bounded Search & Discovery Architecture specialist layer for discovery need/expression, scoped availability, retrieval/selection, human-selection vs system-commitment/grounding, and discovery observation semantics;
+- direct JIT `discovery.*` routing for generic non-commerce discovery decisions while narrow search-related transformations remain on the fast path;
 - the generic Chapter 08 owned-channel composition path for non-email channels such as SMS and push;
 - a shared social/content-environment model plus five social platform modules;
 - a shared commerce/product-discovery model plus six commerce platform modules;
@@ -592,7 +655,7 @@ The current main branch includes:
 - research-backed task specification and agent-side prompt compilation;
 - scoped research lineage plus targeted adversarial reviews and runtime smoke tests.
 
-The project does **not** claim complete knowledge of private platform ranking systems, a universally optimal pricing method, a universal landing-page template, universal email cadence/send-time/personalization rules, legal/provider compliance for every context, or universal runtime reliability. The architecture is expected to improve through real use and concrete failures rather than by adding abstractions for their own sake.
+The project does **not** claim complete knowledge of private platform ranking/retrieval systems, universal discovery or citation rules, a universally optimal pricing method, a universal landing-page template, universal email cadence/send-time/personalization rules, legal/provider compliance for every context, or universal runtime reliability. The architecture is expected to improve through real use and concrete failures rather than by adding abstractions for their own sake.
 
 ## Installation and manual use
 
@@ -624,7 +687,7 @@ For new top-level reasoning capabilities, establish the decision-relevant gap an
 
 ## Attribution
 
-The repository synthesizes marketing research, methodological literature, recommender-system and platform research, current product documentation, pricing and commercial-design research, landing-page/CRO usability research, email/provider/transport/privacy/regulatory research, and practical writing methods. Its copywriting and human-writing sections were also informed by MIT-licensed work from the AI Copywriter / humanizer lineage.
+The repository synthesizes marketing research, methodological literature, recommender-system and platform research, current product documentation, pricing and commercial-design research, landing-page/CRO usability research, email/provider/transport/privacy/regulatory research, information-retrieval and discovery research, and practical writing methods. Its copywriting and human-writing sections were also informed by MIT-licensed work from the AI Copywriter / humanizer lineage.
 
 See [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md), [`skills/marketing-practitioner/references/bibliography.md`](skills/marketing-practitioner/references/bibliography.md), and the scoped evidence notes under [`skills/marketing-practitioner/references/`](skills/marketing-practitioner/references/).
 

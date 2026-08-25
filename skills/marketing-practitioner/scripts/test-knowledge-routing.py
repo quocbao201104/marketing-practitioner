@@ -57,6 +57,14 @@ def main() -> int:
         "email.observation": "## 7. Observation semantics and causal boundary",
         "email.decision-record": "## 8. Compact email decision record",
         "email.invariants": "## 9. Anti-folklore invariants",
+        "discovery.core": "## 1. Scope: decide how information and entities can become discoverable",
+        "discovery.need": "## 2. Discovery need, expression, and context",
+        "discovery.availability": "## 3. Scoped discovery availability",
+        "discovery.selection": "## 4. Retrieval, relevance, selection, and discovery modes",
+        "discovery.commitment": "## 5. Discovery representation and system commitment",
+        "discovery.observation": "## 6. Discovery observation and causal boundary",
+        "discovery.decision-record": "## 8. Compact discovery decision record",
+        "discovery.invariants": "## 9. Anti-folklore invariants",
     }
     for route_id, expected_heading in expected_routes.items():
         _, content = module.get_knowledge(route_id)
@@ -65,6 +73,12 @@ def main() -> int:
     email_source_path, email_source_content = module.get_source("EM03")
     assert email_source_path == "references/email-communication-evidence.md"
     assert email_source_content.startswith("## [EM03] Apple — Mail Privacy Protection")
+
+    discovery_source_path, discovery_source_content = module.get_source("SD09")
+    assert discovery_source_path == "references/search-discovery-evidence.md"
+    assert discovery_source_content.startswith(
+        "## [SD09] Bing — Evolving role of the index: from ranking pages to supporting answers"
+    )
 
     fixture = """# Fixture\n\n## A\nA intro\n\n### A.1\nA1 body\n\n#### A.1.1\nA11 body\n\n### A.2\nA2 body\n\n## B\nB body\n\n<!-- route:start fixture.marker -->\nMARKER BODY\n\n### nested marker heading\nstill marker\n<!-- route:end fixture.marker -->\n\n## C\nC body\n"""
 
@@ -207,7 +221,7 @@ def main() -> int:
         "--namespace is only valid with --list",
     )
 
-    print("PASS\t40 routing-mechanics smoke checks")
+    print("PASS\t49 routing-mechanics smoke checks")
     return 0
 
 
