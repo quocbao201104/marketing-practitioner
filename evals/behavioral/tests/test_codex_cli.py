@@ -5,17 +5,29 @@ import tempfile
 import textwrap
 import unittest
 from pathlib import Path
+from unittest import mock
 
 from evals.behavioral.behavioral_eval.adapters import ExecutorRequest
 from evals.behavioral.behavioral_eval.codex_cli import (
     CodexCliAdapter,
     build_codex_command,
+    resolve_codex_executable,
 )
 from evals.behavioral.behavioral_eval.models import ArmProfile, CaseContract
 from evals.behavioral.behavioral_eval.workspace import WorkspaceBinding
 
 
 class CodexCliTests(unittest.TestCase):
+    def test_default_executable_resolves_windows_command_shim(self) -> None:
+        with mock.patch(
+            "evals.behavioral.behavioral_eval.codex_cli.shutil.which",
+            return_value=r"C:\Users\test\AppData\Roaming\npm\codex.CMD",
+        ):
+            self.assertEqual(
+                (r"C:\Users\test\AppData\Roaming\npm\codex.CMD",),
+                resolve_codex_executable(),
+            )
+
     def setUp(self) -> None:
         temporary = tempfile.TemporaryDirectory()
         self.addCleanup(temporary.cleanup)

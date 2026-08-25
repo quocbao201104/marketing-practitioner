@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+import shutil
 import signal
 import subprocess
 import time
@@ -9,6 +10,13 @@ from pathlib import Path
 from typing import Any, Sequence
 
 from .adapters import ExecutorRequest, ExecutorResult
+
+
+def resolve_codex_executable() -> tuple[str, ...]:
+    resolved = shutil.which("codex")
+    if resolved is None:
+        return ("codex",)
+    return (resolved,)
 
 
 def build_codex_command(
@@ -111,10 +119,11 @@ def _terminate_process_tree(process: subprocess.Popen[bytes]) -> None:
 
 
 class CodexCliAdapter:
-    def __init__(self, executable: Sequence[str] = ("codex",)) -> None:
-        if not executable:
+    def __init__(self, executable: Sequence[str] | None = None) -> None:
+        selected = resolve_codex_executable() if executable is None else executable
+        if not selected:
             raise ValueError("executable prefix cannot be empty")
-        self._executable = tuple(executable)
+        self._executable = tuple(selected)
 
     def _version(self) -> str | None:
         try:
