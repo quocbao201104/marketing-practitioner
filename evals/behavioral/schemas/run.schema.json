@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://marketing-practitioner.local/schemas/behavioral-run-v1.json",
+  "type": "object",
+  "required": ["run_id", "case_identity", "profile_id", "state", "started_at", "finished_at"],
+  "additionalProperties": true
+}

@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "executed_on": "2026-08-25",
+  "executor": {
+    "cli_version": "codex-cli 0.144.3",
+    "model": "gpt-5.6-terra",
+    "reasoning_effort": "medium",
+    "repetitions_per_condition": 2
+  },
+  "corpus": {
+    "cases": 12,
+    "families": 6,
+    "total_runs": 48
+  },
+  "current_skill_sha256": "e15916a1d792516d1434a7605bc1fa5b51774f7580d2870cd006921dda6b20c1",
+  "run_states": {
+    "completed": 45,
+    "activation_unverified": 3,
+    "other_operational_failures": 0
+  },
+  "arms": {
+    "baseline": {
+      "runs": 24,
+      "completed": 24,
+      "operationally_invalid": 0,
+      "answer_passes": 21,
+      "answer_failures": 3
+    },
+    "current-skill": {
+      "runs": 24,
+      "completed": 21,
+      "operationally_invalid": 3,
+      "answer_passes": 19,
+      "answer_failures": 2
+    }
+  },
+  "paired_dispositions": {
+    "both_pass": 8,
+    "skill_only_pass": 0,
+    "baseline_only_pass": 0,
+    "both_fail": 0,
+    "unresolved": 1,
+    "operationally_invalid": 3
+  },
+  "repeat_instability_pairs": 2,
+  "answer_failures": {
+    "total": 5,
+    "hard_predicate_failures": 2,
+    "semantic_review_failures": 3
+  },
+  "judgment_provenance": {
+    "reviewer": "single Codex assistant in the implementation session",
+    "condition_blind": true,
+    "independent_human_review": false,
+    "benchmark_grade": false
+  },
+  "limitations": [
+    "Three current-skill conditions lacked observable activation evidence and are operationally invalid, not answer failures.",
+    "The semantic review was condition-blind but was not performed by an independent human reviewer.",
+    "This small frozen pilot supports repository decisions only; it does not estimate population-level reliability or universal capability.",
+    "No paired disposition showed a baseline-only or skill-only pass in this run."
+  ]
+}

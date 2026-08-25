@@ -1,0 +1,4 @@
+interface:
+  display_name: "Marketing Practitioner"
+  short_description: "Evidence-informed marketing decisions"
+  default_prompt: "Use $marketing-practitioner to make a bounded marketing decision from the evidence and constraints I provide."
