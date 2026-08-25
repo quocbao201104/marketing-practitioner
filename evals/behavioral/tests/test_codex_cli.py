@@ -35,6 +35,27 @@ class CodexCliTests(unittest.TestCase):
 
         self.assertTrue(activation_verified(events, self.request))
 
+    def test_successful_skill_read_accepts_lexical_path_when_resolve_changes_spelling(
+        self,
+    ) -> None:
+        skill_file = self.binding.skill_path / "SKILL.md"
+        events = (
+            {
+                "type": "item.completed",
+                "item": {
+                    "type": "command_execution",
+                    "command": f"Get-Content -LiteralPath '{skill_file}' -Raw",
+                    "exit_code": 0,
+                },
+            },
+        )
+        canonical_spelling = (
+            self.root / "canonical" / "marketing-practitioner" / "SKILL.md"
+        )
+
+        with mock.patch.object(Path, "resolve", return_value=canonical_spelling):
+            self.assertTrue(activation_verified(events, self.request))
+
     def test_default_executable_resolves_windows_command_shim(self) -> None:
         with mock.patch(
             "evals.behavioral.behavioral_eval.codex_cli.shutil.which",

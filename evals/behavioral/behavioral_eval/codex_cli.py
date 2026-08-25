@@ -85,6 +85,10 @@ def _walk_strings(value: Any):
             yield from _walk_strings(item)
 
 
+def _normalize_path_text(value: str) -> str:
+    return re.sub(r"/+", "/", value.lower().replace("\\", "/"))
+
+
 def activation_verified(
     events: tuple[dict[str, Any], ...], request: ExecutorRequest
 ) -> bool | None:
@@ -100,19 +104,13 @@ def activation_verified(
             continue
         if item.get("exit_code") != 0 or request.workspace.skill_path is None:
             continue
-        command = re.sub(
-            r"/+",
-            "/",
-            str(item.get("command", "")).lower().replace("\\", "/"),
-        )
-        expected = re.sub(
-            r"/+",
-            "/",
-            str(
-                (request.workspace.skill_path / "SKILL.md").resolve()
-            ).lower().replace("\\", "/"),
-        )
-        if expected in command:
+        command = _normalize_path_text(str(item.get("command", "")))
+        skill_file = request.workspace.skill_path / "SKILL.md"
+        expected_paths = {
+            _normalize_path_text(str(skill_file)),
+            _normalize_path_text(str(skill_file.resolve())),
+        }
+        if any(expected in command for expected in expected_paths):
             return True
     return None
 
