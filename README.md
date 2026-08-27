@@ -12,7 +12,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Language: English](https://img.shields.io/badge/language-English-4c1.svg)](#)
 [![Format: Agent Skill](https://img.shields.io/badge/format-Agent%20Skill-6f42c1.svg)](skills/marketing-practitioner/SKILL.md)
-[![skills.sh](https://skills.sh/b/quocbao201104/marketing-practitioner-skill)](https://skills.sh/quocbao201104/marketing-practitioner-skill)
+[![skills.sh](https://skills.sh/b/quocbao201104/marketing-practitioner)](https://skills.sh/quocbao201104/marketing-practitioner)
 
 </div>
 
@@ -25,7 +25,7 @@ It is not a prompt pack or growth-hack library. The runtime starts from the curr
 ## Quick start
 
 ```bash
-npx skills add quocbao201104/marketing-practitioner-skill
+npx skills add quocbao201104/marketing-practitioner
 ```
 
 Then describe:
@@ -139,15 +139,15 @@ The project does not claim complete knowledge of private ranking, retrieval, or 
 ## Installation and manual use
 
 ```bash
-npx skills add quocbao201104/marketing-practitioner-skill
-git clone https://github.com/quocbao201104/marketing-practitioner-skill.git
+npx skills add quocbao201104/marketing-practitioner
+git clone https://github.com/quocbao201104/marketing-practitioner.git
 ```
 
 The governing instructions are [skills/marketing-practitioner/SKILL.md](skills/marketing-practitioner/SKILL.md).
 
 ## Feedback and real-world reports
 
-Real-world usage is especially valuable at this stage. If Marketing Practitioner makes a poor decision, overcomplicates a simple task, misses supplied evidence, reopens a resolved decision, chooses the wrong knowledge path, behaves inconsistently across repeats, or produces an unexpectedly useful result, please [open a behavior report](https://github.com/quocbao201104/marketing-practitioner-skill/issues/new?template=behavior-report.yml).
+Real-world usage is especially valuable at this stage. If Marketing Practitioner makes a poor decision, overcomplicates a simple task, misses supplied evidence, reopens a resolved decision, chooses the wrong knowledge path, behaves inconsistently across repeats, or produces an unexpectedly useful result, please [open a behavior report](https://github.com/quocbao201104/marketing-practitioner/issues/new?template=behavior-report.yml).
 
 A useful report includes the task, relevant sanitized context, expected behavior, observed behavior, model/runtime, skill version, and whether the behavior is reproducible. Reports that expose a generalizable failure may be converted into anonymized behavioral evaluation cases or regression tests.
 
