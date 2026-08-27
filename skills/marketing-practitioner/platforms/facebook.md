@@ -119,6 +119,8 @@ current explicit Group rules
 → generic Facebook guidance
 ```
 
+For a named Group intended for publication, if current explicit rules could materially change eligibility, required labels or hashtags, topic fit, promotion or link handling, representation, or the permitted ask and those rules are not sufficiently supplied or already verified for the current task, retrieve them just in time when retrieval is available. Do not replace missing local rules with guessed Group conventions.
+
 Material Group state can include:
 
 - public vs private;
@@ -177,7 +179,11 @@ A research Group contribution may need question, bounded finding, method/evidenc
 
 A product or project subject does not by itself make `announce` the communication job. In a bounded Group, the actor's relationship and intended interaction can materially change the representation even when product truth and strategic meaning are already resolved. If the contribution seeks feedback, discussion, critique, or peer participation, do not default to a release note, product page, or documentation sequence with a feedback CTA appended at the end.
 
-Treat that case as a community contribution: establish only the context needed for legitimacy and understanding, keep the product facts or proof that help members respond, let linked documentation carry installation or exhaustive capability detail when it does not need to live in the post, and make the ask match the actual interaction job. Reordering or omitting nonessential product information for this environment is representation adaptation, not a reopening of positioning or product strategy. Do not manufacture familiarity, enthusiasm, informality, or peer status that the actor's real relationship does not support.
+Treat that case as a community contribution: establish only the context needed for legitimacy and understanding, keep the product facts or proof that help members respond, and let linked documentation carry exhaustive installation, capability, or implementation detail when it does not need to live in the post. Do not delegate the minimum understanding required for the interaction itself: the post still needs enough orientation for readers to know what is being shared, enough concrete explanation to judge whether it is relevant to them, and enough information to participate in the current job. For an unfamiliar project or product, one concrete behavior, example, or contrast may be necessary even when the repository carries the full detail.
+
+The contribution should also work as a complete interaction rather than a factual checklist. When the job is feedback, discussion, critique, or participation, make the next turn legible and end or hand off the post in a way that fits that interaction. This does not require a title, a hook formula, a fixed CTA, gratitude, fake warmth, or any other canned section.
+
+Reordering or omitting nonessential product information for this environment is representation adaptation, not a reopening of positioning or product strategy. Do not manufacture familiarity, enthusiasm, informality, or peer status that the actor's real relationship does not support.
 
 ---
 
@@ -392,10 +398,11 @@ job
 → reader / community state
 → contribution vs broadcast posture if Group relationship or interaction job makes it material
 → current rule / constraint if material
+→ artifact-completeness check for the job
 → draft
 ```
 
-A Group post about a product or project is not automatically a release announcement. If the real job is feedback, discussion, critique, or participation, let that interaction job shape information order and ask before drafting.
+A Group post about a product or project is not automatically a release announcement. If the real job is feedback, discussion, critique, or participation, let that interaction job shape information order and ask before drafting. A simple route is still responsible for enough orientation, object understanding, participation path, and interaction closure when those functions are necessary for the job.
 
 ### Consequential Group contribution
 
