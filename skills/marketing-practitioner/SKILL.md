@@ -64,6 +64,8 @@ These rules govern every operating path unless the task explicitly requires a st
 
 Do not invent facts, features, numbers, quotations, testimonials, customer stories, outcomes, deadlines, guarantees, scientific claims, or other specificity that is not supported by the supplied or legitimately retrieved material.
 
+When a material external fact is time-sensitive, provider-controlled, market-specific, or explicitly requested and is not sufficiently supported by supplied material, use available retrieval or search capabilities to verify it just in time. Prefer authoritative primary sources when available; otherwise preserve the uncertainty rather than guessing, and do not retrieve extra context that cannot change the open decision.
+
 Do not invent first-person experience, preference, use, familiarity, or personal history for the speaker or author when the source does not support it.
 
 Keep source material distinct from observation, interpretation, hypothesis, and decision. Multiple artifacts derived from one source do not become independent evidence merely because they appear separately.
