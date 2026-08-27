@@ -182,6 +182,48 @@ Gallagher, S. E., & Savage, T. (2015). **“What is, Becomes What is Right”: A
 
 Use: conceptual and qualitative basis for newcomer legitimacy, including contextual legitimacy, testimonial legitimacy, and learning community norms through prior observation. Treat the framework as community-specific theory development rather than a deterministic content formula.
 
+### [R50] Butler — Online Community Resources and Sustainability
+
+Butler, B. S. (2001). **Membership Size, Communication Activity, and Sustainability: A Resource-Based Model of Online Social Structures.** *Information Systems Research, 12*(4), 346–362. DOI: 10.1287/isre.12.4.346.9703.
+
+Use: members contribute time, energy, and other resources while online social structures provide benefits such as information, influence, and social support; supports treating community participation as a resource-and-benefit relation rather than mere audience access. The longitudinal listserv setting does not establish one universal benefit mix or optimal activity level.
+
+### [R51] Wasko & Faraj — Knowledge as a Community Public Good
+
+Wasko, M. M., & Faraj, S. (2000). **“It is what one does”: why people participate and help others in electronic communities of practice.** *The Journal of Strategic Information Systems, 9*(2–3), 155–173. DOI: 10.1016/S0963-8687(00)00045-7.
+
+Use: conceptual and survey evidence for treating knowledge as a community-maintained public good and for community interest, generalized reciprocity, and prosocial behavior as possible participation motives. Do not infer those motives for an individual member or treat community contribution as a moral obligation.
+
+### [R52] Wasko & Faraj — Social Capital and Knowledge Contribution
+
+Wasko, M. M., & Faraj, S. (2005). **Why Should I Share? Examining Social Capital and Knowledge Contribution in Electronic Networks of Practice.** *MIS Quarterly, 29*(1), 35–57. DOI: 10.2307/25148667.
+
+Use: empirical evidence from a professional legal network that knowledge contribution was associated with reputation, experience, and structural embeddedness, while expected reciprocity and high community commitment were not significant drivers in that setting. Supports heterogeneous motives and rejects “useful contribution creates a debt of feedback” as a universal rule.
+
+### [R53] Wiertz & de Ruyter — Contribution in Firm-Hosted Technical Communities
+
+Wiertz, C., & de Ruyter, K. (2007). **Beyond the Call of Duty: Why Customers Contribute to Firm-hosted Commercial Online Communities.** *Organization Studies, 28*(3), 347–376. DOI: 10.1177/0170840607076003.
+
+Use: empirical evidence from a firm-hosted technical support community that perceived informational value, community commitment, and online interaction propensity were important drivers of knowledge contribution. Supports making member/community informational value legible when asking for voluntary contribution, without generalizing one motivation model to every Group.
+
+### [R54] Lakhani & von Hippel — User-to-User Assistance in Open Source
+
+Lakhani, K. R., & von Hippel, E. (2003). **How open source software works: “free” user-to-user assistance.** *Research Policy, 32*(6), 923–943. DOI: 10.1016/S0048-7333(02)00095-1.
+
+Use: Apache field-support evidence that much information-provision effort in the studied help system returned direct learning benefits to providers. Supports the possibility that open-source contribution can deliver contributor-side benefit rather than requiring pure altruism. Do not generalize the reported percentage or Apache support mechanics to other projects.
+
+### [R55] von Hippel & von Krogh — Private-Collective Open-Source Innovation
+
+von Hippel, E., & von Krogh, G. (2003). **Open Source Software and the “Private-Collective” Innovation Model: Issues for Organization Science.** *Organization Science, 14*(2), 209–223. DOI: 10.1287/orsc.14.2.209.14992.
+
+Use: conceptual model in which users can solve private needs while freely revealing innovations that contribute to a shared artifact; supports keeping private/member value and collective/shared return distinct but compatible. Open source alone does not establish community co-ownership, equal governance, or guaranteed incorporation of contributions.
+
+### [R56] Shah — Motivation and Governance in Open Source
+
+Shah, S. K. (2006). **Motivation, Governance, and the Viability of Hybrid Forms in Open Source Software Development.** *Management Science, 52*(7), 1000–1014. DOI: 10.1287/mnsc.1060.0553.
+
+Use: inductive evidence from two open-source communities that a need for software improvements often drove initial participation and that motives evolved for a smaller continuing subset; supports allowing practical self-benefit and shared-project benefit to coexist without assuming every user becomes a contributor.
+
 ### [R43] Barasch & Berger — Broadcasting vs Narrowcasting
 
 Barasch, A., & Berger, J. (2014). **Broadcasting and Narrowcasting: How Audience Size Affects What People Share.** *Journal of Marketing Research, 51*(3), 286–299. DOI: 10.1509/jmr.13.0238.
