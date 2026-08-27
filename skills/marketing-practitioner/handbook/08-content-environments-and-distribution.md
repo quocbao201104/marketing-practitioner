@@ -375,6 +375,8 @@ Before finalizing a contribution, ask:
 
 In a bounded community, answer with current rules, norms, membership, topic boundaries, expertise expectations, and promotion tolerance where relevant [R25][R26]. In Search, answer with intent satisfaction. In a professional feed, answer with professional relevance. These are environment-specific constraints, not separate universal primitives.
 
+When the job is community participation, contribution, or feedback-seeking, relational stance is part of the representation. A contribution within a community should not default to a broadcast announcement, product page, release note, or documentation posture merely because the subject is a product or project. Use only the personal framing, contextual legitimacy, conversational openness, and invitation that the actor's relationship and local community norms support; do not manufacture familiarity, enthusiasm, informality, or peer status that the context does not justify.
+
 ### 4.7 Early value without hook folklore
 
 Fast-scrolling or sequential media often require enough information early for a person to understand why continuing may be worthwhile.
