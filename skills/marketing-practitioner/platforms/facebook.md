@@ -206,9 +206,13 @@ future support, or another shared resource, if the source supports that path?
 
 These are decision questions, not mandatory schema fields or a requirement that every contribution create a public good.
 
+Once member value, shared return, or a return path is resolved as material to why the voluntary ask is worthwhile, preserve that relation into the final audience-facing representation. Do not let claim restraint, limitation language, or reporting instructions collapse the artifact back to actor need alone. Internal reasoning that a value loop exists is not sufficient if the reader must understand that loop to evaluate the ask.
+
 The speaker's need alone does not establish community relevance. A legitimate actor objective such as “I need testers” can be stated transparently, but when member or shared value actually exists, the contribution should make that value legible rather than presenting the Group primarily as a pool of labor, leads, survey respondents, or free testers. Conversely, do not invent mutual benefit merely to make an ask sound community-minded.
 
 Member value and shared return are different. A member may gain a useful tool, answer, learning opportunity, visibility, problem solution, or relevant discussion without creating a durable community asset. A shared return may exist when contributions can become reusable documentation, public fixes, improved open-source code, regression cases, community knowledge, or another artifact that later participants can use. Claim that return only when the actual project, governance, or process supports it.
+
+A return-path fact is not automatically a shared-value representation. For example, saying only that “some reports may become tests” states a process fact; if that process materially helps justify the community ask, connect the member's use or contribution to the supported return path in ordinary audience-facing language so the reader can understand what may come back to the shared artifact or later users. Do not overstate certainty or imply that every contribution will be incorporated.
 
 Reciprocity is not debt. Evidence from online knowledge networks shows that contribution motives vary and that expected direct reciprocity is not a universal driver [R58][R52][R53]. Do not imply that members owe feedback because the actor shared something useful, that open source automatically creates community co-ownership, or that every report will be accepted, fixed, or incorporated. Preserve voluntary participation and the real contribution cost.
 
@@ -243,6 +247,12 @@ OPEN SOURCE
 
 FEEDBACK PATH
 ≠ GUARANTEED FIX / ACCEPTANCE
+
+RESOLVED MATERIAL VALUE RELATION
+→ MUST REMAIN LEGIBLE IN THE FINAL ARTIFACT
+
+RETURN-PATH DISCLAIMER
+≠ SHARED-VALUE REPRESENTATION
 ```
 
 Treat a feedback-seeking product or project post as a community contribution: establish only the context needed for legitimacy and understanding, keep the product facts or proof that help members respond, and let linked documentation carry exhaustive installation, capability, or implementation detail when it does not need to live in the post. Do not delegate the minimum understanding required for the interaction itself: the post still needs enough orientation for readers to know what is being shared, enough concrete explanation to judge whether it is relevant to them, and enough information to participate in the current job. For an unfamiliar project or product, one concrete behavior, example, or contrast may be necessary even when the repository carries the full detail.
@@ -465,11 +475,12 @@ job
 → contribution vs broadcast posture if Group relationship or interaction job makes it material
 → member/shared value + return path if voluntary community effort is requested
 → current rule / constraint if material
+→ preserve any resolved material value relation in the audience-facing representation
 → artifact-completeness check for the job
 → draft
 ```
 
-A Group post about a product or project is not automatically a release announcement. If the real job is feedback, discussion, critique, or participation, let that interaction job shape information order and ask before drafting. A simple route is still responsible for enough orientation, object understanding, participation path, and interaction closure when those functions are necessary for the job. If the ask requests voluntary effort, the speaker's need alone is not sufficient community relevance; preserve member value, shared return, contribution cost, and the real return path only where they can change the representation.
+A Group post about a product or project is not automatically a release announcement. If the real job is feedback, discussion, critique, or participation, let that interaction job shape information order and ask before drafting. A simple route is still responsible for enough orientation, object understanding, participation path, and interaction closure when those functions are necessary for the job. If the ask requests voluntary effort, the speaker's need alone is not sufficient community relevance; preserve member value, shared return, contribution cost, and the real return path only where they can change the representation. Do not count internal reasoning or a process caveat such as “reports may become tests” as sufficient representation when a supported member/shared-value relation materially helps justify the ask; make that relation understandable before or with the participation request.
 
 ### Consequential Group contribution
 
@@ -483,6 +494,7 @@ job
 → object + representation
 → contribution posture + information allocation
 → member value / shared return / contribution cost / return path if material
+→ preserve resolved value relation in final representation
 → link / promotion constraints
 → message + proof + ask
 → response opportunity + success metric
