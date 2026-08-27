@@ -1,0 +1,97 @@
+name: Real-world behavior report
+description: Report a useful, surprising, incorrect, or unstable Marketing Practitioner behavior from a real task.
+title: "[Behavior] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve Marketing Practitioner with real-world evidence.
+
+        Please remove confidential customer, company, credential, or personal data before submitting. Reports may be converted into anonymized behavioral evaluation cases or regression tests when they reveal a generalizable failure.
+
+  - type: textarea
+    id: task
+    attributes:
+      label: Task
+      description: What did you ask the agent to do?
+      placeholder: Paste the task or a sanitized version of it.
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Relevant context
+      description: What facts, evidence, constraints, or prior decisions materially affected the task?
+      placeholder: Include only what is needed to understand the behavior. Remove private information.
+    validations:
+      required: false
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What did you expect the agent to decide, preserve, avoid, or produce?
+    validations:
+      required: true
+
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed behavior
+      description: What did the agent actually do? Include the relevant output or a concise sanitized excerpt when useful.
+    validations:
+      required: true
+
+  - type: input
+    id: runtime
+    attributes:
+      label: Model / agent runtime
+      description: For example Codex, Claude Code, Cursor, ChatGPT, or another host/model configuration.
+      placeholder: Codex / GPT-5.6 / medium reasoning
+    validations:
+      required: false
+
+  - type: input
+    id: version
+    attributes:
+      label: Marketing Practitioner version
+      description: Release, commit, or branch if known.
+      placeholder: v0.9.0
+    validations:
+      required: false
+
+  - type: dropdown
+    id: reproducible
+    attributes:
+      label: Reproducible?
+      options:
+        - "Yes"
+        - "No"
+        - "Unsure"
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Why did this matter?
+      description: What decision, user experience, risk, wasted effort, or useful outcome made this behavior important?
+    validations:
+      required: false
+
+  - type: textarea
+    id: artifacts
+    attributes:
+      label: Sanitized artifacts (optional)
+      description: Add screenshots, logs, prompts, or outputs only if they contain no confidential or personal information.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: I removed confidential customer, company, credential, and personal data from this report.
+          required: true
