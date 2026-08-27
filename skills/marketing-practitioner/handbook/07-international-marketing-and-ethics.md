@@ -50,6 +50,8 @@ Possible local variables include:
 
 The split should be governed by evidence rather than preference.
 
+Terminology should follow audience usage rather than source-language inertia. Preserve established technical terms when translating them would reduce precision or sound unnatural for the target audience; otherwise prefer natural target-language wording and avoid unnecessary code-switching merely because the source material or internal framework uses another language.
+
 ## 4. Original-language evidence should be preserved
 
 Customer wording can carry connotation, politeness, identity, category terminology, and emotional texture that translation compresses. Original-language material should therefore remain analytically available when language itself is evidence.
