@@ -145,6 +145,14 @@ git clone https://github.com/quocbao201104/marketing-practitioner-skill.git
 
 The governing instructions are [skills/marketing-practitioner/SKILL.md](skills/marketing-practitioner/SKILL.md).
 
+## Feedback and real-world reports
+
+Real-world usage is especially valuable at this stage. If Marketing Practitioner makes a poor decision, overcomplicates a simple task, misses supplied evidence, reopens a resolved decision, chooses the wrong knowledge path, behaves inconsistently across repeats, or produces an unexpectedly useful result, please [open a behavior report](https://github.com/quocbao201104/marketing-practitioner-skill/issues/new?template=behavior-report.yml).
+
+A useful report includes the task, relevant sanitized context, expected behavior, observed behavior, model/runtime, skill version, and whether the behavior is reproducible. Reports that expose a generalizable failure may be converted into anonymized behavioral evaluation cases or regression tests.
+
+Please do not include confidential customer, company, credential, or personal data.
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md). Contributions should preserve UTF-8, source fidelity, decision scope, resolved-state behavior, fast paths, owner boundaries, and the distinction between observation, attribution, and causality. New top-level reasoning capabilities require a demonstrated decision-relevant gap before implementation.
