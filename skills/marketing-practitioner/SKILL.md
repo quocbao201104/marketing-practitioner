@@ -206,6 +206,9 @@ permission / authority / endpoint / suppression / technical feasibility
 sequence / branch / delay / exit under history and state
 → email.sequence
 
+relationship / standing / prior contact changes demand, autonomy, or ask while SEND remains valid
+→ email.allocation
+
 subject / preview / body / optional action allocation
 → email.allocation
 
@@ -250,6 +253,9 @@ When the task requires more than generic channel adaptation, use the `content` k
 Common decision-specific addresses include:
 
 ```text
+community relationship, environment fit, or representation can materially change the artifact
+→ content.meaning-representation
+
 choose material system dependencies for a consequential content system / multi-touch launch plan
 → content.consequential-strategy
 
