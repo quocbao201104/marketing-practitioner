@@ -98,7 +98,7 @@ Use: counterfactual thinking, distinction between descriptive/predictive and cau
 
 ### [R12] Kohavi et al. — Controlled Experiments on the Web
 
-Kohavi, R., Longbotham, R., Sommerfield, D., & Athey, S. (2009). **Controlled experiments on the web: survey and practical guide.** *Data Mining and Knowledge Discovery, 18*, 140–181. DOI: 10.1007/s10618-008-0114-1.
+Kohavi, R., Longbotham, R., Sommerfield, D., & Henne, R. M. (2009). **Controlled experiments on the web: survey and practical guide.** *Data Mining and Knowledge Discovery, 18*, 140–181. DOI: 10.1007/s10618-008-0114-1.
 
 Use: randomized online experiments, power, metrics, randomization, implementation pitfalls, and experimentation practice.
 
@@ -132,7 +132,7 @@ Use: average effects of cultural-value adaptation accompanied by substantial unc
 
 ### [R17] Steel & Taras — Within-Country Cultural Variation
 
-Steel, P., & Taras, V. (2010). **Culture as a consequence: A multi-level multivariate meta-analysis of the effects of individual and country characteristics on work-related cultural values.** *Journal of International Management, 16*(3), 211–233. DOI: 10.1016/j.intman.2010.06.002.
+Steel, P., & Taras, V. (2010). **Culture as a consequence: A multi-level multivariate meta-analysis of the effects of individual and country characteristics on work-related cultural values.** *Journal of International Management, 16*(3), 211–233. DOI: 10.1016/S0969-5931(02)00094-X.
 
 Use: substantial within-country variation and limitations of applying national averages to individuals.
 
