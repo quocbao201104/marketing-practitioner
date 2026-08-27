@@ -132,7 +132,7 @@ Use: average effects of cultural-value adaptation accompanied by substantial unc
 
 ### [R17] Steel & Taras — Within-Country Cultural Variation
 
-Steel, P., & Taras, V. (2010). **Culture as a consequence: A multi-level multivariate meta-analysis of the effects of individual and country characteristics on work-related cultural values.** *Journal of International Management, 16*(3), 211–233. DOI: 10.1016/S0969-5931(02)00094-X.
+Steel, P., & Taras, V. (2010). **Culture as a consequence: A multi-level multivariate meta-analysis of the effects of individual and country characteristics on work-related cultural values.** *Journal of International Management, 16*(3), 211–233. DOI: 10.1016/j.intman.2010.06.002.
 
 Use: substantial within-country variation and limitations of applying national averages to individuals.
 
