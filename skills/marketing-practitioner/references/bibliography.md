@@ -98,7 +98,7 @@ Use: counterfactual thinking, distinction between descriptive/predictive and cau
 
 ### [R12] Kohavi et al. — Controlled Experiments on the Web
 
-Kohavi, R., Longbotham, R., Sommerfield, D., & Henne, R. M. (2009). **Controlled experiments on the web: survey and practical guide.** *Data Mining and Knowledge Discovery, 18*, 140–181. DOI: 10.1007/s10618-008-0114-1.
+Kohavi, R., Longbotham, R., Sommerfield, D., & Athey, S. (2009). **Controlled experiments on the web: survey and practical guide.** *Data Mining and Knowledge Discovery, 18*, 140–181. DOI: 10.1007/s10618-008-0114-1.
 
 Use: randomized online experiments, power, metrics, randomization, implementation pitfalls, and experimentation practice.
 
@@ -182,13 +182,13 @@ Gallagher, S. E., & Savage, T. (2015). **“What is, Becomes What is Right”: A
 
 Use: conceptual and qualitative basis for newcomer legitimacy, including contextual legitimacy, testimonial legitimacy, and learning community norms through prior observation. Treat the framework as community-specific theory development rather than a deterministic content formula.
 
-### [R50] Butler — Online Community Resources and Sustainability
+### [R57] Butler — Online Community Resources and Sustainability
 
 Butler, B. S. (2001). **Membership Size, Communication Activity, and Sustainability: A Resource-Based Model of Online Social Structures.** *Information Systems Research, 12*(4), 346–362. DOI: 10.1287/isre.12.4.346.9703.
 
 Use: members contribute time, energy, and other resources while online social structures provide benefits such as information, influence, and social support; supports treating community participation as a resource-and-benefit relation rather than mere audience access. The longitudinal listserv setting does not establish one universal benefit mix or optimal activity level.
 
-### [R51] Wasko & Faraj — Knowledge as a Community Public Good
+### [R58] Wasko & Faraj — Knowledge as a Community Public Good
 
 Wasko, M. M., & Faraj, S. (2000). **“It is what one does”: why people participate and help others in electronic communities of practice.** *The Journal of Strategic Information Systems, 9*(2–3), 155–173. DOI: 10.1016/S0963-8687(00)00045-7.
 
