@@ -38,6 +38,8 @@ CORE PROMISE
 
 The sequence may be rearranged by channel and reader state, but the dependencies remain. A skeptical audience may require proof earlier. A technically sophisticated audience may require mechanism before benefit. A reader already convinced of value may require only risk reduction or implementation detail.
 
+This hierarchy describes **message dependencies, not a mandatory artifact outline**. When a downstream environment or representation owner has already resolved an interaction job, information order, ask, or participation posture that materially changes the artifact, preserve the resolved message and claim/proof constraints but let that downstream owner control the final representation. Chapter 04 must not reimpose `promise → mechanism → proof → CTA` or another generic message sequence merely because the artifact is long or substantial. Substantial artifact length does not by itself imply an unresolved message-structure decision.
+
 Message design therefore combines strategic content with the **state of the reader at the moment of exposure**.
 
 When the current touchpoint depends on what came before, retain the incoming promise or intent and its provenance, plus prior proof or exposure, only if they change what this touchpoint must explain. Allocate proof to the touchpoint's job rather than repeating every proof element in every format.
