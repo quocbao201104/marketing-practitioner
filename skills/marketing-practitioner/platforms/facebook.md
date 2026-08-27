@@ -175,6 +175,10 @@ For a newcomer or commercial actor, contextual legitimacy can matter before a st
 
 A research Group contribution may need question, bounded finding, method/evidence, scope, and a discussion-oriented ask. A commerce/seller Group may tolerate offers, but promotion tolerance must be established locally rather than inferred from category alone.
 
+A product or project subject does not by itself make `announce` the communication job. In a bounded Group, the actor's relationship and intended interaction can materially change the representation even when product truth and strategic meaning are already resolved. If the contribution seeks feedback, discussion, critique, or peer participation, do not default to a release note, product page, or documentation sequence with a feedback CTA appended at the end.
+
+Treat that case as a community contribution: establish only the context needed for legitimacy and understanding, keep the product facts or proof that help members respond, let linked documentation carry installation or exhaustive capability detail when it does not need to live in the post, and make the ask match the actual interaction job. Reordering or omitting nonessential product information for this environment is representation adaptation, not a reopening of positioning or product strategy. Do not manufacture familiarity, enthusiasm, informality, or peer status that the actor's real relationship does not support.
+
 ---
 
 ## 4. Identity and observability can be observer-relative
@@ -386,9 +390,12 @@ job
 → actor/source
 → object + representation
 → reader / community state
+→ contribution vs broadcast posture if Group relationship or interaction job makes it material
 → current rule / constraint if material
 → draft
 ```
+
+A Group post about a product or project is not automatically a release announcement. If the real job is feedback, discussion, critique, or participation, let that interaction job shape information order and ask before drafting.
 
 ### Consequential Group contribution
 
@@ -400,6 +407,7 @@ job
 → community purpose / norms
 → audience envelope
 → object + representation
+→ contribution posture + information allocation
 → link / promotion constraints
 → message + proof + ask
 → response opportunity + success metric
