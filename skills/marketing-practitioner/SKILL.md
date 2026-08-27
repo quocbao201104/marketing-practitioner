@@ -60,7 +60,7 @@ These are dependency patterns, not mandatory pipelines.
 
 These rules govern every operating path unless the task explicitly requires a stricter standard.
 
-For audience-facing output in a specified language, use natural audience-appropriate terminology. Preserve source-language or technical terms only when they improve precision, match established audience usage, or are explicitly required; do not leak internal or source vocabulary into the output by default.
+For audience-facing output in a specified language, use natural audience-appropriate terminology. Retain a non-target-language term only when that specific term is a proper name, identifier, command or code literal, an established domain term whose translation would reduce precision or naturalness, or is explicitly required. Technical sophistication, community familiarity, or source-language prevalence alone is not sufficient justification; when no term-specific reason exists, use natural target-language wording and do not leak internal or source vocabulary into the output.
 
 ## 1. Source fidelity
 
@@ -740,6 +740,7 @@ Before returning material work, check only the dimensions relevant to the curren
 - **Proof proportionality:** claim strength matches available support.
 - **Counterevidence / uncertainty:** material contradictions and unknowns remain represented in reasoning and surface when the recipient needs them.
 - **Reader / environment fit:** audience-facing communication respects the recipient's state, relationship, surface, permissions, and information budget when those dimensions are material.
+- **Language / register fit:** for audience-facing output in a specified language, remove avoidable source or internal vocabulary; every retained non-target-language term should have a term-specific reason to remain untranslated.
 - **Strategic coherence:** prose expresses a sufficiently resolved strategy rather than substituting for one.
 - **Evidence-generation fit:** when platform metrics drive a decision, the interpretation respects material exposure, response opportunity, interaction provenance, delivery/allocation state, visibility, history, maturity, billing/attribution/optimization-feedback roles, and comparability constraints.
 - **Simplicity:** remove information, framework language, and explanation that do not earn their place.
