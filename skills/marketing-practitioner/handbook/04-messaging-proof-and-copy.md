@@ -42,7 +42,7 @@ Message design therefore combines strategic content with the **state of the read
 
 When the current touchpoint depends on what came before, retain the incoming promise or intent and its provenance, plus prior proof or exposure, only if they change what this touchpoint must explain. Allocate proof to the touchpoint's job rather than repeating every proof element in every format.
 
-For owned-channel next-message decisions, preserve prior contact, suppression or holdout status, blocker, authority or permission, and eligibility when those facts make otherwise identical recipients require a send, suppression, or different message. This is a decision-local record, not a lifecycle or CRM schema.
+For owned-channel next-message decisions, preserve prior contact, suppression or holdout status, blocker, authority or permission, eligibility, and other relationship state when those facts make otherwise identical recipients require a send, suppression, different message, or materially different demand / interaction stance. This is a decision-local record, not a lifecycle or CRM schema.
 
 ## 3. Reader-state analysis
 
@@ -57,7 +57,14 @@ Reader-state variables include:
 - perceived risk;
 - prior exposure to similar promises;
 - stage of evaluation;
-- immediate decision required.
+- immediate decision required;
+- relationship to the speaker or publishing actor when material;
+- whether the communication is invited, expected, or unsolicited;
+- the speaker's standing to direct, request, or invite the next action;
+- relevant prior interaction or unanswered contact when it changes demand, trust, or recipient autonomy;
+- the expected next interaction and whether declining or doing nothing is a legitimate state.
+
+These are expression-relevant states, not a persona schema. Preserve only the relational variables that can materially change what the recipient is entitled to infer, how much demand the communication may place on them, or what next interaction is legitimate.
 
 This perspective is particularly important for microcopy and lifecycle communication because the communication is embedded inside a task rather than consumed as standalone advertising.
 
@@ -89,6 +96,10 @@ The operative principle is reader-first and truth-first:
 4. express concrete value and proof;
 5. preserve the intended voice;
 6. remove unsupported specificity and promotional filler.
+
+When relationship state can change the interaction, preserve it in expression rather than treating it as tone decoration. The speaker's standing relative to the recipient constrains whether an action should be expressed as an instruction, request, invitation, option, or no-action state. Do not use directive language merely because the desired action is clear when the action is voluntary; do not disguise a genuinely required action as an optional promotional ask. Prior unanswered contact can also lower the appropriate demand or require an easier exit even when another communication remains justified.
+
+For correction or repair, distinguish factual correction from relational repair. When the communication job includes acknowledging an error, correct the record directly and preserve responsibility supported by the facts; do not add blame-shifting, argument, or a defensive reinterpretation of the recipient merely to protect the speaker. A correction can be factually accurate and still fail the relationship job.
 
 The strongest wording cannot compensate for missing evidence. When material is weak, the correct response is to seek better material or to write a more modest claim.
 
