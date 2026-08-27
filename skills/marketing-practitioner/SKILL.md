@@ -234,9 +234,11 @@ Surface a limitation, uncertainty, contradiction, or missing proof when it is ma
 
 Audience-facing communication should do only the job of the current touchpoint. Relevance alone is not sufficient for inclusion: information should earn its place by materially helping the reader understand the message or make the next decision.
 
-Do not make one piece of communication carry information that a linked artifact, later interaction, or another stage of the journey can handle better.
+Do not make one piece of communication carry information that a linked artifact, later interaction, or another stage of the journey can handle better. But delegation has a boundary: a linked artifact may carry deeper detail, not the minimum understanding required for the current touchpoint to work. The current artifact itself must give the reader enough orientation to understand what is being discussed, enough concrete understanding to judge relevance, and enough information to perform the intended interaction. For an unfamiliar product, project, method, or object, one concrete behavior, example, or contrast may be necessary even when exhaustive capability, installation, or implementation detail lives elsewhere.
 
 For each candidate detail, ask whether omitting it would materially impair understanding of the core message, cause a misleading interpretation, weaken necessary proof, or prevent the intended next action. If not, omit it from this touchpoint even when it is true, relevant, or useful elsewhere.
+
+Minimum sufficient does not mean minimum factual inventory. Do not serialize internal audience labels, job labels, source notes, or routing decisions into prose merely because they are decision-relevant internally. Compile them into the discourse functions required by the artifact and current job.
 
 Human-sounding writing is a quality floor, not the strategy. Use the human-writing guidance in `handbook/04-messaging-proof-and-copy.md` or `frameworks/quality-rubrics.md` when voice or naturalness is actually material to the task; do not front-load a pattern checklist into unrelated work.
 
@@ -269,7 +271,7 @@ weak or changing content performance
 → content.performance-diagnosis before rewriting
 ```
 
-Use `content.fast-path` as the bounded compile route when the job, message, proof, and claim boundaries are already sufficiently resolved; add `content.meaning-representation` only when relationship, environment fit, actor/representation, or participation posture can still change the artifact. Do not load deeper content layers merely because the artifact is long.
+Use `content.fast-path` as the bounded compile route when the job, message, proof, and claim boundaries are already sufficiently resolved; add `content.meaning-representation` only when relationship, environment fit, actor/representation, or participation posture can still change the artifact. Do not load deeper content layers merely because the artifact is long. Fast path is a knowledge-loading shortcut, not permission to under-explain the current object or interaction: it still must satisfy the audience-facing content-selection gate and final artifact-completeness check.
 
 When a content or platform owner resolves an interaction job, information order, ask, or participation posture that materially changes the artifact, treat that as final representation ownership. Preserve upstream message truth, proof, claim boundaries, and voice constraints, but do not let a generic Chapter 04 hierarchy overwrite the environment-specific representation.
 
@@ -299,6 +301,8 @@ history / state transition
 ```
 
 Do not reconstruct every derived concept by default. Attention re-entry, secondary use, nested recommendation, spillover, community-local constraints, platform status, and feedback loops should be represented from the compact core only when they matter.
+
+For a named community, Group, forum, or other bounded destination intended for publication, treat current local governance as a JIT dependency when it could materially change eligibility, required labels or hashtags, topic fit, promotion or link handling, representation, or the permitted ask. If those rules are not sufficiently supplied or already verified for the current task and retrieval is available, verify them before final representation. A named destination is not merely a generic audience label. If current rules cannot be verified, preserve that uncertainty and do not invent local constraints.
 
 Load platform-specific knowledge only when it can change the decision. Use the matching logical namespace rather than a hardcoded file/heading map in this controller:
 
@@ -761,6 +765,7 @@ Before returning material work, check only the dimensions relevant to the curren
 - **Proof proportionality:** claim strength matches available support.
 - **Counterevidence / uncertainty:** material contradictions and unknowns remain represented in reasoning and surface when the recipient needs them.
 - **Reader / environment fit:** audience-facing communication respects the recipient's state, relationship, surface, permissions, and information budget when those dimensions are material.
+- **Artifact completeness:** audience-facing output performs the discourse functions required by the current job rather than merely containing the right facts. Where material, it orients the reader, provides enough understanding to judge relevance, makes the intended participation or next action legible, and closes or hands off the interaction naturally. These are functions, not mandatory sections: do not require a title, hook formula, CTA formula, gratitude, or other template element when the job does not need it.
 - **Relational realization:** when wording materially encodes social relation, do not invent or erase familiarity, hierarchy, authority, obligation, responsibility, speaker identity, or community standing; if the material choice is genuinely underdetermined, do not silently classify the relationship.
 - **Language / register fit:** for audience-facing output in a specified language, remove avoidable source or internal vocabulary; every retained non-target-language term should have a term-specific reason to remain untranslated.
 - **Strategic coherence:** prose expresses a sufficiently resolved strategy rather than substituting for one.
