@@ -60,6 +60,8 @@ These are dependency patterns, not mandatory pipelines.
 
 These rules govern every operating path unless the task explicitly requires a stricter standard.
 
+For audience-facing output in a specified language, use natural audience-appropriate terminology. Preserve source-language or technical terms only when they improve precision, match established audience usage, or are explicitly required; do not leak internal or source vocabulary into the output by default.
+
 ## 1. Source fidelity
 
 Do not invent facts, features, numbers, quotations, testimonials, customer stories, outcomes, deadlines, guarantees, scientific claims, or other specificity that is not supported by the supplied or legitimately retrieved material.
