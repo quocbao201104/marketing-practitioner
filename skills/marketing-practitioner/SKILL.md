@@ -188,7 +188,7 @@ When causal response, incrementality, experiment design, or treatment effects be
 
 Use when the requested outcome is audience-facing communication or a message/copy decision.
 
-Once the relevant positioning is sufficiently resolved for the task, read `handbook/04-messaging-proof-and-copy.md` only when an unresolved message/copy decision requires message hierarchy, proof architecture, claim control, substantial copy structure, landing-page message/copy resolution, or a human-writing review. A narrow transformation or platform-format adaptation with supplied message and proof does not by itself require Chapter 04.
+Once the relevant positioning is sufficiently resolved for the task, read `handbook/04-messaging-proof-and-copy.md` only when an unresolved message/copy decision requires message hierarchy, proof architecture, claim control, substantial copy structure, landing-page message/copy resolution, or a human-writing review. A narrow transformation or platform-format adaptation with supplied message and proof does not by itself require Chapter 04. Substantial artifact length alone is not an unresolved message-structure decision: when a downstream environment or representation owner has already resolved the interaction job, information order, ask, or participation posture, Chapter 04 may still constrain claims, proof, or voice but does not take back ownership of the artifact outline.
 
 When the open decision is **landing-page architecture rather than message/copy itself**, use the `landing-page` knowledge namespace directly and load only the smallest `landing-page.*` route that can change the decision. Do not load Chapter 04 merely as a routing hop when the reader/message, proof/claim boundaries, and commercial state are already sufficiently resolved. If any of those upstream states remains materially unresolved, resolve it with its existing owner first — Chapter 04 for message/claim/proof, Chapter 10 for Commercial Design, and Chapter 05 for causal diagnosis or experimentation — then return to `landing-page.*` only if page allocation remains open.
 
@@ -253,7 +253,10 @@ When the task requires more than generic channel adaptation, use the `content` k
 Common decision-specific addresses include:
 
 ```text
-community relationship, environment fit, or representation can materially change the artifact
+simple platform writing with a narrow resolved job and sufficient source / message / proof
+→ content.fast-path
+
+community relationship, environment fit, or representation remains materially unresolved
 → content.meaning-representation
 
 choose material system dependencies for a consequential content system / multi-touch launch plan
@@ -265,6 +268,10 @@ choose measurement by the marketing job
 weak or changing content performance
 → content.performance-diagnosis before rewriting
 ```
+
+Use `content.fast-path` as the bounded compile route when the job, message, proof, and claim boundaries are already sufficiently resolved; add `content.meaning-representation` only when relationship, environment fit, actor/representation, or participation posture can still change the artifact. Do not load deeper content layers merely because the artifact is long.
+
+When a content or platform owner resolves an interaction job, information order, ask, or participation posture that materially changes the artifact, treat that as final representation ownership. Preserve upstream message truth, proof, claim boundaries, and voice constraints, but do not let a generic Chapter 04 hierarchy overwrite the environment-specific representation.
 
 These routes compose existing audience state, touchpoint job, object/representation, sequence/history, message, and environment. They do not create a campaign, journey, channel-portfolio, or GTM abstraction.
 
@@ -624,6 +631,8 @@ Use when an existing offer, positioning, message, or experience must be adapted 
 
 If the open decision is which country or market to prioritize, start with Chapter 02 target/segment selection and treat economics, capability, operations, law, and commercial feasibility as authoritative dependencies where material. Use Chapter 07 after a target market is selected and the open decision is what must remain invariant or adapt. A country name alone does not activate localization or market-entry machinery.
 
+A target-language request alone does not require deep localization. However, if an unresolved target-language choice itself can materially imply relationship, standing/authority, speaker identity, obligation/autonomy, responsibility/repair, or community membership and the supplied or stronger scoped local evidence is insufficient, read `handbook/07-international-marketing-and-ethics.md` for that bounded realization decision. Pass forward already-resolved relational state from the user, Chapter 04, Chapter 08, Chapter 12, or another authoritative owner; do not ask Chapter 07 to infer the relationship from nationality or broad culture.
+
 Before making market-specific psychological or cultural claims, or when deciding what should remain invariant versus adapt, read `handbook/07-international-marketing-and-ethics.md`.
 
 Preserve global product facts and strategic invariants unless local evidence justifies a change. Adapt only the dimensions supported by product capability and local evidence. Translation is not the same as localization, and exploratory local evidence does not establish market-wide prevalence.
@@ -656,7 +665,7 @@ Pass forward the target context, relevant alternative, category/frame, primary v
 
 ## Message → copy
 
-Pass forward the reader and moment, one job of the communication, core message, proof, mandatory facts, material objections, allowed/qualified/forbidden claims, voice constraints, channel constraints, and CTA logic.
+Pass forward the reader and moment, one job of the communication, core message, proof, mandatory facts, material objections, allowed/qualified/forbidden claims, voice constraints, channel constraints, and CTA logic. When they can materially change the legitimate interaction force or language realization, also preserve resolved relationship, standing/authority, relevant history, invited/expected/unsolicited state, recipient autonomy/obligation, responsibility/repair state, and expected next interaction.
 
 Do not automatically surface research methodology, absent evidence, internal notes, or every known limitation in the final copy.
 
@@ -716,13 +725,19 @@ Pass forward what is established, the leading competing explanations, the uncert
 
 When a result is retained for a later decision, preserve the estimand, analysis population, comparison/control, treatment and version, outcome horizon, material validity condition or defect, and what the result cannot establish only where dropping them would change reuse. Chapter 05 owns the causal method; Chapter 06 owns the retained learning.
 
+## Relationship / environment state → target-language realization
+
+When target-language wording can materially change the relationship conveyed, pass only the resolved communication job, speaker/publishing identity, recipient relation, standing/authority, relevant history, invited/expected/unsolicited state, autonomy/obligation, responsibility/repair state, community or organizational constraints, and scoped local evidence that can change the wording. Chapter 04, Chapter 08, Chapter 12, or another domain owner keeps ownership of those underlying semantics; Chapter 07 or stronger scoped local evidence only determines which target-language realization is supported, unsupported, or genuinely underdetermined.
+
+Do not let localization manufacture or erase familiarity, hierarchy, authority, obligation, responsibility, speaker identity, or community standing. Do not let a broad cultural prior override known actual relationship or interaction state. If a material realization remains underdetermined, preserve an applicable verified form, use a natural non-committal realization when the context supports one, or ask only when the socially meaningful choice is unavoidable and consequential.
+
 ## Global strategy → localization
 
 Pass forward the strategic invariants and identify the dimensions that local evidence can legitimately change. Do not invent a new market narrative merely because local context exists.
 
 ## Localization → downstream use
 
-Pass forward local-evidence status and scope, approval state, permission state, and authoritative owner only when they change what may be written, represented, offered, or published. Evidence support, permission, and approval are not interchangeable.
+Pass forward local-evidence status and scope, supported relationship-indexing realization constraints or material unknowns when relevant, approval state, permission state, and authoritative owner only when they change what may be written, represented, offered, or published. Evidence support, permission, and approval are not interchangeable.
 
 ---
 
@@ -746,6 +761,7 @@ Before returning material work, check only the dimensions relevant to the curren
 - **Proof proportionality:** claim strength matches available support.
 - **Counterevidence / uncertainty:** material contradictions and unknowns remain represented in reasoning and surface when the recipient needs them.
 - **Reader / environment fit:** audience-facing communication respects the recipient's state, relationship, surface, permissions, and information budget when those dimensions are material.
+- **Relational realization:** when wording materially encodes social relation, do not invent or erase familiarity, hierarchy, authority, obligation, responsibility, speaker identity, or community standing; if the material choice is genuinely underdetermined, do not silently classify the relationship.
 - **Language / register fit:** for audience-facing output in a specified language, remove avoidable source or internal vocabulary; every retained non-target-language term should have a term-specific reason to remain untranslated.
 - **Strategic coherence:** prose expresses a sufficiently resolved strategy rather than substituting for one.
 - **Evidence-generation fit:** when platform metrics drive a decision, the interpretation respects material exposure, response opportunity, interaction provenance, delivery/allocation state, visibility, history, maturity, billing/attribution/optimization-feedback roles, and comparability constraints.
