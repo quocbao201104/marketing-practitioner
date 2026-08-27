@@ -181,7 +181,7 @@ A product or project subject does not by itself make `announce` the communicatio
 
 ### Community participation value and return path
 
-Rules and contextual legitimacy answer whether a contribution may belong. They do not by themselves establish why members should spend attention, effort, expertise, or reputational capital on it. Online-community research treats sustainable participation as a resource-and-benefit problem, and studies of knowledge communities find several possible motives and benefits rather than one universal reciprocity rule [R50][R51][R52][R53]. Open-source research adds a useful boundary: contributors can pursue their own practical or learning benefit while also improving a shared artifact, so private and collective value can coexist without becoming the same thing [R54][R55][R56].
+Rules and contextual legitimacy answer whether a contribution may belong. They do not by themselves establish why members should spend attention, effort, expertise, or reputational capital on it. Online-community research treats sustainable participation as a resource-and-benefit problem, and studies of knowledge communities find several possible motives and benefits rather than one universal reciprocity rule [R57][R58][R52][R53]. Open-source research adds a useful boundary: contributors can pursue their own practical or learning benefit while also improving a shared artifact, so private and collective value can coexist without becoming the same thing [R54][R55][R56].
 
 When the current Group job asks members for voluntary effort — for example testing, feedback, critique, issue reporting, knowledge sharing, or collaborative improvement — distinguish only the value relations that can change the representation or ask:
 
@@ -210,7 +210,7 @@ The speaker's need alone does not establish community relevance. A legitimate ac
 
 Member value and shared return are different. A member may gain a useful tool, answer, learning opportunity, visibility, problem solution, or relevant discussion without creating a durable community asset. A shared return may exist when contributions can become reusable documentation, public fixes, improved open-source code, regression cases, community knowledge, or another artifact that later participants can use. Claim that return only when the actual project, governance, or process supports it.
 
-Reciprocity is not debt. Evidence from online knowledge networks shows that contribution motives vary and that expected direct reciprocity is not a universal driver [R51][R52][R53]. Do not imply that members owe feedback because the actor shared something useful, that open source automatically creates community co-ownership, or that every report will be accepted, fixed, or incorporated. Preserve voluntary participation and the real contribution cost.
+Reciprocity is not debt. Evidence from online knowledge networks shows that contribution motives vary and that expected direct reciprocity is not a universal driver [R58][R52][R53]. Do not imply that members owe feedback because the actor shared something useful, that open source automatically creates community co-ownership, or that every report will be accepted, fixed, or incorporated. Preserve voluntary participation and the real contribution cost.
 
 For open-source work, a truthful composition can therefore be:
 
@@ -531,8 +531,8 @@ Do not fill dimensions that cannot change the decision.
 
 ### Established only as scoped community / open-source evidence
 
-- Online communities can depend on members contributing resources while members receive informational, influence, support, learning, reputation, or other benefits; the exact mix varies by community and study [R50][R51][R52][R53].
-- Contribution motives are heterogeneous. Direct reciprocity, community commitment, private need, learning, reputation, and prosocial/community interest have different support across settings; none is a universal motive for an individual member [R51][R52][R53][R54][R56].
+- Online communities can depend on members contributing resources while members receive informational, influence, support, learning, reputation, or other benefits; the exact mix varies by community and study [R57][R58][R52][R53].
+- Contribution motives are heterogeneous. Direct reciprocity, community commitment, private need, learning, reputation, and prosocial/community interest have different support across settings; none is a universal motive for an individual member [R58][R52][R53][R54][R56].
 - Open-source participation can combine private user benefit with contribution to a shared artifact, but this does not imply that every user is a contributor, every contribution is accepted, or every open-source project is community-governed [R54][R55][R56].
 
 ### Not established as universal laws
