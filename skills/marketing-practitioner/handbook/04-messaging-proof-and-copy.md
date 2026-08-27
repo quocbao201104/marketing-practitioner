@@ -68,6 +68,8 @@ Reader-state variables include:
 
 These are expression-relevant states, not a persona schema. Preserve only the relational variables that can materially change what the recipient is entitled to infer, how much demand the communication may place on them, or what next interaction is legitimate.
 
+When the target language makes a relational distinction materially visible through choices such as self-reference or address, directness, request versus directive form, mitigation, acknowledgement or repair, or closing, preserve the resolved interaction state as a constraint on wording. These are examples of realization choices, not mandatory schema fields. If the local linguistic choice is still open and can change the relationship, authority, identity, obligation, responsibility, or community standing conveyed by the message, consult Chapter 07 or stronger scoped local evidence rather than inferring the relation from country, broad culture, age/status alone, or an audience label.
+
 This perspective is particularly important for microcopy and lifecycle communication because the communication is embedded inside a task rather than consumed as standalone advertising.
 
 ## 4. Proof architecture
@@ -100,6 +102,8 @@ The operative principle is reader-first and truth-first:
 6. remove unsupported specificity and promotional filler.
 
 When relationship state can change the interaction, preserve it in expression rather than treating it as tone decoration. The speaker's standing relative to the recipient constrains whether an action should be expressed as an instruction, request, invitation, option, or no-action state. Do not use directive language merely because the desired action is clear when the action is voluntary; do not disguise a genuinely required action as an optional promotional ask. Prior unanswered contact can also lower the appropriate demand or require an easier exit even when another communication remains justified.
+
+When language or locale is material, Chapter 04 owns the resolved interaction job, speech-act force, claim/proof boundaries, and relational constraints; Chapter 07 or stronger scoped local evidence may determine which target-language forms can realize them without distortion. Preserving propositional content is not sufficient if the wording invents or erases familiarity, hierarchy, obligation, responsibility, speaker identity, or community standing.
 
 For correction or repair, distinguish factual correction from relational repair. When the communication job includes acknowledging an error, correct the record directly and preserve responsibility supported by the facts; do not add blame-shifting, argument, or a defensive reinterpretation of the recipient merely to protect the speaker. A correction can be factually accurate and still fail the relationship job.
 
@@ -143,7 +147,7 @@ Feed-based content competes for attention and social relevance. Useful content g
 
 Removing stereotyped AI patterns is not an end in itself. Human-sounding prose can still be strategically weak, inaccurate, vague, or manipulative. Humanization is therefore treated as a quality-control layer.
 
-Unnecessary code-switching is a voice-fit defect when it adds no precision, audience familiarity, or domain value.
+Unnecessary code-switching is a voice-fit defect when a non-target-language term lacks a term-specific reason to remain, such as being a proper name, identifier, command or code literal, or an established domain term whose translation would reduce precision or naturalness. Technical audience familiarity, source-language prevalence, or internal framework vocabulary alone is not sufficient justification.
 
 Common patterns that merit review include:
 
@@ -186,9 +190,10 @@ A copy review should not begin with whether the prose is "good." It should evalu
 4. factual support;
 5. proof adequacy;
 6. objection coverage;
-7. clarity and concreteness;
-8. channel fit;
-9. voice and naturalness;
-10. CTA coherence.
+7. relational / interaction fit where material;
+8. clarity and concreteness;
+9. channel fit;
+10. voice and naturalness;
+11. CTA coherence.
 
 Stylistic polish is downstream of strategic correctness.
