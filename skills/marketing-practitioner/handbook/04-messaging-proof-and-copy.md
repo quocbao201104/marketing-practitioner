@@ -130,6 +130,8 @@ Feed-based content competes for attention and social relevance. Useful content g
 
 Removing stereotyped AI patterns is not an end in itself. Human-sounding prose can still be strategically weak, inaccurate, vague, or manipulative. Humanization is therefore treated as a quality-control layer.
 
+Unnecessary code-switching is a voice-fit defect when it adds no precision, audience familiarity, or domain value.
+
 Common patterns that merit review include:
 
 - significance inflation;
