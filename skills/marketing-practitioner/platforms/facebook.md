@@ -1,6 +1,6 @@
 # Facebook — Content Environment Module
 
-Last reviewed: 2026-08-23
+Last reviewed: 2026-08-28
 
 Use this module only when Facebook-specific behavior can materially change the content decision. Treat current platform facts as time-sensitive and verify them when the decision is consequential [R27].
 
@@ -179,11 +179,77 @@ A research Group contribution may need question, bounded finding, method/evidenc
 
 A product or project subject does not by itself make `announce` the communication job. In a bounded Group, the actor's relationship and intended interaction can materially change the representation even when product truth and strategic meaning are already resolved. If the contribution seeks feedback, discussion, critique, or peer participation, do not default to a release note, product page, or documentation sequence with a feedback CTA appended at the end.
 
-Treat that case as a community contribution: establish only the context needed for legitimacy and understanding, keep the product facts or proof that help members respond, and let linked documentation carry exhaustive installation, capability, or implementation detail when it does not need to live in the post. Do not delegate the minimum understanding required for the interaction itself: the post still needs enough orientation for readers to know what is being shared, enough concrete explanation to judge whether it is relevant to them, and enough information to participate in the current job. For an unfamiliar project or product, one concrete behavior, example, or contrast may be necessary even when the repository carries the full detail.
+### Community participation value and return path
+
+Rules and contextual legitimacy answer whether a contribution may belong. They do not by themselves establish why members should spend attention, effort, expertise, or reputational capital on it. Online-community research treats sustainable participation as a resource-and-benefit problem, and studies of knowledge communities find several possible motives and benefits rather than one universal reciprocity rule [R50][R51][R52][R53]. Open-source research adds a useful boundary: contributors can pursue their own practical or learning benefit while also improving a shared artifact, so private and collective value can coexist without becoming the same thing [R54][R55][R56].
+
+When the current Group job asks members for voluntary effort — for example testing, feedback, critique, issue reporting, knowledge sharing, or collaborative improvement — distinguish only the value relations that can change the representation or ask:
+
+```text
+ACTOR PURPOSE
+what does the speaker/project seek?
+
+MEMBER VALUE
+what can a participating member plausibly get from this interaction?
+
+SHARED / COMMUNITY RETURN
+what reusable value can return to other members or the shared artifact,
+if an actual return path exists?
+
+CONTRIBUTION COST / ASK
+what time, effort, disclosure, expertise, or social cost is requested?
+
+RETURN PATH
+how can a contribution change a public artifact, reusable knowledge,
+future support, or another shared resource, if the source supports that path?
+```
+
+These are decision questions, not mandatory schema fields or a requirement that every contribution create a public good.
+
+The speaker's need alone does not establish community relevance. A legitimate actor objective such as “I need testers” can be stated transparently, but when member or shared value actually exists, the contribution should make that value legible rather than presenting the Group primarily as a pool of labor, leads, survey respondents, or free testers. Conversely, do not invent mutual benefit merely to make an ask sound community-minded.
+
+Member value and shared return are different. A member may gain a useful tool, answer, learning opportunity, visibility, problem solution, or relevant discussion without creating a durable community asset. A shared return may exist when contributions can become reusable documentation, public fixes, improved open-source code, regression cases, community knowledge, or another artifact that later participants can use. Claim that return only when the actual project, governance, or process supports it.
+
+Reciprocity is not debt. Evidence from online knowledge networks shows that contribution motives vary and that expected direct reciprocity is not a universal driver [R51][R52][R53]. Do not imply that members owe feedback because the actor shared something useful, that open source automatically creates community co-ownership, or that every report will be accepted, fixed, or incorporated. Preserve voluntary participation and the real contribution cost.
+
+For open-source work, a truthful composition can therefore be:
+
+```text
+useful public artifact for members
++
+voluntary real-world use / feedback
++
+credible path for some findings to improve the public artifact
+→ possible shared-value loop
+```
+
+but only when each edge is supported. If the return path is absent, private, speculative, or controlled in a way that does not create shared value, frame the request as a bounded feedback/research request rather than manufacturing a collective-benefit story.
+
+Keep:
+
+```text
+COMMUNITY FIT
+≠ COMMUNITY VALUE
+
+ACTOR NEED
+≠ MEMBER BENEFIT
+≠ SHARED RETURN
+
+VOLUNTARY CONTRIBUTION
+≠ RECIPROCITY DEBT
+
+OPEN SOURCE
+≠ AUTOMATIC COMMUNITY CO-OWNERSHIP
+
+FEEDBACK PATH
+≠ GUARANTEED FIX / ACCEPTANCE
+```
+
+Treat a feedback-seeking product or project post as a community contribution: establish only the context needed for legitimacy and understanding, keep the product facts or proof that help members respond, and let linked documentation carry exhaustive installation, capability, or implementation detail when it does not need to live in the post. Do not delegate the minimum understanding required for the interaction itself: the post still needs enough orientation for readers to know what is being shared, enough concrete explanation to judge whether it is relevant to them, and enough information to participate in the current job. For an unfamiliar project or product, one concrete behavior, example, or contrast may be necessary even when the repository carries the full detail.
 
 The contribution should also work as a complete interaction rather than a factual checklist. When the job is feedback, discussion, critique, or participation, make the next turn legible and end or hand off the post in a way that fits that interaction. This does not require a title, a hook formula, a fixed CTA, gratitude, fake warmth, or any other canned section.
 
-Reordering or omitting nonessential product information for this environment is representation adaptation, not a reopening of positioning or product strategy. Do not manufacture familiarity, enthusiasm, informality, or peer status that the actor's real relationship does not support.
+Reordering or omitting nonessential product information for this environment is representation adaptation, not a reopening of positioning or product strategy. Do not manufacture familiarity, enthusiasm, informality, peer status, collective ownership, or shared benefit that the actor's real relationship and evidence do not support.
 
 ---
 
@@ -397,12 +463,13 @@ job
 → object + representation
 → reader / community state
 → contribution vs broadcast posture if Group relationship or interaction job makes it material
+→ member/shared value + return path if voluntary community effort is requested
 → current rule / constraint if material
 → artifact-completeness check for the job
 → draft
 ```
 
-A Group post about a product or project is not automatically a release announcement. If the real job is feedback, discussion, critique, or participation, let that interaction job shape information order and ask before drafting. A simple route is still responsible for enough orientation, object understanding, participation path, and interaction closure when those functions are necessary for the job.
+A Group post about a product or project is not automatically a release announcement. If the real job is feedback, discussion, critique, or participation, let that interaction job shape information order and ask before drafting. A simple route is still responsible for enough orientation, object understanding, participation path, and interaction closure when those functions are necessary for the job. If the ask requests voluntary effort, the speaker's need alone is not sufficient community relevance; preserve member value, shared return, contribution cost, and the real return path only where they can change the representation.
 
 ### Consequential Group contribution
 
@@ -415,6 +482,7 @@ job
 → audience envelope
 → object + representation
 → contribution posture + information allocation
+→ member value / shared return / contribution cost / return path if material
 → link / promotion constraints
 → message + proof + ask
 → response opportunity + success metric
@@ -461,6 +529,12 @@ Do not fill dimensions that cannot change the decision.
 - A Page can join or act in a Group when settings and permissions allow it; multiple people may manage the Page [R27].
 - Where anonymous participation is available and enabled, peers can see an anonymous/nickname identity while admins, moderators, and Facebook systems retain access to the underlying identity [R27].
 
+### Established only as scoped community / open-source evidence
+
+- Online communities can depend on members contributing resources while members receive informational, influence, support, learning, reputation, or other benefits; the exact mix varies by community and study [R50][R51][R52][R53].
+- Contribution motives are heterogeneous. Direct reciprocity, community commitment, private need, learning, reputation, and prosocial/community interest have different support across settings; none is a universal motive for an individual member [R51][R52][R53][R54][R56].
+- Open-source participation can combine private user benefit with contribution to a shared artifact, but this does not imply that every user is a contributor, every contribution is accepted, or every open-source project is community-governed [R54][R55][R56].
+
 ### Not established as universal laws
 
 - external links always reduce reach;
@@ -473,6 +547,10 @@ Do not fill dimensions that cannot change the decision.
 - membership guarantees permission to perform every participation action;
 - a missing comment or share proves negative preference;
 - anonymous participation makes the actor anonymous to the platform or moderators;
-- private-container origin guarantees that an object can never enter a later public state.
+- private-container origin guarantees that an object can never enter a later public state;
+- a community owes reciprocity because an actor shared a useful artifact;
+- open source automatically creates community ownership or co-governance;
+- asking for feedback is automatically a community benefit;
+- every report, suggestion, or contribution will be accepted, fixed, merged, or incorporated.
 
 Use current local evidence when available and keep observed third-party benchmarks scoped to their population and metric definition.
