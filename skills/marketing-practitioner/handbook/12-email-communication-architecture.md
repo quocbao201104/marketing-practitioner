@@ -109,6 +109,8 @@ NO OBSERVED ACTION
 ≠ AUTOMATIC JUSTIFICATION FOR ANOTHER EMAIL
 ```
 
+History can remain decision-relevant even after `SEND` is justified. Repeated unanswered contact does not by itself authorize stronger pressure, larger asks, or the same first-contact stance again. When prior contact materially changes recipient burden, relationship cost, or the legitimacy of another demand, carry that state into message allocation rather than consuming it only in the send/wait decision.
+
 For simple copy tasks where the user already supplies the message, audience/context, and send decision, Chapter 12 may be unnecessary. Stay on the Chapter 04/fast path unless email-specific state, allocation, sequence, authority, or observation semantics can change the answer.
 
 ---
@@ -178,7 +180,7 @@ These distinctions specialize existing Chapter 08 state/edge/scope grammar. They
 
 ### Suppression and holdout
 
-Suppression, holdout, complaint, bounce, or message-limit state can change execution without changing message relevance. Preserve only the state that can make two otherwise similar recipients require send, wait, suppress, exit, or different-message decisions.
+Suppression, holdout, complaint, bounce, or message-limit state can change execution without changing message relevance. Preserve only the state that can make two otherwise similar recipients require send, wait, suppress, exit, a different message, or a materially different demand / autonomy treatment.
 
 Do not infer why a suppression exists unless the source states it.
 
@@ -314,8 +316,13 @@ Allocate only information that performs the current communication job:
 - deliver the promised information;
 - provide necessary proof/qualification;
 - resolve the material blocker;
-- explain the requested/required next action;
+- explain a genuinely required next action and its supported consequence when the sender has standing to require it;
+- request or invite a voluntary next action without implying an obligation the relationship does not create;
 - make no action explicit when that is the correct job.
+
+Permission to send is not standing to direct. The sender's actual relationship and authority relative to the recipient constrain whether the action is an instruction, request, invitation, option, or no-action state. Do not use a directive merely because the business wants completion, and do not soften a genuinely required service/account action into a promotional choice when the consequence is real and supported.
+
+If `SEND` remains justified after repeated unanswered contact, do not automatically escalate urgency or reuse the first-reminder demand. Preserve the actual deadline or consequence if one exists, but let history reduce unnecessary pressure, acknowledge prior contact only when useful, and provide an easier exit, help path, or lower-demand next interaction when the relationship and job support it. Silence is not consent to stronger persuasion.
 
 Chapter 04 owns what message, claims, proof, objections, and wording are supportable. Chapter 12 decides how the email encounter should carry that already-resolved meaning.
 
@@ -487,6 +494,7 @@ operational feasibility state if material:
 temporal rationale / revisit condition:
 inbox expectation:
 message fulfillment:
+demand / autonomy constraint if material:
 optional action / handoff:
 material continuity requirements:
 known representation risks:
@@ -515,6 +523,12 @@ SEQUENCE
 COMMUNICATION NEED
 ≠ COMMUNICATION AUTHORITY
 ≠ OPERATIONAL FEASIBILITY
+
+PERMISSION TO SEND
+≠ STANDING TO DIRECT
+
+SEND JUSTIFIED
+≠ UNCHANGED DEMAND
 
 CUSTOMER STATE
 ≠ SCOPED COMMUNICATION STATE
