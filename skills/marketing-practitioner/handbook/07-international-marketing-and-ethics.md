@@ -50,13 +50,37 @@ Possible local variables include:
 
 The split should be governed by evidence rather than preference.
 
-Terminology should follow audience usage rather than source-language inertia. Preserve established technical terms when translating them would reduce precision or sound unnatural for the target audience; otherwise prefer natural target-language wording and avoid unnecessary code-switching merely because the source material or internal framework uses another language.
+Terminology should follow target-language naturalness rather than source-language inertia. Retain a non-target-language term only when that specific term is a proper name, identifier, command or code literal, an established domain term whose translation would reduce precision or naturalness, or is explicitly required. Technical sophistication, audience familiarity, or source-language prevalence alone is not sufficient justification.
+
+### 3.1 Relationship-indexing realization is evidence-dependent
+
+Some target-language choices can themselves imply or deny a social relation. When material, examples include self-reference and address, directness, request versus directive form, mitigation, acknowledgement or repair, and closing. Treat these as realization choices, not as a new schema or a fixed cultural template.
+
+Do not let localization re-infer a relationship that an upstream owner has already resolved. Consume only the material interaction state needed for the language decision:
+
+```text
+SPEAKER / PUBLISHING IDENTITY
+RECIPIENT RELATION
+STANDING / AUTHORITY
+RELEVANT INTERACTION HISTORY
+INVITED / EXPECTED / UNSOLICITED STATE
+AUTONOMY / OBLIGATION
+RESPONSIBILITY / REPAIR STATE
+COMMUNITY / ORGANIZATIONAL CONTEXT
+SCOPED LOCAL EVIDENCE
+```
+
+Actual identity, relationship, authority, and current interaction history constrain the realization. Within those bounds, prefer scoped first-party speaker/recipient evidence and current community or organizational norms over broad language, market, or cultural priors. A writing sample controls only the dimensions and contexts it actually evidences. Resolve conflicts per realization dimension rather than selecting one globally dominant style source.
+
+Culture-level or population-level findings may generate hypotheses about which choices deserve attention; they do not authorize manufactured familiarity, hierarchy, identity, obligation, or responsibility.
+
+When a materially relationship-indexing choice remains underdetermined, do not silently classify the relationship. Preserve a verified existing form when it is applicable; otherwise use natural wording that avoids an unsupported relationship claim when the language and context permit it. Ask for the missing fact only when the socially meaningful choice is unavoidable and consequential. Nationality, broad culture, age/status alone, audience technical sophistication, or a generic market label is not sufficient evidence for a specific relationship realization.
 
 ## 4. Original-language evidence should be preserved
 
 Customer wording can carry connotation, politeness, identity, category terminology, and emotional texture that translation compresses. Original-language material should therefore remain analytically available when language itself is evidence.
 
-Translation is a derived representation. It should not erase the source from which conclusions were drawn.
+Translation is a derived representation. It should not erase the source from which conclusions were drawn. When relational force is material, preserving propositional content while changing obligation, familiarity, responsibility, speaker identity, or community standing is not sufficient preservation.
 
 ## 5. Cross-market learning requires revalidation
 
@@ -86,6 +110,8 @@ Relevant contexts may include:
 - industry norms;
 - organizational culture;
 - brand relationship;
+- speaker/recipient relationship and standing;
+- current interaction history;
 - community membership;
 - situational risk;
 - individual first-party evidence.
@@ -156,5 +182,17 @@ CULTURAL HYPOTHESES
 LOCAL FIRST-PARTY EVIDENCE
 WHAT MUST BE TESTED LOCALLY
 ```
+
+When target-language wording itself materially indexes a social relation, add only the decision-relevant fields:
+
+```text
+SPEAKER / PUBLISHING IDENTITY
+RELATIONSHIP / STANDING
+RELEVANT INTERACTION HISTORY
+COMMUNITY / ORGANIZATIONAL NORMS
+RELATIONSHIP-INDEXING CHOICES STILL OPEN
+```
+
+Do not require these fields for ordinary translation or localization when they cannot change the result.
 
 This structure preserves a common strategic core while preventing false uniformity across markets.
