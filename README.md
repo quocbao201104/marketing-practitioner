@@ -4,7 +4,7 @@
 
 # Marketing Practitioner
 
-**Evidence-informed marketing decisions and execution for AI agents.**
+**A research-first marketing decision system for AI agents.**
 
 *Learn the market before writing the copy.*
 
