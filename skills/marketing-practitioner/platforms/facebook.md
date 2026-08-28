@@ -214,6 +214,33 @@ Member value and shared return are different. A member may gain a useful tool, a
 
 A return-path fact is not automatically a shared-value representation. For example, saying only that “some reports may become tests” states a process fact; if that process materially helps justify the community ask, connect the member's use or contribution to the supported return path in ordinary audience-facing language so the reader can understand what may come back to the shared artifact or later users. Do not overstate certainty or imply that every contribution will be incorporated.
 
+Separate the conversational next turn on the current Group surface from a later intake process owned by another surface:
+
+```text
+CURRENT-SURFACE NEXT TURN
+comment / reply / question / example / bounded feedback /
+trying the shared artifact and returning to the discussion
+
+LATER-SURFACE INTAKE SPEC
+issue form / report schema / required fields / reproduction details /
+confidentiality checklist / maintainer triage or acceptance process
+
+CURRENT-SURFACE NEXT TURN
+≠ LATER-SURFACE INTAKE SPEC
+```
+
+When the current interaction is peer feedback, discussion, critique, or voluntary participation, the closing speech act should ordinarily resolve that current interaction first. Make it natural for the member to know what they can do here and now. A GitHub issue, form, repository template, or other later-surface intake mechanism may be offered as an optional pointer when useful, but its field list, privacy checklist, acceptance caveats, or maintainer workflow do not become the Group's closing turn merely because the source of truth contains them. Include only the intake detail that is necessary to make current participation safe or intelligible; delegate the rest to the linked intake artifact.
+
+A material return path must remain legible somewhere in the artifact, but it does not own the terminal position. When the return path explains why participation can matter, state it before or with the invitation and then let the interaction close in the relationship and surface actually in use.
+
+```text
+RETURN PATH MUST BE LEGIBLE
+≠ RETURN PATH MUST CLOSE THE ARTIFACT
+
+PROCESS NOTE
+≠ TERMINAL SPEECH ACT
+```
+
 Reciprocity is not debt. Evidence from online knowledge networks shows that contribution motives vary and that expected direct reciprocity is not a universal driver [R58][R52][R53]. Do not imply that members owe feedback because the actor shared something useful, that open source automatically creates community co-ownership, or that every report will be accepted, fixed, or incorporated. Preserve voluntary participation and the real contribution cost.
 
 For open-source work, a truthful composition can therefore be:
@@ -253,13 +280,30 @@ RESOLVED MATERIAL VALUE RELATION
 
 RETURN-PATH DISCLAIMER
 ≠ SHARED-VALUE REPRESENTATION
+
+CURRENT-SURFACE NEXT TURN
+≠ LATER-SURFACE INTAKE SPEC
+
+PROCESS NOTE
+≠ TERMINAL SPEECH ACT
 ```
 
-Treat a feedback-seeking product or project post as a community contribution: establish only the context needed for legitimacy and understanding, keep the product facts or proof that help members respond, and let linked documentation carry exhaustive installation, capability, or implementation detail when it does not need to live in the post. Do not delegate the minimum understanding required for the interaction itself: the post still needs enough orientation for readers to know what is being shared, enough concrete explanation to judge whether it is relevant to them, and enough information to participate in the current job. For an unfamiliar project or product, one concrete behavior, example, or contrast may be necessary even when the repository carries the full detail.
+Treat a feedback-seeking product or project post as a community contribution: establish only the context needed for legitimacy and understanding, keep the product facts or proof that help members respond, and let linked documentation carry exhaustive installation, capability, implementation, or later intake detail when it does not need to live in the post. Do not delegate the minimum understanding required for the interaction itself: the post still needs enough orientation for readers to know what is being shared, enough concrete explanation to judge whether it is relevant to them, and enough information to take the current-surface next turn. “Enough to participate here” does not mean “enough to submit a high-quality issue on another surface.” For an unfamiliar project or product, one concrete behavior, example, or contrast may be necessary even when the repository carries the full detail.
 
-The contribution should also work as a complete interaction rather than a factual checklist. When the job is feedback, discussion, critique, or participation, make the next turn legible and end or hand off the post in a way that fits that interaction. This does not require a title, a hook formula, a fixed CTA, gratitude, fake warmth, or any other canned section.
+The contribution should also work as a complete interaction rather than a factual checklist. When the job is feedback, discussion, critique, or participation, make the current-surface next turn legible and end or hand off the post in a way that fits that interaction. A natural closing may include an invitation, acknowledgement, thanks, question, or another relationally appropriate handoff, but none is mandatory as a template. Do not force gratitude or fake warmth when the relationship does not support it.
 
-Reordering or omitting nonessential product information for this environment is representation adaptation, not a reopening of positioning or product strategy. Do not manufacture familiarity, enthusiasm, informality, peer status, collective ownership, or shared benefit that the actor's real relationship and evidence do not support.
+Do not equate ordinary community-native peer address with manufactured intimacy. If the user brief, current local Group norms, or other scoped evidence supports an ordinary form members use to address peers, that form may be appropriate without implying personal familiarity or a closer relationship than exists. Conversely, a country, language, age label, technical audience label, or generic belief that a community is casual does not by itself authorize a specific peer address.
+
+```text
+ORDINARY COMMUNITY-NORMED PEER ADDRESS
+≠ CLAIM OF PERSONAL FAMILIARITY
+```
+
+Required Group metadata or governance disclosures — for example required hashtags, labels, or AI-use disclosure — constrain publication but do not themselves perform the conversational closing turn. Place them where the current rules require; when they appear after the human-facing close, treat them as appended publication metadata rather than a substitute for the relationship-appropriate terminal speech act.
+
+A cheap review heuristic for a feedback-seeking Group post: if the terminal paragraph could be pasted almost unchanged into `CONTRIBUTING.md`, an issue template, or a maintainer intake form and sound more native there than in the Group discussion, inspect for later-surface intake takeover. This is a diagnostic signal, not a prohibition on linking to those artifacts.
+
+Reordering or omitting nonessential product or intake information for this environment is representation adaptation, not a reopening of positioning or product strategy. Do not manufacture familiarity, enthusiasm, informality, peer status, collective ownership, or shared benefit that the actor's real relationship and evidence do not support.
 
 ---
 
@@ -476,11 +520,14 @@ job
 → member/shared value + return path if voluntary community effort is requested
 → current rule / constraint if material
 → preserve any resolved material value relation in the audience-facing representation
+→ current-surface next turn + optional later-surface intake pointer if material
+→ relationship-appropriate terminal speech act
+→ required publication metadata / disclosure if material
 → artifact-completeness check for the job
 → draft
 ```
 
-A Group post about a product or project is not automatically a release announcement. If the real job is feedback, discussion, critique, or participation, let that interaction job shape information order and ask before drafting. A simple route is still responsible for enough orientation, object understanding, participation path, and interaction closure when those functions are necessary for the job. If the ask requests voluntary effort, the speaker's need alone is not sufficient community relevance; preserve member value, shared return, contribution cost, and the real return path only where they can change the representation. Do not count internal reasoning or a process caveat such as “reports may become tests” as sufficient representation when a supported member/shared-value relation materially helps justify the ask; make that relation understandable before or with the participation request.
+A Group post about a product or project is not automatically a release announcement. If the real job is feedback, discussion, critique, or participation, let that interaction job shape information order and ask before drafting. A simple route is still responsible for enough orientation, object understanding, a current-surface participation path, and interaction closure when those functions are necessary for the job. “Enough to participate” does not require reproducing a later issue/report schema. If the ask requests voluntary effort, the speaker's need alone is not sufficient community relevance; preserve member value, shared return, contribution cost, and the real return path only where they can change the representation. Do not count internal reasoning or a process caveat such as “reports may become tests” as sufficient representation when a supported member/shared-value relation materially helps justify the ask; make that relation understandable before or with the participation request. Then close the current interaction as a Group contribution rather than letting the intake process, return-path caveat, or required metadata become the terminal speech act.
 
 ### Consequential Group contribution
 
@@ -497,6 +544,9 @@ job
 → preserve resolved value relation in final representation
 → link / promotion constraints
 → message + proof + ask
+→ current-surface next turn + optional later intake
+→ relationship-appropriate terminal speech act
+→ required publication metadata / disclosure if material
 → response opportunity + success metric
 ```
 
