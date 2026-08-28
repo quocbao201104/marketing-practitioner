@@ -101,6 +101,16 @@ The operative principle is reader-first and truth-first:
 5. preserve the intended voice;
 6. remove unsupported specificity and promotional filler.
 
+When a downstream environment or representation owner has already resolved a semantic relation, beneficiary, participation path, information order, or terminal interaction as material to the current job, treat that resolved state as part of the meaning to preserve. Copy may compress its wording, qualify claim strength, or move supporting detail, but it must not erase that relation or replace the resolved interaction function with a process note, safety constraint, intake instruction, or publication metadata. A constraint can govern the copy without taking ownership of the artifact's terminal speech act unless the current job itself is the warning, process instruction, or disclosure.
+
+```text
+COPY COMPRESSION
+≠ SEMANTIC RELATION ERASURE
+
+CONSTRAINT / PROCESS NOTE
+≠ DOWNSTREAM-RESOLVED TERMINAL SPEECH ACT
+```
+
 When relationship state can change the interaction, preserve it in expression rather than treating it as tone decoration. The speaker's standing relative to the recipient constrains whether an action should be expressed as an instruction, request, invitation, option, or no-action state. Do not use directive language merely because the desired action is clear when the action is voluntary; do not disguise a genuinely required action as an optional promotional ask. Prior unanswered contact can also lower the appropriate demand or require an easier exit even when another communication remains justified.
 
 When language or locale is material, Chapter 04 owns the resolved interaction job, speech-act force, claim/proof boundaries, and relational constraints; Chapter 07 or stronger scoped local evidence may determine which target-language forms can realize them without distortion. Preserving propositional content is not sufficient if the wording invents or erases familiarity, hierarchy, obligation, responsibility, speaker identity, or community standing.
@@ -177,6 +187,13 @@ Before publication, every material claim should be classified informally into on
 - **qualified** — a narrower version is supportable;
 - **unknown** — evidence is insufficient;
 - **forbidden** — the claim conflicts with known facts, policy, law, ethics, or explicit product limitations.
+
+Qualification narrows certainty, scope, or strength; it does not authorize deleting a downstream-resolved semantic relation that is material to the current communication job. If a supported relation includes a beneficiary, returned shared object, causal boundary, responsibility, or another meaning-bearing edge, preserve that relation while qualifying only what the evidence requires. Replacing a supported relation with a process fact that remains true after the beneficiary or returned object is removed is not conservative wording; it is semantic loss.
+
+```text
+QUALIFY CLAIM STRENGTH
+≠ ERASE RESOLVED SEMANTIC RELATION
+```
 
 This discipline is particularly important for comparative claims, quantified outcomes, guarantees, security/privacy statements, regulated topics, and claims about market leadership.
 
