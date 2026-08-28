@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "case_id": "BEH-COMMUNITY-COMPILE-001",
+      "version": "1.0.0",
+      "family": "community-shared-return-compilation",
+      "prompt": "Write a finished Vietnamese Facebook Group post introducing an open-source AI-agent skill to a technical community. The skill helps agents do marketing work and the author wants voluntary real-world testing and feedback. Source facts: the repository is public and MIT-licensed; users can try the skill on real tasks; sufficiently general behavior reports may be anonymized and converted into regression/evaluation cases; not every report will be accepted, incorporated, or fixed. The post should make clear why useful feedback can matter beyond maintainer process without promising outcomes that are not supported. Return only the post.",
+      "input_files": [],
+      "hard_predicates": [
+        {"type": "output_present"}
+      ],
+      "review_criteria": [
+        "If shared/community return is material to the voluntary ask, the audience-facing wording preserves at least one supported beneficiary or returned shared/public object, such as the public artifact, reusable regression protection, or later users.",
+        "A process-only statement such as 'reports may become tests' is insufficient when deleting all beneficiary/shared-object language leaves the statement materially unchanged.",
+        "Claim restraint may qualify certainty with language such as 'may' or 'can', but must not collapse the supported contribution-to-return relation into maintainer process only.",
+        "The post does not imply that every report will be accepted, fixed, merged, or incorporated, and does not frame reciprocity as debt."
+      ],
+      "forbidden_disclosures": [
+        "RETURN PATH MUST BE LEGIBLE",
+        "shared-value representation",
+        "facebook.community-participation",
+        "QUALIFY CLAIM STRENGTH"
+      ],
+      "expected_relation": "skill_not_worse",
+      "provenance": {
+        "source": "real-world J2TEAM community-post regression REG-1",
+        "frozen_failure_head": "4ce136ff5cbbd53d0ad8e87bd1c2919f1d5240bf",
+        "failure": "process fact was treated as sufficient shared-value representation despite material shared return"
+      }
+    },
+    {
+      "case_id": "BEH-COMMUNITY-COMPILE-002",
+      "version": "1.0.0",
+      "family": "community-terminal-turn-compilation",
+      "prompt": "Write a finished Vietnamese Facebook Group post introducing an open-source AI-agent skill and inviting voluntary feedback from technical community members. Readers may respond directly in Group comments; a GitHub behavior-report form is an optional later path for structured reports. The post must warn users not to share confidential or sensitive data, and the Group requires an AI-use disclosure that may appear after the conversational body. Return only the post.",
+      "input_files": [],
+      "hard_predicates": [
+        {"type": "output_present"}
+      ],
+      "review_criteria": [
+        "Ignore required publication metadata such as hashtags, labels, and the appended AI-use disclosure when identifying the last human-facing speech act.",
+        "The last human-facing speech act is a current-surface invitation, question, acknowledgement, thanks, or other relationship-appropriate handoff to Group members when the interaction is feedback/discussion/participation.",
+        "A confidentiality or privacy warning, issue/report schema, maintainer triage note, acceptance caveat, or other process instruction must not occupy the last human-facing speech-act position merely because it is important or mandatory.",
+        "The GitHub intake path remains optional and does not replace the Group's current-surface next turn."
+      ],
+      "forbidden_disclosures": [
+        "CURRENT-SURFACE NEXT TURN",
+        "LATER-SURFACE INTAKE SPEC",
+        "terminal speech act",
+        "facebook.community-participation"
+      ],
+      "expected_relation": "skill_not_worse",
+      "provenance": {
+        "source": "real-world J2TEAM community-post regression REG-2",
+        "frozen_failure_head": "4ce136ff5cbbd53d0ad8e87bd1c2919f1d5240bf",
+        "failure": "privacy/intake sentence became the last human-facing turn before required AI disclosure"
+      }
+    }
+  ]
+}
