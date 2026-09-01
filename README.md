@@ -4,9 +4,7 @@
 
 # Marketing Practitioner
 
-**A research-first marketing decision system for AI agents.**
-
-*Learn the market before writing the copy.*
+**An agent skill for marketing work that is still an open decision.**
 
 [![Version: v1.0.0](https://img.shields.io/badge/version-v1.0.0-0a7.svg)](#status)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
@@ -18,9 +16,9 @@
 
 ---
 
-Marketing Practitioner helps an agent turn market evidence into bounded decisions across research, segmentation, positioning, commercial design, messaging, landing pages, email, social content, commerce, search/discovery, paid media, diagnosis, experiments, localization, and learning.
+Ordinary marketing prompts, templates, and skill collections add more advice: frameworks, section formulas, platform tips. Agents already write fluently. The failure this skill is built against is inventing product facts, treating eight interviews as a market, rewriting a page because CPA moved, or loading a TikTok playbook because the prompt said “TikTok.”
 
-It is not a prompt pack or growth-hack library. The runtime starts from the current job, freezes decisions that are already resolved, loads deeper knowledge only when it can change the open decision, and returns the minimum useful output.
+This skill is a runtime for that class of error. It classifies the current job, keeps already-settled decisions settled, and loads only the governed knowledge that can change what is still open.
 
 ## Quick start
 
@@ -28,72 +26,78 @@ It is not a prompt pack or growth-hack library. The runtime starts from the curr
 npx skills add quocbao201104/marketing-practitioner
 ```
 
-Then describe:
+Then tell the agent:
 
-1. what you are trying to do;
-2. what facts, evidence, or decisions you already have;
+1. what you need done **now**;
+2. the facts, evidence, and already-approved decisions you have;
 3. where the result will be used, if that changes the answer.
 
-You do not need to know terms such as ICP, JTBD, attribution, retrieval, or willingness to pay. The [Task Specification Guide](TASK-SPECIFICATION-GUIDE.md) can compile rough notes into the smallest sufficient task specification without inventing missing facts.
+You do not need internal terms. “Help me decide which customer group to focus on” is enough; you do not have to say ICP. The [Task Specification Guide](TASK-SPECIFICATION-GUIDE.md) can compile rough notes into a smaller spec without inventing missing facts. It is optional.
 
 ```text
-Read TASK-SPECIFICATION-GUIDE.md.
-Use what I already provided to compile the smallest sufficient task specification.
-Preserve resolved decisions and do not invent missing facts or constraints.
-Then execute the task with Marketing Practitioner.
+Use Marketing Practitioner.
+The positioning below is approved. Do not reopen it.
+Write a LinkedIn post for people who already follow the company.
+Do not add product claims that are not in the facts.
 ```
 
-## Representative tasks
+Clone if you want the full repository:
 
-- synthesize interviews, reviews, surveys, support records, and sales notes without turning recurrence into prevalence;
-- choose a segment, relevant alternative, positioning, value, proof, or trade-off;
-- decide packaging, pricing metric, commitment, eligibility, modifiers, or commercial transitions;
-- build or critique message hierarchy, claims, proof, copy, landing-page architecture, and email communication;
-- adapt resolved content to a platform without reopening strategy;
-- interpret commerce, search/discovery, social, email, or paid-media state without importing platform folklore;
-- diagnose a performance change before rewriting creative;
-- design or interpret an experiment and preserve reusable learning.
-
-The detailed chapter and platform map lives in the [handbook navigation](skills/marketing-practitioner/handbook/README.md). Social and commerce provider navigation is under [platforms](skills/marketing-practitioner/platforms/README.md).
-
-## Reasoning model
-
-The controller uses seven jobs:
-
-```text
-WRITE · DECIDE · DIAGNOSE · RESEARCH / UNDERSTAND · ADAPT · TEST · LEARN
+```bash
+git clone https://github.com/quocbao201104/marketing-practitioner.git
 ```
 
-For each task it:
+The governing file is [`skills/marketing-practitioner/SKILL.md`](skills/marketing-practitioner/SKILL.md).
 
-```text
-identify the current job
-→ freeze resolved state
-→ name the open decision
-→ identify decision-changing evidence
-→ select owners by dependency
-→ load the smallest useful knowledge route
-→ pass forward only material state
-→ produce and validate the minimum sufficient output
-```
+## What it is for
 
-Large knowledge surfaces are addressable through [routing-index.json](skills/marketing-practitioner/routing-index.json) and [get-knowledge.py](skills/marketing-practitioner/scripts/get-knowledge.py). File paths and headings are implementation details; logical route IDs are the stable interface.
+Use it when an agent has to **decide, diagnose, research, adapt, test, learn, or write** in a marketing context, and the answer should stay inside the evidence you actually have.
 
-## Evidence discipline
+That includes synthesizing customer material, choosing who to prioritize, positioning against a real alternative, designing packaging and terms, writing or critiquing copy, compiling a landing page or email, adapting to a platform, representing a commerce listing, interpreting search or paid delivery, localizing an already-resolved strategy, or retaining what a result did and did not prove.
 
-The skill is designed to preserve distinctions that commonly collapse in marketing work:
+Those are separate owners, not a funnel the skill runs every time. A caption with an approved message stays a writing job. A price that is already `$29` stays frozen while the page is written. Paying a creator to publish is not automatically paid media. A CPA rise after a bidding change starts as diagnosis, not as a creative rewrite.
+
+The skill is built to keep distinctions that otherwise collapse in fluent marketing output:
 
 ```text
 observation ≠ interpretation ≠ hypothesis ≠ decision
 qualitative recurrence ≠ population prevalence
-association / attribution ≠ causality / incrementality
-eligible ≠ delivered ≠ attended to
-interaction ≠ intent or preference
-reported ≠ optimization-eligible
+attribution ≠ incrementality ≠ causality
+paid relationship ≠ paid delivery
+reported metric ≠ optimization-eligible signal
 displayed commercial state ≠ universal authoritative state
+platform name ≠ reason to load that platform
 ```
 
-It never has authority to invent product, finance, legal, operational, sales, platform, or customer facts. Current provider rules remain just-in-time dependencies rather than permanent universal laws.
+It has no authority to invent product, financial, legal, operational, sales, platform, or customer facts. Current provider rules are just-in-time dependencies, not growth laws stored in the repo.
+
+## How that is implemented
+
+The installable contract is [`skills/marketing-practitioner/SKILL.md`](skills/marketing-practitioner/SKILL.md). For each task it:
+
+1. Identifies the current job (`WRITE`, `DECIDE`, `DIAGNOSE`, `RESEARCH / UNDERSTAND`, `ADAPT`, `TEST`, or `LEARN`). A topic, artifact type, or platform name is not a job.
+2. Freezes resolved state. Audience, positioning, message, offer facts, and claim boundaries stay inputs unless they are contradictory, stale, or insufficient for this job.
+3. Names the open decision.
+4. Uses only evidence that can change that decision.
+5. Selects knowledge by dependency, not by noun.
+6. Loads the smallest indexed section that can improve the next choice.
+7. Passes forward only the conclusions, constraints, proof, and uncertainty the next step needs.
+8. Returns the minimum output that completes the job, then checks it against that job.
+
+Large knowledge is addressed by logical IDs in [`routing-index.json`](skills/marketing-practitioner/routing-index.json). Headings and file paths are implementation details. When the host can run helpers, [`get-knowledge.py`](skills/marketing-practitioner/scripts/get-knowledge.py) resolves one route or one evidence source without reading the rest of the ledger:
+
+```bash
+python skills/marketing-practitioner/scripts/get-knowledge.py email.send-decision
+python skills/marketing-practitioner/scripts/get-knowledge.py --source PM01
+```
+
+If helper execution is unavailable, the same index is still the address table: read the smallest feasible section, or degrade to the smallest target file, rather than abandoning the job or loading a whole chapter.
+
+The current index validates at **251 routes / 210 evidence sources**. Evidence files state what a source **supports** and **does not support**. That bound is how claim control is implemented.
+
+Specialist layers (commercial design, landing pages, email, discovery, paid media, commerce, named platforms) are added only when existing owners cannot represent the decision without distortion. Research under [`research/`](research/) keeps theory freezes and rejected expansions out of the runtime until they survive that bar. A controller 75% smaller than the installed one was evaluated on the same frozen cases and **not promoted**, because unverified skill activation rose from 3/24 to 7/24. See the [challenger report](evals/behavioral/reports/compact-challenger-v1.md).
+
+The [handbook map](skills/marketing-practitioner/handbook/README.md) and [platform modules](skills/marketing-practitioner/platforms/README.md) are for navigation when a decision actually needs them, not a reading list.
 
 ## Repository map
 
@@ -112,11 +116,9 @@ evals/                      adversarial cases, smokes, and behavioral harness
 scripts/verify.ps1          sole local/CI verification entrypoint
 ```
 
-Deep research stays outside the installable runtime unless it survives scope, evidence, and decision-value review.
+## Verification and reports
 
-## Verification and behavioral evidence
-
-Run the same gate used by CI:
+The local and CI gate is:
 
 ```powershell
 .\scripts\verify.ps1
@@ -124,42 +126,23 @@ Run the same gate used by CI:
 
 It validates the package with the repository validator and the installed Codex validator when discoverable, checks 58 routing mechanics and 251 routes/210 evidence sources, runs the Pressure Discovery and behavioral harness tests, and verifies UTF-8/generated-artifact hygiene.
 
-The frozen 48-run behavioral pilot used 12 cases, two arms, two repetitions, `gpt-5.6-terra`, and `medium` reasoning. It produced eight `both_pass` pairs, three operationally invalid pairs, and one unresolved pair; it showed no baseline-only or skill-only pass. The review was condition-blind but not independently human-adjudicated, so it is repository decision evidence—not a benchmark or universal reliability claim. See the [pilot report](evals/behavioral/reports/current-skill-pilot-v1.md).
+A frozen 48-run behavioral pilot (12 cases, no-skill baseline vs current skill, `gpt-5.6-terra`, medium reasoning) produced eight both-pass pairs, three operationally invalid pairs, and one unresolved pair. It did **not** show a paired quality advantage. Review was condition-blind but not independently human-adjudicated. That is repository decision evidence, not a benchmark. See the [pilot report](evals/behavioral/reports/current-skill-pilot-v1.md).
 
-A controller challenger reduced initial controller words by 75% but increased activation-unverified runs from 3/24 to 7/24, so it was [rejected and not promoted](evals/behavioral/reports/compact-challenger-v1.md).
+If the skill makes a poor decision, overcomplicates a simple task, misses supplied evidence, reopens a resolved decision, chooses the wrong knowledge path, behaves inconsistently, or produces an unexpectedly useful result, [open a behavior report](https://github.com/quocbao201104/marketing-practitioner/issues/new?template=behavior-report.yml). Include the task, sanitized context, expected vs observed behavior, model/runtime, skill version, and whether it reproduces. Do not include confidential customer, company, credential, or personal data.
 
 ## Status
 
 Current release: **v1.0.0 — Stable Core**.
 
-v1.0.0 marks the first stable core contract. The seven-job controller, resolved-state and dependency-first routing behavior, logical knowledge IDs, owner boundaries, source/claim discipline, and bounded specialist architecture are now treated as compatibility-sensitive public behavior. Future 1.x work should prefer local knowledge refinements, stronger evidence, regression coverage, and bounded specialist additions over casually reopening the core.
+v1.0.0 is the first stable core contract: the seven jobs, resolved-state behavior, logical knowledge IDs, owner boundaries, and source/claim discipline are treated as compatibility-sensitive. Stable does not mean complete. Provider-controlled facts remain time-sensitive. A demonstrated decision-relevant failure can still justify a scoped change.
 
-Stable does not mean complete or frozen forever. Provider-controlled facts remain time-sensitive just-in-time dependencies, and a demonstrated decision-relevant failure can still justify a scoped change. Breaking core semantics should require explicit major-version justification rather than incidental architecture growth.
+This is not a prompt pack, a conversion-formula library, or a generic agent framework. It does not own product roadmap, finance, legal advice, CRM, or back-office automation. It does not reverse-engineer private ranking or ad-delivery systems from anecdotes, and it does not turn one provider’s current rule into a universal law.
 
-The installable skill passes current package validation and deterministic repository checks. Its knowledge includes bounded Commercial Design, Landing-Page, Email, Search & Discovery, Paid Media, social/content-environment, and commerce/product-discovery layers.
-
-The project does not claim complete knowledge of private ranking, retrieval, or ad-delivery systems; universal platform, pricing, landing-page, email, or attribution rules; legal/provider compliance for every context; benchmark-grade quality; or universal runtime reliability. Improvement should follow concrete failures and evidence, not architecture growth for its own sake.
-
-## Installation and manual use
-
-```bash
-npx skills add quocbao201104/marketing-practitioner
-git clone https://github.com/quocbao201104/marketing-practitioner.git
-```
-
-The governing instructions are [skills/marketing-practitioner/SKILL.md](skills/marketing-practitioner/SKILL.md).
-
-## Feedback and real-world reports
-
-Real-world usage remains especially valuable. If Marketing Practitioner makes a poor decision, overcomplicates a simple task, misses supplied evidence, reopens a resolved decision, chooses the wrong knowledge path, behaves inconsistently across repeats, or produces an unexpectedly useful result, please [open a behavior report](https://github.com/quocbao201104/marketing-practitioner/issues/new?template=behavior-report.yml).
-
-A useful report includes the task, relevant sanitized context, expected behavior, observed behavior, model/runtime, skill version, and whether the behavior is reproducible. Reports that expose a generalizable failure may be converted into anonymized behavioral evaluation cases or regression tests.
-
-Please do not include confidential customer, company, credential, or personal data.
+The skill cannot make a host load it. If the runtime never activates the skill, you get ordinary model behavior.
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md). Contributions should preserve UTF-8, source fidelity, decision scope, resolved-state behavior, fast paths, owner boundaries, and the distinction between observation, attribution, and causality. New top-level reasoning capabilities require a demonstrated decision-relevant gap before implementation.
+See [CONTRIBUTING.md](CONTRIBUTING.md). Change the smallest surface that can correct a demonstrated problem. Do not add a platform, primitive, or chapter for coverage completeness.
 
 ## Attribution
 
@@ -167,4 +150,4 @@ The repository synthesizes marketing research, methodological literature, curren
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+[MIT](LICENSE).
