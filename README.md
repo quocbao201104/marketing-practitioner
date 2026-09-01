@@ -8,7 +8,7 @@
 
 *Learn the market before writing the copy.*
 
-[![Version: v0.9.0](https://img.shields.io/badge/version-v0.9.0-0a7.svg)](#status)
+[![Version: v1.0.0](https://img.shields.io/badge/version-v1.0.0-0a7.svg)](#status)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Language: English](https://img.shields.io/badge/language-English-4c1.svg)](#)
 [![Format: Agent Skill](https://img.shields.io/badge/format-Agent%20Skill-6f42c1.svg)](skills/marketing-practitioner/SKILL.md)
@@ -122,7 +122,7 @@ Run the same gate used by CI:
 .\scripts\verify.ps1
 ```
 
-It validates the package with the repository validator and the installed Codex validator when discoverable, checks 58 routing mechanics and 249 routes/203 evidence sources, runs the Pressure Discovery and behavioral harness tests, and verifies UTF-8/generated-artifact hygiene.
+It validates the package with the repository validator and the installed Codex validator when discoverable, checks 58 routing mechanics and 251 routes/210 evidence sources, runs the Pressure Discovery and behavioral harness tests, and verifies UTF-8/generated-artifact hygiene.
 
 The frozen 48-run behavioral pilot used 12 cases, two arms, two repetitions, `gpt-5.6-terra`, and `medium` reasoning. It produced eight `both_pass` pairs, three operationally invalid pairs, and one unresolved pair; it showed no baseline-only or skill-only pass. The review was condition-blind but not independently human-adjudicated, so it is repository decision evidence—not a benchmark or universal reliability claim. See the [pilot report](evals/behavioral/reports/current-skill-pilot-v1.md).
 
@@ -130,7 +130,11 @@ A controller challenger reduced initial controller words by 75% but increased ac
 
 ## Status
 
-Current release: **v0.9.0 — Paid Media Architecture**.
+Current release: **v1.0.0 — Stable Core**.
+
+v1.0.0 marks the first stable core contract. The seven-job controller, resolved-state and dependency-first routing behavior, logical knowledge IDs, owner boundaries, source/claim discipline, and bounded specialist architecture are now treated as compatibility-sensitive public behavior. Future 1.x work should prefer local knowledge refinements, stronger evidence, regression coverage, and bounded specialist additions over casually reopening the core.
+
+Stable does not mean complete or frozen forever. Provider-controlled facts remain time-sensitive just-in-time dependencies, and a demonstrated decision-relevant failure can still justify a scoped change. Breaking core semantics should require explicit major-version justification rather than incidental architecture growth.
 
 The installable skill passes current package validation and deterministic repository checks. Its knowledge includes bounded Commercial Design, Landing-Page, Email, Search & Discovery, Paid Media, social/content-environment, and commerce/product-discovery layers.
 
@@ -147,7 +151,7 @@ The governing instructions are [skills/marketing-practitioner/SKILL.md](skills/m
 
 ## Feedback and real-world reports
 
-Real-world usage is especially valuable at this stage. If Marketing Practitioner makes a poor decision, overcomplicates a simple task, misses supplied evidence, reopens a resolved decision, chooses the wrong knowledge path, behaves inconsistently across repeats, or produces an unexpectedly useful result, please [open a behavior report](https://github.com/quocbao201104/marketing-practitioner/issues/new?template=behavior-report.yml).
+Real-world usage remains especially valuable. If Marketing Practitioner makes a poor decision, overcomplicates a simple task, misses supplied evidence, reopens a resolved decision, chooses the wrong knowledge path, behaves inconsistently across repeats, or produces an unexpectedly useful result, please [open a behavior report](https://github.com/quocbao201104/marketing-practitioner/issues/new?template=behavior-report.yml).
 
 A useful report includes the task, relevant sanitized context, expected behavior, observed behavior, model/runtime, skill version, and whether the behavior is reproducible. Reports that expose a generalizable failure may be converted into anonymized behavioral evaluation cases or regression tests.
 

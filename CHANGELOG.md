@@ -2,28 +2,55 @@
 
 All notable changes to this repository are documented here.
 
-The project uses semantic versioning for published skill revisions. Early versions may change structure while the conceptual model is stabilized.
+The project uses semantic versioning for published skill revisions. v1.0.0 marks the first stable core contract: future 1.x work should preserve compatibility-sensitive controller semantics, logical knowledge interfaces, owner boundaries, and evidence/claim behavior unless a demonstrated failure justifies a scoped change. Historical frozen evaluation and research references keep the version labels under which they were produced.
 
-## [Unreleased] - 2026-08-25
+## [1.0.0] - 2026-09-02
+
+### Stable core
+
+- Promoted Marketing Practitioner to its first stable release after the post-v0.9 stabilization cycle shifted from architecture expansion toward bounded semantic refinement and regression hardening.
+- Kept the seven controller jobs — `WRITE`, `DECIDE`, `DIAGNOSE`, `RESEARCH / UNDERSTAND`, `ADAPT`, `TEST`, and `LEARN` — with resolved-state freezing, open-decision identification, dependency-first routing, just-in-time loading, and minimum-sufficient output as the governing runtime contract.
+- Treats logical knowledge IDs, existing owner boundaries, source/claim discipline, and bounded specialist architecture as compatibility-sensitive public behavior rather than surfaces to reopen casually in 1.x.
+- Added no new controller job, shared primitive, top-level handbook, global CRM/lifecycle layer, or generic marketing-OS architecture for the v1 promotion.
 
 ### Package and verification
 
 - Added current Codex UI metadata under `agents/openai.yaml` and shortened package activation metadata to pass the current 1,024-character description limit.
 - Added `scripts/validate_skill.py` as the stable repository-owned package validation floor.
 - Added `scripts/verify.ps1` as the sole local/CI verification entrypoint plus a thin Windows GitHub Actions workflow. The local gate executes the installed current Codex validator when discoverable and reports an explicit skip otherwise.
-- Verified 58 routing-mechanics checks, 249 logical routes, 203 evidence sources, Pressure Discovery tests, behavioral harness tests, and UTF-8/generated-artifact hygiene locally.
+- The post-refinement tree immediately preceding this release-preparation commit passed GitHub Actions verification with 58 routing-mechanics checks, 251 logical routes / 210 evidence sources, 138 Pressure Discovery tests, 74 behavioral harness tests, and UTF-8/generated-artifact hygiene.
 
 ### Behavioral evaluation
 
 - Added a structured behavioral harness with versioned case/profile/run contracts, isolated temporary Git workspaces, exact skill-tree hashing, executor and timeout separation, sealed evidence, condition-blind packets, objective predicates, paired dispositions, and explicit operational-invalid denominators.
 - Froze 12 cases across six decision families and executed a 48-run baseline/current-skill pilot with two repetitions per condition using `gpt-5.6-terra` at `medium` reasoning.
 - Recorded eight `both_pass` pairs, three operationally invalid pairs, one unresolved pair, and no baseline-only or skill-only pass. The condition-blind semantic review was performed by the implementation-session Codex assistant, not an independent human, so no benchmark-grade or universal quality claim is made.
-- Retained a 75%-smaller compact-controller challenger as an experiment but rejected promotion because activation-unverified runs increased from 3/24 to 7/24. The v0.9.0 installed controller remains authoritative.
+- Retained a 75%-smaller compact-controller challenger as an experiment but rejected promotion because activation-unverified runs increased from 3/24 to 7/24. The installed controller carried forward from v0.9.0 remains authoritative in v1.0.0.
+- Added community compile regressions and a separate 10-case external-refinement corpus covering wording-origin independence, supplied-brief echo with an approved-wording negative control, voice-sample absence and authority controls, conflicting voice evidence, quote fidelity, stated-reason versus inferred-cause boundaries, unchecked readiness, and tool provenance.
+- Kept negative controls as focused cases under the existing behavioral contract rather than adding cross-case sensitivity scoring or a new evaluator layer.
+
+### Runtime and composition hardening
+
+- Tightened audience-facing language calibration so specified-language output uses natural audience terminology rather than leaking source/internal vocabulary without a term-specific reason.
+- Preserved relationship, standing, authority, autonomy/obligation, responsibility/repair, and community state through localization and downstream language realization when those semantics can change the artifact.
+- Clarified that environment-specific representation owners may determine interaction job, information order, ask, and participation posture without generic message hierarchy silently taking ownership back.
+- Strengthened fast-path behavior so simple audience-facing artifacts remain bounded while still preserving minimum orientation, concrete capability identity, interaction completeness, and truthful handoffs.
+- Hardened Facebook Group/community behavior around contribution posture, interaction completeness, local participation value, closing turns, and the separation between feedback/discussion jobs and release-announcement framing.
+- Preserved downstream semantic relations during copy compilation so style cleanup, shortening, or humanization cannot erase materially resolved meaning.
+
+### Evidence and writing fidelity
+
+- Clarified that independent participant/root sources do not by themselves establish independent origin of exact observed wording when respondents share upstream exposure to brand copy, interviewer language, community terminology, or another common source.
+- Clarified voice-evidence handling: finite-sample absence does not by itself establish a prohibition; materially conflicting voice sources should not be silently averaged; task/context and source authority determine applicability; recency alone does not establish canonical authority.
+- Refined human-writing guidance so diagnostic patterns remain heuristics rather than hard style bans, reliable supplied writing samples outrank generic tendencies, and humanization preserves resolved facts, claims, proof, qualifiers, and semantic relationships.
+- Added targeted regression pressure for verbatim quote fidelity, unsupported hidden-cause inference, unperformed checks being mislabeled as PASS, and fabricated tool-backed provenance.
 
 ### Documentation
 
 - Reduced README duplication and linked deep capability details to the handbook/platform navigation.
-- Added current executed local evidence above the historical release notes while preserving their original environment-specific limitations.
+- Added current executed verification evidence above the historical release notes while preserving their original environment-specific limitations.
+- Updated public status and installable skill metadata to `v1.0.0 — Stable Core` and made explicit that stable means compatibility-sensitive core behavior, not complete knowledge or frozen provider facts.
+- Updated the real-world behavior report template to default to v1.0.0 while preserving release/commit/branch reporting for reproducibility.
 
 ## [0.9.0] - 2026-08-25
 
