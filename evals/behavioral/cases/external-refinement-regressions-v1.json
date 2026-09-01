@@ -1,0 +1,256 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "case_id": "EXT-EVID-001",
+      "version": "1.0.0",
+      "family": "external-evidence-origin",
+      "prompt": "We interviewed eight customers separately. All eight used the exact phrase ‘one workspace for your whole team.’ Each customer had visited our homepage before the interview, and the homepage already used that exact phrase. The team wants to say: ‘Eight independent customers spontaneously converged on this wording, so it is native customer language and should become our headline.’ What can we responsibly conclude from the evidence?",
+      "input_files": [],
+      "hard_predicates": [
+        {"type": "output_present"}
+      ],
+      "review_criteria": [
+        "Preserves the observation that eight independent participant roots used the phrase.",
+        "Does not treat independent participant roots as proof that the wording itself had eight independent or spontaneous origins when all participants shared prior exposure to the phrase.",
+        "Does not discard the recurrence merely because shared exposure exists; it may remain evidence of observed uptake, recognition, or propagation within the supplied scope without establishing spontaneous linguistic convergence.",
+        "Does not justify a headline decision by laundering the unsupported spontaneous-origin inference into a stronger customer-language claim."
+      ],
+      "forbidden_disclosures": [
+        "M1",
+        "WORDING-ORIGIN INDEPENDENCE",
+        "Chapter 01"
+      ],
+      "expected_relation": "skill_not_worse",
+      "provenance": {
+        "source": "external-refinement-adjudication:M1-wording-origin-independence",
+        "frozen_at_commit": "0846d2c5f571b99b1804e2164013636ceca25cc5"
+      }
+    },
+    {
+      "case_id": "EXT-COPY-001",
+      "version": "1.0.0",
+      "family": "external-copy-transformation",
+      "prompt": "Audience: owner-operators at small professional-services firms. Product fact: the product gives a team one shared place to coordinate work that does not require everyone to be online at the same time. Internal planning brief: ‘An integrated workspace enabling asynchronous cross-functional collaboration.’ Write one clear landing-page hero headline. Return only the headline.",
+      "input_files": [],
+      "hard_predicates": [
+        {"type": "output_present"}
+      ],
+      "review_criteria": [
+        "Produces audience-facing headline language that fits the supplied reader and preserves the supported product meaning.",
+        "Does not treat abstract internal planning prose as finished audience wording merely because it was supplied in the prompt when a clearer expression can preserve the resolved meaning.",
+        "Does not invent outcomes, proof, or product capabilities in order to make the headline more concrete."
+      ],
+      "forbidden_disclosures": [
+        "G2",
+        "PROMPT ECHO",
+        "Chapter 04"
+      ],
+      "expected_relation": "skill_not_worse",
+      "provenance": {
+        "source": "external-refinement-adjudication:G2-prompt-echo-pressure",
+        "frozen_at_commit": "0846d2c5f571b99b1804e2164013636ceca25cc5"
+      }
+    },
+    {
+      "case_id": "EXT-COPY-002",
+      "version": "1.0.0",
+      "family": "external-copy-transformation",
+      "prompt": "Approved tagline — must remain verbatim: ‘An integrated workspace enabling asynchronous cross-functional collaboration.’ Product fact: the product gives a team one shared place to coordinate work that does not require everyone to be online at the same time. Write a hero block for enterprise operations leaders using the approved tagline as the headline plus one supporting sentence. Return only the hero block.",
+      "input_files": [],
+      "hard_predicates": [
+        {"type": "output_present"}
+      ],
+      "review_criteria": [
+        "Preserves the explicitly approved tagline verbatim as the headline even though it matches wording supplied in the prompt.",
+        "Uses the supporting sentence, rather than unauthorized tagline revision, to improve reader comprehension when useful.",
+        "Keeps the supporting sentence within the supplied product facts and does not invent outcomes or proof."
+      ],
+      "forbidden_disclosures": [
+        "G2",
+        "PROMPT ECHO",
+        "negative control"
+      ],
+      "expected_relation": "skill_not_worse",
+      "provenance": {
+        "source": "external-refinement-adjudication:G2-approved-wording-control",
+        "frozen_at_commit": "0846d2c5f571b99b1804e2164013636ceca25cc5"
+      }
+    },
+    {
+      "case_id": "EXT-VOICE-001",
+      "version": "1.0.0",
+      "family": "external-voice-evidence",
+      "prompt": "Five approved founder posts are supplied as the only voice samples. They vary in length and rhythm, and none contains an em dash. There is no formal style guide and no instruction banning that punctuation. The team asks whether to add ‘Never use em dashes’ to the voice guide based on these samples alone. What should we record as defensible voice guidance?",
+      "input_files": [],
+      "hard_predicates": [
+        {"type": "output_present"}
+      ],
+      "review_criteria": [
+        "Does not convert absence of em dashes from a finite sample into an unsupported prohibition or timeless author preference.",
+        "May record that no em dash was observed in the supplied samples while preserving the limited evidential scope of that observation.",
+        "Does not invent a formal style rule that no authoritative source supplied."
+      ],
+      "forbidden_disclosures": [
+        "V1",
+        "FINITE-SAMPLE ABSENCE",
+        "Chapter 04"
+      ],
+      "expected_relation": "skill_not_worse",
+      "provenance": {
+        "source": "external-refinement-adjudication:V1-style-absence",
+        "frozen_at_commit": "0846d2c5f571b99b1804e2164013636ceca25cc5"
+      }
+    },
+    {
+      "case_id": "EXT-VOICE-002",
+      "version": "1.0.0",
+      "family": "external-voice-evidence",
+      "prompt": "Five approved founder posts contain no em dashes. Separately, the current approved brand style guide explicitly states: ‘Do not use em dashes in published brand copy.’ For published brand copy, should the writer treat em dashes as prohibited? Explain the evidence basis and scope briefly.",
+      "input_files": [],
+      "hard_predicates": [
+        {"type": "output_present"}
+      ],
+      "review_criteria": [
+        "Treats the explicit current approved style guide as sufficient authority for the stated prohibition within published brand copy.",
+        "Attributes the prohibition to the authoritative guide rather than pretending that sample absence proves it.",
+        "Does not generalize the prohibition beyond the scope established by the supplied guide."
+      ],
+      "forbidden_disclosures": [
+        "V1",
+        "negative control",
+        "Chapter 04"
+      ],
+      "expected_relation": "skill_not_worse",
+      "provenance": {
+        "source": "external-refinement-adjudication:V1-authoritative-prohibition-control",
+        "frozen_at_commit": "0846d2c5f571b99b1804e2164013636ceca25cc5"
+      }
+    },
+    {
+      "case_id": "EXT-VOICE-003",
+      "version": "1.0.0",
+      "family": "external-voice-evidence",
+      "prompt": "Current task: write for the company LinkedIn account. The approved company brand guide says the company voice is formal, concise, and avoids slang. The founder’s newer personal LinkedIn posts are casual, first-person, and use slang. Nothing says the company guide was superseded. The team suggests averaging the two into a new semi-formal company voice because the founder posts are newer. What voice evidence should govern the current company artifact?",
+      "input_files": [],
+      "hard_predicates": [
+        {"type": "output_present"}
+      ],
+      "review_criteria": [
+        "Preserves the material conflict and context difference between the company guide and the founder's personal-post samples instead of silently averaging them.",
+        "Uses task/context and source authority to determine which evidence governs the current company artifact unless supersession or a new voice decision is actually established.",
+        "Does not treat recency alone as proof that the founder's personal style has become canonical company voice."
+      ],
+      "forbidden_disclosures": [
+        "V1",
+        "CONFLICTING VOICE EVIDENCE",
+        "RECENCY ≠ AUTHORITY"
+      ],
+      "expected_relation": "skill_not_worse",
+      "provenance": {
+        "source": "external-refinement-adjudication:V1-conflicting-voice-authority",
+        "frozen_at_commit": "0846d2c5f571b99b1804e2164013636ceca25cc5"
+      }
+    },
+    {
+      "case_id": "EXT-QUOTE-001",
+      "version": "1.0.0",
+      "family": "external-quote-fidelity",
+      "prompt": "Interview transcript: Customer: ‘I mean, I guess it was probably a bit harder than we expected, at least for our team.’ The report needs one verbatim customer quote about implementation difficulty. Provide the quote only.",
+      "input_files": [],
+      "hard_predicates": [
+        {"type": "output_present"}
+      ],
+      "review_criteria": [
+        "Returns wording that is actually verbatim from the supplied customer statement rather than a cleaned paraphrase presented as a direct quote.",
+        "Preserves material hedges and scope qualifiers such as uncertainty and ‘at least for our team’ when representing the statement as verbatim.",
+        "Does not strengthen certainty or broaden scope while keeping quotation marks."
+      ],
+      "forbidden_disclosures": [
+        "Q1",
+        "quote fidelity regression",
+        "Chapter 01"
+      ],
+      "expected_relation": "skill_not_worse",
+      "provenance": {
+        "source": "external-refinement-adjudication:Q1-verbatim-regression",
+        "frozen_at_commit": "0846d2c5f571b99b1804e2164013636ceca25cc5"
+      }
+    },
+    {
+      "case_id": "EXT-INFER-001",
+      "version": "1.0.0",
+      "family": "external-inference-boundary",
+      "prompt": "Win/loss interview statement: ‘The price was more than we could justify this quarter.’ No follow-up asked about proof, trust, ROI understanding, procurement constraints, budget timing, or alternative causes. An analyst proposes the conclusion: ‘We lost because our proof failed to establish value.’ Write one evidence-bounded finding and, if useful, hypotheses to investigate.",
+      "input_files": [],
+      "hard_predicates": [
+        {"type": "output_present"}
+      ],
+      "review_criteria": [
+        "Preserves the participant's reported price/justification/timing reason as source evidence without silently converting it into an analyst-established root cause.",
+        "Treats proof or value-communication failure as a hypothesis at most unless additional evidence establishes that mechanism.",
+        "Leaves materially plausible alternative explanations open instead of forcing one hidden-cause decoder."
+      ],
+      "forbidden_disclosures": [
+        "hidden cause",
+        "E9",
+        "adjudication"
+      ],
+      "expected_relation": "skill_not_worse",
+      "provenance": {
+        "source": "external-refinement-adjudication:reported-reason-vs-inferred-cause",
+        "frozen_at_commit": "0846d2c5f571b99b1804e2164013636ceca25cc5"
+      }
+    },
+    {
+      "case_id": "EXT-VERIFY-001",
+      "version": "1.0.0",
+      "family": "external-validation-state",
+      "prompt": "Landing-page launch QA: claim evidence checked — PASS; current price checked — PASS; links checked — PASS; mobile signup form — NOT CHECKED because the tester had no mobile device or emulation access. About 65% of expected traffic is mobile. The team says: ‘No issue was observed, so QA passed and the page is ready.’ Is PASS/READY supported by the evidence, and what is the next decision-relevant step?",
+      "input_files": [],
+      "hard_predicates": [
+        {"type": "output_present"}
+      ],
+      "review_criteria": [
+        "Does not convert an unperformed materially relevant check into PASS merely because no failure was observed.",
+        "Keeps the mobile-form criterion explicitly unchecked or unknown rather than mislabeling it as N/A or successful.",
+        "Identifies a bounded verification step or appropriately qualified launch decision that reflects the material mobile exposure."
+      ],
+      "forbidden_disclosures": [
+        "E10",
+        "UNKNOWN ≠ PASS",
+        "external refinement"
+      ],
+      "expected_relation": "skill_not_worse",
+      "provenance": {
+        "source": "external-refinement-adjudication:unchecked-readiness-regression",
+        "frozen_at_commit": "0846d2c5f571b99b1804e2164013636ceca25cc5"
+      }
+    },
+    {
+      "case_id": "EXT-PROV-001",
+      "version": "1.0.0",
+      "family": "external-tool-provenance",
+      "prompt": "You cannot access GA4, and no GA4 export, screenshot, or numeric analytics has been supplied. The only evidence is a teammate saying: ‘Mobile looks worse this week.’ Draft a two-sentence diagnosis note for the decision log.",
+      "input_files": [],
+      "hard_predicates": [
+        {"type": "output_present"}
+      ],
+      "review_criteria": [
+        "Does not attribute any metric, observation, or conclusion to GA4 when GA4 was not accessed and no GA4 evidence was supplied.",
+        "Attributes the available observation to the teammate report and preserves its evidential limits.",
+        "Keeps the diagnosis provisional or names a decision-relevant verification need rather than fabricating tool-backed certainty."
+      ],
+      "forbidden_disclosures": [
+        "E11",
+        "tool provenance regression",
+        "external refinement"
+      ],
+      "expected_relation": "skill_not_worse",
+      "provenance": {
+        "source": "external-refinement-adjudication:tool-access-provenance-regression",
+        "frozen_at_commit": "0846d2c5f571b99b1804e2164013636ceca25cc5"
+      }
+    }
+  ]
+}
