@@ -155,7 +155,14 @@ Feed-based content competes for attention and social relevance. Useful content g
 
 ## 8. Human-writing quality
 
-Removing stereotyped AI patterns is not an end in itself. Human-sounding prose can still be strategically weak, inaccurate, vague, or manipulative. Humanization is therefore treated as a quality-control layer.
+Removing stereotyped AI patterns is not an end in itself. Human-sounding prose can still be strategically weak, inaccurate, vague, or manipulative. Humanization is therefore treated as a downstream quality-control layer, not as permission to reopen resolved strategy or rewrite meaning merely to sound less machine-generated.
+
+A human-writing review has two obligations:
+
+1. **expression naturalness** — remove templated or artificial expression when it harms voice, comprehension, or fit while preserving deliberate human variation;
+2. **semantic fidelity** — preserve every supported decision-relevant fact, claim boundary, proof relation, qualification, actor, beneficiary, responsibility, interaction state, and other meaning-bearing relation that the current communication requires.
+
+A stylistic improvement that violates the second obligation is a regression, even when the new prose sounds more natural.
 
 Unnecessary code-switching is a voice-fit defect when a non-target-language term lacks a term-specific reason to remain, such as being a proper name, identifier, command or code literal, or an established domain term whose translation would reduce precision or naturalness. Technical audience familiarity, source-language prevalence, or internal framework vocabulary alone is not sufficient justification.
 
@@ -165,19 +172,55 @@ Common patterns that merit review include:
 - repetitive promotional adjectives;
 - vague appeals to unnamed experts or studies;
 - filler clauses that announce importance without adding information;
+- staged transitions that announce the next point instead of stating it;
+- claims of hidden or deeper truth that add rhetoric without mechanism;
+- unsupported objection scaffolding in which the copy answers an objection no source, reader state, or task actually raised;
+- fake alternatives introduced only to be rejected and never used in the decision;
 - forced lists of three;
 - unnecessary synonym cycling;
 - abstract false ranges;
+- excessive qualifier stacking that makes a claim vague without adding justified uncertainty;
 - excessive nominalization or passive construction where agency matters;
 - excessive formatting used to simulate structure;
+- chatbot residue such as generic greetings, self-referential handoffs, or offers that belong to the drafting interaction rather than the artifact;
 - generic inspirational conclusions;
 - fake candor and manufactured punchlines;
+- chains of dramatic fragments used as synthetic emphasis;
 - inflated aphorisms that replace mechanism;
 - repetitive sentence rhythm associated with template generation.
 
-These are diagnostic signals, not a prohibition list. A real author's voice may legitimately contain some of them. When a reliable writing sample is supplied, voice calibration should preserve characteristic vocabulary, rhythm, punctuation, formality, and intentional irregularity unless they conflict with truth or task requirements.
+These are diagnostic signals, not a prohibition list. Do not infer a defect from one word, punctuation mark, sentence shape, or formatting choice in isolation. An em dash, emoji, formal transition, curly quotation mark, short sentence, repeated opening, or polished grammar may be entirely appropriate to the writer, channel, language, or format. Look for clustered patterns and ask whether the expression is actually harming the current job.
 
-The practical writing layer of this handbook was informed in part by the MIT-licensed AI Copywriter / humanizer lineage described in `THIRD_PARTY_NOTICES.md` [R22].
+When a reliable writing sample is supplied, treat it as stronger voice evidence than generic style heuristics. Preserve characteristic vocabulary, rhythm, punctuation, formality, sentence-length variation, intentional repetition, asides, self-correction, mixed feelings, unresolved tension, and other deliberate irregularity unless they conflict with truth, safety, or task requirements. Human-writing review should not normalize a distinctive author into generic conversational prose.
+
+Prefer paragraph-level rewriting around the intended meaning over mechanical word substitution or a fixed blacklist. A watched word can be correct in context; replacing it automatically can make the sentence less precise while leaving the underlying template intact.
+
+Humanization must not fabricate the very details that make writing feel human. Do not invent first-person experience, opinions, reactions, dates, names, customer anecdotes, sensory detail, humor attributed to the writer, or other specificity that the source does not support. Marketing copy may remove or qualify an unsupported source claim under the claim-control rules below; semantic fidelity does not require preserving a claim that the evidence does not permit.
+
+After a material rewrite, compare the candidate against the resolved pre-rewrite state rather than auditing style alone. Check whether the rewrite added, removed, strengthened, weakened, reassigned, or obscured any material:
+
+- fact, name, number, date, quotation, citation, or product behavior;
+- claim and its scope or qualification;
+- proof item and the claim it supports;
+- actor, beneficiary, responsibility, authority, or causal boundary;
+- objection that was genuinely part of the message state;
+- required, optional, or no-action interaction state;
+- downstream-resolved semantic relation or terminal speech act.
+
+Unsupported additions and unintended losses are errors. If a natural-sounding rewrite cannot preserve the required meaning, keep the plainer wording or rewrite the surrounding paragraph instead of trading fidelity for style.
+
+```text
+HUMAN-SOUNDING PROSE
+≠ HUMAN-WRITING QUALITY
+
+STYLE CLEANUP
+≠ LICENSE TO CHANGE MEANING
+
+DIAGNOSTIC SIGNAL
+≠ AUTOMATIC DEFECT
+```
+
+The practical writing layer of this handbook was informed in part by the MIT-licensed AI Copywriter / humanizer lineage described in `THIRD_PARTY_NOTICES.md` [R22], and later cross-checked against the contemporary `blader/humanizer` pattern set for additional failure modes and false-positive safeguards.
 
 ## 9. Claim control
 
