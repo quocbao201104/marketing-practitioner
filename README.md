@@ -4,7 +4,7 @@
 
 # Marketing Practitioner
 
-**An agent skill for marketing work that is still an open decision.**
+**A decision-first marketing skill that knows what to resolve — and what to leave alone.**
 
 [![Version: v1.0.0](https://img.shields.io/badge/version-v1.0.0-0a7.svg)](#status)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
@@ -18,7 +18,7 @@
 
 Ordinary marketing prompts, templates, and skill collections add more advice: frameworks, section formulas, platform tips. Agents already write fluently. The failure this skill is built against is inventing product facts, treating eight interviews as a market, rewriting a page because CPA moved, or loading a TikTok playbook because the prompt said “TikTok.”
 
-This skill is a runtime for that class of error. It classifies the current job, keeps already-settled decisions settled, and loads only the governed knowledge that can change what is still open.
+The skill is built to prevent that class of error. It classifies the current job, keeps already-settled decisions settled, and loads only the governed knowledge that can change what is still open.
 
 ## Quick start
 
@@ -95,7 +95,7 @@ If helper execution is unavailable, the same index is still the address table: r
 
 The current index validates at **251 routes / 210 evidence sources**. Evidence files state what a source **supports** and **does not support**. That bound is how claim control is implemented.
 
-Specialist layers (commercial design, landing pages, email, discovery, paid media, commerce, named platforms) are added only when existing owners cannot represent the decision without distortion. Research under [`research/`](research/) keeps theory freezes and rejected expansions out of the runtime until they survive that bar. A controller 75% smaller than the installed one was evaluated on the same frozen cases and **not promoted**, because unverified skill activation rose from 3/24 to 7/24. See the [challenger report](evals/behavioral/reports/compact-challenger-v1.md).
+Specialist layers (commercial design, landing pages, email, discovery, paid media, commerce, named platforms) are added only when a concrete decision-relevant gap survives local repair. Shared architecture expands only when the existing grammar cannot represent the decision without material distortion. Research under [`research/`](research/) keeps theory freezes and rejected expansions out of the runtime until they survive that bar. A controller 75% smaller than the installed one was evaluated on the same frozen cases and **not promoted**, because unverified skill activation rose from 3/24 to 7/24. See the [challenger report](evals/behavioral/reports/compact-challenger-v1.md).
 
 The [handbook map](skills/marketing-practitioner/handbook/README.md) and [platform modules](skills/marketing-practitioner/platforms/README.md) are for navigation when a decision actually needs them, not a reading list.
 
