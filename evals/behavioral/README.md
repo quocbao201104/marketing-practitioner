@@ -10,6 +10,24 @@ python -B -m evals.behavioral.behavioral_eval.cli validate --cases evals\behavio
 
 The pilot has 12 cases and two repetitions per arm. The committed profiles pin the model and reasoning effort. Change them deliberately and treat the result as a different executor condition.
 
+## Validate targeted regression corpora
+
+Additive regression corpora are versioned separately from the frozen 12-case pilot. They reuse the same case contract and harness, but they do not change the pilot population or its historical interpretation.
+
+For the external-refinement regressions:
+
+```powershell
+python -B -m evals.behavioral.behavioral_eval.cli validate --cases evals\behavioral\cases\external-refinement-regressions-v1.json --profiles evals\behavioral\profiles
+```
+
+When running or reporting a targeted corpus, pass its `--cases` path explicitly. The harness currently adjudicates each case independently; opposite-direction controls that share a family are separate cases, not a new cross-case sensitivity-scoring mechanism.
+
+A fixture preflight can exercise the additive corpus without producing behavioral evidence:
+
+```powershell
+python -B -m evals.behavioral.behavioral_eval.cli run --cases evals\behavioral\cases\external-refinement-regressions-v1.json --adapter fixture --repeat-limit 1 --results evals\behavioral\results\external-refinement-fixture
+```
+
 ## Exercise infrastructure with fixtures
 
 ```powershell

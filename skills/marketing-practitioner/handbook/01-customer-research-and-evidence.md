@@ -93,6 +93,8 @@ Evidence counts should follow root sources rather than derivative artifacts. One
 
 For qualitative material, retain root-source identity and the interviewer or prompt context when either changes a decision-relevant interpretation or source independence. Twelve notes derived from two interviews remain two independent sources, even when the notes describe different moments or themes.
 
+When exact wording itself is being used as evidence of spontaneous or customer-origin language, independent participant or root sources do not by themselves establish independent wording origin. Known shared exposure to prior brand copy, interviewer wording, community terminology, or another common upstream language source should constrain claims about independent linguistic convergence without erasing the observed recurrence.
+
 This principle reduces a subtle form of false confidence: repeated processing of the same evidence can create the appearance of convergence without adding information.
 
 ## 8. Evidence should carry scope
