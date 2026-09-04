@@ -57,20 +57,58 @@ class CompactChallengerTests(unittest.TestCase):
         compact = controller_metrics(CHALLENGER)
         self.assertLessEqual(compact["words"], int(current["words"] * 0.75))
 
-    def test_challenger_is_a_complete_resource_copy(self) -> None:
-        required = {
-            path.relative_to(CURRENT).as_posix()
-            for path in CURRENT.rglob("*")
-            if path.is_file() and "__pycache__" not in path.parts
-        }
-        available = {
-            path.relative_to(CHALLENGER).as_posix()
-            for path in CHALLENGER.rglob("*")
-            if path.is_file() and "__pycache__" not in path.parts
-        }
+    def test_challenger_snapshot_routes_are_self_contained(self) -> None:
+        """Validate the rejected challenger against its own frozen route snapshot.
 
-        self.assertTrue(required - {"SKILL.md"} <= available)
-        self.assertIn("references/runtime-routing.md", available)
+        The compact challenger is retained as a historical experiment, not as a
+        live mirror of the current skill. New production resources therefore
+        must not make this snapshot fail merely because they did not exist when
+        the challenger was executed. Its own routes still have to remain fully
+        addressable inside the retained snapshot.
+        """
+        manifest = json.loads((CHALLENGER / "routing-index.json").read_text(encoding="utf-8"))
+
+        for namespace, spec in manifest["namespaces"].items():
+            resource = CHALLENGER / spec["path"]
+            self.assertTrue(
+                resource.is_file(),
+                f"frozen challenger namespace {namespace!r} is missing {spec['path']!r}",
+            )
+            text = resource.read_text(encoding="utf-8")
+
+            for section_id, selector in spec["sections"].items():
+                if isinstance(selector, str):
+                    self.assertIn(
+                        selector,
+                        text,
+                        f"frozen challenger route {namespace}.{section_id} has a missing heading selector",
+                    )
+                    continue
+
+                self.assertIsInstance(
+                    selector,
+                    dict,
+                    f"frozen challenger route {namespace}.{section_id} has an invalid selector",
+                )
+                marker_id = selector.get("marker")
+                self.assertIsInstance(
+                    marker_id,
+                    str,
+                    f"frozen challenger route {namespace}.{section_id} has an invalid marker selector",
+                )
+                self.assertIn(f"<!-- route:start {marker_id} -->", text)
+                self.assertIn(f"<!-- route:end {marker_id} -->", text)
+
+        for support_file in (
+            "TASK-SPECIFICATION-GUIDE.md",
+            "references/runtime-routing.md",
+            "scripts/get-knowledge.py",
+            "scripts/test-knowledge-routing.py",
+        ):
+            self.assertTrue(
+                (CHALLENGER / support_file).is_file(),
+                f"frozen challenger support resource is missing: {support_file}",
+            )
 
 
 if __name__ == "__main__":
