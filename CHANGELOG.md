@@ -245,7 +245,7 @@ The project uses semantic versioning for published skill revisions. v1.0.0 marks
 
 ### Changed
 
-- Extended `SKILL.md` with a Commercial Design / pricing operating path while preserving the existing `DECIDE`, evidence, resolved-state, dependency, and JIT-routing rules.
+- Extended `SKILL.md` with a Commercial Design / pricing operating path while preserving the existing `DECIDE` job, resolved-state freezing, dependency-first routing, fast paths, and minimum-sufficient-output behavior.
 - Updated public documentation and architecture maps to distinguish Commercial Design from positioning/value, message/copy, current commerce-state representation, governance, and executed transaction state.
 - Updated the handbook navigation to cover Chapters 08–10 and the large-chapter semantic-routing model.
 - Updated release metadata and README status to `v0.5.0`.
