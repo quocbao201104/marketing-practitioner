@@ -61,6 +61,15 @@ usage_state: active
 
 because the candidate text and PR description were produced before the independent implementation review occurred. The review explicitly adjudicated that frozen lifecycle claim as accurate at that point in time. This record does not retroactively rewrite the frozen candidate.
 
+The extension contract defines review state as contribution vetting. After this independent `PASS_IMPLEMENTATION`, the release-preparation branch therefore promotes the current runtime copies of `JP-LANG-HON-01` and `JP-LANG-PERM-01` to:
+
+```text
+review_state: reviewed
+usage_state: active
+```
+
+This is a post-review lifecycle update, not retroactive evidence for the frozen candidate and not a change to either unit's realization semantics.
+
 ## Evidence boundary
 
 This verdict is a static/adversarial implementation review. It does **not** establish that a model or host will always activate the skill, traverse Chapter 07, retrieve the route, scope-check the Japanese unit, or produce better Japanese output than a no-skill baseline.
