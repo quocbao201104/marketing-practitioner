@@ -139,7 +139,7 @@ adapt-localization.relationship-realization
 adapt-content.community-participation
 ```
 
-These are examples, not pre-registered routes. Add a namespace to `routing-index.json` only when actual runtime knowledge requires it.
+These illustrate the naming pattern; `routing-index.json` is the source of truth for which routes actually exist. Add a namespace there only when actual runtime knowledge requires it.
 
 Detailed language, market, audience, channel, category, community, jurisdiction, and time scope belongs inside the contribution unit. Do not create `vi-VN`, `market-vn`, or similar primary runtime packs merely because a contribution concerns that place or language.
 
