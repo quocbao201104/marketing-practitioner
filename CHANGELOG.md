@@ -4,6 +4,31 @@ All notable changes to this repository are documented here.
 
 The project uses semantic versioning for published skill revisions. v1.0.0 marks the first stable core contract: future 1.x work should preserve compatibility-sensitive controller semantics, logical knowledge interfaces, owner boundaries, and evidence/claim behavior unless a demonstrated failure justifies a scoped change. Historical frozen evaluation and research references keep the version labels under which they were produced.
 
+## [1.1.0] - 2026-09-04
+
+### Scoped local adaptation
+
+- Added a thin local-adaptation extension contract under `skills/marketing-practitioner/adaptations/` for community-maintained local knowledge that can specialize an already-open decision without becoming a new decision owner.
+- Kept route and applicability separate: owner-aligned logical routes locate decision-relevant adaptation families, while each contribution carries its own scope, claim, evidence, decision impact, load/do-not-use conditions, invariants, review state, and usage state.
+- Explicitly rejected country/locale packs, automatic broader-scope inheritance, private-over-upstream precedence, specificity scoring, confidence scoring, and a global adaptation registry/resolver absent a concrete irreducible failure.
+- Added the first canonical reference contribution, `VN-LANG-REL-01`, for Vietnamese relationship-sensitive self-reference / recipient-address realization. The unit is language-scoped rather than Vietnam-market-scoped and preserves already-resolved identity, relationship, authority, history, organizational/community norms, and partial-pair state.
+- Added `local-adaptation-vietnam-evidence.md` with local-first Vietnamese linguistic/applied-linguistic evidence and explicit support/non-support boundaries; native familiarity is not treated as population prevalence or causal evidence.
+- Added `adapt-localization.relationship-realization` as the first real adaptation route plus a bounded Chapter 07 JIT discovery pointer. Country, nationality, target language, age, or platform nouns alone remain non-activation authorities.
+
+### Review and boundary validation
+
+- The thin extension design received independent adversarial verdict `PASS_THIN_DESIGN`; no registry, resolver, new owner, controller job, primitive, or routing-schema redesign was justified.
+- The first Vietnamese reference implementation received `PASS_WITH_LOCAL_REPAIRS` at frozen implementation head `5a19f2d1e3182c6ea9aed45dc8008ee07681eef3`. The reviewer found two bounded defects: missing normal-flow namespace discovery and ambiguity when only one half of the self/address pair remained open.
+- Implemented both repairs locally: Chapter 07 now exposes the bounded discovery edge, and `VN-LANG-REL-01` freezes any already-resolved half while constraining only the still-open dimension. A post-repair independent re-review was not performed, so the unit remains `review_state: provisional` rather than claiming a later independent pass.
+- Kept Vietnam market findings such as payment/COD, reviews/trust, channel mix, Tết seasonality, and authenticity/provenance concerns out of `adaptations/` when they were better represented as scoped evidence, current dependencies, or decisions already handled by existing owners.
+
+### Verification and maintenance
+
+- Updated the public README, handbook navigation, contributor guidance, behavior-report version placeholder, and installable skill metadata for `v1.1.0 — Scoped Local Adaptation`.
+- Updated current routing documentation to 252 logical routes / 214 evidence sources.
+- Fixed CI coupling to the rejected compact-controller experiment: its integrity test now validates the challenger's own frozen routing/resource snapshot instead of requiring that historical challenger to mirror every new production resource. The full `Verify` push run on `main` passed after this repair.
+- No new controller job, shared primitive, top-level handbook, country profile, cultural-precedence engine, or generic scope-matching subsystem was added.
+
 ## [1.0.0] - 2026-09-02
 
 ### Stable core
