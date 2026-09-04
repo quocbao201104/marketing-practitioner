@@ -76,6 +76,8 @@ Culture-level or population-level findings may generate hypotheses about which c
 
 When a materially relationship-indexing choice remains underdetermined, do not silently classify the relationship. Preserve a verified existing form when it is applicable; otherwise use natural wording that avoids an unsupported relationship claim when the language and context permit it. Ask for the missing fact only when the socially meaningful choice is unavoidable and consequential. Nationality, broad culture, age/status alone, audience technical sophistication, or a generic market label is not sufficient evidence for a specific relationship realization.
 
+When a relationship-indexing target-language realization remains materially open after applying these generic rules, perform a bounded JIT adaptation lookup before finalizing it: if `routing-index.json` exposes the owner-aligned `adapt-localization` namespace, inspect only the smallest route that can change the open realization decision. For the currently bundled relationship-realization knowledge, the logical route is `adapt-localization.relationship-realization`. This lookup is triggered by the still-open localization decision, not by a country, language, nationality, culture, or platform noun. If no matching route exists or no contribution passes its section-local scope check, continue with Chapter 07 without manufacturing a local rule.
+
 ## 4. Original-language evidence should be preserved
 
 Customer wording can carry connotation, politeness, identity, category terminology, and emotional texture that translation compresses. Original-language material should therefore remain analytically available when language itself is evidence.
