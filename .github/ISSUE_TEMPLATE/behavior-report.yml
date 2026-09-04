@@ -57,7 +57,7 @@ body:
     attributes:
       label: Marketing Practitioner version
       description: Release, commit, or branch if known.
-      placeholder: v1.0.0
+      placeholder: v1.1.0
     validations:
       required: false
 
