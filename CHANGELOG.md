@@ -19,7 +19,8 @@ The project uses semantic versioning for published skill revisions. v1.0.0 marks
 
 - The thin extension design received independent adversarial verdict `PASS_THIN_DESIGN`; no registry, resolver, new owner, controller job, primitive, or routing-schema redesign was justified.
 - The first Vietnamese reference implementation received `PASS_WITH_LOCAL_REPAIRS` at frozen implementation head `5a19f2d1e3182c6ea9aed45dc8008ee07681eef3`. The reviewer found two bounded defects: missing normal-flow namespace discovery and ambiguity when only one half of the self/address pair remained open.
-- Implemented both repairs locally: Chapter 07 now exposes the bounded discovery edge, and `VN-LANG-REL-01` freezes any already-resolved half while constraining only the still-open dimension. A post-repair independent re-review was not performed, so the unit remains `review_state: provisional` rather than claiming a later independent pass.
+- Implemented both repairs locally: Chapter 07 now exposes the bounded discovery edge, and `VN-LANG-REL-01` freezes any already-resolved half while constraining only the still-open dimension. At the time of the v1.1.0 release, a post-repair independent re-review had not yet been performed, so the unit correctly remained `review_state: provisional`.
+- Post-release follow-up: an independent post-repair review of the current integrated implementation at `f9c3a9485a989af5ee662464912912f15adffef5` returned `PASS_POST_REPAIR`, closed both original findings, found no material Vietnamese regression after Japanese units were added to the shared route, and justified `VN-LANG-REL-01` moving to `review_state: reviewed`. This was a static implementation/integration adjudication, not a behavioral route-execution or output-quality benchmark.
 - Kept Vietnam market findings such as payment/COD, reviews/trust, channel mix, Tết seasonality, and authenticity/provenance concerns out of `adaptations/` when they were better represented as scoped evidence, current dependencies, or decisions already handled by existing owners.
 
 ### Verification and maintenance
@@ -113,7 +114,7 @@ The project uses semantic versioning for published skill revisions. v1.0.0 marks
 ### Added
 
 - Added `handbook/13-search-and-discovery-architecture.md`, a bounded specialist layer for generic non-commerce discovery decisions spanning information need/expression, scoped availability, retrieval/selection, human-selection versus system-commitment/grounding, and discovery observation semantics.
-- Added the `discovery.*` just-in-time namespace for core scope, need/query distinctions, availability/identity/freshness, retrieval/selection, grounding/commitment, observation semantics, retained decision records, and anti-folklore invariants.
+- Added the `discovery.*` JIT namespace for core scope, need/query distinctions, availability/identity/freshness, retrieval/selection, grounding/commitment, observation semantics, retained decision records, and anti-folklore invariants.
 - Added `references/search-discovery-evidence.md` with scoped current-provider and information-retrieval evidence plus explicit non-transfer boundaries.
 - Added `research/search-discovery-architecture/` theory freeze, implementation self-review, mechanical-verification record, targeted-evaluation adjudication, frozen independent-review contract, and release-preparation gate record.
 - Added a 20-case adversarial Search & Discovery suite covering fast-path preservation, published/indexed/discoverable collapse, query/intent/retrieval-formulation collapse, retrieval versus evidentiary fitness, citation/telemetry overclaim, queryless discovery, missing telemetry, and Chapter 01/02/04/05/08/09/11 owner controls.

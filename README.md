@@ -205,7 +205,7 @@ Current release: **v1.1.0 — Scoped Local Adaptation**.
 
 v1.0.0 remains the stable core compatibility baseline: the seven jobs, resolved-state behavior, logical knowledge IDs, owner boundaries, and source/claim discipline remain compatibility-sensitive. v1.1.0 adds a bounded extension contract for community-maintained local adaptation knowledge plus the first canonical Vietnamese relationship-realization unit.
 
-The first reference implementation received `PASS_WITH_LOCAL_REPAIRS` at its frozen review head and the two bounded repairs were implemented. A post-repair independent re-review was not performed, so the reference unit remains explicitly `review_state: provisional`.
+The first Vietnamese reference implementation originally received `PASS_WITH_LOCAL_REPAIRS`; both bounded defects were repaired before merge. An independent post-repair review of the current integrated implementation at `f9c3a9485a989af5ee662464912912f15adffef5` later returned `PASS_POST_REPAIR`, closing the discovery and partial-pair findings and supporting `VN-LANG-REL-01` as `review_state: reviewed`. This is a static implementation/integration review, not a claim that every model or host will execute the route correctly. See the [post-repair review record](research/local-adaptation-vietnam/01-post-repair-review-result.md).
 
 Stable does not mean complete. This is **not** a prompt pack, conversion-formula library, generic agent framework, cultural encyclopedia, or back-office automation system. It does not own product roadmap, finance, legal advice, CRM, or private platform mechanics.
 

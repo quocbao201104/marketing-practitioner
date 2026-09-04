@@ -118,7 +118,7 @@ Evidence type: local Vietnamese linguistic / applied-linguistic research. This e
 
 **REVIEW STATE**
 
-provisional
+reviewed
 
 **USAGE STATE**
 
