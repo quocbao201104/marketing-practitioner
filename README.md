@@ -6,7 +6,7 @@
 
 **A decision-first marketing skill that knows what to resolve — and what to leave alone.**
 
-[![Version: v1.0.0](https://img.shields.io/badge/version-v1.0.0-0a7.svg)](#status)
+[![Version: v1.1.0](https://img.shields.io/badge/version-v1.1.0-0a7.svg)](#status)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Language: English](https://img.shields.io/badge/language-English-4c1.svg)](#)
 [![Format: Agent Skill](https://img.shields.io/badge/format-Agent%20Skill-6f42c1.svg)](skills/marketing-practitioner/SKILL.md)
@@ -53,7 +53,7 @@ The governing file is [`skills/marketing-practitioner/SKILL.md`](skills/marketin
 
 Use it when an agent has to **decide, diagnose, research, adapt, test, learn, or write** in a marketing context, and the answer should stay inside the evidence you actually have.
 
-That includes synthesizing customer material, choosing who to prioritize, positioning against a real alternative, designing packaging and terms, writing or critiquing copy, compiling a landing page or email, adapting to a platform, representing a commerce listing, interpreting search or paid delivery, localizing an already-resolved strategy, or retaining what a result did and did not prove.
+That includes synthesizing customer material, choosing who to prioritize, positioning against a real alternative, designing packaging and terms, writing or critiquing copy, compiling a landing page or email, adapting to a platform, representing a commerce listing, interpreting search or paid delivery, localizing an already-resolved strategy, applying scoped local-adaptation knowledge when a local mechanism changes the realization of an open decision, or retaining what a result did and did not prove.
 
 Those are separate owners, not a funnel the skill runs every time. A caption with an approved message stays a writing job. A price that is already `$29` stays frozen while the page is written. Paying a creator to publish is not automatically paid media. A CPA rise after a bidding change starts as diagnosis, not as a creative rewrite.
 
@@ -67,6 +67,7 @@ paid relationship ≠ paid delivery
 reported metric ≠ optimization-eligible signal
 displayed commercial state ≠ universal authoritative state
 platform name ≠ reason to load that platform
+local evidence ≠ country-wide behavioral rule
 ```
 
 It has no authority to invent product, financial, legal, operational, sales, platform, or customer facts. Current provider rules are just-in-time dependencies, not growth laws stored in the repo.
@@ -88,14 +89,17 @@ Large knowledge is addressed by logical IDs in [`routing-index.json`](skills/mar
 
 ```bash
 python skills/marketing-practitioner/scripts/get-knowledge.py email.send-decision
+python skills/marketing-practitioner/scripts/get-knowledge.py adapt-localization.relationship-realization
 python skills/marketing-practitioner/scripts/get-knowledge.py --source PM01
 ```
 
 If helper execution is unavailable, the same index is still the address table: read the smallest feasible section, or degrade to the smallest target file, rather than abandoning the job or loading a whole chapter.
 
-The current index validates at **251 routes / 210 evidence sources**. Evidence files state what a source **supports** and **does not support**. That bound is how claim control is implemented.
+The current index validates at **252 routes / 214 evidence sources**. Evidence files state what a source **supports** and **does not support**. That bound is how claim control is implemented.
 
 Specialist layers (commercial design, landing pages, email, discovery, paid media, commerce, named platforms) are added only when a concrete decision-relevant gap survives local repair. Shared architecture expands only when the existing grammar cannot represent the decision without material distortion. Research under [`research/`](research/) keeps theory freezes and rejected expansions out of the runtime until they survive that bar. A controller 75% smaller than the installed one was evaluated on the same frozen cases and **not promoted**, because unverified skill activation rose from 3/24 to 7/24. See the [challenger report](evals/behavioral/reports/compact-challenger-v1.md).
+
+Local adaptation follows the same discipline. [`adaptations/`](skills/marketing-practitioner/adaptations/) contains scoped evidence that can specialize an **already-open decision owned elsewhere**; it is not a country-profile layer, cultural encyclopedia, or precedence engine. The first canonical contribution, `VN-LANG-REL-01`, specializes Vietnamese relationship-sensitive language realization through `adapt-localization.relationship-realization` without inferring the underlying relationship, turning age into an address lookup table, or treating Vietnam as an activation key. See the [local-adaptation contribution contract](skills/marketing-practitioner/adaptations/README.md) and [Vietnamese reference unit](skills/marketing-practitioner/adaptations/localization.md).
 
 The [handbook map](skills/marketing-practitioner/handbook/README.md) and [platform modules](skills/marketing-practitioner/platforms/README.md) are for navigation when a decision actually needs them, not a reading list.
 
@@ -107,6 +111,7 @@ skills/marketing-practitioner/
   agents/openai.yaml        optional UI metadata and explicit invocation starter
   routing-index.json        logical knowledge address table
   handbook/                 governed practitioner knowledge
+  adaptations/              scoped local decision specializations
   platforms/                scoped social and commerce modules
   references/               evidence ledgers and bibliography
   scripts/                  deterministic routing checks
@@ -124,7 +129,7 @@ The local and CI gate is:
 .\scripts\verify.ps1
 ```
 
-It validates the package with the repository validator and the installed Codex validator when discoverable, checks 58 routing mechanics and 251 routes/210 evidence sources, runs the Pressure Discovery and behavioral harness tests, and verifies UTF-8/generated-artifact hygiene.
+It validates the package with the repository validator and the installed Codex validator when discoverable, checks 58 routing mechanics and **252 routes / 214 evidence sources**, runs the Pressure Discovery and behavioral harness tests, and verifies UTF-8/generated-artifact hygiene.
 
 A frozen 48-run behavioral pilot (12 cases, no-skill baseline vs current skill, `gpt-5.6-terra`, medium reasoning) produced eight both-pass pairs, three operationally invalid pairs, and one unresolved pair. It did **not** show a paired quality advantage. Review was condition-blind but not independently human-adjudicated. That is repository decision evidence, not a benchmark. See the [pilot report](evals/behavioral/reports/current-skill-pilot-v1.md).
 
@@ -132,9 +137,13 @@ If the skill makes a poor decision, overcomplicates a simple task, misses suppli
 
 ## Status
 
-Current release: **v1.0.0 — Stable Core**.
+Current release: **v1.1.0 — Scoped Local Adaptation**.
 
-v1.0.0 is the first stable core contract: the seven jobs, resolved-state behavior, logical knowledge IDs, owner boundaries, and source/claim discipline are treated as compatibility-sensitive. Stable does not mean complete. Provider-controlled facts remain time-sensitive. A demonstrated decision-relevant failure can still justify a scoped change.
+v1.0.0 remains the stable core compatibility baseline: the seven jobs, resolved-state behavior, logical knowledge IDs, owner boundaries, and source/claim discipline remain compatibility-sensitive. v1.1.0 adds a bounded extension contract for community-maintained local adaptation knowledge plus the first canonical Vietnamese relationship-realization unit. It does **not** add a country/locale pack, a cultural-precedence hierarchy, a scope-scoring engine, a new controller job, or a new decision owner.
+
+The first reference implementation was independently reviewed at a frozen implementation head and received `PASS_WITH_LOCAL_REPAIRS`; the two bounded repairs were implemented. A post-repair independent re-review was not performed, so the reference unit remains explicitly `review_state: provisional` rather than overstating review provenance.
+
+Stable does not mean complete. Provider-controlled facts remain time-sensitive. Local market evidence remains scoped evidence rather than a durable rule unless it demonstrates a local-specific mechanism that materially changes an open decision and is not already handled by the existing owner.
 
 This is not a prompt pack, a conversion-formula library, or a generic agent framework. It does not own product roadmap, finance, legal advice, CRM, or back-office automation. It does not reverse-engineer private ranking or ad-delivery systems from anecdotes, and it does not turn one provider’s current rule into a universal law.
 
@@ -142,11 +151,11 @@ The skill cannot make a host load it. If the runtime never activates the skill, 
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md). Change the smallest surface that can correct a demonstrated problem. Do not add a platform, primitive, or chapter for coverage completeness.
+See [CONTRIBUTING.md](CONTRIBUTING.md). Change the smallest surface that can correct a demonstrated problem. Do not add a platform, primitive, chapter, or country pack for coverage completeness. For local/cultural/market adaptation contributions, start with the [scoped local-adaptation contract](skills/marketing-practitioner/adaptations/README.md): local evidence alone is not enough; the contribution must change an existing open decision through a bounded local-specific mechanism.
 
 ## Attribution
 
-The repository synthesizes marketing research, methodological literature, current provider documentation, information-retrieval and recommender research, pricing/commercial-design research, usability research, and practical writing methods. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), the [bibliography](skills/marketing-practitioner/references/bibliography.md), and scoped [evidence references](skills/marketing-practitioner/references/).
+The repository synthesizes marketing research, methodological literature, current provider documentation, information-retrieval and recommender research, pricing/commercial-design research, usability research, local linguistic/applied-linguistic evidence, and practical writing methods. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), the [bibliography](skills/marketing-practitioner/references/bibliography.md), and scoped [evidence references](skills/marketing-practitioner/references/).
 
 ## License
 

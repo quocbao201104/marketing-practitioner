@@ -24,6 +24,7 @@ The current project covers decision-relevant marketing reasoning across:
 - diagnosis, causal reasoning, experimentation, and measurement;
 - organizational learning and postmortems;
 - international marketing, localization, and ethical persuasion;
+- scoped local-adaptation extensions when local evidence demonstrates a decision-changing mechanism without creating a country profile or new decision owner;
 - social/content environments, distribution, recommendation, interaction, and observation;
 - commerce environments, product discovery, product information, commercial state, and marketplace representation;
 - conversational and agent-mediated commerce where it changes a marketing or product-discovery decision;
@@ -206,6 +207,28 @@ COMMERCIAL DESIGN
 != COMMERCIAL GOVERNANCE
 != EXECUTED COMMERCIAL INSTANCE
 ```
+
+### Local adaptation extensions
+
+Local adaptation is a bounded extension mechanism, not a country-profile or culture-pack layer. Start with [`skills/marketing-practitioner/adaptations/README.md`](skills/marketing-practitioner/adaptations/README.md) and preserve the existing decision owner.
+
+A proposed local contribution should pass this promotion test:
+
+```text
+LOCAL-SPECIFIC MECHANISM
++
+MATERIAL DECISION DELTA
++
+NO EXISTING OWNER ALREADY FULLY HANDLES IT
+=
+ADAPTATION CANDIDATE
+```
+
+Local evidence, local popularity, or a country-specific observation is not enough by itself. If the existing handbook can already make the correct decision once the scoped task evidence is supplied, keep the material as evidence rather than creating runtime adaptation knowledge.
+
+Do not organize primary runtime knowledge as `vi-VN`, `market-vn`, country packs, or similar noun-first containers. Route by the existing decision owner and keep language, market, geography, audience, channel, category, and time inside the contribution's scope. `LOAD WHEN` refines applicability after the controller has an open decision; it is not activation authority.
+
+Do not infer population behavior from native familiarity, do not let private storage automatically outrank upstream evidence, and do not inherit a broader behavioral claim merely because narrower local evidence is missing. Provider/platform mechanics remain with provider/platform owners; legal requirements remain authoritative external dependencies.
 
 ### `routing-index.json` and retrieval scripts
 
