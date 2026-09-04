@@ -15,6 +15,8 @@ Know what to resolve, what to preserve, and what evidence can actually change th
 
 **[Quick start](#quick-start) · [Why it exists](#why-it-exists) · [How it works](#how-it-works) · [Host compatibility](#host-compatibility) · [Research](#research-and-verification) · [Contributing](#contributing)**
 
+<sub><strong>Evidence → Open decision → JIT knowledge → Minimum useful output</strong></sub>
+
 </div>
 
 ---
@@ -22,6 +24,15 @@ Know what to resolve, what to preserve, and what evidence can actually change th
 > Marketing agents are already fluent. The harder problem is knowing **what not to reopen**, **what evidence is enough**, and **which knowledge is actually relevant now**.
 
 Marketing Practitioner is an installable Agent Skill for marketing work that needs stronger decision discipline: research, diagnosis, positioning, commercial design, writing, platform adaptation, commerce, paid delivery, localization, testing, and learning — without treating all of those as one giant workflow.
+
+<table>
+<tr>
+<td width="25%" valign="top"><strong>Preserve state</strong><br><br>Approved decisions stay settled unless the current job exposes a real contradiction or gap.</td>
+<td width="25%" valign="top"><strong>Bound claims</strong><br><br>Copy, diagnosis, and recommendations stay inside the evidence actually available.</td>
+<td width="25%" valign="top"><strong>Route selectively</strong><br><br>Knowledge is loaded by decision dependency, not because a platform or artifact was named.</td>
+<td width="25%" valign="top"><strong>Learn carefully</strong><br><br>Results retain what they proved — without silently upgrading attribution into causality.</td>
+</tr>
+</table>
 
 ## Quick start
 
@@ -84,20 +95,14 @@ It has no authority to invent product, financial, legal, operational, sales, pla
 
 The skill starts from the current job, not from a predefined marketing funnel.
 
-```text
-TASK
-  ↓
-CLASSIFY THE CURRENT JOB
-  ↓
-FREEZE RESOLVED STATE
-  ↓
-NAME THE OPEN DECISION
-  ↓
-USE ONLY DECISION-RELEVANT EVIDENCE
-  ↓
-LOAD THE SMALLEST USEFUL KNOWLEDGE ROUTE
-  ↓
-RETURN THE MINIMUM OUTPUT THAT COMPLETES THE JOB
+```mermaid
+flowchart LR
+    A[Task] --> B[Classify current job]
+    B --> C[Freeze resolved state]
+    C --> D[Name open decision]
+    D --> E[Use decision-relevant evidence]
+    E --> F[Load smallest useful knowledge route]
+    F --> G[Return minimum useful output]
 ```
 
 Seven runtime jobs are recognized:
