@@ -196,3 +196,49 @@ RELATIONSHIP-INDEXING CHOICES STILL OPEN
 Do not require these fields for ordinary translation or localization when they cannot change the result.
 
 This structure preserves a common strategic core while preventing false uniformity across markets.
+
+## 12. Scoped local adaptation extensions
+
+Bundled or fork-specific local adaptation knowledge may specialize an **already-open decision** when its declared scope and evidence can materially change that decision. Treat such knowledge as a scoped evidence-to-decision modifier for an existing owner, not as a new decision layer or a country/culture profile.
+
+Keep:
+
+```text
+ADAPTATION
+!= DECISION OWNER
+
+LOCAL RELEVANCE
+!= PERMISSION TO REOPEN RESOLVED STATE
+
+ROUTE / FILE LOCATION
+!= APPLICABILITY
+
+MORE SPECIFIC
+!= AUTOMATICALLY MORE AUTHORITATIVE
+
+MISSING LOCAL EVIDENCE
+!= PERMISSION TO INHERIT A BROADER BEHAVIORAL CLAIM
+```
+
+A target language, country name, nationality, broad culture label, or physical location alone does not establish that an adaptation applies. Language, locale, market, geography, audience, channel/community, category/buying context, jurisdiction, and time remain separate scope dimensions. A multi-axis case may legitimately combine several of them without belonging to a single country or locale pack.
+
+Use adaptation knowledge only after the current job, resolved state, open decision, and existing decision owner are known. An adaptation's local `LOAD WHEN` condition may refine applicability after that point; it must not bypass the controller by making a noun such as `Vietnam`, `Japanese`, or `TikTok` its own activation authority.
+
+One owner/decision-aligned route may contain multiple separately scoped contribution units. The route identifies a bounded decision-relevant evidence family; applicability remains section-local. Do not encode the complete market/audience/channel/time scope into route IDs merely to create artificial determinism.
+
+When local evidence conflicts with broader evidence, current first-party evidence, authoritative organization state, or another credible local contribution, compare actual scope, provenance, evidence quality, and the decision dimension at issue. Do not create automatic `private > upstream`, `reviewed > provisional`, `city > country`, or similar specificity precedence rules. Preserve unresolved conflict when the evidence does not justify a winner.
+
+Contribution status is not epistemic truth:
+
+```text
+reviewed / active
+!= current
+!= true
+!= applicable
+```
+
+Time-sensitive, provider-controlled, market-specific, or otherwise materially stale facts still require the same source-fidelity and just-in-time verification discipline as other knowledge.
+
+Provider/platform capability, policy, field semantics, or system behavior remains with the relevant platform/provider owner even when market-scoped. Product facts and resolved Commercial Design state remain with their authoritative owners. Legal or regulatory dependencies may be flagged or routed but do not become legal authority merely because they appear in a local adaptation.
+
+The extension contract lives in `../adaptations/README.md`. Add runtime routes only when real adaptation knowledge exists and can change a concrete open decision. Until a concrete bounded workload demonstrates a material discovery, addressability, applicability, conflict, freshness, or fork-composition failure, do not add a dynamic scope registry, specificity scorer, precedence engine, or separate retrieval subsystem.
