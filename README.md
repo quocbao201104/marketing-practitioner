@@ -49,6 +49,21 @@ git clone https://github.com/quocbao201104/marketing-practitioner.git
 
 The governing file is [`skills/marketing-practitioner/SKILL.md`](skills/marketing-practitioner/SKILL.md).
 
+## Host / IDE compatibility
+
+Marketing Practitioner is portable, but runtime behavior is not identical across hosts. The host decides whether the skill is discovered and loaded, how much working context survives, whether memory persists across sessions, and which files, tools, or integrations the agent can use.
+
+| Host | Durable context to use |
+| --- | --- |
+| **Claude Code** | `CLAUDE.md` / project memory and resumable sessions |
+| **ChatGPT** | Projects, project files/instructions, and project memory |
+| **Cursor** | Project Rules or `AGENTS.md`; keep reusable context in version-controlled rules |
+| **Codex** | `AGENTS.md` / repository instructions and checked-in project state |
+
+Exact behavior depends on the host version, settings, plan, and runtime. Use the host's native persistence features when available, but do not rely on chat history alone for important facts, constraints, approved decisions, or evidence boundaries. Keep those explicit in the current task context or project files.
+
+Host memory improves continuity; it does not replace the skill contract. [`SKILL.md`](skills/marketing-practitioner/SKILL.md) and the governed repository knowledge remain the portable source of behavior.
+
 ## What it is for
 
 Use it when an agent has to **decide, diagnose, research, adapt, test, learn, or write** in a marketing context, and the answer should stay inside the evidence you actually have.
