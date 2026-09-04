@@ -27,10 +27,12 @@ Marketing Practitioner is an installable Agent Skill for marketing work that nee
 
 <table>
 <tr>
-<td width="25%" valign="top"><strong>Preserve state</strong><br><br>Approved decisions stay settled unless the current job exposes a real contradiction or gap.</td>
-<td width="25%" valign="top"><strong>Bound claims</strong><br><br>Copy, diagnosis, and recommendations stay inside the evidence actually available.</td>
-<td width="25%" valign="top"><strong>Route selectively</strong><br><br>Knowledge is loaded by decision dependency, not because a platform or artifact was named.</td>
-<td width="25%" valign="top"><strong>Learn carefully</strong><br><br>Results retain what they proved — without silently upgrading attribution into causality.</td>
+<td width="50%" valign="top"><strong>Preserve state</strong><br><br>Approved decisions stay settled unless the current job exposes a real contradiction or gap.</td>
+<td width="50%" valign="top"><strong>Bound claims</strong><br><br>Copy, diagnosis, and recommendations stay inside the evidence actually available.</td>
+</tr>
+<tr>
+<td width="50%" valign="top"><strong>Route selectively</strong><br><br>Knowledge is loaded by decision dependency, not because a platform or artifact was named.</td>
+<td width="50%" valign="top"><strong>Learn carefully</strong><br><br>Results retain what they proved — without silently upgrading attribution into causality.</td>
 </tr>
 </table>
 
@@ -125,12 +127,12 @@ Marketing Practitioner is portable, but runtime behavior is not identical across
 
 | Host | Durable context to use |
 | --- | --- |
-| **Claude Code** | `CLAUDE.md` / project memory and resumable sessions |
+| **Claude Code** | `CLAUDE.md` + auto memory |
 | **ChatGPT** | Projects, project files/instructions, and project memory |
 | **Cursor** | Project Rules or `AGENTS.md`; keep reusable context in version-controlled rules |
 | **Codex** | `AGENTS.md` / repository instructions and checked-in project state |
 
-Use the host's native persistence features when available, but do not rely on chat history alone for important facts, constraints, approved decisions, or evidence boundaries. Keep those explicit in the current task context or project files.
+Exact availability and behavior vary by host version, plan, settings, and environment. Use the host's native persistence features when available, but do not rely on chat history alone for important facts, constraints, approved decisions, or evidence boundaries. Keep those explicit in the current task context or project files.
 
 **Host memory improves continuity; it does not replace the skill contract.** `SKILL.md` and the governed repository knowledge remain the portable source of behavior. The skill also cannot force a host to activate it: if the runtime never loads the skill, you get ordinary model behavior.
 
