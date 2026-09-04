@@ -21,8 +21,9 @@ jobs:
         with:
           python-version: '3.13'
       - name: Update v1.1.0 release surfaces
-        shell: python
+        shell: bash
         run: |
+          python - <<'PY'
           from pathlib import Path
 
           skill = Path('skills/marketing-practitioner/SKILL.md')
@@ -40,30 +41,31 @@ jobs:
               raise SystemExit('changelog insertion marker drifted')
           section = '''## [1.1.0] - 2026-09-04
 
-### Scoped local adaptation
+          ### Scoped local adaptation
 
-- Added a thin local-adaptation extension contract under `skills/marketing-practitioner/adaptations/` for community-maintained local knowledge that can specialize an already-open decision without becoming a new decision owner.
-- Kept route and applicability separate: owner-aligned logical routes locate decision-relevant adaptation families, while each contribution carries its own scope, claim, evidence, decision impact, load/do-not-use conditions, invariants, review state, and usage state.
-- Explicitly rejected country/locale packs, automatic broader-scope inheritance, private-over-upstream precedence, specificity scoring, confidence scoring, and a global adaptation registry/resolver absent a concrete irreducible failure.
-- Added the first canonical reference contribution, `VN-LANG-REL-01`, for Vietnamese relationship-sensitive self-reference / recipient-address realization. The unit is language-scoped rather than Vietnam-market-scoped and preserves already-resolved identity, relationship, authority, history, organizational/community norms, and partial-pair state.
-- Added `local-adaptation-vietnam-evidence.md` with local-first Vietnamese linguistic/applied-linguistic evidence and explicit support/non-support boundaries; native familiarity is not treated as population prevalence or causal evidence.
-- Added `adapt-localization.relationship-realization` as the first real adaptation route plus a bounded Chapter 07 JIT discovery pointer. Country, nationality, target language, age, or platform nouns alone remain non-activation authorities.
+          - Added a thin local-adaptation extension contract under `skills/marketing-practitioner/adaptations/` for community-maintained local knowledge that can specialize an already-open decision without becoming a new decision owner.
+          - Kept route and applicability separate: owner-aligned logical routes locate decision-relevant adaptation families, while each contribution carries its own scope, claim, evidence, decision impact, load/do-not-use conditions, invariants, review state, and usage state.
+          - Explicitly rejected country/locale packs, automatic broader-scope inheritance, private-over-upstream precedence, specificity scoring, confidence scoring, and a global adaptation registry/resolver absent a concrete irreducible failure.
+          - Added the first canonical reference contribution, `VN-LANG-REL-01`, for Vietnamese relationship-sensitive self-reference / recipient-address realization. The unit is language-scoped rather than Vietnam-market-scoped and preserves already-resolved identity, relationship, authority, history, organizational/community norms, and partial-pair state.
+          - Added `local-adaptation-vietnam-evidence.md` with local-first Vietnamese linguistic/applied-linguistic evidence and explicit support/non-support boundaries; native familiarity is not treated as population prevalence or causal evidence.
+          - Added `adapt-localization.relationship-realization` as the first real adaptation route plus a bounded Chapter 07 JIT discovery pointer. Country, nationality, target language, age, or platform nouns alone remain non-activation authorities.
 
-### Review and boundary validation
+          ### Review and boundary validation
 
-- The thin extension design received independent adversarial verdict `PASS_THIN_DESIGN`; no registry, resolver, new owner, controller job, primitive, or routing-schema redesign was justified.
-- The first Vietnamese reference implementation received `PASS_WITH_LOCAL_REPAIRS` at frozen implementation head `5a19f2d1e3182c6ea9aed45dc8008ee07681eef3`. The reviewer found two bounded defects: missing normal-flow namespace discovery and ambiguity when only one half of the self/address pair remained open.
-- Implemented both repairs locally: Chapter 07 now exposes the bounded discovery edge, and `VN-LANG-REL-01` freezes any already-resolved half while constraining only the still-open dimension. A post-repair independent re-review was not performed, so the unit remains `review_state: provisional` rather than claiming a later independent pass.
-- Kept Vietnam market findings such as payment/COD, reviews/trust, channel mix, Tết seasonality, and authenticity/provenance concerns out of `adaptations/` when they were better represented as scoped evidence, current dependencies, or decisions already handled by existing owners.
+          - The thin extension design received independent adversarial verdict `PASS_THIN_DESIGN`; no registry, resolver, new owner, controller job, primitive, or routing-schema redesign was justified.
+          - The first Vietnamese reference implementation received `PASS_WITH_LOCAL_REPAIRS` at frozen implementation head `5a19f2d1e3182c6ea9aed45dc8008ee07681eef3`. The reviewer found two bounded defects: missing normal-flow namespace discovery and ambiguity when only one half of the self/address pair remained open.
+          - Implemented both repairs locally: Chapter 07 now exposes the bounded discovery edge, and `VN-LANG-REL-01` freezes any already-resolved half while constraining only the still-open dimension. A post-repair independent re-review was not performed, so the unit remains `review_state: provisional` rather than claiming a later independent pass.
+          - Kept Vietnam market findings such as payment/COD, reviews/trust, channel mix, Tết seasonality, and authenticity/provenance concerns out of `adaptations/` when they were better represented as scoped evidence, current dependencies, or decisions already handled by existing owners.
 
-### Verification and maintenance
+          ### Verification and maintenance
 
-- Updated the public README, handbook navigation, contributor guidance, behavior-report version placeholder, and installable skill metadata for `v1.1.0 — Scoped Local Adaptation`.
-- Updated current routing documentation to 252 logical routes / 214 evidence sources.
-- Fixed CI coupling to the rejected compact-controller experiment: its integrity test now validates the challenger's own frozen routing/resource snapshot instead of requiring that historical challenger to mirror every new production resource. The full `Verify` push run on `main` passed after this repair.
-- No new controller job, shared primitive, top-level handbook, country profile, cultural-precedence engine, or generic scope-matching subsystem was added.
+          - Updated the public README, handbook navigation, contributor guidance, behavior-report version placeholder, and installable skill metadata for `v1.1.0 — Scoped Local Adaptation`.
+          - Updated current routing documentation to 252 logical routes / 214 evidence sources.
+          - Fixed CI coupling to the rejected compact-controller experiment: its integrity test now validates the challenger's own frozen routing/resource snapshot instead of requiring that historical challenger to mirror every new production resource. The full `Verify` push run on `main` passed after this repair.
+          - No new controller job, shared primitive, top-level handbook, country profile, cultural-precedence engine, or generic scope-matching subsystem was added.
 
-'''
+          '''
+          section = '\n'.join(line[10:] if line.startswith('          ') else line for line in section.splitlines()) + '\n'
           changelog.write_text(text.replace(marker, marker + section, 1), encoding='utf-8', newline='\n')
 
           contributing = Path('CONTRIBUTING.md')
@@ -79,30 +81,31 @@ jobs:
               raise SystemExit('CONTRIBUTING protected-surface marker drifted')
           local_block = '''### Local adaptation extensions
 
-Local adaptation is a bounded extension mechanism, not a country-profile or culture-pack layer. Start with [`skills/marketing-practitioner/adaptations/README.md`](skills/marketing-practitioner/adaptations/README.md) and preserve the existing decision owner.
+          Local adaptation is a bounded extension mechanism, not a country-profile or culture-pack layer. Start with [`skills/marketing-practitioner/adaptations/README.md`](skills/marketing-practitioner/adaptations/README.md) and preserve the existing decision owner.
 
-A proposed local contribution should pass this promotion test:
+          A proposed local contribution should pass this promotion test:
 
-```text
-LOCAL-SPECIFIC MECHANISM
-+
-MATERIAL DECISION DELTA
-+
-NO EXISTING OWNER ALREADY FULLY HANDLES IT
-=
-ADAPTATION CANDIDATE
-```
+          ```text
+          LOCAL-SPECIFIC MECHANISM
+          +
+          MATERIAL DECISION DELTA
+          +
+          NO EXISTING OWNER ALREADY FULLY HANDLES IT
+          =
+          ADAPTATION CANDIDATE
+          ```
 
-Local evidence, local popularity, or a country-specific observation is not enough by itself. If the existing handbook can already make the correct decision once the scoped task evidence is supplied, keep the material as evidence rather than creating runtime adaptation knowledge.
+          Local evidence, local popularity, or a country-specific observation is not enough by itself. If the existing handbook can already make the correct decision once the scoped task evidence is supplied, keep the material as evidence rather than creating runtime adaptation knowledge.
 
-Do not organize primary runtime knowledge as `vi-VN`, `market-vn`, country packs, or similar noun-first containers. Route by the existing decision owner and keep language, market, geography, audience, channel, category, and time inside the contribution's scope. `LOAD WHEN` refines applicability after the controller has an open decision; it is not activation authority.
+          Do not organize primary runtime knowledge as `vi-VN`, `market-vn`, country packs, or similar noun-first containers. Route by the existing decision owner and keep language, market, geography, audience, channel, category, and time inside the contribution's scope. `LOAD WHEN` refines applicability after the controller has an open decision; it is not activation authority.
 
-Do not infer population behavior from native familiarity, do not let private storage automatically outrank upstream evidence, and do not inherit a broader behavioral claim merely because narrower local evidence is missing. Provider/platform mechanics remain with provider/platform owners; legal requirements remain authoritative external dependencies.
+          Do not infer population behavior from native familiarity, do not let private storage automatically outrank upstream evidence, and do not inherit a broader behavioral claim merely because narrower local evidence is missing. Provider/platform mechanics remain with provider/platform owners; legal requirements remain authoritative external dependencies.
 
-'''
+          '''
+          local_block = '\n'.join(line[10:] if line.startswith('          ') else line for line in local_block.splitlines()) + '\n'
           text = text.replace(protected_marker, local_block + protected_marker, 1)
           contributing.write_text(text, encoding='utf-8', newline='\n')
-
+          PY
       - name: Commit release-prep changes
         shell: bash
         run: |
@@ -112,7 +115,6 @@ Do not infer population behavior from native familiarity, do not let private sto
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add SKILL.md CHANGELOG.md CONTRIBUTING.md 2>/dev/null || true
           git add skills/marketing-practitioner/SKILL.md CHANGELOG.md CONTRIBUTING.md
           git commit -m 'Prepare v1.1.0 release metadata'
           git push origin HEAD:release/v1.1.0
