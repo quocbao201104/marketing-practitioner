@@ -7,7 +7,7 @@
 **Decision-first marketing for AI agents.**  
 Know what to resolve, what to preserve, and what evidence can actually change the answer.
 
-[![Version: v1.1.0](https://img.shields.io/badge/version-v1.1.0-0a7.svg)](#status-and-scope)
+[![Version: v1.2.0](https://img.shields.io/badge/version-v1.2.0-0a7.svg)](#status-and-scope)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Language: English](https://img.shields.io/badge/language-English-4c1.svg)](#)
 [![Format: Agent Skill](https://img.shields.io/badge/format-Agent%20Skill-6f42c1.svg)](skills/marketing-practitioner/SKILL.md)
@@ -158,7 +158,7 @@ Shared architecture expands only when a decision-relevant failure cannot be repa
 
 Local adaptation follows the same rule. [`adaptations/`](skills/marketing-practitioner/adaptations/) contains scoped evidence that can specialize an **already-open decision owned elsewhere**; it is not a country-profile layer, cultural encyclopedia, or precedence engine.
 
-The first canonical contribution, `VN-LANG-REL-01`, specializes Vietnamese relationship-sensitive language realization through `adapt-localization.relationship-realization` without inferring the underlying relationship, turning age into an address lookup table, or treating Vietnam as an activation key. See the [local-adaptation contribution contract](skills/marketing-practitioner/adaptations/README.md) and [Vietnamese reference unit](skills/marketing-practitioner/adaptations/localization.md).
+Canonical reference units now cover three target-language realization mechanisms under the same `adapt-localization.relationship-realization` route: Vietnamese relationship-sensitive self-reference / recipient-address realization (`VN-LANG-REL-01`), Japanese honorific-target realization (`JP-LANG-HON-01`), and Japanese permission/benefit-sensitive deferential realization (`JP-LANG-PERM-01`). Each unit is independently scope-checked; language, nationality, market, customer, or culture nouns alone are not activation authority. See the [local-adaptation contribution contract](skills/marketing-practitioner/adaptations/README.md) and [reference units](skills/marketing-practitioner/adaptations/localization.md).
 
 ## Repository map
 
@@ -201,11 +201,13 @@ If the skill makes a poor decision, overcomplicates a simple task, misses suppli
 
 ## Status and scope
 
-Current release: **v1.1.0 — Scoped Local Adaptation**.
+Current release: **v1.2.0 — Local Adaptation Expansion**.
 
-v1.0.0 remains the stable core compatibility baseline: the seven jobs, resolved-state behavior, logical knowledge IDs, owner boundaries, and source/claim discipline remain compatibility-sensitive. v1.1.0 adds a bounded extension contract for community-maintained local adaptation knowledge plus the first canonical Vietnamese relationship-realization unit.
+v1.0.0 remains the stable core compatibility baseline: the seven jobs, resolved-state behavior, logical knowledge IDs, owner boundaries, and source/claim discipline remain compatibility-sensitive. v1.1.0 introduced the bounded scoped-local-adaptation extension contract and the Vietnamese reference unit; v1.2.0 expands that contract with two Japanese target-language realization units while retaining the same owner and logical route.
 
-The first Vietnamese reference implementation originally received `PASS_WITH_LOCAL_REPAIRS`; both bounded defects were repaired before merge. An independent post-repair review of the current integrated implementation at `f9c3a9485a989af5ee662464912912f15adffef5` later returned `PASS_POST_REPAIR`, closing the discovery and partial-pair findings and supporting `VN-LANG-REL-01` as `review_state: reviewed`. This is a static implementation/integration review, not a claim that every model or host will execute the route correctly. See the [post-repair review record](research/local-adaptation-vietnam/01-post-repair-review-result.md).
+The Vietnamese reference implementation originally received `PASS_WITH_LOCAL_REPAIRS`; both bounded defects were repaired before merge. An independent post-repair review of the current integrated implementation at `f9c3a9485a989af5ee662464912912f15adffef5` later returned `PASS_POST_REPAIR`, closing the discovery and partial-pair findings and supporting `VN-LANG-REL-01` as `review_state: reviewed`. This is a static implementation/integration review, not a claim that every model or host will execute the route correctly. See the [post-repair review record](research/local-adaptation-vietnam/01-post-repair-review-result.md).
+
+The Japanese implementation at frozen head `f45331410a090fe5d354616add72670e511f4373` received independent `PASS_IMPLEMENTATION`. The review found the bounded Chapter 07 discovery repair, both Japanese units, the shared route, evidence boundaries, and multi-unit composition sufficient without adding a Japan pack, new route, new owner, shared semantic-role primitive, registry, or resolver. That verdict is likewise static implementation evidence, not a Japanese-output quality benchmark.
 
 Stable does not mean complete. This is **not** a prompt pack, conversion-formula library, generic agent framework, cultural encyclopedia, or back-office automation system. It does not own product roadmap, finance, legal advice, CRM, or private platform mechanics.
 

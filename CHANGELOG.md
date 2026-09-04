@@ -4,6 +4,32 @@ All notable changes to this repository are documented here.
 
 The project uses semantic versioning for published skill revisions. v1.0.0 marks the first stable core contract: future 1.x work should preserve compatibility-sensitive controller semantics, logical knowledge interfaces, owner boundaries, and evidence/claim behavior unless a demonstrated failure justifies a scoped change. Historical frozen evaluation and research references keep the version labels under which they were produced.
 
+## [1.2.0] - 2026-09-04
+
+### Local adaptation expansion
+
+- Added `JP-LANG-HON-01` for Japanese honorific-target realization, preserving the distinction among addressee, actor/referent, and action target without creating a shared semantic-role primitive.
+- Added `JP-LANG-PERM-01` for Japanese permission/benefit-sensitive deferential realization, preventing `〜させていただく` from being treated as a semantics-neutral politeness transformation while also forbidding reverse inference of factual permission or benefit from the surface form.
+- Kept both Japanese units under the existing `adapt-localization.relationship-realization` route beside `VN-LANG-REL-01`; no Japan pack, language-country route family, registry, resolver, or new decision owner was added.
+- Hardened the bounded Chapter 07 discovery edge so apparently ordinary target-language politeness/deference choices can trigger owner-aligned local lookup when they can materially alter already-resolved authority, permission, agency, autonomy/obligation, benefit, responsibility, or repair semantics.
+- Added the Japanese runtime evidence ledger (`JPLA01`–`JPLA11`) and targeted static regression specification covering honorific orientation, permission/deference semantics, noun-trigger resistance, language-vs-market scope, regional evidence, accessibility, resolved-state preservation, and dual-unit composition.
+
+### Review and provenance
+
+- Japanese research review returned `PASS_WITH_LOCAL_REPAIRS`: both mechanisms were promoted, with one bounded Chapter 07 discovery repair and no shared-architecture expansion.
+- Independent adversarial review of frozen Japanese implementation head `f45331410a090fe5d354616add72670e511f4373` returned `PASS_IMPLEMENTATION`; the Chapter 07 repair, both Japanese units, shared route, evidence boundaries, lifecycle claim at the frozen candidate, and targeted eval specification all passed.
+- Recorded that implementation review under `research/local-adaptation-japan/05-independent-implementation-review-result.md` and promoted the current Japanese runtime units from `review_state: provisional` to `reviewed` as a post-review lifecycle update. The frozen candidate remains historically accurate: it was provisional before that independent implementation review occurred.
+- Independently re-reviewed the repaired Vietnamese reference unit against the integrated implementation at `f9c3a9485a989af5ee662464912912f15adffef5`; `PASS_POST_REPAIR` closed both original findings and supported `VN-LANG-REL-01` as `review_state: reviewed`.
+- These reviews are static implementation/integration evidence. They do not establish that every model or host will activate, traverse, retrieve, or execute the route correctly, and they do not establish Japanese or Vietnamese output-quality lift.
+
+### Compatibility and verification
+
+- Preserved the v1.0.0 stable core contract, seven controller jobs, owner boundaries, logical routing model, resolved-state behavior, and source/claim discipline.
+- Kept the current index at **252 logical routes / 225 evidence sources**; the Japanese expansion reuses the existing relationship-realization route.
+- Updated public release metadata, README status, and behavior-report default to `v1.2.0 — Local Adaptation Expansion`.
+- The historical 48-run baseline/current-skill behavioral pilot remains unchanged and still does **not** demonstrate a paired quality advantage; this release does not reinterpret that pilot as new benchmark evidence.
+- No new controller job, shared primitive, top-level handbook, Japan/country profile, cultural-precedence engine, scope registry, global resolver, or generic localization subsystem was added.
+
 ## [1.1.0] - 2026-09-04
 
 ### Scoped local adaptation
