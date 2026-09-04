@@ -6,6 +6,8 @@ It is **not a mandatory linear curriculum** and the runtime should not read it f
 
 For large indexed chapters, `../routing-index.json` is the stable semantic address layer. Physical headings and file paths are implementation details.
 
+Scoped local adaptation is intentionally kept outside the shared handbook under [`../adaptations/`](../adaptations/). Those units may specialize an already-open decision owned by a handbook chapter, but they do not become new decision owners, country profiles, or cultural defaults. Chapter 07 remains the owner for localization/international-market realization decisions; applicable local units refine only the smallest still-open dimension.
+
 ## Chapter map
 
 | Chapter | Primary job | Read when... |
@@ -17,7 +19,7 @@ For large indexed chapters, `../routing-index.json` is the stable semantic addre
 | [`04-messaging-proof-and-copy.md`](04-messaging-proof-and-copy.md) | message / copy | message hierarchy, proof architecture, claim control, substantial copy structure, or human-writing review is unresolved |
 | [`05-diagnosis-causality-and-experimentation.md`](05-diagnosis-causality-and-experimentation.md) | diagnosis / causality / experiments | a metric changed, cause is disputed, or a test/intervention must be designed or interpreted |
 | [`06-organizational-learning.md`](06-organizational-learning.md) | reusable learning | a result should change future decisions rather than merely be summarized |
-| [`07-international-marketing-and-ethics.md`](07-international-marketing-and-ethics.md) | localization / ethics | market adaptation, cultural claims, jurisdictional context, or meaningful-choice constraints are material |
+| [`07-international-marketing-and-ethics.md`](07-international-marketing-and-ethics.md) | localization / ethics | market adaptation, cultural claims, jurisdictional context, meaningful-choice constraints, or target-language realization is material |
 | [`08-content-environments-and-distribution.md`](08-content-environments-and-distribution.md) | content environments | platform-native content, distribution, audience state, participation, recommendation, or measurement structure can change the decision |
 | [`09-commerce-environments-and-product-discovery.md`](09-commerce-environments-and-product-discovery.md) | commerce environments | catalog/listing identity, commercial state, discovery, recommendation, agent-mediated commerce, or marketplace interpretation is unresolved |
 | [`10-commercial-design-pricing-and-terms.md`](10-commercial-design-pricing-and-terms.md) | commercial design | package/entitlement, payment architecture, relationship/risk terms, allocation, pricing evidence, or commercial transition is still an open decision |
@@ -66,6 +68,18 @@ DISCOVERY AVAILABILITY / RETRIEVAL / SELECTION / COMMITMENT
 PAID CONTROL / RESOURCE ALLOCATION / DELIVERY / FEEDBACK
 ```
 
+Local adaptation preserves another boundary:
+
+```text
+EXISTING DECISION OWNER
+!=
+SCOPED LOCAL ADAPTATION EVIDENCE
+
+LOCAL RELEVANCE
+!=
+PERMISSION TO REOPEN RESOLVED STATE
+```
+
 Examples:
 
 ```text
@@ -83,6 +97,12 @@ Examples:
 
 "The subject, body promise, and landing-page promise are resolved. Check the cross-surface handoff."
 → Chapter 12 email.continuity; Chapter 11 only if page architecture itself is open
+
+"Translate this approved message into Vietnamese. The speaker/recipient relationship is resolved, but the self/address realization is still materially open."
+→ Chapter 07; inspect adapt-localization.relationship-realization only for the still-open Vietnamese realization decision
+
+"Write an English campaign for Vietnam."
+→ Vietnam alone does not activate the Vietnamese relationship-realization adaptation
 
 "This documentation page is indexed in Google but rarely appears in AI answers. Should we rewrite it?"
 → Chapter 13 first for availability / selection / commitment; rewrite only if the problem localizes to content/message
@@ -103,9 +123,9 @@ Examples:
 → Chapter 05 for the causal job; Chapter 10 only if redesign later becomes the open decision
 ```
 
-## Large-chapter routing
+## Large-chapter and adaptation routing
 
-Chapters 08–14 expose stable logical routes through `../routing-index.json`.
+Chapters 08–14 and registered adaptation families expose stable logical routes through `../routing-index.json`.
 
 Examples:
 
@@ -132,6 +152,7 @@ paid-media.objective
 paid-media.control
 paid-media.allocation
 paid-media.observation
+adapt-localization.relationship-realization
 ```
 
 When helper execution is available:
@@ -146,6 +167,7 @@ python ../scripts/get-knowledge.py discovery.commitment
 python ../scripts/get-knowledge.py paid-media.control
 python ../scripts/get-knowledge.py paid-media.observation
 python ../scripts/get-knowledge.py commerce.resolvability
+python ../scripts/get-knowledge.py adapt-localization.relationship-realization
 ```
 
 Do not duplicate route-to-heading bindings in this README. The routing manifest is the physical source of truth.
@@ -156,8 +178,10 @@ The handbook synthesizes research; it is not itself the evidence ledger.
 
 Use the scoped files under [`../references/`](../references/) when provenance or source boundaries are material. Known source IDs can be retrieved with `../scripts/get-knowledge.py --source <ID>` when helper execution is available.
 
+Local-adaptation contributions follow the same evidence discipline but add a stricter promotion gate: local evidence by itself is not enough. A runtime adaptation should add a local-specific mechanism that materially changes an existing open decision and is not already fully handled by the existing owner. See [`../adaptations/README.md`](../adaptations/README.md).
+
 ## Research lineage
 
-Some capabilities have deeper theory/review artifacts under the repository-level `research/` directory. Those files preserve exploration, rejected hypotheses, prior-art pressure, and freeze lineage. They are **repository provenance, not ordinary runtime knowledge**.
+Some capabilities have deeper theory/review artifacts under the repository-level `research/` directory. Those files preserve exploration, rejected hypotheses, prior-art pressure, evidence boundaries, and freeze lineage. They are **repository provenance, not ordinary runtime knowledge**.
 
 For operational behavior, always treat [`../SKILL.md`](../SKILL.md) as the governing controller.
