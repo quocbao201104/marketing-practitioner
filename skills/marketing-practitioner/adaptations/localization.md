@@ -254,7 +254,7 @@ Evidence type: Japanese government honorific guidance plus bounded regional evid
 
 **REVIEW STATE**
 
-provisional
+reviewed
 
 **USAGE STATE**
 
@@ -396,7 +396,7 @@ Evidence type: Japanese government language guidance, NINJAL corpus/historical-p
 
 **REVIEW STATE**
 
-provisional
+reviewed
 
 **USAGE STATE**
 
