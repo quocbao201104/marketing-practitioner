@@ -1,84 +1,154 @@
 # Brand Identity and Visual Systems Research
 
-Status: **ACTIVE THEORY RESEARCH — NOT RUNTIME IMPLEMENTATION**
+Status: **POST-REVIEW THEORY REPAIR COMPLETE — INDEPENDENT VERIFICATION PENDING**
 
-This directory preserves the research lineage for a possible Marketing Practitioner capability covering brand-identifying visual assets and the systems that preserve, extend, evaluate, and evolve them.
+This directory preserves the research lineage for a possible Marketing Practitioner capability covering **brand-identifying visual asset realization and stewardship**.
 
-The track was opened because the current runtime has governed owners for positioning, messaging, localization, content/commerce environments, Commercial Design, landing pages, email, discovery, paid media, diagnosis, and experimentation, but no bounded owner for visual-identity formation or redesign. Under `CONTRIBUTING.md`, this is a Level 3 project-boundary question; research/theory remains separate from runtime promotion until the gap and boundaries survive review.
+The track was opened because the current runtime has governed owners for positioning, messaging, localization, content/commerce environments, Commercial Design, landing pages, email, discovery, paid media, diagnosis, and experimentation, but no bounded owner for asset-level visual-identity formation/redesign/stewardship. Under `CONTRIBUTING.md`, this remains a Level 3 project-boundary question; research/theory stays separate from runtime promotion until independent gates are complete.
 
-## Current artifacts
+## Review state
+
+Original theory target:
+
+```text
+52c0dc14a1fa425c7ed6844d96ede9e37374761c
+```
+
+Independent verdict:
+
+```text
+THEORY_PASS_WITH_LOCAL_REPAIRS
+```
+
+No blocking defect was found. Five bounded repairs were required.
+
+Post-repair theory target:
+
+```text
+2381f11eabbfa7c0e8be3f500befb86a5b696c36
+```
+
+Current gate:
+
+```text
+INDEPENDENT POST-REPAIR VERIFICATION
+```
+
+---
+
+## Research lineage
 
 | File | Purpose |
 | --- | --- |
-| [`00-research-brief.md`](00-research-brief.md) | research question, concrete failure, scope, rejected universal rules, and current adjudication |
-| [`01-source-map.md`](01-source-map.md) | evidence classes, source IDs, supported claims, and inference limits |
-| [`02-working-notes.md`](02-working-notes.md) | active synthesis, unresolved questions, and implementation hypotheses that are not yet frozen |
-| [`03-boundary-cases.md`](03-boundary-cases.md) | adversarial ownership cases intended to prevent the capability from becoming generic design or reopening resolved strategy |
-| [`04-candidate-method.md`](04-candidate-method.md) | candidate decision-gate method for identity scope, brief, audit, concept/form exploration, refinement, testing, distinctiveness, legal pre-flight, and system commit |
+| [`00-research-brief.md`](00-research-brief.md) | original research question, concrete failure, scope, rejected universal rules |
+| [`01-source-map.md`](01-source-map.md) | evidence classes, source map, supported claims, inference limits |
+| [`02-working-notes.md`](02-working-notes.md) | exploratory synthesis and unresolved questions |
+| [`03-boundary-cases.md`](03-boundary-cases.md) | adversarial ownership/scope cases |
+| [`04-candidate-method.md`](04-candidate-method.md) | pre-freeze candidate JIT method |
+| [`05-second-pass-addendum.md`](05-second-pass-addendum.md) | redesign/equity and cross-cultural pressure pass |
+| [`06-theory-freeze-candidate.md`](06-theory-freeze-candidate.md) | original frozen theory candidate |
+| [`07-independent-theory-review-brief.md`](07-independent-theory-review-brief.md) | original independent review contract |
+| [`08-independent-review-launch.md`](08-independent-review-launch.md) | original review launch provenance |
+| [`09-review-target-freeze-note.md`](09-review-target-freeze-note.md) | frozen-target note |
+| [`10-current-adjudication.md`](10-current-adjudication.md) | current state after review and repair |
+| [`11-review-prompt.md`](11-review-prompt.md) | original independent-review prompt |
+| [`12-post-review-repair-ledger.md`](12-post-review-repair-ledger.md) | exact mapping of the five review findings to bounded repairs |
+| [`13-post-repair-theory-freeze-candidate.md`](13-post-repair-theory-freeze-candidate.md) | repaired theory frozen for verification |
+| [`14-post-repair-verification-brief.md`](14-post-repair-verification-brief.md) | frozen post-repair verification contract |
+| [`15-post-repair-review-prompt.md`](15-post-repair-review-prompt.md) | launch prompt for an independent verifier |
 
-## Current disposition
+---
 
-The first pass supports a real decision-relevant gap, but does **not** yet justify runtime implementation.
+## Narrow surviving owner
 
-The strongest surviving distinctions are:
+The theory no longer claims a general `visual design` capability.
 
-```text
-POSITIONING / VALUE
-!= VISUAL IDENTITY REALIZATION
-!= MESSAGE / COPY
-```
-
-```text
-VISUAL DISTINCTIVENESS POTENTIAL
-!= LEARNED DISTINCTIVE-ASSET STRENGTH
-!= LEGAL DISTINCTIVENESS / CLEARANCE
-```
-
-```text
-STRATEGIC RATIONALE
-!= OBSERVED PERCEPTUAL READING
-```
+The surviving gap is:
 
 ```text
-GENERATED CONCEPT IMAGE
-!= PRODUCTION MASTER
+RESOLVED BRAND / MARKET STATE
++ OPEN BRAND-IDENTIFYING VISUAL DECISION
++ RELEVANT EXISTING-ASSET / DEPLOYMENT EVIDENCE
+→ BOUNDED IDENTITY DECISION
 ```
+
+Strongest surviving protections:
 
 ```text
-REDESIGN
-!= ASSUME RESET
+resolved upstream state stays frozen
+
+candidate visual difference
+!= learned brand-memory strength
+!= legal distinctiveness / clearance
+
+observed category overlap
+!= measured buyer-memory competition
+
+redesign
+!= automatic reset
+
+unmeasured equity
+!= zero
+!= proven
+
+identity stewardship
+!= general design execution
+
+identity estimand
+!= formal research / causal inference ownership
+
+preview representation
+!= verified production master
+
+new market
+!= automatic identity redesign
 ```
 
-The practical workflow currently looks most defensible when treated as JIT decision gates rather than a mandatory branding funnel:
+---
+
+## Hard stop
 
 ```text
-CURRENT IDENTITY DECISION
-→ load only the unresolved dependency
-→ explore genuinely different hypotheses when exploration is open
-→ freeze a promising family
-→ mutate deliberately
-→ observe perceptual / deployment failures
-→ preserve or revise evidence-backed equity
-→ separate distinctiveness from legal clearance
-→ commit only the minimum sufficient identity system
+BRAND-IDENTIFYING CUE / RELATIONSHIP / IDENTITY DECISION IS OPEN
+→ identity owner may remain active
+
+IDENTITY DECISION IS FIXED
++ only production manipulation / application execution remains
+→ ordinary design/tool execution or downstream owner
 ```
 
-## What is not yet approved
+This is the main boundary preventing scope expansion into general graphic design, UI, page layout, illustration, or production tooling.
+
+---
+
+## Epistemic-status discipline
+
+The repaired candidate explicitly separates:
+
+```text
+EMPIRICAL / ACADEMIC
+PROFESSIONAL PRACTICE
+PROJECT SYNTHESIS
+CONTEXTUAL HYPOTHESIS
+```
+
+Concept territories, form families, and controlled mutation remain useful project/practitioner synthesis, not scientific or mandatory branding laws.
+
+---
+
+## Still not approved
 
 - no new controller job;
-- no new durable primitive;
-- no `brand-identity.*` routing namespace;
+- no durable identity primitive;
+- no `brand-identity.*` runtime namespace;
 - no handbook chapter number;
-- no runtime edits to `SKILL.md`;
-- no behavioral benchmark claim;
-- no claim that the candidate method is a novel academic theory.
+- no edits to `SKILL.md`;
+- no general graphic-design owner;
+- no runtime implementation;
+- no behavioral/path benchmark claim.
 
 ## Next gate
 
-Before runtime promotion:
+Run `15-post-repair-review-prompt.md` in an independent session.
 
-1. complete the remaining evidence gaps, especially redesign/equity, candidate testing estimands, wordmark/typography, cross-cultural boundaries, and AI-assisted rights/provenance;
-2. convert the working method into a bounded theory freeze candidate;
-3. subject the freeze to independent adversarial review;
-4. only if the owner survives, design the smallest runtime surface and JIT route set;
-5. evaluate route activation/path correctness separately from handbook-content quality.
+Only after the repaired theory passes the frozen verification contract should this track design the smallest runtime/JIT integration. Runtime activation/path correctness must then be evaluated separately from knowledge quality.
