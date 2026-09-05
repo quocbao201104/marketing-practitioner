@@ -44,7 +44,7 @@ def main() -> int:
         "content.job-measurement": "## 13. Measurement follows the marketing job",
         "content.performance-diagnosis": "## 15. Diagnostic record for weak or changing performance",
         "commerce.fact-provenance": "### 5.5 Preserve fact provenance",
-        "commerce.discovery-modality": "### 7.1 Query modality \u2260 retrieval-model modality",
+        "commerce.discovery-modality": "### 7.1 Query modality ≠ retrieval-model modality",
         "commerce.content-commerce-measurement": "### 10.2 Content metrics and commerce metrics can share an object history without sharing causal meaning",
         "commerce.shopper-representation-jobs": "### 11.1 Selection and evaluation representations have different jobs",
         "commerce.observation-interpretation": "## 12. Observation records for commerce",
@@ -73,6 +73,15 @@ def main() -> int:
         "paid-media.handoffs": "## 6. Owner boundaries and decision handoffs",
         "paid-media.decision-record": "## 7. Compact paid-media decision record",
         "paid-media.invariants": "## 8. Anti-folklore invariants",
+        "brand-identity.core": "## 1. Scope: realize and steward brand-identifying visual assets",
+        "brand-identity.equity": "## 2. Existing equity, candidate distinctiveness, and redesign",
+        "brand-identity.exploration": "## 3. Exploration under resolved strategic constraints",
+        "brand-identity.refinement": "## 4. Refinement while preserving selected identity state",
+        "brand-identity.evaluation": "## 5. Perceptual and deployment evaluation",
+        "brand-identity.system": "## 6. System commit, verified masters, and stewardship",
+        "brand-identity.handoffs": "## 7. Owner boundaries and decision handoffs",
+        "brand-identity.decision-record": "## 8. Compact brand-identity decision record",
+        "brand-identity.invariants": "## 9. Anti-folklore and evidence-status invariants",
     }
     for route_id, expected_heading in expected_routes.items():
         _, content = module.get_knowledge(route_id)
@@ -92,6 +101,12 @@ def main() -> int:
     assert paid_source_path == "references/paid-media-evidence.md"
     assert paid_source_content.startswith(
         "## [PM03] Display & Video 360 — Frequency caps across auction and Programmatic Guaranteed inventory"
+    )
+
+    brand_source_path, brand_source_content = module.get_source("BV01")
+    assert brand_source_path == "references/brand-identity-evidence.md"
+    assert brand_source_content.startswith(
+        "## [BV01] Henderson & Cote — logo selection and modification"
     )
 
     fixture = """# Fixture\n\n## A\nA intro\n\n### A.1\nA1 body\n\n#### A.1.1\nA11 body\n\n### A.2\nA2 body\n\n## B\nB body\n\n<!-- route:start fixture.marker -->\nMARKER BODY\n\n### nested marker heading\nstill marker\n<!-- route:end fixture.marker -->\n\n## C\nC body\n"""
@@ -235,7 +250,7 @@ def main() -> int:
         "--namespace is only valid with --list",
     )
 
-    print("PASS\t58 routing-mechanics smoke checks")
+    print("PASS\t68 routing-mechanics smoke checks")
     return 0
 
 
