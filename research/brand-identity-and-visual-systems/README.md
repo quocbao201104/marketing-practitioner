@@ -1,10 +1,10 @@
 # Brand Identity and Visual Systems Research
 
-Status: **POST-REVIEW THEORY REPAIR COMPLETE — INDEPENDENT VERIFICATION PENDING**
+Status: **THEORY VERIFIED — BOUNDED RUNTIME DESIGN APPROVED**
 
 This directory preserves the research lineage for a possible Marketing Practitioner capability covering **brand-identifying visual asset realization and stewardship**.
 
-The track was opened because the current runtime has governed owners for positioning, messaging, localization, content/commerce environments, Commercial Design, landing pages, email, discovery, paid media, diagnosis, and experimentation, but no bounded owner for asset-level visual-identity formation/redesign/stewardship. Under `CONTRIBUTING.md`, this remains a Level 3 project-boundary question; research/theory stays separate from runtime promotion until independent gates are complete.
+The track began as a Level 3 project-boundary question because the existing runtime had no bounded owner for asset-level visual-identity formation, redesign, evaluation, and stewardship. The broad idea of a generic visual-design capability did not survive review. The narrower identity-stewardship gap did.
 
 ## Review state
 
@@ -14,13 +14,11 @@ Original theory target:
 52c0dc14a1fa425c7ed6844d96ede9e37374761c
 ```
 
-Independent verdict:
+Original independent verdict:
 
 ```text
 THEORY_PASS_WITH_LOCAL_REPAIRS
 ```
-
-No blocking defect was found. Five bounded repairs were required.
 
 Post-repair theory target:
 
@@ -28,10 +26,22 @@ Post-repair theory target:
 2381f11eabbfa7c0e8be3f500befb86a5b696c36
 ```
 
+Post-repair verification verdict:
+
+```text
+POST_REPAIR_PASS
+```
+
+Runtime-gate recommendation:
+
+```text
+READY_FOR_BOUNDED_RUNTIME_DESIGN
+```
+
 Current gate:
 
 ```text
-INDEPENDENT POST-REPAIR VERIFICATION
+BOUNDED CANDIDATE IMPLEMENTATION
 ```
 
 ---
@@ -49,21 +59,19 @@ INDEPENDENT POST-REPAIR VERIFICATION
 | [`06-theory-freeze-candidate.md`](06-theory-freeze-candidate.md) | original frozen theory candidate |
 | [`07-independent-theory-review-brief.md`](07-independent-theory-review-brief.md) | original independent review contract |
 | [`08-independent-review-launch.md`](08-independent-review-launch.md) | original review launch provenance |
-| [`09-review-target-freeze-note.md`](09-review-target-freeze-note.md) | frozen-target note |
-| [`10-current-adjudication.md`](10-current-adjudication.md) | current state after review and repair |
+| [`09-review-target-freeze-note.md`](09-review-target-freeze-note.md) | original frozen-target note |
+| [`10-current-adjudication.md`](10-current-adjudication.md) | current adjudication state |
 | [`11-review-prompt.md`](11-review-prompt.md) | original independent-review prompt |
-| [`12-post-review-repair-ledger.md`](12-post-review-repair-ledger.md) | exact mapping of the five review findings to bounded repairs |
+| [`12-post-review-repair-ledger.md`](12-post-review-repair-ledger.md) | exact mapping of five findings to bounded repairs |
 | [`13-post-repair-theory-freeze-candidate.md`](13-post-repair-theory-freeze-candidate.md) | repaired theory frozen for verification |
 | [`14-post-repair-verification-brief.md`](14-post-repair-verification-brief.md) | frozen post-repair verification contract |
-| [`15-post-repair-review-prompt.md`](15-post-repair-review-prompt.md) | launch prompt for an independent verifier |
+| [`15-post-repair-review-prompt.md`](15-post-repair-review-prompt.md) | independent post-repair verification prompt |
+| [`16-post-repair-verification-result.md`](16-post-repair-verification-result.md) | independent closure result and runtime-gate recommendation |
+| [`17-bounded-runtime-design.md`](17-bounded-runtime-design.md) | smallest approved runtime/JIT surface and candidate implementation contract |
 
 ---
 
 ## Narrow surviving owner
-
-The theory no longer claims a general `visual design` capability.
-
-The surviving gap is:
 
 ```text
 RESOLVED BRAND / MARKET STATE
@@ -72,7 +80,7 @@ RESOLVED BRAND / MARKET STATE
 → BOUNDED IDENTITY DECISION
 ```
 
-Strongest surviving protections:
+Core protections:
 
 ```text
 resolved upstream state stays frozen
@@ -82,6 +90,7 @@ candidate visual difference
 != legal distinctiveness / clearance
 
 observed category overlap
+!= inferred screening risk
 != measured buyer-memory competition
 
 redesign
@@ -104,8 +113,6 @@ new market
 != automatic identity redesign
 ```
 
----
-
 ## Hard stop
 
 ```text
@@ -117,38 +124,49 @@ IDENTITY DECISION IS FIXED
 → ordinary design/tool execution or downstream owner
 ```
 
-This is the main boundary preventing scope expansion into general graphic design, UI, page layout, illustration, or production tooling.
+This remains the primary scope-control boundary.
 
----
+## Approved runtime shape
 
-## Epistemic-status discipline
-
-The repaired candidate explicitly separates:
+`17-bounded-runtime-design.md` approves only:
 
 ```text
-EMPIRICAL / ACADEMIC
-PROFESSIONAL PRACTICE
-PROJECT SYNTHESIS
-CONTEXTUAL HYPOTHESIS
+one specialist chapter
++ one scoped evidence ledger
++ one JIT namespace
++ minimal controller/handoff guidance
++ deterministic route/source checks
++ targeted adversarial runtime cases
 ```
 
-Concept territories, form families, and controlled mutation remain useful project/practitioner synthesis, not scientific or mandatory branding laws.
+Candidate namespace:
 
----
+```text
+brand-identity.*
+```
 
-## Still not approved
+No new controller job or durable primitive is approved.
 
-- no new controller job;
-- no durable identity primitive;
-- no `brand-identity.*` runtime namespace;
-- no handbook chapter number;
-- no edits to `SKILL.md`;
-- no general graphic-design owner;
-- no runtime implementation;
-- no behavioral/path benchmark claim.
+## Still rejected
+
+- general graphic-design ownership;
+- UI/product-design ownership;
+- naming or brand-strategy subsystem;
+- legal/trademark subsystem;
+- customer-research methodology inside identity;
+- mandatory branding funnel;
+- logo-style taxonomy;
+- color-psychology or personality-to-geometry rules;
+- country-specific identity packs;
+- AI prompt/generation subsystem;
+- vector-production engine.
 
 ## Next gate
 
-Run `15-post-repair-review-prompt.md` in an independent session.
+Implement only the bounded design on:
 
-Only after the repaired theory passes the frozen verification contract should this track design the smallest runtime/JIT integration. Runtime activation/path correctness must then be evaluated separately from knowledge quality.
+```text
+candidate/brand-identity-visual-systems
+```
+
+Then run self-review, deterministic routing/evidence checks, targeted adversarial runtime evaluation, freeze the exact implementation/evaluation head, and send that frozen target to an independent runtime reviewer before release or merge.
