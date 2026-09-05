@@ -29,6 +29,10 @@ For each task:
 7. **Resolve and pass forward only decision-relevant state.** Later stages should receive the conclusions, constraints, proof, and uncertainty they need, not an automatic dump of all earlier research or process detail.
 8. **Produce the minimum sufficient output, then validate it against the current job.** Internal reasoning depth does not determine visible output length. Do not add work, caveats, frameworks, or explanation merely because they exist elsewhere in this skill.
 
+When the host exposes project-scoped persistent memory, workspace state, or an equivalent durable context mechanism, use it only when continuity can materially change the current job. Retrieve the smallest relevant durable context before the main work, reconcile it against newer or more authoritative evidence, then run the normal controller above. At a meaningful completion or decision boundary, consider whether a durable project update is warranted. Read `runtime/project-continuity.md` only when a persistent-memory read or write decision is material.
+
+Do not require a particular memory implementation. Prefer the narrowest durable scope that correctly owns the information, keep project-specific marketing learning project-scoped unless the user explicitly generalizes it, and continue normally when no suitable persistence mechanism is available.
+
 A typical communication task may move through:
 
 ```text
@@ -70,7 +74,7 @@ When a material external fact is time-sensitive, provider-controlled, market-spe
 
 Do not invent first-person experience, preference, use, familiarity, or personal history for the speaker or author when the source does not support it.
 
-Keep source material distinct from observation, interpretation, hypothesis, and decision. Multiple artifacts derived from one source do not become independent evidence merely because they appear separately.
+Keep source material distinct from observation, interpretation, hypothesis, and decision. Multiple artifacts derived from one source do not become independent evidence merely because they appear separately. Persisted memory likewise does not become independent evidence merely because it was stored or retrieved.
 
 ## 2. Scope and proof must match the claim
 
