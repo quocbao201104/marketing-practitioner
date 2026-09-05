@@ -1,6 +1,6 @@
 # Brand Identity and Visual Systems — Current Adjudication
 
-Status: **INDEPENDENT THEORY REVIEW PASSED WITH LOCAL REPAIRS; POST-REPAIR VERIFICATION PENDING**
+Status: **THEORY VERIFIED — BOUNDED CANDIDATE IMPLEMENTATION AUTHORIZED**
 
 Original frozen theory candidate:
 
@@ -8,7 +8,7 @@ Original frozen theory candidate:
 52c0dc14a1fa425c7ed6844d96ede9e37374761c
 ```
 
-Independent verdict:
+Original independent verdict:
 
 ```text
 THEORY_PASS_WITH_LOCAL_REPAIRS
@@ -20,25 +20,33 @@ Blocking defects:
 NONE
 ```
 
-Post-repair candidate frozen at:
+Post-repair theory candidate frozen at:
 
 ```text
 2381f11eabbfa7c0e8be3f500befb86a5b696c36
 ```
 
-Target artifact:
+Independent post-repair verdict:
 
 ```text
-13-post-repair-theory-freeze-candidate.md
+POST_REPAIR_PASS
 ```
+
+Runtime-gate recommendation:
+
+```text
+READY_FOR_BOUNDED_RUNTIME_DESIGN
+```
+
+All five material findings and NB-01 were independently verified CLOSED; all specified regression checks passed.
 
 ---
 
-## Gap adjudication after independent review
+## Surviving gap
 
-The broad idea of a generic visual-design owner did **not** survive.
+The broad generic-visual-design capability remains rejected.
 
-The narrower decision gap did:
+The verified owner is:
 
 ```text
 RESOLVED BRAND / MARKET STATE
@@ -47,28 +55,13 @@ RESOLVED BRAND / MARKET STATE
 → BOUNDED IDENTITY DECISION
 ```
 
-The strongest surviving need is asset-level identity realization / stewardship, especially for existing-equity preservation, candidate-vs-learned distinctiveness discipline, perceptual identification, deployment survival, and commit of reusable identity state.
+Its strongest decision value is asset-level identity realization and stewardship: preserving or changing existing equity, separating candidate difference from learned buyer-memory strength and legal status, checking decision-relevant perceptual/deployment failure, and retaining verified reusable identity state.
 
-Pure design execution does not independently justify the owner.
-
----
-
-## Independent findings and current repair state
-
-```text
-BI-T01 evidence-status leakage                         REPAIRED IN CANDIDATE
-BI-T02 mental competition / ownability overclaim      REPAIRED IN CANDIDATE
-BI-T03 pure-design stop boundary                      REPAIRED IN CANDIDATE
-BI-T04 perceptual testing → research handoff          REPAIRED IN CANDIDATE
-BI-T05 unmeasured-equity action discipline            REPAIRED IN CANDIDATE
-NB-01 preview/master wording generalization           REPAIRED IN CANDIDATE
-```
-
-These states are author-side repair claims only. They are not considered closed until independent post-repair verification.
+Pure production execution does not independently justify this owner.
 
 ---
 
-## Strongest surviving theory
+## Verified protections
 
 ```text
 POSITIONING / VALUE
@@ -83,6 +76,12 @@ CANDIDATE VISUAL DIFFERENCE
 ```
 
 ```text
+OBSERVED CATEGORY / COMPETITOR CUE OVERLAP
+!= INFERRED SCREENING RISK
+!= MEASURED BUYER-MEMORY COMPETITION
+```
+
+```text
 INTENDED MEANING
 != OBSERVED PERCEPTUAL READING
 ```
@@ -93,15 +92,9 @@ REDESIGN
 ```
 
 ```text
-UNMEASURED
+UNMEASURED EQUITY
 != ZERO
 != PROVEN
-```
-
-```text
-OBSERVED CATEGORY / COMPETITOR CUE OVERLAP
-!= INFERRED SCREENING RISK
-!= MEASURED BUYER-MEMORY COMPETITION
 ```
 
 ```text
@@ -116,22 +109,7 @@ NEW MARKET
 
 ---
 
-## Epistemic-status repair
-
-The repaired candidate now keeps these classes separate:
-
-```text
-EMPIRICAL / ACADEMIC
-PROFESSIONAL PRACTICE
-PROJECT SYNTHESIS
-CONTEXTUAL HYPOTHESIS
-```
-
-Concept territories, form families, and controlled mutation are explicitly project/practitioner synthesis rather than scientific requirements.
-
----
-
-## Hard stop after repair
+## Verified hard stop
 
 ```text
 BRAND-IDENTIFYING CUE / RELATIONSHIP / IDENTITY DECISION IS OPEN
@@ -142,16 +120,71 @@ IDENTITY DECISION IS FIXED
 → ordinary design/tool execution or downstream owner
 ```
 
-This prevents the proposed capability from becoming a general design suite.
+This prevents scope expansion into general graphic design, UI, page layout, illustration, production tooling, or generic art direction.
 
 ---
 
-## What remains rejected
+## Evidence-status discipline
+
+The verified theory preserves:
+
+```text
+EMPIRICAL / ACADEMIC
+PROFESSIONAL PRACTICE
+PROJECT SYNTHESIS
+CONTEXTUAL HYPOTHESIS
+```
+
+Concept territories, form families, and controlled mutation remain optional project/practitioner synthesis rather than scientific requirements.
+
+---
+
+## Bounded runtime design adjudication
+
+`17-bounded-runtime-design.md` approves the following candidate shape:
+
+```text
+one specialist chapter
++ one scoped evidence ledger
++ one brand-identity.* JIT namespace
++ minimal SKILL activation/handoff guidance
++ deterministic route/source checks
++ targeted adversarial runtime cases
+```
+
+Candidate chapter:
+
+```text
+skills/marketing-practitioner/handbook/15-brand-identity-and-visual-systems.md
+```
+
+Candidate evidence ledger:
+
+```text
+skills/marketing-practitioner/references/brand-identity-evidence.md
+```
+
+Candidate namespace:
+
+```text
+brand-identity.*
+```
+
+No new routing infrastructure, controller job, durable primitive, legal owner, localization owner, research owner, or general design owner is approved.
+
+---
+
+## Still rejected
 
 ```text
 New controller job                                       REJECTED
 New durable identity primitive                           REJECTED
 General graphic-design owner                             REJECTED
+UI / product-design owner                                REJECTED
+Generic art-direction subsystem                          REJECTED
+Naming / brand-strategy subsystem                        REJECTED
+Trademark-law subsystem                                  REJECTED
+Identity-owned formal research methodology               REJECTED
 Mandatory branding funnel                                REJECTED
 Logo = whole identity                                    REJECTED
 Simpler/minimal = universally better                     REJECTED
@@ -162,41 +195,24 @@ Different from competitors = learned distinctive asset  REJECTED
 Observed competitor prevalence = buyer-memory evidence  REJECTED
 Single composite logo score                              REJECTED
 Controlled mutation as universal law                     REJECTED
-Generated/preview representation = production master    REJECTED
+Preview representation = production master              REJECTED
 Redesign = reset                                         REJECTED
 New market = automatic visual redesign                   REJECTED
 Trademark search = legal clearance                       REJECTED
-Identity owner = formal research owner                   REJECTED
 ```
 
 ---
 
-## Not adjudicated yet
+## Current gate
 
 ```text
-Whether repaired theory passes independent verification
-Whether bounded runtime owner should then be promoted
-Whether the owner belongs in a new handbook chapter
-Whether a `brand-identity.*` namespace is the smallest runtime surface
-Exact route names or route count
-What behavioral/path evaluation should be used after implementation
+BOUNDED CANDIDATE IMPLEMENTATION
 ```
 
----
-
-## Next gate
-
-Run independent post-repair verification using:
+Proceed only on:
 
 ```text
-14-post-repair-verification-brief.md
-15-post-repair-review-prompt.md
+candidate/brand-identity-visual-systems
 ```
 
-Review exactly:
-
-```text
-2381f11eabbfa7c0e8be3f500befb86a5b696c36
-```
-
-If and only if the result is `POST_REPAIR_PASS` (or a genuinely editorial `POST_REPAIR_PASS_WITH_MINOR_EDITS` that is subsequently closed), proceed to a **separate bounded runtime-design gate**.
+Then require self-review, deterministic routing/evidence verification, targeted adversarial runtime evaluation, exact implementation/evaluation freeze, and an independent runtime review before release or merge.
