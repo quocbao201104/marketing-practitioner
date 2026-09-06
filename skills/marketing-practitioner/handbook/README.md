@@ -27,6 +27,7 @@ Scoped local adaptation is intentionally kept outside the shared handbook under 
 | [`12-email-communication-architecture.md`](12-email-communication-architecture.md) | email communication architecture | message/claim/proof is sufficiently resolved and the remaining decision is whether/when to communicate, scoped send state, sequence/wait/exit logic, inbox→message allocation, continuity, or email observation semantics |
 | [`13-search-and-discovery-architecture.md`](13-search-and-discovery-architecture.md) | search & discovery architecture | generic non-commerce information/entity availability, retrieval/selection, human-selection vs system-answer commitment, grounding/citation boundaries, or discovery observation semantics can change the decision |
 | [`14-paid-media-architecture.md`](14-paid-media-architecture.md) | paid media architecture | economic resource, paid-control semantics, buying/allocation boundary, delivery/realization state, billing/attribution, or optimization feedback can change a paid-exposure decision |
+| [`15-brand-identity-and-visual-systems.md`](15-brand-identity-and-visual-systems.md) | brand-identifying visual asset realization / stewardship | a persistent/reusable visual cue or relationship, preserve/evolve/replace decision, identity refinement/evaluation, or verified identity-system commitment remains open |
 
 ## Important boundaries
 
@@ -38,6 +39,8 @@ POSITIONING / VALUE
 COMMERCIAL DESIGN
 !=
 MESSAGE / COPY
+!=
+BRAND-IDENTIFYING VISUAL ASSET REALIZATION / STEWARDSHIP
 !=
 LANDING-PAGE ARCHITECTURE
 !=
@@ -59,6 +62,8 @@ CURRENT COMMERCE STATE / REPRESENTATION
 ```text
 MESSAGE / CLAIM / PROOF RESOLUTION
 !=
+PERSISTENT BRAND-IDENTIFYING VISUAL CUE / RELATIONSHIP
+!=
 PAGE ALLOCATION / REPRESENTATION
 !=
 EMAIL SEND / SEQUENCE / ENCOUNTER ALLOCATION
@@ -66,6 +71,17 @@ EMAIL SEND / SEQUENCE / ENCOUNTER ALLOCATION
 DISCOVERY AVAILABILITY / RETRIEVAL / SELECTION / COMMITMENT
 !=
 PAID CONTROL / RESOURCE ALLOCATION / DELIVERY / FEEDBACK
+```
+
+Brand Identity preserves a hard execution boundary:
+
+```text
+BRAND-IDENTIFYING CUE / RELATIONSHIP / IDENTITY DECISION IS OPEN
+→ Chapter 15 may remain active
+
+IDENTITY DECISION IS FIXED
++ only production manipulation / application execution remains
+→ ordinary design/tool execution or downstream owner
 ```
 
 Local adaptation preserves another boundary:
@@ -89,6 +105,21 @@ Examples:
 "The price is already $29. Write the landing-page copy."
 → Chapter 04 as needed; do not reopen Chapter 10
 
+"Positioning is approved. Develop a visual identity for the new product."
+→ Chapter 15 through the smallest brand-identity.* routes; do not reopen Chapter 03 without a real unresolved dependency
+
+"We used this symbol for eight years but never measured recognition. Should we replace it?"
+→ brand-identity.equity; unmeasured != zero != proven
+
+"Keep this approved mark, but its identifying opening closes at the required small size."
+→ brand-identity.refinement + brand-identity.evaluation as needed; no full exploration
+
+"The identity master is approved. Export SVG and PNG sizes."
+→ stop Chapter 15; ordinary production/tool execution
+
+"The identity is approved. Decide the landing-page hero composition."
+→ Chapter 11; identity provides master state/constraints but does not own page allocation
+
 "The message, proof, price, and CTA are approved. Decide the page sequence and visual/proof placement."
 → Chapter 11 through the smallest landing-page.* route
 
@@ -100,6 +131,9 @@ Examples:
 
 "Translate this approved message into Vietnamese. The speaker/recipient relationship is resolved, but the self/address realization is still materially open."
 → Chapter 07; inspect adapt-localization.relationship-realization only for the still-open Vietnamese realization decision
+
+"Launch this approved global identity in Japan."
+→ Japan alone does not reopen the identity; Chapter 07 only if scoped local evidence reveals a material identity-realization issue
 
 "Write an English campaign for Vietnam."
 → Vietnam alone does not activate the Vietnamese relationship-realization adaptation
@@ -125,7 +159,7 @@ Examples:
 
 ## Large-chapter and adaptation routing
 
-Chapters 08–14 and registered adaptation families expose stable logical routes through `../routing-index.json`.
+Chapters 08–15 and registered adaptation families expose stable logical routes through `../routing-index.json`.
 
 Examples:
 
@@ -152,6 +186,10 @@ paid-media.objective
 paid-media.control
 paid-media.allocation
 paid-media.observation
+brand-identity.equity
+brand-identity.refinement
+brand-identity.evaluation
+brand-identity.system
 adapt-localization.relationship-realization
 ```
 
@@ -166,6 +204,9 @@ python ../scripts/get-knowledge.py discovery.availability
 python ../scripts/get-knowledge.py discovery.commitment
 python ../scripts/get-knowledge.py paid-media.control
 python ../scripts/get-knowledge.py paid-media.observation
+python ../scripts/get-knowledge.py brand-identity.equity
+python ../scripts/get-knowledge.py brand-identity.refinement
+python ../scripts/get-knowledge.py brand-identity.evaluation
 python ../scripts/get-knowledge.py commerce.resolvability
 python ../scripts/get-knowledge.py adapt-localization.relationship-realization
 ```

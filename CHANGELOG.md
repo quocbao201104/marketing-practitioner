@@ -4,6 +4,44 @@ All notable changes to this repository are documented here.
 
 The project uses semantic versioning for published skill revisions. v1.0.0 marks the first stable core contract: future 1.x work should preserve compatibility-sensitive controller semantics, logical knowledge interfaces, owner boundaries, and evidence/claim behavior unless a demonstrated failure justifies a scoped change. Historical frozen evaluation and research references keep the version labels under which they were produced.
 
+
+## [1.3.0] - 2026-09-07
+
+### Brand Identity and Visual Systems
+
+- Added Chapter 15 for bounded brand-identifying visual decisions: preserve/evolve/replace, exploration, controlled refinement, perceptual/deployment evaluation, and reusable identity-system commitment.
+- Added nine `brand-identity.*` JIT routes plus a scoped evidence ledger, with explicit boundaries between candidate visual difference, learned brand-memory strength, and legal clearance.
+- Kept naming/general brand strategy, generic graphic/UI design, art direction, legal clearance, and image-generation tooling outside the Brand Identity owner.
+- Updated deterministic routing coverage to **68 checks / 261 logical routes / 233 evidence sources**.
+- Preserved the v1.0.0 compatibility-sensitive controller contract; this release adds specialist knowledge without a new controller job or shared primitive.
+- Targeted static review found no material implementation defect; live host/model activation remains a separate runtime-evaluation question rather than a claimed release guarantee.
+
+## [1.2.0] - 2026-09-04
+
+### Local adaptation expansion
+
+- Added `JP-LANG-HON-01` for Japanese honorific-target realization, preserving the distinction among addressee, actor/referent, and action target without creating a shared semantic-role primitive.
+- Added `JP-LANG-PERM-01` for Japanese permission/benefit-sensitive deferential realization, preventing `〜させていただく` from being treated as a semantics-neutral politeness transformation while also forbidding reverse inference of factual permission or benefit from the surface form.
+- Kept both Japanese units under the existing `adapt-localization.relationship-realization` route beside `VN-LANG-REL-01`; no Japan pack, language-country route family, registry, resolver, or new decision owner was added.
+- Hardened the bounded Chapter 07 discovery edge so apparently ordinary target-language politeness/deference choices can trigger owner-aligned local lookup when they can materially alter already-resolved authority, permission, agency, autonomy/obligation, benefit, responsibility, or repair semantics.
+- Added the Japanese runtime evidence ledger (`JPLA01`–`JPLA11`) and targeted static regression specification covering honorific orientation, permission/deference semantics, noun-trigger resistance, language-vs-market scope, regional evidence, accessibility, resolved-state preservation, and dual-unit composition.
+
+### Review and provenance
+
+- Japanese research review returned `PASS_WITH_LOCAL_REPAIRS`: both mechanisms were promoted, with one bounded Chapter 07 discovery repair and no shared-architecture expansion.
+- Independent adversarial review of frozen Japanese implementation head `f45331410a090fe5d354616add72670e511f4373` returned `PASS_IMPLEMENTATION`; the Chapter 07 repair, both Japanese units, shared route, evidence boundaries, lifecycle claim at the frozen candidate, and targeted eval specification all passed.
+- Recorded that implementation review under `research/local-adaptation-japan/05-independent-implementation-review-result.md` and promoted the current Japanese runtime units from `review_state: provisional` to `reviewed` as a post-review lifecycle update. The frozen candidate remains historically accurate: it was provisional before that independent implementation review occurred.
+- Independently re-reviewed the repaired Vietnamese reference unit against the integrated implementation at `f9c3a9485a989af5ee662464912912f15adffef5`; `PASS_POST_REPAIR` closed both original findings and supported `VN-LANG-REL-01` as `review_state: reviewed`.
+- These reviews are static implementation/integration evidence. They do not establish that every model or host will activate, traverse, retrieve, or execute the route correctly, and they do not establish Japanese or Vietnamese output-quality lift.
+
+### Compatibility and verification
+
+- Preserved the v1.0.0 stable core contract, seven controller jobs, owner boundaries, logical routing model, resolved-state behavior, and source/claim discipline.
+- Kept the current index at **252 logical routes / 225 evidence sources**; the Japanese expansion reuses the existing relationship-realization route.
+- Updated public release metadata, README status, and behavior-report default to `v1.2.0 — Local Adaptation Expansion`.
+- The historical 48-run baseline/current-skill behavioral pilot remains unchanged and still does **not** demonstrate a paired quality advantage; this release does not reinterpret that pilot as new benchmark evidence.
+- No new controller job, shared primitive, top-level handbook, Japan/country profile, cultural-precedence engine, scope registry, global resolver, or generic localization subsystem was added.
+
 ## [1.1.0] - 2026-09-04
 
 ### Scoped local adaptation
@@ -19,7 +57,8 @@ The project uses semantic versioning for published skill revisions. v1.0.0 marks
 
 - The thin extension design received independent adversarial verdict `PASS_THIN_DESIGN`; no registry, resolver, new owner, controller job, primitive, or routing-schema redesign was justified.
 - The first Vietnamese reference implementation received `PASS_WITH_LOCAL_REPAIRS` at frozen implementation head `5a19f2d1e3182c6ea9aed45dc8008ee07681eef3`. The reviewer found two bounded defects: missing normal-flow namespace discovery and ambiguity when only one half of the self/address pair remained open.
-- Implemented both repairs locally: Chapter 07 now exposes the bounded discovery edge, and `VN-LANG-REL-01` freezes any already-resolved half while constraining only the still-open dimension. A post-repair independent re-review was not performed, so the unit remains `review_state: provisional` rather than claiming a later independent pass.
+- Implemented both repairs locally: Chapter 07 now exposes the bounded discovery edge, and `VN-LANG-REL-01` freezes any already-resolved half while constraining only the still-open dimension. At the time of the v1.1.0 release, a post-repair independent re-review had not yet been performed, so the unit correctly remained `review_state: provisional`.
+- Post-release follow-up: an independent post-repair review of the current integrated implementation at `f9c3a9485a989af5ee662464912912f15adffef5` returned `PASS_POST_REPAIR`, closed both original findings, found no material Vietnamese regression after Japanese units were added to the shared route, and justified `VN-LANG-REL-01` moving to `review_state: reviewed`. This was a static implementation/integration adjudication, not a behavioral route-execution or output-quality benchmark.
 - Kept Vietnam market findings such as payment/COD, reviews/trust, channel mix, Tết seasonality, and authenticity/provenance concerns out of `adaptations/` when they were better represented as scoped evidence, current dependencies, or decisions already handled by existing owners.
 
 ### Verification and maintenance
@@ -113,7 +152,7 @@ The project uses semantic versioning for published skill revisions. v1.0.0 marks
 ### Added
 
 - Added `handbook/13-search-and-discovery-architecture.md`, a bounded specialist layer for generic non-commerce discovery decisions spanning information need/expression, scoped availability, retrieval/selection, human-selection versus system-commitment/grounding, and discovery observation semantics.
-- Added the `discovery.*` just-in-time namespace for core scope, need/query distinctions, availability/identity/freshness, retrieval/selection, grounding/commitment, observation semantics, retained decision records, and anti-folklore invariants.
+- Added the `discovery.*` JIT namespace for core scope, need/query distinctions, availability/identity/freshness, retrieval/selection, grounding/commitment, observation semantics, retained decision records, and anti-folklore invariants.
 - Added `references/search-discovery-evidence.md` with scoped current-provider and information-retrieval evidence plus explicit non-transfer boundaries.
 - Added `research/search-discovery-architecture/` theory freeze, implementation self-review, mechanical-verification record, targeted-evaluation adjudication, frozen independent-review contract, and release-preparation gate record.
 - Added a 20-case adversarial Search & Discovery suite covering fast-path preservation, published/indexed/discoverable collapse, query/intent/retrieval-formulation collapse, retrieval versus evidentiary fitness, citation/telemetry overclaim, queryless discovery, missing telemetry, and Chapter 01/02/04/05/08/09/11 owner controls.
