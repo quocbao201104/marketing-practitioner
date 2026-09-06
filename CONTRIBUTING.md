@@ -324,6 +324,21 @@ For large indexed knowledge, preserve stable logical route IDs where possible. A
 
 Human-facing README files may map the repository, explain boundaries, and point to canonical resources. They should not duplicate route-to-heading bindings, evidence ledgers, or substantive chapter prose.
 
+### Meaning at retrieval boundaries
+
+When changing indexed handbook guidance, inspect the actual section returned by `scripts/get-knowledge.py <route>` together with the already-loaded `SKILL.md`. A valid selector establishes a physical boundary; it does not establish that the excerpt retains enough context to apply the guidance correctly.
+
+Check only what can change the decision:
+
+- Is the subject and applicability scope clear without an omitted chapter introduction?
+- Are local terms and references to other sections recoverable?
+- Does the excerpt retain material conditions, exceptions, and evidence status, including whether guidance is research-supported, a scoped example, or practitioner synthesis?
+- If substantive context is still needed, does the reference name its destination and explain when to use it?
+
+Keep a short decision-changing qualification beside the advice it limits. Link to substantial supporting explanation through an exact heading/anchor or existing logical route. Do not hide a condition that reverses the advice behind a link, require whole-chapter reads, or duplicate shared core rules in every excerpt. These are author review criteria, not a mandatory section template or additional runtime checklist.
+
+For a semantic correction, record the concrete task, retrieved slice, omitted context, decision consequence, and smallest correction. Re-read the result both as an excerpt and in its chapter. Preserve sufficient sections unchanged; route discovery and loader redesign require their own justification.
+
 ---
 
 ## Validation expectations

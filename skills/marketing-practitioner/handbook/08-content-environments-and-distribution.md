@@ -70,9 +70,7 @@ An official fact from one system does not silently become a universal platform l
 
 ## 3. Vocabulary discipline: primitives, modifiers, and derived patterns
 
-The model became more useful as platform-specific research converged, but a mature core should not turn every recurring pattern into a new primitive.
-
-Use a small durable vocabulary.
+This vocabulary is a practitioner synthesis for platform-mediated content and its domain specializations, not a validated unified theory or a literal platform schema. Use only distinctions that can change the current decision.
 
 ### 3.1 Durable things
 
@@ -873,7 +871,7 @@ RANKING SIGNAL
 ≠ WRITING INSTRUCTION
 ```
 
-Translate a consequential signal through Layer 2's behavior-to-mechanism bridge.
+Translate a consequential signal through the [behavior-to-mechanism bridge in section 5.6](#56-behavior-to-mechanism-bridge), available in `content.audience-interaction`, when the human-value mechanism remains unresolved.
 
 A user action can also be partly an attempt to manage or retrain the recommender. Therefore `user action ≠ pure content preference` when system-control intent is plausible.
 
@@ -1545,6 +1543,8 @@ Did the observation reduce a consequential uncertainty?
 ```
 
 A high-reach object can fail commercially. A low-volume discussion can succeed strategically. A high-search topic can be weak buyer demand. A missing action can remain unlabeled. A conversion reported in one channel can be history-conditioned elsewhere.
+
+Choosing a job-relevant outcome does not establish what an available metric measures. If its observation unit, exposure/response opportunity, comparability, or maturity remains material and unresolved, use [section 9's evidence-generation guidance](#9-layer-6--evidence-generation-metrics-time-and-causal-scope) (`content.measurement-evidence`) before interpreting it.
 
 ---
 

@@ -488,7 +488,7 @@ third-party certification
 unknown
 ```
 
-For a claim that affects purchase, compliance, safety, compatibility, or price interpretation, preserve source and confidence rather than laundering a derived field into fact.
+For a claim that affects purchase, compliance, safety, compatibility, or price interpretation, preserve source and confidence rather than laundering a derived field into fact. Distinguish the underlying claim from a seller-submitted field, platform-processed record, or platform inference. Identify what the source actually supports for the relevant product/variant and material scope; an origin label alone does not establish verification.
 
 ### 5.6 Structured and unstructured information do different jobs
 
@@ -887,7 +887,9 @@ orders
 GMV
 ```
 
-Preserve which event belongs to which surface, edge, exposure regime, and attribution rule before interpreting the aggregate.
+Preserve which event belongs to which surface, edge, exposure regime, and attribution rule before interpreting the aggregate. A persistent video can point to a different product after relinking; retain target identity and link history for the compared events. Shared history or attributed orders do not establish incremental sales.
+
+If event definitions, commercial scope, or outcome maturity remain unresolved and can change interpretation, use [commerce observation records in section 12](#12-observation-records-for-commerce) (`commerce.observation-interpretation`).
 
 ### 10.3 Agent-mediated and delegated commerce
 
