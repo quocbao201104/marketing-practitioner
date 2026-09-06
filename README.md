@@ -63,7 +63,7 @@ Clone the full repository if you want to inspect or extend the skill:
 git clone https://github.com/quocbao201104/marketing-practitioner.git
 ```
 
-The governing runtime contract is [`skills/marketing-practitioner/SKILL.md`](skills/marketing-practitioner/SKILL.md).
+The governing runtime contract is [`skills/marketing-practitioner/SKILL.md`](skills/marketing-practitioner/SKILL.md). Its compact decision table gives direct knowledge entry points; the [operating guide](skills/marketing-practitioner/references/operating-guide.md) holds detailed path and handoff guidance for questions that need it.
 
 ## Why it exists
 
@@ -171,7 +171,7 @@ skills/marketing-practitioner/
   handbook/                 governed practitioner knowledge
   adaptations/              scoped local decision specializations
   platforms/                scoped social and commerce modules
-  references/               evidence ledgers and bibliography
+  references/               operating guidance, evidence ledgers, bibliography
   scripts/                  deterministic routing checks
 
 research/                   theory lineage and rejected hypotheses

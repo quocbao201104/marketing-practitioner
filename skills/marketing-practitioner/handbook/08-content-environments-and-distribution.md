@@ -1449,9 +1449,9 @@ Do not memorize the list as a checklist. Invoke only the distinction that can pr
 
 ## 11. Fast path for simple platform writing
 
-Do not make every caption or social post traverse the full model.
+This section, addressed by `content.fast-path`, is an optional reference when its guidance can answer a remaining simple-writing question, such as what context text should add to a supplied visual. The route name does not require reading this section or chapter before ordinary writing.
 
-If the user supplies a narrow job and sufficient source material, use:
+If the current job, source material, message, claim boundaries, and relevant representation context are sufficient, draft directly. Do not make every caption or social post traverse the full model. The following pattern describes that work rather than a mandatory reading sequence:
 
 ```text
 CURRENT JOB
