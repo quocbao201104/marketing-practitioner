@@ -5,6 +5,24 @@ All notable changes to this repository are documented here.
 The project uses semantic versioning for published skill revisions. v1.0.0 marks the first stable core contract: future 1.x work should preserve compatibility-sensitive controller semantics, logical knowledge interfaces, owner boundaries, and evidence/claim behavior unless a demonstrated failure justifies a scoped change. Historical frozen evaluation and research references keep the version labels under which they were produced.
 
 
+## [1.4.0] - 2026-09-07
+
+### Runtime coherence and knowledge routing
+
+- Streamlined SKILL.md into a compact controller, direct knowledge entry points, and shared completion criteria; moved detailed path and handoff guidance into an optional operating guide.
+- Clarified exploratory research, provisional strategy, creative comparison, and useful completion without forcing a commercial choice or a fixed output template.
+- Preserved requested outputs, selected versus provisional state, material evidence limits, and pending dependencies across multi-step work, interruptions, and changes in scope.
+- Tightened five Chapter 08/09 excerpts so retrieved guidance retains decision-changing scope, evidence status, and recoverable supporting context; added author review criteria for retrieval boundaries.
+- Added content.platform-adaptation, commerce.data-classes, and discovery.diagnosis. All 261 existing route bindings and extracted results remain unchanged by the index additions; the index now contains 264 routes and 233 evidence sources.
+- Reviewed index discovery within eight representative request-to-output chains. These are static design cases, not executed behavioral trials.
+- Added behavioral trace-reporting infrastructure, refreshed the README around concrete tasks and outputs, and removed obsolete behavioral reports from the current repository.
+
+### Compatibility and verification
+
+- Preserved the seven jobs, existing logical IDs, specialist ownership, source/claim boundaries, and direct execution for sufficient narrow tasks. No new runtime subsystem or mandatory reading pipeline was added.
+- Both package validators, 68 routing-mechanics checks, 264 routes / 233 evidence sources, 138 Pressure Discovery infrastructure tests, 86 behavioral-harness tests, and UTF-8/generated-artifact hygiene passed on the verified source snapshot before release preparation.
+- Current runtime changes received scoped static review. Live behavioral evaluation of this design remains pending; this release makes no claim of improved model performance or marketing outcomes.
+
 ## [1.3.0] - 2026-09-07
 
 ### Brand Identity and Visual Systems

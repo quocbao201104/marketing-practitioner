@@ -7,7 +7,7 @@
 **Decision-first marketing for AI agents.**  
 Research customers. Make supported choices. Turn them into useful marketing work.
 
-[![Version: v1.3.0](https://img.shields.io/badge/version-v1.3.0-0a7.svg)](#status-and-scope)
+[![Version: v1.4.0](https://img.shields.io/badge/version-v1.4.0-0a7.svg)](#status-and-scope)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Language: English](https://img.shields.io/badge/language-English-4c1.svg)](#)
 [![Format: Agent Skill](https://img.shields.io/badge/format-Agent%20Skill-6f42c1.svg)](skills/marketing-practitioner/SKILL.md)
@@ -201,7 +201,7 @@ If the skill makes a poor decision, overcomplicates a simple task, misses suppli
 
 ## Status and scope
 
-Current release: **v1.3.0 — Brand Identity and Visual Systems**.
+Current release: **v1.4.0 — Runtime Coherence and Knowledge Routing**.
 
 The package covers seven marketing jobs with specialist guidance for content, commerce, commercial design, landing pages, email, search/discovery, paid media, brand identity, and scoped localization. See [CHANGELOG.md](CHANGELOG.md) for release history.
 
