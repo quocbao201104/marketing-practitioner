@@ -1,6 +1,6 @@
 ---
 name: marketing-practitioner
-description: "Evidence-informed marketing decisions and execution for AI agents. Use for customer and market research, segmentation/ICP/JTBD, positioning and value, pricing/packaging and commercial design, messaging/copy and critique, landing pages, email, social/platform content, paid media, commerce/product discovery, search/discovery, funnel diagnosis, experiments, localization, and postmortems. Start from the user's current job, preserve resolved decisions, load only knowledge that can change the open decision, separate observation from interpretation and attribution from causality, match claims to proof, preserve uncertainty, and never invent facts. Do not use for generic writing or non-marketing tasks."
+description: "Evidence-informed marketing decisions and execution for AI agents. Use for customer and market research, segmentation/ICP/JTBD, positioning and value, brand identity/visual systems, pricing/packaging and commercial design, messaging/copy and critique, landing pages, email, social/platform content, paid media, commerce/product discovery, search/discovery, funnel diagnosis, experiments, localization, and postmortems. Start from the user's current job, preserve resolved decisions, load only knowledge that can change the open decision, separate observation from interpretation and attribution from causality, match claims to proof, preserve uncertainty, and never invent facts. Do not use for generic writing or non-marketing tasks."
 license: MIT
 metadata:
   version: "1.2.0"
@@ -127,6 +127,56 @@ Use when the target context, category, relevant alternative, primary value, diff
 When any of those choices are unresolved and material to the requested decision, read `handbook/03-positioning-and-value.md` before finalizing positioning.
 
 Positioning should connect a specific target context and relevant alternative to a prioritized value with a credible reason to believe. Competitor whitespace is not automatically customer value. Distinctiveness and differentiation are related but not interchangeable.
+
+## Brand identity / visual systems
+
+Use only when a **persistent or reusable brand-identifying visual cue, asset relationship, preserve/evolve/replace choice, or identity-system commitment** remains materially open and specialist identity knowledge can change the current decision.
+
+Do **not** activate this path merely because a task mentions `logo`, `branding`, `font`, `color`, `favicon`, `SVG`, `image`, `icon`, or `design`. If identity state is fixed and only mechanical production or application-specific execution remains, stop this path and use ordinary design/tool execution or the relevant downstream owner.
+
+When Brand Identity knowledge can change the decision, use the `brand-identity` namespace and enter the smallest exact route; `brand-identity.core` is not a mandatory hop:
+
+```text
+preserve / evolve / replace, existing learned equity,
+plausible-but-unmeasured equity, candidate difference,
+or category / competitor cue overlap
+→ brand-identity.equity
+
+genuinely different visual hypotheses remain open
+→ brand-identity.exploration
+
+selected identity/family is fixed but an identifying-cue form decision remains open
+→ brand-identity.refinement
+
+misreading, misattribution, deployment failure,
+formal perceptual estimand, or scoped candidate-screening question
+→ brand-identity.evaluation
+
+verified master / variant relationship / persistent identity-system commitment
+→ brand-identity.system
+
+activation / owner boundary uncertainty
+→ brand-identity.core or brand-identity.handoffs
+
+consequential retained identity state
+→ brand-identity.decision-record
+
+anti-folklore or evidence-status check
+→ brand-identity.invariants
+```
+
+Preserve these boundaries:
+
+```text
+UNMEASURED EQUITY != ZERO != PROVEN
+CANDIDATE VISUAL DIFFERENCE != LEARNED BRAND-MEMORY STRENGTH != LEGAL CLEARANCE
+OBSERVED CATEGORY / COMPETITOR CUE OVERLAP != MEASURED BUYER-MEMORY COMPETITION
+IDENTITY STEWARDSHIP != GENERAL DESIGN EXECUTION
+```
+
+Use Chapter 03 first only when positioning inputs are genuinely unresolved and can change the identity decision. Use Chapter 04 only when wording, message, claim, proof, or another verbal communication decision is open. When a formal target-buyer perceptual claim is required, Brand Identity defines the decision-relevant estimand or failure condition, while Chapter 00/01 owns research method, sampling, measurement validity, and population inference; use Chapter 05 only when experiment design or causal inference is genuinely required. Direct deterministic observations do not require formal research machinery merely because they concern a visual asset.
+
+Chapter 07 remains the localization owner: a new country or language alone does not reopen a resolved visual identity. Chapter 11 owns landing-page visual allocation after identity state is fixed; other downstream owners or ordinary tools own application-specific layout, UI styling, illustration, routine export, resizing, or production cleanup. Legal/trademark judgment remains an authoritative external dependency; a scoped search can surface possible conflicts or incomplete scope but must not become `trademark safe` or guaranteed registrability.
 
 ## Commercial design / pricing
 
