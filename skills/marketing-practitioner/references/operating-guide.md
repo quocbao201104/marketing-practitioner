@@ -607,7 +607,7 @@ Retain the prior belief, decision context, result, interpretation, scope, contra
 
 # State handoffs
 
-Do not automatically carry every detail from one stage into the next.
+Use the core's [multi-step continuity guidance](../SKILL.md#keeping-multi-step-work-coherent) to update affected decisions and artifacts when inputs change or work resumes. The sections below specify what each domain handoff needs; do not automatically carry every detail from one stage into the next.
 
 ## Research → strategy
 
