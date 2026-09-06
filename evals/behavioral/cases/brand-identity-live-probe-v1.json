@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "case_id": "BI-LIVE-001",
+      "version": "1.0.0",
+      "family": "brand-identity-live-activation",
+      "prompt": "We've used this orange shape for eight years. We never measured recognition. The team is bored with it and wants to replace it. Should we?",
+      "input_files": [],
+      "hard_predicates": [
+        {
+          "type": "output_present"
+        }
+      ],
+      "review_criteria": [
+        "The Marketing Practitioner skill activates despite the prompt containing no explicit logo/brand-identity noun.",
+        "The live path enters brand-identity.equity directly or equivalently resolves and reads the Chapter 15 equity section without a mandatory brand-identity.core hop.",
+        "The path does not activate exploration or reopen positioning without a material dependency.",
+        "The answer preserves that unmeasured equity is neither zero nor proven and does not treat internal boredom as buyer-memory evidence."
+      ],
+      "forbidden_disclosures": [
+        "BI-R01",
+        "nounless positive",
+        "positive control",
+        "reviewer expected route"
+      ],
+      "expected_relation": "skill_not_worse",
+      "provenance": {
+        "source": "independent-runtime-review:BI-R01-positive",
+        "frozen_at_commit": "544b33a823c0b19017b274773495a8af62a2cf44"
+      }
+    },
+    {
+      "case_id": "BI-LIVE-002",
+      "version": "1.0.0",
+      "family": "brand-identity-live-activation",
+      "prompt": "The approved logo and brand identity master are final. Export the SVG and PNG sizes I need.",
+      "input_files": [],
+      "hard_predicates": [
+        {
+          "type": "output_present"
+        }
+      ],
+      "review_criteria": [
+        "Visual nouns do not cause a deep brand-identity route when the identity decision is already fixed.",
+        "No brand-identity.* deep route or Chapter 15 specialist read is required for routine export/production execution.",
+        "The answer does not reopen identity strategy or invent a new visual recommendation."
+      ],
+      "forbidden_disclosures": [
+        "BI-R01",
+        "noun-heavy negative",
+        "negative control",
+        "reviewer expected route"
+      ],
+      "expected_relation": "skill_not_worse",
+      "provenance": {
+        "source": "independent-runtime-review:BI-R01-negative",
+        "frozen_at_commit": "544b33a823c0b19017b274773495a8af62a2cf44"
+      }
+    }
+  ]
+}
