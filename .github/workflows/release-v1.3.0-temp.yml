@@ -10,7 +10,6 @@ permissions:
 
 jobs:
   prepare-release:
-    if: github.actor != 'github-actions[bot]'
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
