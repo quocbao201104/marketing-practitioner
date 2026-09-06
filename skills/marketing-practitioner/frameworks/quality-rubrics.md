@@ -1,6 +1,20 @@
 # Quality Rubrics
 
-The rubrics provide review criteria rather than numerical scoring systems. A reviewer may use them as checklists or as the basis for a locally calibrated evaluation process.
+These rubrics are qualitative review aids, not validated numerical scoring systems. They help make a judgment explainable; they do not establish audience response or marketing effectiveness.
+
+## Apply criteria to the actual deliverable
+
+Before using any section, identify the requested job and the status of the work:
+
+- **Exploratory candidate:** judge whether it makes an open choice inspectable under explicit assumptions and fixed constraints. Unsettled strategy or unfinished production is not automatically a defect; fabricated facts, hidden assumptions, or an unusable comparison still are.
+- **Selected or final artifact:** judge whether the inputs needed for its intended use are sufficiently resolved, its meaning is supported, and it completes the recipient's communication or decision task.
+- **Observed result or retained learning:** judge what the actual evidence supports, not what a proposal promised or what the reviewer prefers.
+
+This distinction governs all sections below, including positioning and message review. Apply only criteria relevant to the present job. A candidate may state what proof would be needed; it may not present that missing proof as existing evidence.
+
+Treat truth, ethical choice, and explicit task constraints as requirements. Within those boundaries, compare contextual qualities such as clarity, explanatory depth, voice, originality, and information density as trade-offs. A strong quality in one dimension does not excuse fabrication or an unauthorized change to fixed meaning. Familiarity is not a defect when it serves the job; novelty is not a universal requirement.
+
+A useful review identifies the specific issue, its consequence for the reader or decision, and the smallest relevant correction. When asked to choose, explain the decisive reasons for the recommendation and any material unresolved trade-off. Do not reward extra reads, checklist coverage, length, process narration, or number of options as evidence of quality. Keep the review internal unless it is requested or the recipient needs it.
 
 ---
 
@@ -90,17 +104,19 @@ The rubrics provide review criteria rather than numerical scoring systems. A rev
 
 ### Action
 
-- Does the CTA represent the appropriate next step rather than an arbitrary conversion target?
+- When an action is appropriate, does it represent the right next step rather than an arbitrary conversion target?
+- When the job requires understanding, a reply, voluntary participation, or no action, does the ending preserve that interaction instead of adding a generic CTA?
 
 ---
 
 ## 4. Copy Quality Rubric
 
-Review in this order.
+Review the applicable dimensions below after identifying whether this is exploratory or final work.
 
 ### Strategic correctness
 
-- Does the copy express the intended positioning and message?
+- For final communication, does the copy express the sufficiently resolved positioning and message?
+- For exploratory copy, does it faithfully express the candidate assumptions while preserving fixed facts and claim boundaries?
 - Has prose introduced claims that strategy or evidence did not authorize?
 
 ### Relevance
@@ -129,7 +145,7 @@ Review in this order.
 
 ### AI-pattern audit
 
-Check for significance inflation, vague attribution, filler analysis, forced triads, synonym cycling, abstract aphorisms, repetitive punchline rhythm, fake candor, excessive formatting, and generic conclusions.
+Check for significance inflation, vague attribution, filler analysis, forced triads, synonym cycling, abstract aphorisms, repetitive punchline rhythm, fake candor, excessive formatting, and generic conclusions when they harm the current artifact. These are contextual signals, not word or punctuation bans. Preserve supported meaning and deliberate author voice when revising.
 
 ---
 
@@ -216,3 +232,74 @@ Check for significance inflation, vague attribution, filler analysis, forced tri
 - Are defaults defensible from the user's interest rather than only the firm's conversion objective?
 - Is uncertainty disclosed when it would materially affect choice?
 - Does optimization preserve qualified outcomes, trust, and downstream welfare rather than only immediate action?
+
+
+---
+
+## 9. Creative Exploration and Candidate Selection
+
+Use for requested concept exploration or comparison of creative candidates. For a fixed-strategy wording task, evaluate expression variants within that strategy; do not demand a new positioning for each version.
+
+### Fit to the open choice
+
+- Does each candidate address the actual reader, situation, and communication job under the stated constraints?
+- Does it make the intended strategic or expressive choice concrete enough to inspect?
+- Is candidate status clear to the person selecting the direction, without leaking planning notes into audience-facing copy?
+
+### Meaningful variation
+
+- When different directions are requested, do the candidates differ in a consequential idea, value angle, explanation, proof emphasis, framing, or visual relationship rather than only synonyms?
+- When wording variants are requested, do they explore useful differences in expression while preserving fixed meaning?
+- Are the differences relevant to the current job, rather than novelty introduced for its own sake?
+
+### Specificity and communicative purpose
+
+- Is there a concrete supported idea, example, image, or contrast that makes the intended meaning identifiable?
+- Does an analogy clarify the object without implying unsupported capabilities or outcomes?
+- Does a distinctive choice help express the intended meaning, or merely add decoration or surprise?
+
+These questions concern inspectable properties and plausible communication mechanisms. They do not establish measured recall, conversion, learned brand recognition, or causal response. Use the appropriate specialist evidence standard for those claims.
+
+### Comparison and selection
+
+- Are candidates compared on the same task-relevant criteria, without treating finish or visual polish as a substitute for conceptual fit?
+- Does the recommendation identify what is gained, what is sacrificed, and why that trade-off fits the brief?
+- Is an unresolved preference or evidence gap distinguished from a demonstrated defect?
+- When selection is delegated, does the review make a useful choice within scope instead of returning an unprioritized list? When a choice is not defensible, does it identify the distinction that remains unresolved?
+
+### Appropriate development
+
+- Is the candidate developed enough for the decision being made, without requiring a full production system to assess an early direction?
+- Does the proposed next refinement address a specific weakness while preserving what was selected?
+- Does the review avoid reopening fixed strategy, inventing proof, or demanding a fixed number of concepts or revision rounds?
+
+---
+
+## 10. Completion and Decision Usefulness
+
+Use when an artifact can be technically correct yet fail the requested job.
+
+### Requested result
+
+- Does the output supply the requested artifact, answer, adaptation, or recommendation, including each explicitly requested component?
+- Does it answer at the requested level of detail, rather than substituting a framework, caveat list, or account of work performed?
+- Is any unfinished portion identified precisely enough for the user to understand its effect?
+
+### Reader understanding and interaction
+
+- Can the intended reader identify what is being discussed and understand enough supported capability or value to judge relevance?
+- Does each included detail perform a useful communication function? Has compression removed an essential actor, beneficiary, qualification, responsibility, or relationship?
+- Is the intended action, participation, or no-action state clear, with a natural ending or handoff for this touchpoint?
+- Does a linked artifact carry deeper detail rather than the minimum understanding needed here?
+
+### Useful judgment
+
+- When a decision is requested, are feasible options assessed against the actual objective and constraints?
+- Are the decisive reasons, relevant trade-offs, and conditions that could change the recommendation clear?
+- Does uncertainty lead to a useful bounded answer, discriminating check, or justified deferral rather than unsupported certainty or indefinite investigation?
+- Does the answer preserve the difference between selecting a reasonable action and proving its effect?
+
+### Proportionate review
+
+- Does the correction improve this job without adding an unrelated strategy exercise or mandatory process?
+- Has the work reached an appropriate completion point, rather than accumulating variants, caveats, or polish that do not change its usefulness?
