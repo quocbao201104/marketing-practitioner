@@ -5,16 +5,11 @@ on:
     branches:
       - main
 
-permissions:
-  contents: write
-
 jobs:
   prepare-release:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
@@ -114,13 +109,11 @@ jobs:
         shell: powershell
         run: .\scripts\verify.ps1
 
-      - name: Commit release preparation to main and remove temporary workflow
-        shell: powershell
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git rm .github/workflows/release-v1.3.0-temp.yml
-          git add CHANGELOG.md README.md .github/ISSUE_TEMPLATE/behavior-report.yml skills/marketing-practitioner/SKILL.md
-          git diff --cached --check
-          git commit -m "release: prepare v1.3.0 brand identity and visual systems"
-          git push origin HEAD:main
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v1.3.0-prepared-files
+          path: |
+            CHANGELOG.md
+            README.md
+            .github/ISSUE_TEMPLATE/behavior-report.yml
+            skills/marketing-practitioner/SKILL.md
