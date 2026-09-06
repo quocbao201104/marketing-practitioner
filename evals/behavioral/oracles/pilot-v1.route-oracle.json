@@ -1,0 +1,247 @@
+{
+  "schema_version": 1,
+  "corpus_id": "pilot-v1",
+  "description": "Sidecar walker oracle for the frozen 12-case pilot. Not part of case contracts, hard predicates, or blind packets. Specs name skill-graph nodes the current-skill arm should or should not load.",
+  "cases": {
+    "BEH-FAST-001@1.0.0": {
+      "walk": "fast_path",
+      "must_load": [],
+      "must_not_load": [
+        "content",
+        "instagram",
+        "handbook/",
+        "platforms/"
+      ],
+      "may_load": [
+        "SKILL.md",
+        "routing-index.json"
+      ],
+      "handoff": []
+    },
+    "BEH-FAST-002@1.0.0": {
+      "walk": "fast_path",
+      "must_load": [],
+      "must_not_load": [
+        "discovery",
+        "handbook/",
+        "platforms/"
+      ],
+      "may_load": [
+        "SKILL.md",
+        "routing-index.json"
+      ],
+      "handoff": []
+    },
+    "BEH-STATE-001@1.0.0": {
+      "walk": "jit",
+      "must_load": [
+        [
+          "landing-page",
+          "handbook/11-landing-page-architecture.md"
+        ]
+      ],
+      "must_not_load": [
+        "commercial-design",
+        "handbook/10-commercial-design-pricing-and-terms.md"
+      ],
+      "may_load": [
+        "SKILL.md",
+        "routing-index.json",
+        "scripts/get-knowledge.py",
+        "landing-page"
+      ],
+      "handoff": []
+    },
+    "BEH-EVID-001@1.0.0": {
+      "walk": "jit",
+      "must_load": [
+        [
+          "customer-research",
+          "handbook/01-customer-research-and-evidence.md"
+        ]
+      ],
+      "must_not_load": [
+        "platforms/"
+      ],
+      "may_load": [
+        "SKILL.md",
+        "routing-index.json",
+        "scripts/get-knowledge.py",
+        "customer-research",
+        "foundations"
+      ],
+      "handoff": []
+    },
+    "BEH-CAUSE-001@1.0.0": {
+      "walk": "jit",
+      "must_load": [
+        [
+          "diagnosis",
+          "handbook/05-diagnosis-causality-and-experimentation.md"
+        ]
+      ],
+      "must_not_load": [
+        "tiktok",
+        "platforms/tiktok.md"
+      ],
+      "may_load": [
+        "SKILL.md",
+        "routing-index.json",
+        "scripts/get-knowledge.py",
+        "diagnosis",
+        "paid-media",
+        "content"
+      ],
+      "handoff": []
+    },
+    "BEH-DISC-001@1.0.0": {
+      "walk": "jit",
+      "must_load": [
+        [
+          "discovery.availability",
+          "discovery",
+          "handbook/13-search-and-discovery-architecture.md"
+        ]
+      ],
+      "must_not_load": [
+        "platforms/"
+      ],
+      "may_load": [
+        "SKILL.md",
+        "routing-index.json",
+        "scripts/get-knowledge.py",
+        "discovery"
+      ],
+      "handoff": []
+    },
+    "BEH-COM-001@1.0.0": {
+      "walk": "jit",
+      "must_load": [
+        [
+          "commerce.commercial-state",
+          "commerce",
+          "shopee.commercial-state",
+          "shopee",
+          "handbook/09-commerce-environments-and-product-discovery.md",
+          "platforms/commerce/shopee.md"
+        ]
+      ],
+      "must_not_load": [
+        "commercial-design",
+        "handbook/10-commercial-design-pricing-and-terms.md"
+      ],
+      "may_load": [
+        "SKILL.md",
+        "routing-index.json",
+        "scripts/get-knowledge.py",
+        "commerce",
+        "shopee"
+      ],
+      "handoff": []
+    },
+    "BEH-EMAIL-001@1.0.0": {
+      "walk": "jit",
+      "must_load": [
+        [
+          "email.observation",
+          "email",
+          "handbook/12-email-communication-architecture.md"
+        ]
+      ],
+      "must_not_load": [
+        "platforms/"
+      ],
+      "may_load": [
+        "SKILL.md",
+        "routing-index.json",
+        "scripts/get-knowledge.py",
+        "email",
+        "diagnosis"
+      ],
+      "handoff": []
+    },
+    "BEH-PAID-001@1.0.0": {
+      "walk": "jit",
+      "must_load": [
+        [
+          "paid-media.observation",
+          "paid-media",
+          "handbook/14-paid-media-architecture.md"
+        ]
+      ],
+      "must_not_load": [
+        "platforms/"
+      ],
+      "may_load": [
+        "SKILL.md",
+        "routing-index.json",
+        "scripts/get-knowledge.py",
+        "paid-media"
+      ],
+      "handoff": []
+    },
+    "BEH-PAID-002@1.0.0": {
+      "walk": "jit",
+      "must_load": [
+        [
+          "paid-media.allocation",
+          "paid-media",
+          "handbook/14-paid-media-architecture.md"
+        ]
+      ],
+      "must_not_load": [
+        "platforms/"
+      ],
+      "may_load": [
+        "SKILL.md",
+        "routing-index.json",
+        "scripts/get-knowledge.py",
+        "paid-media"
+      ],
+      "handoff": []
+    },
+    "BEH-PAID-003@1.0.0": {
+      "walk": "jit",
+      "must_load": [
+        [
+          "paid-media.observation",
+          "paid-media",
+          "handbook/14-paid-media-architecture.md",
+          "diagnosis",
+          "handbook/05-diagnosis-causality-and-experimentation.md"
+        ]
+      ],
+      "must_not_load": [
+        "platforms/"
+      ],
+      "may_load": [
+        "SKILL.md",
+        "routing-index.json",
+        "scripts/get-knowledge.py",
+        "paid-media",
+        "diagnosis"
+      ],
+      "handoff": []
+    },
+    "BEH-PAID-004@1.0.0": {
+      "walk": "jit",
+      "must_load": [
+        [
+          "paid-media.observation",
+          "paid-media",
+          "handbook/14-paid-media-architecture.md"
+        ]
+      ],
+      "must_not_load": [
+        "platforms/"
+      ],
+      "may_load": [
+        "SKILL.md",
+        "routing-index.json",
+        "scripts/get-knowledge.py",
+        "paid-media"
+      ],
+      "handoff": []
+    }
+  }
+}

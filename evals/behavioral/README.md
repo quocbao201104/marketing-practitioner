@@ -46,6 +46,8 @@ python -B -m evals.behavioral.behavioral_eval.cli run --adapter codex-cli --prof
 
 Every case/profile/repetition runs in a fresh temporary Git workspace. The baseline workspace contains no `marketing-practitioner` skill. The skill arm copies the repository skill to `.agents/skills/marketing-practitioner` and binds its tree hash before execution. Existing result directories are never overwritten.
 
+Each sealed manifest declares the execution regime as `host-realistic/workspace-isolated`, not hermetic. It records the historical Codex CLI flags and read-only sandbox, categorical inherited host scope, and observed executor versions when available. `--ignore-user-config` suppresses `config.toml`; it does not assert rules isolation. Visibility of user/admin/system/plugin skill metadata and rules remains explicitly `unverified` because the harness does not use `--ignore-rules` or redirect host home/Codex directories.
+
 Review `blind-packets.json` without opening the manifest or run records. Save judgments as:
 
 ```json
@@ -65,3 +67,14 @@ python -B -m evals.behavioral.behavioral_eval.cli report --results evals\behavio
 ```
 
 Generated result bundles are ignored by Git. Preserve only redacted aggregate evidence that has been deliberately audited for release.
+
+## Reconstruct skill-graph walks
+
+Sealed `raw_events` can be replayed against a sidecar route oracle. The oracle is not part of the case schema and is never copied into blind packets. The trace answers which skill nodes were read; it is not an answer-quality score.
+
+```powershell
+python -B -m evals.behavioral.behavioral_eval.cli trace --results evals\behavioral\results\pilot-v1 --oracle evals\behavioral\oracles\pilot-v1.route-oracle.json --output evals\behavioral\results\pilot-v1-walk-trace.json --markdown evals\behavioral\reports\pilot-v1-walk-trace.md
+```
+
+Use local sealed results when they exist. Do not treat this reconstruction as a reason to edit handbook nodes unless the walk shows the required node was loaded and behavior was still wrong.
+

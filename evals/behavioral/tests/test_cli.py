@@ -103,6 +103,43 @@ class CliTests(unittest.TestCase):
         blind_index = json.loads((results / "blind-index.json").read_text(encoding="utf-8"))
         packets = json.loads((results / "blind-packets.json").read_text(encoding="utf-8"))
         self.assertTrue(manifest["sealed"])
+        self.assertEqual(
+            {
+                "label": "host-realistic/workspace-isolated",
+                "classification": "not-hermetic",
+                "workspace": {
+                    "isolation": "fresh-git-directory-per-run",
+                    "case_inputs": "case-only",
+                    "baseline_skill_presence": "absent",
+                    "skill_arm": {
+                        "destination": ".agents/skills/marketing-practitioner",
+                        "integrity": "tree-sha256",
+                        "mode": "workspace-copy-only",
+                    },
+                },
+                "historical_default_codex_cli": {
+                    "material_flags": [
+                        "--json",
+                        "--ephemeral",
+                        "--ignore-user-config",
+                        "--sandbox=read-only",
+                        "--cd=<run-workspace>",
+                    ],
+                    "host_environment": {
+                        "status": "inherited",
+                        "categories": ["home-profile", "codex-home"],
+                    },
+                    "config_toml": "suppressed-by-ignore-user-config",
+                },
+                "rules_isolation": {
+                    "status": "unverified",
+                    "ignore_rules": "not-used",
+                    "host_skill_metadata": "unverified",
+                },
+            },
+            manifest["execution_regime"],
+        )
+        self.assertEqual(["fixture-v1"], manifest["executor_versions"])
         self.assertEqual(1, len(records["runs"]))
         self.assertEqual(1, len(blind_index["bindings"]))
         self.assertEqual(

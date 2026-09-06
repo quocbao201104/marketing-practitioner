@@ -18,8 +18,18 @@ from .fixture import FixtureAdapter
 from .models import ArmProfile, RunRecord, RunState, ValidationError
 from .report import build_report
 from .runner import run_condition
+from .trace import (
+    _judgment_map,
+    build_trace_report,
+    load_namespace_index,
+    load_oracle,
+    render_markdown,
+)
 from .validation import load_cases, load_profiles
 from .workspace import WorkspaceError, build_run_workspace, hash_tree
+
+DEFAULT_ORACLE = Path("evals/behavioral/oracles/pilot-v1.route-oracle.json")
+DEFAULT_SKILL = Path("skills/marketing-practitioner")
 
 
 DEFAULT_CASES = Path("evals/behavioral/cases/pilot-v1.json")
@@ -119,6 +129,42 @@ def _profile_binding(
         "skill_mode": profile.skill_mode,
         "skill_sha256": skill_hash,
         "repetitions": repetitions or profile.repetitions,
+    }
+
+
+def _execution_regime() -> dict:
+    return {
+        "label": "host-realistic/workspace-isolated",
+        "classification": "not-hermetic",
+        "workspace": {
+            "isolation": "fresh-git-directory-per-run",
+            "case_inputs": "case-only",
+            "baseline_skill_presence": "absent",
+            "skill_arm": {
+                "destination": ".agents/skills/marketing-practitioner",
+                "integrity": "tree-sha256",
+                "mode": "workspace-copy-only",
+            },
+        },
+        "historical_default_codex_cli": {
+            "material_flags": [
+                "--json",
+                "--ephemeral",
+                "--ignore-user-config",
+                "--sandbox=read-only",
+                "--cd=<run-workspace>",
+            ],
+            "host_environment": {
+                "status": "inherited",
+                "categories": ["home-profile", "codex-home"],
+            },
+            "config_toml": "suppressed-by-ignore-user-config",
+        },
+        "rules_isolation": {
+            "status": "unverified",
+            "ignore_rules": "not-used",
+            "host_skill_metadata": "unverified",
+        },
     }
 
 
@@ -224,6 +270,14 @@ def _run(args: argparse.Namespace) -> int:
             "schema_version": 1,
             "sealed": True,
             "adapter": args.adapter,
+            "execution_regime": _execution_regime(),
+            "executor_versions": sorted(
+                {
+                    record.executor_version
+                    for record in records
+                    if record.executor_version is not None
+                }
+            ),
             "case_identities": [case.identity for case in cases],
             "profiles": [
                 _profile_binding(
@@ -294,6 +348,44 @@ def _report(args: argparse.Namespace) -> int:
     return 0
 
 
+def _trace(args: argparse.Namespace) -> int:
+    results_dir = Path(args.results)
+    records_path = results_dir / "run-records.json"
+    if not records_path.is_file():
+        raise ValidationError(f"run-records.json not found: {records_path.resolve()}")
+    oracle = load_oracle(Path(args.oracle))
+    document = json.loads(records_path.read_text(encoding="utf-8"))
+    runs = [_record_from_dict(item) for item in document["runs"]]
+    namespaces = load_namespace_index(Path(args.skill_root))
+    report = build_trace_report(
+        runs,
+        oracle,
+        namespaces,
+        judgments=_judgment_map(results_dir),
+        results_id=results_dir.name,
+    )
+    if args.output:
+        output = Path(args.output)
+        if output.exists():
+            raise ValidationError(f"refusing to overwrite report: {output.resolve()}")
+        output.parent.mkdir(parents=True, exist_ok=True)
+        _write_json_fsynced(output, report)
+    if args.markdown:
+        markdown_path = Path(args.markdown)
+        if markdown_path.exists():
+            raise ValidationError(
+                f"refusing to overwrite report: {markdown_path.resolve()}"
+            )
+        markdown_path.parent.mkdir(parents=True, exist_ok=True)
+        markdown_path.write_text(render_markdown(report), encoding="utf-8", newline="\n")
+    print(
+        "PASS: reconstructed "
+        f"{report['skill_run_count']} skill-arm walks; "
+        f"primary={report['primary_counts']}"
+    )
+    return 0
+
+
 def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Behavioral evaluation harness")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -320,6 +412,17 @@ def _parser() -> argparse.ArgumentParser:
     report.add_argument("--judgments", type=Path)
     report.add_argument("--output", type=Path, required=True)
     report.set_defaults(handler=_report)
+
+    trace = subparsers.add_parser(
+        "trace",
+        help="reconstruct skill-graph walks from sealed raw_events",
+    )
+    trace.add_argument("--results", type=Path, required=True)
+    trace.add_argument("--oracle", type=Path, default=DEFAULT_ORACLE)
+    trace.add_argument("--skill-root", type=Path, default=DEFAULT_SKILL)
+    trace.add_argument("--output", type=Path)
+    trace.add_argument("--markdown", type=Path)
+    trace.set_defaults(handler=_trace)
     return parser
 
 
