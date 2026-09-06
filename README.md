@@ -5,7 +5,7 @@
 # Marketing Practitioner
 
 **Decision-first marketing for AI agents.**  
-Know what to resolve, what to preserve, and what evidence can actually change the answer.
+Research customers. Make supported choices. Turn them into useful marketing work.
 
 [![Version: v1.3.0](https://img.shields.io/badge/version-v1.3.0-0a7.svg)](#status-and-scope)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
@@ -13,28 +13,31 @@ Know what to resolve, what to preserve, and what evidence can actually change th
 [![Format: Agent Skill](https://img.shields.io/badge/format-Agent%20Skill-6f42c1.svg)](skills/marketing-practitioner/SKILL.md)
 [![skills.sh](https://skills.sh/b/quocbao201104/marketing-practitioner)](https://skills.sh/quocbao201104/marketing-practitioner)
 
-**[Quick start](#quick-start) · [Why it exists](#why-it-exists) · [How it works](#how-it-works) · [Host compatibility](#host-compatibility) · [Research](#research-and-verification) · [Contributing](#contributing)**
+**[What you can do](#what-you-can-do) · [Quick start](#quick-start) · [How it works](#how-it-works) · [Research](#research-and-verification) · [Contributing](#contributing)**
 
-<sub><strong>Evidence → Open decision → JIT knowledge → Minimum useful output</strong></sub>
+<sub><strong>Customer evidence · Strategy · Communication · Diagnosis · Learning</strong></sub>
 
 </div>
 
 ---
 
-> Marketing agents are already fluent. The harder problem is knowing **what not to reopen**, **what evidence is enough**, and **which knowledge is actually relevant now**.
+Marketing Practitioner gives AI agents a shared foundation for customer research, positioning, commercial choices, communication, distribution, and result interpretation. Use it to turn interviews into a grounded account, compare positioning options, write a page from an adopted strategy, or investigate a performance change before choosing an intervention.
 
-Marketing Practitioner is an installable Agent Skill for marketing work that needs stronger decision discipline: research, diagnosis, positioning, brand identity, commercial design, writing, platform adaptation, commerce, paid delivery, localization, testing, and learning — without treating all of those as one giant workflow.
+The skill connects those jobs when the work requires it. A simple rewrite can stay simple; a larger assignment can carry evidence, selected choices, and remaining questions from research through to the requested artifacts.
 
-<table>
-<tr>
-<td width="50%" valign="top"><strong>Preserve state</strong><br><br>Approved decisions stay settled unless the current job exposes a real contradiction or gap.</td>
-<td width="50%" valign="top"><strong>Bound claims</strong><br><br>Copy, diagnosis, and recommendations stay inside the evidence actually available.</td>
-</tr>
-<tr>
-<td width="50%" valign="top"><strong>Route selectively</strong><br><br>Knowledge is loaded by decision dependency, not because a platform or artifact was named.</td>
-<td width="50%" valign="top"><strong>Learn carefully</strong><br><br>Results retain what they proved — without silently upgrading attribution into causality.</td>
-</tr>
-</table>
+## What you can do
+
+| Bring a task | Work toward a useful result |
+| --- | --- |
+| Understand customers or a market | A scoped synthesis of needs, alternatives, barriers, and conflicting evidence |
+| Choose an audience, position, or commercial approach | Comparable options and a supported recommendation, with material trade-offs |
+| Explore or refine brand identity | Distinct visual directions or a focused refinement that preserves selected identity |
+| Write or critique marketing communication | Copy, landing-page content, or email that expresses the strategy and matches the available proof |
+| Adapt content or product information | Representations suited to the platform, shopper, or local context, with supported meaning intact |
+| Investigate search, paid-media, or commerce performance | What the observations establish, plausible explanations, and a useful next check |
+| Plan a test or learn from results | A decision-linked comparison or a reusable finding with its evidence limits |
+
+These are supported work areas, not guarantees of marketing performance. The agent's model, available evidence, and execution tools still matter.
 
 ## Quick start
 
@@ -42,17 +45,18 @@ Marketing Practitioner is an installable Agent Skill for marketing work that nee
 npx skills add quocbao201104/marketing-practitioner
 ```
 
-Then give the agent three things:
+Start with an ordinary request. Include these when available:
 
 1. what you need done **now**;
-2. the facts, evidence, and already-approved decisions you have;
+2. the facts, evidence, adopted choices, and proposals you want reviewed;
 3. where the result will be used, if that changes the answer.
 
 ```text
 Use Marketing Practitioner.
-The positioning below is approved. Do not reopen it.
-Write a LinkedIn post for people who already follow the company.
-Do not add product claims that are not in the facts.
+Using the attached product facts and approved positioning,
+write a landing-page outline and a launch email.
+Keep the price and product claims fixed.
+Make each artifact useful for its own reader and next action.
 ```
 
 No internal vocabulary is required. “Help me decide which customer group to focus on” is enough; you do not have to say ICP. The optional [Task Specification Guide](TASK-SPECIFICATION-GUIDE.md) can compile rough notes into a smaller spec without inventing missing facts.
@@ -69,7 +73,7 @@ The governing runtime contract is [`skills/marketing-practitioner/SKILL.md`](ski
 
 A fluent answer can still be the wrong marketing action.
 
-| Common agent failure | What this skill does instead |
+| Failure to avoid | Design response |
 | --- | --- |
 | Invent a plausible product claim | Keep claims inside supplied or supported evidence |
 | Treat a handful of interviews as market prevalence | Separate qualitative recurrence from population claims |
@@ -78,7 +82,7 @@ A fluent answer can still be the wrong marketing action.
 | Reopen approved positioning while writing copy | Freeze resolved state unless it becomes contradictory, stale, or insufficient |
 | Turn attribution into causality | Preserve what a result did — and did not — prove |
 
-The distinctions the runtime is designed to preserve are deliberately explicit:
+The core keeps distinctions that change marketing decisions:
 
 ```text
 observation ≠ interpretation ≠ hypothesis ≠ decision
@@ -99,13 +103,18 @@ The skill starts from the current job, not from a predefined marketing funnel.
 
 ```mermaid
 flowchart LR
-    A[Task] --> B[Classify current job]
-    B --> C[Freeze resolved state]
-    C --> D[Name open decision]
-    D --> E[Use decision-relevant evidence]
-    E --> F[Load smallest useful knowledge route]
-    F --> G[Return minimum useful output]
+    A[Request and supplied context] --> B[Identify remaining work]
+    B --> C{Specialist guidance needed?}
+    C -->|No| E[Do the requested work]
+    C -->|Yes| D[Read the relevant section]
+    D --> E
+    E --> F[Check claims, fit, and completion]
+    F --> G[Return useful outputs]
 ```
+
+Reads serve a remaining question; they are not completion by themselves. When evidence is missing, the agent is instructed to retrieve it, ask a material question, or give a useful bounded result.
+
+For work spanning several steps, the core keeps track of requested outputs, adopted choices, unresolved dependencies, and evidence limits. A changed request updates the affected work; paused work retains its status for resumption when the host preserves that context.
 
 Seven runtime jobs are recognized:
 
@@ -113,28 +122,15 @@ Seven runtime jobs are recognized:
 
 A topic, artifact type, or platform name is not a job. A caption with an approved message stays a writing task. A price already fixed at `$29` stays frozen while the page is written. Paying a creator to publish is not automatically paid media. A CPA rise after a bidding change starts as diagnosis, not as a creative rewrite.
 
-### What it can help with
-
-| Decision and research | Expression and adaptation | Distribution and learning |
-| --- | --- | --- |
-| Customer evidence<br>Audience prioritization<br>Positioning<br>Brand identity / visual systems<br>Commercial design<br>Offer reasoning | Copy and critique<br>Landing pages<br>Email<br>Platform adaptation<br>Scoped localization | Search and discovery<br>Paid media<br>Commerce listings<br>Testing<br>Result interpretation |
-
-Specialist knowledge is loaded only when a concrete decision needs it. The [handbook map](skills/marketing-practitioner/handbook/README.md), [platform modules](skills/marketing-practitioner/platforms/README.md), and [`adaptations/`](skills/marketing-practitioner/adaptations/) are navigation surfaces, not a required reading sequence.
+Specialist knowledge is loaded only when it can change the current result. The [handbook map](skills/marketing-practitioner/handbook/README.md), [platform modules](skills/marketing-practitioner/platforms/README.md), and [local-adaptation resources](skills/marketing-practitioner/adaptations/) help you explore the coverage; they are not a required reading sequence.
 
 ## Host compatibility
 
-Marketing Practitioner is portable, but runtime behavior is not identical across hosts. The host decides whether the skill is discovered and loaded, how much working context survives, whether memory persists across sessions, and which files, tools, or integrations the agent can use.
+The installable package keeps its controller, knowledge, references, and helper scripts together. A compatible host needs to load the skill and give the agent an allowed way to read its files. Python helper execution is useful for exact section retrieval, but it is optional.
 
-| Host | Durable context to use |
-| --- | --- |
-| **Claude Code** | `CLAUDE.md` + auto memory |
-| **ChatGPT** | Projects, project files/instructions, and project memory |
-| **Cursor** | Project Rules or `AGENTS.md`; keep reusable context in version-controlled rules |
-| **Codex** | `AGENTS.md` / repository instructions and checked-in project state |
+The host controls skill activation, available tools, and how much context survives between turns or sessions. Keep important facts, adopted choices, and evidence boundaries in the current task or accessible project records; persistence is not guaranteed by the skill itself.
 
-Exact availability and behavior vary by host version, plan, settings, and environment. Use the host's native persistence features when available, but do not rely on chat history alone for important facts, constraints, approved decisions, or evidence boundaries. Keep those explicit in the current task context or project files.
-
-**Host memory improves continuity; it does not replace the skill contract.** `SKILL.md` and the governed repository knowledge remain the portable source of behavior. The skill also cannot force a host to activate it: if the runtime never loads the skill, you get ordinary model behavior.
+**Instructions guide the agent; they do not supply unavailable tools or external authority.** Producing design assets, accessing private data, or acting in an external system depends on the host's capabilities and the user's authorization.
 
 ## Under the hood
 
@@ -151,7 +147,7 @@ python skills/marketing-practitioner/scripts/get-knowledge.py --source PM01
 
 If helper execution is unavailable, the same index remains the address table: read the smallest feasible section, or degrade to the smallest target file, rather than loading an entire chapter.
 
-The current index validates at **261 routes / 233 evidence sources**. Evidence files state what a source **supports** and **does not support**; those bounds are part of claim control.
+The current index validates at **264 routes / 233 evidence sources**. Evidence files state what a source **supports** and **does not support**; those bounds are part of claim control.
 
 Shared architecture expands only when a decision-relevant failure cannot be repaired locally without material distortion. Research under [`research/`](research/) keeps theory freezes, audits, and rejected expansions out of the runtime until they survive that bar.
 
@@ -159,7 +155,7 @@ Shared architecture expands only when a decision-relevant failure cannot be repa
 
 Local adaptation follows the same rule. [`adaptations/`](skills/marketing-practitioner/adaptations/) contains scoped evidence that can specialize an **already-open decision owned elsewhere**; it is not a country-profile layer, cultural encyclopedia, or precedence engine.
 
-Canonical reference units now cover three target-language realization mechanisms under the same `adapt-localization.relationship-realization` route: Vietnamese relationship-sensitive self-reference / recipient-address realization (`VN-LANG-REL-01`), Japanese honorific-target realization (`JP-LANG-HON-01`), and Japanese permission/benefit-sensitive deferential realization (`JP-LANG-PERM-01`). Each unit is independently scope-checked; language, nationality, market, customer, or culture nouns alone are not activation authority. See the [local-adaptation contribution contract](skills/marketing-practitioner/adaptations/README.md) and [reference units](skills/marketing-practitioner/adaptations/localization.md).
+Current reference units address scoped Vietnamese and Japanese wording choices where self-reference, recipient address, honorific targets, permission, or benefit can change the relationship expressed. They do not infer behavior from nationality or require a localization detour for every translated sentence. See the [contribution contract](skills/marketing-practitioner/adaptations/README.md) and [reference units](skills/marketing-practitioner/adaptations/localization.md).
 
 ## Repository map
 
@@ -187,16 +183,19 @@ The local and CI gate is:
 .\scripts\verify.ps1
 ```
 
-It validates the package with the repository validator and the installed Codex validator when discoverable, checks 68 routing mechanics and **261 routes / 233 evidence sources**, runs the Pressure Discovery and behavioral harness tests, and verifies UTF-8/generated-artifact hygiene.
+It validates the package with the repository validator and the installed Codex validator when discoverable, checks 68 routing mechanics and **264 routes / 233 evidence sources**, runs the Pressure Discovery and behavioral harness tests, and verifies UTF-8/generated-artifact hygiene.
 
-Repository evaluation is intentionally reported with its limitations:
+The recent design work has been reviewed at three connected levels:
 
-- A frozen **48-run behavioral pilot** used 12 cases, no-skill baseline vs current skill, `gpt-5.6-terra`, medium reasoning.
-- It produced eight both-pass pairs, three operationally invalid pairs, and one unresolved pair.
-- It **did not show a paired quality advantage**. Review was condition-blind but not independently human-adjudicated.
-- A controller 75% smaller than the installed one was evaluated on the same frozen cases and **not promoted** because unverified skill activation rose from 3/24 to 7/24.
+| Review | What it examines |
+| --- | --- |
+| [Task continuity](research/runtime-design-optimization/03-multi-step-task-continuity.md) | Carrying requested outputs, selected state, and material uncertainty across steps and changes |
+| [Retrieved context](research/runtime-design-optimization/04-retrieved-handbook-context.md) | Keeping scope, qualifications, and necessary dependencies inside usable handbook excerpts |
+| [Index and work chains](research/runtime-design-optimization/05-index-discovery-and-work-chains.md) | Finding relevant guidance within eight representative request-to-output chains |
 
-See the [current-skill pilot](evals/behavioral/reports/current-skill-pilot-v1.md) and [compact challenger report](evals/behavioral/reports/compact-challenger-v1.md).
+These are design reviews and static checks. They do not establish improved model behavior or marketing outcomes. Harness tests verify evaluation infrastructure; they are not live behavioral trials of the current design.
+
+The current design has not yet received live behavioral evaluation. No prior skill version's pass/fail result is used to assess it.
 
 If the skill makes a poor decision, overcomplicates a simple task, misses supplied evidence, reopens resolved state, chooses the wrong knowledge path, behaves inconsistently, or produces an unexpectedly useful result, [open a behavior report](https://github.com/quocbao201104/marketing-practitioner/issues/new?template=behavior-report.yml). Include sanitized context, expected vs observed behavior, model/runtime, skill version, and whether it reproduces.
 
@@ -204,13 +203,11 @@ If the skill makes a poor decision, overcomplicates a simple task, misses suppli
 
 Current release: **v1.3.0 — Brand Identity and Visual Systems**.
 
-v1.0.0 remains the stable core compatibility baseline: the seven jobs, resolved-state behavior, logical knowledge IDs, owner boundaries, and source/claim discipline remain compatibility-sensitive. v1.1.0 introduced the bounded scoped-local-adaptation extension contract and the Vietnamese reference unit; v1.2.0 expanded that contract with two Japanese target-language realization units while retaining the same owner and logical route. v1.3.0 adds a bounded Brand Identity / Visual Systems specialist for persistent or reusable brand-identifying visual decisions, with nine `brand-identity.*` JIT routes, a scoped evidence ledger, and an explicit stop before generic design/production execution. Naming and general brand strategy remain outside that owner.
+The package covers seven marketing jobs with specialist guidance for content, commerce, commercial design, landing pages, email, search/discovery, paid media, brand identity, and scoped localization. See [CHANGELOG.md](CHANGELOG.md) for release history.
 
-The Vietnamese reference implementation originally received `PASS_WITH_LOCAL_REPAIRS`; both bounded defects were repaired before merge. An independent post-repair review of the current integrated implementation at `f9c3a9485a989af5ee662464912912f15adffef5` later returned `PASS_POST_REPAIR`, closing the discovery and partial-pair findings and supporting `VN-LANG-REL-01` as `review_state: reviewed`. This is a static implementation/integration review, not a claim that every model or host will execute the route correctly. See the [post-repair review record](research/local-adaptation-vietnam/01-post-repair-review-result.md).
+The runtime design is still being refined. Its seven jobs, logical knowledge IDs, decision ownership, and source/claim boundaries are compatibility-sensitive. Static review records document the scope and limits of individual changes; they are not quality benchmarks across models or hosts.
 
-The Japanese implementation at frozen head `f45331410a090fe5d354616add72670e511f4373` received independent `PASS_IMPLEMENTATION`. The review found the bounded Chapter 07 discovery repair, both Japanese units, the shared route, evidence boundaries, and multi-unit composition sufficient without adding a Japan pack, new route, new owner, shared semantic-role primitive, registry, or resolver. That verdict is likewise static implementation evidence, not a Japanese-output quality benchmark.
-
-Stable does not mean complete. This is **not** a prompt pack, conversion-formula library, generic agent framework, cultural encyclopedia, or back-office automation system. It does not own product roadmap, finance, legal advice, CRM, or private platform mechanics.
+The skill supports marketing decisions and execution. Product-roadmap authority, finance, legal advice, CRM operations, and private platform mechanics remain outside its ownership.
 
 ## Contributing
 

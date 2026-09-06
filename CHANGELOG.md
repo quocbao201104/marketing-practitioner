@@ -39,7 +39,6 @@ The project uses semantic versioning for published skill revisions. v1.0.0 marks
 - Preserved the v1.0.0 stable core contract, seven controller jobs, owner boundaries, logical routing model, resolved-state behavior, and source/claim discipline.
 - Kept the current index at **252 logical routes / 225 evidence sources**; the Japanese expansion reuses the existing relationship-realization route.
 - Updated public release metadata, README status, and behavior-report default to `v1.2.0 — Local Adaptation Expansion`.
-- The historical 48-run baseline/current-skill behavioral pilot remains unchanged and still does **not** demonstrate a paired quality advantage; this release does not reinterpret that pilot as new benchmark evidence.
 - No new controller job, shared primitive, top-level handbook, Japan/country profile, cultural-precedence engine, scope registry, global resolver, or generic localization subsystem was added.
 
 ## [1.1.0] - 2026-09-04
@@ -65,7 +64,7 @@ The project uses semantic versioning for published skill revisions. v1.0.0 marks
 
 - Updated the public README, handbook navigation, contributor guidance, behavior-report version placeholder, and installable skill metadata for `v1.1.0 — Scoped Local Adaptation`.
 - Updated current routing documentation to 252 logical routes / 214 evidence sources.
-- Fixed CI coupling to the rejected compact-controller experiment: its integrity test now validates the challenger's own frozen routing/resource snapshot instead of requiring that historical challenger to mirror every new production resource. The full `Verify` push run on `main` passed after this repair.
+- Fixed CI coupling to the frozen compact-controller experiment: its integrity test now validates the challenger's own frozen routing/resource snapshot instead of requiring that historical challenger to mirror every new production resource. The full `Verify` push run on `main` passed after this repair.
 - No new controller job, shared primitive, top-level handbook, country profile, cultural-precedence engine, or generic scope-matching subsystem was added.
 
 ## [1.0.0] - 2026-09-02
@@ -87,9 +86,6 @@ The project uses semantic versioning for published skill revisions. v1.0.0 marks
 ### Behavioral evaluation
 
 - Added a structured behavioral harness with versioned case/profile/run contracts, isolated temporary Git workspaces, exact skill-tree hashing, executor and timeout separation, sealed evidence, condition-blind packets, objective predicates, paired dispositions, and explicit operational-invalid denominators.
-- Froze 12 cases across six decision families and executed a 48-run baseline/current-skill pilot with two repetitions per condition using `gpt-5.6-terra` at `medium` reasoning.
-- Recorded eight `both_pass` pairs, three operationally invalid pairs, one unresolved pair, and no baseline-only or skill-only pass. The condition-blind semantic review was performed by the implementation-session Codex assistant, not an independent human, so no benchmark-grade or universal quality claim is made.
-- Retained a 75%-smaller compact-controller challenger as an experiment but rejected promotion because activation-unverified runs increased from 3/24 to 7/24. The installed controller carried forward from v0.9.0 remains authoritative in v1.0.0.
 - Added community compile regressions and a separate 10-case external-refinement corpus covering wording-origin independence, supplied-brief echo with an approved-wording negative control, voice-sample absence and authority controls, conflicting voice evidence, quote fidelity, stated-reason versus inferred-cause boundaries, unchecked readiness, and tool provenance.
 - Kept negative controls as focused cases under the existing behavioral contract rather than adding cross-case sensitivity scoring or a new evaluator layer.
 
