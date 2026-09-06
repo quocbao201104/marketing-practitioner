@@ -1,12 +1,12 @@
 # 01 — Customer Research and Evidence
 
-## 1. Research begins with a decision requirement
+## 1. Research begins with a learning purpose
 
-Customer research is most useful when it resolves a decision-relevant uncertainty. A general desire to "understand customers" is too broad to determine method, sample, or analysis. A practical research question should identify what the team would decide differently if the answer changed.
+Customer research should answer a bounded learning question or inform a decision. When a choice is already open, identify what the team would decide differently if the answer changed. During exploration, the legitimate purpose may instead be to understand a situation, identify relevant users or barriers, or discover which questions and alternatives deserve further attention. Do not invent a segment choice or intervention merely to make that work look decision-linked.
 
-Public user-research guidance similarly emphasizes research questions, observed needs, and iterative learning rather than treating stakeholder opinion as evidence [R10][R21].
+Public user-research guidance supports research questions that begin broadly and evolve during discovery, as well as turning unsupported stakeholder assumptions into questions [R10][R21].
 
-Decision-linked research improves three forms of discipline: it narrows collection to relevant material, makes contradictory evidence more visible, and gives the synthesis a clear stopping condition.
+Bound exploration by the problem or experience of interest, the relevant source scope, and the understanding sought. Inspect enough material to refine the question rather than filtering everything through an untested initial explanation. Stop when the agreed question has a sufficiently grounded answer for its intended use, or state the evidence limit that prevents one. Neither a predetermined commercial answer nor exhaustive customer knowledge is required.
 
 ## 2. Qualitative and quantitative evidence answer different questions
 
@@ -28,9 +28,11 @@ and
 WHAT CHANGES IF WE INTERVENE
 ```
 
-## 3. Behavioral material generally outranks hypothetical preference
+## 3. Match behavior and stated preference to the question
 
-Research should prioritize accounts of actual situations, recent behavior, concrete alternatives, and observed constraints. Hypothetical preferences can be useful, but they are vulnerable to memory error, social desirability, framing, and the difficulty of predicting one's own future behavior.
+For questions about what people actually do, prioritize relevant observations and concrete accounts of situations, alternatives, and constraints over unsupported predictions of future behavior. A recalled account is still a report, not direct observation. Stated or hypothetical preferences can inform perceived meaning, desired progress, or possible alternatives; they do not by themselves establish future choice, demand, or willingness to pay in practice.
+
+Behavior is not a universal evidence hierarchy either. Observed choices depend on the options, access, resources, and constraints available at the time; they do not automatically reveal an unconstrained preference or explain why the choice occurred. Evaluate both behavioral and stated material using the question, method, and scope rather than discarding either category by default.
 
 High-value topics include:
 
@@ -124,7 +126,7 @@ A high-quality synthesis contains more than themes. It should identify:
 5. contradictions and exclusions;
 6. material unknowns;
 7. provisional hypotheses;
-8. implications for the decision that motivated the research.
+8. an answer to the learning question and implications for the decision, when one motivated the research.
 
 It should also state what the research **does not establish**. This final constraint is essential because useful research often reduces uncertainty without eliminating it.
 

@@ -82,9 +82,16 @@ Use: interviews for understanding context, experience, problems, and language; n
 
 ### [R21] UK Government Digital Service — Research Planning and Analysis
 
-UK Government Digital Service. **Plan user research for your service; Analyse a research session; Learning about users and their needs.** GOV.UK Service Manual.
+UK Government Digital Service. **Plan user research for your service; User research in discovery; Analyse a research session; Learning about users and their needs.** GOV.UK Service Manual.
 
-Use: research questions, iterative research, analysis of source material, and treatment of unsupported stakeholder opinion as assumption rather than evidence.
+Planning and discovery sources reviewed 2026-09-07:
+
+- https://www.gov.uk/service-manual/user-research/plan-user-research-for-your-service
+- https://www.gov.uk/service-manual/user-research/user-research-in-discovery
+
+Use: research questions, bounded exploratory understanding, iterative research, analysis of source material, and treatment of unsupported stakeholder opinion as assumption rather than evidence. Discovery questions can begin broadly and become more specific as understanding develops.
+
+Boundary: service-research guidance, not a universal marketing pipeline, a fixed sampling rule, or evidence that a particular agent controller is effective.
 
 ---
 

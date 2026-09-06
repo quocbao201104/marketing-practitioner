@@ -4,7 +4,7 @@
 
 Messaging determines what the market should understand before copy determines how that understanding is expressed. It translates positioning into a hierarchy of claims, proof, objections, and action. This separation matters because copy can be fluent while the underlying message remains incoherent.
 
-A message strategy should specify:
+Resolve the message inputs that can change the current communication job. For a full message-strategy decision, the relevant inputs may include:
 
 - the intended reader and situation;
 - the category frame;
@@ -90,7 +90,7 @@ A useful distinction is between **relevance evidence** and **capability evidence
 
 ## 5. Copy as an expression layer
 
-Copywriting begins after the strategic message is sufficiently resolved. Its job is to preserve meaning while optimizing comprehension, attention, memorability, and action within channel constraints.
+For final communication, copywriting expresses a strategic message that is sufficiently resolved for the artifact. Its job is to preserve meaning while improving comprehension, attention, memorability, and the appropriate response within channel constraints. During exploration, provisional copy can help examine an open message or positioning choice; it must remain a candidate rather than silently becoming a settled input.
 
 The operative principle is reader-first and truth-first:
 
@@ -117,7 +117,11 @@ When language or locale is material, Chapter 04 owns the resolved interaction jo
 
 For correction or repair, distinguish factual correction from relational repair. When the communication job includes acknowledging an error, correct the record directly and preserve responsibility supported by the facts; do not add blame-shifting, argument, or a defensive reinterpretation of the recipient merely to protect the speaker. A correction can be factually accurate and still fail the relationship job.
 
-The strongest wording cannot compensate for missing evidence. When material is weak, the correct response is to seek better material or to write a more modest claim.
+When the user asks for message alternatives, vary a meaningful choice such as the value angle, explanation, proof emphasis, or framing. Compare candidates by reader relevance, supported meaning, credible proof, and the touchpoint's job. Synonym changes are wording variants, not evidence of distinct strategic directions. Explore only the dimensions still open; a request for one rewrite does not require a set of concepts.
+
+Creative proposals can introduce new expression, analogy, or structure without inventing product behavior, customer experiences, or measured outcomes. Check an analogy for implications that could misrepresent the product. Choose or recommend a direction when the task calls for it, and explain the decisive trade-off only when the user needs that explanation. These are practical composition aids, not a fixed creative formula or proof that a candidate will perform better.
+
+The strongest wording cannot compensate for missing evidence. When material is weak, seek better material within scope, write a more modest claim, or provide a clearly provisional concept if that serves the requested job. Keep draft status and missing proof visible to the person making the decision; do not publish a hypothesis as an established product claim.
 
 ## 6. Concreteness and processing fluency
 

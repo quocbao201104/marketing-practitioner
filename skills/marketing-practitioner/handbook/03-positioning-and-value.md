@@ -105,7 +105,7 @@ When a changing association affects the positioning decision, record the current
 
 ## 10. Positioning output
 
-A compact positioning record should state:
+For the current positioning choice, retain the fields that distinguish the alternatives and justify the recommendation. The following is a working menu, not a form that every task must complete:
 
 ```text
 TARGET CONTEXT
@@ -124,4 +124,6 @@ MATERIAL UNCERTAINTIES
 
 Where an offering's relationship to another offer affects the current decision, add `OFFER RELATION / EXPECTED CUSTOMER TRANSITION`: complement, substitute, migration, coexistence, endorsement, or overlap, with direction and scope. Product and roadmap authority, and cannibalization economics, remain dependencies rather than conclusions of positioning.
 
-This record is the strategic input to message design. Copy begins only after these choices are sufficiently resolved for the task.
+When positioning is being explored, compare genuinely different candidate frames against the target situation, actual alternatives, credible product value, proof, and trade-offs. Separate a change in strategic meaning from a paraphrase of the same idea. Recommend the best-supported candidate when the evidence permits; otherwise identify the unresolved distinction that would change the choice. A preferred candidate remains a proposal until selected for use within the task's authority. When the user delegates that choice, the agent may select a direction and carry it into the requested deliverable; separate approval is needed only when the task or governing rules require it. Selection does not verify the candidate's factual assumptions.
+
+Provisional messages or drafts can make those alternatives concrete enough to compare. They must retain factual and claim boundaries and must not be treated as customer evidence or approved strategy. Final message design consumes positioning that is sufficiently resolved for the requested artifact; it does not require every field in this menu to be settled for every task.

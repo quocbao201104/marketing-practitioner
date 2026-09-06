@@ -4,7 +4,7 @@
 
 A useful definition of marketing must extend beyond promotion, content production, media buying, or conversion tactics. Market-orientation research describes organizations as generating market intelligence, disseminating it, and responding to it across functions [R01]. Related work emphasizes customer orientation, competitor orientation, and coordinated response [R02]. These traditions support an operating view in which marketing is partly a **learning system**: the organization observes a market, constructs a provisional model of customer and competitive reality, makes choices, acts, observes response, and revises its model.
 
-This repository therefore uses the following analytical sequence:
+This repository uses the following analytical cycle to show how learning can inform action:
 
 ```text
 OBSERVE
@@ -18,7 +18,7 @@ OBSERVE
 → REUSE
 ```
 
-The sequence is deliberately broader than a campaign workflow. Its endpoint is not publication. The endpoint is a better-grounded future decision.
+The cycle is broader than a campaign workflow and is not a required execution order. Enter at the current task, preserve resolved inputs, and revisit only dependencies that new evidence or an open question makes relevant. Exploration can reveal the question or alternatives; provisional expression can make a strategic choice inspectable. A requested artifact can complete the present job without a measurement or postmortem stage. When learning is part of the job, retain what can inform a better-grounded future decision.
 
 ## 2. Three levels that must not be collapsed
 
@@ -91,6 +91,8 @@ Accordingly, this handbook uses three epistemic labels implicitly:
 - **practical heuristic** — a useful decision aid whose form is not itself a validated law;
 - **working hypothesis** — a context-dependent proposition that requires evidence in the target setting.
 
+The controller's job labels, route boundaries, output criteria, and clarification rules are project synthesis: practical ways to organize this knowledge, not findings that a cited marketing study directly validated. Their conceptual consistency can be reviewed before their behavioral effectiveness is measured. Following the prescribed process is not itself evidence of a good marketing result.
+
 Readers and agents should preserve these distinctions. A heuristic such as evaluating an ICP by pain, product fit, economics, reachability, and strategic fit is a structured checklist; multiplying those factors does not create a validated market equation.
 
 ## 7. Marketing as constrained inference
@@ -99,17 +101,19 @@ The practitioner rarely has complete information. Marketing therefore operates u
 
 A useful rule is to raise the evidence threshold when a decision is expensive, irreversible, reputationally sensitive, legally material, or difficult to reverse. Conversely, a bounded and reversible intervention can be reasonable under greater uncertainty if downside is controlled and learning value is high.
 
-This principle connects research, experimentation, messaging, and ethics. It explains why an uncertain headline hypothesis may justify a small test while an uncertain medical claim, security promise, or major pricing change requires a much stronger basis.
+The threshold for acting and the strength of an empirical claim are different. A reversible choice can be reasonable under uncertainty without establishing its expected effect. Compare feasible options against the actual objective, constraints, possible consequences, and the cost of acting, waiting, or learning more. Additional inquiry is useful when it can distinguish consequential alternatives at a cost the task justifies; certainty is not a general precondition for action.
+
+This principle connects research, experimentation, messaging, and ethics. An uncertain headline hypothesis may justify a bounded trial while a medical or security claim still requires adequate support for its wording. Reversibility does not license fabrication, and approving a proposal does not verify the factual assumptions behind it.
 
 ## 8. Core methodological commitments
 
 The remainder of the handbook follows eight commitments:
 
-1. research is tied to a decision;
+1. research is tied to a bounded learning question or decision, and can refine that question as evidence develops;
 2. source material is kept distinct from interpretation;
 3. counterevidence is actively retained;
 4. scope is explicit;
-5. positioning precedes message expression;
+5. sufficiently resolved positioning constrains final message expression; provisional drafts may help examine an open strategic choice;
 6. proof constrains copy;
 7. measurement is separated from causal storytelling;
 8. learning is preserved with boundary conditions and failure states.
