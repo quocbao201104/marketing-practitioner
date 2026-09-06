@@ -215,6 +215,9 @@ bounded simple-writing question about using supplied context or representation
 community relationship, environment fit, or representation remains materially unresolved
 → content.meaning-representation
 
+preserve strategic meaning while adapting unresolved cross-platform execution
+→ content.platform-adaptation
+
 choose material system dependencies for a consequential content system / multi-touch launch plan
 → content.consequential-strategy
 
@@ -327,6 +330,9 @@ groundability / evidence fitness / source use / citation boundary
 impression / position / click / no-click / citation /
 grounding-query telemetry / search-interest interpretation
 → discovery.observation
+
+locate an unresolved discovery diagnostic boundary or choose the next decision owner
+→ discovery.diagnosis
 
 consequential retained discovery decision
 → discovery.decision-record
@@ -508,6 +514,9 @@ identity / catalog / variant
 search / retrieval / ranking
 → commerce.discovery
 → commerce.field-evidence when translating field evidence into action
+
+distinguish product-descriptive data, commercial conditions, and observation-derived context
+→ commerce.data-classes
 
 fact authority / seller input / platform inference
 → commerce.fact-provenance
