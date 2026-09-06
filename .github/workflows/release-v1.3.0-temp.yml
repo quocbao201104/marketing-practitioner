@@ -80,28 +80,28 @@ jobs:
           if text.count(marker) != 1:
               raise SystemExit("CHANGELOG.md: expected one v1.2.0 insertion marker")
           entry = r'''
-## [1.3.0] - 2026-09-07
+          ## [1.3.0] - 2026-09-07
 
-### Brand Identity and Visual Systems
+          ### Brand Identity and Visual Systems
 
-- Added `handbook/15-brand-identity-and-visual-systems.md` as a bounded specialist for persistent or reusable brand-identifying visual decisions: create/review identity assets, preserve/evolve/replace existing assets, explore materially different visual hypotheses, refine a selected identity family, evaluate decision-relevant perceptual/deployment failures, and commit verified reusable identity state.
-- Added nine decision-oriented JIT routes under `brand-identity.*`: `core`, `equity`, `exploration`, `refinement`, `evaluation`, `system`, `handoffs`, `decision-record`, and `invariants`.
-- Added `references/brand-identity-evidence.md` with scoped evidence for logo-form effects, redesign/equity, buyer-memory asset strength, cross-national portability, trademark-search boundaries, and production stewardship. Professional practice remains distinct from empirical/causal evidence.
-- Preserved the hard stop that visual nouns such as `logo`, `font`, `color`, `SVG`, or `icon` do not themselves activate deep identity work; when identity is fixed and only export, resizing, layout, UI styling, illustration, or production cleanup remains, the specialist exits to the relevant downstream owner/tool.
+          - Added `handbook/15-brand-identity-and-visual-systems.md` as a bounded specialist for persistent or reusable brand-identifying visual decisions: create/review identity assets, preserve/evolve/replace existing assets, explore materially different visual hypotheses, refine a selected identity family, evaluate decision-relevant perceptual/deployment failures, and commit verified reusable identity state.
+          - Added nine decision-oriented JIT routes under `brand-identity.*`: `core`, `equity`, `exploration`, `refinement`, `evaluation`, `system`, `handoffs`, `decision-record`, and `invariants`.
+          - Added `references/brand-identity-evidence.md` with scoped evidence for logo-form effects, redesign/equity, buyer-memory asset strength, cross-national portability, trademark-search boundaries, and production stewardship. Professional practice remains distinct from empirical/causal evidence.
+          - Preserved the hard stop that visual nouns such as `logo`, `font`, `color`, `SVG`, or `icon` do not themselves activate deep identity work; when identity is fixed and only export, resizing, layout, UI styling, illustration, or production cleanup remains, the specialist exits to the relevant downstream owner/tool.
 
-### Decision and evidence boundaries
+          ### Decision and evidence boundaries
 
-- Preserved `UNMEASURED EQUITY != ZERO != PROVEN`, `REDESIGN != RESET`, `CANDIDATE VISUAL DIFFERENCE != LEARNED BRAND-MEMORY STRENGTH != LEGAL CLEARANCE`, `OBSERVED CATEGORY OVERLAP != MEASURED BUYER-MEMORY COMPETITION`, `INTENDED MEANING != OBSERVED READING`, and `PREVIEW REPRESENTATION != VERIFIED PRODUCTION MASTER`.
-- Kept concept territories, form families, controlled mutation, and image-generation iteration as optional project/practitioner synthesis rather than scientific laws or mandatory design stages.
-- Kept naming/general brand strategy, generic graphic design, UI/product design, art direction, legal/trademark clearance, formal research methodology, and image-generation tooling outside the Brand Identity owner.
+          - Preserved `UNMEASURED EQUITY != ZERO != PROVEN`, `REDESIGN != RESET`, `CANDIDATE VISUAL DIFFERENCE != LEARNED BRAND-MEMORY STRENGTH != LEGAL CLEARANCE`, `OBSERVED CATEGORY OVERLAP != MEASURED BUYER-MEMORY COMPETITION`, `INTENDED MEANING != OBSERVED READING`, and `PREVIEW REPRESENTATION != VERIFIED PRODUCTION MASTER`.
+          - Kept concept territories, form families, controlled mutation, and image-generation iteration as optional project/practitioner synthesis rather than scientific laws or mandatory design stages.
+          - Kept naming/general brand strategy, generic graphic design, UI/product design, art direction, legal/trademark clearance, formal research methodology, and image-generation tooling outside the Brand Identity owner.
 
-### Verification and release metadata
+          ### Verification and release metadata
 
-- Extended deterministic knowledge-routing coverage to all nine `brand-identity.*` routes plus scoped evidence lookup, bringing the current repository gate to **68 routing-mechanics checks / 261 logical routes / 233 evidence sources**.
-- Retained the 20-case Brand Identity adversarial contract and author semantic walkthrough as targeted decision/path reasoning; they do not claim live host/model activation, route request, resource delivery, read order, or universal output-quality lift.
-- Independent adversarial runtime review found no material static implementation defect, generic-design scope expansion, route-surface representation failure, shared-owner collision, or evidence-status regression. It identified a bounded live activation/path evidence gap; v1.3.0 does not silently upgrade static addressability into live path proof.
-- Updated installable skill metadata, README capability/status/routing counts, and the behavior-report version placeholder to `v1.3.0 — Brand Identity and Visual Systems` while preserving the v1.0.0 compatibility-sensitive controller contract.
-'''
+          - Extended deterministic knowledge-routing coverage to all nine `brand-identity.*` routes plus scoped evidence lookup, bringing the current repository gate to **68 routing-mechanics checks / 261 logical routes / 233 evidence sources**.
+          - Retained the 20-case Brand Identity adversarial contract and author semantic walkthrough as targeted decision/path reasoning; they do not claim live host/model activation, route request, resource delivery, read order, or universal output-quality lift.
+          - Independent adversarial runtime review found no material static implementation defect, generic-design scope expansion, route-surface representation failure, shared-owner collision, or evidence-status regression. It identified a bounded live activation/path evidence gap; v1.3.0 does not silently upgrade static addressability into live path proof.
+          - Updated installable skill metadata, README capability/status/routing counts, and the behavior-report version placeholder to `v1.3.0 — Brand Identity and Visual Systems` while preserving the v1.0.0 compatibility-sensitive controller contract.
+          '''
           changelog.write_text(text.replace(marker, "\n" + entry.strip("\n") + marker, 1), encoding="utf-8", newline="\n")
           '@ | python -
 
