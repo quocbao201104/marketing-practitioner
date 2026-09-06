@@ -4,8 +4,9 @@
 
 # Marketing Practitioner
 
-**Decision-first marketing for AI agents.**  
-Research customers. Make supported choices. Turn them into useful marketing work.
+**From customer evidence to marketing decisions and execution.**
+
+An agent skill for researching customers, shaping strategy, creating marketing content, and interpreting results—with claims grounded in evidence.
 
 [![Version: v1.4.0](https://img.shields.io/badge/version-v1.4.0-0a7.svg)](#status-and-scope)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
