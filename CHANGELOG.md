@@ -4,6 +4,18 @@ All notable changes to this repository are documented here.
 
 The project uses semantic versioning for published skill revisions. v1.0.0 marks the first stable core contract: future 1.x work should preserve compatibility-sensitive controller semantics, logical knowledge interfaces, owner boundaries, and evidence/claim behavior unless a demonstrated failure justifies a scoped change. Historical frozen evaluation and research references keep the version labels under which they were produced.
 
+
+## [1.3.0] - 2026-09-07
+
+### Brand Identity and Visual Systems
+
+- Added Chapter 15 for bounded brand-identifying visual decisions: preserve/evolve/replace, exploration, controlled refinement, perceptual/deployment evaluation, and reusable identity-system commitment.
+- Added nine `brand-identity.*` JIT routes plus a scoped evidence ledger, with explicit boundaries between candidate visual difference, learned brand-memory strength, and legal clearance.
+- Kept naming/general brand strategy, generic graphic/UI design, art direction, legal clearance, and image-generation tooling outside the Brand Identity owner.
+- Updated deterministic routing coverage to **68 checks / 261 logical routes / 233 evidence sources**.
+- Preserved the v1.0.0 compatibility-sensitive controller contract; this release adds specialist knowledge without a new controller job or shared primitive.
+- Targeted static review found no material implementation defect; live host/model activation remains a separate runtime-evaluation question rather than a claimed release guarantee.
+
 ## [1.2.0] - 2026-09-04
 
 ### Local adaptation expansion
