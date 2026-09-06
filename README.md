@@ -7,7 +7,7 @@
 **Decision-first marketing for AI agents.**  
 Know what to resolve, what to preserve, and what evidence can actually change the answer.
 
-[![Version: v1.2.0](https://img.shields.io/badge/version-v1.2.0-0a7.svg)](#status-and-scope)
+[![Version: v1.3.0](https://img.shields.io/badge/version-v1.3.0-0a7.svg)](#status-and-scope)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Language: English](https://img.shields.io/badge/language-English-4c1.svg)](#)
 [![Format: Agent Skill](https://img.shields.io/badge/format-Agent%20Skill-6f42c1.svg)](skills/marketing-practitioner/SKILL.md)
@@ -23,7 +23,7 @@ Know what to resolve, what to preserve, and what evidence can actually change th
 
 > Marketing agents are already fluent. The harder problem is knowing **what not to reopen**, **what evidence is enough**, and **which knowledge is actually relevant now**.
 
-Marketing Practitioner is an installable Agent Skill for marketing work that needs stronger decision discipline: research, diagnosis, positioning, commercial design, writing, platform adaptation, commerce, paid delivery, localization, testing, and learning — without treating all of those as one giant workflow.
+Marketing Practitioner is an installable Agent Skill for marketing work that needs stronger decision discipline: research, diagnosis, positioning, brand identity, commercial design, writing, platform adaptation, commerce, paid delivery, localization, testing, and learning — without treating all of those as one giant workflow.
 
 <table>
 <tr>
@@ -117,7 +117,7 @@ A topic, artifact type, or platform name is not a job. A caption with an approve
 
 | Decision and research | Expression and adaptation | Distribution and learning |
 | --- | --- | --- |
-| Customer evidence<br>Audience prioritization<br>Positioning<br>Commercial design<br>Offer reasoning | Copy and critique<br>Landing pages<br>Email<br>Platform adaptation<br>Scoped localization | Search and discovery<br>Paid media<br>Commerce listings<br>Testing<br>Result interpretation |
+| Customer evidence<br>Audience prioritization<br>Positioning<br>Brand identity / visual systems<br>Commercial design<br>Offer reasoning | Copy and critique<br>Landing pages<br>Email<br>Platform adaptation<br>Scoped localization | Search and discovery<br>Paid media<br>Commerce listings<br>Testing<br>Result interpretation |
 
 Specialist knowledge is loaded only when a concrete decision needs it. The [handbook map](skills/marketing-practitioner/handbook/README.md), [platform modules](skills/marketing-practitioner/platforms/README.md), and [`adaptations/`](skills/marketing-practitioner/adaptations/) are navigation surfaces, not a required reading sequence.
 
@@ -144,13 +144,14 @@ When the host can run helpers, [`get-knowledge.py`](skills/marketing-practitione
 
 ```bash
 python skills/marketing-practitioner/scripts/get-knowledge.py email.send-decision
+python skills/marketing-practitioner/scripts/get-knowledge.py brand-identity.equity
 python skills/marketing-practitioner/scripts/get-knowledge.py adapt-localization.relationship-realization
 python skills/marketing-practitioner/scripts/get-knowledge.py --source PM01
 ```
 
 If helper execution is unavailable, the same index remains the address table: read the smallest feasible section, or degrade to the smallest target file, rather than loading an entire chapter.
 
-The current index validates at **252 routes / 225 evidence sources**. Evidence files state what a source **supports** and **does not support**; those bounds are part of claim control.
+The current index validates at **261 routes / 233 evidence sources**. Evidence files state what a source **supports** and **does not support**; those bounds are part of claim control.
 
 Shared architecture expands only when a decision-relevant failure cannot be repaired locally without material distortion. Research under [`research/`](research/) keeps theory freezes, audits, and rejected expansions out of the runtime until they survive that bar.
 
@@ -186,7 +187,7 @@ The local and CI gate is:
 .\scripts\verify.ps1
 ```
 
-It validates the package with the repository validator and the installed Codex validator when discoverable, checks 58 routing mechanics and **252 routes / 225 evidence sources**, runs the Pressure Discovery and behavioral harness tests, and verifies UTF-8/generated-artifact hygiene.
+It validates the package with the repository validator and the installed Codex validator when discoverable, checks 68 routing mechanics and **261 routes / 233 evidence sources**, runs the Pressure Discovery and behavioral harness tests, and verifies UTF-8/generated-artifact hygiene.
 
 Repository evaluation is intentionally reported with its limitations:
 
@@ -201,9 +202,9 @@ If the skill makes a poor decision, overcomplicates a simple task, misses suppli
 
 ## Status and scope
 
-Current release: **v1.2.0 — Local Adaptation Expansion**.
+Current release: **v1.3.0 — Brand Identity and Visual Systems**.
 
-v1.0.0 remains the stable core compatibility baseline: the seven jobs, resolved-state behavior, logical knowledge IDs, owner boundaries, and source/claim discipline remain compatibility-sensitive. v1.1.0 introduced the bounded scoped-local-adaptation extension contract and the Vietnamese reference unit; v1.2.0 expands that contract with two Japanese target-language realization units while retaining the same owner and logical route.
+v1.0.0 remains the stable core compatibility baseline: the seven jobs, resolved-state behavior, logical knowledge IDs, owner boundaries, and source/claim discipline remain compatibility-sensitive. v1.1.0 introduced the bounded scoped-local-adaptation extension contract and the Vietnamese reference unit; v1.2.0 expanded that contract with two Japanese target-language realization units while retaining the same owner and logical route. v1.3.0 adds a bounded Brand Identity / Visual Systems specialist for persistent or reusable brand-identifying visual decisions, with nine `brand-identity.*` JIT routes, a scoped evidence ledger, and an explicit stop before generic design/production execution. Naming and general brand strategy remain outside that owner.
 
 The Vietnamese reference implementation originally received `PASS_WITH_LOCAL_REPAIRS`; both bounded defects were repaired before merge. An independent post-repair review of the current integrated implementation at `f9c3a9485a989af5ee662464912912f15adffef5` later returned `PASS_POST_REPAIR`, closing the discovery and partial-pair findings and supporting `VN-LANG-REL-01` as `review_state: reviewed`. This is a static implementation/integration review, not a claim that every model or host will execute the route correctly. See the [post-repair review record](research/local-adaptation-vietnam/01-post-repair-review-result.md).
 
