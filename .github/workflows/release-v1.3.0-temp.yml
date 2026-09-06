@@ -1,115 +1,70 @@
-name: Prepare v1.3.0
+name: Finalize v1.3.0
 
 on:
   push:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
-  prepare-release:
+  finalize:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Update v1.3.0 release metadata and docs
+
+      - name: Bump skill metadata and changelog
         shell: powershell
         run: |
           @'
           from pathlib import Path
-
-          def replace_once(path: Path, old: str, new: str) -> None:
-              text = path.read_text(encoding="utf-8")
-              count = text.count(old)
-              if count != 1:
-                  raise SystemExit(f"{path}: expected exactly one match, found {count}: {old!r}")
-              path.write_text(text.replace(old, new, 1), encoding="utf-8", newline="\n")
+          from textwrap import dedent
 
           skill = Path("skills/marketing-practitioner/SKILL.md")
-          replace_once(skill, '  version: "1.2.0"', '  version: "1.3.0"')
-
-          readme = Path("README.md")
-          replacements = [
-              (
-                  "[![Version: v1.2.0](https://img.shields.io/badge/version-v1.2.0-0a7.svg)](#status-and-scope)",
-                  "[![Version: v1.3.0](https://img.shields.io/badge/version-v1.3.0-0a7.svg)](#status-and-scope)",
-              ),
-              (
-                  "research, diagnosis, positioning, commercial design, writing, platform adaptation, commerce, paid delivery, localization, testing, and learning",
-                  "research, diagnosis, positioning, brand identity, commercial design, writing, platform adaptation, commerce, paid delivery, localization, testing, and learning",
-              ),
-              (
-                  "| Customer evidence<br>Audience prioritization<br>Positioning<br>Commercial design<br>Offer reasoning | Copy and critique<br>Landing pages<br>Email<br>Platform adaptation<br>Scoped localization | Search and discovery<br>Paid media<br>Commerce listings<br>Testing<br>Result interpretation |",
-                  "| Customer evidence<br>Audience prioritization<br>Positioning<br>Brand identity / visual systems<br>Commercial design<br>Offer reasoning | Copy and critique<br>Landing pages<br>Email<br>Platform adaptation<br>Scoped localization | Search and discovery<br>Paid media<br>Commerce listings<br>Testing<br>Result interpretation |",
-              ),
-              (
-                  "python skills/marketing-practitioner/scripts/get-knowledge.py email.send-decision\npython skills/marketing-practitioner/scripts/get-knowledge.py adapt-localization.relationship-realization",
-                  "python skills/marketing-practitioner/scripts/get-knowledge.py email.send-decision\npython skills/marketing-practitioner/scripts/get-knowledge.py brand-identity.equity\npython skills/marketing-practitioner/scripts/get-knowledge.py adapt-localization.relationship-realization",
-              ),
-              (
-                  "The current index validates at **252 routes / 225 evidence sources**.",
-                  "The current index validates at **261 routes / 233 evidence sources**.",
-              ),
-              (
-                  "checks 58 routing mechanics and **252 routes / 225 evidence sources**",
-                  "checks 68 routing mechanics and **261 routes / 233 evidence sources**",
-              ),
-              (
-                  "Current release: **v1.2.0 " + "\u2014" + " Local Adaptation Expansion**.",
-                  "Current release: **v1.3.0 " + "\u2014" + " Brand Identity and Visual Systems**.",
-              ),
-              (
-                  "v1.0.0 remains the stable core compatibility baseline: the seven jobs, resolved-state behavior, logical knowledge IDs, owner boundaries, and source/claim discipline remain compatibility-sensitive. v1.1.0 introduced the bounded scoped-local-adaptation extension contract and the Vietnamese reference unit; v1.2.0 expands that contract with two Japanese target-language realization units while retaining the same owner and logical route.",
-                  "v1.0.0 remains the stable core compatibility baseline: the seven jobs, resolved-state behavior, logical knowledge IDs, owner boundaries, and source/claim discipline remain compatibility-sensitive. v1.1.0 introduced the bounded scoped-local-adaptation extension contract and the Vietnamese reference unit; v1.2.0 expanded that contract with two Japanese target-language realization units while retaining the same owner and logical route. v1.3.0 adds a bounded Brand Identity / Visual Systems specialist for persistent or reusable brand-identifying visual decisions, with nine `brand-identity.*` JIT routes, a scoped evidence ledger, and an explicit stop before generic design/production execution. Naming and general brand strategy remain outside that owner.",
-              ),
-          ]
-          for old, new in replacements:
-              replace_once(readme, old, new)
-
-          issue = Path(".github/ISSUE_TEMPLATE/behavior-report.yml")
-          replace_once(issue, "placeholder: v1.2.0", "placeholder: v1.3.0")
+          text = skill.read_text(encoding="utf-8")
+          old = '  version: "1.2.0"'
+          new = '  version: "1.3.0"'
+          if text.count(old) != 1:
+              raise SystemExit("SKILL.md version marker mismatch")
+          skill.write_text(text.replace(old, new, 1), encoding="utf-8", newline="\n")
 
           changelog = Path("CHANGELOG.md")
           text = changelog.read_text(encoding="utf-8")
           marker = "\n## [1.2.0] - 2026-09-04\n"
           if text.count(marker) != 1:
-              raise SystemExit("CHANGELOG.md: expected one v1.2.0 insertion marker")
-          entry = r'''
+              raise SystemExit("CHANGELOG.md insertion marker mismatch")
+
+          entry = dedent("""
           ## [1.3.0] - 2026-09-07
 
           ### Brand Identity and Visual Systems
 
-          - Added `handbook/15-brand-identity-and-visual-systems.md` as a bounded specialist for persistent or reusable brand-identifying visual decisions: create/review identity assets, preserve/evolve/replace existing assets, explore materially different visual hypotheses, refine a selected identity family, evaluate decision-relevant perceptual/deployment failures, and commit verified reusable identity state.
-          - Added nine decision-oriented JIT routes under `brand-identity.*`: `core`, `equity`, `exploration`, `refinement`, `evaluation`, `system`, `handoffs`, `decision-record`, and `invariants`.
-          - Added `references/brand-identity-evidence.md` with scoped evidence for logo-form effects, redesign/equity, buyer-memory asset strength, cross-national portability, trademark-search boundaries, and production stewardship. Professional practice remains distinct from empirical/causal evidence.
-          - Preserved the hard stop that visual nouns such as `logo`, `font`, `color`, `SVG`, or `icon` do not themselves activate deep identity work; when identity is fixed and only export, resizing, layout, UI styling, illustration, or production cleanup remains, the specialist exits to the relevant downstream owner/tool.
+          - Added Chapter 15 for bounded brand-identifying visual decisions: preserve/evolve/replace, exploration, controlled refinement, perceptual/deployment evaluation, and reusable identity-system commitment.
+          - Added nine `brand-identity.*` JIT routes plus a scoped evidence ledger, with explicit boundaries between candidate visual difference, learned brand-memory strength, and legal clearance.
+          - Kept naming/general brand strategy, generic graphic/UI design, art direction, legal clearance, and image-generation tooling outside the Brand Identity owner.
+          - Updated deterministic routing coverage to **68 checks / 261 logical routes / 233 evidence sources**.
+          - Preserved the v1.0.0 compatibility-sensitive controller contract; this release adds specialist knowledge without a new controller job or shared primitive.
+          - Targeted static review found no material implementation defect; live host/model activation remains a separate runtime-evaluation question rather than a claimed release guarantee.
 
-          ### Decision and evidence boundaries
-
-          - Preserved `UNMEASURED EQUITY != ZERO != PROVEN`, `REDESIGN != RESET`, `CANDIDATE VISUAL DIFFERENCE != LEARNED BRAND-MEMORY STRENGTH != LEGAL CLEARANCE`, `OBSERVED CATEGORY OVERLAP != MEASURED BUYER-MEMORY COMPETITION`, `INTENDED MEANING != OBSERVED READING`, and `PREVIEW REPRESENTATION != VERIFIED PRODUCTION MASTER`.
-          - Kept concept territories, form families, controlled mutation, and image-generation iteration as optional project/practitioner synthesis rather than scientific laws or mandatory design stages.
-          - Kept naming/general brand strategy, generic graphic design, UI/product design, art direction, legal/trademark clearance, formal research methodology, and image-generation tooling outside the Brand Identity owner.
-
-          ### Verification and release metadata
-
-          - Extended deterministic knowledge-routing coverage to all nine `brand-identity.*` routes plus scoped evidence lookup, bringing the current repository gate to **68 routing-mechanics checks / 261 logical routes / 233 evidence sources**.
-          - Retained the 20-case Brand Identity adversarial contract and author semantic walkthrough as targeted decision/path reasoning; they do not claim live host/model activation, route request, resource delivery, read order, or universal output-quality lift.
-          - Independent adversarial runtime review found no material static implementation defect, generic-design scope expansion, route-surface representation failure, shared-owner collision, or evidence-status regression. It identified a bounded live activation/path evidence gap; v1.3.0 does not silently upgrade static addressability into live path proof.
-          - Updated installable skill metadata, README capability/status/routing counts, and the behavior-report version placeholder to v1.3.0 (Brand Identity and Visual Systems) while preserving the v1.0.0 compatibility-sensitive controller contract.
-          '''
-          changelog.write_text(text.replace(marker, "\n" + entry.strip("\n") + marker, 1), encoding="utf-8", newline="\n")
+          """)
+          changelog.write_text(text.replace(marker, "\n" + entry + "## [1.2.0] - 2026-09-04\n", 1), encoding="utf-8", newline="\n")
           '@ | python -
 
-      - name: Verify updated repository
+      - name: Verify repository
         shell: powershell
         run: .\scripts\verify.ps1
 
-      - uses: actions/upload-artifact@v4
-        with:
-          name: v1.3.0-prepared-files
-          path: |
-            CHANGELOG.md
-            README.md
-            .github/ISSUE_TEMPLATE/behavior-report.yml
-            skills/marketing-practitioner/SKILL.md
+      - name: Commit v1.3.0 and remove temporary workflow
+        shell: powershell
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/release-v1.3.0-temp.yml
+          git add skills/marketing-practitioner/SKILL.md CHANGELOG.md
+          git diff --cached --check
+          git commit -m "release: v1.3.0 brand identity and visual systems"
+          git push origin HEAD:main
