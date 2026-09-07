@@ -8,7 +8,7 @@
 
 An agent skill for researching customers, shaping strategy, creating marketing content, and interpreting results—with claims grounded in evidence.
 
-[![Version: v1.4.0](https://img.shields.io/badge/version-v1.4.0-0a7.svg)](#status-and-scope)
+[![Version: v1.5.0](https://img.shields.io/badge/version-v1.5.0-0a7.svg)](#status-and-scope)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Language: English](https://img.shields.io/badge/language-English-4c1.svg)](#)
 [![Format: Agent Skill](https://img.shields.io/badge/format-Agent%20Skill-6f42c1.svg)](skills/marketing-practitioner/SKILL.md)
@@ -184,7 +184,7 @@ The local and CI gate is:
 .\scripts\verify.ps1
 ```
 
-It validates the package with the repository validator and the installed Codex validator when discoverable, checks 68 routing mechanics and **264 routes / 233 evidence sources**, runs the Pressure Discovery and behavioral harness tests, and verifies UTF-8/generated-artifact hygiene.
+It validates the package with the repository validator and the installed Codex validator when discoverable, checks 68 routing mechanics and **264 routes / 240 evidence sources**, runs the Pressure Discovery and behavioral harness tests, and verifies UTF-8/generated-artifact hygiene.
 
 The recent design work has been reviewed at three connected levels:
 
@@ -202,7 +202,7 @@ If the skill makes a poor decision, overcomplicates a simple task, misses suppli
 
 ## Status and scope
 
-Current release: **v1.4.0 — Runtime Coherence and Knowledge Routing**.
+Current release: **v1.5.0 — Evidence and Decision Quality**.
 
 The package covers seven marketing jobs with specialist guidance for content, commerce, commercial design, landing pages, email, search/discovery, paid media, brand identity, and scoped localization. See [CHANGELOG.md](CHANGELOG.md) for release history.
 

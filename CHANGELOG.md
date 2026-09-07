@@ -5,6 +5,24 @@ All notable changes to this repository are documented here.
 The project uses semantic versioning for published skill revisions. v1.0.0 marks the first stable core contract: future 1.x work should preserve compatibility-sensitive controller semantics, logical knowledge interfaces, owner boundaries, and evidence/claim behavior unless a demonstrated failure justifies a scoped change. Historical frozen evaluation and research references keep the version labels under which they were produced.
 
 
+## [1.5.0] - 2026-09-07
+
+### Evidence and decision quality
+
+- Completed a bounded content and evidence review across customer research, segmentation and positioning, messaging, diagnosis and causality, organizational learning, localization and ethics, content, commerce, commercial design, landing pages, email, search/discovery, paid media, and brand identity.
+- Closed 24 scoped findings across 13 correction batches, including source independence, proof roles, target feasibility, useful-effect interpretation, experimental integrity, learning reuse, cross-market comparability, interaction semantics, product-source conflicts, trial economics, landing-page evidence, email personalization, discovery provenance, brand citations, and observational causal identification.
+- Strengthened Chapter 05 for nonrandomized comparisons by requiring a defined causal contrast, justified comparison support, explicit identification assumptions, and aligned eligibility, strategy assignment, and follow-up.
+- Added R59-R65 as supplementary verification sources with explicit provenance and scope; corrected or qualified selected commercial-design, landing-page, email, discovery, and brand-identity evidence records.
+- Reviewed representative request-to-output chains across Chapters 08-15. These are static design reviews and do not establish agent behavior or marketing performance.
+- Added a traceable audit series under `research/evidence-traceability/`, including a current synthesis of closed corrections, remaining evidence limits, and research priorities. Historical inventories remain dated snapshots rather than being rewritten as current verification.
+
+### Compatibility and verification
+
+- Preserved the seven jobs, controller behavior, logical route IDs, specialist ownership, direct fast paths, and source/claim boundaries. No new runtime subsystem, mandatory workflow, platform module, or evaluation baseline was introduced.
+- Repository and current Codex package validators pass; all 68 routing-mechanics checks pass; the manifest resolves 264 routes and 240 evidence sources.
+- Live behavioral evaluation remains deferred. Old pilot results are not used as a baseline or as evidence that the current design succeeds or fails.
+
+
 ## [1.4.0] - 2026-09-07
 
 ### Runtime coherence and knowledge routing
