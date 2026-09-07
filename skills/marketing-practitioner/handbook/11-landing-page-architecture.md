@@ -467,7 +467,7 @@ OBSERVATION
 
 For example, repeated clicks to a security document could mean distraction, missing trust evidence on the page, audience mismatch, or a legitimate required approval step. The observation alone cannot choose among them.
 
-Keep individual optimization case-study lifts scoped to their tested treatment/population. They are examples of possible effects, not universal design laws [LP04][LP05][LP08].
+Keep individual optimization case-study lifts scoped to their tested treatment/population. They are examples of possible effects, not universal design laws [LP05][LP08].
 
 ---
 

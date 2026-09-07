@@ -90,6 +90,8 @@ For a causal result, compose with Chapter 05 rather than recreating its method: 
 
 For retained learning to matter, it must be retrievable at the point of a relevant future decision. The retrieval problem is semantic: the organization must recognize that a new question resembles a prior one even when terminology differs.
 
+Before relying on a retrieved lesson, compare the conditions that could change its applicability or evidential strength for the current decision, using the scope and validity information already retained. Similarity or recency alone does not establish transfer. Reuse the lesson within supported scope; where material conditions differ or remain unknown, qualify its role as a hypothesis, seek a worthwhile discriminating check, or refrain from relying on it. Reconstruct only the context needed for this decision.
+
 Human process can solve this through disciplined reviews and decision logs. Software can assist, but the conceptual requirement remains the same: **memory must enter the decision process**.
 
 ## 8. Winner-only memory is systematically biased
@@ -118,6 +120,8 @@ The objective is not to accumulate more statements about the market. It is to ma
 - weaken it;
 - contradict it;
 - supersede it after market or product change.
+
+When revising a retained lesson, identify the affected conclusion and scope, the evidence or changed condition motivating revision, and what now applies. Preserve the original observation and decision-time rationale, making any correction or supersession clear in the existing record. A changed context can limit current applicability without showing that the original result was wrong; a defect in the original evidence can require correcting its interpretation even when context is unchanged. Recency alone does not make a new account stronger evidence. Revise only what the evidence warrants and retain unresolved contradictions as unresolved.
 
 This model of revision discourages the false idea that a knowledge base should contain a single timeless truth for every marketing question.
 

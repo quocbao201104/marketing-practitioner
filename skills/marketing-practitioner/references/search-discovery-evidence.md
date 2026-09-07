@@ -216,7 +216,13 @@ Evidence review date: **2026-08-25**
 ## [SD13] Joachims et al. — Click bias / trust bias
 
 **Source:** information-retrieval / user-behavior research  
-**Reference:** Joachims, T. et al., eye-tracking and click-behavior work on interpreting search clicks.
+**Reference:** Joachims, T., Granka, L., Pan, B., Hembrooke, H., & Gay, G. (2005). *Accurately Interpreting Clickthrough Data as Implicit Feedback*. Proceedings of SIGIR 2005.
+
+**URL:** https://www.cs.cornell.edu/People/tj/publications/joachims_etal_05a.pdf
+
+**Study scope:** Eye-tracking and search-result interaction studies compare click-derived feedback with explicit relevance judgments. The findings distinguish biased absolute click interpretation from useful relative preference signals; they do not supply a universal CTR correction or establish current ranking behavior.
+
+**Provenance:** Specific supporting reference selected on 2026-09-07 to make this previously broad record traceable. The exact original research input/version remains unverified.
 
 **Supports**
 - clicks can contain useful preference information while remaining position/trust biased;
@@ -231,7 +237,13 @@ Evidence review date: **2026-08-25**
 ## [SD14] Microsoft Research — Good abandonment
 
 **Source:** search user-behavior research  
-**Reference:** Microsoft Research work on detecting good abandonment in mobile search.
+**Reference:** Williams, K., Kiseleva, J., Crook, A. C., Zitouni, I., Hassan Awadallah, A., & Khabsa, M. (2016). *Detecting Good Abandonment in Mobile Search*. Proceedings of WWW 2016.
+
+**URL:** https://www.microsoft.com/en-us/research/wp-content/uploads/2017/05/williams_www2016_good_abandonment.pdf
+
+**Study scope:** Mobile search tasks, user satisfaction reports and gesture-based modeling examine successful encounters without clicks. The focused user study used tasks designed to allow direct answers rather than exploratory searching; its findings do not identify satisfaction from a missing click in an arbitrary current search or AI-answer system.
+
+**Provenance:** Specific supporting reference selected on 2026-09-07 to make this previously broad record traceable. The exact original research input/version remains unverified.
 
 **Supports**
 - a session without an external click can still satisfy an information need;

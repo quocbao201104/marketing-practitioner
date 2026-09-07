@@ -6,10 +6,10 @@ Positioning concerns how an offering is understood relative to alternatives in t
 
 A practical positioning model therefore treats two questions separately:
 
-- **Differentiation:** why should this option be preferred to relevant alternatives?
+- **Differentiation:** what meaningful differences does the customer perceive between this option and relevant alternatives?
 - **Distinctiveness:** can the market recognize and remember this option reliably?
 
-They are complementary rather than interchangeable.
+They are complementary rather than interchangeable. Reasons for choosing an offering are a broader question: recognition, access, or situational fit can contribute to choice without establishing meaningful differentiation. Differentiation need not be an exclusive feature; a supported service or contextual difference may matter. When no meaningful differentiator is established, preserve that finding rather than inventing one to complete a positioning statement. Distinctive cues can aid recognition without proving product capability or superior value [R06].
 
 ## 2. Category as a mental shelf
 
@@ -71,7 +71,7 @@ The final level requires particular caution. Emotional and risk-related benefits
 
 ## 6. Proof and value are inseparable
 
-A promise has little strategic value if the market cannot believe it. Proof can include mechanisms, demonstrations, data, credible customer evidence, guarantees, product behavior, third-party validation, or constraints that make the claim testable.
+A promise has little strategic value if the market cannot believe it. Match support to the exact claim: demonstrations and product behavior can establish capabilities within the observed conditions; outcome claims require evidence of those outcomes with adequate method and scope. Mechanisms can explain plausibility, while guarantees can define commitments and reduce customer risk under their terms. Neither a plausible mechanism nor a guarantee by itself establishes achieved effects. Making a claim testable does not establish that it has been tested.
 
 The principle "proof before adjectives" follows from this relationship. Promotional descriptors such as *innovative*, *trusted*, *powerful*, or *best* are weak substitutes for evidence. Research on linguistic concreteness also suggests that concrete language can affect perceived listening and customer responses in the contexts studied, while not supporting a universal rule that concreteness always wins [R07]. Processing fluency research similarly supports attention to ease of processing without turning clarity into a deterministic persuasion formula [R08].
 

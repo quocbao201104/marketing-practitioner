@@ -490,6 +490,8 @@ unknown
 
 For a claim that affects purchase, compliance, safety, compatibility, or price interpretation, preserve source and confidence rather than laundering a derived field into fact. Distinguish the underlying claim from a seller-submitted field, platform-processed record, or platform inference. Identify what the source actually supports for the relevant product/variant and material scope; an origin label alone does not establish verification.
 
+When product sources disagree in a way that could change a claim or purchase decision, first check whether they refer to the same product, variant/configuration, revision, package quantity, seller, time, and measurement convention where material. Resolve the specific claim using applicable evidence and source quality; format, recency, or an authority label alone does not establish that a source describes the item being offered. Do not combine incompatible attributes or select the most favorable value to complete the description. If the conflict remains unresolved, retain it for the decision-maker, qualify or withhold the affected claim, and seek only the missing evidence that could resolve it. Continue work on unaffected claims rather than turning every product rewrite into a catalog audit.
+
 ### 5.6 Structured and unstructured information do different jobs
 
 Do not treat title, category, attributes, description, images, search terms, or reviews as interchangeable keyword containers.

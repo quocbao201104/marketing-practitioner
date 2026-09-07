@@ -36,6 +36,19 @@ Wedel, M., & Kamakura, W. A. (2000). **Market Segmentation: Conceptual and Metho
 
 Use: customer heterogeneity, segmentation bases, profiling, and methodological foundations.
 
+### [R62] Dolnicar, Grün & Leisch — Target-segment selection
+
+Dolnicar, S., Grün, B., & Leisch, F. (2018). **Market Segmentation Analysis: Understanding It, Doing It, and Making It Useful.** Springer. Selected chapters:
+
+- **Step 2: Specifying the Ideal Target Segment**, sections 4.1–4.3: https://link.springer.com/chapter/10.1007/978-981-10-8818-6_4
+- **Step 8: Selecting the Target Segment(s)**, sections 10.1–10.2: https://link.springer.com/chapter/10.1007/978-981-10-8818-6_10
+
+Use: distinguish non-negotiable eligibility conditions from attractiveness criteria; assess both segment appeal and relative organizational competitiveness.
+
+Boundary: methodological and practitioner guidance, not an empirically validated universal selection equation. Do not import the full staged process, committees, fixed weights, or a universal set of exclusions into every ICP task. Identifying which uncertain assumption could reverse a current choice is the handbook's practical decision synthesis.
+
+Added as supplementary verification on 2026-09-07 after reviewing the specified open-access sections; not claimed as an input to the original research.
+
 ### [R04] Christensen — Jobs-to-be-Done
 
 Christensen, C. M. (2016). **The “Jobs to be Done” Theory of Innovation.** Harvard Business Review IdeaCast; associated with *Competing Against Luck*.
@@ -103,11 +116,65 @@ Hernán, M. A., & Robins, J. M. (2020). **Causal Inference: What If.** Chapman &
 
 Use: counterfactual thinking, distinction between descriptive/predictive and causal questions, identification assumptions.
 
+Source: https://miguelhernan.org/whatifbook
+
+Inspected on 2026-09-07: selected passages in the 19 August 2026 version, printed pages 27, 29–30, 32–33, 38, 41, 95–96, 109, 121 and 137. Version locator: https://miguelhernan.org/s/hernanrobins_WhatIf_19aug26.pdf
+
+Boundary: methodological support for identification, comparison support, selection and the distinction between identification and precision. Adjustment-based exchangeability is not the only possible identification strategy. This was selected-page verification, not a full-book review, a universal estimator prescription or confirmation of the exact original research version.
+
+### [R65] Hernán et al. — Eligibility, assignment and follow-up alignment
+
+Hernán, M. A., Sauer, B. C., Hernández-Díaz, S., Platt, R., & Shrier, I. (2016). **Specifying a target trial prevents immortal time bias and other self-inflicted injuries in observational analyses.** *Journal of Clinical Epidemiology, 79*, 70–75. DOI: 10.1016/j.jclinepi.2016.04.014.
+
+https://pmc.ncbi.nlm.nih.gov/articles/PMC5124536/
+
+Use: align eligibility, strategy assignment and follow-up origin; retrospective grouping by later treatment or survival can bias comparisons even apart from confounding.
+
+Boundary: methodological examples from epidemiology, not evidence of an email or retention treatment effect. A later-start eligible population and a baseline policy can define different causal questions; legitimate longitudinal designs are not prohibited. The abstract and sections 1–3 were inspected, not the complete solution procedures.
+
+Added as supplementary verification on 2026-09-07, not reconstructed as an original research input. The handbook email example is a constructed application of the timing distinction.
+
 ### [R12] Kohavi et al. — Controlled Experiments on the Web
 
 Kohavi, R., Longbotham, R., Sommerfield, D., & Henne, R. M. (2009). **Controlled experiments on the web: survey and practical guide.** *Data Mining and Knowledge Discovery, 18*, 140–181. DOI: 10.1007/s10618-008-0114-1.
 
 Use: randomized online experiments, power, metrics, randomization, implementation pitfalls, and experimentation practice.
+
+---
+
+## Supplementary experiment interpretation and integrity
+
+### [R59] American Statistical Association — P-value interpretation
+
+American Statistical Association (2016). **American Statistical Association Releases Statement on Statistical Significance and P-Values.** Official release, March 7, 2016, including the statement's six principles.
+
+https://www.amstat.org/asa/files/pdfs/p-valuestatement.pdf
+
+Use: distinguish statistical significance from effect size or practical importance; avoid decisions based solely on a p-value threshold.
+
+Boundary: methodological guidance, not a business decision rule, an equivalence-testing procedure, or a replacement for design-specific inference. The official release was inspected; the full journal statement was not accessed in this review.
+
+### [R60] Microsoft Experimentation Platform — Monitoring and stopping
+
+Microsoft Experimentation Platform. **Patterns of Trustworthy Experimentation: During-Experiment Stage.**
+
+https://www.microsoft.com/en-us/research/articles/patterns-of-trustworthy-experimentation-during-experiment-stage/
+
+Use: repeated analyses require appropriate inference; distinguish monitoring and protective intervention from a confirmatory result under the intended analysis and stopping approach.
+
+Boundary: first-party experimentation practice. Its typical duration, platform thresholds and implementation choices are not universal requirements. Monitoring is not prohibited, and a valid sequential design need not use fixed-horizon stopping.
+
+### [R61] Microsoft Experimentation Platform — Sample ratio mismatch and selection
+
+Microsoft Experimentation Platform (2020). **Diagnosing Sample Ratio Mismatch in A/B Testing.** September 14, 2020.
+
+https://www.microsoft.com/en-us/research/articles/diagnosing-sample-ratio-mismatch-in-a-b-testing/
+
+Use: assignment, execution, logging and analysis selection can distort the comparison; unexpected sample proportions require investigation against intended allocation. Treatment-dependent inclusion can undermine triggered analyses.
+
+Boundary: first-party implementation evidence. A mismatch is a diagnostic signal, not one identified cause; absence of mismatch does not establish causal validity. Do not universalize a 50/50 split, a platform threshold, or user-level randomization.
+
+These three sources were added as supplementary verification on 2026-09-07, not reconstructed as inputs to the original research. Chapter 05's comparison of action costs, useful-effect thresholds and uncertainty is practitioner decision synthesis.
 
 ---
 
@@ -160,6 +227,32 @@ Use: interaction of self-view, regulatory orientation, information processing, a
 Barnes, A. J., & Shavitt, S. (2024). **Top Rated or Best Seller? Cultural Differences in Responses to Attitudinal versus Behavioral Consensus Cues.** *Journal of Consumer Research, 51*(2), 276–297. DOI: 10.1093/jcr/ucad074.
 
 Use: evidence that social proof is not a single universal cue and that different consensus signals can carry different diagnostic value by context.
+
+---
+
+## Supplementary cross-market measurement and persuasive presentation
+
+### [R63] Freitag & Bauer — Measurement equivalence in surveys
+
+Freitag, M., & Bauer, P. C. (2013). **Testing for Measurement Equivalence in Surveys: Dimensions of Social Trust across Cultural Contexts.** *Public Opinion Quarterly, 77*(S1), 24–44. DOI: 10.1093/poq/nfs064.
+
+https://academic.oup.com/poq/article/77/S1/24/1876859
+
+Use: distinguish measurement-equivalence requirements for different comparative questions, including relationships and means. The abstract and measurement discussion were inspected.
+
+Boundary: a primary study of social-trust measurement, not validation of a marketing instrument or a mandatory invariance procedure for all localization. The bounded instruction to qualify unsupported cross-market rankings is practitioner synthesis informed by this study and R15.
+
+### [R64] OECD — Dark commercial patterns
+
+OECD (2022). **Dark commercial patterns.** OECD Digital Economy Papers, No. 336. DOI: 10.1787/44f5e846-en.
+
+https://www.oecd.org/content/dam/oecd/en/publications/reports/2022/10/dark-commercial-patterns_9f6169cd/44f5e846-en.pdf
+
+Use: selected discussion on pages 11 and 15 supports assessing misleading activity presentation and the context of persuasive cues. The report also discusses how truthful scarcity and popularity information can be useful.
+
+Boundary: policy and research synthesis, not current law in every jurisdiction or a rule that every deadline, stock cue, default or visual emphasis is unacceptable. Chapter 07's specific claim-scope checks apply the existing truthfulness and informed-choice commitments; they are not a new legal classification test.
+
+These sources were added as supplementary verification on 2026-09-07, not reconstructed as original research inputs. Only the material identified above was inspected.
 
 ---
 

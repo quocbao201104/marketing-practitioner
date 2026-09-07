@@ -106,9 +106,9 @@ DOI: https://doi.org/10.1287/mnsc.2022.4507
 
 Evidence type: large-scale field experiment plus model-based evaluation.
 
-Use: supports treating trials as access/learning commercial interventions and shows trial duration can affect acquisition, retention, and profitability in the studied SaaS setting.
+Use: supports treating trials as access/learning commercial interventions and shows trial duration can affect acquisition, subscription duration, and revenue in the studied SaaS setting. Section 7 measures post-experiment subscription duration and revenue over two years; revenue serves as a profitability proxy under the study's near-zero marginal serving-cost assumption.
 
-Boundary: does not establish that shorter trials are always better or one universal trial duration.
+Boundary: does not establish that shorter trials are always better or one universal trial duration. Do not transfer the revenue-to-profit approximation to a setting with material usage or support costs, or infer that all SaaS has negligible marginal serving costs.
 
 ### [CD09] Santana, Dallas & Morwitz — drip pricing
 

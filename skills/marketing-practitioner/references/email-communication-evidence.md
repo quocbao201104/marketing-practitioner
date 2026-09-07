@@ -123,13 +123,15 @@ Evidence class: randomized field experiments.
 Source: https://link.springer.com/article/10.1007/s11002-023-09701-7
 
 Use for:
-- replication pressure on first-name subject personalization;
-- evidence that the positive first-name result did not reproduce in two newer field experiments in their settings;
-- grounding tactic-effect scope by population, period, and implementation.
+- first-name replication pressure from experiment 1 with university students, which did not establish a positive open or click effect;
+- the distinct title-plus-surname treatment in experiment 2 with politicians, which reported a significant open increase but not a significant click increase;
+- grounding tactic-effect scope: both experiments used German messages, with different populations rather than a direct comparison of name forms.
 
 Do not use for:
-- concluding that personalization never works;
-- treating the inverse result as a universal law.
+- concluding that personalization never works or that a nonsignificant result establishes zero effect;
+- counting experiment 2 as a second first-name replication or as a direct test of surname superiority;
+- treating habituation over time as an established explanation of cross-study differences;
+- treating either result as a universal law.
 
 Evidence class: randomized field experiments / replication study.
 

@@ -93,7 +93,7 @@ Contradictions can arise because the original proposition is weak, because the m
 
 Evidence counts should follow root sources rather than derivative artifacts. One interview may produce several quotations, a summary, a slide, and a strategic memo. These objects do not become independent confirmations simply because they have separate filenames.
 
-For qualitative material, retain root-source identity and the interviewer or prompt context when either changes a decision-relevant interpretation or source independence. Twelve notes derived from two interviews remain two independent sources, even when the notes describe different moments or themes.
+For qualitative material, retain root-source identity and the interviewer or prompt context when either changes a decision-relevant interpretation or source independence. Twelve notes derived from two interviews remain two interview source units, even when the notes describe different moments or themes. Separate interviews do not by themselves establish independent corroboration: shared events, organizational context, incentives, or prior discussion can make accounts dependent in ways that matter to the proposition being assessed.
 
 When exact wording itself is being used as evidence of spontaneous or customer-origin language, independent participant or root sources do not by themselves establish independent wording origin. Known shared exposure to prior brand copy, interviewer wording, community terminology, or another common upstream language source should constrain claims about independent linguistic convergence without erasing the observed recurrence.
 

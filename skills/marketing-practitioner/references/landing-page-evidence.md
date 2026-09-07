@@ -55,15 +55,16 @@ Source: https://marketingexperiments.com/conversion-marketing/lpo-eyepath-though
 
 Use for:
 - practitioner framing of thought sequence versus eye-path alone;
-- examples where value, supporting proof, action, and next-step clarity were deliberately sequenced;
-- counterevidence to fixed placement folklore.
+- proposed page sequencing that relates value, supporting proof, action, and next-step clarity;
+- generating placement hypotheses for the current visitor context.
 
 Do not use for:
 - a universal rule that forms belong at the bottom;
 - a universal rule that testimonials belong next to forms;
-- any one treatment order as general law.
+- any one treatment order as general law;
+- evidence of a measured conversion effect from the proposed rearrangement.
 
-Evidence class: practitioner synthesis plus contextual page analysis/test lineage.
+Evidence class: practitioner page analysis and design hypotheses. The article does not report an outcome for its proposed rearrangement.
 
 ## [LP05] CXL — Should You Really Reduce Form Fields?
 
@@ -135,6 +136,8 @@ Do not use for:
 - universal placement rules derived from individual lifts.
 
 Evidence class: experienced-practitioner framework plus contextual tests.
+
+Source-quality limit: in Optimizing Offer Page, Case Study 1 lists control conversion of 0.16% and treatment conversion of 0.13%, while reporting a positive 89.23% difference and a treatment win. The direction and magnitude are unresolved as presented. Until corrected primary results are available, use this case only to describe the reported treatment, not as evidence of its effect. This limitation concerns that case, not every test in the corpus.
 
 ## Evidence interpretation rule
 

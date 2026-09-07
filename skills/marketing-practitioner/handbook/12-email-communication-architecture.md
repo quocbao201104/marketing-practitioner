@@ -306,7 +306,7 @@ The sender/subject/preview should help the recipient correctly identify relevanc
 
 Do not optimize the subject line for opens independently of message fulfillment. A subject that earns an open by creating an expectation the body does not repay is a representation failure even if the open metric rises.
 
-Personalization is not a universal fix. Randomized field experiments in 2018 found positive effects from adding recipient-specific information in the studied settings [EM07], while a 2023 replication found no positive first-name effect on opens or clicks in its two newer experiments [EM08]. Treat personalization as a conditional treatment, not a law.
+Personalization is not a universal fix. Randomized field experiments published in 2018 found positive effects from adding recipient-specific information in the studied settings [EM07]. In a 2023 study, a first-name experiment with university students did not establish a positive open or click effect; a separate title-plus-surname experiment with politicians reported a significant open increase, but not a significant click increase [EM08]. These German-language experiments used different populations, not a direct comparison of name forms. Treat personalization as a conditional treatment, not a law: these results establish neither universal surname superiority nor that first-name effects are zero or have disappeared through habituation.
 
 ### Message surface
 

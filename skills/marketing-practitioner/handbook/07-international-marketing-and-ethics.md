@@ -90,6 +90,8 @@ A result from one market can inform a prior or hypothesis in another market, but
 
 Cross-national research also raises measurement-invariance problems: comparisons can be misleading when constructs do not operate equivalently across groups [R15].
 
+When a cross-market comparison can change the decision, identify whether it concerns sample descriptions, relationships between constructs, or differences in construct levels, and assess measurement comparability for that purpose [R15][R63]. A good translation, identical response labels, or a shared metric name does not by itself establish equivalence. If the evidence is insufficient, qualify or withhold the cross-market construct ranking while retaining useful within-sample descriptions at their supported scope. This does not require a full invariance study for ordinary translation or a descriptive task that makes no such comparison.
+
 A disciplined transfer sequence is:
 
 ```text
@@ -151,6 +153,8 @@ Problematic practices include:
 - obstructive cancellation;
 - friction deliberately concentrated on declining or leaving;
 - omission of material limitations that would affect a reasonable decision.
+
+Assess the claim conveyed by the whole persuasive cue, including material qualifications and choice context, rather than only checking whether an underlying datum is real [R64]. Preserve the evidence type, reference group, product or variant, time period, and conditions when they affect interpretation: sales volume does not establish customer ratings, historical purchases are not current activity, and scarcity of one variant is not scarcity of the entire range. Genuine, accurately scoped popularity or scarcity can be useful information; it does not justify misleading presentation or obstructed choice.
 
 ## 9. Friction should follow risk
 

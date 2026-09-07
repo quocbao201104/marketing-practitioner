@@ -406,18 +406,14 @@ State should change the decision. It should not become a fabricated persona.
 
 Distinguish the intended reader from the broader **audience envelope**: who can realistically encounter the object or representation after recommendation, search, repost, direct share, collaboration, notification, secondary use, or later state change.
 
-Prefer audience knowledge in this order when material:
+Use each audience input for the question it can answer:
 
-```text
-explicit user-defined audience
-→ configured platform target
-→ known membership / subscription context
-→ observed current audience evidence
-→ contextual inference
-→ generic platform prior
-```
+- the user's adopted audience constrains whom the current artifact is intended to serve;
+- configured targeting, membership, and subscription context describe targeting or access conditions, not proof of actual exposure;
+- appropriately scoped observations inform who actually encountered or responded, within the measurement's coverage and limitations;
+- contextual inference and generic platform priors may suggest hypotheses where evidence is missing, but do not establish observed audience facts.
 
-Do not fabricate demographic or psychographic precision because a platform is known.
+Intended and actual audiences can differ [R23]. Retain a decision-relevant mismatch rather than replacing observations with the brief or silently retargeting the task to match current delivery. Do not fabricate demographic or psychographic precision from a platform name, targeting setting, or incomplete analytics.
 
 ### 5.2 Typed relationship, delivery, and permission edges
 
@@ -496,38 +492,38 @@ intentionality
 scope
 ```
 
-Examples of minimum operational meanings:
+Examples of event or state descriptions; use the platform's documented event definition when interpreting logged data:
 
 ```text
 SAVE
-preservation / revisit behavior
+marking an object for preservation or later access
 
 SHARE / SEND
-content travel toward another audience or context
+sharing or sending toward another audience or context; receipt or consumption is not implied
 
 COMMENT / REPLY
-conversation participation
+posting a contribution in a conversation
 
 FOLLOW / SUBSCRIBE
 relationship-state transition
 
 PROFILE VISIT
-identity evaluation
+opening or visiting a profile
 
 SEARCH
-intent expression / refinement
+submitting or modifying a query
 
 PRODUCT CLICK
-commerce-state transition
+clicking a product-related link or control
 
 PURCHASE
 transactional outcome
 
 REMIX
-viewer-to-creator participation transition
+creating a derivative or recombined contribution
 ```
 
-These are not guaranteed motives.
+These descriptions do not establish motive, satisfaction, or a later outcome. Revisiting after a save, evaluating an identity during a profile visit, or intending to buy after a product click remain separate hypotheses unless further evidence supports them. Use the behavior-to-mechanism bridge in section 5.6 when those interpretations can change the decision.
 
 One-to-one private sending and one-to-many public broadcasting can produce different sharing incentives; Barasch and Berger found different sender focus under narrowcasting and broadcasting in the studied settings [R43]. Use this as evidence that topology can change interaction semantics, not as a universal formula.
 

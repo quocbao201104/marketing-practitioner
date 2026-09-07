@@ -96,7 +96,8 @@ Research on consumer response to logo redesign and the moderating role of existi
 ## [BV04] Brus et al. — marketer judgment versus buyer-memory evidence
 
 **Evidence status:** EMPIRICAL / ACADEMIC  
-**Source:** Brus, Hartnett, Faulkner, Driesener and colleagues (2025/2026), *Assessing branding strength: comparing marketer judgement and consumer data for brand identity elements*, Journal of Brand Management 33, 1–17.  
+**Source:** Brus, R., Hartnett, N., Faulkner, M., & Driesener, C. (2026; first published online 7 June 2025), *Assessing branding strength: comparing marketer judgement and consumer data for brand identity elements*, Journal of Brand Management 33, 1–17.
+
 **DOI:** https://doi.org/10.1057/s41262-025-00395-y
 
 **Scope / context**
@@ -119,10 +120,11 @@ Compares marketer judgments with consumer evidence for brand-identity elements, 
 
 ---
 
-## [BV05] Henderson, Cote, Leong & Schmitt — cross-national logo evaluation
+## [BV05] van der Lans et al. — cross-national logo evaluation
 
 **Evidence status:** EMPIRICAL / ACADEMIC  
-**Source:** Henderson, Cote, Leong & Schmitt, *Cross-National Logo Evaluation Analysis: An Individual-Level Approach*, Marketing Science.  
+**Source:** van der Lans, R., et al. (2009), *Cross-National Logo Evaluation Analysis: An Individual-Level Approach*, Marketing Science 28(5), 968–985.
+
 **DOI:** https://doi.org/10.1287/mksc.1080.0462
 
 **Scope / context**

@@ -84,6 +84,8 @@ A claim should be paired with the strongest form of evidence actually available.
 - guarantees or contractual commitments;
 - transparent limitations that make the promise falsifiable.
 
+These forms serve different purposes. Match each to the exact proposition: a demonstration can support a capability within the demonstrated conditions; measured outcomes can support scoped performance claims; a guarantee or contract supports what is committed under its terms and may reduce customer risk. A plausible mechanism, commitment, or testable limitation does not by itself establish an achieved outcome.
+
 Proof should be close enough to the claim that the reader can evaluate the relationship. The strength of the claim and the strength of the evidence should be proportional.
 
 A useful distinction is between **relevance evidence** and **capability evidence**. Customer research can show that a problem matters; it cannot establish that a product performs a capability it does not possess. Product facts constrain what marketing is allowed to say.
@@ -125,9 +127,11 @@ The strongest wording cannot compensate for missing evidence. When material is w
 
 ## 6. Concreteness and processing fluency
 
-Concrete language can improve perceived responsiveness and customer satisfaction in the contexts studied by Packard and Berger [R07]. Processing fluency research also indicates that ease of processing is a meaningful consumer construct [R08]. These findings support clarity, specific nouns, observable mechanisms, and direct verbs as generally useful writing priorities.
+Packard and Berger study how concrete language in customer–employee interactions can signal listening and improve customer responses within the studied contexts [R07]. Kostyk and colleagues develop and validate a measure of subjective processing ease [R08]. Linguistic concreteness, processing ease, and communication effectiveness are distinct questions; these studies do not validate one general writing recipe.
 
-They do **not** establish that shorter or more concrete copy always converts better. Complexity can be necessary when the decision is complex. Technical buyers may require precision that increases reading effort but decreases uncertainty. The standard is not minimal word count; it is minimal unnecessary processing burden.
+Clarity, specific nouns, observable mechanisms, and direct verbs are practical writing heuristics to consider for the reader's task, not a package of interventions established by these studies. Choose the level of abstraction that preserves accurate meaning and helps the reader understand the relevant idea or action.
+
+The cited studies do **not** establish that shorter or more concrete copy always converts better. Complexity can be necessary when the decision is complex. Technical buyers may require precision that increases reading effort but decreases uncertainty. The standard is not minimal word count; it is minimal unnecessary processing burden.
 
 ## 7. Format as an information constraint
 

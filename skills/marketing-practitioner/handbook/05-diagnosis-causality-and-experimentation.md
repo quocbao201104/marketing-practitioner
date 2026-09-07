@@ -56,7 +56,11 @@ The causal question is fundamentally counterfactual: what would the outcome have
 
 Because both potential states cannot normally be observed for the same unit at the same time, causal designs depend on comparison strategies and assumptions. Randomized controlled experiments are powerful because randomization can make treatment groups comparable in expectation, but implementation quality, interference, measurement, attrition, and power remain important [R12].
 
-Observational causal designs can also be useful when randomization is infeasible, but their assumptions must be made explicit rather than hidden behind causal language.
+When designing or interpreting a randomized comparison, retain the assignment unit, intended analysis population, and inclusion rules. Check assignment, observation, and logging integrity where material: unexpected sample proportions or missing observations need diagnosis against the intended allocation. Filtering on behavior affected by the treatment can break the original comparison; a known denominator is not necessarily an appropriate causal comparison group [R61]. Account for dependence and interference when they affect the analysis. Passing a balance check alone does not establish validity, and more observations do not by themselves repair selection bias.
+
+Observational causal designs can also be useful when randomization is infeasible, but their assumptions must be made explicit rather than hidden behind causal language. Define the intervention, comparator, target population and outcome, and explain why the design can identify their causal contrast [R11]. For adjustment-based comparisons, consider relevant pre-intervention causes of both treatment receipt and outcome; justify the adjustment variables rather than controlling for everything or filtering on treatment-affected behavior. Check whether comparable treatment alternatives are represented where the target contrast requires them, and distinguish supported comparisons from extrapolation. Matching, regression, weighting, observed balance or a narrow interval alone does not establish identification. Other causal designs may rely on different assumptions; retain consequential residual bias and uncertainty instead of treating precision as validity. When identification remains unresolved, qualify the effect claim while using section 11 to assess a bounded action or further information.
+
+Align eligibility, assignment to the compared strategies and start of follow-up with the causal question [R65]. Do not use later receipt, continued eligibility or survival to retrospectively define a baseline treated group and count the preceding survival as treatment benefit. For example, accounts receiving an email only if still active on day seven cannot be compared from signup against all nonrecipients as though receipt were assigned at signup. A comparison among accounts eligible on day seven answers a different question from a signup-level policy of sending later when eligible, and still needs justified comparison assumptions. Later initiation and time-varying strategies remain valid subjects for suitably designed analyses; recording the same reporting window alone does not repair misalignment.
 
 ## 6. Attribution and incrementality
 
@@ -68,7 +72,7 @@ Similarly, an outcome after simultaneous changes to price, annual commitment, el
 
 ## 7. Experimentation as knowledge production
 
-Experiments are valuable not only because they identify a winner but because they reduce uncertainty about a decision or mechanism. A useful experiment begins with the decision and hypothesis.
+Experiments can reduce uncertainty about a decision; learning about a mechanism requires a design that can distinguish relevant explanations. A positive treatment effect does not by itself establish why it occurred [R12]. Preserve a useful intervention result within scope without promoting its motivating explanation into an established mechanism. A useful experiment begins with the decision and hypothesis.
 
 A pre-analysis brief should state:
 
@@ -81,10 +85,11 @@ A pre-analysis brief should state:
 - guardrail metrics;
 - minimum effect worth acting on;
 - sample and duration logic;
+- analysis, monitoring, and stopping approach;
 - conditions for an inconclusive result;
 - decision rules for positive, null, and negative outcomes.
 
-This structure reduces hindsight reinterpretation.
+This structure reduces hindsight reinterpretation. For confirmatory inference, distinguish a fixed-horizon analysis from a sequential method that supports the planned monitoring and stopping rule. Repeatedly checking a conventional fixed-horizon test and stopping on the first favorable result does not preserve its nominal error guarantees. Monitoring and stopping for harm or implementation faults remain legitimate, but do not automatically establish a confirmatory efficacy result [R60].
 
 When results are retained as learning for a decision, preserve the estimand, analysis population, comparison or control, treatment or version, outcome and horizon, material validity condition or defect, and what the result cannot establish. These fields keep a causal result from becoming an unsupported general lesson.
 
@@ -99,6 +104,8 @@ Guardrails protect against local optimization. A treatment that improves clicks 
 ## 9. Null, negative, and inconclusive outcomes
 
 A non-positive experiment should be interpreted at the level supported by the design. Failure of one message treatment does not prove that the underlying customer concern is irrelevant. It may indicate weak treatment strength, limited statistical power, incorrect timing, population mismatch, or a false mechanism.
+
+Interpret the effect estimate and a method-appropriate uncertainty summary alongside the minimum effect worth acting on and relevant guardrails [R12][R59]. Statistical significance does not measure practical importance; failure to reject a null hypothesis does not establish no effect or equivalence. Distinguish uncertainty that still permits consequential benefit or harm from evidence that meaningfully constrains those possibilities. Formal equivalence or non-inferiority claims need suitable designs and margins. If the available analysis cannot justify an uncertainty estimate, state that limit rather than inventing precision.
 
 Therefore result language should distinguish:
 
@@ -121,4 +128,4 @@ For a proposed spend change, distinguish average attributed return, average incr
 
 The amount of evidence required before action depends partly on the cost of error. Small, reversible, low-risk changes can be tested under greater uncertainty. High-cost, irreversible, legally material, or brand-sensitive changes require stronger evidence and more deliberate review.
 
-The same principle supports a rational **do-nothing option**. When signals are weak and a system is already changing, additional interventions can make future diagnosis harder.
+The same principle supports a rational **do-nothing option**. When signals are weak and a system is already changing, additional interventions can make future diagnosis harder. Compare acting, waiting, and gathering more information using the plausible consequences, costs, guardrails, and value of resolving the remaining uncertainty. This is a decision judgment, not a universal significance gate: choosing a reversible action does not verify its expected effect.

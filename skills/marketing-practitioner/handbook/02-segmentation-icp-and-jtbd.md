@@ -27,7 +27,7 @@ A useful evaluation frame considers:
 - sales-cycle complexity;
 - compliance or capability requirements.
 
-These factors form a decision checklist, not a validated multiplicative equation. Their relative importance is business-specific.
+These factors form a decision checklist, not a validated multiplicative equation. Distinguish binding requirements for the current decision and horizon from attractiveness criteria that can trade off [R62]. Their roles and relative importance depend on the actual objective and constraints; do not turn every difficult or costly attribute into an automatic exclusion.
 
 ## 4. Avoid fictional precision in personas
 
@@ -94,7 +94,9 @@ If not, the segmentation may be analytically interesting but operationally weak.
 
 An attractive customer problem does not automatically imply an attractive target. A group may show strong interest but produce poor economics, excessive support cost, unacceptable compliance exposure, low reachability, or a sales process beyond the firm's current capability.
 
-Target selection therefore requires combining customer evidence with organizational constraints. This is an important boundary: marketing strategy is not derived from customer desire alone.
+Target selection therefore requires combining customer evidence with organizational constraints. Commercial upside cannot compensate for an unmet binding requirement. A segment requiring a future capability remains a conditional option with that dependency, not a target the firm can already serve. Compare feasible candidates using the organization's priorities, their attractiveness, and the firm's ability to win their choice relative to alternatives [R62].
+
+When missing evidence or a trade-off could reverse the preference, identify the decisive assumption and whether resolving it would change the current choice. Do not replace missing evidence with arbitrary scores or weights. A provisional priority can still be useful when its dependencies and limits are explicit. This is a practical comparison aid, not a validated selection algorithm.
 
 ## 9. Scope and revision
 
