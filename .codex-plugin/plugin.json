@@ -17,6 +17,10 @@
     "longDescription": "Research customers, shape strategy, create marketing content, and interpret results with claims grounded in evidence. Includes a shared skill, specialist handbook, routing index, source references, and optional Python retrieval helpers.",
     "developerName": "quocbao201104",
     "category": "Productivity",
+    "brandColor": "#008477",
+    "composerIcon": "./assets/brand/logo.png",
+    "logo": "./assets/brand/logo.png",
+    "logoDark": "./assets/brand/logo-dark.png",
     "capabilities": [],
     "websiteURL": "https://github.com/quocbao201104/marketing-practitioner",
     "defaultPrompt": [

@@ -13,6 +13,7 @@ Distribute a folder named `marketing-practitioner` containing:
 ```text
 marketing-practitioner/
   .codex-plugin/plugin.json
+  assets/brand/                  # Referenced plugin logos and README banner
   skills/marketing-practitioner/   # Entire directory, including resources and scripts
   LICENSE
   THIRD_PARTY_NOTICES.md
