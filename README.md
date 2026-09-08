@@ -139,7 +139,9 @@ It has no authority to invent product, financial, legal, operational, sales, pla
 
 The skill starts from the current job, not from a predefined marketing funnel.
 
-![Marketing Practitioner workflow: frame the task, use relevant guidance when needed, do the work, check quality, and return useful outputs. Material gaps lead back to the open question.](assets/diagrams/from-brief-to-marketing-decision.png)
+![Marketing Practitioner workflow: frame the task, use relevant guidance when needed, do the work, check quality, and return useful outputs. Material gaps lead back to the open question; a checkpoint is needed only when a material choice remains unresolved and user input or decision authority is still needed.](assets/diagrams/from-brief-to-marketing-decision.png)
+
+Complex work can start with a brief working plan without waiting for approval. The agent proceeds on resolved or delegated choices; when a material choice remains unresolved and the request or retained context does not provide enough input or authority to decide, it prepares a concrete proposal and asks before the dependent work. Independent work can continue while you decide. Task size or HTML output alone does not create an approval gate.
 
 Reads serve a remaining question; they are not completion by themselves. When evidence is missing, the agent is instructed to retrieve it, ask a material question, or give a useful bounded result.
 
@@ -165,7 +167,9 @@ The host controls skill activation, available tools, and how much context surviv
 
 ## Under the hood
 
-![Inside Marketing Practitioner: SKILL.md guides the agent; the index locates relevant knowledge in the handbook, platform modules, and local adaptations. Frameworks and references supply optional working aids and evidence boundaries.](assets/diagrams/inside-the-skill.png)
+![Inside Marketing Practitioner: SKILL.md guides the agent; the index locates relevant knowledge in the handbook, platform modules, and local adaptations. Frameworks and references supply optional working aids, evidence boundaries, and report planning and presentation guidance.](assets/diagrams/inside-the-skill.png)
+
+For complex reports, [report planning and presentation](skills/marketing-practitioner/references/report-planning-and-presentation.md) connects reader questions, section purposes, evidence, and useful visual forms across formats, with additional HTML delivery guidance.
 
 Large knowledge is addressed by logical IDs in [`routing-index.json`](skills/marketing-practitioner/routing-index.json). Headings and file paths are implementation details.
 

@@ -39,3 +39,8 @@ One centered final footer:
 Small second footer:
 "Instructions and reference files • The host provides tools and context"
 Keep exact text and file names, including lowercase and punctuation. Do not add counts, version numbers, guarantee statements, irrelevant mechanics or any other prose. Clearly distinguish three main boxes from two bottom supports. Precise spacing, no collisions. This image explains a skill's file roles, not software services running autonomously.
+
+
+## Planning update edit
+
+Edit the supplied diagram with minimal changes. Preserve all existing layout, text, arrows, colors, chalkboard style and proportions. In the SKILL.md panel add: Planning and decision checkpoints. In the Sources and operating detail panel add: Report planning and presentation. Preserve readable spacing and all existing text. Do not add arrows or boxes.
