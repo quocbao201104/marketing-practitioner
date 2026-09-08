@@ -1,0 +1,51 @@
+{
+  "symbol_geometry_and_alpha_identical": true,
+  "lockup_geometry_and_alpha_identical": true,
+  "svg_distribution_files": 6,
+  "svg_image_elements": 0,
+  "svg_text_elements": 0,
+  "png_rgba_files": 18,
+  "png_sizes": [
+    32,
+    64,
+    128,
+    256,
+    512,
+    1024
+  ],
+  "ico_sizes": [
+    16,
+    32,
+    48
+  ],
+  "pdf_pages": 6,
+  "pdf_raster_images": 0,
+  "pdf_text_drawing_operators": 0,
+  "symbol_threshold_mask_iou": 0.9932373873992174,
+  "editable_vs_outlined_mask_iou": 0.9974846944228156,
+  "reference_files_unchanged": true,
+  "font_sha256": "0f7b311b2f3279e4eef9b2f968bcdbab6e28f4daeb1f049f4f278a902bcd82f7",
+  "font_version": "Version 9.000",
+  "word_advance_widths": [
+    966.082973329797,
+    1060.6312299456995
+  ],
+  "word_optical_transforms": [
+    [
+      0.9233962131866067,
+      0,
+      0,
+      1.0438444044945805,
+      844.1388885004494,
+      383.09358493979994
+    ],
+    [
+      0.8805733520626358,
+      0,
+      0,
+      0.9760560745974273,
+      844.7353275845394,
+      557.3072965991046
+    ]
+  ]
+}

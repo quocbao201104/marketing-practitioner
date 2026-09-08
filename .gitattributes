@@ -1,0 +1,4 @@
+# Preserve delivered logo kits byte-for-byte, including their checksum records.
+assets/logo-20260908/** -text
+assets/logo-vector-20260908/** -text
+assets/logo-vector-20260908/pdf/*.pdf binary

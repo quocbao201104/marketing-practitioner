@@ -1,0 +1,86 @@
+[
+  {
+    "File": "concepts.png",
+    "Width": 1774,
+    "Height": 887,
+    "PixelFormat": "Format32bppArgb",
+    "Bytes": 256883
+  },
+  {
+    "File": "lockup-color-dark.png",
+    "Width": 2172,
+    "Height": 724,
+    "PixelFormat": "Format24bppRgb",
+    "Bytes": 985200
+  },
+  {
+    "File": "lockup-color-light.png",
+    "Width": 2172,
+    "Height": 724,
+    "PixelFormat": "Format24bppRgb",
+    "Bytes": 929221
+  },
+  {
+    "File": "lockup-mono-dark.png",
+    "Width": 2172,
+    "Height": 724,
+    "PixelFormat": "Format24bppRgb",
+    "Bytes": 512637
+  },
+  {
+    "File": "lockup-mono-light.png",
+    "Width": 2172,
+    "Height": 724,
+    "PixelFormat": "Format24bppRgb",
+    "Bytes": 725210
+  },
+  {
+    "File": "small-size-check.png",
+    "Width": 1100,
+    "Height": 1080,
+    "PixelFormat": "Format32bppArgb",
+    "Bytes": 146701
+  },
+  {
+    "File": "small-size-initial.png",
+    "Width": 1000,
+    "Height": 260,
+    "PixelFormat": "Format32bppArgb",
+    "Bytes": 21554
+  },
+  {
+    "File": "symbol-color-dark.png",
+    "Width": 1254,
+    "Height": 1254,
+    "PixelFormat": "Format24bppRgb",
+    "Bytes": 887373
+  },
+  {
+    "File": "symbol-color-light.png",
+    "Width": 1254,
+    "Height": 1254,
+    "PixelFormat": "Format24bppRgb",
+    "Bytes": 828435
+  },
+  {
+    "File": "symbol-mono-dark.png",
+    "Width": 1254,
+    "Height": 1254,
+    "PixelFormat": "Format24bppRgb",
+    "Bytes": 431649
+  },
+  {
+    "File": "symbol-mono-light.png",
+    "Width": 1254,
+    "Height": 1254,
+    "PixelFormat": "Format24bppRgb",
+    "Bytes": 669853
+  },
+  {
+    "File": "variants-preview.png",
+    "Width": 1600,
+    "Height": 800,
+    "PixelFormat": "Format32bppArgb",
+    "Bytes": 377723
+  }
+]
