@@ -212,6 +212,109 @@ Boundary: does not establish that high-risk customers should never be targeted, 
 
 ---
 
+## Pricing-metric / charge-basis selection parents
+
+### [CD17] Skiera, Schlereth & Oetzel — pricing metrics and billing increments
+
+Bernd Skiera, Christian Schlereth & Sebastian Oetzel (2020). **Pricing Metrics and the Importance of Minimum and Billing Increments.** *Journal of Service Research*, 23(3), 321–336.
+
+DOI: https://doi.org/10.1177/1094670519895581
+
+Evidence type: conceptual pricing model plus three empirical telecommunications studies.
+
+Use: distinguishes pricing metric from tariff and billing increments; supports `true/raw usage != charged usage`, commercial importance of increment rules, legitimate flat-rate billing without usage measurement, multiple simultaneous pricing metrics, and the fact that pricing-unit choice is a meaningful commercial decision.
+
+Boundary: does not establish the project's `CHARGE BASIS` vocabulary, candidate-space heuristic, universal optimal increment, or a rule that the unit closest to customer value is always best. Telecommunications effect sizes do not transfer automatically.
+
+### [CD18] Lahiri, Dewan & Freimer — service pricing versus traffic pricing
+
+Atanu Lahiri, Rajiv M. Dewan & Marshall Freimer (2013). **Pricing of Wireless Services: Service Pricing vs. Traffic Pricing.** *Information Systems Research*, 24(2), 418–435.
+
+DOI: https://doi.org/10.1287/isre.1120.0434
+
+Evidence type: formal economic / information-systems theory.
+
+Use: compares alternative pricing units for the same underlying resource and supports that charge-basis choice can materially alter firm, customer, and welfare consequences. Provides a counterexample to universal preference for either lower-level technical/resource units or higher-level service units.
+
+Boundary: does not establish a general practitioner selection algorithm or transfer its wireless-market assumptions to arbitrary industries.
+
+### [CD19] Nullmeier, Wynstra & van Raaij — outcome attributability
+
+Fabian M. E. Nullmeier, Finn Wynstra & Erik M. van Raaij (2016). **Outcome attributability in performance-based contracting: Roles and activities of the buying organization.** *Industrial Marketing Management*, 59, 25–36.
+
+DOI: https://doi.org/10.1016/j.indmarman.2016.05.031
+
+Evidence type: theory elaboration plus multiple case study.
+
+Use: supports `observed outcome != provider-attributable outcome`, identifies low attributability/outcome uncertainty as a central performance-contract problem, and supports explicit buyer contribution, attribution, and risk reasoning before making payment contingent on outcomes.
+
+Boundary: does not establish a universal acceptable-attribution threshold, the project's exact outcome checklist, or that performance contracts should generally be avoided.
+
+### [CD20] Hinterhuber — value-based versus performance-based pricing
+
+Andreas Hinterhuber (2017). **Value quantification capabilities in industrial markets.** *Journal of Business Research*, 76, 163–178.
+
+DOI: https://doi.org/10.1016/j.jbusres.2016.11.019
+
+Evidence type: peer-reviewed B2B pricing / value-quantification study with explicit conceptual treatment.
+
+Use: directly distinguishes value-based pricing from performance-based pricing: ex-ante price setting from expected customer value versus ex-post performance-contingent adjustment, with different risk-transfer/risk-sharing implications.
+
+Boundary: does not establish that either form is universally preferable, a universal outcome-attribution threshold, or the project's exact outcome checklist.
+
+### [CD21] Kienzler, Kowalkowski & Kindström — B2B flat-rate bias
+
+Mario Kienzler, Christian Kowalkowski & Daniel Kindström (2021). **Purchasing professionals and the flat-rate bias: Effects of price premiums, past usage, and relational ties on price plan choice.** *Journal of Business Research*, 132, 403–415.
+
+DOI: https://doi.org/10.1016/j.jbusres.2021.04.024
+
+Evidence type: four experiments with experienced purchasing professionals.
+
+Use: supports that B2B buyers can prefer flat-rate plans even when more expensive and that predictability/insurance, convenience, taximeter, distrust, and administrative mechanisms can affect plan preference.
+
+Boundary: does not establish that flat rate is generally optimal, that every mechanism has the same weight, or that unpredictable spend invalidates a usage-based charge basis.
+
+### [CD22] GitHub Docs — economically weighted AI Credits
+
+GitHub Docs (accessed 2026-09). **Usage-based billing for organizations and enterprises / GitHub Copilot billing.**
+
+Canonical documentation:
+
+- https://docs.github.com/en/copilot/concepts/billing/organizations-and-enterprises/usage-based-billing
+- https://docs.github.com/en/billing/concepts/product-billing/github-copilot-billing
+
+Evidence type: current first-party provider documentation / professional practice.
+
+Use: confirms a production billing unit where input/output/cached-token quantities are economically weighted by model-specific pricing and converted into AI Credits. Supports the existence of synthetic accounting units that can embed economic weighting rather than acting as neutral pre-tariff technical normalization.
+
+Boundary: does not establish that credits measure customer value, that credits are generally preferable, or a universal ordering between normalization and tariff logic.
+
+### [CD23] Chen, Lee & Moinzadeh — utilization versus reservation pricing
+
+Shi Chen, Hau Lee & Kamran Moinzadeh (2019). **Pricing Schemes in Cloud Computing: Utilization-Based vs. Reservation-Based.** *Production and Operations Management*, 28(1), 82–102.
+
+DOI: https://doi.org/10.1111/poms.12893
+
+Evidence type: formal operations / pricing model.
+
+Use: demonstrates that demand size and usage volatility can alter the relative attractiveness of utilization-based and reservation-based pricing; supports treating uncertainty and commitment design as commercial variables rather than assuming one universal pay-as-you-go or reservation winner.
+
+Boundary: does not establish a universal SaaS mapping from usage volatility to contract type or transfer cloud-duopoly assumptions to arbitrary markets.
+
+### [CD24] Iyengar, Jedidi, Essegaier & Danaher — tariff effects
+
+Raghuram Iyengar, Kamel Jedidi, Skander Essegaier & Peter J. Danaher (2011). **The Impact of Tariff Structure on Customer Retention, Usage, and Profitability of Access Services.** *Marketing Science*, 30(5), 820–836.
+
+DOI: https://doi.org/10.1287/mksc.1110.0655
+
+Evidence type: pricing field experiment plus demand model.
+
+Use: shows that tariff structure can affect consumer utility, retention, usage, and firm profit; supports keeping charge-basis/meter effects distinct from tariff effects.
+
+Boundary: does not establish that pay-per-use is generally superior to two-part tariffs, transfer the measured effects outside the studied access service, or supply a universal tariff for any charge basis.
+
+---
+
 # Cross-source synthesis boundaries
 
 The following four-part decomposition is a project synthesis, not a claim attributed to any one source:
@@ -233,6 +336,21 @@ COMMERCIAL DESIGN
 
 is a practitioner boundary synthesized across pricing-organization, negotiation, and state-representation concerns. CD13 supports the importance of pricing authority but does not itself propose this exact wording.
 
+The charge-basis implementation also contains project synthesis that no one source establishes as a complete or validated decision algorithm, including:
+
+```text
+USAGE-INDEPENDENT / VARIABLE / HYBRID candidate classes
+CHARGE BASIS terminology
+Q / R / A / C contract-relative role classification
+candidate-space search heuristic
+DEFINABLE / OBSERVABLE / ASSIGNABLE / RATEABLE questions
+technical vs economic/accounting normalization distinction
+comparison-dimension set
+no-generic-score decision discipline
+```
+
+The sources above support narrower conceptual, empirical, or existence claims. Do not cite them as validating the exact combined procedure or universal weighting.
+
 The following are also project-level inferential guardrails rather than quoted laws:
 
 ```text
@@ -252,14 +370,18 @@ Use them to prevent category errors, not as empirical claims with universal effe
 
 # Known evidence boundaries
 
-This ledger is not a complete pricing bibliography. The runtime chapter deliberately avoids universal prescriptions in areas where this initial evidence set is not sufficient, including:
+This ledger is not a complete pricing bibliography. The runtime chapter deliberately avoids universal prescriptions in areas where the evidence set is not sufficient, including:
 
 - B2B negotiated pricing and contract/risk-allocation effect sizes;
 - universal return/refund or guarantee policies;
 - universal grandfathering/migration rules;
 - one optimal price-experiment or value-of-information procedure;
 - universal fairness/privacy conclusions for personalized pricing;
-- universal usage-based or outcome-based B2B price-metric selection;
+- one universal fixed/variable/hybrid selection rule;
+- one optimal number of simultaneous charge bases;
+- one universal threshold for acceptable outcome attribution;
+- a universal rule for when synthetic credits should be introduced;
+- a universal migration rule when a legacy charge basis becomes weak;
 - one optimal marketplace commission or channel-contract structure.
 
 When a task depends on those questions, retain uncertainty, use authoritative current domain evidence where available, and avoid upgrading adjacent evidence into a general rule.
