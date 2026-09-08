@@ -45,6 +45,10 @@ For Claude's alternative custom-skill upload, compress that folder into a ZIP wi
 
 Maintainers can also use the [skill package builder](skill-package.md). The Codex plugin manifest and the full repository ZIP are different from this skill upload package. For ChatGPT, follow the uploader's accepted format rather than assuming Claude's ZIP layout is guaranteed to work.
 
+## Updates
+
+Periodically sync the Claude marketplace and apply available plugin updates. For an uploaded ChatGPT skill, use the skill-management flow to upload the newer complete package. Keep customizations backed up and start a new task afterward. See [update guidance](local-setup.md#keep-it-updated).
+
 ## Check the setup
 
 Confirm the skill/plugin is installed and enabled, then ask for a small marketing artifact using an approved price and product facts. Check that the assistant can read a relevant reference and preserves those facts. Installation, reference access, and useful marketing behavior are separate checks.

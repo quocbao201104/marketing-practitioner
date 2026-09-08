@@ -42,38 +42,44 @@ These are supported work areas, not guarantees of marketing performance. The age
 
 ## Quick start
 
-Choose your environment. Both paths use the same marketing skill and reference material.
+Choose your environment. The skill and reference material are the same in every package.
 
 ### Local: apps and CLI
 
-In a compatible agent app or CLI, ask the agent to install it:
-
-```text
-Install Marketing Practitioner from
-https://github.com/quocbao201104/marketing-practitioner
-using the installation method supported by this environment.
-```
-
-The agent needs installation tools and permission to use them. You can also install the standalone skill yourself:
+| Use it in | Install manually |
+| --- | --- |
+| **Codex app** | Download the repo ZIP, copy the skill into your personal skills folder, then reopen Codex. [Folder paths and steps](docs/local-setup.md#codex-app-install-manually-with-files) |
+| **Claude desktop** | Customize > Plugins > Add marketplace > Add from a Repository, then Install. [Step-by-step](docs/local-setup.md#claude-desktop-install-through-the-app) |
+| **CLI** | Run the command below, or use the [Claude Code plugin](docs/claude-code-plugin.md) / [Codex plugin](docs/plugin.md) instructions. |
 
 ```bash
 npx skills add quocbao201104/marketing-practitioner
 ```
 
-For a plugin installation, use the [Claude Code marketplace](docs/claude-code-plugin.md) or the [Codex local catalog guide](docs/plugin.md). For manual file installation, copy the entire `skills/marketing-practitioner` folder into your host's documented skills location, keeping its supporting files together.
+<details>
+<summary>Prefer to ask your agent to install it?</summary>
+
+Paste this into an app or CLI with installation tools:
+
+```text
+Install Marketing Practitioner from
+https://github.com/quocbao201104/marketing-practitioner
+for this app, using its supported installation method.
+Preserve existing customizations and confirm the installation.
+```
+
+</details>
 
 ### Web: Claude and ChatGPT
 
-| Product | Installation | Availability |
-| --- | --- | --- |
-| Claude | Add this repository as a marketplace, then install Marketing Practitioner | Requires access to the Plugins / Add marketplace controls |
-| ChatGPT | Plugins > Skills > Create > Upload from your computer | Eligible Business, Enterprise, Healthcare, and Edu accounts; workspace settings apply |
+| Use it in | Install manually |
+| --- | --- |
+| **Claude** | Add the [repository](https://github.com/quocbao201104/marketing-practitioner) as a marketplace, then install Marketing Practitioner. [Steps](docs/web-setup.md#claude-add-the-repository-marketplace) |
+| **ChatGPT** | Plugins > Skills > Create > Upload from your computer. [Prepare files and upload](docs/web-setup.md#chatgpt-upload-a-personal-skill) |
 
-**Claude:** open **Settings / Customize > Plugins**, choose **Add plugin (+) > Create plugin > Add marketplace > Add from a Repository**, and paste the [repository URL](https://github.com/quocbao201104/marketing-practitioner). Select **Sync/Add**, then select **Marketing Practitioner > Install (+)**. Some interfaces expose **+ > Add marketplace** directly. See [Claude's plugin instructions](https://support.claude.com/en/articles/13837440-use-plugins-in-claude).
+> **ChatGPT plans:** Skills are documented for eligible **Business, Enterprise, Healthcare, and Edu** accounts, subject to workspace settings. Do not assume Free, Plus, or Pro includes skill upload. [OpenAI guidance](https://help.openai.com/en/articles/20001066-skills-in-chatgpt).
 
-**ChatGPT:** use the [manual skill upload steps](docs/web-setup.md#chatgpt-upload-a-personal-skill). OpenAI lists eligible Business, Enterprise, Healthcare, and Edu users; do not assume Free, Plus, or Pro includes this feature. Uploading a personal skill is separate from installing a public directory plugin. See [OpenAI's availability and upload instructions](https://help.openai.com/en/articles/20001066-skills-in-chatgpt).
-
-The [web setup guide](docs/web-setup.md) covers both paths, preparing the files, and missing installation controls.
+> **Keep it current:** check for updates periodically, for example monthly or before a major project. You can ask your agent to update it or follow the [update steps for your installation](docs/local-setup.md#keep-it-updated).
 
 ### Your first task
 
