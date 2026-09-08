@@ -139,16 +139,7 @@ It has no authority to invent product, financial, legal, operational, sales, pla
 
 The skill starts from the current job, not from a predefined marketing funnel.
 
-```mermaid
-flowchart LR
-    A[Request and supplied context] --> B[Identify remaining work]
-    B --> C{Specialist guidance needed?}
-    C -->|No| E[Do the requested work]
-    C -->|Yes| D[Read the relevant section]
-    D --> E
-    E --> F[Check claims, fit, and completion]
-    F --> G[Return useful outputs]
-```
+![Marketing Practitioner workflow: frame the task, use relevant guidance when needed, do the work, check quality, and return useful outputs. Material gaps lead back to the open question.](assets/diagrams/from-brief-to-marketing-decision.png)
 
 Reads serve a remaining question; they are not completion by themselves. When evidence is missing, the agent is instructed to retrieve it, ask a material question, or give a useful bounded result.
 
@@ -173,6 +164,8 @@ The host controls skill activation, available tools, and how much context surviv
 **Instructions guide the agent; they do not supply unavailable tools or external authority.** Producing design assets, accessing private data, or acting in an external system depends on the host's capabilities and the user's authorization.
 
 ## Under the hood
+
+![Inside Marketing Practitioner: SKILL.md guides the agent; the index locates relevant knowledge in the handbook, platform modules, and local adaptations. Frameworks and references supply optional working aids and evidence boundaries.](assets/diagrams/inside-the-skill.png)
 
 Large knowledge is addressed by logical IDs in [`routing-index.json`](skills/marketing-practitioner/routing-index.json). Headings and file paths are implementation details.
 
