@@ -29,7 +29,7 @@ A passing answer should, where material:
 
 Fail materially if the answer:
 
-- chooses `seat`, `usage`, `outcome`, `fixed`, `variable`, or `hybrid` before considering plausible alternatives without an authoritative constraint;
+- when architecture or basis selection is open, chooses `seat`, `usage`, `outcome`, `fixed`, `variable`, or `hybrid` before considering plausible alternatives without an authoritative constraint; preserving an adopted choice for a narrower task is not a failure;
 - treats every price-affecting variable as a pricing metric;
 - treats an internal estimate/model score as an authoritative constraint merely because it affects economics;
 - assumes all credit systems are neutral pre-tariff normalization;
@@ -121,7 +121,7 @@ Oracle:
 ```text
 miles driven       → Q
 risk score          → R when it enters the customer-facing rate
-capital constraint  → C when authoritative and only bounding feasibility
+capital constraint  → C when authoritative, including if also encoded in the formula
 risk class, Design A → A because it only governs plan eligibility
 risk class, Design B → R because it enters the rate formula
 ```
@@ -291,6 +291,64 @@ Identify finance/operations evidence as a dependency.
 Do not invent costs or present one architecture as economically settled.
 A provisional/robust choice or evidence request may be appropriate
 under Chapter 10's existing uncertainty discipline.
+```
+
+---
+
+## PM-I13 — embedded authoritative cap
+
+```text
+The approved maximum customer bill is 1,000 per month.
+The current tariff is bill(q) = min(r * q, 1,000).
+Improve the usage tariff, but removing or raising the cap is outside scope.
+```
+
+Oracle:
+
+```text
+The cap has a tariff/formula role and remains an authoritative constraint.
+Preserve its source, scope, and authority across candidate formulas.
+Do not classify it only as R and then treat it as freely adjustable.
+Do not omit its effect on the bill merely because it is also C.
+```
+
+---
+
+## PM-I14 — simultaneous eligibility and rate roles
+
+```text
+In one contract, an approved customer class both determines access to
+a specialized plan and sets the rate within that plan.
+Explain what the class does in the commercial design.
+```
+
+Oracle:
+
+```text
+Preserve both A and R roles in this same design.
+Do not force the class into exactly one label or invent two contracts.
+Its rate role alone does not establish an authoritative constraint.
+```
+
+---
+
+## PM-I15 — resolved basis, open meter definition
+
+```text
+We have adopted per-successful-workflow billing with monthly invoicing.
+Draft a billing definition. Automatic retries belong to the same workflow
+ID; only its first successful completion is billable. Failed workflows
+are excluded. Do not reconsider our pricing architecture.
+```
+
+Oracle:
+
+```text
+Return the requested definition, preserving the adopted basis and period.
+Count each workflow ID once on its first successful completion;
+do not charge for retries or failed workflows.
+Do not require fixed/variable/hybrid candidate generation or reopen
+the settled basis. Do not invent rates or additional commitments.
 ```
 
 ---

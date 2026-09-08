@@ -200,7 +200,7 @@ A variable can affect the final price without being a billed quantity.
 
 ### Practitioner classification
 
-The following labels describe **roles inside the current contract/formula**, not intrinsic properties of a variable. The same underlying variable can play different roles in different commercial designs. If a relevant variable does not play one of these roles, do not force it into the classification.
+The following labels describe **roles inside the current contract/formula**, not intrinsic properties of a variable. The same underlying variable can play multiple roles in one design or different roles across designs. The roles are distinct functions, not mutually exclusive types. If a relevant variable does not play one of these roles, do not force it into the classification.
 
 ```text
 Q — QUANTITY / CONTINGENCY BASIS
@@ -218,9 +218,9 @@ or is assigned.
 
 C — AUTHORITATIVE CONSTRAINT
 An authoritative external/internal constraint that bounds the
-decision but does not itself enter the customer-facing pricing
-function. If it is explicitly converted into a pricing-function
-input, that use plays an R role rather than a C role.
+decision, including when its value also enters the customer-facing
+pricing function. Preserve its source, scope, and authority when
+comparing alternative formulas.
 ```
 
 Examples:
@@ -230,18 +230,18 @@ Electricity
 kWh                Q
 peak kW             Q
 time of day         R
-customer class      A/R depending on design
-grid constraint     C unless encoded into customer-facing rate logic
+customer class      A, R, or both depending on design
+grid constraint     C when authoritative; also R if used in rate logic
 
 Insurance
 miles driven        Q
 coverage duration   Q or relationship term
-risk class          A/R depending on design
+risk class          A, R, or both depending on design
 rating factor       R
 expected loss       R when used in the pricing function;
                     otherwise model/evidence state, not automatically C
 solvency / capital constraint
-                    C when authoritative and only bounding the decision
+                    C when authoritative, including if encoded in the formula
 
 Logistics
 distance            Q
@@ -249,7 +249,7 @@ weight/load          Q
 route category       Q or R depending on contract
 fuel index           R when it determines a customer-facing surcharge
 internal fuel-cost constraint
-                    C when it only bounds feasibility/economics
+                    C when authoritative; formula use does not remove authority
 ```
 
 **Status:** PROJECT SYNTHESIS.
@@ -690,7 +690,7 @@ The direction and desirability of those effects are context-dependent.
 
 A charge basis can be appropriate at one product/service state and become misleading as the offering changes.
 
-Current AI-service practice provides a concrete example: a resolution metric can lose coverage when the product begins performing valuable work that intentionally hands off rather than fully resolves a conversation autonomously.
+As a hypothetical project illustration, a resolution metric can lose coverage if an AI service adds valuable work that intentionally hands off rather than fully resolves a conversation autonomously. This illustrates a possible change in metric fit; it is not a verified observation about a current provider or its pricing transition.
 
 The frozen practitioner invariant is:
 
@@ -710,7 +710,7 @@ A recommendation should identify the condition under which the chosen basis shou
 - usage volatility changes materially;
 - a previously minor rate/allocation variable becomes decision-dominant.
 
-**Status:** PROFESSIONAL PRACTICE parent; PROJECT SYNTHESIS for the invariant and trigger list.
+**Status:** PROJECT SYNTHESIS for the hypothetical illustration, invariant, and trigger list. No current-provider observation is established here.
 
 ---
 
@@ -878,7 +878,7 @@ S17  Synthetic billing units may be technically normalized,
 | outcome uncertainty / provider attribution | EMPIRICAL / ACADEMIC |
 | value-based vs performance-based pricing distinction | EMPIRICAL / ACADEMIC — direct parent [PM09] |
 | current normalized / economically weighted credit billing | PROFESSIONAL PRACTICE |
-| current pricing-design workflows and revisit behavior | PROFESSIONAL PRACTICE |
+| revisiting charge-basis fit as the offering changes | PROJECT SYNTHESIS; hypothetical illustration, not a verified provider observation |
 | charge-basis terminology | PROJECT SYNTHESIS |
 | candidate-space search heuristic | PROJECT SYNTHESIS |
 | Q/R/A/C variable-role classification | PROJECT SYNTHESIS |

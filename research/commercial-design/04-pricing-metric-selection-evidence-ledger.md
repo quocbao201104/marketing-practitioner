@@ -283,6 +283,10 @@ reference / competitive context
 
 The sources above provide conceptual or empirical parents for individual concerns. They do **not** validate this exact combined procedure, establish universal weights, or prove completeness.
 
+Q/R/A/C distinguishes functions without requiring exclusive labels: an authoritative constraint may also enter a tariff, and a customer class may both gate eligibility and set a rate. Concurrent-role treatment is PROJECT SYNTHESIS, not a new empirical finding.
+
+The AI-service handoff example in the theory's section 15 is a hypothetical project illustration of changing metric fit. This ledger does not establish it as a current provider observation or recover its original research provenance. The illustration and revisit rule remain PROJECT SYNTHESIS.
+
 Likewise:
 
 ```text

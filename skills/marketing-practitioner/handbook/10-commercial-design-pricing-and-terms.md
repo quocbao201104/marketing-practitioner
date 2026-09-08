@@ -231,11 +231,11 @@ Determines which commercial conditions an actor can access
 or is assigned.
 
 C — AUTHORITATIVE CONSTRAINT
-Bounds the decision but does not itself enter the customer-facing
-pricing function.
+Bounds the decision under an authoritative source and scope,
+including when its value also enters the pricing function.
 ```
 
-The same variable can play a different role under another design. If a modeled value such as expected loss is used directly in the pricing function, that use is an `R` role; do not elevate it into an authoritative constraint merely because it affects economics. If a fuel index determines a customer-facing surcharge, it is also an `R` role. If a relevant variable plays none of these roles, do not force it into the classification.
+These are distinct functions, not mutually exclusive variable types. The same variable can play multiple roles in one design or different roles across designs. An authoritative bill cap embedded in the tariff retains its constraint role; a customer class may both gate eligibility and set the rate. Preserve a binding constraint's source, scope, and authority when comparing alternative formulas. If a modeled value such as expected loss is used directly in the pricing function, that use is an `R` role; do not elevate it into an authoritative constraint merely because it affects economics. If a fuel index determines a customer-facing surcharge, it is also an `R` role. If a relevant variable plays none of these roles, do not force it into the classification.
 
 Preserve:
 
