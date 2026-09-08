@@ -392,7 +392,7 @@ For Easy Japanese or another authoritative accessibility requirement, simpler re
 
 Primary evidence records: [JPLA05][JPLA06][JPLA07][JPLA08][JPLA09][JPLA10] in `../references/local-adaptation-japan-evidence.md`.
 
-Evidence type: Japanese government language guidance, NINJAL corpus/historical-pragmatics explanation, peer-reviewed Japanese language-change research, recent NHK language-variation evidence, and government Easy Japanese guidance. This evidence supports the semantic risk and its non-transfer boundaries; it does not establish marketing lift, universal current preference, or factual permission from wording alone.
+Evidence type: Japanese government language guidance, NINJAL corpus/historical-pragmatics explanation, published Japanese scholarly synthesis on language change, recent NHK language-variation evidence, and government Easy Japanese guidance. This evidence supports the semantic risk and its non-transfer boundaries; it does not establish marketing lift, universal current preference, or factual permission from wording alone.
 
 **REVIEW STATE**
 

@@ -156,7 +156,9 @@ LANGUAGE CHANGE
 
 **DOI:** https://doi.org/10.32252/tcg.21.0_50
 
-**Type:** Japanese historical-pragmatics / honorific research.
+**Type:** Published Japanese scholarly synthesis / special contribution on historical pragmatics and honorifics.
+
+**Selected verification (2026-09-08):** The [official PDF](https://www.jstage.jst.go.jp/article/tcg/21/0/21_50/_pdf/-char/ja) labels the article `特別寄稿` (special contribution) on p. 50. The opening and selected discussion on pp. 50–51 and 54–55 synthesize earlier research on newer uses and weakened permission/benefit meanings. The inspected paper and metadata do not establish the article’s peer-review procedure; neither peer review nor its absence is inferred from the contribution label. Its supported linguistic interpretation remains usable within the stated scope.
 
 **Supports:**
 
