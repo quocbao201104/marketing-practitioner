@@ -368,7 +368,9 @@ Use them to prevent category errors, not as empirical claims with universal effe
 
 ---
 
-# Known evidence boundaries
+# OPEN QUESTION — known evidence boundaries
+
+**Status: OPEN QUESTION.** Every unresolved universal rule listed below remains an open question rather than a runtime default. Do not fill these gaps from model intuition merely because adjacent evidence exists.
 
 This ledger is not a complete pricing bibliography. The runtime chapter deliberately avoids universal prescriptions in areas where the evidence set is not sufficient, including:
 
@@ -384,4 +386,4 @@ This ledger is not a complete pricing bibliography. The runtime chapter delibera
 - a universal migration rule when a legacy charge basis becomes weak;
 - one optimal marketplace commission or channel-contract structure.
 
-When a task depends on those questions, retain uncertainty, use authoritative current domain evidence where available, and avoid upgrading adjacent evidence into a general rule.
+When a task depends on those questions, preserve `OPEN QUESTION` status, retain uncertainty, use authoritative current domain evidence where available, and avoid upgrading adjacent evidence into a general rule.
