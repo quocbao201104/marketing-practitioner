@@ -5,6 +5,26 @@ All notable changes to this repository are documented here.
 The project uses semantic versioning for published skill revisions. v1.0.0 marks the first stable core contract: future 1.x work should preserve compatibility-sensitive controller semantics, logical knowledge interfaces, owner boundaries, and evidence/claim behavior unless a demonstrated failure justifies a scoped change. Historical frozen evaluation and research references keep the version labels under which they were produced.
 
 
+## [1.7.0] - 2026-09-08
+
+### Planning and report presentation
+
+- Added proportionate working plans without making task size or output format an approval gate. Checkpoints depend on unresolved material choices and insufficient input or decision authority under the request and retained context.
+- Preserve resolved and delegated choices, prepare concrete proposals before necessary checkpoints, and continue independent work while dependent work waits.
+- Added a format-independent report contract covering reader questions, information architecture, evidence, presentation choices, and useful completion, with scoped HTML delivery and accessibility guidance.
+
+### Visual identity and documentation
+
+- Added the approved logo and vector master kit, Codex plugin icons, and a refreshed README banner.
+- Added and updated two README diagrams for the workflow and skill file roles, including planning checkpoints and report presentation references. Generation prompts are retained for maintenance.
+
+### Compatibility and verification scope
+
+- Preserved the seven runtime jobs, 264 logical routes, 248 evidence sources, and shared standalone/Codex/Claude skill source. No new runtime service or mandatory approval pipeline was added.
+- Release preparation passed both skill validators, 68 routing checks, route/source validation, 138 infrastructure tests, 86 behavioral-harness tests, UTF-8/generated-artifact hygiene, and a 63-file ZIP build with preserved bytes.
+- Static design and package verification are distinct from live behavior. Planning and report changes have not been evaluated across live models; this release makes no claim of improved marketing outcomes.
+
+
 ## [1.6.0] - 2026-09-08
 
 ### Pricing and agent coordination

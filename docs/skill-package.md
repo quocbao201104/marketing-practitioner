@@ -1,6 +1,6 @@
 # Build a skill upload package
 
-Download the ready-made [v1.6.0 skill ZIP](https://github.com/quocbao201104/marketing-practitioner/releases/download/v1.6.0/marketing-practitioner-v1.6.0-skill.zip), or build it yourself. The host-specific import limits below still apply.
+For v1.7.0, build from the tagged source using the command below. The last published ready-made download is the [v1.6.0 skill ZIP](https://github.com/quocbao201104/marketing-practitioner/releases/download/v1.6.0/marketing-practitioner-v1.6.0-skill.zip). The host-specific import limits below still apply.
 
 From a Git checkout, run:
 
