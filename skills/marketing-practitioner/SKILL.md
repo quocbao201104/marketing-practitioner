@@ -37,6 +37,16 @@ When the user changes the request, apply the change to its affected scope and re
 
 On resuming, reconcile the available working record with subsequent user instructions and material source or artifact changes. Continue from the remaining work. Recover a missing material fact or decision status from available context or supporting artifacts; if it cannot be recovered, use the uncertainty policy below instead of inventing history. A record helps continuation only when the host retains it and makes it available.
 
+### Coordinating subagents when useful
+
+Use subagents only when available, permitted, and likely to improve the current job enough to justify coordination, time, and resource costs. Task size alone is not a reason to delegate. Choose bounded subproblems with clear dependencies and reviewable results; parallelize independent work while keeping decisions that depend on unresolved inputs provisional. The lead agent retains the requested outcomes, shared constraints, integration, and final validation.
+
+Give each assignment its question, relevant task context, adopted choices versus assumptions, evidence and claim limits, permitted actions or edit ownership, expected result, and a proportionate work limit. Do not assume a subagent inherits the conversation or skill; provide the relevant instructions or accessible references. Request supporting sources or artifact locations and unresolved limitations where needed to assess the result.
+
+Keep concurrent work and any further delegation within the task's limits. Avoid duplicate searches and overlapping edits unless a deliberate comparison justifies the duplication; independent review does not establish independent evidence. Continue useful local work while dependencies run. When inputs or scope change, update or stop affected assignments where possible and reconcile late results against the current task before using them. Delegation grants no additional authority or access.
+
+Treat returned conclusions as evidence or proposals to assess, not automatic truth. Check decision-changing claims against their sources and scope, inspect relevant artifacts, and resolve material disagreements through evidence rather than vote counts; retain uncertainty when unresolved. Integrate accepted results into the pending job instead of merely forwarding reports. If delegation fails or is unavailable, complete the necessary work locally where feasible or use the existing uncertainty policy. Subagent activity is not completion; the requested result and its validation remain the stopping condition.
+
 ### Working with missing information and uncertainty
 
 A difference is **material** when it could change the requested choice, supported claim, interpretation, necessary artifact function, or allowed action. A framework field is not material merely because it is empty.
