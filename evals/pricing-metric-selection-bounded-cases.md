@@ -105,17 +105,28 @@ Do not force one to be "the" pricing metric.
 An insurance-like product uses miles driven as exposure,
 a derived risk score inside the rate formula,
 and a regulatory capital requirement as a hard feasibility limit.
+
+It also uses a customer risk class in two different contract designs:
+
+Design A:
+the class only determines eligibility for a specialized plan;
+once eligible, the class does not enter that plan's rate formula.
+
+Design B:
+the same class directly changes the customer-facing rate.
 ```
 
 Oracle:
 
 ```text
-miles driven      → Q
-risk score         → R when it enters the customer-facing rate
-capital constraint → C when authoritative and only bounding feasibility
+miles driven       → Q
+risk score          → R when it enters the customer-facing rate
+capital constraint  → C when authoritative and only bounding feasibility
+risk class, Design A → A because it only governs plan eligibility
+risk class, Design B → R because it enters the rate formula
 ```
 
-Do not label the derived risk score `C` merely because it is model-based or economically important.
+Do not label the derived risk score `C` merely because it is model-based or economically important. Do not classify the risk class by intrinsic identity: its role changes with the current contract/formula.
 
 ---
 
@@ -225,6 +236,25 @@ Keep the workflow basis under consideration.
 Compare tariff alternatives such as included allowance,
 commitment/base fee, cap, or overage where supported.
 Do not infer that predictability failure proves the basis is invalid.
+```
+
+Causal-attribution variant:
+
+```text
+Period 1 uses the same per-workflow charge basis under pure PAYG.
+Period 2 keeps the per-workflow basis unchanged but switches to
+base fee + included workflows + overage.
+Observed workflow usage falls after the change.
+```
+
+Oracle:
+
+```text
+Do not conclude that the workflow charge basis suppressed usage.
+The basis remained unchanged while the tariff changed.
+Without an appropriate identification strategy, the observed change
+must not be causally assigned to the basis or to the tariff merely
+from before/after association.
 ```
 
 ---
