@@ -8,7 +8,7 @@
 
 A reusable marketing skill for people working with AI: research customers, shape strategy, create content, and interpret results—with claims grounded in evidence.
 
-[![Version: v1.5.0](https://img.shields.io/badge/version-v1.5.0-0a7.svg)](#status-and-scope)
+[![Version: v1.6.0](https://img.shields.io/badge/version-v1.6.0-0a7.svg)](#status-and-scope)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Language: English](https://img.shields.io/badge/language-English-4c1.svg)](#)
 [![Format: Agent Skill](https://img.shields.io/badge/format-Agent%20Skill-6f42c1.svg)](skills/marketing-practitioner/SKILL.md)
@@ -187,7 +187,7 @@ python skills/marketing-practitioner/scripts/get-knowledge.py --source PM01
 
 If helper execution is unavailable, the same index remains the address table: read the smallest feasible section, or degrade to the smallest target file, rather than loading an entire chapter.
 
-The current index validates at **264 routes / 233 evidence sources**. Evidence files state what a source **supports** and **does not support**; those bounds are part of claim control.
+The current index validates at **264 routes / 248 evidence sources**. Evidence files state what a source **supports** and **does not support**; those bounds are part of claim control.
 
 Shared architecture expands only when a decision-relevant failure cannot be repaired locally without material distortion. Research under [`research/`](research/) keeps theory freezes, audits, and rejected expansions out of the runtime until they survive that bar.
 
@@ -241,7 +241,7 @@ If the skill makes a poor decision, overcomplicates a simple task, misses suppli
 
 ## Status and scope
 
-Current release: **v1.5.0 — Evidence and Decision Quality**.
+Current release: **v1.6.0 — Pricing, Coordination, and Plugin Distribution**.
 
 The package covers seven marketing jobs with specialist guidance for content, commerce, commercial design, landing pages, email, search/discovery, paid media, brand identity, and scoped localization. See [CHANGELOG.md](CHANGELOG.md) for release history.
 

@@ -5,6 +5,28 @@ All notable changes to this repository are documented here.
 The project uses semantic versioning for published skill revisions. v1.0.0 marks the first stable core contract: future 1.x work should preserve compatibility-sensitive controller semantics, logical knowledge interfaces, owner boundaries, and evidence/claim behavior unless a demonstrated failure justifies a scoped change. Historical frozen evaluation and research references keep the version labels under which they were produced.
 
 
+## [1.6.0] - 2026-09-08
+
+### Pricing and agent coordination
+
+- Added a bounded charge-basis selection procedure to Chapter 10, with research, evidence bindings, and adversarial static cases. Clarified concurrent quantity, rate, allocation, and constraint roles, and labeled hypothetical examples explicitly.
+- Added conditional subagent coordination guidance: delegate independent, bounded work when the host permits it and the benefit exceeds coordination cost; preserve resolved decisions, handoff context, edit ownership, and lead-agent verification.
+- Standardized the task specification guide against the current core decision contract and clarified localization-source provenance and Google product-data / AI-insight boundaries.
+
+### Installation and documentation
+
+- Added Codex and Claude Code plugin manifests and a Claude marketplace over the same canonical skill directory, without a separate MCP server or runtime.
+- Added a deterministic skill ZIP builder that validates and packages tracked runtime files with license notices.
+- Reorganized setup around local apps/CLI and Claude/ChatGPT web, including manual app installation, eligible ChatGPT plans, host-specific limitations, and periodic update instructions.
+- Updated current release metadata to v1.6.0 and corrected the README inventory to 264 routes / 248 evidence sources. Historical review and packaging records retain their original versions.
+
+### Compatibility and verification
+
+- Preserved the seven jobs, existing logical routes, ownership boundaries, resolved-state handling, and evidence/claim discipline.
+- Release verification passed: repository and Codex skill validators, 68 routing-mechanics checks, 264 routes / 248 evidence sources, infrastructure tests, UTF-8/generated-artifact hygiene, both plugin formats, and a 62-file skill ZIP build.
+- Live behavioral evaluation remains pending. Static cases and infrastructure tests do not establish model performance; web installation remains subject to host availability and import support.
+
+
 ## [1.5.0] - 2026-09-07
 
 ### Evidence and decision quality
