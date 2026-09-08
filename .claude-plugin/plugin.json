@@ -1,0 +1,13 @@
+{
+  "name": "marketing-practitioner",
+  "version": "1.5.0",
+  "description": "From customer evidence to marketing decisions and execution.",
+  "author": {
+    "name": "quocbao201104",
+    "url": "https://github.com/quocbao201104"
+  },
+  "homepage": "https://github.com/quocbao201104/marketing-practitioner",
+  "repository": "https://github.com/quocbao201104/marketing-practitioner",
+  "license": "MIT",
+  "keywords": ["marketing", "research", "positioning", "copywriting", "pricing"]
+}

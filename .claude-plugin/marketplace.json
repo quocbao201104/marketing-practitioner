@@ -1,0 +1,16 @@
+{
+  "name": "marketing-practitioner",
+  "owner": {
+    "name": "quocbao201104"
+  },
+  "metadata": {
+    "description": "Marketing Practitioner skills for evidence-informed marketing work."
+  },
+  "plugins": [
+    {
+      "name": "marketing-practitioner",
+      "source": "./",
+      "description": "Research customers, shape strategy, create marketing content, and interpret results."
+    }
+  ]
+}
