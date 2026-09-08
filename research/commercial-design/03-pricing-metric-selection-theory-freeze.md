@@ -6,6 +6,8 @@ This artifact freezes the current research result for the bounded Commercial Des
 
 It does not modify Chapter 10, `SKILL.md`, routing, runtime behavior, or evaluation contracts. Promotion into governed runtime knowledge requires a separate implementation/review step.
 
+Post-review note: this version incorporates only the bounded independent-review repairs `CD-PM-T01` through `CD-PM-T06`. It does not reopen the central research question or expand the theory into a new pricing ontology.
+
 ---
 
 ## 1. Frozen research question
@@ -29,7 +31,7 @@ The research does **not** assume that:
 
 ## 2. Epistemic-status convention
 
-This freeze distinguishes three evidence statuses.
+This freeze distinguishes four evidence/status categories.
 
 ### EMPIRICAL / ACADEMIC
 
@@ -42,6 +44,10 @@ A proposition is supported by current practitioner/vendor practice or practition
 ### PROJECT SYNTHESIS
 
 A practitioner decision procedure, distinction, search heuristic, or boundary synthesized by this repository from multiple established parents. It must not be represented as a theory proposed or validated by any one source.
+
+### OPEN QUESTION
+
+A material issue intentionally left unresolved because the current evidence does not justify a universal rule. An open question must remain explicit rather than being filled by model intuition during runtime implementation.
 
 ---
 
@@ -125,19 +131,33 @@ TRUE / RAW USAGE
 
 ### 3.4 Billing unit / normalization
 
-Raw measured variables may be billed directly or translated into a synthetic accounting unit.
+Raw measured variables may be billed directly or translated into a synthetic accounting unit. The freeze distinguishes at least two patterns:
+
+```text
+TECHNICAL / USAGE NORMALIZATION
+heterogeneous raw usage
+→ common non-monetary or engineering/accounting unit
+
+ECONOMIC / ACCOUNTING NORMALIZATION
+raw usage × economic weights
+→ credit / accounting unit
+```
+
+A synthetic unit may therefore sit cleanly before tariff logic, may already embed economic weighting, or may intentionally couple normalization and tariff logic.
 
 ```text
 RAW BILLABLE PHENOMENA
-→ NORMALIZATION / BILLING UNIT
+→ NORMALIZED BILLING UNIT
 → TARIFF
 ```
 
-Examples in current software practice include credit systems that normalize heterogeneous model, token, retrieval, or computational consumption.
+is a useful **possible pattern**, not a universal ordering invariant.
+
+Examples in current software practice include credit systems that normalize heterogeneous model, token, retrieval, or computational consumption. GitHub AI Credits are specifically an example where model-specific economic pricing participates in the conversion into credits rather than a neutral pre-tariff normalization step.
 
 A synthetic credit is **not** assumed to measure customer value.
 
-**Status:** PROFESSIONAL PRACTICE for the existence of normalized billing units; no universal selection rule is frozen.
+**Status:** PROFESSIONAL PRACTICE for the existence of normalized billing units and economically weighted credit systems; PROJECT SYNTHESIS for the technical/economic normalization distinction; no universal selection or sequencing rule is frozen.
 
 ---
 
@@ -150,7 +170,7 @@ CHARGE BASIS / METER
 What varies?
 
 TARIFF / FORMULA
-How does measured or normalized quantity become a bill?
+How does measured, normalized, or otherwise rate-relevant state become a bill?
 
 PRICE LEVEL / MENU
 What numeric rates apply?
@@ -171,7 +191,7 @@ Held-out cases in electricity and insurance exposed a necessary distinction.
 
 ```text
 BILLABLE QUANTITY / CONTINGENCY
-≠ RATE / TARIFF CONDITION
+≠ RATE / TARIFF INPUT OR CONDITION
 ≠ ALLOCATION / PERSONALIZATION STATE
 ≠ AUTHORITATIVE CONSTRAINT
 ```
@@ -180,20 +200,27 @@ A variable can affect the final price without being a billed quantity.
 
 ### Practitioner classification
 
+The following labels describe **roles inside the current contract/formula**, not intrinsic properties of a variable. The same underlying variable can play different roles in different commercial designs. If a relevant variable does not play one of these roles, do not force it into the classification.
+
 ```text
 Q — QUANTITY / CONTINGENCY BASIS
-Changes what or how much is charged.
+A billable quantity, event, output, transaction, or contingency
+that changes what/how much is charged.
 
-R — RATE CONDITION
-Changes the applicable tariff/rate for an otherwise defined basis.
+R — RATE / TARIFF INPUT OR CONDITION
+A variable, state, index, class, or derived score that enters
+the customer-facing tariff/rate function or changes the
+applicable rate for an otherwise defined basis.
 
 A — ALLOCATION / ELIGIBILITY STATE
 Determines which commercial conditions an actor can access
 or is assigned.
 
 C — AUTHORITATIVE CONSTRAINT
-Affects feasibility or economics but is not itself a
-customer-facing price variable unless explicitly incorporated.
+An authoritative external/internal constraint that bounds the
+decision but does not itself enter the customer-facing pricing
+function. If it is explicitly converted into a pricing-function
+input, that use plays an R role rather than a C role.
 ```
 
 Examples:
@@ -204,30 +231,36 @@ kWh                Q
 peak kW             Q
 time of day         R
 customer class      A/R depending on design
-grid cost           C
+grid constraint     C unless encoded into customer-facing rate logic
 
 Insurance
 miles driven        Q
 coverage duration   Q or relationship term
-risk class          A/R
-expected loss       C/model input
+risk class          A/R depending on design
+rating factor       R
+expected loss       R when used in the pricing function;
+                    otherwise model/evidence state, not automatically C
+solvency / capital constraint
+                    C when authoritative and only bounding the decision
 
 Logistics
 distance            Q
 weight/load          Q
 route category       Q or R depending on contract
-fuel cost            C or surcharge input
+fuel index           R when it determines a customer-facing surcharge
+internal fuel-cost constraint
+                    C when it only bounds feasibility/economics
 ```
 
 **Status:** PROJECT SYNTHESIS.
 
-This distinction prevents every variable associated with price from being mislabeled as a `pricing metric` and preserves Chapter 10's existing selection/allocation ownership.
+This distinction prevents every variable associated with price from being mislabeled as a `pricing metric`, prevents modeled quantities from being falsely elevated into authoritative constraints, and preserves Chapter 10's existing selection/allocation ownership.
 
 ---
 
 ## 5. Candidate-space search heuristic
 
-When variable or hybrid charging is under consideration, search for concrete charge bases across the parts of the exchange that materially exist.
+When variable or hybrid charging is materially plausible, search for concrete charge bases across the parts of the exchange that materially exist.
 
 ```text
 ACCESS / SCOPE / EXPOSURE
@@ -294,16 +327,21 @@ The frozen practitioner procedure is:
    through what mechanism?
    which actors materially contribute?
 
-3. ASK WHETHER PAYMENT SHOULD BE
+3. GENERATE MATERIALLY PLAUSIBLE ARCHITECTURE CANDIDATES
 
    USAGE-INDEPENDENT
    VARIABLE
    HYBRID
 
-4. IF VARIABLE / HYBRID
+   Treat these as candidate classes, not an early selection gate.
+   An authoritative constraint may prune a class before deeper search;
+   unsupported intuition may not.
+
+4. FOR EACH MATERIALLY PLAUSIBLE VARIABLE / HYBRID CANDIDATE
 
    use the candidate-space search heuristic
-   to instantiate concrete observable candidates
+   to instantiate concrete observable charge-basis candidates
+   before selecting among architecture classes
 
 5. ALLOW
 
@@ -311,10 +349,10 @@ The frozen practitioner procedure is:
    one variable basis
    multiple variable bases
 
-6. CLASSIFY PRICE-RELEVANT VARIABLES
+6. CLASSIFY PRICE-RELEVANT VARIABLES BY THEIR CURRENT CONTRACT ROLE
 
    Q quantity/contingency basis
-   R rate condition
+   R rate/tariff input or condition
    A allocation/eligibility state
    C authoritative constraint
 
@@ -328,7 +366,9 @@ The frozen practitioner procedure is:
 
 10. COMPARE SURVIVING ARCHITECTURES
 
-11. DESIGN THE TARIFF SEPARATELY
+11. DESIGN / RESOLVE THE TARIFF RELATIONSHIP
+
+   preserve that normalization and tariff may be distinct or coupled
 
 12. VALIDATE THE MATERIAL UNKNOWN
 
@@ -343,7 +383,7 @@ The frozen practitioner procedure is:
 
 **Status:** PROJECT SYNTHESIS.
 
-This procedure does not claim to compute a globally optimal price architecture.
+This procedure does not claim to compute a globally optimal price architecture. It specifically prevents a practitioner from deciding `fixed / variable / hybrid` through unguided prior intuition before the candidate-basis search becomes active.
 
 ---
 
@@ -372,6 +412,8 @@ These are not claimed as a scientifically validated four-gate model. They are a 
 
 Failure does not automatically mean the underlying commercial idea is worthless; it can mean the metric definition, measurement system, tariff, or contract is not yet sufficiently specified.
 
+These questions apply when a measured variable/performance contingency must be administered. A genuinely usage-independent fixed charge does not require a fake usage meter merely to satisfy this checklist.
+
 **Status:** PROJECT SYNTHESIS.
 
 ---
@@ -395,6 +437,13 @@ Performance-based contracting research supports the distinction:
 ```text
 OBSERVED OUTCOME
 ≠ PROVIDER-ATTRIBUTABLE OUTCOME
+```
+
+The pricing literature also supports keeping value-based pricing distinct from performance-based pricing: value-based pricing can set price ex ante from expected customer value, while performance-based pricing makes price contingent ex post on defined performance and therefore changes risk sharing [PM09].
+
+```text
+VALUE-BASED PRICING
+≠ PERFORMANCE / OUTCOME-CONTINGENT PAYMENT
 ```
 
 When payment is contingent on performance or outcome, explicitly resolve where material:
@@ -443,7 +492,7 @@ outcome-linked component
 
 rather than pretending outcome pricing is resolved.
 
-**Status:** EMPIRICAL / ACADEMIC for attribution, outcome uncertainty, and risk-allocation importance; PROJECT SYNTHESIS for the exact checklist and fallback forms.
+**Status:** EMPIRICAL / ACADEMIC for the value-based/performance-based distinction, attribution, outcome uncertainty, and risk-allocation importance; PROJECT SYNTHESIS for the exact checklist and fallback forms.
 
 ---
 
@@ -522,7 +571,7 @@ OTHERWISE
 
 ---
 
-## 11. Meter choice and tariff choice are coupled but distinct
+## 11. Meter choice, normalization, and tariff choice are coupled but distinguishable
 
 Do not infer that a defect in one tariff means the underlying charge basis is invalid.
 
@@ -553,9 +602,11 @@ overage
 
 These remedies are candidates, not universal prescriptions.
 
+Normalization also does not have one mandatory location relative to tariff logic. A technical normalization unit may precede pricing logic; an economic/accounting credit may already embed model-specific or other economic weighting. Therefore do not infer that every credit system is a neutral pre-tariff meter.
+
 Research on tariff choice, flat-rate bias, usage uncertainty, and behavioral response supports the broader proposition that tariff structure itself can change customer choice, usage, retention, risk allocation, and profitability.
 
-**Status:** EMPIRICAL / ACADEMIC for tariff effects; PROJECT SYNTHESIS for the mitigation catalog.
+**Status:** EMPIRICAL / ACADEMIC for tariff effects; PROFESSIONAL PRACTICE for observed credit/accounting patterns; PROJECT SYNTHESIS for the mitigation catalog and normalization/tariff boundary discipline.
 
 ---
 
@@ -677,7 +728,7 @@ Survives with distance, load, route/work burden, and related bases. Rejects the 
 
 ### Insurance
 
-Survives only after separating exposure quantity from risk classification and rate/allocation state. Rejects treating every variable that changes premium as a pricing metric.
+Survives only after separating exposure quantity from risk classification and rate/allocation state. Rating factors and derived model variables can play an R role when they enter the pricing function; they are not automatically authoritative constraints.
 
 ### Professional services
 
@@ -733,6 +784,13 @@ R11  Outcome-based pricing is equivalent to value-based pricing.
 
 R12  Metric selection alone resolves pricing architecture.
      REJECTED
+
+R13  Usage-independent / variable / hybrid should be selected
+     before materially plausible variable bases are generated.
+     REJECTED
+
+R14  Every synthetic credit is a neutral pre-tariff usage unit.
+     REJECTED
 ```
 
 ---
@@ -759,7 +817,8 @@ S05  A design may use zero, one, or multiple variable bases.
      SURVIVES
 
 S06  Quantity/contingency basis must be distinguished from
-     rate condition, allocation state, and authoritative constraint.
+     rate/tariff input or condition, allocation state, and
+     authoritative constraint; these are contract-relative roles.
      SURVIVES STRONGLY
 
 S07  Candidate generation can use a non-exhaustive search across
@@ -794,6 +853,15 @@ S14  Charge-basis fit can decay as product/service scope changes.
 
 S15  No new core runtime primitive is required by the evidence so far.
      SURVIVES
+
+S16  Architecture classes should be generated as candidates; materially
+     plausible variable/hybrid classes require concrete basis generation
+     before selection unless an authoritative constraint prunes them.
+     SURVIVES AS PROJECT SYNTHESIS
+
+S17  Synthetic billing units may be technically normalized,
+     economically weighted, or coupled with tariff logic.
+     SURVIVES AS BOUNDED PRACTICE + PROJECT SYNTHESIS
 ```
 
 ---
@@ -808,16 +876,18 @@ S15  No new core runtime primitive is required by the evidence so far.
 | tariff can change usage/retention/profit | EMPIRICAL / ACADEMIC |
 | predictability / flat-rate preference mechanisms | EMPIRICAL |
 | outcome uncertainty / provider attribution | EMPIRICAL / ACADEMIC |
-| value-based vs performance-based pricing distinction | ACADEMIC / CONCEPTUAL |
-| current normalized credit billing | PROFESSIONAL PRACTICE |
+| value-based vs performance-based pricing distinction | EMPIRICAL / ACADEMIC — direct parent [PM09] |
+| current normalized / economically weighted credit billing | PROFESSIONAL PRACTICE |
 | current pricing-design workflows and revisit behavior | PROFESSIONAL PRACTICE |
 | charge-basis terminology | PROJECT SYNTHESIS |
 | candidate-space search heuristic | PROJECT SYNTHESIS |
 | Q/R/A/C variable-role classification | PROJECT SYNTHESIS |
 | four administrative-feasibility questions | PROJECT SYNTHESIS |
+| technical vs economic/accounting normalization distinction | PROJECT SYNTHESIS |
 | comparison-dimension set | PROJECT SYNTHESIS |
 | no-generic-score decision discipline | PROJECT SYNTHESIS |
 | exact return contract / revisit-condition wording | PROJECT SYNTHESIS |
+| unresolved universal rules listed in §21 | OPEN QUESTION |
 
 No project synthesis should be cited as if a single source proposed or validated it.
 
@@ -852,6 +922,8 @@ The current subproblem selects or evaluates commercial charging architecture ins
 ---
 
 ## 21. Open questions intentionally not frozen as rules
+
+**Status for every item in this section: OPEN QUESTION.**
 
 The research did not establish universal procedures for:
 
@@ -923,8 +995,11 @@ ARTIFACT ALONE                                     NO
 
 IMPLEMENTATION SHOULD PRESERVE                     metric ≠ tariff
                                                     quantity ≠ rate/allocation
-                                                    fixed/variable/hybrid
+                                                    contract-relative roles
+                                                    fixed/variable/hybrid candidates
+                                                    no premature architecture gating
                                                     outcome attribution/risk
+                                                    normalization may embed economics
                                                     epistemic-status labels
                                                     revisit condition
 ```
