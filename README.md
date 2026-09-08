@@ -6,7 +6,7 @@
 
 **From customer evidence to marketing decisions and execution.**
 
-An agent skill for researching customers, shaping strategy, creating marketing content, and interpreting results—with claims grounded in evidence.
+A reusable marketing skill for people working with AI: research customers, shape strategy, create content, and interpret results—with claims grounded in evidence.
 
 [![Version: v1.5.0](https://img.shields.io/badge/version-v1.5.0-0a7.svg)](#status-and-scope)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
@@ -22,7 +22,7 @@ An agent skill for researching customers, shaping strategy, creating marketing c
 
 ---
 
-Marketing Practitioner gives AI agents a shared foundation for customer research, positioning, commercial choices, communication, distribution, and result interpretation. Use it to turn interviews into a grounded account, compare positioning options, write a page from an adopted strategy, or investigate a performance change before choosing an intervention.
+Marketing Practitioner gives marketers, founders, researchers, and content teams a shared foundation for AI-assisted customer research, positioning, commercial choices, communication, distribution, and result interpretation. Use it to turn interviews into a grounded account, compare positioning options, write a page from an adopted strategy, or investigate a performance change before choosing an intervention.
 
 The skill connects those jobs when the work requires it. A simple rewrite can stay simple; a larger assignment can carry evidence, selected choices, and remaining questions from research through to the requested artifacts.
 
@@ -42,11 +42,42 @@ These are supported work areas, not guarantees of marketing performance. The age
 
 ## Quick start
 
+Choose your environment. Both paths use the same marketing skill and reference material.
+
+### Local: apps and CLI
+
+In a compatible agent app or CLI, ask the agent to install it:
+
+```text
+Install Marketing Practitioner from
+https://github.com/quocbao201104/marketing-practitioner
+using the installation method supported by this environment.
+```
+
+The agent needs installation tools and permission to use them. You can also install the standalone skill yourself:
+
 ```bash
 npx skills add quocbao201104/marketing-practitioner
 ```
 
-Start with an ordinary request. Include these when available:
+For a plugin installation, use the [Claude Code marketplace](docs/claude-code-plugin.md) or the [Codex local catalog guide](docs/plugin.md). For manual file installation, copy the entire `skills/marketing-practitioner` folder into your host's documented skills location, keeping its supporting files together.
+
+### Web: Claude and ChatGPT
+
+| Product | Installation | Availability |
+| --- | --- | --- |
+| Claude | Add this repository as a marketplace, then install Marketing Practitioner | Requires access to the Plugins / Add marketplace controls |
+| ChatGPT | Plugins > Skills > Create > Upload from your computer | Eligible Business, Enterprise, Healthcare, and Edu accounts; workspace settings apply |
+
+**Claude:** open **Settings / Customize > Plugins**, choose **Add plugin (+) > Create plugin > Add marketplace > Add from a Repository**, and paste the [repository URL](https://github.com/quocbao201104/marketing-practitioner). Select **Sync/Add**, then select **Marketing Practitioner > Install (+)**. Some interfaces expose **+ > Add marketplace** directly. See [Claude's plugin instructions](https://support.claude.com/en/articles/13837440-use-plugins-in-claude).
+
+**ChatGPT:** use the [manual skill upload steps](docs/web-setup.md#chatgpt-upload-a-personal-skill). OpenAI lists eligible Business, Enterprise, Healthcare, and Edu users; do not assume Free, Plus, or Pro includes this feature. Uploading a personal skill is separate from installing a public directory plugin. See [OpenAI's availability and upload instructions](https://help.openai.com/en/articles/20001066-skills-in-chatgpt).
+
+The [web setup guide](docs/web-setup.md) covers both paths, preparing the files, and missing installation controls.
+
+### Your first task
+
+Once the skill or reference files are available in your workspace, start with an ordinary request. Include these when available:
 
 1. what you need done **now**;
 2. the facts, evidence, adopted choices, and proposals you want reviewed;
@@ -69,10 +100,6 @@ git clone https://github.com/quocbao201104/marketing-practitioner.git
 ```
 
 The governing runtime contract is [`skills/marketing-practitioner/SKILL.md`](skills/marketing-practitioner/SKILL.md). Its compact decision table gives direct knowledge entry points; the [operating guide](skills/marketing-practitioner/references/operating-guide.md) holds detailed path and handoff guidance for questions that need it.
-
-### Codex plugin
-
-The repository also includes a skill-only Codex plugin manifest. It uses the same skill and knowledge files as the standalone installation. See [plugin packaging and local installation](docs/plugin.md). Public plugin-directory publication is separate from this repository package.
 
 ## Why it exists
 
@@ -130,6 +157,8 @@ A topic, artifact type, or platform name is not a job. A caption with an approve
 Specialist knowledge is loaded only when it can change the current result. The [handbook map](skills/marketing-practitioner/handbook/README.md), [platform modules](skills/marketing-practitioner/platforms/README.md), and [local-adaptation resources](skills/marketing-practitioner/adaptations/) help you explore the coverage; they are not a required reading sequence.
 
 ## Host compatibility
+
+Installation guidance is organized into local apps/CLI and web (Claude and ChatGPT). See the [web setup guide](docs/web-setup.md) for product-specific controls and account eligibility.
 
 The installable package keeps its controller, knowledge, references, and helper scripts together. A compatible host needs to load the skill and give the agent an allowed way to read its files. Python helper execution is useful for exact section retrieval, but it is optional.
 

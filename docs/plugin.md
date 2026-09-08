@@ -2,6 +2,8 @@
 
 Marketing Practitioner can be distributed as a Codex plugin containing the existing agent skill. The repository root is the plugin root: [plugin.json](../.codex-plugin/plugin.json) points directly to `./skills/`. The standalone skill installation remains supported.
 
+For browser use in Claude or ChatGPT, see the [web setup guide](web-setup.md). A successful local Codex installation does not establish web installation or account eligibility.
+
 The plugin packages instructions and knowledge. It does not include an MCP server, external account connections, hooks, or a separate agent runtime. Python is optional for exact section retrieval; hosts can read the packaged files directly.
 
 ## Package contents
