@@ -1,0 +1,28 @@
+{
+  "name": "marketing-practitioner",
+  "version": "1.5.0",
+  "description": "From customer evidence to marketing decisions and execution.",
+  "author": {
+    "name": "quocbao201104",
+    "url": "https://github.com/quocbao201104"
+  },
+  "homepage": "https://github.com/quocbao201104/marketing-practitioner",
+  "repository": "https://github.com/quocbao201104/marketing-practitioner",
+  "license": "MIT",
+  "keywords": ["marketing", "research", "positioning", "copywriting", "pricing"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Marketing Practitioner",
+    "shortDescription": "From customer evidence to marketing decisions and execution.",
+    "longDescription": "Research customers, shape strategy, create marketing content, and interpret results with claims grounded in evidence. Includes a shared skill, specialist handbook, routing index, source references, and optional Python retrieval helpers.",
+    "developerName": "quocbao201104",
+    "category": "Productivity",
+    "capabilities": [],
+    "websiteURL": "https://github.com/quocbao201104/marketing-practitioner",
+    "defaultPrompt": [
+      "Turn these customer interviews into a grounded synthesis.",
+      "Write a landing page using my approved positioning.",
+      "Help me diagnose this campaign's performance change."
+    ]
+  }
+}

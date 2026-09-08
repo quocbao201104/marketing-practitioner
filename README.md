@@ -70,6 +70,10 @@ git clone https://github.com/quocbao201104/marketing-practitioner.git
 
 The governing runtime contract is [`skills/marketing-practitioner/SKILL.md`](skills/marketing-practitioner/SKILL.md). Its compact decision table gives direct knowledge entry points; the [operating guide](skills/marketing-practitioner/references/operating-guide.md) holds detailed path and handoff guidance for questions that need it.
 
+### Codex plugin
+
+The repository also includes a skill-only Codex plugin manifest. It uses the same skill and knowledge files as the standalone installation. See [plugin packaging and local installation](docs/plugin.md). Public plugin-directory publication is separate from this repository package.
+
 ## Why it exists
 
 A fluent answer can still be the wrong marketing action.
