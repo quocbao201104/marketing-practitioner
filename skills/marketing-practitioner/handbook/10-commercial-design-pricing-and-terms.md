@@ -108,18 +108,33 @@ When material, separate:
 PAYER / PAYEE
 Who transfers economic value to whom?
 
-PRICING METRIC
-What is metered or conditioned on?
+CHARGE ARCHITECTURE
+Is payment usage-independent, variable, or hybrid?
+
+CHARGE BASIS / METER
+What observable scope, quantity, event, output, transaction,
+or performance contingency makes payment vary?
+
+METER SPECIFICATION
+What exactly counts, under what scope, window, aggregation,
+increment, rounding, exclusion, and assignment rule?
+
+NORMALIZATION / BILLING UNIT
+Is raw measured state billed directly or translated into a
+synthetic technical or economic/accounting unit?
 
 TARIFF / FORMULA
-How does the metric become a bill?
+How does the relevant measured, normalized, or rate state
+become a bill?
 
 PRICE LEVEL / MENU
 What actual values or schedules apply?
 
-TIMING
-When does payment occur or become due?
+TIMING / COMMITMENT
+When does payment occur or become due, and under what commitment?
 ```
+
+`CHARGE BASIS` is a practitioner term used here because `pricing metric` is used inconsistently across pricing literature and practice. It does not create a new runtime primitive.
 
 Examples:
 
@@ -129,10 +144,248 @@ $0.03 / conversation
 $49 base + included usage + overage
 one-time implementation fee + recurring subscription
 marketplace commission
+fixed fee + performance component
 performance- or outcome-linked payment where supportable
 ```
 
-Nonlinear pricing includes quantity discounts, bundle discounts, tariffs, product-line pricing, upgrades, add-ons, and screening mechanisms; these decisions are broader than choosing one posted number [CD04].
+Nonlinear pricing includes quantity discounts, bundle discounts, tariffs, product-line pricing, upgrades, add-ons, and screening mechanisms; these decisions are broader than choosing one posted number [CD04]. Pricing-unit research also supports treating the choice of what is measured for charging as consequential rather than as a mere label [CD17][CD18].
+
+### Generate charge-architecture candidates before selecting one
+
+When the payment architecture itself is open, do not choose `fixed`, `usage-based`, or `outcome-based` from intuition and only then rationalize the meter.
+
+Generate materially plausible architecture classes first:
+
+```text
+USAGE-INDEPENDENT
+Payment does not require measured variable consumption or performance.
+
+VARIABLE
+Payment changes with one or more measured quantities, events,
+outputs, transactions, or performance states.
+
+HYBRID
+A fixed component and one or more variable components coexist.
+```
+
+Treat these as **candidate classes, not an early selection gate**. An authoritative constraint may eliminate a class before deeper search; unsupported intuition may not.
+
+For each materially plausible variable or hybrid candidate, instantiate concrete charge bases before selecting among architectures. A legitimate design may therefore use:
+
+```text
+ZERO VARIABLE BASES
+ONE VARIABLE BASIS
+MULTIPLE VARIABLE BASES
+```
+
+A true flat-rate/fixed-fee design does not require inventing a fake usage metric merely to make the framework uniform [CD17].
+
+### Search candidate bases without a maturity ladder
+
+For variable or hybrid candidates, search the parts of the exchange that materially exist:
+
+```text
+ACCESS / SCOPE / EXPOSURE
+RESOURCE / CAPACITY
+ACTIVITY / WORK
+OUTPUT / DELIVERABLE
+TRANSACTION / ECONOMIC FLOW
+PERFORMANCE / OUTCOME
+```
+
+This is a non-exhaustive search heuristic, not an ontology, causal chain, or maturity ladder. Do not assume downstream means better.
+
+Examples:
+
+```text
+active member / protected endpoint
+GB-second / reserved capacity
+API request / workflow run / hour worked
+processed document / delivered shipment
+successful transaction / transaction value
+support resolution / availability level
+```
+
+Research comparing alternative pricing units rejects a universal preference for either lower-level resource measures or higher-level service measures [CD18]. Keep:
+
+```text
+CLOSER TO FINAL OUTCOME
+≠ AUTOMATICALLY BETTER CHARGE BASIS
+```
+
+### Keep quantity, rate, allocation, and constraints distinct
+
+A variable can affect the final price without being a billed quantity. Classify its **role in the current contract/formula**, not an intrinsic property of the variable:
+
+```text
+Q — QUANTITY / CONTINGENCY BASIS
+A billable quantity, event, output, transaction, or contingency.
+
+R — RATE / TARIFF INPUT OR CONDITION
+A variable, state, index, class, or derived score that enters
+the customer-facing tariff/rate function or changes the
+applicable rate.
+
+A — ALLOCATION / ELIGIBILITY STATE
+Determines which commercial conditions an actor can access
+or is assigned.
+
+C — AUTHORITATIVE CONSTRAINT
+Bounds the decision but does not itself enter the customer-facing
+pricing function.
+```
+
+The same variable can play a different role under another design. If a modeled value such as expected loss is used directly in the pricing function, that use is an `R` role; do not elevate it into an authoritative constraint merely because it affects economics. If a fuel index determines a customer-facing surcharge, it is also an `R` role. If a relevant variable plays none of these roles, do not force it into the classification.
+
+Preserve:
+
+```text
+BILLABLE QUANTITY / CONTINGENCY
+≠ RATE / TARIFF INPUT OR CONDITION
+≠ ALLOCATION / PERSONALIZATION STATE
+≠ AUTHORITATIVE CONSTRAINT
+```
+
+### Specify what actually gets charged
+
+For a measured variable or performance contingency, define enough meter state to make the commercial design administrable:
+
+```text
+DEFINABLE
+What exactly constitutes one billable unit/event/contingency?
+
+OBSERVABLE
+Can the relevant state be determined sufficiently consistently?
+
+ASSIGNABLE
+Can it be assigned to the correct customer, account,
+contract, or transaction?
+
+RATEABLE
+Can the resulting state actually be mapped through a
+specified charging rule into a bill?
+```
+
+These are practitioner feasibility questions, not a scientifically validated four-gate model. Failure can mean the definition, measurement system, tariff, or contract is underspecified rather than that the commercial idea is worthless.
+
+Also keep:
+
+```text
+TRUE / RAW USAGE
+≠ CHARGED USAGE
+```
+
+Minimum/billing increments, aggregation, rounding, exclusions, and similar meter rules can materially alter charged quantity [CD17].
+
+### Treat synthetic billing units carefully
+
+Raw measured state may be billed directly or normalized.
+
+Useful distinctions are:
+
+```text
+TECHNICAL / USAGE NORMALIZATION
+heterogeneous raw usage
+→ common non-monetary or engineering/accounting unit
+
+ECONOMIC / ACCOUNTING NORMALIZATION
+raw usage × economic weights
+→ credit / accounting unit
+```
+
+Do **not** assume that every credit system is a neutral pre-tariff layer. Some synthetic units already embed economic weighting; normalization and tariff logic can therefore be distinct or coupled [CD22].
+
+```text
+RAW USAGE → NORMALIZED UNIT → TARIFF
+```
+
+is one possible pattern, not a universal sequence.
+
+A synthetic credit is not automatically a customer-value metric.
+
+### Apply extra scrutiny to performance/outcome-contingent payment
+
+Keep value-based pricing distinct from performance-contingent payment. Value-based pricing can set price ex ante from expected customer value; performance-based pricing changes payment ex post according to defined performance and therefore changes risk sharing [CD20].
+
+```text
+VALUE-BASED PRICING
+≠ PERFORMANCE / OUTCOME-CONTINGENT PAYMENT
+```
+
+Performance-contracting research also supports:
+
+```text
+OBSERVED OUTCOME
+≠ PROVIDER-ATTRIBUTABLE OUTCOME
+```
+
+because buyer action and external conditions can materially influence the result [CD19].
+
+When payment depends on performance/outcome, resolve where material:
+
+```text
+OUTCOME DEFINITION
+VERIFICATION / RECONCILIATION
+OBSERVATION WINDOW
+BUYER / PROVIDER / THIRD-PARTY CONTRIBUTION
+ATTRIBUTION
+RISK ALLOCATION
+DUPLICATION / PRECEDENCE
+```
+
+If a pure outcome contract cannot survive those questions, do not pretend it is resolved. Activity/output charging plus a performance component, or a base fee plus an outcome-linked component, can remain candidate architectures rather than universal fallbacks.
+
+### Compare surviving architectures without a universal score
+
+After authoritative and administrative constraints are satisfied, compare only the dimensions material to the current decision, such as:
+
+```text
+value linkage
+predictability
+buyer legibility / acceptability
+auditability / reconciliation
+behavioral incentives / gaming
+cost / margin exposure
+scalability
+risk allocation
+reference / competitive context
+```
+
+Value linkage is important but is not a universal validity gate. Resource/capacity, access, work, transaction, or exposure-based charging can be legitimate even when the basis is not a close proxy for final business outcome [CD18].
+
+Predictability and administrative simplicity can also carry buyer utility; experienced B2B purchasers can prefer flat-rate plans even at a price premium in studied settings [CD21]. Do not infer that unpredictable PAYG automatically invalidates the underlying basis: allowance, commitment, cap, base fee, bucket, or other tariff changes can alter predictability without changing the basis.
+
+Usage uncertainty can also change the relative attractiveness of reservation/commitment versus utilization-based structures in modeled cloud settings [CD23]. Do not transfer that result into a universal SaaS rule.
+
+Do not use a generic additive score. Use:
+
+```text
+AUTHORITATIVE / HARD CONSTRAINT
+→ eliminate infeasible option
+
+STRICT DOMINANCE WHERE GENUINELY SUPPORTED
+→ prefer the non-dominated option
+
+OTHERWISE
+→ preserve the trade-off
+→ choose under objective + horizon + evidence
+```
+
+### Meter choice and tariff choice are coupled but distinct
+
+Do not infer that a weak tariff means the underlying charge basis is invalid.
+
+```text
+per-workflow PAYG
+
+vs
+
+annual base + included workflows + overage
+```
+
+share a basis while allocating predictability and risk differently. Tariff research shows that pricing structure itself can change usage, retention, utility, and profitability [CD24].
+
+Likewise, do not attribute a behavior change to the meter when the tariff changed at the same time.
 
 ### Multi-actor payment flows
 
@@ -545,6 +798,18 @@ DECISION
 REVISIT CONDITION
 ```
 
+For an open payment-architecture decision, preserve within `CANDIDATES` / `DECISION` when material:
+
+```text
+charge architecture
+charge basis or joint bases
+meter specification
+normalization / billing-unit treatment
+rate / tariff conditions
+rejected alternatives + reasons
+unresolved trade-offs
+```
+
 This is an internal reasoning aid, not a user form and not a requirement for simple tasks.
 
 When an executed or observed commercial decision is handed to diagnosis or learning, reuse this record and preserve the objective and horizon, expected mechanism, guardrails, and revisit condition only when their absence would alter interpretation. For a compound change, preserve each material changed dimension and its version only when omission changes causal or diagnostic interpretation. These are conditional handoff details, not mandatory fields for every record.
@@ -562,9 +827,29 @@ CUSTOMER VALUE
 ≠ PROFIT
 
 PRICE LEVEL
-≠ PRICING METRIC
+≠ CHARGE BASIS / PRICING METRIC
 ≠ TARIFF
 ≠ PRICE MENU
+
+USAGE-INDEPENDENT
+≠ IMMATURE
+
+TRUE / RAW USAGE
+≠ CHARGED USAGE
+
+BILLABLE QUANTITY / CONTINGENCY
+≠ RATE / TARIFF INPUT OR CONDITION
+≠ ALLOCATION / PERSONALIZATION STATE
+≠ AUTHORITATIVE CONSTRAINT
+
+NORMALIZED CREDIT
+≠ CUSTOMER VALUE METRIC
+
+VALUE-BASED PRICING
+≠ PERFORMANCE / OUTCOME-CONTINGENT PAYMENT
+
+CLOSER TO FINAL OUTCOME
+≠ BETTER CHARGE BASIS
 
 TIER
 ≠ PRIMITIVE
