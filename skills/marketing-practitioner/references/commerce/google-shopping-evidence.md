@@ -12,6 +12,15 @@ Use: `ProductInput` is merchant/data-source input; rules, supplemental sources, 
 
 Boundary: does not disclose all Search/Shopping retrieval or ranking logic.
 
+Selected verification, 2026-09-08: inspected the resource descriptions and processing-delay note in [ProductInput](https://developers.google.com/merchant/api/reference/rest/products_v1/accounts.productInputs), and the `ProductStatus`, `DestinationStatus`, and `ItemLevelIssue` definitions in [Product](https://developers.google.com/merchant/api/reference/rest/products_v1/accounts.products). Processed retrieval can lag submission; approval and issues are scoped by reporting context and country. These pages do not establish any particular account's state or observed impressions.
+
+Supplementary official guidance inspected on the same date:
+
+- [Check product visibility and status](https://support.google.com/merchants/answer/12488713?hl=en): visibility controls and review/processing/approval/limited states; limitations can concern countries or marketing methods. Broad UI wording about showing on Google does not document a particular query impression or a universal mapping to every API status.
+- [Automatic product updates](https://support.google.com/merchants/answer/12157888?hl=en): selected introduction, notes, operation, and FAQ passages. Landing-page information can update product data, but automation has coverage limits and does not replace regular accurate submissions. No guaranteed synchronization time or causal performance lift is inferred.
+
+These are recovered verification locators, not confirmation of the original research inputs; the access date does not mean all referenced documentation was updated or fully revalidated then.
+
 ## [G02] Merchant Center — product data specification and identity fields
 
 Google Merchant Center Help. **Product data specification; ID `[id]`; Item group ID `[item_group_id]`; About unique product identifiers; Brand `[brand]`.** Reviewed 2026-08-23.
@@ -19,6 +28,13 @@ Google Merchant Center Help. **Product data specification; ID `[id]`; Item group
 Use: current field semantics for merchant-local product IDs, product groups/variants, GTIN, brand, MPN, variant attributes, item-group title, variant options, and other structured product data.
 
 Boundary: field requirements / recommendations do not equal ranking weights.
+
+Supplementary landing-page verification, 2026-09-08:
+
+- [About landing-page requirements](https://support.google.com/merchants/answer/4752265?hl=en): selected product/data and page-load consistency passages and the correct-variant preselection best practice.
+- [Price mismatch troubleshooting](https://support.google.com/merchants/answer/9773429?hl=en-GB): selected feed/site timing, structured-data mismatch, and premium-variant preselection passages.
+
+Use: check the submitted URL's selected variant against that variant's product data, price, availability, and corresponding markup where present. Preserve the relevant market, time, pricing regime, and traffic/program scope. This does not justify substituting a cheaper sibling's price or prohibit subsequent shopper selection of another variant. The troubleshooting page's legacy API references and broader pricing cases were not adopted as current integration advice or universal pricing rules. Other G02 field requirements were not fully revalidated in this supplementary review.
 
 ## [G03] Merchant Center — title and product-information fields
 
@@ -43,6 +59,8 @@ Google Search Central. **Product Variant Structured Data (`ProductGroup`, `Produ
 Use: current structured-data support for grouping variants with `ProductGroup`, `hasVariant` / `isVariantOf`, shared group properties, variant-identifying attributes, and nested offer information.
 
 Boundary: structured-data eligibility is not guaranteed display and is not a ranking specification.
+
+Selected verification, 2026-09-08: [Search Central product variants](https://developers.google.com/search/docs/appearance/structured-data/product-variants), grouping examples, variant Offer URLs/prices, and technical identifier/canonical guidelines. Supported single-page examples use URLs that preselect variants; they do not require a separate physical page for each variant. This is Search structured-data guidance, distinct from Merchant Center submission requirements. No site/schema execution, Schema.org-wide review, or display guarantee is established.
 
 ## [G06] Free listings / Shopping Graph surfaces
 
@@ -86,6 +104,15 @@ Boundaries:
 - merchant-declared `related_product` is not the same as a platform-inferred substitute/complement relation or an observed co-purchase relation;
 - field availability / conversational use does not disclose exact retrieval, relevance, or ranking weights.
 
+Selected verification, 2026-09-08: inspected the overview's optional-field and duplication guidance, popularity definition/accuracy requirements, and related-product relation/identifier definitions. Existing description/detail/highlight coverage need not be duplicated into conversational attributes. These are provider semantics, not independently verified sales relations or effectiveness evidence.
+
+Additional official specifications inspected:
+
+- [Question and answer](https://support.google.com/merchants/answer/17085211): minimum requirements and best practices. Use truthful product information, keep offer-related prices/dates in their intended attributes, and avoid redundant facts already supplied in other attributes or a submitted document.
+- [Document link](https://support.google.com/merchants/answer/17084656): definition, format, requirements, and best practices. Relevant product PDFs must be publicly crawlable without login, stable/non-expiring, and shared with the necessary marketing rights. An ordinary webpage or private attachment is not an equivalent carrier. Consult the full current specification for submission limits and encoding when actually implementing a feed.
+
+These conditions do not certify document accuracy, variant applicability, successful extraction, or display. They do not authorize publication of private material or removal of required product attributes. Detailed group/variant specifications and API encodings were not fully revalidated; these are recovered verification sources, not proof of original research inputs.
+
 ## [G10] Google Merchant Center — UCP-powered checkout
 
 Google Merchant Center Help. **About the Universal Commerce Protocol (UCP) and UCP-powered checkout feature on Google; How to onboard to UCP in Merchant Center.** Reviewed 2026-08-23.
@@ -114,10 +141,14 @@ Use: Google says conversational shopping queries can be longer and more complex 
 
 Boundaries:
 
-- AI performance insights are currently a limited pilot / phased rollout and are not a universal Merchant Center report;
+- availability is scoped and time-sensitive; the selected verification below supersedes the earlier limited-pilot description;
 - a product term, structured attribute, or field recommendation does not reveal an exact retrieval stage, model weight, or guaranteed ranking lift;
 - `attribute completeness` or richer product data does not guarantee retrieval, recommendation, or exposure;
 - integrating a shopper concept into title/description means expressing a **truthful relevant product concept**, not repeating query strings or manufacturing unsupported use-case claims.
+
+Selected verification, 2026-09-08: inspected the AI insights page's availability, metrics/filters, stages/trends, and limitations. It specifies English queries for accounts in Australia, Canada, India, New Zealand, and the United States; coverage is organic AI Mode / AI Overviews traffic, not paid traffic or all Google AI surfaces. Preserve category/country/time filters and reporting lag. Share of voice uses the defined competitor set: `0` can mean insufficient impressions, `-` means no impressions data, and `100%` can occur without defined competitors. Changes in that set can affect comparisons; share of voice is not absolute growth or total market share. `Products showing` is a separate numerical count, whose zero means no products showing.
+
+Also inspected product-detail and product-highlight roles, requirements, and best practices. Their guidance discourages duplicate information across attributes and redundant submission when the same information is in a submitted document. Product detail directs information already covered by dedicated attributes to those fields. This supports checking existing coverage before adding optional data, not removing required attributes or assuming document extraction succeeds. No account data, full product-specification audit, hidden ranking model, or causal lift was validated. Access date is not publication date.
 
 ## Evidence-use rules
 

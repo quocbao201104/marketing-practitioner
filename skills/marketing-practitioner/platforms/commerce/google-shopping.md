@@ -101,6 +101,10 @@ If a Merchant Center representation or product outcome changes unexpectedly, fir
 
 Do not rewrite a title merely because the rendered or processed product differs from the submitted source.
 
+For a consequential processing or visibility diagnosis, distinguish successful submission from completed processing: the processed record can lag an input update. Inspect the relevant record and its freshness before treating a mismatch as a rejected update. Scope approval to the target reporting context / destination and country, including applicable issues and their severity; approval in one context is not approval everywhere. Merchant visibility controls and measured exposure are separate checks, and an approval label is not evidence of an impression for a particular query [G01].
+
+Automatic product updates can use landing-page information to correct some discrepancies, but do not replace regular accurate product-data submissions or guarantee coverage of every product [G01]. Inspect the relevant source, processed value, and page when they disagree; do not assume that enabling automation completes synchronization. Use current processing information rather than a fixed waiting period for every case.
+
 ---
 
 ## 3. Identity: product group, variant, merchant record, and external identifiers
@@ -183,6 +187,8 @@ SHARED PRODUCT-FAMILY IDENTITY
 ```
 
 When Google exposes group/variant fields separately, allocate information according to those roles rather than repeating every variant token in every field.
+
+When diagnosing a Merchant product or price mismatch, check that the submitted landing-page URL opens the matching variant, with its actual price and availability, and that corresponding structured data, where present, describes that variant consistently [G02][G05]. Compare within the relevant market, time, and pricing regime. A family page containing both variants or valid group markup does not establish that the correct variant is initially selected. Do not replace a premium variant's price with a cheaper sibling's price merely to match the page default. Supported variant-selecting URLs can share one page; separate physical pages for every variant are not a universal requirement. Correcting consistency does not guarantee approval or exposure.
 
 ---
 
@@ -323,6 +329,8 @@ Examples can include dimensions, materials, capacity, compatibility identifiers,
 
 Do not duplicate vague marketing adjectives where a precise value is available, and do not fabricate a specification to broaden matching.
 
+Use the dedicated attribute when it already covers the information. Check existing coverage before adding `product_detail`; Google's guidance discourages duplicating submitted facts, including information already in a submitted document [G11]. This does not authorize removing required attributes or assuming successful document extraction.
+
 ### 5.5 Product highlights
 
 Use product highlights for concise prioritized features or benefits where supported [G03][G11].
@@ -336,6 +344,8 @@ PRIORITIZED HUMAN-READABLE FEATURE / BENEFIT SUMMARY
 Google explicitly says `product_highlight` should not be used as a list of keywords/search terms or SEO keywords [G11].
 
 Keep claims evidence-compatible. A highlight is not a substitute for a missing structured specification when machine filtering or identity depends on the structured field.
+
+Check existing coverage before adding highlights: Google discourages repeating information already submitted in other attributes or available in a submitted document [G11]. Preserve necessary product identity and required fields; this is field-allocation guidance, not a ban on every recurring product word.
 
 ### 5.6 Description
 
@@ -380,6 +390,8 @@ popularity_rank
 
 These complement the primary Merchant Center product-data specification rather than replacing it.
 
+They are not a requirement to repeat existing facts. Check whether the appropriate attributes already provide the information before adding another carrier. Google's Q&A guidance also discourages duplicating information already available in a submitted document [G09]. Preserve required dedicated fields; document submission does not prove extraction or display.
+
 Possible jobs differ:
 
 ```text
@@ -388,6 +400,7 @@ question_and_answer
 
 document_link
 → authoritative supporting document reference
+  (PDF, publicly crawlable, stable, with rights to share for marketing)
 
 related_product
 → merchant-declared typed product relation
@@ -400,6 +413,8 @@ popularity_rank
 ```
 
 Do **not** collapse them into one “AI SEO” tactic.
+
+For `document_link`, use relevant product documentation that meets those conditions, not an arbitrary webpage, private help-center URL, or expiring attachment [G09]. Possession does not establish sharing authority. If the document is unsuitable, use another supported truthful carrier or identify the missing dependency; do not publish private material to make the field usable. A valid document URL does not verify its claims or applicability to the selected product/variant.
 
 #### 5.8.1 Popularity rank is not Google organic rank
 
@@ -446,6 +461,10 @@ Google's current AI performance insights reflect a shopper environment where req
 
 The seller-side goal is not to predict the hidden query decomposition. It is to make the true answer to material shopper constraints available in the appropriate Google-supported product data.
 
+Before interpreting the report, verify its current availability and scope. The documentation checked on 2026-09-08 covers English-language queries for accounts in Australia, Canada, India, New Zealand, and the United States, and organic AI Mode / AI Overviews traffic [G11]. Do not extend that coverage to Gemini, paid traffic, or every market. Retain category, country, period, competitor set, and reporting lag when comparing results.
+
+Share of voice is relative to the report's defined competitor set, not total market share. Its displayed `0` can reflect insufficient impressions; `-` indicates no impressions data; `100%` can occur without defined competitors. Competitor-set changes can alter comparisons. Do not read these values as verified absence, market dominance, or absolute growth. `Products showing` is a separate count with different zero semantics [G11]. Seek the relevant report context before prescribing product-data changes.
+
 Use a map such as:
 
 ```text
@@ -455,6 +474,8 @@ SHOPPER REQUIREMENT
 ```
 
 Examples, only when supported and truthful:
+
+Check existing coverage first; this map offers carrier choices, not instructions to copy each fact into every field. Follow current field-specific duplication guidance while preserving required attributes and necessary human-facing identity [G09][G11]. A `document_link` option requires a publicly crawlable, stable PDF with rights to share for marketing; another supported carrier may be needed if those conditions are unmet [G09].
 
 ```text
 identity / use-defining product wording
@@ -793,9 +814,14 @@ ads, free listings, Merchant reporting?
 2. PRODUCT PROCESSING
 Same ProductInput, data source, rules, automatic improvements,
 approval state, processed Product?
+Has the update reached the relevant processed record?
+Approval/issues for the target destination and country, visibility controls?
+Automation enabled does not establish complete synchronization or exposure.
 
 3. IDENTITY / VARIANT
 Same merchant ID, item group, GTIN/brand/MPN, variant mapping?
+Does the submitted URL initially select that variant, with matching
+price/availability and corresponding markup where present?
 
 4. COMMERCIAL STATE
 Same price, availability, shipping, promotion, market eligibility?
@@ -831,6 +857,10 @@ best separates the leading explanations?
 ```
 
 Use Chapter 05 if causal attribution becomes material.
+
+For processing, approval scope, and automation limits, use `google-commerce.processing` [G01]. For a variant-to-landing-page mismatch, use `google-commerce.identity` [G02][G05]; do not substitute a sibling's cheaper price to close the issue.
+
+For AI performance insights, check report coverage, filters, competitor set, and lag before interpreting a change. Share-of-voice `0`, `-`, and `100%` have provider-specific meanings; they do not by themselves establish absence, dominance, or absolute growth. Use `google-commerce.resolvability` for those distinctions before recommending enrichment [G11].
 
 ---
 
