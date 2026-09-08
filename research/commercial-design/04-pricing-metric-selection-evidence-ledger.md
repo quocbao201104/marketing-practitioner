@@ -156,7 +156,7 @@ Does not establish:
 
 ---
 
-## [PM07] GitHub Docs — AI Credits as a normalized billing unit
+## [PM07] GitHub Docs — AI Credits as an economically weighted billing unit
 
 GitHub Docs (current documentation, accessed 2026-09). **Usage-based billing for organizations and enterprises / GitHub Copilot billing.**
 
@@ -170,14 +170,16 @@ Evidence type: current first-party provider documentation / professional practic
 Use in this track:
 
 - confirms that GitHub AI Credits are explicitly used as a billing unit for Copilot usage;
-- documents conversion of underlying input, output, and cached token usage, together with model-specific pricing, into AI credits;
-- demonstrates a current production example of heterogeneous raw usage being normalized into a common billing unit;
-- supports the existence of `RAW BILLABLE PHENOMENA → NORMALIZED BILLING UNIT → COMMERCIAL TARIFF` architectures.
+- documents that input, output, and cached token quantities are priced according to the model used and that the resulting economic amount is converted into AI Credits;
+- demonstrates a production example where a synthetic billing unit can embed model-specific economic weighting rather than merely normalize technical usage before tariff logic;
+- supports the existence of economically weighted credit/accounting architectures.
 
 Does not establish:
 
 - that credits are a customer-value metric;
 - that credit systems are preferable to direct billing;
+- that every synthetic unit is a neutral pre-tariff usage normalization;
+- a universal rule for where normalization must sit relative to tariff logic;
 - a universal rule for when a synthetic billing unit should be created;
 - durability of current GitHub prices, allowances, or product-specific billing details.
 
@@ -195,17 +197,45 @@ Evidence type: current first-party provider documentation / professional practic
 
 Use in this track:
 
-- confirms a production credit system in which billable AI/context events consume Rovo credits;
+- confirms a current production credit system in which billable AI/context events consume Rovo credits;
 - documents that credit consumption can vary with interaction complexity and computational effort;
 - demonstrates that a normalized billing unit can represent heterogeneous underlying events rather than a direct customer-outcome measure;
-- provides a current example of pooled allowances, usage limits, and extra-usage billing around the normalized unit.
+- provides a current example of credit accounting, pooled allowances, and usage limits;
+- documents **announced** extra-usage billing scheduled to take effect on **2026-12-03**, rather than treating that billing as already live on the 2026-09 research date.
 
 Does not establish:
 
 - a general pricing rule for AI products;
 - that complexity-weighted credits are more customer-aligned than seats, outputs, or outcomes;
 - a universal tariff for synthetic credits;
-- durability of current allowances or rates.
+- that announced future extra-usage billing is already an executed commercial state;
+- durability of current allowances, announced rates, or implementation dates.
+
+---
+
+## [PM09] Hinterhuber — value-based pricing versus performance-based pricing
+
+Andreas Hinterhuber (2017). **Value quantification capabilities in industrial markets.** *Journal of Business Research*, 76, 163–178.
+
+DOI: https://doi.org/10.1016/j.jbusres.2016.11.019
+
+Evidence type: peer-reviewed B2B pricing / value-quantification study with explicit conceptual treatment of value-based and performance-based pricing.
+
+Use in this track:
+
+- explicitly distinguishes value-based pricing from performance-based pricing as separate constructs;
+- characterizes value-based pricing as ex-ante price setting based on expected customer value / willingness to pay or expected profitability improvement;
+- characterizes performance-based pricing as ex-post adjustment based on predefined product/customer performance indicators;
+- identifies risk transfer / risk sharing as a distinguishing feature between the two constructs;
+- provides the direct academic parent for `VALUE-BASED PRICING ≠ PERFORMANCE / OUTCOME-CONTINGENT PAYMENT`.
+
+Does not establish:
+
+- that value-based pricing is universally preferable;
+- that performance-based pricing is generally impractical in every setting;
+- a universal outcome-attribution threshold;
+- the project's exact outcome/performance checklist;
+- that every outcome-linked contract is value-based.
 
 ---
 
@@ -218,7 +248,7 @@ USAGE-INDEPENDENT / VARIABLE / HYBRID
 
 CHARGE BASIS
 
-Q / R / A / C variable-role classification
+Q / R / A / C contract-relative variable-role classification
 
 ACCESS / SCOPE / EXPOSURE
 RESOURCE / CAPACITY
@@ -231,6 +261,10 @@ DEFINABLE
 OBSERVABLE
 ASSIGNABLE
 RATEABLE
+
+TECHNICAL / USAGE NORMALIZATION
+vs
+ECONOMIC / ACCOUNTING NORMALIZATION
 ```
 
 The exact comparison set is also project synthesis:
@@ -264,15 +298,19 @@ OTHERWISE
 
 is a project decision discipline, not an academic pricing theorem.
 
+The repaired theory additionally treats `USAGE-INDEPENDENT / VARIABLE / HYBRID` as **candidate architecture classes** rather than an early selection gate. That ordering rule is PROJECT SYNTHESIS introduced to prevent the charge-basis search from being bypassed by unguided prior intuition.
+
 ---
 
-# Evidence intentionally deferred
+# Open questions intentionally deferred
+
+**Status for every item in this section: OPEN QUESTION.**
 
 The current freeze is sufficient for a bounded implementation proposal, but not a comprehensive pricing bibliography. Additional primary research may still be valuable for:
 
 - when synthetic credits improve versus obscure buyer understanding;
 - multi-dimensional meters and the optimal number of simultaneous charge bases;
-- detailed B2B outcome/value-based pricing and risk-sharing contracts;
+- detailed B2B outcome/value-based pricing and risk-sharing contracts beyond the bounded distinction already supported by PM05/PM09;
 - migration from legacy seat or usage architectures;
 - fairness/privacy consequences of personalized rate conditions;
 - industrial capacity/reservation pricing outside cloud services;
