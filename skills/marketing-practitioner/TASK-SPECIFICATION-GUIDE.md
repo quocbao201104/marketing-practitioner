@@ -2,6 +2,8 @@
 
 You do not need to learn prompt engineering to use Marketing Practitioner well.
 
+Use this optional guide to state or refine a request in ordinary language. The agent should recover relevant details from the conversation and supplied material; you do not need to repeat them or fill a template before work can begin. [SKILL.md](SKILL.md) governs execution. This guide helps communicate the task and does not add another required workflow.
+
 The useful question is not:
 
 > How do I write an impressive prompt?
@@ -23,6 +25,8 @@ ONLY THE QUALIFIERS THAT CAN MATERIALLY CHANGE THE RESULT
 ```
 
 That is a sufficiency rule, not a completeness contest.
+
+A detail is **material** when it could change the requested choice, supported claim, interpretation, necessary artifact function, or allowed action. The goal is enough shared understanding to do the intended work; the fewest possible words are not a quality target.
 
 ---
 
@@ -56,26 +60,28 @@ A useful job statement usually answers one of these questions:
 
 You do not need to name the internal marketing method. “Help me decide which customer group to focus on” is enough; you do not need to know the term `ICP`.
 
+If you need several outcomes, name each one. The agent should preserve them while resolving their dependencies. Exploratory research can start with a question you want to understand; you do not need to invent a commercial decision before examining the evidence.
+
 ---
 
 ## 2. Add only the qualifiers that can change the answer
 
-The original seven-part grammar is too rigid for ordinary use. The research supports a smaller model with one required core and several conditional qualifiers.
+This guide organizes a request around the job and conditional qualifiers. That is a practical design choice informed by research on omitted and competing requirements [TS01]; the studies do not establish this particular field arrangement as an optimal template.
 
 | Part | Use it when... | What it prevents |
 | --- | --- | --- |
-| **What I need** | almost always | solving the wrong job |
+| **What I need** | the current job or requested outcomes are not already clear | solving the wrong job or dropping an outcome |
 | **Use** | the task depends on supplied facts, evidence, or an existing artifact | inventing or substituting material |
-| **Keep fixed** | something is already approved, verified, forbidden, or outside scope | reopening resolved decisions or changing protected facts |
+| **Keep fixed** | an adopted choice, supported fact, explicit wording, or action boundary constrains the job | reopening resolved decisions or changing protected meaning |
 | **Relevant context** | audience, platform, market, surface, timing, or environment can change the decision | producing an answer for the wrong situation |
 | **Return** | the useful output is not already obvious from the job | giving the wrong artifact, granularity, or visible structure |
-| **If something important is missing** | the cost of guessing matters | silently choosing a materially different interpretation |
+| **If something important is missing** | a preference or boundary changes how the agent should handle uncertainty | silently choosing a materially different interpretation or unnecessary questioning |
 
 These are not six boxes that every prompt should contain.
 
 **DELETE THE SECTIONS YOU DO NOT NEED.**
 
-A one-line transformation can be perfectly specified. A diagnosis or positioning decision may need more.
+A one-line transformation can be sufficiently specified. A diagnosis or positioning decision may need more.
 
 ### Why `Keep fixed` combines resolved state and constraints
 
@@ -92,6 +98,8 @@ Do not add new product claims.
 All three tell the agent what it should **not** re-decide while doing the current job.
 
 Keep them separate in ordinary language when that makes the instruction clearer, but you do not need two mandatory template sections.
+
+An approved choice and a verified fact still have different meanings. Approval settles a choice within scope; it does not prove a claim. A hypothesis or draft supplied for review remains open to that review.
 
 ### Why `Return` is conditional
 
@@ -129,7 +137,7 @@ Use:
 [the material, current artifact, verified facts, or evidence the agent should rely on]
 
 Keep fixed:
-[approved decisions, verified claims, required facts, or things that must not change]
+[adopted choices, supported facts, exact wording if required, or action boundaries]
 
 Relevant context:
 [audience / platform / market / surface / timing — only if it can change the answer]
@@ -138,7 +146,7 @@ Return:
 [the output you actually want]
 
 If something important is missing:
-[ask me / flag it / make a bounded version / research it if appropriate]
+[any task-specific research, clarification, or action boundary; otherwise omit]
 ```
 
 Again:
@@ -191,6 +199,8 @@ SUPPLIED MATERIAL
 
 If some inputs are observations, assumptions, hypotheses, seller-declared facts, or verified facts, label them when that distinction changes what the agent may claim.
 
+When a claim needs checking, include its source and relevant product, market, or date if available. Calling a statement verified does not resolve a material contradiction in the underlying evidence.
+
 ---
 
 ## 5. Preserve decisions that are already resolved
@@ -215,6 +225,19 @@ Diagnose the drop before recommending a new one.
 ```
 
 You do not need to restate every historical decision. Include only resolved state that constrains the current job.
+
+Say whether wording itself is fixed or only its meaning. If a contradiction, material staleness, or missing support prevents truthful completion, the agent should address the affected claim or dependency while preserving unrelated choices.
+
+### Changing or resuming work
+
+State what changed and what remains active when that is not clear from context:
+
+```text
+Use variant B instead of variant A. Revise affected product claims.
+The title and product copy are both still required. Keep the approved audience.
+```
+
+The agent should carry forward pending outputs and their status, distinguish selected choices from assumptions, and update affected work. Cancelled or replaced outputs leave the active scope; paused work remains available for resumption. After an interruption, provide a prior artifact or decision only if the available context cannot recover it. A host may not retain every earlier detail.
 
 ---
 
@@ -253,6 +276,8 @@ changes what the agent is allowed to decide and say.
 
 Do not let formatting instructions stand in for decision criteria.
 
+A presentation constraint can also determine whether an artifact is usable: a field limit, required language, or title-only handoff may be essential. Satisfying the meaning does not excuse violating an explicit delivery constraint. If requirements conflict, resolve the affected conflict instead of silently dropping one.
+
 ---
 
 ## 7. Give relevant context, not maximum context
@@ -266,6 +291,8 @@ Before adding background, ask:
 > Could this information materially change the decision, evidence boundary, constraint, or output?
 
 If not, leave it out unless the agent specifically needs it later.
+
+When relevance is still uncertain, give access to the material and state the question. The agent can make a bounded first inspection and refine what it needs. Do not remove contradictory evidence, source qualifications, or dependencies merely to shorten the input.
 
 ### Missing context
 
@@ -304,18 +331,20 @@ When a large body of material is genuinely required, identify which parts are au
 
 ## 8. Decide what should happen when information is missing
 
-Do not use “always ask a clarifying question.” Research on clarification supports a conditional policy: asking can help when plausible interpretations produce different useful answers, but clarification also has a cost and is unnecessary when one interpretation is dominant or a useful response can proceed safely [TS07][TS08]. Current models can also miss ambiguity rather than reliably detecting it themselves [TS09].
+Research on clarification supports a conditional policy: asking can help when the answer would improve the result, while the value of another interaction depends on the task and plausible interpretations [TS07][TS08]. The models evaluated in CLAMBER also struggled with ambiguity identification [TS09]; this is not a capability assessment of every newer model.
 
-Use this decision rule:
+The following practical defaults align with the skill's uncertainty policy. They are not a tested universal algorithm. You need to specify a different preference or boundary only when it matters to the task.
 
 | Missing information | Good default |
 | --- | --- |
 | The detail is low-impact, conventional, reversible, and does not change a claim or strategic decision | infer conservatively if needed |
 | A useful answer remains valid across the plausible interpretations | proceed with a bounded answer and flag the uncertainty if material |
-| The uncertainty changes confidence but does not block useful work | state the uncertainty |
-| A factual claim/specification is unsupported by the supplied evidence | do not invent it; flag the gap |
+| The uncertainty does not block useful work | continue; surface it when needed for the recipient's decision or truthful interpretation |
+| A factual claim/specification is unsupported | do not invent it; retrieve support when appropriate or give a bounded version with the material gap identified |
 | The missing fact is external, current, and researchable, and outside research is allowed or expected | research it and distinguish external evidence from supplied evidence |
-| A user-specific choice, permission, approved state, or materially different interpretation determines the correct action | ask the user |
+| A user-owned input or materially different interpretation remains unresolved after using available context, and a useful bounded answer cannot resolve it | ask the smallest question that unlocks the work and continue independent parts |
+| The user delegated a choice within a clear scope | make the supported choice and carry it forward; ask only if a material dependency remains unresolved |
+| An action needs authorization that has not been supplied | obtain the missing authorization before that action; do not ask again for authorization already established in scope |
 
 The question is not “Is anything missing?” Almost every real task is incomplete in some way.
 
@@ -324,6 +353,8 @@ The question is:
 > Would choosing the wrong value for this missing information materially change the job, decision, claim, or action?
 
 If yes, do not silently guess it.
+
+A likely interpretation does not create facts or permission. Conversely, an empty framework field or missing optional preference does not justify blocking useful work.
 
 ---
 
@@ -348,7 +379,15 @@ Return:
 
 The first request should not force shallow reasoning. The second does not require the agent to expose private chain-of-thought. Ask for the **decision, evidence, trade-offs, uncertainty, or checks** you need to see.
 
-Current provider guidance consistently supports being explicit about the desired output and constraints, while model-specific advice about roles, XML, internal thinking prompts, or example counts varies [TS11][TS12][TS13].
+Provider guidance reviewed on 2026-08-24 supports specifying desired output and constraints; advice about roles, XML, internal thinking prompts, or example counts varies by model and provider [TS11][TS12][TS13].
+
+### What counts as complete
+
+Describe the use the result must serve when it is not obvious. A useful result supplies the requested artifact, answer, or recommendation, includes every active requested component, preserves supported meaning and explicit constraints, and makes a material unfinished dependency clear. A description of the work performed does not replace the requested result.
+
+If choosing is delegated, expect a choice with decisive reasons and relevant trade-offs, or an explanation of what prevents a defensible choice. If research is requested, expect a traceable account of the agreed question and its evidence limits. Specify a deadline, evidence scope, or depth when it changes what is useful; exhaustive coverage is not the default.
+
+The agent should stop once the requested work is sufficiently complete. Further investigation is warranted when it could materially change the answer enough to justify its cost within scope. These are practical completion criteria, not a calibrated stopping threshold or proof of marketing effectiveness. See [completion and decision usefulness](frameworks/quality-rubrics.md#10-completion-and-decision-usefulness) for optional review support.
 
 ---
 
@@ -378,7 +417,7 @@ When an example contains many incidental properties, tell the agent which proper
 Use this as a tone reference only. Do not copy its structure, claims, or CTA.
 ```
 
-That protects against the common failure:
+That makes the intended use of the example clearer:
 
 ```text
 EXAMPLE
@@ -507,6 +546,19 @@ and the next check that best discriminates between them.
 
 The key specification is causal restraint plus the desired diagnostic output.
 
+### Several outputs with a delegated choice
+
+```text
+Choose the best-supported positioning from these candidates, then write the hero
+and a launch email using it. Keep the current offer and use only supported claims.
+Make the choice within this scope; no separate approval step is needed.
+If a material fact cannot be resolved, complete the supported parts and identify
+which output still depends on it. Return the choice with its decisive reason,
+the hero, and the email. Drafting does not authorize publishing or sending.
+```
+
+All three outputs remain active. An unresolved dependency affects the work that relies on it; it does not erase the other requested outcomes.
+
 ### Conversational product discovery
 
 ```text
@@ -541,8 +593,11 @@ The goal is information completeness and resolvability, not imagined optimizatio
 | `MORE CONTEXT = BETTER CONTEXT` | Prefer relevant, authoritative, decision-changing context [TS04][TS05][TS06]. |
 | `MISSING TASK-DEFINING INFORMATION = PERMISSION TO SILENTLY GUESS` | Ask, research, flag, or bound the answer when the missing value could materially change the job or claim [TS07][TS08][TS09]. |
 | `EXAMPLE = RULE` | Say which property of the example matters; examples can introduce unintended patterns [TS10]. |
-| `OUTPUT FORMAT = DECISION CRITERIA` | Format controls presentation; factual, strategic, and evidence boundaries control what answer is justified. |
+| `OUTPUT FORMAT = DECISION CRITERIA` | Distinguish what answer is justified from how it must be delivered, and meet both when required. |
 | `RESOLVED INPUT = INVITATION TO REDECIDE IT` | Mark fixed upstream decisions when reopening them would change the current job. |
+| `SELECTED OR APPROVED = VERIFIED` | Preserve adopted choices without treating their assumptions as proven facts. |
+| `MISSING OPTIONAL DETAIL = BLOCKED TASK` | Use available context and complete useful work; ask only for a material unresolved dependency. |
+| `PRIMARY JOB = ONLY OUTPUT` | Retain every active requested result through dependencies and changes of scope. |
 | `SPECIFICITY = INVENTED PRECISION` | Be specific about the task, not about facts you do not actually know. |
 
 ---
@@ -561,7 +616,7 @@ It does not recommend:
 - making prompts longer for their own sake;
 - model-specific magic phrases as durable marketing practice.
 
-Current provider documentation contains useful model-specific structure and syntax advice, but those details do not survive as universal user-interface requirements [TS11][TS12][TS13].
+The provider documentation recorded in the ledger contains model-specific structure and syntax advice; those details are not universal user-interface requirements [TS11][TS12][TS13].
 
 ---
 
@@ -590,6 +645,8 @@ The objective is a sufficiently specified task.
 
 The strongest direct source for this guide is Yang et al. (Findings of ACL 2026), which finds both a real underspecification problem and evidence against naive “specify everything” prompting [TS01]. The context guidance is further bounded by controlled work on irrelevant and long inputs [TS04][TS05][TS06]. Clarification guidance comes from work that explicitly studies when interactive clarification is useful and from evidence that ambiguity handling remains imperfect [TS07][TS08][TS09]. The treatment of examples is bounded by research on demonstration bias [TS10]. Prompt sensitivity is represented with both positive evidence and a recent methodological counterpoint rather than as a universal law [TS02][TS03].
 
-Current first-party guidance from OpenAI, Anthropic, and Google is used only where it converges on general task-specification principles such as clear tasks, relevant context, explicit constraints, examples when useful, and visible output requirements. Vendor-specific syntax and model behavior are not promoted into universal rules [TS11][TS12][TS13].
+First-party guidance from OpenAI, Anthropic, and Google, reviewed on 2026-08-24, is used where it converges on general task-specification principles such as clear tasks, relevant context, explicit constraints, examples when useful, and visible output requirements. Vendor-specific syntax and model behavior are not promoted into universal rules [TS11][TS12][TS13].
+
+The field arrangement, materiality standard, delegation boundaries, continuity guidance, and completion criteria are project design judgments aligned with SKILL.md. They are informed by research where applicable and are not independently validated as a complete system. In particular, short or oracle-assisted clarification studies do not establish reliable long-session behavior, and context studies do not show that compression preserves all necessary evidence. Selected source passages were rechecked on 2026-09-08; the ledger identifies that scope without renewing every source's review date.
 
 See [`references/task-specification-evidence.md`](references/task-specification-evidence.md) for source details and evidence boundaries.
