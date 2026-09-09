@@ -1,10 +1,10 @@
 # LinkedIn — Content Environment Module
 
-Last reviewed: 2026-08-23
+Baseline review: 2026-08-23. Follow-recommendation freshness follow-up: 2026-09-09.
 
 Use this module when LinkedIn-specific audience, publishing, participation, recommendation, or distribution behavior can materially change the content decision.
 
-Current operational claims should be re-checked when consequential. LinkedIn product, Feed, relationship, notification, Page, and newsletter behavior can change over time [R28].
+Current operational claims should be re-checked when consequential. LinkedIn product, Feed, relationship, notification, Page, and newsletter behavior can change over time [R28][LI01].
 
 This module instantiates the compact model in `handbook/08-content-environments-and-distribution.md`; it does not define a separate LinkedIn ontology.
 
@@ -261,6 +261,36 @@ EXIT FROM DELIVERY EDGE A
 
 Unfollowing a connection can leave the connection intact while removing updates from Feed [R28]. Newsletter subscription can create edition-specific notification paths distinct from following all author content [R28].
 
+### Creator recommendation can form a Follow edge
+
+LinkedIn separately documents a Follows Recommendation system whose candidate objects are creators/accounts rather than posts. The disclosed system operates in My Network and Home Feed and uses multi-stage retrieval/ranking over member and creator representations [LI01].
+
+Keep:
+
+```text
+POST RECOMMENDATION
+→ post exposure opportunity
+
+CREATOR RECOMMENDATION
+→ creator/account exposure opportunity
+→ possible FOLLOW action
+→ possible future content-delivery opportunities
+```
+
+Therefore:
+
+```text
+CREATOR RECOMMENDATION
+≠ POST RECOMMENDATION
+
+FOLLOW CREATED
+≠ NEXT POST DELIVERED
+```
+
+If follower growth is material to a diagnosis, preserve the relationship-acquisition path when evidence exists. Do not automatically assign new follows to the most visible recent post.
+
+The use of semantic profile representations in the disclosed recommender is implementation evidence, not a creator-facing profile-SEO formula. Do not infer that repeating keywords in a headline, About section, or post will produce a known recommendation lift [LI01].
+
 A relationship or delivery state should be loaded only when it changes context, response opportunity, or future exposure.
 
 ---
@@ -336,7 +366,7 @@ Current FAQ guidance distinguishes newsletter Subscribe from general Follow, whi
 
 LinkedIn Feed is not just a direct relationship channel. Current engineering documentation describes retrieval and ranking using professional profile information, interaction history, semantic content information, freshness, and sequential engagement patterns [R28].
 
-Keep system scope. A Feed signal does not automatically describe Search, Page targeting, newsletter delivery, notification allocation, or another LinkedIn system.
+Keep system scope. A Feed signal does not automatically describe Search, Page targeting, newsletter delivery, notification allocation, creator recommendation, or another LinkedIn system.
 
 ### Distribution request ≠ realized exposure
 
@@ -378,7 +408,7 @@ A post designed for external traffic may rationally trade native engagement for 
 
 ## 8. Observation record before performance conclusions
 
-Before concluding that a post, format, Page/Profile choice, newsletter, link strategy, or comment approach “worked,” reconstruct one compact observation record.
+Before concluding that a post, format, Page/Profile choice, newsletter, link strategy, comment approach, or follower-growth period “worked,” reconstruct one compact observation record.
 
 Preserve only what can change the conclusion:
 
@@ -388,6 +418,7 @@ object / current state
 representation if material
 surface / Feed / delivery context
 audience / relationship state
+relationship-acquisition path if material
 configured target if any
 allocation / visibility state if known
 exposure opportunity
@@ -400,7 +431,7 @@ success metric
 material uncertainty
 ```
 
-A public metric is not automatically intrinsic content quality. Interaction history and platform allocation can affect who receives the opportunity to respond.
+A public metric is not automatically intrinsic content quality. Interaction history, relationship formation, and platform allocation can affect who receives the opportunity to respond.
 
 Keep:
 
@@ -412,6 +443,9 @@ OBSERVED ACTION
 
 LAST OBSERVED TOUCH
 ≠ SOLE CAUSE
+
+FOLLOWER GROWTH DURING A POST'S LIFETIME
+≠ PROOF THE POST CAUSED THOSE FOLLOWS
 ```
 
 Use current comparable local evidence when it matches the actual relationship, surface, delivery, and measurement regime.
@@ -472,6 +506,7 @@ recurring content promise
 metric changed
 → same actor/object/representation?
 → same audience / relationship / target?
+→ same relationship-acquisition / creator-recommendation regime if relevant?
 → same Feed / delivery / allocation regime?
 → same response opportunity?
 → interaction provenance comparable?
@@ -493,6 +528,7 @@ Do not fill dimensions that cannot change the decision.
 - Suggested content is expected to provide sufficient context and value beyond the original poster's network [R28].
 - Company Pages can target some organic posts using follower profile attributes, subject to current requirements; sharing/reposting can extend the audience beyond the configured target [R28].
 - Following and connecting are distinct relationship states, and unfollowing a connection can leave the connection intact while removing updates from Feed [R28].
+- LinkedIn operates a creator/account Follows Recommendation system in My Network and Home Feed; its candidate object and relationship outcome are distinct from post recommendation [LI01].
 - Newsletter subscription has edition-specific notification paths; current FAQ guidance distinguishes Subscribe from general Follow [R28].
 - Employee Notifications are mediated by eligibility, opt-out, processing, and a relevance model rather than guaranteeing notification to every associated employee [R28].
 - LinkedIn currently acts against automated comments and coordinated engagement pods and may reduce their visibility or otherwise enforce policy [R28].
@@ -507,6 +543,14 @@ Do not fill dimensions that cannot change the decision.
 - “professional” means formal, inspirational, or corporate;
 - comments are merely vanity engagement rather than a content-participation unit;
 - every observed comment, like, or share is an organic expression of human preference;
-- Follow, Connection, newsletter Subscribe, Group membership, and notification subscription are interchangeable relationship states.
+- Follow, Connection, newsletter Subscribe, Group membership, and notification subscription are interchangeable relationship states;
+- LinkedIn's semantic creator matching exposes a keyword-density, headline-weight, or profile-field ranking formula;
+- follower growth observed near a high-performing post proves that post caused the follows.
 
 Use current account evidence when available and keep platform averages scoped.
+
+---
+
+## Evidence
+
+Use `references/bibliography.md` for `[R28]` and `references/linkedin-evidence.md` for `[LI01]`.
