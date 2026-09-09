@@ -2,13 +2,15 @@
 
 Source identifiers for `../../platforms/commerce/shopee.md`.
 
-This ledger prioritizes Shopee Vietnam buyer/seller documentation because market-specific behavior is material, plus Shopee engineering research for retrieval systems. Reviewed 2026-08-23.
+This ledger prioritizes Shopee Vietnam buyer/seller documentation because market-specific behavior is material, plus Shopee engineering research for retrieval systems. Baseline reviewed 2026-08-23; bounded S01-S10 follow-ups on 2026-09-09, with source-specific access and claim scope recorded below.
 
 ## [S01] Shopee Vietnam — product search, sort/filter, and image search
 
 Shopee Help Center Vietnam. **[Thành viên mới] Cách Tìm Kiếm Sản Phẩm Cần Mua Trên Shopee.** Reviewed 2026-08-23.
 
 Use: current evidence that shoppers can search by keyword or image, and can explicitly sort/filter results by category, seller location, shipping, price, newest, best-selling, ascending/descending price, Freeship, preferred-shop status, ratings, and other criteria.
+
+Direct source: `https://help.shopee.vn/portal/4/article/79283`. Indexed official text rechecked 2026-09-09: keyword/image search and filters. Image results are described as similar products, not certified identity matches.
 
 Boundary: a shopper-selectable filter or sort option does not establish that the same property is a default organic-ranking weight.
 
@@ -18,13 +20,17 @@ Shopee Help Center Vietnam. **[Thành viên mới] Về cách thức hiển th�
 
 Use: current evidence that Search Results, PDP/Product Information, Today Suggestions, and You May Also Like can display estimated prices after vouchers available in each buyer's account; multi-variant/multi-product postings can show the lowest price among classifications/products. Final checkout price can differ because vouchers are exhausted, sellers change prices, or promotions have time/quantity limits.
 
-Boundary: displayed estimated price is a representation scoped to buyer/time/state, not guaranteed final payable price.
+Direct source: `https://help.shopee.vn/portal/4/article/167479`. Indexed official overview and voucher text rechecked 2026-09-09: select each required variation and inspect the PDP price breakdown. No buyer account or checkout was tested.
+
+Boundary: displayed estimated price is a representation scoped to buyer/time/state, not guaranteed final payable price or the price of a requested configuration.
 
 ## [S03] Shopee Vietnam — product variations
 
 Shopee Help Center Vietnam. **Thanh Toán Tối Đa 20 Phân Loại Sản Phẩm Cho Mỗi Lần Mua Là Gì?** Reviewed 2026-08-23.
 
 Use: current buyer-facing evidence that product classifications/variations represent choices such as color, size or model on one product page.
+
+Direct source: `https://help.shopee.vn/portal/4/article/79075`. Both questions rechecked through indexed official text on 2026-09-09. The 20-classification limit concerns one checkout, not physical-unit quantity or seller catalog capacity.
 
 Boundary: buyer UI semantics do not establish every seller/backend model ID or API object.
 
@@ -34,13 +40,17 @@ Shopee Help Center Vietnam. **QUY ĐỊNH VỀ ĐĂNG BÁN SẢN PHẨM TRÊN SH
 
 Use: seller listing rules for truthful/clear Vietnamese product names, image/title consistency, detailed descriptions, origin, attributes, warranty where required, correct category selection, category-specific information, and prohibited misleading keywords/content. Shopee states correct category selection helps products reach customers.
 
-Boundary: listing/policy requirements and seller guidance do not reveal organic ranking weights.
+Direct source: `https://help.shopee.vn/portal/4/article/77246`. Indexed official general restrictions and enforcement section rechecked 2026-09-09; page states an August 14, 2024 update. It prohibits duplicate-posting spam and content changes that manipulate reviews; enforcement may remove, lock or temporarily hide products or restrict accounts.
+
+Boundary: listing/policy requirements and seller guidance do not reveal organic ranking weights. Missing exposure alone does not prove an enforcement action.
 
 ## [S05] Shopee Vietnam — seller / shop classifications
 
 Shopee Help Center Vietnam. **Shop Yêu Thích/Shop Yêu Thích+ là gì?; Shopee Mall là gì?** Reviewed 2026-08-23.
 
 Use: current evidence that shop-level classifications/badges exist, can depend on operational/customer-service criteria, appear on shop/product representations, and can be explicitly filtered by shoppers in Search. Shopee Mall is a separately recognized seller/shop regime.
+
+Direct sources: `https://help.shopee.vn/portal/4/article/79138` (Preferred shops), `https://help.shopee.vn/portal/4/article/79090` (Mall), and `https://help.shopee.vn/portal/4/article/79334` (Shopee Fulfilled). Indexed official definitions, labels and filters rechecked 2026-09-09. A combined Mall/Fulfilled label carries both shop and fulfillment information. Numeric promotional benefits were not promoted into runtime guidance.
 
 Boundary: visible/filterable shop status does not by itself prove default organic ranking priority.
 
@@ -50,23 +60,29 @@ Shopee Help Center Vietnam. **[Thành viên mới] Làm sao để mua hàng / đ
 
 Use: buyer-facing evidence that product choice can include image/name, seller classification, seller location and other product/commercial information; checkout requires account/address/payment/shipping and availability conditions.
 
+Direct source: `https://help.shopee.vn/portal/4/article/79180`. Indexed official prerequisites and purchase-selection flow rechecked 2026-09-09: a valid signed-in account and Vietnamese delivery address are required for Vietnam orders. Recommendation access alone does not establish checkout eligibility.
+
 Boundary: buyer-visible evaluation cues are not automatically ranking factors.
 
 ## [S07] Jiang et al. — MRSE multimodal retrieval at Shopee
 
 Jiang, H., Zhang, H., Hou, Q., Chen, C., Lin, W., Zhang, J., & Wang, A. (2024). **MRSE: An Efficient Multi-modality Retrieval System for Large Scale E-commerce.** arXiv:2408.14968.
 
-Use: Shopee implementation-backed evidence that text-query product retrieval can combine query text, product textual data/images, and user multimodal preferences/history. Online A/B testing reported gains for the disclosed system.
+Use: Shopee implementation-backed evidence that text-query product retrieval can combine query text, product textual data/images, and user multimodal preferences/history. The online comparison is labeled Shopee Search on Ads.
 
-Boundary: does not establish every current 2026 Shopee Search stage, model, ranker, field weight or market.
+Direct source: `https://arxiv.org/html/2408.14968v1`. Public HTML rechecked 2026-09-09: Online Implementation, Importance of submodels (Table 3), Online A/Btest (Table 4). The importance analysis measures cosine similarity to final representations.
+
+Boundary: does not establish every current 2026 Shopee Search stage, model, ranker, field weight or market. The online experiment is not a seller-content intervention; importance scores are not causal field weights.
 
 ## [S08] Liu et al. — MIEM for Shopee Image Search
 
 Liu, C., Hou, P., Zeng, A., & Yu, H. (2024). **Transformer-empowered Multi-modal Item Embedding for Enhanced Image Search in E-Commerce.** AAAI 2024 / arXiv:2311.17954.
 
-Use: deployed Shopee Image Search system builds item embeddings from textual information plus multiple product images and reported online click/order improvements after deployment.
+Use: Shopee Image Search combines title/image item embeddings with I2I recall before ranking. Reported online improvements concern clicks/user and orders/user.
 
-Boundary: image-search retrieval system evidence does not establish default text-search ranking rules or direct seller image-ranking tactics.
+Direct source: `https://arxiv.org/html/2311.17954v1`. Public HTML rechecked 2026-09-09: Application Description, Training with Multiple Item Images, Online Evaluation (Table 2). Tests compare MIEM+I2I with I2I in Indonesia (March 31-April 10, 2023) and Brazil (April 20-May 5, 2023).
+
+Boundary: image-search retrieval evidence does not establish default text-search ranking rules, seller-edit uplift or a current Vietnam deployment contract. Four images is the reported model configuration, not a seller requirement.
 
 ## [S09] Shopee Vietnam — Sản phẩm Hot visibility feature
 
@@ -74,7 +90,9 @@ Shopee Help Center Vietnam. **ĐIỀU KHOẢN SỬ DỤNG TÍNH NĂNG SẢN PH�
 
 Use: evidence that Shopee can operate a distinct product-visibility feature that provides highlighted placements on Search/Recommendations under feature-specific comparative criteria.
 
-Boundary: this is a scoped special visibility/product feature. Do not translate its disclosed criteria into ordinary organic Search/Recommendation ranking factors.
+Direct source: `https://help.shopee.vn/portal/4/article/178311`. Indexed official sections 1-2 and 3.3, 3.6, 3.8 rechecked 2026-09-09; published September 13, 2025, effective November 4, 2025. Priority compares participating sellers; eligibility can cease, assets may be adapted and placements chosen by Shopee, and traffic/sales are not guaranteed.
+
+Boundary: this is a scoped special visibility/product feature. Do not translate its disclosed criteria into ordinary organic Search/Recommendation ranking factors or treat participation as observed delivery.
 
 ## [S10] Shopee App in ChatGPT — conversational product discovery
 
@@ -86,6 +104,8 @@ Direct sources:
 - `https://www.sea.com/news/406`
 
 Use: Shopee is available as an app in ChatGPT in supported Shopee markets including Vietnam. Users can ask natural conversational shopping requests and receive Shopee product recommendations/cards before continuing the purchase journey on Shopee. Account connection is optional; Shopee says connected users may receive more personalized suggestions based on Shopee purchase history/preferences, while ChatGPT can share a summary of recent conversational context/needs and basic connection context with Shopee for the request. Product detail and checkout continue on Shopee app/web rather than completing inside ChatGPT in the documented Vietnam flow.
+
+Follow-up 2026-09-09: indexed Vietnam help, connection choices, security notes and purchase handoff; Sea announcement body dated June 22, 2026, availability and discovery section. Shopee states ChatGPT does not access Shopee purchase history, delivery addresses or bank-card information. This is a documented provider boundary, not an independent technical audit. No account connection was tested.
 
 Boundary: current official sources do **not** disclose the exact Shopee listing fields, embeddings, candidate generation, retrieval stages, ranker weights, or transformation logic used by the Shopee App in ChatGPT. Natural-language discovery and optional personalization therefore support a broader intent/context model, not a seller-facing `AI SEO` formula.
 

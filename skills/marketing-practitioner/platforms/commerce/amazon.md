@@ -1,6 +1,6 @@
 # Amazon — Commerce / Product Discovery Module
 
-Last reviewed: 2026-08-23
+Baseline review: 2026-08-23. Bounded operational and search-evidence follow-ups: 2026-09-09. Source-specific review scope and access limits are recorded in the evidence ledger; this is not a full-module freshness certification.
 
 Use this module when Amazon-specific catalog identity, seller listings, product-detail-page composition, offers / Featured Offer, product-search data, title / Item Highlights / generic search terms, Shop Direct / Buy for Me, product search, recommendation, agentic shopping, or seller performance interpretation can materially change the decision.
 
@@ -56,7 +56,7 @@ Do not generalize this Amazon architecture to marketplaces where the platform li
 
 ### 1.1 Amazon discovery now also includes an external-store regime
 
-Amazon Shop Direct creates a second important 2026 discovery regime [A09]. Amazon states that Shop Direct can surface products from stores across the web, including products not currently sold in Amazon's Store. External merchants can sync catalog, price, and inventory through product feeds, and these products can be discovered in Amazon search/Rufus/Alexa for Shopping contexts.
+Amazon Shop Direct creates a second important 2026 discovery regime [A09]. The cited availability announcement covers U.S. customers; applicability to another customer market requires verification. Amazon states that Shop Direct can surface products from stores across the web, including products not currently sold in Amazon's Store. External merchants can sync catalog, price, and inventory through product feeds, and these products can be discovered in Amazon search/Rufus/Alexa for Shopping contexts.
 
 Use:
 
@@ -94,7 +94,7 @@ The public evidence establishes the external-store commercial/discovery regime, 
 
 ### 1.2 Shop Direct representation, merchant store, and Buy for Me transaction are separate roles
 
-For Shop Direct products, customers can either follow a link to the merchant website or, for eligible products, use Buy for Me so Amazon's agentic AI completes the purchase from the merchant website [A09].
+In the documented U.S. Shop Direct experience, customers can either follow a link to the merchant website or, for eligible products, use Buy for Me so Amazon's agentic AI completes the purchase from the merchant website [A09].
 
 Keep:
 
@@ -215,7 +215,11 @@ SELLER SUBMISSION
 ≠ DISPLAYED PDP CONTENT
 ```
 
-If a seller's source field and live PDP differ, diagnose contribution/catalog selection state before assuming a copy-save failure or ranking issue.
+If a seller's source field and live PDP differ, distinguish submission processing from contribution/catalog selection before assuming a copy-save failure or ranking issue.
+
+For Listings Items, `ACCEPTED` confirms initial validation, not completed downstream processing. Later issues can still occur; inspect subsequent listing state and `getListingsItem` issues when diagnosing a missing or unchanged listing [A01]. Do not infer a catalog-selection conflict from acceptance alone.
+
+Within a Listings Items response, `attributes` retains seller-submitted values, while `fulfillmentAvailability` reflects live availability. Submitted stock can remain 1 after live stock reaches 0. Identify the dataset, seller, marketplace, and observation time before treating a discrepancy as a content or inventory error [A01].
 
 This section describes native Amazon Store catalog/PDP behavior. Shop Direct external-store products follow a different local record/representation path and should not be forced into the same seller-listing/PDP model [A09].
 
@@ -308,6 +312,8 @@ FEATURED OFFER AT t0
 ≠ PERMANENT FEATURED OFFER
 ```
 
+When interpreting a missing Featured Offer Expected Price (FOEP), read `resultStatus`: `NO_COMPETING_OFFER` can coexist with eligibility; `OFFER_NOT_ELIGIBLE` reports ineligibility; `OFFER_NOT_FOUND` requires checking the offer; `ASIN_NOT_ELIGIBLE` concerns FOEP eligibility. Absence alone is neither a zero-price target nor a reason to cut price. The documented tutorial concerns new-condition, nationwide-shipping offers; preserve the applicable marketplace, location, and time [A02].
+
 ### 5.3 Featured Offer ≠ product-search organic ranking
 
 Do not transfer a pricing / buying-option factor into Amazon Search ranking without evidence.
@@ -325,7 +331,9 @@ The same product can participate in both systems, but the objectives and state a
 
 Amazon changed title / visible-search representation rules beginning July 27, 2026 [A03]. For all categories except media, titles are now limited to 75 characters including spaces, while Item Highlights adds up to 125 characters for materials, recommended use cases, or comparison-relevant details. Amazon describes both as searchable and visible in search results and PDPs [A03].
 
-This makes field allocation especially important.
+The official follow-up describes migration throughout 2026, with not-yet-updated listings remaining active, editable, and searchable. A legacy title alone therefore does not establish suppression; inspect the listing's actual state [A03].
+
+Apply the relevant category/marketplace requirements when allocating fields.
 
 ### 6.1 Title
 
@@ -336,7 +344,7 @@ CORE PRODUCT IDENTIFICATION
 + highest-value distinguishing detail that fits naturally
 ```
 
-Because the title must be compact and fully readable on mobile, do not force every attribute or synonym into it.
+Keep the title compact without forcing in every synonym. Displayed character counts can vary with screen size and settings; a compliant length does not guarantee full visibility [A03].
 
 Keep:
 
@@ -352,7 +360,7 @@ TITLE IS PROMINENT
 ≠ TITLE HAS DISCLOSED PRIORITY OVER ITEM HIGHLIGHTS
 ```
 
-Amazon explicitly said title and Item Highlights are both searchable, without stating that one is prioritized for search [A03].
+Amazon's follow-up says neither field is prioritized over the other for search [A03]. This is affirmative provider guidance, not a disclosed numerical ranking formula or a guarantee of unchanged performance for every rewrite.
 
 ### 6.2 Item Highlights
 
@@ -379,6 +387,8 @@ MACHINE-CONSUMED SEARCH DATA
 ```
 
 Use it for relevant vocabulary that genuinely helps matching and is supported by the current product type / marketplace policy.
+
+When the applicable limit is byte-based, character count alone is insufficient for multibyte text. Verify the current limit and counting convention for that field, product type, and marketplace; preserve meaningful spelling rather than stripping accents to fit [A04].
 
 Do not infer:
 
@@ -460,7 +470,7 @@ Shop Direct adds another representation boundary: external-merchant feed/catalog
 
 ## 8. Amazon product search: retrieval ≠ ranking
 
-Amazon Science publications provide implementation/scientific evidence for a common product-search architecture in which candidate matching/retrieval precedes ranking [A05][A06].
+A05 explains retrieval and ranking using music/podcast examples; A06 studies product matching. They support distinguishing candidate selection from ordering, not a mandatory identical pipeline: A06 also describes serving retrieved results directly or mixing and reranking them [A05][A06].
 
 Use the conceptual distinction:
 
@@ -498,6 +508,8 @@ QUERY TERM ABSENT VERBATIM
 
 Do not use this to claim that keywords are irrelevant; it means literal token presence is not a complete relevance model.
 
+In A06's online test, combined exact/substitute relevance improved while exact-match share at the reported cutoff fell. Aggregate improvement is not improvement in every relationship type or evidence for a seller copy tactic [A06].
+
 ### 8.2 Query-product relationship is typed
 
 The Amazon Shopping Queries / ESCI work distinguishes:
@@ -510,6 +522,8 @@ IRRELEVANT
 ```
 
 relationships [A08].
+
+In this benchmark, Exact satisfies the query specifications; Substitute is a functional alternative that misses some aspects; Complement is usable alongside an exact item; Irrelevant includes failure of a central requirement [A08]. Preserve decisive constraints when evaluating an alternative. Exactness concerns product fit, not literal word equality.
 
 This supports thinking about relevance as a relation between shopper intent/query and product, not a scalar “SEO score” intrinsic to the listing.
 
@@ -661,7 +675,7 @@ Do not apply Amazon Search title/search-term tactics mechanically to recommendat
 
 ### 11.1 Agentic capability ≠ unrestricted purchase authority
 
-Amazon's current Alexa for Shopping can support cart building, price-triggered auto-buy, and Buy for Me flows in supported cases [A09][A10].
+Amazon documents cart building, price-triggered auto-buy, and eligible Buy for Me flows for its U.S. Alexa for Shopping experience [A09][A10]. Verify applicability elsewhere. Scheduled Actions can notify or populate a cart for later checkout; distinguish these from a configured auto-buy and from a completed order [A10].
 
 Keep:
 
@@ -704,12 +718,16 @@ Native: same ASIN / parent-child relation / product type / browse classification
 External: same merchant feed item / external merchant / product mapping?
 
 4. SELLER / MERCHANT INPUT
-Native: same seller SKU, contribution state, listing issues, suppressed attributes?
+Native: same seller SKU, acceptance vs subsequent processing, contribution state,
+listing issues, suppressed attributes? See section 3 / amazon.catalog-pdp when
+submission success is mistaken for completion or submitted data for live state.
 External: same feed/catalog/price/inventory sync?
 
 5. COMMERCIAL OFFER / TRANSACTION STATE
 Same price, condition, inventory, fulfillment, shipping,
 Featured Offer state, location/customer context?
+Distinguish submitted stock from live availability (section 3 / amazon.catalog-pdp);
+interpret missing FOEP using its resultStatus (section 5 / amazon.offer-featured).
 For Shop Direct / Buy for Me: same external merchant availability,
 checkout state and merchant order outcome?
 
@@ -728,6 +746,8 @@ recommendation/referral/Alexa source?
 9. TIME / PLATFORM REGIME
 Did title rules, Item Highlights, catalog policy, review aggregation,
 Shop Direct / Buy for Me, or marketplace behavior change?
+For title migration or truncation, use section 6 / amazon.product-info:
+separate announced requirements, transition state, and observed display.
 
 10. COMPETING EXPLANATIONS
 What else changed at the same time?
@@ -770,7 +790,7 @@ resolve the most useful comparison details
 
 ```text
 identify relevant alternate vocabulary not already represented adequately
-→ use current Amazon guidance
+→ apply current field guidance, including the limit and its measurement unit
 → avoid prohibited / irrelevant terms and unnecessary repetition
 → do not claim ranking lift
 ```

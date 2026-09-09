@@ -1,6 +1,6 @@
 # Shopee — Commerce / Product Discovery Module
 
-Last reviewed: 2026-08-23
+Baseline reviewed: 2026-08-23. Bounded S01-S10 follow-ups: 2026-09-09; source-specific scope is recorded in the ledger.
 
 Use this module when Shopee-specific listing/product information, variation structure, keyword/image/conversational discovery, explicit sort/filter behavior, shop classification, buyer-relative displayed pricing, multimodal retrieval, Shopee App in ChatGPT, or Shopee product-performance interpretation can materially change the decision.
 
@@ -86,7 +86,7 @@ and introduce an underlying shared product/model identity only when comparison, 
 
 ## 3. Variations / classifications are selectable configurations
 
-Shopee Vietnam describes product classifications as choices/models such as color, size or style presented on the same product page [S03].
+Shopee Vietnam describes product classifications as choices/models such as color, size or style presented on the same product page [S03]. Its documented limit of 20 classifications per checkout concerns distinct configurations, not 20 physical units or a seller catalog limit. Stock and other purchase limits still require checking.
 
 Use:
 
@@ -124,6 +124,8 @@ when price, stock, or fulfillment differs by variation.
 ## 4. Product-descriptive information must remain truthful and category-correct
 
 Current Shopee Vietnam listing policy requires clear/truthful product names, title/image consistency, detailed descriptions, source/origin and attributes where required, correct category selection, and category-specific mandatory information [S04].
+
+Check listing/account enforcement state when a product disappears: the Vietnam policy permits removal, locking or temporary hiding [S04]. Missing search exposure alone does not establish a penalty. It also prohibits duplicate-posting spam and repurposing listing content to manipulate reviews; preserve product identity when editing.
 
 ### 4.1 Product name
 
@@ -217,6 +219,8 @@ SHOP BADGE
 CAN BE PART OF PRODUCT ENCOUNTER REPRESENTATION
 ```
 
+Read combined badges by meaning: Mall identifies shop classification, while Shopee Fulfilled identifies participation in a fulfillment program. Do not assume every Mall product has that fulfillment state [S05].
+
 ### 5.1 Visible / filterable ≠ default ranking factor
 
 Do not infer:
@@ -264,11 +268,13 @@ TEXT QUERY
 ≠ TEXT-ONLY RETRIEVAL MODEL
 ```
 
-Do not infer that the exact MRSE model, its features, or weights are the complete 2026 Shopee Vietnam production stack.
+Do not infer that the exact MRSE model, its features, or weights are the complete 2026 Shopee Vietnam production stack. Its online comparison is labeled Shopee Search on Ads; it does not estimate organic lift from a seller edit. Submodel importance scores are representation-similarity measurements, not ranking weights or an effort-allocation formula [S07].
 
 ### 6.2 Image search does not imply image-only item representation
 
-Shopee MIEM uses multiple product images plus textual product information to construct item embeddings for the disclosed Image Search system [S08].
+Buyer help describes image search as finding similar products [S01]. Verify model, compatibility and selected variation before treating a visual match as the exact requested item.
+
+Shopee MIEM uses multiple product images plus product titles to construct item embeddings. The disclosed deployment combines MIEM with I2I recall before ranking; its four-image configuration is not a seller upload requirement [S08].
 
 Therefore:
 
@@ -287,6 +293,8 @@ ONE VISIBLE IMAGE
 ### 6.3 Shopee App in ChatGPT is a separate conversational discovery surface
 
 Shopee's current Vietnam guidance says shoppers can ask ChatGPT for Shopee product recommendations using natural language. Connecting a Shopee account is optional; connected users may receive more personalized suggestions based on Shopee purchase history/preferences, while a summary of recent conversational context/needs can be shared with Shopee for the request [S10]. Product detail and checkout then continue on Shopee app/web in the documented flow.
+
+Shopee says ChatGPT does not access the shopper's Shopee purchase history, delivery address or bank-card information; optional personalization is not permission to claim visibility into those records [S10]. Account-free recommendations do not remove Shopee checkout requirements: the Vietnam buying guide requires a valid signed-in account and delivery address in Vietnam [S06].
 
 Use:
 
@@ -349,7 +357,7 @@ FINAL RESULTS / RECOMMENDATIONS
 
 with exact 2026 system details held UNKNOWN unless current Shopee evidence discloses them.
 
-Do not translate retrieval-model features or conversational product behavior into ranking tactics.
+Do not translate retrieval-model features or conversational product behavior into ranking tactics. MIEM online results compare combined MIEM+I2I against I2I in Indonesia and Brazil in 2023, using clicks/user and orders/user. They are not CTR estimates or forecasts for a Vietnamese listing change [S08].
 
 ---
 
@@ -400,7 +408,7 @@ time
 
 Shopee Vietnam currently documents a price-display system that can show estimated post-voucher prices based on vouchers available in the individual buyer's account across Search Results, Product Information, Today Suggestions and You May Also Like [S02].
 
-For multi-variation/multi-product postings, the displayed price can be the lowest price among included classifications/products [S02].
+For multi-variation/multi-product postings, the displayed price can be the lowest price among included classifications/products [S02]. Select the configuration the buyer actually needs and inspect its price and the PDP price breakdown before assessing budget fit. A listing minimum does not establish that the required size/model qualifies.
 
 Therefore:
 
@@ -491,7 +499,9 @@ Do not infer a default organic ranking effect solely because ratings are visible
 
 Shopee Vietnam documents a scoped `Sản phẩm Hot` feature providing highlighted visibility on Search/Recommendations under feature-specific criteria [S09].
 
-This is a perfect evidence-boundary test:
+Participation or a seller-side Hot label does not guarantee impressions, traffic or sales. Priority is comparative among participating sellers; check continued eligibility and actual delivery before attributing a change to content. The terms also permit Shopee to adapt product images/videos and choose placements, so inspect the delivered representation [S09].
+
+Keep the feature boundary explicit:
 
 ```text
 FEATURE-SPECIFIC PRIORITY / PLACEMENT CRITERIA
@@ -551,6 +561,7 @@ PDP? cart? order?
 
 2. PRODUCT / VARIATION
 Same posting, category, variation structure, stock?
+Any confirmed product hiding/locking/removal or account restriction [S04]?
 
 3. PRODUCT INFORMATION
 Same name, images, description, attributes, origin/warranty fields?
@@ -572,7 +583,7 @@ recommendation card / PDP?
 
 8. VISIBILITY MODE
 Ordinary organic vs ChatGPT app / Sản phẩm Hot / ads / campaign /
-other special placement?
+other special placement? For Hot, same participation/eligibility and actual delivery [S09]?
 
 9. TIME / PLATFORM REGIME
 Same policy, voucher, promotion, app/surface behavior?
@@ -580,7 +591,7 @@ Same policy, voucher, promotion, app/surface behavior?
 10. DISCRIMINATING CHECK
 What current search reproduction / buyer-account comparison /
 conversation reproduction / seller data / traffic-source evidence
-best separates causes?
+best separates causes? Check the required variation and price breakdown [S02].
 ```
 
 Load Chapter 05 for causal attribution.
@@ -619,6 +630,7 @@ Before any copy change:
 ```text
 reproduce query / conversational context + sort + filters
 → identify organic vs AI referral vs special placement
+→ check listing/account restrictions and special-feature eligibility
 → compare shop/product/commercial state
 → inspect traffic-source change
 → only then test content/data hypothesis

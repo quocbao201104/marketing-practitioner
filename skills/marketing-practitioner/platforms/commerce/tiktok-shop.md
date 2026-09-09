@@ -1,6 +1,6 @@
 # TikTok Shop — Commerce / Product Discovery Module
 
-Last reviewed: 2026-08-23
+Baseline review: 2026-08-23. Bounded state, linking, discovery, and measurement follow-ups: 2026-09-09; source-specific access and review limits are recorded in the evidence ledger.
 
 Use this module when TikTok Shop-specific product/SKU structure, Shop Tab search/recommendation, product cards, Search terms / Product highlights, creator-product linking, shoppable video/LIVE, affiliate relationships, relinking, or commerce measurement can materially change the decision.
 
@@ -143,6 +143,12 @@ PRODUCT EXISTS IN SELLER SYSTEM
 
 A product can remain live at a prior version while an edit is under review in supported API flows [TTS01].
 
+When comparing API data with the storefront, preserve which version was requested. Get Product v202309 distinguishes live data from the under-review version through `return_under_review_version`; draft retrieval is a separate, mutually exclusive selection. Verify the endpoint/version rather than copying older overview parameter names [TTS02].
+
+Product status and audit status can also differ. In the documented U.S. local-seller invite-only category flow, `PRE_APPROVED` can coexist with `PENDING` until a prerequisite is met. Read `audit.pre_approved_reasons`; `RESTRICTED_CATEGORY_PENDING` calls for category permission, not another copy rewrite. Do not assign that reason to every pending product [TTS02].
+
+Edit Product v202309 separately documents price/inventory edits as not requiring content re-audit. Do not assume those fields wait for a pending title edit; inspect their actual update result and applicable constraints [TTS03].
+
 Therefore diagnose catalog/audit state before inferring that a content or ranking change caused missing exposure.
 
 ---
@@ -182,6 +188,8 @@ PRODUCT ACTIVE
 ```
 
 Do not reason from the PDP's visible starting price without checking which SKU/configuration and promotion state it represents.
+
+For a failed inventory change, inspect the returned reason and which system controls the stock. The documented API can reject local updates for shared/automatically allocated inventory or warehouse restrictions; waiting for content review does not resolve those causes [TTS03].
 
 ---
 
@@ -236,7 +244,7 @@ or a disclosed priority relative to title, attributes, images, behavior, or othe
 
 ### 5.5 Product highlights
 
-TikTok Shop US also added 3–5 concise Product highlights shown on the product detail page; the platform says these communicate key benefits/features and can help search understanding [TTS04].
+TikTok Shop US describes optional Product highlights on the product detail page and recommends 3–5 concise points; this is not a mandatory minimum. These communicate key benefits/features and can help search understanding [TTS04].
 
 Use:
 
@@ -245,7 +253,7 @@ VISIBLE EVALUATION / COMPARISON INFORMATION
 + POSSIBLE SEARCH-UNDERSTANDING INPUT
 ```
 
-Do not turn it into a backend keyword list.
+Do not turn it into a backend keyword list. Both fields must match the product and platform rules; the guide says inconsistent or noncompliant entries can be removed automatically. System suggestions still need factual checking. Missing text alone does not establish the cause of removal [TTS04].
 
 ### 5.6 Images / product gallery
 
@@ -306,11 +314,11 @@ MEETS RECOMMENDATION REQUIREMENTS
 ≠ EXPOSED
 ```
 
-Do not infer a hidden ranker from eligibility diagnostics.
+Do not infer a hidden ranker from eligibility diagnostics. The U.S. seller guide describes automatic Shop Tab channel inclusion for listed products; that is not proof of a recommendation impression [TTS05].
 
 ### 6.3 Product Card is a representation, not the product
 
-Product cards can drive purchase outside short video/LIVE and appear in marketplace/recommendation contexts [TTS05][TTS06].
+Product cards can drive purchase outside short video/LIVE and appear in marketplace/recommendation contexts [TTS05][TTS06]. The Shop Tab guide classifies non-LIVE/non-video revenue as Product Card revenue. Do not equate that broad category with Shop Tab alone, or add the two as disjoint sources without verifying the reporting hierarchy [TTS05].
 
 Keep:
 
@@ -326,7 +334,7 @@ PRODUCT OBJECT
 
 TikTok Shop's linking behavior provides an unusually clear hybrid stress case.
 
-Current guidance allows a video to link to [TTS07]:
+The documented U.S. posting flow allows a video to link to [TTS07]:
 
 ```text
 Product
@@ -335,7 +343,7 @@ Category
 Collection
 ```
 
-and eligible recently published videos can receive product links without being deleted/re-uploaded.
+Eligible published videos can receive a first product link without re-uploading. The U.S. post-publish tool covers unlinked videos from the last 30 days, requires Commercial Music Library audio, a matching product, and content-policy compliance. It does not establish free replacement of an existing link. For unavailable linked products, use the distinct relinking conditions in section 9 / `tiktok-shop.relinking` [TTS07][TTS09].
 
 Therefore:
 
@@ -385,7 +393,9 @@ SAME VIDEO
 
 ## 9. Product Relinking proves content identity can survive target replacement
 
-Current Product Relinking guidance says an eligible shoppable video can retain its existing traffic/engagement while an unavailable target product is replaced [TTS08].
+The documented U.S. Product Relinking feature preserves the existing video while replacing an unavailable target. It covers videos posted within six months with engagement during the last 30 days; some content violations must be resolved first. Check current account/feature eligibility and the abnormal-anchor reason. An absent notification can reflect missing suitable alternatives or unmet eligibility, rather than a defect [TTS08].
+
+Preserving the video does not guarantee unchanged future traffic, engagement, or earnings. The older first-link FAQ is not a blanket prohibition of this later, specifically scoped relinking workflow [TTS08][TTS09].
 
 If the original product later restocks, it can automatically re-anchor; both original and replacement may appear, with up to multiple products anchored to one video in the documented US feature [TTS08].
 
@@ -541,7 +551,9 @@ ORDER / GMV
 + attribution rule
 ```
 
-before learning from performance.
+before learning from performance. Preserve the report, metric version, event unit, PV/UV mode and aggregation. Shop-page conversion uses unique page views [TTS05]; product CTOR uses clicks and SKU orders. Estimated customers are daily-deduplicated sums, not period-unique people. Product Traffic GMV includes canceled/refunded orders; refund timing can differ from purchase timing [TTS06].
+
+Do not silently join changed metric definitions across an upgrade. The TTS06 Unique CTOR row has inconsistent name/description: verify its current definition before calculation. Missing metrics are not zero, and a projected rollout is not evidence of availability [TTS06].
 
 ### 13.1 Suggested observation chain
 
@@ -582,10 +594,14 @@ Check the relevant branch rather than rewriting everything.
 1. METRIC / SOURCE
 Shop Search, recommendation, Product Card, video, LIVE,
 affiliate, paid ads, shop page?
+For cross-report comparisons, check units/denominators, aggregation and
+transaction timing in section 13 / tiktok-shop.measurement before interpreting change.
 
 2. PRODUCT / SKU STATE
 Same product status, category, product attributes,
 sales attributes, price, inventory, SKU images?
+For version discrepancies or pending prerequisites, use section 3 /
+tiktok-shop.status; distinguish live/draft/review data and the reported reason.
 
 3. SEARCH REPRESENTATION
 Same title, Search terms, Product highlights, images,
@@ -596,6 +612,8 @@ Any image-quality, stock, product-quality or other explicit issue?
 
 5. CONTENT-COMMERCE EDGE
 Same video? same linked target? anchor active/OOS/relinked?
+First attachment or unavailable-target replacement? Use sections 7/9 or
+tiktok-shop.content-product-identity / tiktok-shop.relinking for eligibility.
 Does content still truthfully match product?
 
 6. ACTOR / COMMERCIAL RELATION
@@ -637,15 +655,16 @@ identify product vs SKU scope
 verify video-product factual alignment
 → identify Product / Shop / Category / Collection target
 → choose truthful anchor display name
-→ confirm link eligibility/state
-→ publish / link
+→ distinguish new attachment from replacement and check the applicable eligibility
+→ publish / link within the authorized task
 ```
 
 ### Relink an unavailable product
 
 ```text
 preserve original video identity
-→ verify why anchor is abnormal
+→ verify why anchor is abnormal and whether relinking is eligible
+→ resolve any blocking content violation
 → choose genuinely matching replacement
 → re-check claims/visuals/brand/price-sensitive statements
 → relink
