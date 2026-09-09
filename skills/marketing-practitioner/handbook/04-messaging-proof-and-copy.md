@@ -266,4 +266,6 @@ A copy review should not begin with whether the prose is "good." It should evalu
 10. voice and naturalness;
 11. CTA coherence.
 
+Assess the effective hierarchy of the whole artifact, not only whether each required idea appears. Placement, repetition, examples and procedural detail can give a secondary point more emphasis than the intended value. Ask what the selected examples actually demonstrate and what understanding or next action the draft makes most prominent. If that differs from the resolved communication job, rebalance the material while preserving necessary proof, qualifications and a usable next step. An introduction, a setup guide and a risk explanation can legitimately emphasize different things; this check requires no fixed opening, length, example count or outline.
+
 Stylistic polish is downstream of strategic correctness.
