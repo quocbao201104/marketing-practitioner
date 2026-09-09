@@ -1,0 +1,65 @@
+name: Release ZIP
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing release tag (blank selects latest stable release)
+        required: false
+        type: string
+  push:
+    branches: [main]
+    paths: [.github/workflows/release.yml]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-zip
+  cancel-in-progress: false
+
+jobs:
+  package:
+    runs-on: windows-latest
+    steps:
+      - name: Resolve existing release
+        id: release
+        uses: actions/github-script@v7
+        env:
+          REQUESTED_TAG: ${{ inputs.tag }}
+        with:
+          script: |
+            const repo = context.repo;
+            const tag = context.payload.release?.tag_name || process.env.REQUESTED_TAG;
+            const { data: release } = tag
+              ? await github.rest.repos.getReleaseByTag({ ...repo, tag })
+              : await github.rest.repos.getLatestRelease(repo);
+            if (release.draft) throw new Error('Publish the release before packaging it.');
+            core.setOutput('tag', release.tag_name);
+            core.setOutput('missing', !release.assets.some(a => a.name === 'marketing-practitioner.zip'));
+
+      - uses: actions/checkout@v4
+        if: steps.release.outputs.missing == 'true'
+        with:
+          ref: refs/tags/${{ steps.release.outputs.tag }}
+
+      - uses: actions/setup-python@v5
+        if: steps.release.outputs.missing == 'true'
+        with:
+          python-version: '3.13'
+
+      - name: Build and validate release ZIP
+        if: steps.release.outputs.missing == 'true'
+        shell: powershell
+        run: python -B scripts/package_skill.py "$env:RUNNER_TEMP/marketing-practitioner.zip"
+
+      - name: Attach ZIP to release
+        if: steps.release.outputs.missing == 'true'
+        shell: powershell
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ steps.release.outputs.tag }}
+        run: gh release upload "$env:RELEASE_TAG" "$env:RUNNER_TEMP/marketing-practitioner.zip"
