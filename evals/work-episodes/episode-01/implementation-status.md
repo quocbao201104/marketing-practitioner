@@ -11,15 +11,19 @@ Implemented scope:
 - creator reservation and reduction ledger;
 - sealed observable action basis plus artifact hashes;
 - deterministic predicate plumbing and PASS/FAIL/UNRESOLVED aggregation;
+- deterministic channel-range and budget executability checks;
+- pressure/control relation guardrail;
 - comparative event/treatment-integrity fail-closed helpers;
+- burden delta reporting separate from work verdict;
+- mechanism-localization guardrail requiring telemetry + selective intervention + negative control;
 - 21 synthetic evaluator fixtures;
 - non-compensatory preflight runner;
-- unit tests for scheduler, reservation arithmetic, historical sealing, and fixture gate.
+- unit tests for scheduler, reservation arithmetic, historical sealing, fixture gate, channel-range enforcement, and mechanism-attribution gating.
 
-Author-side local result before commit:
+Author-side local result before final freeze:
 
 ```text
-unit tests: 8/8 PASS
+unit tests: 10/10 PASS
 material fixtures: 21/21 PASS
 preflight gate: PASS
 live_trials_permitted: false
