@@ -5,6 +5,28 @@ All notable changes to this repository are documented here.
 The project uses semantic versioning for published skill revisions. v1.0.0 marks the first stable core contract: future 1.x work should preserve compatibility-sensitive controller semantics, logical knowledge interfaces, owner boundaries, and evidence/claim behavior unless a demonstrated failure justifies a scoped change. Historical frozen evaluation and research references keep the version labels under which they were produced.
 
 
+## [1.7.1] - 2026-09-09
+
+### Retrieval and copy corrections
+
+- Clarified recovery when a successful file read delivers truncated output, including combined reads and foundational chapters.
+- Clarified Facebook Group participation routing when product facts are sufficient but the reader benefit, invitation, or return path remains unresolved; preserved direct paths for sufficiently specified tasks.
+- Added whole-artifact message-priority review to catch emphasis created by placement, repetition, examples, and procedural detail.
+
+### Platform and evidence corrections
+
+- Refined Amazon, TikTok Shop, and Shopee guidance on discovery, commercial state, visibility, metrics, and buyer context.
+- Bounded TikTok Shop Vietnam feature applicability, Google reporting regime comparisons, and LinkedIn creator versus post recommendations.
+- Corrected README evidence counts and repository versus portable-ZIP notices links; added contributor and public research guidance.
+
+### Distribution and compatibility
+
+- Added a native Codex marketplace alongside the Claude-compatible catalog, both pointing to the same plugin and skill source.
+- Updated installation and ZIP documentation and aligned both plugin manifests and skill metadata at v1.7.1.
+- Added release automation to build the portable skill ZIP from each published release tag without replacing existing assets.
+- Preserved 264 logical routes; the current index contains 253 evidence sources. This patch adds no new runtime service or breaking interface change.
+- Targeted user trials informed the retrieval and copy repairs. Static checks and harness tests do not establish improved live model behavior or marketing outcomes; broader live evaluation remains pending.
+
 ## [1.7.0] - 2026-09-08
 
 ### Planning and report presentation

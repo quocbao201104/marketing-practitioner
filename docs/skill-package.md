@@ -1,6 +1,8 @@
 # Build a skill upload package
 
-For v1.7.0, build from the tagged source using the command below. The last published ready-made download is the [v1.6.0 skill ZIP](https://github.com/quocbao201104/marketing-practitioner/releases/download/v1.6.0/marketing-practitioner-v1.6.0-skill.zip). The host-specific import limits below still apply.
+Download the [v1.7.1 skill ZIP](https://github.com/quocbao201104/marketing-practitioner/releases/download/v1.7.1/marketing-practitioner.zip), or build from the tagged source using the command below. The host-specific import limits below still apply.
+
+Publishing a release triggers `.github/workflows/release.yml`, which builds from that release tag and attaches `marketing-practitioner.zip`. Ordinary pushes do not rebuild release assets. Existing ZIP assets are not overwritten; fixes ship under a new release tag.
 
 From a Git checkout, run:
 

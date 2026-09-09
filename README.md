@@ -8,7 +8,7 @@
 
 A reusable marketing skill for people working with AI: research customers, shape strategy, create content, and interpret results—with claims grounded in evidence.
 
-[![Version: v1.7.0](https://img.shields.io/badge/version-v1.7.0-0a7.svg)](#status-and-scope)
+[![Version: v1.7.1](https://img.shields.io/badge/version-v1.7.1-0a7.svg)](#status-and-scope)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Language: English](https://img.shields.io/badge/language-English-4c1.svg)](#)
 [![Format: Agent Skill](https://img.shields.io/badge/format-Agent%20Skill-6f42c1.svg)](skills/marketing-practitioner/SKILL.md)
@@ -48,7 +48,7 @@ Choose your environment. The skill and reference material are the same in every 
 
 | Use it in | Install manually |
 | --- | --- |
-| **Codex app** | Download the repo ZIP, copy the skill into your personal skills folder, then reopen Codex. [Folder paths and steps](docs/local-setup.md#codex-app-install-manually-with-files) |
+| **Codex app** | Add this repository as a marketplace, then install Marketing Practitioner. [Marketplace and manual setup](docs/local-setup.md#codex-app-install-through-the-marketplace) |
 | **Claude desktop** | Customize > Plugins > Add marketplace > Add from a Repository, then Install. [Step-by-step](docs/local-setup.md#claude-desktop-install-through-the-app) |
 | **CLI** | Run the command below, or use the [Claude Code plugin](docs/claude-code-plugin.md) / [Codex plugin](docs/plugin.md) instructions. |
 
@@ -240,7 +240,7 @@ If the skill makes a poor decision, overcomplicates a simple task, misses suppli
 
 ## Status and scope
 
-Current release: **v1.7.0 — Planning, Reports, and Visual Identity**.
+Current release: **v1.7.1 — Retrieval, Platform Guidance, and Codex Marketplace**.
 
 The package covers seven marketing jobs with specialist guidance for content, commerce, commercial design, landing pages, email, search/discovery, paid media, brand identity, and scoped localization. See [CHANGELOG.md](CHANGELOG.md) for release history.
 

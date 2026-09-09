@@ -1,0 +1,20 @@
+{
+  "name": "marketing-practitioner",
+  "interface": {
+    "displayName": "Marketing Practitioner"
+  },
+  "plugins": [
+    {
+      "name": "marketing-practitioner",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

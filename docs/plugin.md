@@ -23,43 +23,22 @@ Use the existing files as the source of truth. Do not maintain a second copy of 
 
 The research reports and evaluation infrastructure remain in the repository for maintainers; they are not additional runtime skills. Do not include `.git`, local configuration, credentials, caches, or generated trial outputs in a distributed bundle.
 
-## Install through a local catalog
+## Install from the repository marketplace
 
-This repository supplies the plugin package, not a public directory listing or a configured marketplace. Follow the current [OpenAI packaging instructions](https://developers.openai.com/plugins/build/plugins) to register it with a personal or team catalog.
+The repository includes a native Codex catalog at [marketplace.json](../.agents/plugins/marketplace.json). Its local source `./` resolves from the repository root to the existing plugin. The separate Claude catalog remains available; both use the same skill files.
 
-For a separate local catalog, place the package at `plugins/marketing-practitioner` beneath the catalog root. Register an entry named `marketing-practitioner` whose local source path is `./plugins/marketing-practitioner`. Use `AVAILABLE` installation policy, `ON_INSTALL` authentication policy, and category `Productivity`; this skill-only package itself requires no account authentication.
+In the Codex app's marketplace controls, add `https://github.com/quocbao201104/marketing-practitioner.git`, then install Marketing Practitioner from the catalog. Menu labels vary by app version. This adds a user-selected marketplace, not an official directory listing.
 
-For example, create `.agents/plugins/marketplace.json` under that separate catalog root:
-
-```json
-{
-  "name": "marketing-local",
-  "interface": { "displayName": "Marketing Local" },
-  "plugins": [
-    {
-      "name": "marketing-practitioner",
-      "source": {
-        "source": "local",
-        "path": "./plugins/marketing-practitioner"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
-    }
-  ]
-}
-```
-
-On a Codex CLI supporting `plugin add`, register the catalog root and install its entry:
+On a compatible Codex CLI:
 
 ```text
-codex plugin marketplace add <local-catalog-root>
-codex plugin add marketing-practitioner@<catalog-name>
+codex plugin marketplace add https://github.com/quocbao201104/marketing-practitioner.git
+codex plugin add marketing-practitioner@marketing-practitioner
 ```
 
-Replace both placeholders with the actual catalog path and its declared name. The default personal catalog has its own discovery flow; see the official instructions before adding a second catalog. CLI and desktop availability can differ by version. Start a new task after installation so the host can discover the installed skill.
+Refresh or upgrade the marketplace and apply the plugin update when offered. An existing installation may still display the Claude-compatible catalog path until its marketplace registration is refreshed. Confirm the installed skill's `metadata.version` is `1.7.1`, then start a new task. Updating Git or downloading a release ZIP does not update the installed plugin cache.
+
+See the [OpenAI marketplace format reference](https://learn.chatgpt.com/docs/enterprise/plugin-management#supported-formats) for native and compatible catalog layouts. For a separate local catalog, use a local source path relative to that catalog's root.
 
 ## Verify a package
 
@@ -71,3 +50,5 @@ Replace both placeholders with the actual catalog path and its declared name. Th
 Manifest validation, installation, resource integrity, and live agent behavior are separate checks. A successful install is not evidence that a model followed the marketing instructions correctly. Avoid enabling duplicate standalone and plugin installations of the same skill during a behavior check.
 
 Packaging check on 2026-09-08: the manifest passed the installed Codex plugin validator, and a temporary catalog installed version 1.5.0 using an isolated Codex home. Every installed skill file matched the source bytes, and relocated retrieval validated 264 routes and 248 evidence sources. This check did not activate a live model task or publish the plugin.
+
+Packaging check on 2026-09-09: the native repository marketplace installed v1.7.1 in an isolated Codex home. All installed skill files matched the repository bytes. The plugin manifest and full repository verification passed. This was an installation check, not a live model trial.

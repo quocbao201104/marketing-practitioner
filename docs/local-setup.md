@@ -2,6 +2,10 @@
 
 Choose one installation method per host. All methods use the same `skills/marketing-practitioner` directory. Installing through both a plugin and a standalone folder can create duplicate entries.
 
+## Codex app: install through the marketplace
+
+Add `https://github.com/quocbao201104/marketing-practitioner.git` in the app's marketplace controls, then install Marketing Practitioner. The repository includes its own Codex catalog; no separate catalog is required. See the [Codex plugin guide](plugin.md) for CLI commands and update checks.
+
 ## Codex app: install manually with files
 
 1. On the [repository page](https://github.com/quocbao201104/marketing-practitioner), select **Code > Download ZIP**, then extract the download.
@@ -67,7 +71,7 @@ Check for updates periodically and before starting a major project. A monthly ch
 | Codex manual folder copy | Download the newer source, back up your existing skill if customized, then replace only its `marketing-practitioner` folder with the complete new folder |
 | Claude app marketplace | Sync/refresh the marketplace, then apply the plugin update when offered |
 | Claude Code marketplace | Run the marketplace and plugin update commands in the [Claude Code guide](claude-code-plugin.md) |
-| Codex local catalog | Refresh the source package/catalog and reinstall the updated plugin as described in the [catalog guide](plugin.md) |
+| Codex marketplace | Refresh/upgrade the marketplace and apply the plugin update; verify the installed version as described in the [catalog guide](plugin.md) |
 | Skill installer | Use that installer's update flow, or reinstall this repository for the same host and scope |
 | Web skill upload | Upload the newer complete package through that product's skill-management flow; avoid retaining duplicate active copies |
 
