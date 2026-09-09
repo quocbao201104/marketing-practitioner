@@ -1,10 +1,10 @@
 # Google Shopping / Commerce — Product Discovery Module
 
-Last reviewed: 2026-08-23
+Baseline review: 2026-08-23. Reporting-regime follow-up: 2026-09-09.
 
 Use this module when Google-specific product data, Merchant Center / Merchant API processing, free listings, Shopping surfaces, product-rich Search results, Images / Lens, YouTube commerce surfaces, conversational shopping, agentic checkout, or related Google product-discovery behavior can materially change the decision.
 
-Current operational claims should be re-checked when consequential. Google changes Merchant data requirements, product surfaces, AI shopping experiences, structured-data support, checkout eligibility, and eligibility rules over time [G01–G11].
+Current operational claims should be re-checked when consequential. Google changes Merchant data requirements, product surfaces, AI shopping experiences, structured-data support, checkout eligibility, eligibility rules, and reporting definitions over time [G01–G11][GR01].
 
 This module instantiates the commerce specialization in `../../handbook/09-commerce-environments-and-product-discovery.md`. It does not define a Google-specific ontology.
 
@@ -28,9 +28,9 @@ Relevant systems can include, when material:
 - free-listing systems;
 - sponsored / Shopping Ads systems;
 - structured-data / rich-result eligibility systems;
-- policy, diagnostics, automatic improvements, and data-quality systems.
+- policy, diagnostics, automatic improvements, data-quality, and reporting systems.
 
-Google documents product information appearing across Search, Shopping, Images, Lens, YouTube, and AI-driven experiences [G06][G07]. These surfaces can share underlying Shopping Graph / merchant product information while using different mediation systems, representations, and objectives.
+Google documents product information appearing across Search, Shopping, Images, Lens, YouTube, and AI-driven experiences [G06][G07]. These surfaces can share underlying Shopping Graph / merchant product information while using different mediation systems, representations, objectives, and reporting definitions.
 
 Therefore:
 
@@ -50,6 +50,7 @@ merchant / structured-data source
 product / variant scope
 market / account regime
 time
+report definition / data vintage when performance is being compared
 ```
 
 ---
@@ -246,7 +247,17 @@ PRODUCT-DESCRIPTIVE FACT
 ≠ OBSERVATION / FEEDBACK AGGREGATE
 ```
 
-Google's `popularity_rank` requires one extra distinction: it is merchant-declared product data about relative selling performance inside that merchant's inventory, not Google's own Search rank [G09].
+Google's `popularity_rank` requires one extra distinction: it is merchant-declared product data about relative selling performance inside that merchant's inventory, not Google's own Search rank [G09]. Google also operates a Popular products analytics report with Google-generated popularity rankings; its reporting coverage can change over time [GR01].
+
+Keep:
+
+```text
+MERCHANT-DECLARED popularity_rank
+≠ GOOGLE POPULAR PRODUCTS REPORT RANK
+≠ GOOGLE SEARCH / SHOPPING ORGANIC RANK POSITION
+```
+
+A change in a report rank does not by itself establish a product-demand or organic-ranking change when the report's coverage/definition also changed.
 
 ---
 
@@ -418,16 +429,17 @@ For `document_link`, use relevant product documentation that meets those conditi
 
 #### 5.8.1 Popularity rank is not Google organic rank
 
-Google defines `popularity_rank` as a merchant-supplied number indicating how well a product sells compared with other products that merchant sells [G09].
+Google defines `popularity_rank` as a merchant-supplied number indicating how well a product sells compared with other products that merchant sells [G09]. Google-generated Popular products report rankings are a different observational/reporting output [GR01].
 
 Keep:
 
 ```text
 MERCHANT-DECLARED POPULARITY_RANK
+≠ GOOGLE POPULAR PRODUCTS REPORT RANK
 ≠ GOOGLE SEARCH / SHOPPING ORGANIC RANK
 ```
 
-Do not interpret a value such as `95.5` as “Google ranks this product at 95.5.”
+Do not interpret a value such as `95.5` as “Google ranks this product at 95.5,” and do not treat a Popular products report change as proof of organic position or demand change without checking the report regime.
 
 #### 5.8.2 Related product is a declared relation, not inferred behavior
 
@@ -569,6 +581,8 @@ Different systems can combine visual, textual, structured, behavioral, and produ
 Google product information can surface in YouTube commerce contexts where available [G06].
 
 Treat YouTube product exposure as its own encounter / delivery context rather than assuming a Shopping-tab ranking rule transfers directly.
+
+Merchant Center reporting additionally distinguishes YouTube affiliate traffic from Organic for commission-eligible products under the reporting regime effective 2026-08-24 [GR01]. That reporting classification is a measurement/provenance distinction, not a claim that the underlying content, product, or organic rank changed.
 
 For a creator/product task, Chapter 08 may additionally matter because a content object, creator actor, product target, and commerce edge can coexist.
 
@@ -807,9 +821,10 @@ Do not jump from lower clicks/orders to title rewriting.
 Check only what can change the conclusion:
 
 ```text
-1. METRIC / SURFACE
+1. METRIC / SURFACE / REPORT DEFINITION
 Search, Shopping, Images, Lens, YouTube, AI experience,
 ads, free listings, Merchant reporting?
+Same metric definition and reporting/data vintage across the comparison?
 
 2. PRODUCT PROCESSING
 Same ProductInput, data source, rules, automatic improvements,
@@ -842,11 +857,12 @@ Did a structured/text/image fact change?
 Same UCP eligibility, merchant participation, user authorization,
 checkout state, seller-of-record/payment/fulfillment roles?
 
-9. ORGANIC / SPONSORED MIX
-Same exposure provenance?
+9. ORGANIC / SPONSORED / AFFILIATE MIX
+Same exposure and reporting provenance?
 
-10. TIME / DOCUMENTATION / PLATFORM REGIME
-Any recent product-data, eligibility, surface, or AI-shopping change?
+10. TIME / DOCUMENTATION / PLATFORM / REPORTING REGIME
+Any recent product-data, eligibility, surface, AI-shopping,
+reporting-definition, or coverage change?
 
 11. COMPETING EXPLANATIONS
 What else changed?
@@ -861,6 +877,15 @@ Use Chapter 05 if causal attribution becomes material.
 For processing, approval scope, and automation limits, use `google-commerce.processing` [G01]. For a variant-to-landing-page mismatch, use `google-commerce.identity` [G02][G05]; do not substitute a sibling's cheaper price to close the issue.
 
 For AI performance insights, check report coverage, filters, competitor set, and lag before interpreting a change. Share-of-voice `0`, `-`, and `100%` have provider-specific meanings; they do not by themselves establish absence, dominance, or absolute growth. Use `google-commerce.resolvability` for those distinctions before recommending enrichment [G11].
+
+For Merchant Center comparisons crossing 2026-08-24, check the reporting regime before diagnosing a performance change. Google separated commission-eligible YouTube affiliate traffic from `Organic`, changed YouTube organic definitions, and restated affected historical data from 2026-07-01; Ads product-level coverage also expanded [GR01]. Therefore:
+
+```text
+OBSERVED METRIC BREAK
+≠ ESTABLISHED VISIBILITY / DEMAND / CREATIVE CHANGE
+```
+
+An older export and a newly restated historical report can be definition-incomparable even for the same calendar dates. An announced future `Network` dimension is not current account capability until verified in the account [GR01].
 
 ---
 
@@ -891,7 +916,7 @@ Examples:
 → brief
 ```
 
-Only load identity, processing, retrieval, conversational-attribute, agentic-checkout, or cross-surface reasoning when those distinctions can change the decision.
+Only load identity, processing, retrieval, conversational-attribute, agentic-checkout, reporting-regime, or cross-surface reasoning when those distinctions can change the decision.
 
 ---
 
@@ -937,6 +962,7 @@ AI SHOPPING TERM / POPULAR ATTRIBUTE
 
 ```text
 MERCHANT-DECLARED POPULARITY_RANK
+≠ GOOGLE POPULAR PRODUCTS REPORT RANK
 ≠ GOOGLE ORGANIC SEARCH RANK
 ```
 
@@ -978,6 +1004,11 @@ SPONSORED RESULT
 ≠ ORGANIC / FREE LISTING
 ```
 
+```text
+REPORTING DEFINITION / COVERAGE CHANGE
+≠ PERFORMANCE CHANGE
+```
+
 ---
 
 ## 13. Explicit UNKNOWNs
@@ -995,6 +1026,7 @@ Unless fresher system-specific evidence establishes otherwise, preserve these as
 - complete reranking / diversity / merchant / policy / commercial constraints in each commerce surface;
 - exact UCP rollout/eligibility across merchants, markets, products, and users;
 - exact authorization/re-authorization behavior when checkout state changes outside documented protocol requirements;
+- current account/market rollout state of announced future Merchant Center reporting dimensions such as `Network` until directly available/verified;
 - exact causal effect of changing one field on impressions, clicks, conversion, or GMV without a valid experiment.
 
 Do not fill these gaps with practitioner folklore.
@@ -1012,7 +1044,7 @@ Before consequential Google product work is finalized, ask only the relevant que
 5. Is each field being allocated according to its documented human/machine/agent job rather than generic keyword folklore?
 6. Can material shopper constraints — use, compatibility, dimensions/specs, preference, variant, budget, trade-off — be resolved from truthful product data in the appropriate carriers?
 7. Is an AI-shopping term/attribute insight being used to identify a factual product-data gap rather than to invent a claim or simulate a hidden weight?
-8. Is `popularity_rank` being mistaken for Google organic Search rank?
+8. Is merchant-declared `popularity_rank` being confused with Google Popular products report rank or organic Search/Shopping rank?
 9. Is a merchant-declared `related_product` relation being confused with a platform-inferred or behavioral relation?
 10. Is the primary image being treated as both human representation and possible machine evidence without inventing visual-ranking weights?
 11. Are Search/Shopping, Images/Lens, YouTube, AI Mode/Gemini, ads, and structured-data eligibility kept distinct where material?
@@ -1021,14 +1053,15 @@ Before consequential Google product work is finalized, ask only the relevant que
 14. Are required/recommended fields being mistaken for ranking weights?
 15. Are structured-data eligibility / data completeness and realized exposure separated?
 16. Is sponsored exposure kept separate from free/organic exposure?
-17. Are current product-data rules, conversational attributes, AI performance insights, checkout rollout, and surface behavior fresh enough for the decision?
-18. Are undisclosed internals left UNKNOWN?
-19. Is the fast path still being respected when the task is only a narrow product communication artifact?
+17. Are compared metrics from the same reporting definition, traffic provenance, and data vintage, or has a reporting-regime/coverage change made them non-comparable?
+18. Are current product-data rules, conversational attributes, AI performance insights, checkout rollout, reporting definitions, and surface behavior fresh enough for the decision?
+19. Are undisclosed internals left UNKNOWN?
+20. Is the fast path still being respected when the task is only a narrow product communication artifact?
 
-The goal is not to reverse-engineer Google Shopping or agentic checkout. The goal is to make truthful product constraints resolvable to the relevant human/machine system while preserving the distinctions that materially change product data, representation, discoverability, commercial authority, transaction interpretation, or learning.
+The goal is not to reverse-engineer Google Shopping or agentic checkout. The goal is to make truthful product constraints resolvable to the relevant human/machine system while preserving the distinctions that materially change product data, representation, discoverability, commercial authority, transaction interpretation, measurement, or learning.
 
 ---
 
 ## Evidence
 
-See `../../references/commerce/google-shopping-evidence.md` for `[G01–G11]` source definitions and evidence boundaries.
+See `../../references/commerce/google-shopping-evidence.md` for `[G01–G11]` source definitions and evidence boundaries, and `../../references/commerce/google-reporting-evidence.md` for `[GR01]` reporting-regime evidence.
