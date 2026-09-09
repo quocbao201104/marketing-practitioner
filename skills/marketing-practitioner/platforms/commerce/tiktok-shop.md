@@ -1,10 +1,10 @@
 # TikTok Shop — Commerce / Product Discovery Module
 
-Baseline review: 2026-08-23. Bounded state, linking, discovery, and measurement follow-ups: 2026-09-09; source-specific access and review limits are recorded in the evidence ledger.
+Baseline review: 2026-08-23. Bounded state, linking, discovery, and measurement follow-ups: 2026-09-09. Vietnam applicability follow-up: 2026-09-09; source-specific access and review limits are recorded in the evidence ledgers.
 
 Use this module when TikTok Shop-specific product/SKU structure, Shop Tab search/recommendation, product cards, Search terms / Product highlights, creator-product linking, shoppable video/LIVE, affiliate relationships, relinking, or commerce measurement can materially change the decision.
 
-Current facts are market- and feature-scoped. Seller Academy evidence in this module is primarily US unless stated otherwise; Partner API semantics cover the markets documented by the API. Re-check consequential behavior before execution [TTS01–TTS10].
+Current facts are market- and feature-scoped. Seller Academy evidence in the core ledger is primarily US unless stated otherwise; Partner API semantics cover the markets documented by the API. Selected current Vietnam behavior is separately grounded in `[TV01–TV03]`. Re-check consequential behavior before execution [TTS01–TTS10][TV01–TV03].
 
 This module instantiates `../../handbook/09-commerce-environments-and-product-discovery.md`. For shoppable-video, LIVE, creator, or social-distribution decisions, also use Chapter 08 and `../tiktok.md` only when those content-environment distinctions are material.
 
@@ -259,20 +259,23 @@ Do not turn it into a backend keyword list. Both fields must match the product a
 
 Images help identify and evaluate the item. SKU-specific images can be associated with primary sales-attribute values and appear in product option galleries [TTS02].
 
-Shop recommendation optimization also exposes image-quality requirements/issues in current US Seller Analytics [TTS05].
+Shop recommendation optimization also exposes image-quality requirements/issues in current US Seller Analytics [TTS05]. TikTok Shop Vietnam's Product Optimizer likewise exposes product-information and visibility-related issues involving names, descriptions, and images [TV02].
 
 Keep:
 
 ```text
-IMAGE QUALITY / ELIGIBILITY REQUIREMENT
+IMAGE / PRODUCT-INFO QUALITY ISSUE
 ≠ KNOWN RANKING WEIGHT
+
+PROVIDER OPTIMIZATION OPPORTUNITY
+≠ GUARANTEED EXPOSURE / CONVERSION LIFT
 ```
 
 ---
 
 ## 6. Shop Tab search and recommendation are different discovery systems
 
-Current US Seller Academy exposes Shop Tab as a marketplace with search, personalized recommendations, browsing, campaigns, and shop/product pages [TTS05]. Analytics separates Shop Tab/search and recommendation-related performance.
+Current US Seller Academy exposes Shop Tab as a marketplace with search, personalized recommendations, browsing, campaigns, and shop/product pages [TTS05]. Analytics separates Shop Tab/search and recommendation-related performance. Current Vietnam Seller Center evidence independently supports product-level Shop Tab traffic analysis and product optimization diagnostics without disclosing an organic ranker [TV01][TV02].
 
 Therefore:
 
@@ -304,21 +307,21 @@ Exact current organic search pipeline remains UNKNOWN:
 
 ### 6.2 Recommendations
 
-Seller Analytics currently identifies product recommendation opportunities/issues and says sellers can improve recommendation eligibility by addressing conditions such as image quality and stock [TTS05].
+Seller Analytics currently identifies product recommendation opportunities/issues and says sellers can improve recommendation eligibility by addressing conditions such as image quality and stock [TTS05]. Vietnam Product Optimizer confirms that provider-side product optimization/visibility diagnostics also exist locally [TV02].
 
 Therefore:
 
 ```text
-MEETS RECOMMENDATION REQUIREMENTS
+MEETS RECOMMENDATION / QUALITY REQUIREMENTS
 ≠ RANKED HIGH
 ≠ EXPOSED
 ```
 
-Do not infer a hidden ranker from eligibility diagnostics. The U.S. seller guide describes automatic Shop Tab channel inclusion for listed products; that is not proof of a recommendation impression [TTS05].
+Do not infer a hidden ranker from eligibility or optimization diagnostics. The U.S. seller guide describes automatic Shop Tab channel inclusion for listed products; that is not proof of a recommendation impression [TTS05].
 
 ### 6.3 Product Card is a representation, not the product
 
-Product cards can drive purchase outside short video/LIVE and appear in marketplace/recommendation contexts [TTS05][TTS06]. The Shop Tab guide classifies non-LIVE/non-video revenue as Product Card revenue. Do not equate that broad category with Shop Tab alone, or add the two as disjoint sources without verifying the reporting hierarchy [TTS05].
+Product cards can drive purchase outside short video/LIVE and appear in marketplace/recommendation contexts [TTS05][TTS06]. The Shop Tab guide classifies non-LIVE/non-video revenue as Product Card revenue. Do not equate that broad category with Shop Tab alone, or add the two as disjoint sources without verifying the reporting hierarchy [TTS05]. Vietnam Product Traffic also uses Product Card as a report/source context, reinforcing the need to preserve report semantics rather than treating the label as product identity [TV01].
 
 Keep:
 
@@ -345,6 +348,8 @@ Collection
 
 Eligible published videos can receive a first product link without re-uploading. The U.S. post-publish tool covers unlinked videos from the last 30 days, requires Commercial Music Library audio, a matching product, and content-policy compliance. It does not establish free replacement of an existing link. For unavailable linked products, use the distinct relinking conditions in section 9 / `tiktok-shop.relinking` [TTS07][TTS09].
 
+Vietnam's current Link Products tool independently supports adding a first product link to eligible previously unlinked short videos within its documented window [TV03]. That local support does not establish replacement/editing of an existing link.
+
 Therefore:
 
 ```text
@@ -366,7 +371,7 @@ The edge is consequential but is not a new durable primitive.
 
 ## 8. Product link / anchor is a representation of the commerce relation
 
-When linking a product, creators can edit how the displayed product name appears [TTS07][TTS10]. The visible shopping-bag/cart anchor is presented within the content experience.
+When linking a product, creators can edit how the displayed product name appears in the documented US workflows [TTS07][TTS10]. The visible shopping-bag/cart anchor is presented within the content experience.
 
 Keep:
 
@@ -399,7 +404,16 @@ Preserving the video does not guarantee unchanged future traffic, engagement, or
 
 If the original product later restocks, it can automatically re-anchor; both original and replacement may appear, with up to multiple products anchored to one video in the documented US feature [TTS08].
 
-This gives a direct state transition:
+Current Vietnam evidence supports the first-link flow for eligible unlinked videos but does **not** establish general availability of this dedicated unavailable-target relinking/replacement behavior [TV03]. Therefore:
+
+```text
+US PRODUCT RELINKING FLOW
+≠ GENERAL VIETNAM RELINK / REPLACEMENT AVAILABILITY
+```
+
+For a Vietnam execution request involving an already-linked product, verify current account/market capability rather than importing the U.S. workflow or declaring it universally unavailable.
+
+This gives a direct state transition in the documented U.S. feature:
 
 ```text
 VIDEO V
@@ -427,7 +441,7 @@ SAME CONTENT OBJECT
 
 ### 9.1 Product-content alignment is an edge-validity constraint
 
-TikTok requires the newly linked product to match the video in visuals/function/key features/brand/category alignment [TTS08].
+TikTok requires the newly linked product to match the video in visuals/function/key features/brand/category alignment in the documented US relinking flow [TTS08].
 
 Treat this as:
 
@@ -437,13 +451,13 @@ VIDEO --[depicts / demonstrates / promotes]--> PRODUCT
 
 with truth/consistency requirements.
 
-A platform recommendation that proposes a replacement product does not guarantee factual alignment; the creator remains responsible for checking it.
+A platform recommendation that proposes a product does not guarantee factual alignment; the creator remains responsible for checking it.
 
 ---
 
 ## 10. Creator-side product recommendation is not shopper-side feed ranking
 
-The post-publish Link Products tool can suggest products based on video-content relevance, product performance, and creator interests/engagement [TTS09].
+The post-publish Link Products tool can suggest products based on video-content relevance, product performance, and creator interests/engagement in the documented US flow [TTS09]. Current Vietnam Link Products evidence independently confirms a creator-side system-recommended-product flow for eligible videos [TV03].
 
 This is a recommender with:
 
@@ -536,7 +550,7 @@ Do not repair a mismatched product-content relationship by merely renaming the a
 
 ## 13. Measurement must preserve commerce-entry provenance
 
-TikTok's current Product Traffic Analysis can segment traffic across contexts including Seller LIVE, Video, Product Card, Affiliate, and Shop Tab [TTS06].
+TikTok's current Product Traffic Analysis can segment traffic across contexts including Seller LIVE, Video, Product Card, Affiliate, and Shop Tab [TTS06]. Current Vietnam Product Traffic independently documents the same need to preserve source/context and report-specific metric definitions in the Vietnam Seller Center [TV01].
 
 Therefore a product-level order aggregate can mix very different exposure regimes.
 
@@ -551,9 +565,9 @@ ORDER / GMV
 + attribution rule
 ```
 
-before learning from performance. Preserve the report, metric version, event unit, PV/UV mode and aggregation. Shop-page conversion uses unique page views [TTS05]; product CTOR uses clicks and SKU orders. Estimated customers are daily-deduplicated sums, not period-unique people. Product Traffic GMV includes canceled/refunded orders; refund timing can differ from purchase timing [TTS06].
+before learning from performance. Preserve the report, metric version, event unit, PV/UV mode and aggregation. Shop-page conversion uses unique page views [TTS05]; product CTOR uses clicks and SKU orders. Estimated customers are daily-deduplicated sums, not period-unique people. Product Traffic GMV includes canceled/refunded orders; refund timing can differ from purchase timing [TTS06][TV01].
 
-Do not silently join changed metric definitions across an upgrade. The TTS06 Unique CTOR row has inconsistent name/description: verify its current definition before calculation. Missing metrics are not zero, and a projected rollout is not evidence of availability [TTS06].
+Do not silently join changed metric definitions across an upgrade. The documented Product Traffic material contains definition/label details that should be verified before calculation rather than normalized by assumption. Missing metrics are not zero, and a projected rollout is not evidence of availability [TTS06][TV01].
 
 ### 13.1 Suggested observation chain
 
@@ -607,13 +621,17 @@ tiktok-shop.status; distinguish live/draft/review data and the reported reason.
 Same title, Search terms, Product highlights, images,
 category/attributes?
 
-4. RECOMMENDATION ELIGIBILITY
+4. RECOMMENDATION / PRODUCT-QUALITY ELIGIBILITY
 Any image-quality, stock, product-quality or other explicit issue?
+In Vietnam, Product Optimizer can provide local issue/opportunity evidence;
+do not convert that evidence into a hidden ranking weight [TV02].
 
 5. CONTENT-COMMERCE EDGE
 Same video? same linked target? anchor active/OOS/relinked?
 First attachment or unavailable-target replacement? Use sections 7/9 or
 tiktok-shop.content-product-identity / tiktok-shop.relinking for eligibility.
+If in Vietnam, current first-link support does not prove U.S.-style replacement;
+verify current market/account capability [TV03].
 Does content still truthfully match product?
 
 6. ACTOR / COMMERCIAL RELATION
@@ -621,6 +639,7 @@ Same seller, creator, showcase, affiliate/collaboration plan?
 
 7. TRAFFIC MIX
 Same Video/LIVE/Product Card/Affiliate/Shop Tab mix?
+Use current Vietnam Product Traffic definitions when the account is Vietnamese [TV01].
 
 8. TIME / MARKET / FEATURE REGIME
 Same country and feature rollout? Search terms / relinking behavior changed?
@@ -653,23 +672,28 @@ identify product vs SKU scope
 
 ```text
 verify video-product factual alignment
-→ identify Product / Shop / Category / Collection target
-→ choose truthful anchor display name
-→ distinguish new attachment from replacement and check the applicable eligibility
+→ identify the supported target type for the current market/workflow
+→ choose truthful link / anchor representation where supported
+→ distinguish new attachment from replacement and check applicable eligibility
 → publish / link within the authorized task
 ```
+
+For Vietnam, current evidence supports a first product link on eligible previously unlinked videos in the documented flow [TV03]. Do not silently promote that into general link replacement.
 
 ### Relink an unavailable product
 
 ```text
 preserve original video identity
+→ verify current market/account relinking capability
 → verify why anchor is abnormal and whether relinking is eligible
 → resolve any blocking content violation
 → choose genuinely matching replacement
 → re-check claims/visuals/brand/price-sensitive statements
-→ relink
+→ relink when supported
 → observe before/after with state history
 ```
+
+The detailed transition above is U.S.-documented. For Vietnam, verify current availability before execution [TTS08][TV03].
 
 ---
 
@@ -697,8 +721,9 @@ PRODUCT HIGHLIGHTS VISIBLE + SEARCH-RELEVANT
 ```
 
 ```text
-RECOMMENDATION ELIGIBILITY
+RECOMMENDATION / PRODUCT-QUALITY ELIGIBILITY
 ≠ HIGH RANK
+≠ GUARANTEED EXPOSURE
 ```
 
 ```text
@@ -732,6 +757,16 @@ CURRENT US ACADEMY FEATURE
 ≠ EVERY TIKTOK SHOP MARKET
 ```
 
+```text
+US PRODUCT RELINKING FLOW
+≠ GENERAL VIETNAM RELINK / REPLACEMENT AVAILABILITY
+```
+
+```text
+VIETNAM PRODUCT OPTIMIZER GUIDANCE
+≠ DISCLOSED ORGANIC RANKING FORMULA
+```
+
 ---
 
 ## 17. Explicit UNKNOWNs
@@ -745,7 +780,7 @@ Preserve as unknown unless fresh evidence establishes otherwise:
 - exact shopper For You ranking effect of shoppable links or commerce outcomes;
 - exact relation between creator-side product suggestions and shopper-side recommendation models;
 - exact paid/organic composition rules on Shop surfaces;
-- every market's rollout state for Search terms, Product highlights, Product Relinking, product families, and analytics;
+- every market's rollout state for Search terms, Product highlights, Product Relinking, product families, and analytics; Vietnam now has direct evidence for Product Traffic, Product Optimizer, and the scoped first-link flow, but general U.S.-style relinking remains unestablished by the reviewed Vietnam source;
 - causal effect of adding/relinking a product on incremental GMV without a valid experiment.
 
 ---
@@ -757,15 +792,15 @@ Preserve as unknown unless fresh evidence establishes otherwise:
 3. Is price/stock treated as SKU/market/warehouse state rather than timeless product truth?
 4. Are Search terms, title, Product highlights, attributes and images allocated by distinct jobs?
 5. Is Shop Search kept separate from Shop recommendation?
-6. Is recommendation eligibility being mistaken for ranking?
+6. Is recommendation/product-quality eligibility being mistaken for ranking or guaranteed exposure?
 7. Is Product Card kept separate from product identity and surface?
 8. In shoppable content, are video, commerce target, commerce edge, and anchor representation separate?
-9. If relinking, is video identity preserved while edge history and product-content consistency are updated?
+9. If relinking, is video identity preserved while edge history and product-content consistency are updated, and is the capability verified for the current market/account?
 10. Are seller, creator, brand, affiliate relation and claim authority separated?
 11. Is creator-side product recommendation kept separate from shopper-side ranking?
 12. Are metrics segmented by Video/LIVE/Card/Affiliate/Shop Tab when material?
 13. Is attribution being distinguished from incrementality?
-14. Is US Seller Academy evidence being transferred to another market without verification?
+14. Is US Seller Academy evidence being transferred to another market without verification, or is available local evidence such as `[TV01–TV03]` being used where it actually applies?
 15. Are current feature dates / rollout states fresh enough?
 16. Are undisclosed internals left UNKNOWN?
 17. Is Chapter 08 loaded only when the content/social environment actually matters?
@@ -776,4 +811,4 @@ TikTok Shop should be reasoned as a hybrid graph, not as “TikTok SEO plus a bu
 
 ## Evidence
 
-See `../../references/commerce/tiktok-shop-evidence.md` for `[TTS01–TTS10]` source definitions and evidence boundaries.
+See `../../references/commerce/tiktok-shop-evidence.md` for `[TTS01–TTS10]` source definitions and evidence boundaries, and `../../references/commerce/tiktok-shop-vietnam-evidence.md` for `[TV01–TV03]` Vietnam applicability evidence.
