@@ -207,12 +207,14 @@ skills/marketing-practitioner/
   references/               operating guidance, evidence ledgers, bibliography
   scripts/                  deterministic routing checks
 
-research/                   theory lineage and rejected hypotheses
+research/                   methodology, evidence, theory lineage, reviews, and rejected hypotheses
 evals/                      adversarial cases, smokes, and behavioral harness
 scripts/verify.ps1          sole local/CI verification entrypoint
 ```
 
 ## Research and verification
+
+Substantive knowledge and architecture changes follow the repository's public [research methodology](research/methodology/RESEARCH-METHODOLOGY.md): broad source discovery is separated from deep value extraction; evidence scope and project synthesis remain explicit; candidate mechanisms are compared with existing ownership and challenged before bounded promotion. See the [`research/` guide](research/README.md) for the research map, lineage model, and boundaries between provenance and runtime knowledge.
 
 The local and CI gate is:
 
