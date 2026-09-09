@@ -488,7 +488,7 @@ Mickey Haslavsky and contributors. **AI Copywriter — reader-first copywriting 
 
 Use: practical reader-state analysis, truth-first copywriting, voice calibration, and audit categories for common AI-writing patterns. These rules are treated as practitioner heuristics and editorial diagnostics, not universal conversion laws.
 
-See [`../THIRD_PARTY_NOTICES.md`](../THIRD_PARTY_NOTICES.md) for retained license notices.
+See the [repository notices](../../../THIRD_PARTY_NOTICES.md) for retained license notices. In the portable ZIP, use the [bundled notices](../THIRD_PARTY_NOTICES.md).
 
 ---
 

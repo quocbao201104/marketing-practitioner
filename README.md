@@ -184,7 +184,7 @@ python skills/marketing-practitioner/scripts/get-knowledge.py --source PM01
 
 If helper execution is unavailable, the same index remains the address table: read the smallest feasible section, or degrade to the smallest target file, rather than loading an entire chapter.
 
-The current index validates at **264 routes / 248 evidence sources**. Evidence files state what a source **supports** and **does not support**; those bounds are part of claim control.
+The current index validates at **264 routes / 253 evidence sources**. Evidence files state what a source **supports** and **does not support**; those bounds are part of claim control.
 
 Shared architecture expands only when a decision-relevant failure cannot be repaired locally without material distortion. Research under [`research/`](research/) keeps theory freezes, audits, and rejected expansions out of the runtime until they survive that bar.
 
@@ -222,7 +222,7 @@ The local and CI gate is:
 .\scripts\verify.ps1
 ```
 
-It validates the package with the repository validator and the installed Codex validator when discoverable, checks 68 routing mechanics and **264 routes / 240 evidence sources**, runs the Pressure Discovery and behavioral harness tests, and verifies UTF-8/generated-artifact hygiene.
+It validates the package with the repository validator and the installed Codex validator when discoverable, checks 68 routing mechanics and validates all indexed routes and evidence sources, runs the Pressure Discovery and behavioral harness tests, and verifies UTF-8/generated-artifact hygiene.
 
 The recent design work has been reviewed at three connected levels:
 
