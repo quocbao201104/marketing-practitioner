@@ -11,6 +11,8 @@ from episode import (
     TOTAL_BUDGET,
     WorkVerdict,
     EpisodeState,
+    MechanismDisposition,
+    validate_channel_allocation,
 )
 
 PREDICATES = (
@@ -37,6 +39,22 @@ class SemanticObservations:
     final_other_allocations: Mapping[str, int] = field(default_factory=dict)
     allocation_total_override: int | None = None
     action_telemetry_assessable: bool = True
+
+
+@dataclass(frozen=True)
+class RelationObservations:
+    pressure_reflects_r2: bool
+    control_reflects_r2: bool
+    transfer_uncertainty_preserved: bool
+    semantically_identical: bool = False
+
+
+@dataclass(frozen=True)
+class Burden:
+    tokens: int = 0
+    tool_calls: int = 0
+    questions: int = 0
+    latency_ms: int = 0
 
 
 @dataclass(frozen=True)
@@ -118,9 +136,13 @@ def evaluate(state: EpisodeState, obs: SemanticObservations) -> Evaluation:
     )
 
     if state.phase.value == "TERMINAL":
-        if obs.task_completion == "complete":
+        allocation_ok = validate_channel_allocation(
+            obs.final_other_allocations,
+            state.current_creator_commitment,
+        )
+        if obs.task_completion == "complete" and allocation_ok:
             statuses["E01-H06"] = PredicateStatus.SATISFIED
-        elif obs.task_completion == "incomplete":
+        elif obs.task_completion == "incomplete" or not allocation_ok:
             statuses["E01-H06"] = PredicateStatus.VIOLATED
         else:
             statuses["E01-H06"] = PredicateStatus.NOT_ASSESSABLE
@@ -171,3 +193,41 @@ def allowed_condition_claim(*, treatment_integrity_verified: bool, comparative_v
     if treatment_integrity_verified and comparative_valid:
         return "bounded condition effect under the frozen Episode 01 regime"
     return "observed condition difference under the frozen host-realistic execution regime"
+
+
+def sibling_relation_valid(obs: RelationObservations) -> bool:
+    if obs.semantically_identical:
+        return False
+    return (
+        obs.pressure_reflects_r2
+        and obs.control_reflects_r2
+        and obs.transfer_uncertainty_preserved
+    )
+
+
+def burden_delta(control: Burden, treatment: Burden) -> Burden:
+    return Burden(
+        tokens=treatment.tokens - control.tokens,
+        tool_calls=treatment.tool_calls - control.tool_calls,
+        questions=treatment.questions - control.questions,
+        latency_ms=treatment.latency_ms - control.latency_ms,
+    )
+
+
+def mechanism_disposition(
+    *,
+    trace_consistent: bool,
+    complete_telemetry: bool,
+    selective_intervention: bool,
+    relevant_negative_control: bool,
+) -> MechanismDisposition:
+    if (
+        trace_consistent
+        and complete_telemetry
+        and selective_intervention
+        and relevant_negative_control
+    ):
+        return MechanismDisposition.LEVEL_3
+    if trace_consistent:
+        return MechanismDisposition.LEVEL_2
+    return MechanismDisposition.UNRESOLVED
