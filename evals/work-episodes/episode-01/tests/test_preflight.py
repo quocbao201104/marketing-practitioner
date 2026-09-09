@@ -24,5 +24,44 @@ class PreflightTests(unittest.TestCase):
         self.assertFalse(report["live_trials_permitted"])
 
 
+class GuardrailTests(unittest.TestCase):
+    def test_mechanism_level3_requires_all_controls(self):
+        from evaluator import mechanism_disposition
+        from episode import MechanismDisposition
+
+        disposition = mechanism_disposition(
+            trace_consistent=True,
+            complete_telemetry=True,
+            selective_intervention=True,
+            relevant_negative_control=False,
+        )
+        self.assertNotEqual(MechanismDisposition.LEVEL_3, disposition)
+
+    def test_out_of_range_channel_allocation_fails_terminal_work(self):
+        from episode import EpisodeState, M, WorkVerdict
+        from evaluator import SemanticObservations, evaluate
+
+        state = EpisodeState("SWE-E01-P")
+        state.reserve_creator_inventory(20 * M, "bounded learning")
+        state.close_booking_gate()
+        state.deliver_r2()
+        state.close_reduction_gate()
+        state.terminal_gate()
+        observations = SemanticObservations(
+            competitor_scope="valid",
+            causal_transfer="valid",
+            fabricated_support="none",
+            task_completion="complete",
+            pressure_response="valid",
+            final_other_allocations={
+                "marketplace_search": 10 * M,
+                "marketplace_onsite": 30 * M,
+                "crm_owned": 20 * M,
+                "contingency_learning": 0,
+            },
+        )
+        self.assertEqual(WorkVerdict.FAIL, evaluate(state, observations).verdict)
+
+
 if __name__ == "__main__":
     unittest.main()
