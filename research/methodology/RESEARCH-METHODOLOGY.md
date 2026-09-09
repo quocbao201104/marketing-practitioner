@@ -14,17 +14,18 @@ Topic-specific directories under `research/` preserve the actual lineage: briefs
 
 The method is research-first, evidence-oriented, adversarial, and minimality-seeking.
 
-The goal is not to collect the largest possible marketing knowledge base. The goal is to improve real practitioner decisions while preserving provenance, uncertainty, architecture boundaries, and runtime reliability.
+The goal is not to collect the largest possible marketing knowledge base. The goal is to improve real practitioner decisions and bounded understanding while preserving provenance, uncertainty, architecture boundaries, and runtime reliability.
 
 ---
 
-## 1. Begin with a decision-relevant question
+## 1. Begin with a bounded research question
 
 Substantive research should normally begin because one of these has happened:
 
 - a real task exposes a materially weak or incorrect decision;
 - current guidance appears inconsistent with stronger evidence;
 - an important practitioner decision has no clean owner or knowledge path;
+- a bounded learning or problem-framing objective is needed before a practitioner decision can be named responsibly;
 - an external paper, platform document, repository, framework, or practitioner workflow exposes a mechanism worth investigating;
 - runtime evaluation shows that useful knowledge exists but is activated, routed, discovered, loaded, or composed incorrectly;
 - a proposed abstraction cannot yet be justified against the existing repository grammar.
@@ -35,17 +36,20 @@ Do not begin from a desired table of contents or from:
 
 Begin from:
 
-> What decision-relevant failure, unresolved question, or credible mechanism deserves investigation?
+> What decision-relevant failure, unresolved question, bounded learning objective, or credible mechanism deserves investigation?
 
 For material work, frame the problem before implementation:
 
 ```text
-INPUT / TASK
-→ CURRENT REPRESENTATION OR ROUTE
-→ FAILURE OR OPEN QUESTION
-→ WHY IT CHANGES THE DECISION
+INPUT / MATERIAL
+→ CURRENT UNDERSTANDING / REPRESENTATION / ROUTE
+→ FAILURE, OPEN QUESTION, OR LEARNING OBJECTIVE
+→ WHY IT CAN CHANGE UNDERSTANDING, INTERPRETATION,
+  OR A SUBSEQUENT DECISION
 → SMALLEST RESEARCH QUESTION
 ```
+
+A bounded exploratory research question may precede a named practitioner decision. Do not invent a segment, intervention, campaign, or other downstream decision merely to justify discovery.
 
 Research is allowed to conclude that no repository change is needed.
 
@@ -59,9 +63,10 @@ The first research pass should normally look outside the repository.
 
 Useful source classes include:
 
-- first-party platform documentation and policies;
-- primary academic research;
-- systematic reviews and strong methodological literature;
+- authoritative first-party documentation and policies;
+- primary empirical research;
+- reviews and strong methodological literature;
+- formal or conceptual theory;
 - established professional frameworks;
 - practitioner documentation with clear scope;
 - strong open-source repositories;
@@ -82,11 +87,15 @@ Do not copy material into runtime knowledge simply because it looks useful.
 
 Source discovery is not implementation.
 
-For current platform capabilities, interfaces, policies, and platform-controlled constraints, prefer first-party documentation where available. For empirical or causal claims, prefer primary research, systematic reviews, or strong methodological work when appropriate.
+For current platform capabilities, interfaces, policies, and platform-controlled constraints, prefer first-party documentation where available. For empirical or causal claims, prefer primary research, reviews, or strong methodological work when appropriate.
 
 Repositories and practitioner sources are especially useful for mechanisms, workflows, architecture, implementation patterns, and professional practice, but they should not automatically be treated as empirical law.
 
 Source quantity is not evidence quality.
+
+One authoritative source may be sufficient when the claim is source-owned, directly stated, current, and kept within that source's scope. Triangulate when the conclusion requires synthesis, transfer, causal interpretation, generalization across regimes, architecture expansion, or resolution of material disagreement or uncertainty.
+
+Additional sources are useful when they can plausibly change the bounded conclusion, scope, uncertainty, or repository action.
 
 ---
 
@@ -137,28 +146,30 @@ For each area, try to recover:
 ```text
 inputs
 → evidence requirements
-→ decision variables
+→ decision variables or learning targets
 → assumptions
 → constraints
 → intermediate states / artifacts
-→ candidate actions
+→ candidate actions when applicable
 → failure conditions
 → downstream handoffs
 → validation signals
 → stopping conditions
 ```
 
-Platform features, terminology, channel characteristics, cultural observations, and writing conventions matter only when their role in a decision is understood.
+Platform features, terminology, channel characteristics, cultural observations, and writing conventions matter only when their role in a decision or bounded learning objective is understood.
 
 A useful question is:
 
 > What does a competent practitioner need to know, decide, verify, preserve, hand off, revise, and stop doing?
 
+Not every research task requires every element in the chain. Use only the structure needed to understand the bounded problem.
+
 The target is operational reasoning, not handbook volume.
 
 ---
 
-## 5. Preserve evidence scope and epistemic status
+## 5. Preserve evidence scope and separate evidence type from project status
 
 A source should support only the claim it actually establishes.
 
@@ -184,29 +195,51 @@ into:
 X is a universal practitioner rule
 ```
 
-Keep useful ideas separated by epistemic status:
+Do not use one label to combine evidence form, source provenance, and the repository's own inferential status.
 
-- **EMPIRICAL / ACADEMIC** — supported by relevant research evidence;
-- **PROFESSIONAL PRACTICE** — credible practitioner practice, not equivalent to empirical law;
-- **PROJECT SYNTHESIS** — repository-specific structure created to operationalize evidence or practice;
-- **CONTEXTUAL HYPOTHESIS** — a bounded proposition that remains context-dependent or requires further validation.
+### Source / evidence type
+
+Record the type that matters for interpreting what a source can establish. Examples include:
+
+- **AUTHORITATIVE FIRST-PARTY DOCUMENTATION** — source-owned capability, policy, interface, or constraint;
+- **EMPIRICAL STUDY** — observed or experimentally estimated evidence under a stated design and scope;
+- **REVIEW / META-ANALYSIS / METHODOLOGICAL SOURCE** — synthesis or guidance over a body of evidence or method;
+- **FORMAL / CONCEPTUAL THEORY** — propositions or models whose conclusions depend on stated assumptions;
+- **PROFESSIONAL PRACTICE** — established or credible practitioner methods and conventions;
+- **IMPLEMENTATION / REPOSITORY EVIDENCE** — architecture, workflow, behavior, or failure evidence from an implemented system.
+
+These examples are not a universal evidence hierarchy and do not need to become mandatory ledger categories.
+
+### Project inferential status
+
+Separately identify how the repository is using the conclusion:
+
+- **EXTERNALLY SUPPORTED** — the conclusion stays within what relevant external evidence establishes;
+- **PROFESSIONAL PRACTICE** — the repository adopts a credible practitioner convention without presenting it as empirical law;
+- **PROJECT SYNTHESIS** — the repository creates a structure, interface, or operational rule by integrating evidence or practice;
+- **CONTEXTUAL HYPOTHESIS** — a bounded proposition remains context-dependent or requires further validation;
+- **UNKNOWN** — the available evidence does not resolve the question.
 
 When synthesizing a mechanism, identify:
 
-1. what external evidence directly supports;
+1. what each source type actually establishes;
 2. what comes from professional practice;
-3. what the project itself introduces;
+3. what the project itself introduces or combines;
 4. what remains uncertain.
 
-Keep `UNKNOWN` when the evidence does not resolve the question.
+Formal theory should not acquire the authority of observed evidence merely because it is academic, and first-party documentation should not be demoted into practitioner opinion merely because it is not an empirical study.
 
 ---
 
-## 6. Triangulate before concluding
+## 6. Triangulate when the conclusion requires it
 
 Do not treat one paper, one repository, one platform document, or one practitioner framework as the complete answer by default.
 
-Where the decision warrants it:
+But do not add sources ceremonially when one authoritative source already resolves a bounded source-owned fact.
+
+Triangulate when the conclusion requires synthesis, transfer, causal interpretation, generalization, architecture promotion, or resolution of material disagreement or uncertainty.
+
+When triangulation is warranted:
 
 1. compare multiple relevant sources;
 2. identify where they agree;
@@ -251,23 +284,25 @@ A research track should be capable of rejecting its own motivating abstraction.
 
 Large research volume should not automatically become large runtime knowledge.
 
-Useful outcomes often look like:
+First determine what kind of correction the demonstrated problem actually requires. The following are semantic tests, not mandatory artifact categories:
 
-- a decision rule;
-- a gate;
-- an evidence requirement;
-- a bounded state or ledger;
-- a state handoff;
-- a routing or discovery edge;
-- a failure warning;
-- a scoped adaptation rule;
-- a small workflow;
-- a targeted evaluation oracle;
-- a clarification of an existing owner.
+- **CLARIFICATION** — use when an existing owner already represents the decision and the defect is ambiguity, scope, or interpretation;
+- **EVIDENCE REQUIREMENT** — use when a conclusion is valid only when specified support is present;
+- **GATE** — use only when proceeding without a condition would make the action invalid, unsafe, unauthorized, or materially misleading;
+- **STATE / LEDGER** — use when a resolved fact, decision, constraint, or uncertainty must survive into later decisions;
+- **HANDOFF** — use when responsibility or a decision product moves between existing owners and meaning must be preserved;
+- **ROUTE / DISCOVERY EDGE** — use when sufficient knowledge already exists but cannot reliably be reached from the normal path;
+- **WARNING / QUALIFICATION** — use when a bounded exception changes interpretation but does not require new control flow;
+- **SCOPED ADAPTATION** — use when evidence demonstrates a local decision-changing mechanism that should refine an existing owner without creating a parallel ontology;
+- **SMALL WORKFLOW** — use when several existing decisions must occur in a stable dependency order and a sequence, rather than a new owner, is what is missing;
+- **EVALUATION ORACLE** — use when the main research result is a falsifiable condition for determining whether behavior is correct;
+- **NOTHING** — use when the finding does not change a practitioner decision or bounded understanding enough to justify promotion, existing machinery already suffices, or evidence is insufficient.
+
+Do not choose a formal mechanism merely because it appears smaller than another formal mechanism. Choose the least powerful mechanism that fixes the demonstrated failure while preserving ownership, state, and evidence boundaries.
 
 Ask:
 
-> Will this material change what the agent does on a real decision?
+> Will this material change what the agent does, what the repository can justifiably conclude, or how a real decision is made?
 
 If not, it probably does not belong on the runtime path.
 
@@ -428,15 +463,15 @@ Preserve important invariants during evaluation: do not invent evidence, do not 
 
 Real user tasks are valuable because they expose composition failures that isolated chapter review may miss.
 
-Convert an observed failure into a bounded probe:
+Convert an observed failure or learning objective into a bounded probe:
 
 ```text
-observed task
-→ isolate the failing mechanism
+observed task / material
+→ isolate the failing mechanism or bounded learning target
 → formulate the smallest research question
 → inspect evidence and architecture
-→ propose the smallest correction
-→ test or adversarially review it
+→ propose the smallest correction when one is justified
+→ test or adversarially review it when material
 ```
 
 External repositories are research material, not dependencies by default. Extract useful mechanisms, understand their assumptions, compare them with the repository, and adapt only what survives that comparison.
@@ -447,24 +482,35 @@ Do not generalize one real task, repository pattern, native intuition, anecdote,
 
 ---
 
-## 15. Stop when the bounded decision is sufficiently resolved
+## 15. Stop when the bounded decision or learning objective is sufficiently resolved
 
 Research should not continue merely because more sources can be found.
 
-Stop when there is enough evidence and counterexample pressure to make the bounded repository decision responsibly while preserving material uncertainty.
+Stop when there is enough evidence and counterexample pressure to make the bounded repository decision responsibly, or to answer the bounded learning objective at the claimed level, while preserving material uncertainty.
+
+Ask whether another source can plausibly change:
+
+- the conclusion;
+- its scope;
+- its uncertainty;
+- the interpretation of an important counterexample;
+- or the repository action.
+
+If not, additional search is usually low-value.
 
 Valid outcomes include:
 
 - implement a bounded correction;
 - strengthen an existing module;
 - repair routing or retrieval instead of knowledge;
+- improve problem framing without yet promoting a runtime rule;
 - keep a finding as evidence only;
 - reject the proposed abstraction;
 - keep the current architecture unchanged;
 - defer because the evidence is insufficient;
 - separate a capability rather than distort the project boundary.
 
-The stopping criterion is **decision sufficiency**, not exhaustion of the literature.
+The stopping criterion is **decision or learning sufficiency**, not exhaustion of the literature.
 
 ---
 
@@ -474,19 +520,22 @@ A typical substantive track follows this loop:
 
 ```text
 1. OBSERVE
-   Identify a real failure, unresolved decision,
-   or credible external mechanism.
+   Identify a real failure, unresolved question,
+   bounded learning objective, or credible external mechanism.
 
 2. FRAME
-   Define the smallest decision-relevant research question.
+   Define the smallest research question that can change
+   understanding, interpretation, or a subsequent decision.
+   Do not invent a downstream decision merely to justify discovery.
 
 3. MAP CURRENT STATE
    Identify the existing owner, route, state, evidence,
-   and architecture boundary.
+   and architecture boundary when the question touches them.
 
 4. SEARCH
-   Survey primary sources, research, strong repositories,
-   professional practice, and local evidence where material.
+   Survey the source classes appropriate to the claim.
+   Do not multiply sources when one authoritative source
+   already resolves a bounded source-owned fact.
 
 5. DISCOVER GAPS
    Identify what is missing, weak, unsafe, contradictory,
@@ -494,26 +543,32 @@ A typical substantive track follows this loop:
 
 6. DEEP DIVE
    Return to the strongest sources and extract decision rules,
-   states, constraints, handoffs, failures, and stopping signals.
+   learning targets, states, constraints, handoffs, failures,
+   and stopping signals.
 
-7. TRIANGULATE
-   Compare sources, scopes, regimes, and counterexamples.
+7. TRIANGULATE WHEN NEEDED
+   Compare sources, scopes, regimes, and counterexamples when
+   the conclusion requires synthesis, transfer, generalization,
+   causal interpretation, architecture promotion, or conflict resolution.
 
-8. CLASSIFY EPISTEMIC STATUS
-   Separate external evidence, professional practice,
-   project synthesis, and contextual hypotheses.
+8. CLASSIFY EVIDENCE AND INFERENCE
+   Preserve source/evidence type separately from how the project
+   uses the conclusion: external support, professional practice,
+   project synthesis, contextual hypothesis, or unknown.
 
 9. SYNTHESIZE
-   Recover the smallest mechanism that improves
-   a real practitioner decision.
+   Recover the smallest mechanism or bounded conclusion that
+   improves practitioner reasoning.
 
 10. CHALLENGE
     Try to falsify the mechanism and reject unnecessary
     abstractions before implementation.
 
 11. DESIGN MINIMALLY
-    Make the smallest correction compatible with existing
-    ownership, routing, state, and evidence boundaries.
+    Choose the least powerful correction that closes the
+    demonstrated failure: clarification, evidence requirement,
+    gate, state, handoff, route, qualification, workflow,
+    evaluation oracle, scoped adaptation, or nothing.
 
 12. PRESERVE LINEAGE
     Record only the artifacts needed to preserve provenance,
@@ -531,16 +586,16 @@ A typical substantive track follows this loop:
     retrieval meaning, composition, handoffs, and behavior.
 
 16. REFINE THE WALKER WHEN NEEDED
-    If knowledge exists but is not reached or used,
-    repair the path rather than adding prose.
+    If sufficient knowledge exists but is not reached or used,
+    repair the path rather than compensating with prose.
 
 17. GENERALIZE CAREFULLY
     Promote only as far as evidence, counterexamples,
     and observed behavior justify.
 
 18. STOP
-    End when the bounded decision is sufficiently resolved;
-    preserve remaining uncertainty explicitly.
+    End when the bounded decision or learning objective is
+    sufficiently resolved; preserve remaining uncertainty explicitly.
 ```
 
 ---
@@ -549,15 +604,15 @@ A typical substantive track follows this loop:
 
 The repository should not become the largest marketing knowledge base possible.
 
-Research should establish the smallest amount of trustworthy knowledge, evidence discipline, state, routing, and decision machinery required to improve the practitioner decision in front of the agent.
+Research should establish the smallest amount of trustworthy knowledge, evidence discipline, state, routing, and decision machinery required to improve the bounded understanding or practitioner decision in front of the agent.
 
 A successful research track makes clear:
 
 - what is known;
 - what remains uncertain;
-- what the evidence actually supports;
+- what each source type actually supports;
 - what the project synthesized;
-- which owner should act;
-- what failure was corrected;
-- how the result was challenged;
+- which owner should act when an owner is implicated;
+- what failure or learning objective was addressed;
+- how the result was challenged when material;
 - and why the resulting architecture is no larger than necessary.
