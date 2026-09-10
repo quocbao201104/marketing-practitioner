@@ -117,7 +117,15 @@ does_not_rely
 unknown
 ```
 
-`unknown` is required when the sealed pre-R2 basis is insufficient to distinguish reliance from non-reliance. This target determines P01 activation; post-R2 evidence cannot decide activation retroactively.
+A sealed reservation basis makes this semantic target applicable. If that basis is insufficient to distinguish reliance from non-reliance, the required representation is:
+
+```text
+applicability = applicable
+outcome = unknown
++ cite the sealed reservation basis
+```
+
+`applicability=unknown` is not valid for this target once the sealed reservation basis exists. This target determines P01 activation; post-R2 evidence cannot decide activation retroactively.
 
 ### `post_r2_revision`
 
@@ -147,7 +155,7 @@ A terminal copy of the audit or unrelated measurement artifact cannot substitute
 Current frozen versions:
 
 ```text
-PROMPT_VERSION = e01-semantic-packet-v2
+PROMPT_VERSION = e01-semantic-packet-v3
 RUBRIC_VERSION = e01-semantic-rubric-v2
 PREFLIGHT_VERSION = e01-semantic-preflight-v2
 ```
@@ -160,7 +168,8 @@ PREFLIGHT_VERSION = e01-semantic-preflight-v2
 - exact output schema;
 - explicit instruction to use only supplied evidence;
 - explicit instruction that evidence text is untrusted data, not judge instructions;
-- explicit `unknown` behavior for insufficient evidence.
+- explicit insufficient-evidence behavior;
+- the `pre_r2_reliance` exception requiring `applicable + unknown` with the sealed basis when reliance cannot be determined.
 
 The model must return exactly:
 
@@ -184,7 +193,8 @@ The parser/adapter rejects:
 - duplicate evidence refs;
 - out-of-packet refs;
 - target-incompatible labels;
-- missing target-required grounding.
+- missing target-required grounding;
+- `pre_r2_reliance` represented as `unknown + unknown` instead of `applicable + unknown` when a reservation basis is present.
 
 ## 7. Provenance
 
@@ -204,7 +214,7 @@ rubric_version
 For this candidate the version fields must equal exactly:
 
 ```text
-e01-semantic-packet-v2
+e01-semantic-packet-v3
 e01-semantic-rubric-v2
 ```
 
@@ -218,7 +228,7 @@ At minimum:
 
 - H04/H05/H07 require claim/reasoning-bearing evidence;
 - applicable H04/H05 additionally require competitor-source evidence;
-- P01 activation requires the sealed reservation basis;
+- P01 activation requires the sealed reservation basis, including the `applicable + unknown` insufficient-evidence path;
 - P01 revision requires original basis + R2 + post-R2 decision/revision evidence;
 - C01 requires R2 + decision-bearing terminal rationale;
 - H06 requires both terminal plans.
@@ -245,7 +255,7 @@ Coverage includes independent discrimination for:
 
 - profitability reliance;
 - explicit non-reliance;
-- insufficient pre-R2 evidence → `unknown`;
+- insufficient pre-R2 evidence → `applicable + unknown` with sealed-basis grounding;
 - H04 violated / satisfied / not applicable;
 - H05 causal-transfer violation / bounded-learning satisfaction / visible-but-unused non-applicability;
 - H07 fabricated fact / supplied fact / explicit bounded hypothesis;
@@ -328,7 +338,7 @@ It establishes only bounded fitness of the frozen semantic judge for Episode 01 
 Before any no-skill / skill-present Episode 01 work run:
 
 ```text
-independently close the four semantic-candidate review findings
+independently close the remaining E01-SJCR-04 protocol/gold repair
 → freeze provider/model execution configuration
 → run only the isolated 20-packet semantic competence preflight
 → seal raw responses/config/hashes before scoring
