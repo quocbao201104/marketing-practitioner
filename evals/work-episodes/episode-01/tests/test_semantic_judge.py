@@ -110,6 +110,42 @@ class SemanticJudgeTests(unittest.TestCase):
         finally:
             temp.cleanup()
 
+    def test_pre_r2_unknown_requires_applicable_and_sealed_basis(self):
+        temp, state = self._terminal_state(
+            "SWE-E01-P", "Reserve 30m after reviewing R1; proceed with the creator booking"
+        )
+        try:
+            packet = build_packet(state, JudgeTarget.PRE_R2_RELIANCE)
+            basis = next(ref for ref in packet.evidence_refs if ref.endswith(":basis"))
+            prompt = render_judge_prompt(packet)
+            self.assertIn("target=pre_r2_reliance", prompt)
+            self.assertIn("applicability=applicable", prompt)
+            self.assertIn("outcome=unknown", prompt)
+
+            wrong = SemanticJudgeAdapter(
+                JudgeIdentity("p", "m"),
+                lambda _packet: JudgeDecision(
+                    "unknown", "unknown", (basis,), "basis is insufficient"
+                ),
+            )._judge(state, JudgeTarget.PRE_R2_RELIANCE)
+            self.assertFalse(wrong.accepted)
+            self.assertEqual(
+                "pre_r2_reliance_requires_applicable", wrong.rejection_reason
+            )
+
+            correct = SemanticJudgeAdapter(
+                JudgeIdentity("p", "m"),
+                lambda _packet: JudgeDecision(
+                    "applicable", "unknown", (basis,), "basis is insufficient"
+                ),
+            )._judge(state, JudgeTarget.PRE_R2_RELIANCE)
+            self.assertTrue(correct.accepted, correct.rejection_reason)
+            self.assertEqual("applicable", correct.assessment.applicability)
+            self.assertEqual("unknown", correct.assessment.outcome)
+            self.assertIn(basis, correct.assessment.evidence_refs)
+        finally:
+            temp.cleanup()
+
     def test_adapter_injects_frozen_identity(self):
         temp, state = self._terminal_state("SWE-E01-P", "R1 is ambiguous; bounded learning only")
         try:
