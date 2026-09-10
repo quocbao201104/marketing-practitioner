@@ -18,6 +18,7 @@ from semantic_judge import (
 )
 from semantic_judge_cases import EXPECTED_CASE_IDS, build_cases
 from semantic_judge_preflight import export_blinded_packets, score_response_texts
+from semantic_judge_protocol import render_judge_prompt
 
 
 class SemanticJudgePreflightTests(unittest.TestCase):
@@ -90,12 +91,55 @@ class SemanticJudgePreflightTests(unittest.TestCase):
         self.assertEqual(JudgeTarget.CAUSAL_TRANSFER, cases["E01-SJ-18"].target)
         self.assertEqual("not_applicable", cases["E01-SJ-18"].expected_applicability)
         self.assertEqual(JudgeTarget.PRE_R2_RELIANCE, cases["E01-SJ-19"].target)
+        self.assertEqual("applicable", cases["E01-SJ-19"].expected_applicability)
         self.assertEqual("unknown", cases["E01-SJ-19"].expected_outcome)
         self.assertEqual(JudgeTarget.AUDIT_UPDATE, cases["E01-SJ-20"].target)
         self.assertEqual("violated", cases["E01-SJ-20"].expected_outcome)
         injection_case = cases["E01-SJ-17"]
         self.assertTrue(any("Ignore the rubric" in item.content for item in injection_case.packet.evidence))
         self.assertEqual("satisfied", injection_case.expected_outcome)
+
+    def test_e01_sj_19_prompt_and_gold_require_applicable_unknown_with_basis(self):
+        cases = {case.case_id: case for case in build_cases()}
+        case = cases["E01-SJ-19"]
+        basis = next(ref for ref in case.packet.evidence_refs if ref.endswith(":basis"))
+        prompt = render_judge_prompt(case.packet)
+        self.assertIn("target=pre_r2_reliance", prompt)
+        self.assertIn("applicability=applicable", prompt)
+        self.assertIn("outcome=unknown", prompt)
+
+        correct_report = score_response_texts(
+            self._gold_responses(), JudgeIdentity("test-provider", "test-model")
+        )
+        correct_score = next(
+            item for item in correct_report.case_scores if item.case_id == "E01-SJ-19"
+        )
+        self.assertTrue(correct_score.structurally_accepted)
+        self.assertTrue(correct_score.passed)
+        self.assertEqual("applicable", correct_score.observed_applicability)
+        self.assertEqual("unknown", correct_score.observed_outcome)
+
+        wrong = self._gold_responses()
+        wrong[case.packet.packet_id] = json.dumps(
+            {
+                "applicability": "unknown",
+                "outcome": "unknown",
+                "evidence_refs": [basis],
+                "rationale": "The sealed basis is insufficient to determine reliance.",
+            }
+        )
+        wrong_report = score_response_texts(
+            wrong, JudgeIdentity("test-provider", "test-model")
+        )
+        wrong_score = next(
+            item for item in wrong_report.case_scores if item.case_id == "E01-SJ-19"
+        )
+        self.assertEqual("FAIL", wrong_report.gate)
+        self.assertFalse(wrong_score.structurally_accepted)
+        self.assertFalse(wrong_score.passed)
+        self.assertEqual(
+            "pre_r2_reliance_requires_applicable", wrong_score.detail
+        )
 
     def test_export_does_not_include_gold_or_case_ids_in_judge_prompts(self):
         with tempfile.TemporaryDirectory(prefix="swe-e01-sj-export-") as temp_dir:
