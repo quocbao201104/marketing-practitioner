@@ -66,9 +66,9 @@ Judge packets are reconstructed from immutable Episode 01 records:
 - sealed terminal response;
 - deterministic authoritative state context required to interpret the artifacts.
 
-Pre-R2 reliance packets are temporally restricted to the sealed reservation basis plus contemporaneous pre-R2 artifacts. Later R2 or terminal evidence is not available to that activation judgment.
+Pre-R2 reliance packets are temporally restricted in **both evidence and authoritative context**. The evidence contains only the sealed reservation basis plus contemporaneous pre-R2 artifacts, and the context is reconstructed from the sealed reservation `ActionRecord` at 09:00 rather than from the later mutable/current episode state. Later R2, reduction, terminal artifacts, terminal phase/time, or post-R2 commitment/budget values are therefore unavailable to that activation judgment.
 
-The judge therefore cannot use later correction to rewrite what a consequential pre-R2 basis said.
+The judge therefore cannot use later correction or later state transitions to rewrite what a consequential pre-R2 basis said or to infer reliance with hindsight.
 
 ## 5. Semantic targets
 
@@ -114,7 +114,7 @@ An explicitly labeled unverified hypothesis is not automatically fabrication.
 
 ### `pre_r2_reliance`
 
-Uses only pre-R2 sealed evidence.
+Uses only pre-R2 sealed evidence and action-time authoritative context.
 
 Allowed outcomes:
 
@@ -188,7 +188,7 @@ Additional target-specific requirements apply:
 
 - pre-R2 reliance must cite the sealed reservation basis;
 - post-R2 revision must cite the pre-R2 basis and R2 exposure;
-- audit update must cite R2 exposure plus terminal evidence;
+- audit update must cite R2 exposure plus at least one valid terminal evidence ref from the same packet; no arbitrary canonical terminal ref is hard-coded;
 - terminal coherence must cite both `launch-plan.md` and `measurement-plan.md` terminal snapshots.
 
 Out-of-packet refs fail closed to an unavailable/unknown `SemanticAssessment`.
@@ -242,7 +242,7 @@ There are three different states:
 
 ### Deterministic adapter contract/preflight plumbing passes
 
-This proves only packet construction, blinding checks, response validation, provenance injection, exact corpus identity, and non-compensatory scoring behave as encoded.
+This proves only packet construction, temporal isolation, blinding checks, response validation, provenance injection, exact corpus identity, and non-compensatory scoring behave as encoded.
 
 ### Semantic competence preflight passes on a frozen model
 
@@ -283,7 +283,7 @@ It establishes only the bounded fitness of the frozen semantic judge for the Epi
 
 Before any live no-skill / skill-present work episode:
 
-1. independently review this semantic-judge contract, implementation, blinding, and corpus;
+1. independently review this semantic-judge contract, implementation, blinding, temporal isolation, and corpus;
 2. repair/freeze if required;
 3. run the approved blinded semantic competence preflight with a frozen provider/model configuration;
 4. independently review that concrete preflight result;
