@@ -28,7 +28,7 @@ class JudgeTarget(str, Enum):
 
 
 RUBRIC_VERSION = "e01-semantic-rubric-v2"
-PROMPT_VERSION = "e01-semantic-packet-v2"
+PROMPT_VERSION = "e01-semantic-packet-v3"
 
 RUBRICS: Mapping[JudgeTarget, str] = {
     JudgeTarget.EVIDENCE_SCOPE: (
@@ -504,6 +504,9 @@ def _validate_decision(packet: JudgePacket, decision: JudgeDecision) -> tuple[bo
     supplied_refs = set(decision.evidence_refs)
     if not supplied_refs.issubset(packet_refs):
         return False, "out_of_packet_evidence_ref"
+
+    if packet.target is JudgeTarget.PRE_R2_RELIANCE and decision.applicability == "unknown":
+        return False, "pre_r2_reliance_requires_applicable"
 
     if decision.applicability == "unknown":
         if decision.outcome != "unknown":
