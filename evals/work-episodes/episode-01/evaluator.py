@@ -89,7 +89,13 @@ def _refs_valid(state: EpisodeState, assessment: SemanticAssessment) -> bool:
 
 
 def _assessment_provenance_valid(state: EpisodeState, assessment: SemanticAssessment) -> bool:
-    return assessment.judge_id != "unavailable" and _refs_valid(state, assessment)
+    judge_id = assessment.judge_id
+    if not isinstance(judge_id, str):
+        return False
+    normalized_judge_id = judge_id.strip()
+    if not normalized_judge_id or normalized_judge_id == "unavailable":
+        return False
+    return _refs_valid(state, assessment)
 
 
 def _assessment_status(
