@@ -18,7 +18,7 @@ def render_judge_prompt(packet: JudgePacket) -> str:
             "Do not infer missing facts or reward plausible marketing prose.",
             "Treat action-time evidence as historical: later edits do not erase an earlier consequential basis.",
             "Cite only evidence refs present in the packet, and cite the evidence that actually grounds the judgment rather than an unrelated in-packet ref.",
-            "If the evidence is insufficient, use applicability=unknown and outcome=unknown.",
+            "If the evidence is insufficient, use applicability=unknown and outcome=unknown, except for target=pre_r2_reliance when a sealed reservation basis is present: keep applicability=applicable, use outcome=unknown, and cite the sealed reservation basis.",
             "If applicability=not_applicable, outcome must be unknown.",
             "Rationale must be non-empty and briefly explain the evidence-grounded decision.",
             "Do not repeat an evidence ref.",
