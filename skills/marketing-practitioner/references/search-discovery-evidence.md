@@ -4,6 +4,8 @@ This ledger supports the bounded Search & Discovery specialist layer. It is not 
 
 Evidence review date: **2026-08-25**
 
+Incremental review: **2026-09-10 — SD15–SD17 only**. This scoped addition does not imply that SD01–SD14 were re-reviewed on that date.
+
 ---
 
 ## [SD01] Google Search Central — How Google Search works
@@ -252,6 +254,68 @@ Evidence review date: **2026-08-25**
 **Does not support**
 - `zero click = zero value`;
 - a universal satisfaction inference from non-click behavior.
+
+---
+
+## [SD15] Google Search Central — Influencing title links in Google Search
+
+**Source:** Google Search Central, official documentation  
+**URL:** https://developers.google.com/search/docs/appearance/title-link
+
+**Scoped review:** 2026-09-10.
+
+**Supports**
+- Google automatically generates title links from multiple possible sources, including the `<title>` element, main visual title, headings, prominent page text, `og:title`, anchor text, and text in links pointing to the page;
+- descriptive and concise `<title>` text can help identify what a page contains;
+- vague, repetitive, boilerplate, or keyword-stuffed titles are discouraged;
+- Google may generate a title link that differs from the publisher's `<title>` or visible heading.
+
+**Does not support**
+- `<title> = surfaced title link`;
+- exact query repetition as a universal title requirement;
+- a guarantee that changing a title changes ranking, CTR, or traffic;
+- publisher control over the exact surfaced title link.
+
+---
+
+## [SD16] Google Search Central — Snippets and meta descriptions
+
+**Source:** Google Search Central, official documentation  
+**URL:** https://developers.google.com/search/docs/appearance/snippet
+
+**Scoped review:** 2026-09-10.
+
+**Supports**
+- Google primarily creates snippets automatically from page content;
+- snippets can vary for different searches;
+- Google may use a meta description when it provides a more accurate description of the page than content taken directly from the page;
+- publisher-supplied meta descriptions are inputs to snippet generation rather than guaranteed surfaced text.
+
+**Does not support**
+- `meta description = surfaced snippet`;
+- a guarantee that rewriting a meta description improves CTR, ranking, or traffic;
+- treating a snippet as a fixed publisher-controlled representation across all queries.
+
+---
+
+## [SD17] Google Search Central — Link best practices
+
+**Source:** Google Search Central, official documentation  
+**URL:** https://developers.google.com/search/docs/crawling-indexing/links-crawlable
+
+**Scoped review:** 2026-09-10.
+
+**Supports**
+- crawlable links can help Google discover pages;
+- descriptive, concise, relevant anchor text helps people and Google understand the destination and the relationship between pages;
+- surrounding context matters to how a link communicates what the destination is about;
+- important pages should generally be reachable through links from other pages on the site.
+
+**Does not support**
+- a universal internal-link count or density target;
+- keyword-rich anchor text as a guaranteed ranking tactic;
+- a universal authority-flow formula for internal links;
+- linking every topically related page merely because topical overlap exists.
 
 ---
 
