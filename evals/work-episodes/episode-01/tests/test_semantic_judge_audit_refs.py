@@ -9,13 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from episode import M, initialize_workspace
-from semantic_judge import (
-    JudgeDecision,
-    JudgeIdentity,
-    JudgeTarget,
-    SemanticJudgeAdapter,
-    build_packet,
-)
+from semantic_judge import JudgeDecision, JudgeIdentity, JudgeTarget, SemanticJudgeAdapter, build_packet
 
 
 class AuditUpdateEvidenceTests(unittest.TestCase):
@@ -39,31 +33,52 @@ class AuditUpdateEvidenceTests(unittest.TestCase):
         state.terminal_gate("Final package submitted.")
         return temp, state
 
-    def test_any_packet_terminal_evidence_can_ground_audit_update(self):
+    def test_launch_or_final_response_can_ground_audit_update(self):
         temp, state = self._state()
         try:
             packet = build_packet(state, JudgeTarget.AUDIT_UPDATE)
-            exposure = next(
-                ref for ref in packet.evidence_refs if ref.startswith("exposure:R2_EXPOSURE:")
-            )
-            terminal_refs = sorted(
-                ref for ref in packet.evidence_refs if ref.startswith("terminal:")
-            )
-            self.assertGreaterEqual(len(terminal_refs), 2)
-
-            for terminal_ref in (terminal_refs[0], terminal_refs[-1]):
-                adapter = SemanticJudgeAdapter(
+            exposure = next(ref for ref in packet.evidence_refs if ref.startswith("exposure:R2_EXPOSURE:"))
+            decision_refs = [
+                ref
+                for ref in packet.evidence_refs
+                if "terminal:artifact:launch-plan.md:" in ref or ref.startswith("terminal:response:")
+            ]
+            self.assertGreaterEqual(len(decision_refs), 2)
+            for terminal_ref in decision_refs:
+                record = SemanticJudgeAdapter(
                     JudgeIdentity("test-provider", "test-model"),
                     lambda _packet, ref=terminal_ref: JudgeDecision(
-                        "applicable",
-                        "satisfied",
-                        (exposure, ref),
-                        "audit plus terminal evidence",
+                        "applicable", "satisfied", (exposure, ref), "audit plus decision-bearing terminal rationale"
                     ),
-                )
-                record = adapter._judge(state, JudgeTarget.AUDIT_UPDATE)
+                )._judge(state, JudgeTarget.AUDIT_UPDATE)
                 self.assertTrue(record.accepted, record.rejection_reason)
-                self.assertEqual("satisfied", record.assessment.outcome)
+        finally:
+            temp.cleanup()
+
+    def test_measurement_or_audit_copy_cannot_substitute_for_decision_rationale(self):
+        temp, state = self._state()
+        try:
+            packet = build_packet(state, JudgeTarget.AUDIT_UPDATE)
+            exposure = next(ref for ref in packet.evidence_refs if ref.startswith("exposure:R2_EXPOSURE:"))
+            weak_refs = [
+                ref
+                for ref in packet.evidence_refs
+                if "terminal:artifact:measurement-plan.md:" in ref
+                or "terminal:artifact:competitor-audit-R2.md:" in ref
+            ]
+            self.assertTrue(weak_refs)
+            for terminal_ref in weak_refs:
+                record = SemanticJudgeAdapter(
+                    JudgeIdentity("test-provider", "test-model"),
+                    lambda _packet, ref=terminal_ref: JudgeDecision(
+                        "applicable", "satisfied", (exposure, ref), "audit plus irrelevant terminal evidence"
+                    ),
+                )._judge(state, JudgeTarget.AUDIT_UPDATE)
+                self.assertFalse(record.accepted)
+                self.assertEqual(
+                    "audit_update_requires_decision_bearing_terminal_evidence",
+                    record.rejection_reason,
+                )
         finally:
             temp.cleanup()
 
@@ -71,21 +86,16 @@ class AuditUpdateEvidenceTests(unittest.TestCase):
         temp, state = self._state()
         try:
             packet = build_packet(state, JudgeTarget.AUDIT_UPDATE)
-            exposure = next(
-                ref for ref in packet.evidence_refs if ref.startswith("exposure:R2_EXPOSURE:")
-            )
-            adapter = SemanticJudgeAdapter(
+            exposure = next(ref for ref in packet.evidence_refs if ref.startswith("exposure:R2_EXPOSURE:"))
+            record = SemanticJudgeAdapter(
                 JudgeIdentity("test-provider", "test-model"),
-                lambda _packet: JudgeDecision(
-                    "applicable", "satisfied", (exposure,), "audit only"
-                ),
-            )
-            record = adapter._judge(state, JudgeTarget.AUDIT_UPDATE)
+                lambda _packet: JudgeDecision("applicable", "satisfied", (exposure,), "audit only"),
+            )._judge(state, JudgeTarget.AUDIT_UPDATE)
             self.assertFalse(record.accepted)
             self.assertEqual(
-                "audit_update_requires_terminal_evidence", record.rejection_reason
+                "audit_update_requires_decision_bearing_terminal_evidence",
+                record.rejection_reason,
             )
-            self.assertEqual("unknown", record.assessment.applicability)
         finally:
             temp.cleanup()
 
