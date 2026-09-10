@@ -104,6 +104,21 @@ try {
         'evals/behavioral/tests',
         '-v'
     )
+    Invoke-Checked -Label 'Episode 01 work-episode tests' -Arguments @(
+        $Python,
+        '-B',
+        '-m',
+        'unittest',
+        'discover',
+        '-s',
+        'evals/work-episodes/episode-01/tests',
+        '-v'
+    )
+    Invoke-Checked -Label 'Episode 01 work-episode preflight' -Arguments @(
+        $Python,
+        '-B',
+        'evals/work-episodes/episode-01/preflight.py'
+    )
 
     $Utf8 = New-Object System.Text.UTF8Encoding($false, $true)
     $TextExtensions = @(
