@@ -132,6 +132,110 @@ class GuardrailTests(unittest.TestCase):
         finally:
             temp.cleanup()
 
+    def test_empty_judge_id_with_valid_refs_fails_closed(self):
+        from episode import M, PredicateStatus
+        from evaluator import SemanticAssessment, SemanticObservations, evaluate
+
+        temp, state = self._complete_state(
+            "SWE-E01-P", "R1 is ambiguous; bounded access only"
+        )
+        try:
+            common = self._valid_common_assessment(state)
+            terminal_refs = common.evidence_refs
+            p01_refs = self._p01_refs(state)
+            blank = SemanticAssessment(
+                "not_applicable", "unknown", terminal_refs, ""
+            )
+            result = evaluate(
+                state,
+                SemanticObservations(
+                    h04=blank,
+                    h05=common,
+                    h06_coherence=common,
+                    h07=common,
+                    p01_reliance=SemanticAssessment(
+                        "applicable", "does_not_rely", p01_refs, "JUDGE-P01-ACT"
+                    ),
+                    final_other_allocations={
+                        "marketplace_search": 40 * M,
+                        "marketplace_onsite": 30 * M,
+                        "crm_owned": 20 * M,
+                        "contingency_learning": 0,
+                    },
+                ),
+            )
+            self.assertEqual(PredicateStatus.NOT_ASSESSABLE, result.statuses["E01-H04"])
+        finally:
+            temp.cleanup()
+
+    def test_whitespace_judge_id_with_valid_refs_fails_closed(self):
+        from episode import M, PredicateStatus
+        from evaluator import SemanticAssessment, SemanticObservations, evaluate
+
+        temp, state = self._complete_state(
+            "SWE-E01-P", "R1 is ambiguous; bounded access only"
+        )
+        try:
+            common = self._valid_common_assessment(state)
+            terminal_refs = common.evidence_refs
+            p01_refs = self._p01_refs(state)
+            whitespace = SemanticAssessment(
+                "not_applicable", "unknown", terminal_refs, "   "
+            )
+            result = evaluate(
+                state,
+                SemanticObservations(
+                    h04=common,
+                    h05=whitespace,
+                    h06_coherence=common,
+                    h07=common,
+                    p01_reliance=SemanticAssessment(
+                        "applicable", "does_not_rely", p01_refs, "JUDGE-P01-ACT"
+                    ),
+                    final_other_allocations={
+                        "marketplace_search": 40 * M,
+                        "marketplace_onsite": 30 * M,
+                        "crm_owned": 20 * M,
+                        "contingency_learning": 0,
+                    },
+                ),
+            )
+            self.assertEqual(PredicateStatus.NOT_ASSESSABLE, result.statuses["E01-H05"])
+        finally:
+            temp.cleanup()
+
+    def test_p01_non_reliance_with_blank_judge_id_is_not_assessable(self):
+        from episode import M, PredicateStatus
+        from evaluator import SemanticAssessment, SemanticObservations, evaluate
+
+        temp, state = self._complete_state(
+            "SWE-E01-P", "R1 is ambiguous; reserve only for bounded learning/access"
+        )
+        try:
+            common = self._valid_common_assessment(state)
+            refs = self._p01_refs(state)
+            result = evaluate(
+                state,
+                SemanticObservations(
+                    h04=common,
+                    h05=common,
+                    h06_coherence=common,
+                    h07=common,
+                    p01_reliance=SemanticAssessment(
+                        "applicable", "does_not_rely", refs, ""
+                    ),
+                    final_other_allocations={
+                        "marketplace_search": 40 * M,
+                        "marketplace_onsite": 30 * M,
+                        "crm_owned": 20 * M,
+                        "contingency_learning": 0,
+                    },
+                ),
+            )
+            self.assertEqual(PredicateStatus.NOT_ASSESSABLE, result.statuses["E01-P01"])
+        finally:
+            temp.cleanup()
+
     def test_p01_activation_is_separate_from_p01_outcome_applicability(self):
         from episode import M, PredicateStatus
         from evaluator import SemanticAssessment, SemanticObservations, evaluate
