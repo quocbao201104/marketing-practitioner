@@ -1,43 +1,62 @@
 # Episode 01 implementation preflight status
 
-Status: **POST-REVIEW REPAIRED AUTHOR-SIDE PREFLIGHT PASS — NO LIVE AGENT EVIDENCE**
+Status: **SECOND BOUNDED REPAIR APPLIED — CLOSURE VERIFICATION REQUIRED — NO LIVE AGENT EVIDENCE**
 
-Frozen design source: `research/stateful-work-episode-evaluation/06-episode-01-design.md` and `07-episode-01-evaluator-fixtures.md` at repaired candidate `e2731dd897a043cdbecff2f37e850f72c9dc086b`.
+Frozen design source: `research/stateful-work-episode-evaluation/06-episode-01-design.md` and `07-episode-01-evaluator-fixtures.md` at repaired design candidate `e2731dd897a043cdbecff2f37e850f72c9dc086b`.
 
-The independent implementation/preflight review of implementation head `54877829195858230037db6eb1fbdd8e45d0ad10` returned `IMPLEMENTATION_PREFLIGHT_REPAIR_REQUIRED` and identified nine bounded defects `E01-IPR-01` through `E01-IPR-09`.
+The independent implementation/preflight review of `54877829195858230037db6eb1fbdd8e45d0ad10` identified nine defects `E01-IPR-01` through `E01-IPR-09`.
 
-This repaired implementation closes those author-side defects by:
-
-- actually closing booking at the 10:30 scheduler gate;
-- removing `pressure` / `control` labels from executor-visible R2 headings;
-- storing immutable reconstructible action-time artifact content snapshots, not only hashes;
-- storing terminal artifact/content snapshots and terminal response state;
-- making H06 require actual `launch-plan.md` and `measurement-plan.md` terminal artifacts before semantic coherence can satisfy it;
-- replacing fail-open semantic defaults with explicit evidence-grounded `SemanticAssessment` objects whose absence becomes `NOT ASSESSABLE`;
-- binding P01 applicability/judgment provenance to the sealed reservation basis plus the logged R2 exposure;
-- treating C01 as deterministically applicable after control R2 and requiring an assessment;
-- requiring exact frozen channel-allocation keys with integer non-negative values;
-- validating comparative exposure against the canonical world, expected R2 hash, 11:00 time, Phase-B boundary and exactly one R2 exposure;
-- making FX-05 use an actual corrected pre-action workspace artifact, FX-11 use genuinely missing action history, and FX-07 bind P01 to sealed evidence;
-- adding a missing-semantic-assessment fail-closed check within preflight fixtures/tests;
-- binding preflight to the exact 21 unique fixture IDs and making any missing, duplicate, unexpected, or failed fixture fail the gate;
-- expanding burden representation with context use and unfinished-work items while keeping burden separate from work verdict.
-
-Author-side local result before repair freeze:
+The first repaired implementation target `7efb2e0a730863c9b5cf7854ab655547731fb9ab` then received closure verdict:
 
 ```text
-unit tests: 15/15 PASS
-material fixtures: 21/21 PASS
-fixture identity: exact + unique
-preflight gate: PASS
-live_trials_permitted: false
-semantic_judge_adapter_validated: false
+IMPLEMENTATION_REPAIR_INCOMPLETE
 ```
+
+with:
+
+```text
+E01-IPR-01 — CLOSED
+E01-IPR-02 — CLOSED
+E01-IPR-03 — CLOSED
+E01-IPR-04 — CLOSED
+E01-IPR-05 — OPEN
+E01-IPR-06 — CLOSED
+E01-IPR-07 — CLOSED
+E01-IPR-08 — OPEN
+E01-IPR-09 — CLOSED
+```
+
+The second bounded repair changes only the remaining semantic-applicability/fixture seam:
+
+- H04/H05/H07 `NOT_APPLICABLE` now requires valid evidence references plus a non-unavailable judge identity; otherwise the predicate is `NOT_ASSESSABLE`;
+- P01 activation is separated from P01 satisfaction through `p01_reliance`;
+- `p01_reliance` is an evidence-grounded semantic activation judgment over the sealed pre-R2 reservation basis (`relies`, `does_not_rely`, or unresolved);
+- once reliance activates P01, a P01 outcome assessment cannot switch it off with `not_applicable`; missing outcome judgment becomes `NOT_ASSESSABLE`;
+- C01 remains mandatory after valid control R2 exposure and fails closed when its semantic judgment is absent;
+- FX-07 now exercises the separate activation seam from the sealed basis rather than selecting `obs.p01.applicability` directly;
+- a non-reliance counterpart confirms that an ambiguity/bounded-learning basis leaves the profitability-reliance branch `NOT_APPLICABLE`;
+- regression tests explicitly cover ungrounded semantic `NOT_APPLICABLE`, P01 reliance/non-reliance, P01 attempted applicability bypass, and missing C01 judgment.
+
+Repository verification now invokes both:
+
+```text
+python -B -m unittest discover -s evals/work-episodes/episode-01/tests -v
+python -B evals/work-episodes/episode-01/preflight.py
+```
+
+so Episode 01 tests/preflight are part of the normal branch verification path.
 
 Interpretation boundary:
 
-Passing this repaired deterministic preflight demonstrates only that the frozen Episode 01 reference state machine and planted fixture cases behave as encoded. It does not demonstrate Marketing Practitioner efficacy, real-world marketing impact, arbitrary-output semantic-judge validity, treatment isolation, or mechanism causality.
+This remains a deterministic reference implementation and planted-fixture preflight. The fixture semantic assessments do not establish validity on arbitrary live model outputs.
+
+The following locks remain mandatory:
+
+```text
+semantic_judge_adapter_validated = false
+live_trials_permitted = false
+```
 
 No live no-skill / skill-present model execution has been performed or authorized.
 
-The next gate, after independent closure verification of `E01-IPR-01` through `E01-IPR-09`, is a separately frozen evidence-grounded semantic-judge adapter and its own preflight/review. Live paired execution remains blocked until both gates pass.
+If independent closure verification closes `E01-IPR-05` and `E01-IPR-08`, the next gate is a separately frozen evidence-grounded semantic-judge adapter with its own adversarial preflight and independent review. Only after that gate passes may paired live execution be considered.
