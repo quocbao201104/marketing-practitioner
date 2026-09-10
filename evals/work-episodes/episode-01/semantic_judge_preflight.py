@@ -7,12 +7,17 @@ import json
 from pathlib import Path
 from typing import Mapping
 
-from semantic_judge import JudgeIdentity, SemanticJudgeAdapter
+from semantic_judge import (
+    JudgeIdentity,
+    PROMPT_VERSION,
+    RUBRIC_VERSION,
+    SemanticJudgeAdapter,
+)
 from semantic_judge_cases import EXPECTED_CASE_IDS, SemanticJudgeCase, build_cases
 from semantic_judge_protocol import parse_judge_decision, render_judge_prompt
 
 
-PREFLIGHT_VERSION = "e01-semantic-preflight-v1"
+PREFLIGHT_VERSION = "e01-semantic-preflight-v2"
 
 
 @dataclass(frozen=True)
@@ -25,6 +30,7 @@ class CaseScore:
     observed_applicability: str
     observed_outcome: str
     structurally_accepted: bool
+    grounding_ok: bool
     passed: bool
     detail: str
 
@@ -66,6 +72,7 @@ def corpus_digest(cases: tuple[SemanticJudgeCase, ...] | None = None) -> str:
             "target": case.target.value,
             "expected_applicability": case.expected_applicability,
             "expected_outcome": case.expected_outcome,
+            "required_grounding_names": list(case.required_grounding_names),
         }
         for case in selected
     ]
@@ -80,13 +87,13 @@ def export_blinded_packets(output_dir: Path) -> dict[str, object]:
     prompts.mkdir(exist_ok=True)
 
     for case in cases:
-        # Packet filenames are content hashes. Case IDs and gold labels are not
-        # exported to the judge-facing prompt directory.
         path = prompts / f"{case.packet.packet_id}.json"
         path.write_text(render_judge_prompt(case.packet), encoding="utf-8")
 
     manifest = {
         "preflight_version": PREFLIGHT_VERSION,
+        "prompt_version": PROMPT_VERSION,
+        "rubric_version": RUBRIC_VERSION,
         "packet_count": len(cases),
         "packet_ids": [case.packet.packet_id for case in cases],
         "corpus_digest": corpus_digest(cases),
@@ -113,6 +120,18 @@ def _response_identity_ok(
     return set(response_texts) == expected
 
 
+def _case_grounding_ok(case: SemanticJudgeCase, cited_refs: tuple[str, ...]) -> bool:
+    if not case.required_grounding_names:
+        return True
+    by_ref = {item.ref: item for item in case.packet.evidence}
+    cited_names = {
+        by_ref[ref].name
+        for ref in cited_refs
+        if ref in by_ref
+    }
+    return set(case.required_grounding_names).issubset(cited_names)
+
+
 def score_response_texts(
     response_texts: Mapping[str, str],
     identity: JudgeIdentity,
@@ -134,10 +153,17 @@ def score_response_texts(
     for case in cases:
         record = adapter._judge(case.state, case.target)
         assessment = record.assessment
+        grounding_ok = record.accepted and _case_grounding_ok(
+            case, assessment.evidence_refs
+        )
         passed = (
             record.accepted
+            and grounding_ok
             and assessment.applicability == case.expected_applicability
             and assessment.outcome == case.expected_outcome
+        )
+        detail = record.rejection_reason or (
+            "classified" if grounding_ok else "case_required_grounding_not_cited"
         )
         scores.append(
             CaseScore(
@@ -149,8 +175,9 @@ def score_response_texts(
                 observed_applicability=assessment.applicability,
                 observed_outcome=assessment.outcome,
                 structurally_accepted=record.accepted,
+                grounding_ok=grounding_ok,
                 passed=passed,
-                detail=record.rejection_reason or "classified",
+                detail=detail,
             )
         )
 
@@ -171,8 +198,6 @@ def score_response_texts(
         judge_id=identity.judge_id,
         case_scores=tuple(scores),
         semantic_competence_preflight_pass=semantic_pass,
-        # Independent semantic-judge review is a separate gate. Even a perfect
-        # author-side corpus run cannot self-authorize the live evaluator.
         semantic_judge_adapter_validated=False,
         live_trials_permitted=False,
     )
@@ -204,8 +229,12 @@ def main() -> int:
     score_parser.add_argument("responses_dir", type=Path)
     score_parser.add_argument("--provider", required=True)
     score_parser.add_argument("--model", required=True)
-    score_parser.add_argument("--prompt-version", default="e01-semantic-packet-v1")
-    score_parser.add_argument("--rubric-version", default="e01-semantic-rubric-v1")
+    score_parser.add_argument(
+        "--prompt-version", default=PROMPT_VERSION, choices=[PROMPT_VERSION]
+    )
+    score_parser.add_argument(
+        "--rubric-version", default=RUBRIC_VERSION, choices=[RUBRIC_VERSION]
+    )
 
     args = parser.parse_args()
     if args.command == "export":
