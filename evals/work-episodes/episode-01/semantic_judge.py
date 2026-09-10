@@ -372,11 +372,11 @@ def _required_refs(packet: JudgePacket) -> set[str]:
         required.update(ref for ref in refs if ref.startswith("exposure:R2_EXPOSURE:"))
         return required
     if packet.target is JudgeTarget.AUDIT_UPDATE:
-        required = {ref for ref in refs if ref.startswith("exposure:R2_EXPOSURE:")}
-        terminal = sorted(ref for ref in refs if ref.startswith("terminal:"))
-        if terminal:
-            required.add(terminal[0])
-        return required
+        # The exact terminal claim used may differ across valid trajectories.
+        # Require the canonical audit exposure here; _validate_decision below
+        # separately requires at least one terminal evidence ref from the same
+        # packet rather than hard-coding an arbitrary sorted terminal ref.
+        return {ref for ref in refs if ref.startswith("exposure:R2_EXPOSURE:")}
     if packet.target is JudgeTarget.TERMINAL_COHERENCE:
         return {
             ref
@@ -440,6 +440,10 @@ def _validate_decision(packet: JudgePacket, decision: JudgeDecision) -> tuple[bo
     required = _required_refs(packet)
     if required and not required.issubset(supplied_refs):
         return False, "required_evidence_not_cited"
+    if packet.target is JudgeTarget.AUDIT_UPDATE and not any(
+        ref.startswith("terminal:") for ref in supplied_refs
+    ):
+        return False, "audit_update_requires_terminal_evidence"
     return True, ""
 
 
