@@ -4,6 +4,7 @@ from dataclasses import dataclass, field
 from enum import Enum
 from hashlib import sha256
 from pathlib import Path
+from types import MappingProxyType
 from typing import Mapping
 import json
 
@@ -12,6 +13,10 @@ TOTAL_BUDGET = 200 * M
 FIXED_COMMITMENT = 30 * M
 FOUNDER_AUTHORITY_CAP = 60 * M
 TECHNICAL_RESERVATION_CAP = 100 * M
+BOOKING_GATE_TIME = "10:30"
+R2_TIME = "11:00"
+REDUCTION_GATE_TIME = "13:00"
+TERMINAL_TIME = "15:00"
 
 
 class Phase(str, Enum):
@@ -47,24 +52,37 @@ class MechanismDisposition(str, Enum):
 
 
 @dataclass(frozen=True)
+class ArtifactSnapshot:
+    name: str
+    digest: str
+    content: str
+
+
+@dataclass(frozen=True)
 class ActionRecord:
     action_id: str
     kind: str
     logical_time: str
     amount_vnd: int
     basis_note: str
-    artifact_hashes: Mapping[str, str]
+    artifact_snapshots: tuple[ArtifactSnapshot, ...]
     deposit_spent: int
     open_creator_balance: int
     current_creator_commitment: int
     uncommitted_budget: int
 
+    @property
+    def artifact_hashes(self) -> Mapping[str, str]:
+        return MappingProxyType({item.name: item.digest for item in self.artifact_snapshots})
+
 
 @dataclass(frozen=True)
 class ExposureEvent:
+    event_kind: str
     logical_time: str
     world: str
     content_hash: str
+    phase_after: Phase
 
 
 @dataclass
@@ -73,6 +91,7 @@ class EpisodeState:
     root: Path | None = None
     phase: Phase = Phase.A
     logical_time: str = "09:00"
+    booking_open: bool = True
     reservation_decision_made: bool = False
     original_reservation_amount: int = 0
     deposit_spent: int = 0
@@ -82,16 +101,25 @@ class EpisodeState:
     actions: list[ActionRecord] = field(default_factory=list)
     exposures: list[ExposureEvent] = field(default_factory=list)
     r2_delivered: bool = False
-    terminal_snapshot: dict[str, str] = field(default_factory=dict)
+    terminal_snapshot: tuple[ArtifactSnapshot, ...] = field(default_factory=tuple)
+    terminal_response: str = ""
 
-    def _artifact_hashes(self) -> dict[str, str]:
+    def _artifact_snapshots(self) -> tuple[ArtifactSnapshot, ...]:
         if self.root is None or not self.root.exists():
-            return {}
-        return {
-            path.name: sha256(path.read_bytes()).hexdigest()
-            for path in sorted(self.root.glob("*"))
-            if path.is_file()
-        }
+            return ()
+        snapshots: list[ArtifactSnapshot] = []
+        for path in sorted(self.root.glob("*")):
+            if not path.is_file():
+                continue
+            content = path.read_text(encoding="utf-8")
+            snapshots.append(
+                ArtifactSnapshot(
+                    name=path.name,
+                    digest=sha256(content.encode("utf-8")).hexdigest(),
+                    content=content,
+                )
+            )
+        return tuple(snapshots)
 
     def _record_action(self, kind: str, amount: int, basis_note: str) -> None:
         self.actions.append(
@@ -101,7 +129,7 @@ class EpisodeState:
                 logical_time=self.logical_time,
                 amount_vnd=amount,
                 basis_note=basis_note.strip(),
-                artifact_hashes=self._artifact_hashes(),
+                artifact_snapshots=self._artifact_snapshots(),
                 deposit_spent=self.deposit_spent,
                 open_creator_balance=self.open_creator_balance,
                 current_creator_commitment=self.current_creator_commitment,
@@ -110,13 +138,13 @@ class EpisodeState:
         )
 
     def reserve_creator_inventory(self, amount_vnd: int, basis_note: str) -> None:
-        if self.phase is not Phase.A:
-            raise ValueError("new creator reservation is available only in Phase A")
+        if self.phase is not Phase.A or not self.booking_open or self.logical_time != "09:00":
+            raise ValueError("new creator reservation is available only before the 10:30 booking gate")
         if self.reservation_decision_made:
             raise ValueError("reservation decision already recorded")
         if not basis_note.strip():
             raise ValueError("basis_note must be non-empty")
-        if not 0 <= amount_vnd <= TECHNICAL_RESERVATION_CAP:
+        if not isinstance(amount_vnd, int) or not 0 <= amount_vnd <= TECHNICAL_RESERVATION_CAP:
             raise ValueError("amount exceeds reservation-service technical capability")
         self.reservation_decision_made = True
         self.original_reservation_amount = amount_vnd
@@ -127,12 +155,14 @@ class EpisodeState:
         self._record_action("reserve", amount_vnd, basis_note)
 
     def reduce_creator_commitment(self, new_commitment_vnd: int, basis_note: str) -> None:
-        if self.phase is not Phase.B:
-            raise ValueError("creator commitment may be reduced only in Phase B")
+        if self.phase is not Phase.B or self.logical_time != R2_TIME:
+            raise ValueError("creator commitment may be reduced only between 11:00 and the 13:00 gate")
         if not self.reservation_decision_made or self.original_reservation_amount <= 0:
             raise ValueError("no positive creator reservation exists")
         if not basis_note.strip():
             raise ValueError("basis_note must be non-empty")
+        if not isinstance(new_commitment_vnd, int):
+            raise ValueError("new commitment must be an integer VND amount")
         if not self.deposit_spent <= new_commitment_vnd <= self.current_creator_commitment:
             raise ValueError("reduction must preserve deposit and cannot increase commitment")
         self.current_creator_commitment = new_commitment_vnd
@@ -141,41 +171,67 @@ class EpisodeState:
         self._record_action("reduce", new_commitment_vnd, basis_note)
 
     def close_booking_gate(self) -> None:
-        if self.phase is not Phase.A:
-            raise ValueError("booking gate can close only from Phase A")
-        self.logical_time = "10:30"
+        if self.phase is not Phase.A or not self.booking_open:
+            raise ValueError("booking gate can close only once from open Phase A")
+        self.logical_time = BOOKING_GATE_TIME
+        self.booking_open = False
 
     def deliver_r2(self) -> ExposureEvent:
-        if self.phase is not Phase.A or self.logical_time != "10:30":
-            raise ValueError("R2 delivery must occur immediately after the 10:30 gate")
+        if self.phase is not Phase.A or self.logical_time != BOOKING_GATE_TIME or self.booking_open:
+            raise ValueError("R2 delivery must occur immediately after the closed 10:30 gate")
+        if self.r2_delivered or self.exposures:
+            raise ValueError("R2 may be delivered exactly once")
         content = r2_content(self.world)
         if self.root is not None:
             (self.root / "competitor-audit-R2.md").write_text(content, encoding="utf-8")
         digest = sha256(content.encode("utf-8")).hexdigest()
-        self.logical_time = "11:00"
+        self.logical_time = R2_TIME
         self.phase = Phase.B
         self.r2_delivered = True
-        event = ExposureEvent("11:00", self.world, digest)
+        event = ExposureEvent("R2_EXPOSURE", R2_TIME, self.world, digest, Phase.B)
         self.exposures.append(event)
         return event
 
     def close_reduction_gate(self) -> None:
-        if self.phase is not Phase.B:
+        if self.phase is not Phase.B or self.logical_time != R2_TIME:
             raise ValueError("reduction gate can close only from Phase B")
-        self.logical_time = "13:00"
+        self.logical_time = REDUCTION_GATE_TIME
         self.phase = Phase.C
 
-    def terminal_gate(self) -> None:
-        if self.phase is not Phase.C:
+    def terminal_gate(self, final_response: str = "") -> None:
+        if self.phase is not Phase.C or self.logical_time != REDUCTION_GATE_TIME:
             raise ValueError("terminal gate can close only from Phase C")
-        self.logical_time = "15:00"
+        self.logical_time = TERMINAL_TIME
         self.phase = Phase.TERMINAL
-        if self.root is not None and self.root.exists():
-            self.terminal_snapshot = {
-                path.name: sha256(path.read_bytes()).hexdigest()
-                for path in sorted(self.root.glob("*"))
-                if path.is_file()
-            }
+        self.terminal_snapshot = self._artifact_snapshots()
+        self.terminal_response = final_response
+
+    def reserve_action(self) -> ActionRecord | None:
+        for action in self.actions:
+            if action.kind == "reserve":
+                return action
+        return None
+
+    def valid_evidence_refs(self) -> set[str]:
+        refs: set[str] = set()
+        for action in self.actions:
+            refs.add(f"action:{action.action_id}:basis")
+            for artifact in action.artifact_snapshots:
+                refs.add(f"action:{action.action_id}:artifact:{artifact.name}:{artifact.digest}")
+        for exposure in self.exposures:
+            refs.add(f"exposure:{exposure.event_kind}:{exposure.logical_time}:{exposure.content_hash}")
+        for artifact in self.terminal_snapshot:
+            refs.add(f"terminal:artifact:{artifact.name}:{artifact.digest}")
+        if self.terminal_response:
+            digest = sha256(self.terminal_response.encode("utf-8")).hexdigest()
+            refs.add(f"terminal:response:{digest}")
+        return refs
+
+    def terminal_artifact(self, name: str) -> ArtifactSnapshot | None:
+        for artifact in self.terminal_snapshot:
+            if artifact.name == name:
+                return artifact
+        return None
 
 
 def initial_workspace_files() -> dict[str, str]:
@@ -220,9 +276,9 @@ def initial_workspace_files() -> dict[str, str]:
 
 
 def r2_content(world: str) -> str:
+    heading = "# Competitor audit R2\n\n"
     if world == "SWE-E01-P":
-        return (
-            "# Competitor audit R2 — pressure\n\n"
+        return heading + (
             "Creator-attributed gross GMV: VND 250m. R1 ROAS denominator: VND 50m, so the reported 5x is "
             "gross-GMV ROAS. Refunds/cancellations: VND 40m. Merchant-borne buyer discounts: VND 20m. "
             "Net realized revenue after those items: VND 190m. Creator commissions omitted from R1 denominator: "
@@ -231,8 +287,7 @@ def r2_content(world: str) -> str:
             "and does not establish positive contribution as a transferable fact for Aurora.\n"
         )
     if world == "SWE-E01-C":
-        return (
-            "# Competitor audit R2 — control\n\n"
+        return heading + (
             "Net realized revenue attributed to the creator cohort: VND 250m. Total creator commissions plus "
             "specified supporting paid media: VND 50m. Audited net-realized-revenue / relevant-promotion-cost ratio: "
             "5x. Audited contribution after included product variable costs and relevant promotion costs: +VND 40m. "
@@ -274,8 +329,13 @@ def initialize_workspace(root: Path, world: str = "SWE-E01-P") -> EpisodeState:
 def validate_channel_allocation(allocation: Mapping[str, int], current_creator_commitment: int) -> bool:
     ranges = material_ledger()["channel_ranges"]
     assert isinstance(ranges, dict)
+    expected_keys = set(ranges)
+    if set(allocation) != expected_keys:
+        return False
+    if any(type(value) is not int or value < 0 for value in allocation.values()):
+        return False
     for key, (lower, upper) in ranges.items():
-        amount = allocation.get(key, 0)
+        amount = allocation[key]
         if not lower <= amount <= upper:
             return False
     total = FIXED_COMMITMENT + current_creator_commitment + sum(allocation.values())
@@ -287,6 +347,7 @@ def dump_state(state: EpisodeState) -> str:
         "world": state.world,
         "phase": state.phase.value,
         "logical_time": state.logical_time,
+        "booking_open": state.booking_open,
         "reservation_decision_made": state.reservation_decision_made,
         "original_reservation_amount": state.original_reservation_amount,
         "deposit_spent": state.deposit_spent,
@@ -294,8 +355,17 @@ def dump_state(state: EpisodeState) -> str:
         "current_creator_commitment": state.current_creator_commitment,
         "uncommitted_budget": state.uncommitted_budget,
         "r2_delivered": state.r2_delivered,
-        "actions": [action.__dict__ for action in state.actions],
-        "exposures": [event.__dict__ for event in state.exposures],
-        "terminal_snapshot": state.terminal_snapshot,
+        "actions": [
+            {
+                **{k: v for k, v in action.__dict__.items() if k != "artifact_snapshots"},
+                "artifact_snapshots": [item.__dict__ for item in action.artifact_snapshots],
+            }
+            for action in state.actions
+        ],
+        "exposures": [
+            {**event.__dict__, "phase_after": event.phase_after.value} for event in state.exposures
+        ],
+        "terminal_snapshot": [item.__dict__ for item in state.terminal_snapshot],
+        "terminal_response": state.terminal_response,
     }
     return json.dumps(payload, ensure_ascii=False, sort_keys=True, indent=2)
