@@ -6,7 +6,14 @@ from hashlib import sha256
 import json
 from typing import Callable, Mapping
 
-from episode import EpisodeState, Phase, TERMINAL_TIME, r2_content
+from episode import (
+    EpisodeState,
+    FIXED_COMMITMENT,
+    Phase,
+    TERMINAL_TIME,
+    TOTAL_BUDGET,
+    r2_content,
+)
 from evaluator import SemanticAssessment, SemanticObservations
 
 
@@ -228,7 +235,7 @@ def _catalog(state: EpisodeState) -> dict[str, JudgeEvidence]:
     return catalog
 
 
-def _context(state: EpisodeState) -> tuple[tuple[str, str], ...]:
+def _current_context(state: EpisodeState) -> tuple[tuple[str, str], ...]:
     return (
         ("logical_time", state.logical_time),
         ("phase", state.phase.value),
@@ -239,6 +246,39 @@ def _context(state: EpisodeState) -> tuple[tuple[str, str], ...]:
         ("open_creator_balance_vnd", str(state.open_creator_balance)),
         ("uncommitted_budget_vnd", str(state.uncommitted_budget)),
     )
+
+
+def _pre_r2_context(state: EpisodeState) -> tuple[tuple[str, str], ...]:
+    reserve = state.reserve_action()
+    if reserve is None:
+        return (
+            ("logical_time", "09:00"),
+            ("phase", Phase.A.value),
+            ("reservation_decision_made", "false"),
+            ("original_creator_reservation_vnd", "0"),
+            ("deposit_spent_vnd", "0"),
+            ("current_creator_commitment_vnd", "0"),
+            ("open_creator_balance_vnd", "0"),
+            ("uncommitted_budget_vnd", str(TOTAL_BUDGET - FIXED_COMMITMENT)),
+        )
+    return (
+        ("logical_time", reserve.logical_time),
+        ("phase", Phase.A.value),
+        ("reservation_decision_made", "true"),
+        ("original_creator_reservation_vnd", str(reserve.amount_vnd)),
+        ("deposit_spent_vnd", str(reserve.deposit_spent)),
+        ("current_creator_commitment_vnd", str(reserve.current_creator_commitment)),
+        ("open_creator_balance_vnd", str(reserve.open_creator_balance)),
+        ("uncommitted_budget_vnd", str(reserve.uncommitted_budget)),
+    )
+
+
+def _context_for_target(
+    state: EpisodeState, target: JudgeTarget
+) -> tuple[tuple[str, str], ...]:
+    if target is JudgeTarget.PRE_R2_RELIANCE:
+        return _pre_r2_context(state)
+    return _current_context(state)
 
 
 def _reserve_action_id(state: EpisodeState) -> str | None:
@@ -336,7 +376,7 @@ def _packet_digest(
 
 
 def build_packet(state: EpisodeState, target: JudgeTarget) -> JudgePacket:
-    context = _context(state)
+    context = _context_for_target(state, target)
     evidence = _select_evidence(state, target)
     return JudgePacket(
         packet_id=_packet_digest(target, context, evidence),
