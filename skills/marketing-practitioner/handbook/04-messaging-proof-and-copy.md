@@ -155,7 +155,46 @@ Email combines relationship, timing, and inbox competition. Message design shoul
 
 ### Interface copy
 
-Buttons, errors, confirmations, empty states, and tooltips are part of task execution. Their priority is action clarity, consequence clarity, and error recovery rather than advertising tone.
+Buttons, errors, confirmations, empty states, status/progress messages, field guidance, and tooltips are part of task execution. Their priority is accurate task guidance: preserve the supported state, the actual action, material consequences, and any known recovery that the user needs now rather than treating interface text as miniature advertising.
+
+When product, system, or interaction state materially changes the wording, use only the decision-local checks that matter for the current task:
+
+- **current task/context** — identify what the user is trying to do, understand, complete, avoid, confirm, or recover from; an available feature or state does not automatically belong in every message;
+- **supported current state** — assert only state whose product/system source is sufficient for the assertion; a rendered absence is not proof that no domain object exists, and a failure does not establish its cause;
+- **action semantics** — when material, preserve whether the resolved action is available, required, optional, or unavailable; Chapter 04 expresses that state but does not decide whether the control or action should exist;
+- **material effect** — preserve the consequence that can change what the user may infer, including object/scope, timing, what remains unchanged, or reversibility only when those distinctions matter; an action label is not evidence of its effect;
+- **known recovery** — when the user is blocked or an operation failed, distinguish identifying the state from knowing a supported correction or continuation path. Do not invent retry, rollback, contact, or alternative actions merely to sound helpful.
+
+These are conditional reasoning questions, not a required interface schema. A passive status may need no action; a successful confirmation may need no recovery; a simple control may need no separate consequence sentence when its effect is already sufficiently clear. The useful checkpoint is: **what must the user understand now to interpret the state or act correctly without forming a false belief about the product, action, consequence, or recovery path?**
+
+Preserve these bounded fidelity distinctions:
+
+```text
+DISPLAY STATE
+≠ AUTHORITATIVE PRODUCT STATE
+
+NO VISIBLE CONTENT
+≠ NO DOMAIN OBJECTS
+
+FAILURE
+≠ KNOWN FAILURE CAUSE
+
+ERROR IDENTIFICATION
+≠ KNOWN RECOVERY
+
+ACTION LABEL
+≠ ACTION EFFECT
+
+KNOWN RECOVERY
+≠ ASSUMED RECOVERY
+
+INTERFACE EXPRESSION
+≠ PERMISSION TO INVENT PRODUCT BEHAVIOR
+```
+
+If a fact required for truthful interface expression is unresolved, preserve the uncertainty and request or route that dependency rather than filling it with a plausible convention. Chapter 04 does not decide interaction flow, component choice, navigation, control existence, confirmation presence, permission timing, technical retry/undo behavior, authorization policy, or product capability. Unresolved commercial semantics such as entitlement, renewal, cancellation, refund, or commitment remain with Chapter 10; once resolved they may be expressed here without redesign. Materially unresolved target-language realization remains with Chapter 07 when wording can alter authority, obligation, responsibility, relationship, identity, or standing.
+
+Do not turn common design-system conventions into laws: buttons need not always start with verbs, errors need not always be inline or immediate, every empty state need not contain a CTA or illustration, and destructive actions, permissions, onboarding, tooltips, brevity, or friendliness do not each imply one universal treatment. Use such conventions only when they fit the resolved interaction and current task.
 
 ### Professional social content
 
