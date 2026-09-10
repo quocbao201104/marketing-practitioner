@@ -38,6 +38,8 @@ The skill connects those jobs when the work requires it. A simple rewrite can st
 | Investigate search, paid-media, or commerce performance | What the observations establish, plausible explanations, and a useful next check |
 | Plan a test or learn from results | A decision-linked comparison or a reusable finding with its evidence limits |
 
+For concrete assignments, example requests, and the depth of work supported, see [Use Cases](USE-CASES.md).
+
 These are supported work areas, not guarantees of marketing performance. The agent's model, available evidence, and execution tools still matter.
 
 ## Quick start
