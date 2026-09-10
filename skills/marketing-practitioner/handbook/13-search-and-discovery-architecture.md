@@ -56,7 +56,7 @@ A second operating principle follows:
 
 > Diagnose the earliest unresolved discovery boundary before rewriting the artifact or inferring demand, relevance, or causal impact from downstream telemetry.
 
-The field evidence for this chapter includes official current documentation from Google, OpenAI, Perplexity, and Bing plus established information-retrieval/user-behavior research [SD01–SD14]. The specialist synthesis is a practitioner model; it is not one validated universal theory of every search, recommendation, or answer engine.
+The field evidence for this chapter includes official current documentation from Google, OpenAI, Perplexity, and Bing plus established information-retrieval/user-behavior research [SD01–SD17]. The specialist synthesis is a practitioner model; it is not one validated universal theory of every search, recommendation, or answer engine.
 
 ### Search is one discovery mode
 
@@ -707,11 +707,160 @@ Use a bounded diagnostic path:
    does another owner need to act?
 ```
 
-Common handoffs:
+### 7.1 Search-facing content intervention
+
+Once the material discovery boundary is sufficiently localized, do not turn the diagnosis into an automatic writing instruction. Search/discovery evidence can authorize a bounded change only when it is adequate for the decision and a material mismatch exists inside a publisher-controlled representation, content, or page-relationship surface.
+
+Use this gate:
+
+```text
+1. EVIDENCE SUFFICIENCY
+   What does the current evidence actually establish?
+   If a material distinction is unobserved, keep it unknown.
+
+2. PROBLEM LOCALIZATION
+   Is the open issue availability / identity, retrieval / selection,
+   system representation, publisher representation, page relationship,
+   page content, technical implementation, measurement, upstream strategy,
+   or still unknown?
+
+3. RESOLVED-STATE PRESERVATION
+   Which page job, audience state, positioning, message, claim / proof,
+   and commercial facts are already sufficiently resolved and must not
+   be silently reopened by search telemetry?
+
+4. MATERIAL MISMATCH TEST
+   Does the current publisher-controlled artifact or relationship fail
+   to faithfully realize that resolved state in this discovery context?
+
+5. MINIMUM JUSTIFIED DISPOSITION
+   KEEP
+   REPAIR REPRESENTATION
+   MODIFY BOUNDED CONTENT
+   DIFFERENTIATE
+   CONSOLIDATE
+   ROUTE TO OTHER OWNER
+   NOT_ASSESSABLE
+```
+
+`NOT_ASSESSABLE` means the supplied discovery evidence is insufficient to authorize the proposed repair. It does not mean that no defect exists or that no later action is possible.
+
+Search language can be useful evidence about recognizable expression without becoming claim or strategy authority. For example, a recurring query phrase can suggest a clearer way to express an already-supported category or page job. It does not by itself establish that the phrase is true, that every searcher shares one intent, or that an unsupported superiority claim may be adopted.
+
+Keep:
+
+```text
+SEARCH LANGUAGE
+≠ MARKETING CLAIM
+
+QUERY TERM
+≠ REQUIRED PAGE TERM
+
+SERP COMPOSITION
+≠ CONTENT SPECIFICATION
+
+TOP-RANKING PAGE FEATURE
+≠ CAUSAL RANKING FACTOR
+
+SEARCH RECOGNIZABILITY
+DOES NOT OVERRIDE
+SEMANTIC FIDELITY
+```
+
+When the evidence only shows a downstream symptom such as lower CTR, ranking movement, or fewer citations, do not authorize a content change until the material discovery and observation boundaries are localized as far as the decision requires.
+
+### 7.2 Page-role and relationship diagnosis
+
+Do not use `keyword cannibalization` as a primitive or default diagnosis. Separate the overlap dimensions that can change the decision:
+
+```text
+URL IDENTITY OVERLAP
+CONTENT SIMILARITY
+PAGE-JOB OVERLAP
+QUERY OVERLAP
+OBSERVED PERFORMANCE INTERFERENCE
+```
+
+Do not infer:
+
+```text
+SAME QUERY
+→ SAME PAGE JOB
+→ DUPLICATE
+→ HARM
+```
+
+Two pages can appear for the same or similar query while serving independently useful reader jobs. When the jobs remain legitimate, preserve the distinction and clarify the relationship or representation only if evidence shows that it is materially blurred.
+
+Use the existing typed-relationship grammar for internal links:
+
+```text
+SOURCE OBJECT
+      ↓
+TYPED RELATIONSHIP
+      ↓
+ANCHOR / CONTEXT REPRESENTATION
+      ↓
+TARGET OBJECT
+```
+
+Ask what reader traversal the relationship supports, what distinction the anchor communicates, whether it creates an accurate expectation about the target, and whether it clarifies or blurs the two page jobs. Current Google guidance supports descriptive contextual anchor text and crawlable links without establishing a universal link-count, authority-flow, or keyword formula [SD17].
+
+A semantic disposition can be:
+
+```text
+DISTINCT LEGITIMATE JOBS
+→ KEEP / clarify relationship
+
+LEGITIMATE JOBS, MISLEADINGLY SIMILAR REPRESENTATION
+→ DIFFERENTIATE
+
+NO LONGER INDEPENDENTLY USEFUL AS COMMUNICATION OBJECTS
+→ CONSOLIDATE candidate
+```
+
+Keep the technical boundary:
+
+```text
+SEMANTIC CONSOLIDATION
+≠ CANONICALIZATION
+≠ REDIRECT / NOINDEX IMPLEMENTATION
+```
+
+If the pages remain legitimately distinct but the observed problem is a canonical, redirect, hreflang, server, crawl, or indexing implementation state, route that implementation dependency rather than rewriting otherwise valid marketing content merely to force technical differentiation.
+
+### 7.3 Representation and content repair boundaries
+
+A bounded search-facing repair can act on publisher-controlled representations such as a `<title>` element, a main heading, a meta-description candidate, bounded page coverage, anchor wording/context, or the clarity of a page-role relationship.
+
+Google documents that title links are generated automatically from several possible sources, including the `<title>` element, main visual title, headings, page text, and link text [SD15]. Therefore:
+
+```text
+<title>
+≠ SURFACED TITLE LINK
+```
+
+A title repair is justified when the publisher-controlled title or related signals fail to accurately and distinctly describe an already-resolved page job. It is not justified merely to repeat query variants or promise a ranking/CTR effect.
+
+Google documents that snippets are primarily generated from page content and can vary by search; a meta description may be used when it better describes the page [SD16]. Therefore:
+
+```text
+META DESCRIPTION
+≠ GUARANTEED SURFACED SNIPPET
+```
+
+Treat a meta-description rewrite as a candidate publisher input, not control over the surfaced representation and not proof of causal traffic improvement.
+
+For body content, ask whether the missing information is actually required by the legitimate page job and reader state. Do not add a section, FAQ, word count, related term, or competitor-covered topic merely because it appears in search results or an SEO tool recommends it.
+
+This intervention layer may authorize a message/page repair without taking ownership of the underlying decision. Preserve these handoffs:
 
 ```text
 customer / segment / demand inference
 → Chapter 01 / 02
+
+positioning / category / value / differentiation
+→ Chapter 03
 
 message / claim / proof problem
 → Chapter 04
@@ -727,7 +876,12 @@ product / variant / listing / commerce discovery
 
 landing-page architecture after entry
 → Chapter 11 / landing-page.*
+
+technical crawling / indexing / canonical / redirect / hreflang / server execution
+→ authoritative technical dependency
 ```
+
+AI or generative-search visibility does not create a separate content-intervention authority. Preserve the existing availability / retrieval / selection / grounding / observation distinctions and the current provider evidence in [SD02]; do not create a GEO/AEO/LLMO writing ontology from citation absence or imagined query fan-out.
 
 ### Example: rank present, AI citation absent
 
@@ -796,6 +950,7 @@ surface-defined event / unit / coverage / uncertainty
 
 DECISION
 what to change, preserve, test, or leave unresolved
+intervention disposition / repair surface / preserved state when material
 
 HANDOFF
 which owner receives the next open decision, if any
@@ -821,6 +976,21 @@ QUERY
 ≠ UNIQUE INTENT
 ≠ RETRIEVAL FORMULATION
 
+SEARCH LANGUAGE
+≠ MARKETING CLAIM
+
+QUERY TERM
+≠ REQUIRED PAGE TERM
+
+SERP COMPOSITION
+≠ CONTENT SPECIFICATION
+
+SAME QUERY
+≠ SAME PAGE JOB
+
+SEMANTIC CONSOLIDATION
+≠ CANONICALIZATION
+
 PUBLISHED
 ≠ SYSTEM-KNOWN
 ≠ RETRIEVABLE
@@ -833,6 +1003,12 @@ PUBLISHER REPRESENTATION
 
 PUBLISHER-PREFERRED IDENTITY
 ≠ SYSTEM-SELECTED REPRESENTATIVE
+
+<title>
+≠ SURFACED TITLE LINK
+
+META DESCRIPTION
+≠ GUARANTEED SURFACED SNIPPET
 
 AGE
 ≠ STALENESS
@@ -877,6 +1053,9 @@ CITATION
 SEARCH INTEREST
 ≠ MARKET DEMAND
 
+SEARCH SYMPTOM
+≠ CONTENT DEFECT
+
 ATTRIBUTED OUTCOME
 ≠ CAUSED OUTCOME
 
@@ -890,4 +1069,4 @@ Do not create SEO/GEO/AEO/LLMO ontologies, a global `DISCOVERABLE` boolean, a un
 
 ## References
 
-See `../references/search-discovery-evidence.md` for [SD01–SD14], evidence scope, and current-provider boundaries.
+See `../references/search-discovery-evidence.md` for [SD01–SD17], evidence scope, and current-provider boundaries.
