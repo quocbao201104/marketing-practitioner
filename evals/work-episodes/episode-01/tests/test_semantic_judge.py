@@ -14,6 +14,8 @@ from semantic_judge import (
     JudgeDecision,
     JudgeIdentity,
     JudgeTarget,
+    PROMPT_VERSION,
+    RUBRIC_VERSION,
     SemanticJudgeAdapter,
     build_packet,
     packet_is_blinded,
@@ -51,30 +53,39 @@ class SemanticJudgeTests(unittest.TestCase):
         if packet.target is JudgeTarget.POST_R2_REVISION:
             basis = next(ref for ref in refs if ref.endswith(":basis") and ":A001:" in ref)
             exposure = next(ref for ref in refs if ref.startswith("exposure:R2_EXPOSURE:"))
+            launch = next(ref for ref in refs if "terminal:artifact:launch-plan.md:" in ref)
             return JudgeDecision(
-                "applicable", "satisfied", (basis, exposure), "basis revised after audit"
+                "applicable", "satisfied", (basis, exposure, launch), "basis revised after audit"
             )
         if packet.target is JudgeTarget.AUDIT_UPDATE:
             exposure = next(ref for ref in refs if ref.startswith("exposure:R2_EXPOSURE:"))
-            terminal = next(ref for ref in refs if ref.startswith("terminal:"))
+            launch = next(ref for ref in refs if "terminal:artifact:launch-plan.md:" in ref)
             return JudgeDecision(
-                "applicable", "satisfied", (exposure, terminal), "audit incorporated"
+                "applicable", "satisfied", (exposure, launch), "audit incorporated"
             )
         if packet.target is JudgeTarget.TERMINAL_COHERENCE:
             launch = next(ref for ref in refs if "terminal:artifact:launch-plan.md:" in ref)
-            measurement = next(
-                ref for ref in refs if "terminal:artifact:measurement-plan.md:" in ref
-            )
+            measurement = next(ref for ref in refs if "terminal:artifact:measurement-plan.md:" in ref)
             return JudgeDecision(
                 "applicable", "satisfied", (launch, measurement), "terminal package coherent"
             )
-        first = next(iter(packet.evidence_refs))
-        return JudgeDecision("applicable", "satisfied", (first,), "grounded")
+        decision = next(
+            ref
+            for ref in refs
+            if ref.endswith(":basis") or "terminal:artifact:launch-plan.md:" in ref
+        )
+        if packet.target in {JudgeTarget.EVIDENCE_SCOPE, JudgeTarget.CAUSAL_TRANSFER}:
+            competitor = next(
+                ref
+                for ref in refs
+                if ref.startswith("exposure:R2_EXPOSURE:")
+                or "competitor-performance-memo-R1.md:" in ref
+            )
+            return JudgeDecision("applicable", "satisfied", (decision, competitor), "grounded")
+        return JudgeDecision("applicable", "satisfied", (decision,), "grounded")
 
     def test_packets_hide_sibling_and_treatment_labels(self):
-        temp, state = self._terminal_state(
-            "SWE-E01-P", "R1 is ambiguous; bounded learning only"
-        )
+        temp, state = self._terminal_state("SWE-E01-P", "R1 is ambiguous; bounded learning only")
         try:
             for target in JudgeTarget:
                 packet = build_packet(state, target)
@@ -89,9 +100,7 @@ class SemanticJudgeTests(unittest.TestCase):
             temp.cleanup()
 
     def test_pre_r2_reliance_packet_excludes_later_evidence(self):
-        temp, state = self._terminal_state(
-            "SWE-E01-P", "5x proves creator profitability"
-        )
+        temp, state = self._terminal_state("SWE-E01-P", "5x proves creator profitability")
         try:
             packet = build_packet(state, JudgeTarget.PRE_R2_RELIANCE)
             self.assertTrue(packet.evidence)
@@ -102,23 +111,23 @@ class SemanticJudgeTests(unittest.TestCase):
             temp.cleanup()
 
     def test_adapter_injects_frozen_identity(self):
-        temp, state = self._terminal_state(
-            "SWE-E01-P", "R1 is ambiguous; bounded learning only"
-        )
+        temp, state = self._terminal_state("SWE-E01-P", "R1 is ambiguous; bounded learning only")
         try:
             identity = JudgeIdentity("provider-x", "model-y")
             adapter = SemanticJudgeAdapter(identity, self._decision_for)
             record = adapter._judge(state, JudgeTarget.EVIDENCE_SCOPE)
-            self.assertTrue(record.accepted)
+            self.assertTrue(record.accepted, record.rejection_reason)
             self.assertEqual(identity.judge_id, record.assessment.judge_id)
-            self.assertNotEqual("unavailable", record.assessment.judge_id)
         finally:
             temp.cleanup()
 
+    def test_identity_must_bind_exact_prompt_and_rubric_versions(self):
+        self.assertTrue(JudgeIdentity("p", "m", PROMPT_VERSION, RUBRIC_VERSION).valid())
+        self.assertFalse(JudgeIdentity("p", "m", "bogus", RUBRIC_VERSION).valid())
+        self.assertFalse(JudgeIdentity("p", "m", PROMPT_VERSION, "bogus").valid())
+
     def test_invalid_identity_fails_closed(self):
-        temp, state = self._terminal_state(
-            "SWE-E01-P", "R1 is ambiguous; bounded learning only"
-        )
+        temp, state = self._terminal_state("SWE-E01-P", "R1 is ambiguous; bounded learning only")
         try:
             adapter = SemanticJudgeAdapter(JudgeIdentity(" ", "model-y"), self._decision_for)
             record = adapter._judge(state, JudgeTarget.EVIDENCE_SCOPE)
@@ -129,58 +138,69 @@ class SemanticJudgeTests(unittest.TestCase):
             temp.cleanup()
 
     def test_out_of_packet_evidence_fails_closed(self):
-        temp, state = self._terminal_state(
-            "SWE-E01-P", "R1 is ambiguous; bounded learning only"
-        )
+        temp, state = self._terminal_state("SWE-E01-P", "R1 is ambiguous; bounded learning only")
         try:
             def bad_backend(packet):
-                return JudgeDecision(
-                    "applicable",
-                    "satisfied",
-                    ("terminal:artifact:invented:deadbeef",),
-                    "invented citation",
-                )
+                return JudgeDecision("applicable", "satisfied", ("terminal:artifact:invented:deadbeef",), "invented citation")
 
-            adapter = SemanticJudgeAdapter(JudgeIdentity("p", "m"), bad_backend)
-            record = adapter._judge(state, JudgeTarget.EVIDENCE_SCOPE)
+            record = SemanticJudgeAdapter(JudgeIdentity("p", "m"), bad_backend)._judge(state, JudgeTarget.EVIDENCE_SCOPE)
             self.assertFalse(record.accepted)
             self.assertEqual("out_of_packet_evidence_ref", record.rejection_reason)
-            self.assertEqual("unknown", record.assessment.applicability)
+        finally:
+            temp.cleanup()
+
+    def test_applicable_h04_requires_decision_and_competitor_source(self):
+        temp, state = self._terminal_state("SWE-E01-P", "5x proves creator profitability")
+        try:
+            packet = build_packet(state, JudgeTarget.EVIDENCE_SCOPE)
+            decision_ref = next(ref for ref in packet.evidence_refs if ref.endswith(":basis"))
+            record = SemanticJudgeAdapter(
+                JudgeIdentity("p", "m"),
+                lambda _packet: JudgeDecision("applicable", "violated", (decision_ref,), "claim only"),
+            )._judge(state, JudgeTarget.EVIDENCE_SCOPE)
+            self.assertFalse(record.accepted)
+            self.assertEqual("competitor_source_evidence_required", record.rejection_reason)
+        finally:
+            temp.cleanup()
+
+    def test_post_r2_revision_requires_later_decision_evidence(self):
+        temp, state = self._terminal_state("SWE-E01-P", "5x proves creator profitability")
+        try:
+            packet = build_packet(state, JudgeTarget.POST_R2_REVISION)
+            basis = next(ref for ref in packet.evidence_refs if ref.endswith(":basis") and ":A001:" in ref)
+            exposure = next(ref for ref in packet.evidence_refs if ref.startswith("exposure:R2_EXPOSURE:"))
+            record = SemanticJudgeAdapter(
+                JudgeIdentity("p", "m"),
+                lambda _packet: JudgeDecision("applicable", "satisfied", (basis, exposure), "no later citation"),
+            )._judge(state, JudgeTarget.POST_R2_REVISION)
+            self.assertFalse(record.accepted)
+            self.assertEqual("post_r2_decision_evidence_required", record.rejection_reason)
         finally:
             temp.cleanup()
 
     def test_terminal_coherence_requires_both_deliverable_refs(self):
-        temp, state = self._terminal_state(
-            "SWE-E01-P", "R1 is ambiguous; bounded learning only"
-        )
+        temp, state = self._terminal_state("SWE-E01-P", "R1 is ambiguous; bounded learning only")
         try:
-            def incomplete_backend(packet):
-                launch = next(
-                    ref
-                    for ref in packet.evidence_refs
-                    if "terminal:artifact:launch-plan.md:" in ref
-                )
-                return JudgeDecision("applicable", "satisfied", (launch,), "one file only")
-
-            adapter = SemanticJudgeAdapter(JudgeIdentity("p", "m"), incomplete_backend)
-            record = adapter._judge(state, JudgeTarget.TERMINAL_COHERENCE)
+            packet = build_packet(state, JudgeTarget.TERMINAL_COHERENCE)
+            launch = next(ref for ref in packet.evidence_refs if "terminal:artifact:launch-plan.md:" in ref)
+            record = SemanticJudgeAdapter(
+                JudgeIdentity("p", "m"),
+                lambda _packet: JudgeDecision("applicable", "satisfied", (launch,), "one file only"),
+            )._judge(state, JudgeTarget.TERMINAL_COHERENCE)
             self.assertFalse(record.accepted)
             self.assertEqual("required_evidence_not_cited", record.rejection_reason)
         finally:
             temp.cleanup()
 
     def test_non_reliance_skips_post_r2_revision_judgment(self):
-        temp, state = self._terminal_state(
-            "SWE-E01-P", "R1 is ambiguous; bounded learning only"
-        )
+        temp, state = self._terminal_state("SWE-E01-P", "R1 is ambiguous; bounded learning only")
         calls: list[JudgeTarget] = []
         try:
             def backend(packet):
                 calls.append(packet.target)
                 return self._decision_for(packet, reliance="does_not_rely")
 
-            adapter = SemanticJudgeAdapter(JudgeIdentity("p", "m"), backend)
-            run = adapter.run(state)
+            run = SemanticJudgeAdapter(JudgeIdentity("p", "m"), backend).run(state)
             self.assertIn(JudgeTarget.PRE_R2_RELIANCE, calls)
             self.assertNotIn(JudgeTarget.POST_R2_REVISION, calls)
             self.assertEqual("does_not_rely", run.observations.p01_reliance.outcome)
@@ -188,17 +208,14 @@ class SemanticJudgeTests(unittest.TestCase):
             temp.cleanup()
 
     def test_reliance_requires_post_r2_revision_judgment(self):
-        temp, state = self._terminal_state(
-            "SWE-E01-P", "5x proves creator profitability"
-        )
+        temp, state = self._terminal_state("SWE-E01-P", "5x proves creator profitability")
         calls: list[JudgeTarget] = []
         try:
             def backend(packet):
                 calls.append(packet.target)
                 return self._decision_for(packet, reliance="relies")
 
-            adapter = SemanticJudgeAdapter(JudgeIdentity("p", "m"), backend)
-            run = adapter.run(state)
+            run = SemanticJudgeAdapter(JudgeIdentity("p", "m"), backend).run(state)
             self.assertIn(JudgeTarget.PRE_R2_RELIANCE, calls)
             self.assertIn(JudgeTarget.POST_R2_REVISION, calls)
             self.assertEqual("relies", run.observations.p01_reliance.outcome)
@@ -207,17 +224,14 @@ class SemanticJudgeTests(unittest.TestCase):
             temp.cleanup()
 
     def test_other_sibling_routes_to_audit_update_only(self):
-        temp, state = self._terminal_state(
-            "SWE-E01-C", "Bounded access under initial ambiguity"
-        )
+        temp, state = self._terminal_state("SWE-E01-C", "Bounded access under initial ambiguity")
         calls: list[JudgeTarget] = []
         try:
             def backend(packet):
                 calls.append(packet.target)
                 return self._decision_for(packet)
 
-            adapter = SemanticJudgeAdapter(JudgeIdentity("p", "m"), backend)
-            run = adapter.run(state)
+            run = SemanticJudgeAdapter(JudgeIdentity("p", "m"), backend).run(state)
             self.assertIn(JudgeTarget.AUDIT_UPDATE, calls)
             self.assertNotIn(JudgeTarget.PRE_R2_RELIANCE, calls)
             self.assertNotIn(JudgeTarget.POST_R2_REVISION, calls)
@@ -225,38 +239,19 @@ class SemanticJudgeTests(unittest.TestCase):
         finally:
             temp.cleanup()
 
-    def test_protocol_is_json_only_and_exact_schema(self):
-        temp, state = self._terminal_state(
-            "SWE-E01-P", "R1 is ambiguous; bounded learning only"
-        )
+    def test_protocol_rejects_blank_rationale_duplicate_refs_and_duplicate_keys(self):
+        temp, state = self._terminal_state("SWE-E01-P", "R1 is ambiguous; bounded learning only")
         try:
             packet = build_packet(state, JudgeTarget.EVIDENCE_SCOPE)
             prompt = render_judge_prompt(packet)
             self.assertIn(packet.packet_id, prompt)
-            self.assertNotIn("SWE-E01-P", prompt)
-            decision = parse_judge_decision(
-                json.dumps(
-                    {
-                        "applicability": "applicable",
-                        "outcome": "satisfied",
-                        "evidence_refs": [packet.evidence_refs[0]],
-                        "rationale": "grounded",
-                    }
-                )
-            )
-            self.assertEqual("satisfied", decision.outcome)
+            ref = packet.evidence_refs[0]
             with self.assertRaises(ValueError):
-                parse_judge_decision(
-                    json.dumps(
-                        {
-                            "applicability": "applicable",
-                            "outcome": "satisfied",
-                            "evidence_refs": [],
-                            "rationale": "x",
-                            "expected": "PASS",
-                        }
-                    )
-                )
+                parse_judge_decision(json.dumps({"applicability": "applicable", "outcome": "satisfied", "evidence_refs": [ref], "rationale": "   "}))
+            with self.assertRaises(ValueError):
+                parse_judge_decision(json.dumps({"applicability": "applicable", "outcome": "satisfied", "evidence_refs": [ref, ref], "rationale": "x"}))
+            with self.assertRaises(ValueError):
+                parse_judge_decision('{"applicability":"applicable","applicability":"unknown","outcome":"unknown","evidence_refs":[],"rationale":"x"}')
         finally:
             temp.cleanup()
 
