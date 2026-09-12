@@ -36,7 +36,7 @@ codex plugin marketplace add https://github.com/quocbao201104/marketing-practiti
 codex plugin add marketing-practitioner@marketing-practitioner
 ```
 
-Refresh or upgrade the marketplace and apply the plugin update when offered. An existing installation may still display the Claude-compatible catalog path until its marketplace registration is refreshed. Confirm the installed skill's `metadata.version` is `1.7.1`, then start a new task. Updating Git or downloading a release ZIP does not update the installed plugin cache.
+Refresh or upgrade the marketplace and apply the plugin update when offered. An existing installation may still display the Claude-compatible catalog path until its marketplace registration is refreshed. Confirm the installed skill's `metadata.version` is `1.7.2`, then start a new task. Updating Git or downloading a release ZIP does not update the installed plugin cache.
 
 See the [OpenAI marketplace format reference](https://learn.chatgpt.com/docs/enterprise/plugin-management#supported-formats) for native and compatible catalog layouts. For a separate local catalog, use a local source path relative to that catalog's root.
 
