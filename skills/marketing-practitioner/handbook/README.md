@@ -16,14 +16,14 @@ Scoped local adaptation is intentionally kept outside the shared handbook under 
 | [`01-customer-research-and-evidence.md`](01-customer-research-and-evidence.md) | customer evidence | interviews, reviews, surveys, support, sales notes, or other customer material must inform a decision |
 | [`02-segmentation-icp-and-jtbd.md`](02-segmentation-icp-and-jtbd.md) | segmentation / ICP / JTBD | customer heterogeneity, reachability, economics, switching context, or jobs change who should be prioritized |
 | [`03-positioning-and-value.md`](03-positioning-and-value.md) | positioning / value | target context, relevant alternative, category/frame, primary value, proof, differentiation, or trade-off is unresolved |
-| [`04-messaging-proof-and-copy.md`](04-messaging-proof-and-copy.md) | message / copy | message hierarchy, proof architecture, claim control, substantial copy structure, or human-writing review is unresolved |
+| [`04-messaging-proof-and-copy.md`](04-messaging-proof-and-copy.md) | message / evidence-grounded copywriting | message hierarchy, claim/proof, persuasion barrier, angle/concept/hook, argument progression, persuasive closure, sentence craft, editing/voice, or constrained short-form realization is unresolved |
 | [`05-diagnosis-causality-and-experimentation.md`](05-diagnosis-causality-and-experimentation.md) | diagnosis / causality / experiments | a metric changed, cause is disputed, or a test/intervention must be designed or interpreted |
 | [`06-organizational-learning.md`](06-organizational-learning.md) | reusable learning | a result should change future decisions rather than merely be summarized |
 | [`07-international-marketing-and-ethics.md`](07-international-marketing-and-ethics.md) | localization / ethics | market adaptation, cultural claims, jurisdictional context, meaningful-choice constraints, or target-language realization is material |
 | [`08-content-environments-and-distribution.md`](08-content-environments-and-distribution.md) | content environments | platform-native content, distribution, audience state, participation, recommendation, or measurement structure can change the decision |
 | [`09-commerce-environments-and-product-discovery.md`](09-commerce-environments-and-product-discovery.md) | commerce environments | catalog/listing identity, commercial state, discovery, recommendation, agent-mediated commerce, or marketplace interpretation is unresolved |
 | [`10-commercial-design-pricing-and-terms.md`](10-commercial-design-pricing-and-terms.md) | commercial design | package/entitlement, payment architecture, relationship/risk terms, allocation, pricing evidence, or commercial transition is still an open decision |
-| [`11-landing-page-architecture.md`](11-landing-page-architecture.md) | landing-page architecture | reader/message/proof/commercial state is sufficiently resolved and the remaining decision is page sequence, allocation, proof/risk/visual placement, CTA/forms, comparison representation, or responsive meaningful order |
+| [`11-landing-page-architecture.md`](11-landing-page-architecture.md) | landing-page architecture | reader/message/proof/commercial state is sufficiently resolved and the remaining decision is page sequence, decision graph, scan/deep paths, information reachability, cross-page delegation, proof/risk/visual placement, CTA/forms, comparison representation, responsive order, or path testing |
 | [`12-email-communication-architecture.md`](12-email-communication-architecture.md) | email communication architecture | message/claim/proof is sufficiently resolved and the remaining decision is whether/when to communicate, scoped send state, sequence/wait/exit logic, inbox→message allocation, continuity, or email observation semantics |
 | [`13-search-and-discovery-architecture.md`](13-search-and-discovery-architecture.md) | search & discovery architecture | generic non-commerce information/entity availability, retrieval/selection, human-selection vs system-answer commitment, grounding/citation boundaries, or discovery observation semantics can change the decision |
 | [`14-paid-media-architecture.md`](14-paid-media-architecture.md) | paid media architecture | economic resource, paid-control semantics, buying/allocation boundary, delivery/realization state, billing/attribution, or optimization feedback can change a paid-exposure decision |
@@ -73,6 +73,17 @@ DISCOVERY AVAILABILITY / RETRIEVAL / SELECTION / COMMITMENT
 PAID CONTROL / RESOURCE ALLOCATION / DELIVERY / FEEDBACK
 ```
 
+The copywriting routes are addressable knowledge inside Chapter 04, not a new controller job or a mandatory pipeline:
+
+```text
+PERSUASION DIAGNOSIS
+!= ANGLE / CONCEPT / HOOK
+!= ARGUMENT PROGRESSION
+!= PERSUASIVE CLOSURE
+!= SENTENCE CRAFT
+!= EDITING / VOICE REPAIR
+```
+
 Brand Identity preserves a hard execution boundary:
 
 ```text
@@ -103,7 +114,25 @@ Examples:
 → Chapter 10
 
 "The price is already $29. Write the landing-page copy."
-→ Chapter 04 as needed; do not reopen Chapter 10
+→ Chapter 04 / copywriting.* as needed; do not reopen Chapter 10
+
+"Give me three genuinely different selling angles from these interviews and product facts."
+→ copywriting.angle
+
+"The angle is fixed. Build the persuasive argument for a skeptical enterprise buyer."
+→ copywriting.progression
+
+"Can we responsibly ask for an annual paid commitment with this proof and remaining uncertainty?"
+→ copywriting.closure
+
+"Rewrite this sentence more clearly without changing claim scope or causality."
+→ copywriting.craft when non-trivial specialist guidance is needed
+
+"This existing draft sounds polished but wrong. Diagnose and repair it while preserving voice."
+→ copywriting.editing
+
+"Write a cold DM from this resolved message and proof without inventing familiarity."
+→ copywriting.short-form when constrained realization remains open
 
 "Positioning is approved. Develop a visual identity for the new product."
 → Chapter 15 through the smallest brand-identity.* routes; do not reopen Chapter 03 without a real unresolved dependency
@@ -122,6 +151,12 @@ Examples:
 
 "The message, proof, price, and CTA are approved. Decide the page sequence and visual/proof placement."
 → Chapter 11 through the smallest landing-page.* route
+
+"The page must support ready buyers, skeptical newcomers, and security evaluators without forcing one linear path."
+→ landing-page.decision-graph + landing-page.path-test as needed
+
+"Security detail has a canonical page. How much must the solution page still show?"
+→ landing-page.cross-page
 
 "The email message is approved. Should we send now, wait, suppress, or branch based on prior state?"
 → Chapter 12 through the smallest email.* route
@@ -159,17 +194,27 @@ Examples:
 
 ## Large-chapter and adaptation routing
 
-Chapters 08–15 and registered adaptation families expose stable logical routes through `../routing-index.json`.
+Chapter 04's copywriting core, Chapters 08–15, and registered adaptation families expose stable logical routes through `../routing-index.json`.
 
 Examples:
 
 ```text
+copywriting.persuasion
+copywriting.angle
+copywriting.progression
+copywriting.closure
+copywriting.craft
+copywriting.editing
+copywriting.short-form
 content.machine-mediation
 commerce.commercial-state
 commerce.resolvability
 commercial-design.payment
 commercial-design.dynamics
 landing-page.sequence
+landing-page.decision-graph
+landing-page.cross-page
+landing-page.path-test
 landing-page.visual
 landing-page.action-form
 landing-page.responsive
@@ -196,8 +241,12 @@ adapt-localization.relationship-realization
 When helper execution is available:
 
 ```bash
+python ../scripts/get-knowledge.py copywriting.angle
+python ../scripts/get-knowledge.py copywriting.progression
+python ../scripts/get-knowledge.py copywriting.editing
 python ../scripts/get-knowledge.py commercial-design.payment
-python ../scripts/get-knowledge.py landing-page.sequence
+python ../scripts/get-knowledge.py landing-page.decision-graph
+python ../scripts/get-knowledge.py landing-page.cross-page
 python ../scripts/get-knowledge.py email.send-decision
 python ../scripts/get-knowledge.py email.continuity
 python ../scripts/get-knowledge.py discovery.availability

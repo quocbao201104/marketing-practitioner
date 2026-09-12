@@ -151,7 +151,37 @@ When causal response, incrementality, experiment design, or treatment effects be
 
 Use when the requested outcome is audience-facing communication or a message/copy decision.
 
-Read `handbook/04-messaging-proof-and-copy.md` when an unresolved message/copy decision requires message hierarchy, proof architecture, claim control, substantial copy structure, landing-page message/copy resolution, or a human-writing review. A narrow transformation or platform-format adaptation with supplied message and proof does not by itself require Chapter 04. Substantial artifact length alone is not an unresolved message-structure decision: when a downstream environment or representation owner has already resolved the interaction job, information order, ask, or participation posture, Chapter 04 may still constrain claims, proof, or voice but does not take back ownership of the artifact outline.
+When the unresolved question is specifically copywriting and specialist guidance can change the answer, use the `copywriting` namespace and load only the smallest route that resolves the open decision:
+
+```text
+reader-state / persuasion barrier
+→ copywriting.persuasion
+
+selling route / angle / concept / hook
+→ copywriting.angle
+
+argument dependency / progression
+→ copywriting.progression
+
+evidence adequacy / residual uncertainty / risk / commitment / next action
+→ copywriting.closure
+
+sentence / paragraph realization
+→ copywriting.craft
+
+existing-copy diagnosis / voice-preserving repair
+→ copywriting.editing
+
+constrained short-form realization
+→ copywriting.short-form
+
+owner / stop-rule uncertainty
+→ copywriting.handoffs
+```
+
+`copywriting.core` is optional when the activation boundary itself is unclear; it is not a mandatory hop. Do not load the whole Chapter 04 merely because a copywriting subroute choice is unclear. `routing-index.json` remains the source of truth for physical headings and selectors.
+
+Read `handbook/04-messaging-proof-and-copy.md` as a whole only when the unresolved message/copy decision genuinely spans multiple Chapter 04 concerns and no narrower logical route can resolve it. A narrow transformation or platform-format adaptation with supplied message and proof does not by itself require Chapter 04. Substantial artifact length alone is not an unresolved message-structure decision: when a downstream environment or representation owner has already resolved the interaction job, information order, ask, or participation posture, Chapter 04 may still constrain claims, proof, or voice but does not take back ownership of the artifact outline.
 
 When positioning and message expression are being explored together, use Chapter 03 for the open positioning choices and Chapter 04 for the message or provisional-copy questions that need its guidance. Carry fixed facts, claim boundaries, and the candidate strategic assumptions into each draft; use the drafts to inspect those candidates without treating them as evidence or settled strategy. Reading Chapter 04 does not require finalizing all positioning first. Final communication still requires strategic inputs sufficiently resolved for its job, and an already-settled strategy remains fixed.
 

@@ -308,3 +308,578 @@ A copy review should not begin with whether the prose is "good." It should evalu
 Assess the effective hierarchy of the whole artifact, not only whether each required idea appears. Placement, repetition, examples and procedural detail can give a secondary point more emphasis than the intended value. Ask what the selected examples actually demonstrate and what understanding or next action the draft makes most prominent. If that differs from the resolved communication job, rebalance the material while preserving necessary proof, qualifications and a usable next step. An introduction, a setup guide and a risk explanation can legitimately emphasize different things; this check requires no fixed opening, length, example count or outline.
 
 Stylistic polish is downstream of strategic correctness.
+
+---
+
+## 11. Copywriting decision system
+
+Use the deeper copywriting sections only when an unresolved copywriting decision can materially change the result. They are addressable capabilities, not a mandatory writing pipeline.
+
+```text
+PERSUASION DIAGNOSIS
+→ PERSUASIVE ROUTE
+→ ARGUMENT PROGRESSION
+→ PERSUASIVE CLOSURE
+→ EXPRESSION CRAFT
+→ EDITING / VOICE REPAIR
+```
+
+A task may enter directly at any sufficiently resolved downstream capability. Do not reconstruct upstream work merely because deeper copywriting knowledge exists.
+
+The governing distinctions are:
+
+```text
+READER BARRIER
+≠ COPY TACTIC
+
+ANGLE
+≠ FRAME
+≠ CONCEPT
+≠ HOOK
+≠ WORDING
+
+ARGUMENT DEPENDENCY
+≠ FIXED FORMULA
+
+PERSUASIVE CLOSURE
+≠ MAXIMUM PRESSURE
+
+EXPRESSION CRAFT
+≠ PERMISSION TO CHANGE MEANING
+
+EDITING
+≠ DEFAULT REWRITING
+```
+
+When a non-copy problem is the real blocker — missing evidence, weak product behavior, unsuitable offer, bad economics, unavailable functionality, broken process, unresolved policy, or another operational constraint — surface or route that dependency instead of manufacturing stronger persuasion.
+
+## 12. Persuasion diagnosis
+
+Professional persuasion copy begins with a decision barrier, not a psychological tactic.
+
+Use:
+
+```text
+OBSERVED EVIDENCE
+→ PLAUSIBLE READER-STATE HYPOTHESIS
+→ COMPETING EXPLANATIONS
+→ BINDING BARRIER
+→ CONDITIONAL MECHANISM
+→ REQUIRED CONDITIONS / EVIDENCE
+→ BACKFIRE CHECK
+```
+
+Do not infer a psychological state merely from low conversion, weak engagement, or another outcome metric. `Conversion is low → readers are afraid → add reassurance` is not a valid inference without evidence.
+
+Possible decision-relevant dimensions include:
+
+- engagement / processing;
+- belief / judgment;
+- source / trust;
+- value relative to sacrifice;
+- uncertainty;
+- risk;
+- constraint;
+- agency / autonomy / social meaning;
+- response efficacy;
+- feasibility / control;
+- execution readiness.
+
+These are diagnostic dimensions, not a required ontology. Identify only what can materially limit the current communication objective.
+
+### Attention and processing
+
+Notice, click, continued reading, comprehension, elaboration, recall, belief, and action are different outcomes. Do not optimize “attention” without specifying which downstream state matters.
+
+Useful distinctions include:
+
+```text
+SALIENCE CAN EARN ORIENTATION
+RELEVANCE EARNS PROCESSING MOTIVATION
+
+CURIOSITY GAP
+= identifiable unresolved information
++ enough structure to know why it matters
++ plausible resolution
+
+ATTENTION PROMISE
+→ must be repaid by continuation
+```
+
+Do not manufacture curiosity when direct relevance is sufficient. Do not assume surprise, pattern interruption, emotion, simplicity, or deeper processing mechanically increases persuasion.
+
+Match processing demand to reader motivation, ability, prior knowledge, available attention, and decision stakes. Remove unnecessary processing friction; do not remove necessary complexity.
+
+Invite deeper scrutiny only when the substantive case can survive it.
+
+### Belief, value, uncertainty, risk, and autonomy
+
+Treat persuasion as belief updating, not belief insertion. Ask what exactly the reader must believe, what prior belief may compete with it, what inference connects evidence to the claim, and whether the claim can survive the level of scrutiny the copy invites.
+
+Model value relationally:
+
+```text
+EXPECTED DESIRABLE OUTCOMES
+relative to
+PERCEIVED SACRIFICES
+within
+A RELEVANT COMPARISON STATE
+```
+
+Do not automatically answer weak value by stacking benefits.
+
+Keep uncertainty, risk, and constraint separate:
+
+```text
+UNCERTAINTY
+“I do not know what will happen.”
+
+RISK
+“I know a downside may occur and it matters.”
+
+CONSTRAINT
+“Something materially prevents action.”
+```
+
+Communication can sometimes reduce uncertainty or clarify risk. It cannot rhetorically remove a real constraint.
+
+Preserve autonomy. Forceful pressure can create resistance in some contexts, but that does not imply a universal rule for soft CTAs. The question is whether the speech act, relationship, stakes, and evidence justify the demand being made.
+
+## 13. Angle, frame, concept, and hook
+
+A selling angle is an evidence-grounded persuasive route that gives a particular audience, in a particular decision context, a meaningful reason to value, prefer, or choose an offer.
+
+Represent a candidate angle with only the parts that matter:
+
+```text
+DEMAND STATE
++
+VALUED CHANGE / MEANING
++
+CENTRAL PROPOSITION
++
+OFFER / BRAND ROLE
++
+DECISIVE BARRIER OR ALTERNATIVE, WHEN RELEVANT
+```
+
+An angle describes decision logic, not surface wording.
+
+### Keep the layers distinct
+
+- **frame** — changes presentation of substantially the same underlying value or information;
+- **creative concept** — organizes or dramatizes an angle so it is memorable or generative;
+- **hook** — the entry point that earns enough relevant attention to continue;
+- **wording** — the surface linguistic realization.
+
+Gain/loss, question/declaration, aspirational/fearful, short/long, metaphor/no metaphor, and other presentational differences do not automatically create new angles.
+
+### Discovery procedure
+
+Freeze objective, audience, positioning, offer, and evidence before comparing angle candidates.
+
+Preserve demand evidence and offer evidence separately. Do not flatten raw evidence, observation, interpretation, insight, angle, and claim into one layer.
+
+Where evidence permits, reconstruct the decision episode:
+
+```text
+what was happening?
+what changed?
+why did the status quo become insufficient?
+what outcome or meaning was desired?
+what created hesitation?
+what alternative remained attractive?
+what influenced action?
+what happened after use?
+```
+
+Search both directions:
+
+```text
+DEMAND → OFFER
+and
+OFFER → DEMAND
+```
+
+Offer-first discovery is legitimate for new or unfamiliar capabilities that customers may not know to request explicitly. It still requires demand/category evidence before promoting the inferred consequence into a strategic angle.
+
+Compare surviving candidates by reader relevance, decision leverage, evidence support, credibility, differentiation, strategic fit, and unsupported assumptions. Frequency in research is evidence of recurrence, not automatic proof of decision importance.
+
+Do not force one winner when evidence does not discriminate. Retain a bounded angle portfolio when uncertainty is real.
+
+Creative concepts and hooks may compress, dramatize, analogize, frame, or enter an evidenced route. They may not manufacture customer demand, product truth, causal mechanism, or outcome required to make the route valid.
+
+## 14. Argument and body progression
+
+Argument progression is the sequencing, sizing, connection, and distribution of content moves that perform decision-relevant work for the reader.
+
+Reject:
+
+```text
+BODY PROGRESSION
+=
+AIDA / PAS / BAB / 4P / PASTOR
+```
+
+Retain:
+
+```text
+BODY PROGRESSION
+=
+reader-state progression
+under
+logical dependency + evidence + attention + artifact constraints
+```
+
+Frameworks may remain shorthand. They are not the decision engine.
+
+### Start from the artifact's target state
+
+Do not assume every artifact must complete a sale. An ad may need to justify investigation; an email may need to justify a reply; a case study may need to increase confidence; a technical document may need to enable validation.
+
+Work backward from the current target:
+
+```text
+What must be sufficiently understood,
+believed, valued, tolerated, or executable
+for this next decision to make sense?
+```
+
+Do not automatically add story, pain agitation, testimonial, FAQ, guarantee, or long mechanism unless it resolves a material condition.
+
+### Dependency before chronology
+
+Determine logical dependency before presentation order.
+
+Possible progression operations include:
+
+```text
+ORIENT / FRAME / CATEGORIZE / REFRAME
+CLAIM / CONTRAST / TRANSLATE IMPLICATION
+EXPLAIN / SHOW MECHANISM / DEMONSTRATE
+NARRATE / SIMULATE / INSTANTIATE
+SUBSTANTIATE / QUALIFY / CONCEDE / BOUND
+REDUCE DECISION FRICTION / ENABLE ACTION
+```
+
+These are operators, not required sections.
+
+For each unresolved condition choose among:
+
+```text
+RESOLVE HERE
+CALIBRATE
+PRESERVE WHEN NON-MATERIAL OR FUNCTIONALLY USEFUL
+DEFER WITH SIGNAL
+HAND OFF TO ANOTHER BLOCK / ARTIFACT
+```
+
+Argument completeness does not require information completeness.
+
+Stop persuading when the relevant conditions are sufficiently resolved. Continuing to sell the “why” after the reader has moved to “how do I proceed?” can add friction or reopen doubt.
+
+Cross-artifact progression must preserve the question or expectation that motivated the transition. An ad that promises a concrete explanation and lands on a generic slogan has a handoff failure even if both artifacts are individually polished.
+
+## 15. Persuasive closure
+
+Persuasive closure decides whether enough warranted belief, sufficiently bounded uncertainty, and sufficiently acceptable risk exist to justify the requested action.
+
+Use:
+
+```text
+TARGET ACTION
+→ DECISION ACTOR(S)
+→ REQUIRED BELIEFS
+→ MATERIAL DECISION BARRIERS
+→ AVAILABLE EVIDENCE
+→ RESOLVABLE / RESIDUAL UNCERTAINTY
+→ MATERIAL RISK
+→ COMMITMENT
+→ NEXT JUSTIFIABLE ACTION
+```
+
+The governing rule is:
+
+> Ask for no more commitment than the available evidence, resolved uncertainty, remaining risk, relationship state, and reader state can legitimately support.
+
+Do not treat every “objection” as something to overcome. Classify the actual barrier when useful:
+
+- **doubt** — a relevant claim is not sufficiently believed;
+- **uncertainty** — a material answer is unknown or incomplete;
+- **constraint** — something materially prevents action;
+- **risk** — a plausible downside matters;
+- **trade-off** — a real disadvantage accompanies the offer;
+- **mismatch** — product, buyer, situation, or requirements genuinely do not fit.
+
+Valid dispositions include:
+
+```text
+PERSUADE
+DEFER
+QUALIFY
+ESCALATE / ROUTE
+DISQUALIFY WHEN FIT IS GENUINELY ABSENT
+```
+
+Guarantees, scarcity, urgency, social proof, objection handling, and CTA formulas are not separate core capabilities. Use them only when the underlying decision architecture justifies them.
+
+CTA decision belongs here; CTA wording belongs to sentence-level craft.
+
+## 16. Sentence-level craft
+
+Sentence-level craft realizes already-authorized meaning. Its goal is not to maximize brevity, punch, vividness, active voice, lexical variety, or stylistic novelty.
+
+The governing objective is:
+
+> Minimize unnecessary interpretive work while preserving the full warranted interpretation of the source meaning.
+
+### Preserve the interpretation contract
+
+Before materially rewriting, preserve as applicable:
+
+- proposition and claim strength;
+- scope, modality, quantity, population, time, and applicability;
+- causal, conditional, temporal, comparative, concessive, and other material relations;
+- referent identity;
+- decision-relevant terminology;
+- comparison baselines and alternatives;
+- material presupposition, backgrounding, implication, or invited inference.
+
+Literal truth is insufficient when the new wording strongly invites a materially misleading takeaway.
+
+### Diagnose reader work, not superficial symptoms
+
+Ask whether there is a material problem in:
+
+```text
+reference retrieval
+parse ambiguity
+repair / garden-path debt
+inference burden
+integration burden
+information density
+salience
+continuity
+surface fit
+```
+
+Sentence length, passive voice, abstraction, jargon, repetition, and formality are symptoms or choices, not automatic defects.
+
+### Conditional craft operators
+
+Use operators only for a diagnosed problem:
+
+- **specify** when supported detail resolves useful uncertainty;
+- **abstract** when detail distracts from the level at which the claim is warranted;
+- **define** when necessary terminology is not reliably audience-native;
+- **split** when a conceptual representation can close without losing a material relation;
+- **merge** when artificial separation forces reconstruction of a relationship that should be encoded directly;
+- **delete** when material performs no semantic, evidential, referential, relational, processing, rhythmic, or discourse function;
+- **contrast** only for a real alternative, distinction, reversal, or exclusion;
+- **transition** only when it encodes a useful relation;
+- **repeat** when repetition performs a legitimate comprehension, memory, emphasis, or structural function.
+
+Optimize semantic economy, not minimum word count.
+
+Specificity is justified by the uncertainty it resolves. Unsupported precision is worse than warranted abstraction.
+
+Rhythm is a pattern of processing boundaries, not mechanical alternation of short and long sentences. A short sentence earns its place when its boundary performs a job.
+
+An opening should orient, activate relevant state, establish context/referent, or create a bounded unresolved question. A closing should leave the right active representation and must not erase earlier qualifications.
+
+## 17. Editing and voice repair
+
+Editing operates on existing expression. It does not automatically own a new angle, proposition, proof strategy, CTA decision, or voice strategy.
+
+Use:
+
+```text
+EXISTING COPY
+→ TASK MODE
+→ AUTHORIZED DECISION ENVELOPE
+→ DIAGNOSE
+→ MATERIALITY GATE
+→ DECISION-DELTA CHECK
+→ SMALLEST SUFFICIENT SCOPE
+→ REPAIR
+→ PRESERVATION AUDIT
+→ NEIGHBORHOOD / WHOLE-COPY CHECK
+```
+
+Valid outcomes include:
+
+```text
+KEEP
+REPAIR
+QUERY
+ROUTE
+RESTYLE, when explicitly authorized
+```
+
+`KEEP` is successful when no material defect justifies intervention.
+
+### Authorized decision envelope
+
+Before editing, freeze the decisions the copy is not allowed to change silently:
+
+```text
+AUDIENCE / COMMUNICATIVE JOB
+PROPOSITION / CLAIM / SCOPE / STRENGTH
+EVIDENCE RELATION / CAUSALITY / QUALIFICATION
+ARGUMENTATIVE ROLE
+OBJECTION / RISK ROLE
+DESIRED ACTION
+VOICE
+GENRE / CHANNEL
+READER STATE
+```
+
+If the proposed repair requires changing one of these decisions, query or route unless the task explicitly authorizes that wider decision.
+
+Diagnose:
+
+```text
+SURFACE SYMPTOM
+→ ROOT DEFECT
+→ READER CONSEQUENCE
+→ OWNER
+→ PROPORTIONATE REPAIR
+```
+
+“Boring,” “long,” “weak,” “robotic,” “repetitive,” “abstract,” “cautious,” or “technical” are not diagnoses by themselves.
+
+Use the smallest intervention scope capable of resolving the actual defect. A full sentence or local paragraph rewrite may be correct when the underlying decisions remain intact; a three-word change may be too large if it introduces a new claim.
+
+After repair, audit meaning, evidence, implication, voice, and function. A locally clearer sentence is not a successful edit if it weakens later emphasis, contradicts evidence, breaks progression, flattens voice, or removes qualification.
+
+## 18. Short-form constrained realization
+
+Short-form copy is not long-form with fewer words. It is the controlled realization of an already-grounded message under severe constraints in attention, context, processing capacity, space, continuity, and interaction permission.
+
+Use when those constraints materially change the copy decision across email, subject lines, ads, social posts, outreach/DMs, captions, notifications, or other constrained surfaces.
+
+The core model is:
+
+```text
+VALIDATED MESSAGE
++
+READER STATE
++
+EXPOSURE STATE
++
+INTERACTION FRAME
++
+SURFACE CAPABILITIES
++
+NEXT ACTION / DESTINATION
+→ SHORT-FORM REALIZATION
+```
+
+The objective is minimum sufficient communication cost without unacceptable loss of meaning, relevance, source integrity, or action clarity.
+
+Do not silently:
+
+- invent a stronger claim;
+- invent urgency or personalization;
+- remove a material qualifier;
+- change the offer or positioning;
+- manufacture social proof or prior relationship;
+- treat `sent` as `seen`, `served` as `noticed`, `noticed` as `understood`, or `understood` as `remembered`.
+
+### Primary job and interaction frame
+
+Choose the primary communication job before optimizing wording:
+
+```text
+CAPTURE
+ENCODE
+ADVANCE
+TRANSFER
+```
+
+Not every short artifact needs to persuade toward immediate action. Not every artifact needs a CTA.
+
+Identify the interaction frame: active search, feed encounter, advertising interruption, inbox selection, cold outreach, existing conversation, relationship continuation, transactional update, urgent alert, creator endorsement, or another materially distinct event.
+
+The same validated message can require radically different realization under different frames.
+
+### Compression and orchestration
+
+Compression may be:
+
+```text
+LEXICAL
+ARGUMENT
+CONTEXTUAL
+MODAL
+SEQUENTIAL
+```
+
+Delete redundancy and decorative material before claim scope, qualifiers, evidence boundaries, source identity, action consequences, important risk information, or material relationship disclosures.
+
+Treat the full surface as the unit of design. Sender identity, headline, preview, image, UI, body, and destination can carry different jobs; repeating the same job across every modality wastes scarce capacity.
+
+Qualified attention matters more than raw attention. Do not optimize opens, clicks, watch time, or engagement when the metric can rise while the real communication job degrades.
+
+A curiosity gap creates debt. Continuation must repay the expectation it creates.
+
+Cross-surface handoff must preserve the promise that motivated continuation.
+
+Channel-specific formulas should be added only when the surface introduces a concrete constraint that the general decision system cannot already represent.
+
+## 19. Copywriting handoffs and stop rules
+
+Use the smallest owner that can change the open decision.
+
+```text
+reader-state / persuasion mechanism uncertainty
+→ copywriting.persuasion
+
+selling route / concept / hook uncertainty
+→ copywriting.angle
+
+argument dependency / progression uncertainty
+→ copywriting.progression
+
+evidence adequacy / residual risk / commitment / next action
+→ copywriting.closure
+
+sentence / paragraph realization
+→ copywriting.craft
+
+existing draft diagnosis / voice-preserving repair
+→ copywriting.editing
+
+short constrained artifact realization
+→ copywriting.short-form
+
+web-page allocation / scan paths / cross-page reachability
+→ landing-page.*
+
+email send / wait / sequence / inbox-message architecture
+→ email.*
+
+platform participation / representation
+→ content.* or the relevant platform owner
+
+unresolved positioning
+→ Chapter 03
+
+causal diagnosis / experiment
+→ Chapter 05
+
+materially unresolved local-language relation
+→ Chapter 07
+
+unresolved commercial design
+→ commercial-design.*
+```
+
+Do not use Chapter 04 or `copywriting.*` as a routing hop when the relevant copy decision is already resolved.
+
+Stop when the requested artifact or decision is sufficiently supported. More persuasion, more proof, more sections, more variants, and more editing are not inherently improvements.
+
+```text
+NO MATERIAL OPEN COPY DECISION
+→ DIRECT EXECUTION OR STOP
+```
