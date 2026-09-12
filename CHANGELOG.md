@@ -5,6 +5,26 @@ All notable changes to this repository are documented here.
 The project uses semantic versioning for published skill revisions. v1.0.0 marks the first stable core contract: future 1.x work should preserve compatibility-sensitive controller semantics, logical knowledge interfaces, owner boundaries, and evidence/claim behavior unless a demonstrated failure justifies a scoped change. Historical frozen evaluation and research references keep the version labels under which they were produced.
 
 
+## [1.7.2] - 2026-09-12
+
+### Document planning and interface copy
+
+- Extended report planning to document-like marketing artifacts when structure, representation, retrieval, or working use remains materially unresolved, including reusable references and action guides.
+- Preserved direct execution for sufficiently specified artifacts and kept downstream representation ownership local; artifact names and output formats do not create approval gates.
+- Clarified interface copy fidelity for supported product state, action meaning, material effects, and known recovery without inventing product behavior or imposing universal UI conventions.
+
+### Documentation and evaluation infrastructure
+
+- Added a practical use-case catalog with evidence mapping.
+- Added the Episode 01 state machine, evaluator, adversarial fixtures, fail-closed applicability and provenance checks, and repository verification integration.
+- Preserved research closure records for lifecycle communication, content iteration, website audits, cross-artifact consistency, and search-facing content intervention without promoting those research tracks into new runtime capabilities.
+
+### Compatibility and evidence limits
+
+- Aligned skill and plugin release metadata at v1.7.2. Existing logical routes and evidence-source interfaces remain unchanged.
+- Episode 01 fixture and preflight checks validate evaluation infrastructure; they do not establish live model behavior or improved marketing outcomes. Live behavioral evaluation remains pending.
+
+
 ## [1.7.1] - 2026-09-09
 
 ### Retrieval and copy corrections
