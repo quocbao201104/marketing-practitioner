@@ -32,6 +32,12 @@ Original implementation candidate reviewed independently:
 924e0a2cd950b9e2d72b27dffca471dd716b38a2
 ```
 
+Post-review documentation-binding head immediately before bounded implementation repairs:
+
+```text
+a57ffc5d972cc9cad3f882df2cc5dad4c6647d1a
+```
+
 Frozen base:
 
 ```text
@@ -218,19 +224,19 @@ Do not require all theory cues to disappear. Task facts and legitimate user cons
 
 Keep this check narrow.
 
-Compare repaired candidate:
+For the bounded repair diff, compare repaired candidate:
 
 ```text
 08983da33b9f6bb6493ec5e4d8a54876ca57d9d8
 ```
 
-against original reviewed candidate:
+against the immediate pre-repair head:
 
 ```text
-924e0a2cd950b9e2d72b27dffca471dd716b38a2
+a57ffc5d972cc9cad3f882df2cc5dad4c6647d1a
 ```
 
-The repair should materially change only the bounded repair surfaces plus its repair record:
+That bounded repair diff should contain only:
 
 ```text
 skills/marketing-practitioner/references/operating-guide.md
@@ -238,7 +244,9 @@ evals/behavioral/cases/copywriting-core-v1.json
 research/copywriting-core/05-post-review-repair.md
 ```
 
-If unrelated implementation semantics changed, identify the exact diff and failure consequence.
+The earlier `924e0a2... → a57ffc5...` change is the already-disclosed documentation-only rebinding of the independent review brief; the prior reviewer explicitly did not treat that binding mechanism as an implementation defect. Do not misclassify it as collateral repair drift.
+
+If the bounded repair diff changes unrelated implementation semantics, identify the exact diff and failure consequence.
 
 Do not reopen unrelated files merely to search for additional improvements.
 
