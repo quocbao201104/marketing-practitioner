@@ -522,3 +522,205 @@ CASE-STUDY LIFT ≠ UNIVERSAL DESIGN LAW
 ```
 
 Do not turn page examples, practitioner preference, or one A/B test into a universal layout formula. The governing standard is minimum sufficient decision support for the current visitor state, action, evidence, and constraints.
+
+---
+
+## 12. Reader-state envelope, decision needs, and decision graph
+
+A page should not assume one universal reader state or one top-to-bottom path.
+
+Represent only materially different states the artifact must support, for example:
+
+```text
+first-time / returning
+low-intent / high-intent
+skeptical / already convinced
+broad explorer / specific-question visitor
+buyer / evaluator / operator / approver
+```
+
+This is a **reader-state envelope**, not a persona or awareness-stage taxonomy. The page may prioritize one dominant state while preserving usable routes for other material states.
+
+For each material state, extract **decision needs**:
+
+```text
+READER / CONTEXT
++
+QUESTION / UNCERTAINTY / REQUIREMENT
++
+DECISION CONSEQUENCE
++
+REQUIRED INFORMATION OR SUPPORT
++
+WHEN / WHERE IT MUST BE REACHABLE
+```
+
+Then build the page as a decision-support graph rather than a mandatory sequence:
+
+```text
+                     → already ready → action
+                    /
+ENTRY → relevance → explanation → proof → action
+                    \
+                     → material concern → specialized support
+```
+
+Possible path types include:
+
+```text
+primary path
+shortcut path
+branch path
+reference path
+action / exit path
+```
+
+The graph does not authorize arbitrary branching. A branch exists only when a materially different question, readiness state, role, or requirement changes what support the visitor needs.
+
+### Reachability is part of correctness
+
+Information can be true and present yet still fail the page if the reader who needs it cannot find it at the decision point where it matters.
+
+Ask:
+
+```text
+What information is core enough to expose?
+What information is branch-specific but consequential enough to make reachable?
+What resolved question should not be forced on every visitor again?
+```
+
+Design both:
+
+```text
+SCAN REPRESENTATION
+headings / labels / bullets / numbers / proof cues / CTA cues / navigation
+
+and
+
+DEEP ARGUMENT
+explanation / mechanism / evidence / qualification / detail
+```
+
+The scan path should reveal meaningful structure without requiring every paragraph to be read. The deep path should preserve enough dependency and evidence for serious evaluation.
+
+Do not force readers through information they have already resolved merely because it appears earlier in the canonical page order.
+
+---
+
+## 13. Local sufficiency, cross-page delegation, and transition continuity
+
+A page does not need every detail locally. It does need enough support to perform its own job.
+
+Use:
+
+```text
+KEEP THE DECISION LOCAL;
+DELEGATE THE DEPTH.
+```
+
+The current page should retain enough information for a qualified visitor to:
+
+- understand the current proposition;
+- evaluate current relevance;
+- identify material constraints or qualifications;
+- judge whether the next route or action is worthwhile.
+
+A destination may inherit deeper detail such as full methodology, complete policy, specialist documentation, reference depth, or technical evaluation. It should not inherit an unresolved prerequisite required for the current page's decision.
+
+### Canonical ownership and decision ownership differ
+
+A canonical page can own the complete truth while another page still owns enough of that truth for its local decision.
+
+Examples:
+
+```text
+SECURITY PAGE
+owns canonical security detail
+
+SOLUTION PAGE
+owns enough security support
+for the solution-evaluation decision
+```
+
+and:
+
+```text
+RETURNS PAGE
+owns the full returns policy
+
+PRODUCT PAGE
+owns enough return information
+for the purchase decision
+```
+
+This avoids both duplication of full reference material and `proof exile`, where consequential support is technically available elsewhere but absent from the decision surface that needs it.
+
+### Every transition creates a promise
+
+A cross-page handoff should preserve:
+
+```text
+topic
+intent
+scope
+reader expectation
+relevant context
+```
+
+Prefer specific information scent over generic `Learn more` when the destination's job can be named without clutter.
+
+Do not create a context reset in which the visitor must reconstruct the product, plan, concern, or prior decision after following a link.
+
+At the same time, destination pages should remain intelligible to direct/search visitors who did not arrive through the intended source path.
+
+Semantic continuity does not require identical wording. It requires preservation of the underlying product truth, conditions, claim boundaries, and action expectation.
+
+---
+
+## 14. Path testing
+
+Do not validate a web artifact only by reading it top to bottom.
+
+Test the page against the materially different entry and decision paths it claims to support. Useful adversarial states can include:
+
+```text
+skeptical newcomer
+high-intent newcomer
+already-ready returning visitor
+specific-objection visitor
+scan-only visitor
+deep-link visitor
+secondary evaluator / stakeholder
+```
+
+Use only the states that can actually change the current page.
+
+For each path ask:
+
+```text
+Can this reader identify relevance?
+Can they find the material information they need?
+Are they forced through information they have already resolved?
+Can they reach the appropriate action or route?
+Does any transition lose necessary context?
+Does any branch require a prerequisite that was delegated away?
+```
+
+Common path failures include:
+
+- entry mismatch or context reset;
+- wrong information order for the path;
+- missing expected information;
+- proof too far from the claim or concern it supports;
+- premature or inaccessible action;
+- scan-path failure;
+- underexposed qualification;
+- overexposed branch-specific detail;
+- single-reader-state assumption;
+- deep-entry context failure;
+- delegated prerequisite;
+- destination mismatch.
+
+These are diagnostic families, not a mandatory runtime taxonomy.
+
+The page is successful when materially different reader states can reach enough truthful decision support and an appropriate next state without requiring a universal template or a single linear consumption path.
