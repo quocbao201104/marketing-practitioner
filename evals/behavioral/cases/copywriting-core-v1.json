@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "case_id": "BEH-COPY-CORE-001",
+      "version": "1.0.0",
+      "family": "persuasion-diagnosis-no-tactic-jump",
+      "prompt": "A SaaS pricing page conversion rate fell from 4.2% to 2.9% after a redesign. We do not yet know whether traffic mix, price presentation, page clarity, checkout reliability, proof, or buyer risk changed. The founder says: 'People are scared. Rewrite the page with stronger urgency and reassurance.' Advise what copy decision is justified now. Keep it concise.",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}],
+      "review_criteria": [
+        "Does not infer fear as established merely from the conversion decline.",
+        "Separates observed outcome from plausible reader-state hypotheses and non-copy explanations.",
+        "Does not prescribe urgency or reassurance as a default tactic before the barrier is localized.",
+        "May propose a bounded discriminating check, diagnosis, or conditional copy intervention without pretending the cause is known."
+      ],
+      "forbidden_disclosures": ["copywriting.persuasion", "SS1", "reader-state vector"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "copywriting-core theory freeze", "failure": "metric outcome converted directly into an invented psychological state and tactic"}
+    },
+    {
+      "case_id": "BEH-COPY-CORE-002",
+      "version": "1.0.0",
+      "family": "angle-vs-paraphrase",
+      "prompt": "Product facts: a local desktop AI support copilot drafts customer replies, requires seller approval before sending, keeps shop policies available during drafting, and does not auto-send. Audience: small ecommerce sellers who answer support themselves. Evidence: sellers in supplied interviews repeatedly mention reply workload, fear of AI making policy promises, and difficulty keeping answers consistent. Generate three genuinely different selling angles, each with one example hook. Do not invent outcomes or customer quotes.",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}],
+      "review_criteria": [
+        "The three angles represent materially different decision propositions rather than synonym or gain/loss variations of one proposition.",
+        "Hooks are recognizable as entry expressions of the angle rather than being mislabeled as additional angles.",
+        "Every angle is traceable to supplied demand and offer evidence and does not invent performance outcomes or mechanisms.",
+        "The output does not treat creative novelty alone as evidence of strategic difference."
+      ],
+      "forbidden_disclosures": ["ANGLE ≠ FRAME", "copywriting.angle", "SS2"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "copywriting-core theory freeze", "failure": "false strategic diversity"}
+    },
+    {
+      "case_id": "BEH-COPY-CORE-003",
+      "version": "1.0.0",
+      "family": "argument-progression-dependency",
+      "prompt": "You are writing a concise B2B sales page body for a new reporting tool. Resolved message: it turns raw support logs into a reviewable weekly issue summary. Resolved proof: one product demonstration and a documented export format; no measured ROI or customer outcome data. Audience already understands the category but doubts whether the summary is inspectable enough for managers to trust. Build the body progression and write the copy. Do not use a named copywriting formula.",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}],
+      "review_criteria": [
+        "Progression responds to the actual confidence/inspectability barrier instead of mechanically running problem-agitation-solution or another fixed ladder.",
+        "Mechanism/demonstration support appears where it helps the reader evaluate the resolved claim.",
+        "The copy does not invent ROI, time savings, adoption, or customer outcome proof.",
+        "The artifact stops once enough support exists for the current next step instead of adding ritual sections."
+      ],
+      "forbidden_disclosures": ["SS3", "copywriting.progression", "AIDA", "PAS"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "copywriting-core theory freeze", "failure": "formula substituted for decision-relevant progression"}
+    },
+    {
+      "case_id": "BEH-COPY-CORE-004",
+      "version": "1.0.0",
+      "family": "commitment-proportionality",
+      "prompt": "A consulting firm has a new service package. Available evidence: founder expertise, a clear methodology, and two anonymized qualitative examples. There is no validated outcome rate, no guarantee, and no case with a comparable enterprise buyer. The draft ends with: 'Sign the $60,000 annual engagement today — spots close Friday.' The Friday deadline is invented. Rewrite only the closing section so the next action is responsible and persuasive.",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}],
+      "review_criteria": [
+        "Removes fabricated scarcity/deadline.",
+        "Does not compensate for weak outcome evidence with stronger pressure or an unsupported guarantee.",
+        "Requests a commitment proportionate to the evidence and remaining uncertainty, such as a fit/discovery conversation or another justified next step.",
+        "Preserves a persuasive reason to continue without pretending the final purchase is already warranted."
+      ],
+      "forbidden_disclosures": ["copywriting.closure", "SS4", "commitment proportionality"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "copywriting-core theory freeze", "failure": "rhetorical pressure used to cover residual uncertainty"}
+    },
+    {
+      "case_id": "BEH-COPY-CORE-005",
+      "version": "1.0.0",
+      "family": "sentence-craft-semantic-preservation",
+      "prompt": "Rewrite this sentence for clarity without changing the supported meaning: 'In a six-week pilot with 14 participating teams, teams that used the review checklist reported fewer unresolved handoff questions, although the pilot was not designed to establish that the checklist caused the difference.' Return one revised sentence only.",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}],
+      "review_criteria": [
+        "Preserves the six-week scope and 14 participating teams.",
+        "Preserves that the outcome was reported, not independently established as an objective causal effect.",
+        "Preserves the causal limitation that the pilot was not designed to establish causation.",
+        "Improves clarity without upgrading 'reported fewer' into an unqualified causal or universal claim."
+      ],
+      "forbidden_disclosures": ["copywriting.craft", "scope lock", "relation lock"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "copywriting-core theory freeze", "failure": "clarity rewrite strengthens evidence or causality"}
+    },
+    {
+      "case_id": "BEH-COPY-CORE-006",
+      "version": "1.0.0",
+      "family": "editing-over-intervention",
+      "prompt": "Edit this founder note only where a material defect exists. Preserve the author's understated voice and return only the final note:\n\n'We shipped the importer later than planned. The first version handles CSV and JSON exports. It does not handle XML yet. If XML is part of your migration, wait for the next importer update rather than converting files just to fit this release.'",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}],
+      "review_criteria": [
+        "Does not rewrite merely to sound more polished, punchy, friendly, or marketing-oriented.",
+        "Preserves the limitation, supported formats, delay acknowledgement, and recommendation for XML users.",
+        "Does not invent an ETA, apology detail, workaround, or stronger product promise.",
+        "A no-change or very small repair is acceptable and should not be penalized."
+      ],
+      "forbidden_disclosures": ["KEEP", "copywriting.editing", "authorized decision envelope"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "copywriting-core theory freeze", "failure": "editorial polish causes semantic or voice regression"}
+    },
+    {
+      "case_id": "BEH-COPY-CORE-007",
+      "version": "1.0.0",
+      "family": "short-form-false-continuity",
+      "prompt": "Write a cold LinkedIn DM to an operations manager. Facts: our tool converts uploaded SOPs into a searchable internal reference; the recipient has never interacted with us; we do not know whether they currently have an SOP problem; there is a 90-second product demo page. Goal: earn a low-friction next step. Return only the DM.",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}],
+      "review_criteria": [
+        "Does not fabricate personalization, prior relationship, observed pain, urgency, or a claim that the recipient has a specific problem.",
+        "The opening establishes legitimate relevance without fake familiarity or empty mystery.",
+        "The requested action is low-friction and proportionate to a cold relationship.",
+        "Compression does not remove the product's domain-specific capability identity."
+      ],
+      "forbidden_disclosures": ["copywriting.short-form", "interaction frame", "false continuity"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "copywriting-core theory freeze", "failure": "short-form pressure or personalization invents relationship state"}
+    },
+    {
+      "case_id": "BEH-COPY-CORE-008",
+      "version": "1.0.0",
+      "family": "web-decision-support-no-template",
+      "prompt": "Design the content architecture for a B2B service page. Resolved state: audience is finance teams replacing spreadsheet-based month-end reconciliation; offer is a managed reconciliation service; proof includes process documentation, named accounting qualifications, and two scoped client references; commercial terms require a discovery call before pricing; main uncertainty is implementation disruption and data handoff. Decide what belongs on the page, in what dependency order, and what can be delegated to deeper pages. Do not write final copy.",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}],
+      "review_criteria": [
+        "Architecture follows decision needs and dependencies rather than a fixed hero/problem/features/testimonials/FAQ/CTA template.",
+        "Implementation/data-handoff risk receives reachable support near the point where it affects evaluation.",
+        "Core decision support remains locally sufficient while deeper procedural detail may be delegated.",
+        "Supports scan and deeper-reading paths and does not require every visitor to consume every section before reaching the discovery-call action."
+      ],
+      "forbidden_disclosures": ["SS8", "decision graph", "landing-page.*"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "copywriting-core theory freeze", "failure": "web architecture reduced to conventional section template"}
+    }
+  ]
+}
