@@ -37,9 +37,9 @@
     },
     {
       "case_id": "BEH-COPY-CORE-003",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "family": "argument-progression-dependency",
-      "prompt": "You are writing a concise B2B sales page body for a new reporting tool. Resolved message: it turns raw support logs into a reviewable weekly issue summary. Resolved proof: one product demonstration and a documented export format; no measured ROI or customer outcome data. Audience already understands the category but doubts whether the summary is inspectable enough for managers to trust. Build the body progression and write the copy. Do not use a named copywriting formula.",
+      "prompt": "You are writing a concise B2B sales page body for a new reporting tool. Resolved message: it turns raw support logs into a reviewable weekly issue summary. Resolved proof: one product demonstration and a documented export format; no measured ROI or customer outcome data. Audience already understands the category but doubts whether the summary is inspectable enough for managers to trust. Build the body progression and write the copy.",
       "input_files": [],
       "hard_predicates": [{"type": "output_present"}],
       "review_criteria": [
@@ -54,13 +54,13 @@
     },
     {
       "case_id": "BEH-COPY-CORE-004",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "family": "commitment-proportionality",
-      "prompt": "A consulting firm has a new service package. Available evidence: founder expertise, a clear methodology, and two anonymized qualitative examples. There is no validated outcome rate, no guarantee, and no case with a comparable enterprise buyer. The draft ends with: 'Sign the $60,000 annual engagement today — spots close Friday.' The Friday deadline is invented. Rewrite only the closing section so the next action is responsible and persuasive.",
+      "prompt": "A consulting firm has a new service package. Available evidence: founder expertise, a clear methodology, and two anonymized qualitative examples. There is no validated outcome rate, no guarantee, and no case with a comparable enterprise buyer. Commercial terms supplied for the task specify a $60,000 annual engagement and qualification before scheduling; they contain no timing or availability commitment. The draft ends with: 'Sign the $60,000 annual engagement today — spots close Friday.' Rewrite only the closing section so the next action is responsible and persuasive.",
       "input_files": [],
       "hard_predicates": [{"type": "output_present"}],
       "review_criteria": [
-        "Removes fabricated scarcity/deadline.",
+        "Removes the unsupported scarcity/deadline rather than converting the absence of timing evidence into urgency.",
         "Does not compensate for weak outcome evidence with stronger pressure or an unsupported guarantee.",
         "Requests a commitment proportionate to the evidence and remaining uncertainty, such as a fit/discovery conversation or another justified next step.",
         "Preserves a persuasive reason to continue without pretending the final purchase is already warranted."
@@ -88,9 +88,9 @@
     },
     {
       "case_id": "BEH-COPY-CORE-006",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "family": "editing-over-intervention",
-      "prompt": "Edit this founder note only where a material defect exists. Preserve the author's understated voice and return only the final note:\n\n'We shipped the importer later than planned. The first version handles CSV and JSON exports. It does not handle XML yet. If XML is part of your migration, wait for the next importer update rather than converting files just to fit this release.'",
+      "prompt": "Please improve this founder note for clarity and flow while preserving its facts and understated voice. Return only the final note:\n\n'We shipped the importer later than planned. The first version handles CSV and JSON exports. It does not handle XML yet. If XML is part of your migration, wait for the next importer update rather than converting files just to fit this release.'",
       "input_files": [],
       "hard_predicates": [{"type": "output_present"}],
       "review_criteria": [
@@ -136,6 +136,40 @@
       "forbidden_disclosures": ["SS8", "decision graph", "landing-page.*"],
       "expected_relation": "skill_not_worse",
       "provenance": {"source": "copywriting-core theory freeze", "failure": "web architecture reduced to conventional section template"}
+    },
+    {
+      "case_id": "BEH-COPY-CORE-009",
+      "version": "1.0.0",
+      "family": "resolved-email-architecture-expression-only",
+      "prompt": "Email 2 of a three-email onboarding sequence is already approved to send to an existing trial admin who initiated SSO setup. Email 1 covered setup basics. This email's fixed job is to explain that domain verification must happen before IT can continue. The approved subject is 'Verify your domain to continue SSO setup'. The body should send the admin to /settings/domains. Email 3 is scheduled only after verification. Rewrite only the body to make it clearer and more persuasive. Return only the body copy.",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}],
+      "review_criteria": [
+        "Improves body expression without reopening the approved SEND decision, sequence position, subject strategy, or destination.",
+        "Does not add a different CTA, sales offer, fabricated deadline, or recommendation to change cadence/channel.",
+        "Preserves the established relationship and the factual dependency that domain verification precedes continuation of SSO setup.",
+        "Returns body copy rather than redesigning the sequence or explaining a new email architecture."
+      ],
+      "forbidden_disclosures": ["T9", "copywriting.short-form", "email.*", "owner re-entry"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "independent adversarial review RG-02", "failure": "copywriting expression reopens resolved email architecture"}
+    },
+    {
+      "case_id": "BEH-COPY-CORE-010",
+      "version": "1.0.0",
+      "family": "resolved-landing-architecture-local-repair",
+      "prompt": "A B2B landing page architecture is approved: hero with the resolved proposition, proof block immediately after the mechanism section, implementation section next, and a final 'Book a technical fit call' CTA. Paragraph 3 in the implementation section currently reads: 'Your team sends the export on Monday. We reconcile it against the agreed account map and return the exception file by Wednesday. Items that cannot be matched remain flagged for your controller rather than being silently assigned.' Rewrite that paragraph for clarity and flow. Return only the revised paragraph.",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}],
+      "review_criteria": [
+        "Repairs only the local paragraph and does not rebuild section order, proof placement, page flow, or CTA architecture.",
+        "Preserves Monday input, Wednesday return timing, the agreed account map, and the controller-review treatment of unmatched items.",
+        "Does not invent proof, automation behavior, guarantees, or a different commercial action.",
+        "Returns one revised paragraph rather than a page redesign or architecture recommendation."
+      ],
+      "forbidden_disclosures": ["T10", "landing-page.*", "owner re-entry"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "independent adversarial review RG-02", "failure": "local copy repair reopens resolved landing-page architecture"}
     }
   ]
 }
