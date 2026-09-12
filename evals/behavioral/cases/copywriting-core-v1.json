@@ -16,7 +16,7 @@
       ],
       "forbidden_disclosures": ["copywriting.persuasion", "SS1", "reader-state vector"],
       "expected_relation": "skill_not_worse",
-      "provenance": {"source": "copywriting-core theory freeze", "failure": "metric outcome converted directly into an invented psychological state and tactic"}
+      "provenance": {"source": "copywriting-core theory freeze: metric outcome converted directly into an invented psychological state and tactic", "frozen_at_commit": "601640a58d5c331386fa4907e5de50250d18c4bd"}
     },
     {
       "case_id": "BEH-COPY-CORE-002",
@@ -33,7 +33,7 @@
       ],
       "forbidden_disclosures": ["ANGLE ≠ FRAME", "copywriting.angle", "SS2"],
       "expected_relation": "skill_not_worse",
-      "provenance": {"source": "copywriting-core theory freeze", "failure": "false strategic diversity"}
+      "provenance": {"source": "copywriting-core theory freeze: false strategic diversity", "frozen_at_commit": "601640a58d5c331386fa4907e5de50250d18c4bd"}
     },
     {
       "case_id": "BEH-COPY-CORE-003",
@@ -50,7 +50,7 @@
       ],
       "forbidden_disclosures": ["SS3", "copywriting.progression", "AIDA", "PAS"],
       "expected_relation": "skill_not_worse",
-      "provenance": {"source": "copywriting-core theory freeze", "failure": "formula substituted for decision-relevant progression"}
+      "provenance": {"source": "copywriting-core theory freeze: formula substituted for decision-relevant progression", "frozen_at_commit": "601640a58d5c331386fa4907e5de50250d18c4bd"}
     },
     {
       "case_id": "BEH-COPY-CORE-004",
@@ -67,7 +67,7 @@
       ],
       "forbidden_disclosures": ["copywriting.closure", "SS4", "commitment proportionality"],
       "expected_relation": "skill_not_worse",
-      "provenance": {"source": "copywriting-core theory freeze", "failure": "rhetorical pressure used to cover residual uncertainty"}
+      "provenance": {"source": "copywriting-core theory freeze: rhetorical pressure used to cover residual uncertainty", "frozen_at_commit": "601640a58d5c331386fa4907e5de50250d18c4bd"}
     },
     {
       "case_id": "BEH-COPY-CORE-005",
@@ -84,7 +84,7 @@
       ],
       "forbidden_disclosures": ["copywriting.craft", "scope lock", "relation lock"],
       "expected_relation": "skill_not_worse",
-      "provenance": {"source": "copywriting-core theory freeze", "failure": "clarity rewrite strengthens evidence or causality"}
+      "provenance": {"source": "copywriting-core theory freeze: clarity rewrite strengthens evidence or causality", "frozen_at_commit": "601640a58d5c331386fa4907e5de50250d18c4bd"}
     },
     {
       "case_id": "BEH-COPY-CORE-006",
@@ -101,7 +101,7 @@
       ],
       "forbidden_disclosures": ["KEEP", "copywriting.editing", "authorized decision envelope"],
       "expected_relation": "skill_not_worse",
-      "provenance": {"source": "copywriting-core theory freeze", "failure": "editorial polish causes semantic or voice regression"}
+      "provenance": {"source": "copywriting-core theory freeze: editorial polish causes semantic or voice regression", "frozen_at_commit": "601640a58d5c331386fa4907e5de50250d18c4bd"}
     },
     {
       "case_id": "BEH-COPY-CORE-007",
@@ -118,7 +118,7 @@
       ],
       "forbidden_disclosures": ["copywriting.short-form", "interaction frame", "false continuity"],
       "expected_relation": "skill_not_worse",
-      "provenance": {"source": "copywriting-core theory freeze", "failure": "short-form pressure or personalization invents relationship state"}
+      "provenance": {"source": "copywriting-core theory freeze: short-form pressure or personalization invents relationship state", "frozen_at_commit": "601640a58d5c331386fa4907e5de50250d18c4bd"}
     },
     {
       "case_id": "BEH-COPY-CORE-008",
@@ -135,7 +135,7 @@
       ],
       "forbidden_disclosures": ["SS8", "decision graph", "landing-page.*"],
       "expected_relation": "skill_not_worse",
-      "provenance": {"source": "copywriting-core theory freeze", "failure": "web architecture reduced to conventional section template"}
+      "provenance": {"source": "copywriting-core theory freeze: web architecture reduced to conventional section template", "frozen_at_commit": "601640a58d5c331386fa4907e5de50250d18c4bd"}
     },
     {
       "case_id": "BEH-COPY-CORE-009",
@@ -152,7 +152,7 @@
       ],
       "forbidden_disclosures": ["T9", "copywriting.short-form", "email.*", "owner re-entry"],
       "expected_relation": "skill_not_worse",
-      "provenance": {"source": "independent adversarial review RG-02", "failure": "copywriting expression reopens resolved email architecture"}
+      "provenance": {"source": "independent adversarial review RG-02: copywriting expression reopens resolved email architecture", "frozen_at_commit": "601640a58d5c331386fa4907e5de50250d18c4bd"}
     },
     {
       "case_id": "BEH-COPY-CORE-010",
@@ -169,7 +169,34 @@
       ],
       "forbidden_disclosures": ["T10", "landing-page.*", "owner re-entry"],
       "expected_relation": "skill_not_worse",
-      "provenance": {"source": "independent adversarial review RG-02", "failure": "local copy repair reopens resolved landing-page architecture"}
+      "provenance": {"source": "independent adversarial review RG-02: local copy repair reopens resolved landing-page architecture", "frozen_at_commit": "601640a58d5c331386fa4907e5de50250d18c4bd"}
+    },
+    {
+      "case_id": "BEH-COPY-CORE-011",
+      "version": "1.0.0",
+      "family": "short-form-representation-robustness",
+      "prompt": "Write a concise reminder email body for registered workshop attendees. The banner image says: 'Export review workshop | 24 September, 14:00 UTC | Online | Join at https://example.com/workshop'. The event is free and lasts 45 minutes. Some recipients use email clients that block remote images; a plain-text alternative is also delivered. The subject is already fixed as 'Your export review workshop'. Return the body copy only.",
+      "input_files": [],
+      "hard_predicates": [
+        {
+          "type": "output_present"
+        }
+      ],
+      "review_criteria": [
+        "Keeps the event identity, date, time and timezone, online location, and usable joining destination in text even though the banner already carries them.",
+        "Does not treat necessary image/text repetition as waste or make the action depend on seeing the image.",
+        "Does not invent event logistics, deadlines, scarcity, access requirements, or a different destination.",
+        "Keeps the body concise and preserves the fixed subject and existing registration state without redesigning the campaign."
+      ],
+      "forbidden_disclosures": [
+        "copywriting.short-form",
+        "BEH-COPY-CORE-011"
+      ],
+      "expected_relation": "skill_not_worse",
+      "provenance": {
+        "source": "copywriting-core review: necessary redundancy under image blocking and plain-text delivery",
+        "frozen_at_commit": "601640a58d5c331386fa4907e5de50250d18c4bd"
+      }
     }
   ]
 }

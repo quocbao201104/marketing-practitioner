@@ -817,7 +817,7 @@ SEQUENTIAL
 
 Delete redundancy and decorative material before claim scope, qualifiers, evidence boundaries, source identity, action consequences, important risk information, or material relationship disclosures.
 
-Treat the full surface as the unit of design. Sender identity, headline, preview, image, UI, body, and destination can carry different jobs; repeating the same job across every modality wastes scarce capacity.
+Treat the full surface as the unit of design. Sender identity, headline, preview, image, UI, body, and destination can carry different jobs. Repetition wastes capacity only when it serves no material comprehension, accessibility, qualification, proof, action, or representation-robustness function. Preserve enough meaning and usable action in each material representation the recipient may encounter, including image-blocked, plain-text, or separately encountered previews. Do not remove necessary text merely because an image carries the same information.
 
 Qualified attention matters more than raw attention. Do not optimize opens, clicks, watch time, or engagement when the metric can rise while the real communication job degrades.
 

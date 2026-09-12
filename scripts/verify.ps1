@@ -84,6 +84,17 @@ try {
         (Join-Path $ResolvedSkillPath 'scripts\get-knowledge.py'),
         '--validate'
     )
+    Invoke-Checked -Label 'copywriting regression corpus' -Arguments @(
+        $Python,
+        '-B',
+        '-m',
+        'evals.behavioral.behavioral_eval.cli',
+        'validate',
+        '--cases',
+        'evals/behavioral/cases/copywriting-core-v1.json',
+        '--profiles',
+        'evals/behavioral/profiles'
+    )
     Invoke-Checked -Label 'Pressure Discovery pilot tests' -Arguments @(
         $Python,
         '-B',

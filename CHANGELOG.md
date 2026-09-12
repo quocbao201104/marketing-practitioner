@@ -5,6 +5,28 @@ All notable changes to this repository are documented here.
 The project uses semantic versioning for published skill revisions. v1.0.0 marks the first stable core contract: future 1.x work should preserve compatibility-sensitive controller semantics, logical knowledge interfaces, owner boundaries, and evidence/claim behavior unless a demonstrated failure justifies a scoped change. Historical frozen evaluation and research references keep the version labels under which they were produced.
 
 
+## [1.8.0] - 2026-09-13
+
+### Copywriting core
+
+- Deepened Chapter 04 with selectively loaded guidance for persuasion diagnosis, angles/concepts/hooks, argument progression, responsible closure, sentence craft, editing/voice repair, and constrained short-form expression.
+- Added nine copywriting routes and exposed decision-specific entry points in the controller, operating guide, and handbook navigation without adding a controller job or mandatory writing pipeline.
+- Preserved resolved strategy and downstream page/email ownership, evidence scope, meaningful choice, and the direct path for sufficiently specified tasks.
+- Qualified short-form compression so necessary repetition survives image blocking, plain-text delivery, accessibility needs, and separately encountered representations.
+
+### Web decision architecture
+
+- Extended Chapter 11 with reader-state decision graphs, scan/deep paths, local sufficiency, cross-page delegation, transition continuity, and path testing.
+- Added three landing-page routes while preserving all existing logical route selectors. The index now contains 276 routes and 253 evidence sources.
+
+### Evaluation and distribution
+
+- Added a targeted copywriting corpus covering ten core and ownership cases plus a regression for necessary repetition under degraded email rendering.
+- Repaired corpus provenance to match the existing harness contract and added explicit corpus validation to repository verification so invalid case metadata fails CI.
+- Aligned skill and both plugin manifests, installation guidance, release links, and current README metadata at v1.8.0.
+- Static review and fixture checks establish design and infrastructure properties only. Live behavioral evaluation remains pending; this release makes no claim of improved model performance or marketing outcomes.
+
+
 ## [1.7.2] - 2026-09-12
 
 ### Document planning and interface copy
