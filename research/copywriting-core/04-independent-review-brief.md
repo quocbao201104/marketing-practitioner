@@ -15,7 +15,7 @@ branch:
 research/copywriting-core-integration
 
 candidate HEAD:
-9fbd3b29299ff60832f788a60a744066422a584e
+924e0a2cd950b9e2d72b27dffca471dd716b38a2
 ```
 
 Frozen base:
@@ -28,6 +28,8 @@ cb262967d4700982946731f96f615923c757133d
 Do **NOT** review later commits as candidate evidence.
 
 Do **NOT** modify the repository.
+
+The repository `Verify` workflow passed on the candidate HEAD. Treat that only as mechanical validation, not evidence that the copywriting architecture or runtime behavior is correct.
 
 This is an **independent adversarial implementation review**.
 
@@ -116,7 +118,7 @@ landing-page.path-test
 
 Check selectors against exact headings.
 
-Check for **unrelated routing drift** versus the frozen base. The maintainer self-review already found and repaired one accidental TikTok selector change during implementation. Do not assume there are no others.
+Check for **unrelated routing drift** versus the frozen base. The maintainer self-review found accidental unrelated selector drift during implementation; mechanical verification subsequently caught another stale selector. Both were repaired before the bound candidate. Do not assume there are no remaining collateral changes merely because `Verify` passes.
 
 A route existing in `routing-index.json` is not enough. Determine whether the controller/guide surfaces make it realistically discoverable at the decision point where it is needed.
 
