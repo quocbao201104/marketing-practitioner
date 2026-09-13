@@ -82,6 +82,19 @@ def main() -> int:
         "brand-identity.handoffs": "## 7. Owner boundaries and decision handoffs",
         "brand-identity.decision-record": "## 8. Compact brand-identity decision record",
         "brand-identity.invariants": "## 9. Anti-folklore and evidence-status invariants",
+        "founder-sales.core": "## 1. Scope: help a specific buying system reach or reject a justified commercial commitment",
+        "founder-sales.state": "## 2. Shared state, evidence discipline, and nonlinear routing",
+        "founder-sales.pursuit": "## 3. FS1 — Pursuit allocation and resource routing",
+        "founder-sales.selection": "## 4. FS2 — Opportunity, account, and stakeholder selection",
+        "founder-sales.access": "## 5. FS3 — Engagement, access, and contact strategy",
+        "founder-sales.diagnosis": "## 6. FS4 — Discovery and diagnosis",
+        "founder-sales.proof": "## 7. FS5 — Solution evaluation, value, and proof",
+        "founder-sales.decision": "## 8. FS6 — Risk, consensus, and decision enablement",
+        "founder-sales.commercial": "## 9. FS7 — Commercial structure, negotiation, and commitment",
+        "founder-sales.progression": "## 10. FS8 — Deal progression, pipeline, forecast, and learning",
+        "founder-sales.handoffs": "## 11. Owner boundaries and handoffs",
+        "founder-sales.decision-record": "## 12. Compact runtime record",
+        "founder-sales.invariants": "## 13. Anti-folklore and composition invariants",
     }
     for route_id, expected_heading in expected_routes.items():
         _, content = module.get_knowledge(route_id)
@@ -107,6 +120,12 @@ def main() -> int:
     assert brand_source_path == "references/brand-identity-evidence.md"
     assert brand_source_content.startswith(
         "## [BV01] Henderson & Cote — logo selection and modification"
+    )
+
+    founder_sales_source_path, founder_sales_source_content = module.get_source("FS06")
+    assert founder_sales_source_path == "references/founder-led-sales-evidence.md"
+    assert founder_sales_source_content.startswith(
+        "## [FS06] GitLab — Proof of Value operating model"
     )
 
     fixture = """# Fixture\n\n## A\nA intro\n\n### A.1\nA1 body\n\n#### A.1.1\nA11 body\n\n### A.2\nA2 body\n\n## B\nB body\n\n<!-- route:start fixture.marker -->\nMARKER BODY\n\n### nested marker heading\nstill marker\n<!-- route:end fixture.marker -->\n\n## C\nC body\n"""
@@ -250,7 +269,7 @@ def main() -> int:
         "--namespace is only valid with --list",
     )
 
-    print("PASS\t68 routing-mechanics smoke checks")
+    print("PASS\trouting-mechanics smoke checks")
     return 0
 
 
