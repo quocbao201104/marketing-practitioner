@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "corpus_id": "founder-led-sales-runtime-v1",
+  "description": "Sidecar route oracle for the frozen eight-case Founder-led Sales bounded runtime pass. Exact founder-sales logical routes are required for path proof; a good final answer without sufficient activation/read evidence remains path-unverified.",
+  "cases": {
+    "BEH-FLS-RUNTIME-001@1.0.0": {
+      "walk": "jit",
+      "must_load": ["founder-sales.selection"],
+      "must_not_load": ["founder-sales.proof", "founder-sales.commercial", "commercial-design"],
+      "may_load": ["SKILL.md", "routing-index.json", "scripts/get-knowledge.py", "founder-sales.core", "founder-sales.state", "founder-sales.handoffs", "founder-sales.invariants"],
+      "handoff": ["founder-sales.selection", "founder-sales.pursuit"]
+    },
+    "BEH-FLS-RUNTIME-005@1.0.0": {
+      "walk": "jit",
+      "must_load": ["founder-sales.proof"],
+      "must_not_load": ["founder-sales.commercial", "commercial-design"],
+      "may_load": ["SKILL.md", "routing-index.json", "scripts/get-knowledge.py", "founder-sales.core", "founder-sales.state", "founder-sales.decision", "founder-sales.pursuit", "founder-sales.handoffs", "founder-sales.invariants"],
+      "handoff": []
+    },
+    "BEH-FLS-RUNTIME-007@1.0.0": {
+      "walk": "jit",
+      "must_load": ["founder-sales.progression"],
+      "must_not_load": ["founder-sales.proof", "founder-sales.commercial"],
+      "may_load": ["SKILL.md", "routing-index.json", "scripts/get-knowledge.py", "founder-sales.core", "founder-sales.state", "founder-sales.access", "founder-sales.handoffs", "founder-sales.invariants"],
+      "handoff": ["founder-sales.progression", "founder-sales.pursuit"]
+    },
+    "BEH-FLS-RUNTIME-010@1.0.0": {
+      "walk": "jit",
+      "must_load": ["founder-sales.proof"],
+      "must_not_load": ["founder-sales.commercial", "commercial-design"],
+      "may_load": ["SKILL.md", "routing-index.json", "scripts/get-knowledge.py", "founder-sales.core", "founder-sales.state", "founder-sales.decision", "founder-sales.handoffs", "founder-sales.invariants"],
+      "handoff": ["founder-sales.proof", "founder-sales.pursuit"]
+    },
+    "BEH-FLS-RUNTIME-011@1.0.0": {
+      "walk": "jit",
+      "must_load": ["founder-sales.commercial"],
+      "must_not_load": ["commercial-design", "founder-sales.proof"],
+      "may_load": ["SKILL.md", "routing-index.json", "scripts/get-knowledge.py", "founder-sales.core", "founder-sales.state", "founder-sales.handoffs", "founder-sales.invariants"],
+      "handoff": ["founder-sales.commercial", "founder-sales.pursuit"]
+    },
+    "BEH-FLS-RUNTIME-013@1.0.0": {
+      "walk": "jit",
+      "must_load": ["founder-sales.proof"],
+      "must_not_load": ["founder-sales.commercial", "commercial-design"],
+      "may_load": ["SKILL.md", "routing-index.json", "scripts/get-knowledge.py", "founder-sales.core", "founder-sales.state", "founder-sales.handoffs", "founder-sales.invariants"],
+      "handoff": ["founder-sales.proof", "founder-sales.diagnosis", "founder-sales.progression"]
+    },
+    "BEH-FLS-RUNTIME-015@1.0.0": {
+      "walk": "jit",
+      "must_load": ["founder-sales.decision"],
+      "must_not_load": ["founder-sales.commercial", "commercial-design"],
+      "may_load": ["SKILL.md", "routing-index.json", "scripts/get-knowledge.py", "founder-sales.core", "founder-sales.state", "founder-sales.handoffs", "founder-sales.invariants"],
+      "handoff": ["founder-sales.decision", "founder-sales.proof"]
+    },
+    "BEH-FLS-RUNTIME-016@1.0.0": {
+      "walk": "jit",
+      "must_load": ["founder-sales.pursuit"],
+      "must_not_load": ["founder-sales.commercial", "commercial-design"],
+      "may_load": ["SKILL.md", "routing-index.json", "scripts/get-knowledge.py", "founder-sales.core", "founder-sales.state", "founder-sales.handoffs", "founder-sales.invariants"],
+      "handoff": []
+    }
+  }
+}

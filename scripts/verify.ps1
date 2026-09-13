@@ -95,6 +95,17 @@ try {
         '--profiles',
         'evals/behavioral/profiles'
     )
+    Invoke-Checked -Label 'Founder-led Sales runtime corpus' -Arguments @(
+        $Python,
+        '-B',
+        '-m',
+        'evals.behavioral.behavioral_eval.cli',
+        'validate',
+        '--cases',
+        'evals/behavioral/cases/founder-led-sales-runtime-v1.json',
+        '--profiles',
+        'evals/behavioral/profiles'
+    )
     Invoke-Checked -Label 'Pressure Discovery pilot tests' -Arguments @(
         $Python,
         '-B',

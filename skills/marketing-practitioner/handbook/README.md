@@ -28,6 +28,7 @@ Scoped local adaptation is intentionally kept outside the shared handbook under 
 | [`13-search-and-discovery-architecture.md`](13-search-and-discovery-architecture.md) | search & discovery architecture | generic non-commerce information/entity availability, retrieval/selection, human-selection vs system-answer commitment, grounding/citation boundaries, or discovery observation semantics can change the decision |
 | [`14-paid-media-architecture.md`](14-paid-media-architecture.md) | paid media architecture | economic resource, paid-control semantics, buying/allocation boundary, delivery/realization state, billing/attribution, or optimization feedback can change a paid-exposure decision |
 | [`15-brand-identity-and-visual-systems.md`](15-brand-identity-and-visual-systems.md) | brand-identifying visual asset realization / stewardship | a persistent/reusable visual cue or relationship, preserve/evolve/replace decision, identity refinement/evaluation, or verified identity-system commitment remains open |
+| [`16-founder-led-sales-decision-runtime.md`](16-founder-led-sales-decision-runtime.md) | buyer-specific commercial decision runtime | a specific Account × Buying Situation requires pursuit-resource allocation, stakeholder/access work, discovery/diagnosis, solution proof, decision enablement, commercial commitment, or evidence-backed progression/learning |
 
 ## Important boundaries
 
@@ -37,6 +38,8 @@ The chapters are complementary, not interchangeable.
 POSITIONING / VALUE
 !=
 COMMERCIAL DESIGN
+!=
+FOUNDER-LED SALES
 !=
 MESSAGE / COPY
 !=
@@ -56,11 +59,15 @@ and:
 ```text
 COMMERCIAL DESIGN
 !=
+BUYER-SPECIFIC COMMERCIAL NEGOTIATION / COMMITMENT
+!=
 CURRENT COMMERCE STATE / REPRESENTATION
 ```
 
 ```text
 MESSAGE / CLAIM / PROOF RESOLUTION
+!=
+BUYER-SPECIFIC ACCESS / DIAGNOSIS / PROOF / COMMITMENT DECISIONS
 !=
 PERSISTENT BRAND-IDENTIFYING VISUAL CUE / RELATIONSHIP
 !=
@@ -82,6 +89,21 @@ PERSUASION DIAGNOSIS
 != PERSUASIVE CLOSURE
 != SENTENCE CRAFT
 != EDITING / VOICE REPAIR
+```
+
+Founder-led Sales preserves a separate boundary:
+
+```text
+MARKET / ICP / POSITIONING / DEFAULT COMMERCIAL SYSTEM
+→ upstream owners
+
+SPECIFIC Account × Buying Situation
++ buyer-specific unresolved decision work
+→ Chapter 16
+
+RESOLVED SALES DECISION
++ wording / expression remains open
+→ Chapter 04 / copywriting.*
 ```
 
 Brand Identity preserves a hard execution boundary:
@@ -113,6 +135,18 @@ Examples:
 "Should this SaaS charge per seat or per usage?"
 → Chapter 10
 
+"This specific buyer accepts the package but wants quarterly billing. Should we accept?"
+→ founder-sales.commercial; preserve Chapter 10's resolved default commercial system
+
+"A $5k prospect wants a three-week custom POC. Is it worth founder engineering time?"
+→ founder-sales.proof to establish whether the proof request is valid, then founder-sales.pursuit for resource allocation
+
+"The buyer likes us, but security and finance still disagree about rollout assumptions."
+→ founder-sales.decision; do not treat positive sentiment as consensus
+
+"The buyer's legal team owns the next dated review and needs nothing from us. Should I follow up?"
+→ founder-sales.progression + founder-sales.pursuit; waiting can be correct without invented seller activity
+
 "The price is already $29. Write the landing-page copy."
 → Chapter 04 / copywriting.* as needed; do not reopen Chapter 10
 
@@ -123,7 +157,7 @@ Examples:
 → copywriting.progression
 
 "Can we responsibly ask for an annual paid commitment with this proof and remaining uncertainty?"
-→ copywriting.closure
+→ copywriting.closure when the communication ask is open; Chapter 16 when the buyer-specific commitment decision itself is open
 
 "Rewrite this sentence more clearly without changing claim scope or causality."
 → copywriting.craft when non-trivial specialist guidance is needed
@@ -132,7 +166,7 @@ Examples:
 → copywriting.editing
 
 "Write a cold DM from this resolved message and proof without inventing familiarity."
-→ copywriting.short-form when constrained realization remains open
+→ copywriting.short-form when constrained realization remains open; Chapter 16 only if contact/ask/access strategy is unresolved
 
 "Positioning is approved. Develop a visual identity for the new product."
 → Chapter 15 through the smallest brand-identity.* routes; do not reopen Chapter 03 without a real unresolved dependency
@@ -194,7 +228,7 @@ Examples:
 
 ## Large-chapter and adaptation routing
 
-Chapter 04's copywriting core, Chapters 08–15, and registered adaptation families expose stable logical routes through `../routing-index.json`.
+Chapter 04's copywriting core, Chapters 08–16, and registered adaptation families expose stable logical routes through `../routing-index.json`.
 
 Examples:
 
@@ -235,6 +269,15 @@ brand-identity.equity
 brand-identity.refinement
 brand-identity.evaluation
 brand-identity.system
+founder-sales.pursuit
+founder-sales.selection
+founder-sales.access
+founder-sales.diagnosis
+founder-sales.proof
+founder-sales.decision
+founder-sales.commercial
+founder-sales.progression
+founder-sales.handoffs
 adapt-localization.relationship-realization
 ```
 
@@ -257,6 +300,10 @@ python ../scripts/get-knowledge.py brand-identity.equity
 python ../scripts/get-knowledge.py brand-identity.refinement
 python ../scripts/get-knowledge.py brand-identity.evaluation
 python ../scripts/get-knowledge.py commerce.resolvability
+python ../scripts/get-knowledge.py founder-sales.pursuit
+python ../scripts/get-knowledge.py founder-sales.proof
+python ../scripts/get-knowledge.py founder-sales.commercial
+python ../scripts/get-knowledge.py founder-sales.progression
 python ../scripts/get-knowledge.py adapt-localization.relationship-realization
 ```
 

@@ -1,6 +1,6 @@
 {
   "name": "marketing-practitioner",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "description": "From customer evidence to marketing decisions and execution.",
   "author": {
     "name": "quocbao201104",
@@ -14,7 +14,7 @@
   "interface": {
     "displayName": "Marketing Practitioner",
     "shortDescription": "From customer evidence to marketing decisions and execution.",
-    "longDescription": "Research customers, shape strategy, create marketing content, and interpret results with claims grounded in evidence. Includes a shared skill, specialist handbook, routing index, source references, and optional Python retrieval helpers.",
+    "longDescription": "Research customers, shape strategy, create marketing content, interpret results, and support evidence-grounded founder-led sales decisions. Includes a shared skill, specialist handbook, routing index, source references, and optional Python retrieval helpers.",
     "developerName": "quocbao201104",
     "category": "Productivity",
     "brandColor": "#008477",
@@ -26,7 +26,7 @@
     "defaultPrompt": [
       "Turn these customer interviews into a grounded synthesis.",
       "Write a landing page using my approved positioning.",
-      "Help me diagnose this campaign's performance change."
+      "Help me decide the next justified step in this buyer situation."
     ]
   }
 }
