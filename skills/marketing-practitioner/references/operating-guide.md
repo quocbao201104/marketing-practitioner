@@ -93,7 +93,9 @@ Chapter 07 remains the localization owner: a new country or language alone does 
 
 ## Commercial design / pricing
 
-Use when a commercial condition itself is still an open decision: what is included or accessible, how payment/value capture should work, what commitment/risk terms should apply, or who should be able to access which conditions.
+Use when the general commercial system or policy itself is still an open decision: what is included or accessible, how payment/value capture should work, what commitment/risk terms should apply, or who should be able to access which conditions.
+
+For applying or negotiating the existing system with a specific Account × Buying Situation, use `founder-sales.commercial`. A buyer requesting quarterly payment on an accepted package is a buyer-specific commitment decision; deciding whether quarterly payment should become the default remains Commercial Design. Reopen the general system only when a material design or policy question actually remains, preserving its other resolved choices. If the buyer-specific terms are already resolved and only wording remains, use Chapter 04 / `copywriting.*` as needed.
 
 Typical decisions include package/bundle boundaries, per-seat versus usage versus hybrid pricing, price menus, free trial versus free tier, monthly versus annual commitment, shipping/discount structure, eligibility or new-customer conditions, grandfathering/migration, and negotiated versus standardized commercial regimes.
 
@@ -124,7 +126,7 @@ discount / promotion / voucher / temporary credit / shipping modifier
 → commercial-design.allocation only when access to the condition is restricted
 → commercial-design.governance only when exception or approval authority changes the decision
 
-eligibility / personalized / new-customer / negotiated conditions
+general eligibility / personalization / new-customer / negotiated-condition policy
 → commercial-design.allocation
 → commercial-design.governance when authority or exception policy matters
 

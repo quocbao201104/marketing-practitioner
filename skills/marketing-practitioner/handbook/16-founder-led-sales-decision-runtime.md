@@ -662,6 +662,8 @@ TERMINATION
 
 Do not silently place custom development, migration, implementation, training, or consulting inside “validation.”
 
+Before committing material seller capacity to an otherwise valid evaluation, use `founder-sales.pursuit` when the resource-allocation decision remains open or the required burden has materially changed. Evidence validity and buyer participation do not establish that funding the work is worthwhile. Preserve an already-resolved allocation when its assumptions still hold; inexpensive proof does not require a ritual handoff.
+
 ### 7.4 Value discipline
 
 Keep separate:
@@ -1236,8 +1238,11 @@ FLS-I20
 When the blocker is non-evidentiary, stop proving and route.
 
 FLS-I21
-Commercial negotiation must not solve unresolved diagnosis,
-proof, value, or consensus work through price/terms.
+Commercial terms must not substitute for missing diagnosis,
+proof, value evidence, or consensus. A scoped, bounded commitment
+may fund evaluation or allocate risk while uncertainty remains;
+preserve the proof requirements, evidence limits, decision authority,
+and pursuit-resource gate. Agreement or payment is not proof of value.
 
 FLS-I22
 A winnable deal may rationally deserve global STOPPED.

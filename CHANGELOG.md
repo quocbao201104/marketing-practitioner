@@ -5,6 +5,26 @@ All notable changes to this repository are documented here.
 The project uses semantic versioning for published skill revisions. v1.0.0 marks the first stable core contract: future 1.x work should preserve compatibility-sensitive controller semantics, logical knowledge interfaces, owner boundaries, and evidence/claim behavior unless a demonstrated failure justifies a scoped change. Historical frozen evaluation and research references keep the version labels under which they were produced.
 
 
+## [1.9.0] - 2026-09-13
+
+### Founder-led Sales
+
+- Added Chapter 16 for buyer-specific pursuit allocation, account/stakeholder selection, access, diagnosis, proof, decision enablement, commercial commitment, and evidence-backed progression.
+- Added 13 founder-sales routes and nine scoped evidence sources. The index contains 289 routes and 262 evidence sources; existing route selectors remain unchanged.
+- Integrated buyer-specific ownership with the controller and navigation while preserving general research, segmentation, positioning, commercial-system design, and resolved copywriting inputs.
+
+### Bounded integration repairs
+
+- Kept the conditional pursuit-resource gate inside the proof excerpt before material seller capacity is committed.
+- Clarified that commercial terms cannot replace evidence, while bounded commitments may enable evaluation or allocate risk without proving value.
+- Aligned the operating guide's commercial-design boundary with buyer-specific negotiation and preserved direct expression of resolved terms.
+- Added three static repair counterexamples and aligned current release documentation, package links, and route/source counts with the existing 1.9.0 skill and plugin metadata.
+
+### Validation scope
+
+- Included the frozen eight-case Founder-led Sales corpus, route oracle, preflight tests, and corpus validation in repository verification.
+- Static review and mechanical validation do not establish live owner selection, handoff execution, model improvement, or sales efficacy. The frozen live runtime/path evaluation remains pending.
+
 ## [1.8.0] - 2026-09-13
 
 ### Copywriting core
