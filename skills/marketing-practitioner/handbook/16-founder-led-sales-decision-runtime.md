@@ -149,6 +149,9 @@ current / stale / superseded
 
 EVIDENCE
 What specifically supports the status?
+
+OBSERVED_AT
+When was the evidence or claim state established?
 ```
 
 Never silently convert:
@@ -171,8 +174,11 @@ Represent only conditions that matter to the current buying situation.
 CONDITION
 What must become sufficiently resolved?
 
-OWNER
-Which capability owns the decision?
+CAPABILITY_OWNER
+Which FS capability owns the decision?
+
+BUYER_OWNER
+Which buyer/external actor owns the next state change, if known and material?
 
 STATE
 UNKNOWN
@@ -1053,6 +1059,65 @@ who / why / interaction / evidence / ask / commitment / next decision
 Copywriting
 how the resolved message should be expressed accurately and persuasively
 ```
+
+### 11.9 Cross-owner handoff packet
+
+A `founder-sales.handoffs` read must be sufficient to preserve decision-changing state across FS boundaries. Pass only what the next owner needs, but preserve at minimum when material:
+
+```text
+SUPPORTED
+What is currently supported?
+
+CONTRADICTED
+What current claim or state is contradicted?
+
+AMBIGUOUS / MISSING
+What remains unresolved or unsupported?
+
+BLOCKING CONDITION
+What consequential state currently blocks a good decision?
+
+WHY IT MATTERS
+What decision consequence makes this blocker material?
+
+NEXT DECISION
+What decision now belongs to the receiving owner?
+
+WHAT WOULD CHANGE THE DECISION
+What observation, evidence, commitment, or state transition would alter it?
+
+EXISTING COMMITMENTS
+Who has committed to what, with current lifecycle status and due/trigger state?
+
+RESOURCE / ACCESS REQUIREMENTS
+What scarce resource or buyer/interface access is actually required?
+
+CURRENT FS1 ALLOCATION
+ACTIVE / LIGHT_TOUCH / QUEUED / WAITING / TRIGGER_DEFERRED / STOPPED,
+when the allocation state is material to the receiving decision.
+
+NEXT OWNER
+Which FS or existing chapter owns the next decision job?
+
+MUST-NOT-ASSUME
+What tempting inference must not be promoted beyond current evidence?
+```
+
+For evidence carried across the handoff, retain the existing evidence-ledger dimensions rather than laundering a claim through prose:
+
+```text
+epistemic form
+support status
+provenance
+scope
+freshness
+observed_at
+supporting evidence
+```
+
+For commitments, retain actor, action/obligation, purpose, affected condition, due/trigger, lifecycle status, and fulfillment evidence. A local termination signal such as `STOP_PROVING`, `NO_WORTHWHILE_ACCESS_TRANSITION`, `NO_CURRENT_VIABLE_DECISION_PATH`, or `WALK_CURRENT_PACKAGE` remains local unless FS1 explicitly changes the global pursuit allocation.
+
+A handoff may compress history, but it must not strengthen evidence, erase counterevidence, silently convert interest into commitment, replace a buyer-owned next transition with seller work, or lose the condition that would reopen/re-route the decision.
 
 ---
 
