@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "case_id": "BEH-FLS-RUNTIME-001",
+      "version": "1.0.0",
+      "family": "proxy-opportunity-selection-before-allocation",
+      "prompt": "We are considering outbound to Acme. The only current facts are that Acme raised a Series A last month and just hired a VP of Support. We have no buyer conversation yet. Tell me what those facts actually justify, whether I should personally spend meaningful founder time pursuing this account now, and the smallest sensible next step.",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}],
+      "review_criteria": [
+        "Treats funding and the VP hire as observable signals that may justify a bounded buying-situation hypothesis, not as proof of pain, budget, urgency, purchase intent, or need for the product.",
+        "Does not mark the account qualified or justify founder-heavy pursuit from the proxy signals alone.",
+        "Any next action is proportionate discrimination/access work whose purpose is to resolve the relevant uncertainty.",
+        "Separates the credibility of the candidate situation from the separate resource-allocation decision."
+      ],
+      "forbidden_disclosures": ["FS2", "FS1", "founder-sales.selection", "founder-sales.pursuit", "proxy opportunity"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "Founder-led Sales frozen runtime oracle E01", "frozen_at_commit": "3968aff927731e0dc8fb1ce6524cc2282f89333a"}
+    },
+    {
+      "case_id": "BEH-FLS-RUNTIME-005",
+      "version": "1.0.0",
+      "family": "stop-proving-after-valid-success",
+      "prompt": "A buyer-specific POC had predefined decision-relevant criteria and passed all of them. The buyer now asks for 'one more generic demo,' but has not identified any new question, requirement, stakeholder uncertainty, or proposition the demo would test. Should we do the demo? Explain the next justified move briefly.",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}],
+      "review_criteria": [
+        "Does not automatically schedule another demo merely because the buyer requested one.",
+        "Recognizes that the existing proof job is complete unless a new decision-relevant uncertainty is identified.",
+        "Does not rewrite the POC criteria after success or invent a new proof requirement.",
+        "If it proposes more seller work, it identifies the new blocker and subjects the additional resource to a separate justification."
+      ],
+      "forbidden_disclosures": ["FS5", "FS6", "STOP_PROVING", "founder-sales.proof"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "Founder-led Sales frozen runtime oracle E05", "frozen_at_commit": "3968aff927731e0dc8fb1ce6524cc2282f89333a"}
+    },
+    {
+      "case_id": "BEH-FLS-RUNTIME-007",
+      "version": "1.0.0",
+      "family": "buyer-owned-waiting-no-manufactured-followup",
+      "prompt": "The buyer's legal review is scheduled for next Thursday. Their legal team owns the next action, the date is known, and they have not asked us for anything before then. Our CRM shows seven days with no seller activity. What should I do now and how should I represent the deal state?",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}],
+      "review_criteria": [
+        "Represents the opportunity as deliberately waiting on buyer-owned work rather than stalled merely because seller activity is absent.",
+        "Does not manufacture a check-in or follow-up when no seller input is currently required.",
+        "Preserves the known owner and scheduled timing of the next state transition.",
+        "Keeps representation/history separate from the global pursuit-allocation decision."
+      ],
+      "forbidden_disclosures": ["FS8", "FS1", "WAITING", "founder-sales.progression"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "Founder-led Sales frozen runtime oracle E07", "frozen_at_commit": "3968aff927731e0dc8fb1ce6524cc2282f89333a"}
+    },
+    {
+      "case_id": "BEH-FLS-RUNTIME-010",
+      "version": "1.0.0",
+      "family": "valid-proof-job-can-still-be-uneconomic",
+      "prompt": "A buyer has a real unresolved technical question. A custom validation would answer it reliably, but it requires about three weeks of founder/specialist work. The opportunity is small, reusable learning is low, and that work would displace higher-value commitments. The buyer is willing to participate. Should we run the validation?",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}],
+      "review_criteria": [
+        "Acknowledges that the validation could be a legitimate evidence mechanism for the buyer question.",
+        "Separately evaluates whether funding that valid work is justified by forward economics, learning value, burden, and alternatives.",
+        "Allows the seller to decline a valid buyer proof request when the resource allocation is unattractive.",
+        "Does not pretend that buyer willingness or technical validity alone makes the three-week investment worthwhile."
+      ],
+      "forbidden_disclosures": ["FS5", "FS1", "founder-sales.proof", "founder-sales.pursuit"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "Founder-led Sales frozen runtime oracle E10", "frozen_at_commit": "3968aff927731e0dc8fb1ce6524cc2282f89333a"}
+    },
+    {
+      "case_id": "BEH-FLS-RUNTIME-011",
+      "version": "1.0.0",
+      "family": "late-custom-work-trap",
+      "prompt": "A buyer says they will sign the current deal only if we build four custom modules. The headline contract value looks attractive, but the modules would displace major engineering work and create ongoing support and maintenance obligations. Decide what should happen next. Do not redesign our default pricing or packaging system.",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}],
+      "review_criteria": [
+        "Treats the request as a buyer-specific package delta with persistent burden rather than as a simple close/no-close signal.",
+        "Routes the changed engineering/founder burden into a fresh pursuit-resource decision before continuing negotiation.",
+        "Allows countering/resizing the package or globally stopping even though the deal is technically closable.",
+        "Does not redesign the company's general commercial system or equate headline contract value with good revenue."
+      ],
+      "forbidden_disclosures": ["FS7", "FS1", "founder-sales.commercial", "founder-sales.pursuit"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "Founder-led Sales frozen runtime oracle E11", "frozen_at_commit": "3968aff927731e0dc8fb1ce6524cc2282f89333a"}
+    },
+    {
+      "case_id": "BEH-FLS-RUNTIME-013",
+      "version": "1.0.0",
+      "family": "proof-reopens-diagnosis",
+      "prompt": "We ran a valid buyer-specific evaluation. The product performed exactly as designed, but the business effect we expected did not appear. The new evidence suggests our original explanation of the buyer's problem was wrong. How should the deal state and next work change?",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}],
+      "review_criteria": [
+        "Preserves the technical success without upgrading it into business success.",
+        "Preserves the negative/mixed result and reopens the earlier diagnosis rather than rewriting the evaluation criterion.",
+        "Treats the new evidence as epistemic progress even if deal viability declines.",
+        "Does not suppress the contradictory evidence to keep the opportunity moving forward."
+      ],
+      "forbidden_disclosures": ["FS5", "FS4", "FS8", "founder-sales.diagnosis", "proof → diagnosis"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "Founder-led Sales frozen runtime oracle E13", "frozen_at_commit": "3968aff927731e0dc8fb1ce6524cc2282f89333a"}
+    },
+    {
+      "case_id": "BEH-FLS-RUNTIME-015",
+      "version": "1.0.0",
+      "family": "price-language-is-value-uncertainty-not-discount",
+      "prompt": "A buyer says, 'It's too expensive.' Then they clarify: 'If we could establish that this actually saves two FTE, the current price would be acceptable.' What is the real blocker and what should we do next? Do not assume the two-FTE claim is true.",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}],
+      "review_criteria": [
+        "Does not treat the phrase 'too expensive' as sufficient evidence that the primary job is price negotiation.",
+        "Identifies the blocker as unresolved economic-value evidence or decision confidence around the two-FTE proposition.",
+        "Targets the decision-sensitive value assumption without assuming or fabricating the two-FTE effect.",
+        "Does not default to a discount, concession, or generic objection rebuttal."
+      ],
+      "forbidden_disclosures": ["FS6", "FS5", "FS7", "founder-sales.decision", "founder-sales.proof"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "Founder-led Sales frozen runtime oracle E15", "frozen_at_commit": "3968aff927731e0dc8fb1ce6524cc2282f89333a"}
+    },
+    {
+      "case_id": "BEH-FLS-RUNTIME-016",
+      "version": "1.0.0",
+      "family": "portfolio-displacement",
+      "prompt": "Opportunity A is legitimate, winnable, and still worth considering. A new Opportunity B now dominates A on forward commercial value, reusable learning, resource efficiency, and time sensitivity. We cannot meaningfully fund both at the same time. How should I allocate pursuit capacity?",
+      "input_files": [],
+      "hard_predicates": [{"type": "output_present"}],
+      "review_criteria": [
+        "Treats active pursuit as a relative portfolio allocation decision rather than a permanent property of Opportunity A.",
+        "Allows B to become active while A is queued, light-touch, or stopped according to remaining forward value and preservation cost.",
+        "Does not equate a legitimate/winnable opportunity with an entitlement to current scarce capacity.",
+        "Uses forward value and burden rather than sunk effort as the allocation basis."
+      ],
+      "forbidden_disclosures": ["FS1", "founder-sales.pursuit", "portfolio displacement"],
+      "expected_relation": "skill_not_worse",
+      "provenance": {"source": "Founder-led Sales frozen runtime oracle E16", "frozen_at_commit": "3968aff927731e0dc8fb1ce6524cc2282f89333a"}
+    }
+  ]
+}
